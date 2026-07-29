@@ -1,3 +1,7 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Conjetura de Collatz — laboratorio
 
 Repo de exploración de la conjetura de Collatz (`n/2` si es par, `3n+1` si es
@@ -6,23 +10,86 @@ impar; se conjetura que todo `n ≥ 1` termina en 1).
 No es una biblioteca ni un paquete. Son programas sueltos, cada uno con su
 número configurable arriba del archivo, pensados para ejecutarse y mirar el
 resultado. **El código se escribe simple a propósito**: nombres en castellano,
-comentarios que explican lo obvio, sin type hints ni abstracciones.
+comentarios que explican lo obvio, sin abstracciones.
 
-## Cómo se ejecuta
-
-Todos se ejecutan igual: se abre el archivo, se cambia el número de arriba, y se
-corre (`python archivo.py`, o Ctrl+B en Sublime Text).
-
-**Sublime Text no acepta `input()`** — el programa se cuelga esperando. Por eso
-cada script trae el valor en una constante editable arriba del archivo, nunca
-solo `input()`.
-
-Los gráficos salen como `.html` que se abren solos en el navegador (zoom con la
-rueda, giro con el mouse, valores al pasar el cursor). Están en `.gitignore`.
+## Instalación
 
 ```
 pip install -r requirements.txt      # numpy, matplotlib, plotly
 ```
+
+Once de los scripts importan `plotly.graph_objects`; `mallaespejo.py` además usa
+`plotly.subplots`. Durante mucho tiempo `plotly` faltaba en `requirements.txt` y
+el repo no arrancaba en una máquina limpia — ya está arreglado.
+
+No hay tests, ni linter, ni `pyproject.toml`, ni CI. No los busques.
+
+**`jq` no está instalado en esta máquina.** Si haces falta parsear JSON en un
+hook o en un script de shell, usa `python -c`.
+
+## Las dos mitades del repo
+
+Esto es lo que no se ve leyendo un archivo solo. **Las dos mitades no se hablan
+entre ellas**, y es a propósito.
+
+**Mitad A — el motor y su CLI.** `collatz.py` es el único módulo de verdad:
+tiene type hints, docstrings y `tabla_de_pasos` con memoización. `main.py`
+(argparse) y `viz3d.py` lo importan. Nadie más lo importa.
+
+```
+python main.py verificar --limite 1000000    # busca contraejemplos
+python main.py records   --limite 10000      # semillas que baten records
+python main.py camino    27                  # imprime la trayectoria
+python main.py graficar  --paisaje 1000 --coral 3000 [--mostrar]
+```
+
+`viz3d.py` es matplotlib y escribe **`.png`** (`paisaje3d.png`, `coral3d.png`).
+`main.py graficar` lo importa de forma diferida, solo si se lo pide.
+
+**Mitad B — los programas sueltos (`collaz*.py`, `malla*.py`, `cruzarestos.py`,
+`coralcollaz.py`).** Ninguno importa `collatz.py`. Cada uno **redefine su propio
+`secuencia_de(n)` de cinco líneas**. Eso es duplicación deliberada: cada archivo
+se abre, se lee entero y se ejecuta por sí solo, sin saltar a otro. **No los
+refactorices para que compartan el motor** — romperías justamente lo que los hace
+legibles. (Ojo: no es *una* función duplicada, son **tres versiones distintas**.
+Unas devuelven la lista sola, `collazcruce` devuelve `(valores, colores)`, y
+`collazcirculo`/`collazejecucion` la arman con un `while` a nivel de módulo.)
+
+Su forma es siempre la misma:
+
+1. Un bloque de comentarios arriba explicando qué se está mirando y por qué.
+2. Constantes en MAYÚSCULAS editables (`NUMERO = 221`, `TAMANO_LETRA`, …).
+3. Código a nivel de módulo, sin `main()` ni `if __name__`. **Importarlos los
+   ejecuta.** No hagas `import collazmalla` para inspeccionarlo: te abre el
+   navegador.
+4. Los de plotly terminan en `figura.write_html(archivo, auto_open=True)`.
+
+Los `.html` y `.png` están en `.gitignore`.
+
+**Los scripts nuevos (`malla*`, `cruzarestos`, `coralcollaz`) usan ventana
+completa**: sin `width`/`height` fijos, con `autosize=True` y
+`default_height="100vh"`. Y ponen los números a dos radios alternados para que
+dos vecinos no se pisen. El texto 3D de plotly tiene tamaño fijo en píxeles, así
+que al hacer zoom la geometría crece y los números se separan solos.
+
+**Cuidado con `collazmalla.py` y `collazlamina.py` si cambias `NUMERO`:** son
+O(L²) con exponenciación de enteros grandes dentro del bucle. Con el 221 (115
+números) va instantáneo; con una trayectoria de 500 pasos se arrastra.
+
+## Cómo se ejecuta
+
+Se abre el archivo, se cambia el número de arriba, y se corre
+(`python archivo.py`, o Ctrl+B en Sublime Text).
+
+**Sublime Text no acepta `input()`** — el programa se cuelga esperando. Por eso
+cada script trae el valor en una constante editable arriba del archivo, nunca
+solo `input()`. `collazejecucion.py` es el único que además tiene salida de
+emergencia: si `NUMERO_FIJO = None`, prueba `input()` cuando hay tty de verdad y
+si no abre una ventanita de tkinter. Al escribir un script nuevo, copia el
+patrón de la constante, no el de tkinter.
+
+Los gráficos de plotly se abren solos en el navegador (zoom con la rueda, giro
+con el mouse, valores al pasar el cursor).
 
 ## Los archivos
 
@@ -30,13 +97,23 @@ pip install -r requirements.txt      # numpy, matplotlib, plotly
 |---|---|
 | `collatz.py` | Motor: `secuencia`, `altitud_maxima`, `tabla_de_pasos`, `verificar`, `records` |
 | `main.py` | CLI: `verificar`, `records`, `camino`, `graficar` |
+| `viz3d.py` | Vistas 3D en matplotlib → `.png` (paisaje de trayectorias, coral) |
 | `collazejecucion.py` | Una trayectoria como línea de tiempo horizontal (matplotlib, con barra para desplazarse) |
 | `collazcirculo.py` | La trayectoria dada la vuelta al globo: ida por delante (F), vuelta por detrás (B) |
 | `collazcruce.py` | Dos trayectorias de igual longitud cruzándose sobre una esfera |
 | `collazarbol.py` | El árbol de Collatz sobre la esfera: tronco + ramas que brotan en los vórtices |
 | `collazmalla.py` | **La malla real**: cada par de puntos en coordenadas (A, B) |
 | `collazlamina.py` | **La lámina**: los pares en 3D, todos sobre un plano de grosor 0,23 |
-| `viz3d.py` | Vistas 3D auxiliares en matplotlib (paisaje de trayectorias, coral) |
+| `mallabasica.py` | Malla de control **sin Collatz**: 100 paralelos × 100 meridianos numerados |
+| `mallacollaz.py` | La malla con los números de verdad: eje Y = el 221, eje X = el 1276 |
+| `mallaresiduos.py` | **La malla completa de los arranques**: 2^k restos × k pasos |
+| `cruzarestos.py` | La malla de restos cruzada contra el 221 y el 1276 |
+| `coralcollaz.py` | El coral de Harriss, con la medida de si los puntos calzan |
+| `mallaespejo.py` | **El A/B**: la misma maquinaria con dos reglas (espejo y Collatz) lado a lado |
+| `maquinitacollaz.py` | Sin seguimiento en git. Escupe los 114 pasos de un número, uno por línea |
+| `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
+| `patron detectado manualmente.txt` | Sin seguimiento en git. Notas a mano sobre las posiciones 57 y 114 |
+| `collazclaude.png` | Captura del coral de Harriss 16°/−8°, para mirarlo sin renderizar |
 
 ## Lo que se estableció, con verificación
 
@@ -70,6 +147,8 @@ Grosor = 1,1% del espacio. Ese grosor es exactamente la contribución de los
 **Los vórtices.** Un número tiene dos padres si y solo si deja resto 4 al
 dividirlo entre 6 (el segundo padre es `(v−1)/3`). Es la regla estándar de la
 literatura. La trayectoria del 221 tiene 50 vórtices en sus 115 números.
+*(En `collazarbol.py:padres()` el 4 se excluye a mano — su otro padre es el 1, que
+ya es el arranque del tronco. Es decisión de dibujo, no de aritmética.)*
 
 **El balance decide todo.** El punto de equilibrio es `log₂(3) = 1,585`
 divisiones por multiplicación. El 221 tiene `73/41 = 1,78` → cae. Por debajo de
@@ -86,35 +165,274 @@ fracción continua de `log₂(3)`** — comprobado en las 10 más cercanas, toda
 excepción. Para esconder un ciclo por encima de lo verificado (2^71, Barina 2025)
 haría falta que `2^B` coincidiera con `3^A` hasta la cifra 22.
 
+### El 1276 y la mitad del 221
+
+**La trayectoria del 1276 ES la segunda mitad de la del 221.** El 1276 es la
+posición 57, y `seq(221)[57:] == seq(1276)` da **True**. No son dos objetos: el
+1276 es la cola del 221. Los dos tienen el mismo pico, 9.232, porque comparten
+ese tramo.
+
+**Pero partirse por el medio no es un patrón. Es contabilidad.** Si `n` tarda `S`
+pasos, el número de la posición `k` tarda `S − k`; entonces el de la posición
+`S/2` tarda `S/2`. Siempre. Comprobado en **los 10.011 números del 2 al 20.000
+con cantidad par de pasos: 10.011 lo cumplen, 0 excepciones.** El 221 solo tuvo
+la suerte de tener 114 pasos, que es par.
+
+Y eso explica las notas a mano: **9784 tarda 135 pasos, 87090 tarda 195, 2734182
+tarda 125 — los tres impares.** No tienen medio exacto, y por eso en
+`patron detectado manualmente.txt` quedaban sobras (el 244 debiendo 21 pasos, el
+52 debiendo 11). Todas las cadenas de esas notas son composición de función:
+`pos57(pos57(n)) = pos114(n)`, nada más. Y dónde cae la posición 114 lo decide
+`(114 − pasos(n)) mod 3`, porque desde el 1 se entra al carrusel `1-4-2` de
+período 3: da 0 → aterrizas en 1, da 1 → en 4, da 2 → en 2.
+
+### La malla de los arranques (`mallaresiduos.py`)
+
+**Los primeros `k` pasos de cualquier número los decide `n mod 2^k`.**
+Comprobado con números de verdad: 64 restos × 12 representantes = 768 números,
+**0 discrepancias**. Esto es un espacio finito que cierra solo, sin forzar nada:
+el módulo es circular por definición, `2^k` y `0` son el mismo resto.
+
+**Y aquí las dos versiones de la regla dan cosas distintas. Importa mucho:**
+
+- **Con atajo (`(3n+1)/2` en los impares): biyección perfecta.** Los `2^k` restos
+  dan los `2^k` patrones posibles de par/impar, uno cada uno. Comprobado de
+  `k=1` a `k=10`, exacto las diez veces. Detalle bonito: el resto 0 es `PPPPPP` y
+  el resto `2^k−1` es `IIIIII` — los dos extremos absolutos, y son **vecinos**,
+  porque el eje cierra.
+- **Con la regla clásica (`3n+1`): NO hay biyección, y salen los Fibonacci.**
+  Después de `3n+1` el resultado es siempre par, así que **dos impares nunca van
+  seguidos**, y eso prohíbe la mayoría de los patrones. Los que sobreviven son
+  **F(k+2)**: `k=4→8=F(6)`, `k=6→21=F(8)`, `k=8→55=F(10)`, `k=10→144=F(12)`.
+  Comprobado en los diez. **Fibonacci no se metió a mano: sale de que dos impares
+  no puedan ir juntos.**
+
+**Con atajo, en cada paso exactamente la mitad de los restos toca impar** (32 de
+64, los seis pasos). De ahí sale el `log₂(3)`.
+
+**LOS DOS MAPAS NO SE PUEDEN MEZCLAR.** Con el mapa del atajo **el 1276 no
+aparece en la trayectoria del 221** — la ruta es otra y toda la estructura del
+paso 57 se cae. El atajo da la biyección; la clásica da el 221. Cada malla vive
+en su regla.
+
+### El cruce restos × 221 (`cruzarestos.py`)
+
+**La malla predice.** Calculada sin mirar el 221 ni una vez (cada resto usa un
+representante ajeno a las trayectorias), acierta el arranque de **los 173 números
+del 221 y del 1276: 0 fallos.** Los dos lados se calcularon por separado y
+coinciden en todo.
+
+### El coral de Harriss (`coralcollaz.py`)
+
+**De quién es.** Es el **Collatz Seaweed** de **Edmund Harriss** (U. de Arkansas),
+salido en Numberphile con Alex Bellos, del libro *Visions of Numberland*. La
+regla, textual: *"si el paso actual es el doble del siguiente, gira una cantidad
+fija en sentido horario; si no, gira **la mitad** de esa cantidad en antihorario"*.
+Par → `+θ`, impar → `−θ/2`. Se dibuja **al revés**, del 1 hacia afuera, y por eso
+las trayectorias que comparten final comparten tronco.
+
+**El rumbo de cada rama solo depende de (A, B).** Los giros se suman y da igual
+el orden: `rumbo = A · θ_impar + B · θ_par`. Comprobado: **730 pares (A,B), 0 con
+rumbo ambiguo.** Y `(A, B)` son exactamente las coordenadas de `collazmalla.py`:
+los rumbos del coral **son** esa malla pasada a ángulos.
+
+**La punta de cada rama la fija `n mod 2^k`.** 64 restos, 0 con dos versiones. La
+malla de `mallaresiduos.py` es la punta de este coral. Los tres objetos —malla
+(A,B), malla de restos, coral— son el mismo objeto mirado de tres formas.
+
+**Si los puntos calzan depende de cuántos rumbos permiten los ángulos** (3.000
+semillas, 6.520 ramas):
+
+| par | impar | rumbos | posiciones | encimadas |
+|---|---|---|---|---|
+| 16° | −8° (Harriss) | 45 | 6.520 | **0%** |
+| 7° | −17° (el de `viz3d`) | 357 | 6.520 | **0%** |
+| 60° | −30° | 13 | 3.497 | 46% |
+| 90° | −45° | 9 | 1.476 | 77% |
+| 120° | −60° | 6 | **221** | **97%** |
+
+Con 120°/−60° hay 6 direcciones posibles, el paseo cae en una retícula hexagonal
+y por el principio del palomar los puntos **tienen** que repetirse. Es cierre de
+verdad, **pero lo trae el ángulo elegido, no Collatz.** Collatz pone el paseo; el
+ángulo pone el cierre. Con los ángulos de Harriss no cierra nada, y por eso parece
+un coral: se ramifica para siempre y nunca se vuelve a juntar.
+
+**De dónde sale la forma, y cómo se apaga.** En el coral **63,43% de los pasos
+son pares y 36,57% impares** → **1,7345 divisiones por multiplicación**, por
+encima del equilibrio. Con `16°/−8°` eso da un **giro medio de +7,22° por paso**:
+una vuelta completa cada 50 pasos, y la rama más larga (216 pasos) da 4,3 vueltas.
+
+Y entonces —esto se **predijo antes de medirlo**— la espiral debe anularse
+exactamente cuando `impar/par = −1,7345`, o sea `par +8°, impar −13,876°`.
+Confirmado: giro medio **−0,0001°**. Y la forma se da vuelta:
+
+| | Harriss 16/−8 | Nulo 8/−13,876 |
+|---|---|---|
+| giro medio | +7,22°/paso | −0,0001°/paso |
+| radio a 25 pasos | 9,40 | 23,28 |
+| radio a 200 pasos | **12,20** | **175,69** |
+| radio / pasos | cae a 0,061 | constante en 0,93 |
+| forma | **acotada** (se enrolla) | **se expande** (lineal) |
+
+O sea: **el coral de Harriss no está en expansión, está acotado.** Una rama de 200
+pasos termina casi tan cerca del centro como una de 25, porque las profundas se
+enrollan. Lo que parece expansión es enrollamiento. La versión que sí se expande
+es la de ángulos nulos, y el número que la controla (1,7345) lo pone Collatz.
+
+*Aviso de lectura: el 50/50 de los restos y el 63/37 del coral son los dos
+ciertos y miden poblaciones distintas. Los restos reparten parejo sobre todos los
+enteros; el coral cuenta nodos del árbol, donde doblar siempre existe y `(n−1)/3`
+solo a veces. Por eso el árbol se puebla más de pares.*
+
+### El espejo: la contraparte (`mallaespejo.py`)
+
+La idea es el **complemento a diez**, el que usaban las calculadoras mecánicas
+para restar: `espejo(n)` = la potencia de 10 más chica que supera a `n`, menos
+`n`. Al 7 le faltan 3 para llegar a 10; al 99876 le faltan 124 para llegar a
+100000.
+
+**El cierre es aritmética pura, sin un solo parámetro que tocar:**
+
+```
+n + espejo(n) = 10^k     exacto, siempre
+```
+
+221+779=1000 · 47+53=100 · 1276+8724=10000 · 124+876=1000.
+
+**Y todo cierra, sin conjetura.** De 1 a 100.000: **99.969 caen en 2-ciclos y 31
+en puntos fijos.** Nada se escapa, y se demuestra en dos líneas: `espejo(n) < 10^k`
+así que la órbita está acotada, y solo puede bajar de década un número finito de
+veces. **44.450 ciclos distintos** bajo 100.000; Collatz tiene **uno**.
+
+- **Puntos fijos: exactamente `5·10^m`** — 5, 50, 500, 5000, 50000. Uno por
+  década, porque `n = 10^k − n` da `n = 10^k/2`.
+- **Clasificación exacta: "baja de década" ⟺ "empieza con 9".** Con exactamente
+  5 excepciones, y las 5 cuadran solas: 9, 90, 900, 9000, 90000 forman 2-ciclos
+  con 1, 10, 100, 1000, 10000.
+- **Involución en el 88,89%**: cada número tiene exactamente una pareja.
+- Las colas miden **≤ 4**. Todo el sistema se resuelve en ≤ 6 pasos.
+- **Regalo geométrico:** como `n + espejo(n) = 10^k`, al plotear `(n, espejo(n))`
+  cada década cae **exacta sobre la recta `x + y = 10^k`**. El pool no es una
+  nube, son segmentos rectos anidados. Y en el círculo de `mallaespejo.py` eso se
+  traduce en **cuerdas paralelas**: `n` y `10^k−n` caen en ángulos simétricos
+  respecto del mismo eje. Cero grados de libertad.
+
+**EL A/B, que es para lo que sirve de verdad.** Misma maquinaria, mismo círculo,
+mismo ángulo, misma cuerda por paso — cambiando solo la regla (N = 1.000):
+
+| | ESPEJO | COLLATZ |
+|---|---|---|
+| ciclos distintos | **448** | **1** |
+| puntos fijos | 3 (`5, 50, 500`) | 0 |
+| cola más larga | 2 | 176 |
+| cola media | 0,12 pasos | 57,55 pasos |
+| pasos que se escapan del rango | **0,1%** | **33,3%** |
+
+**La maquinaria discrimina:** lo que dibuja depende de lo que se le mete, no de
+cómo dibuja. Eso hay que tenerlo verificado antes de creerle nada a estas mallas.
+
+El contraste estructural: **el espejo es cerrado bajo su propio rango, Collatz
+no.** El espejo nunca sale de su década; Collatz se escapa hacia arriba un tercio
+de las veces (los impares con `3n+1 > N`). Por eso uno cierra en 2 pasos con
+cientos de aros y el otro tarda 57 de media hacia un solo sumidero.
+
 ## Qué es real y qué es dibujo
 
 Importa mantenerlo separado.
 
 **Aritmética verificada:** los números del árbol y sus conexiones; la *altura* de
 cada punto en la esfera = su distancia real al 1 (comprobado en los 5.674 números
-de las ramas); los vórtices; que las ramas se funden y nunca se cruzan.
+de las ramas); los vórtices; que las ramas se funden y nunca se cruzan; la
+topología del coral; que el rumbo dependa de (A,B); que el arranque dependa del
+resto; el 1,7345 de divisiones por multiplicación.
 
 **Elección de dibujo:** la esfera misma (el árbol no vive en una esfera; se mapeó
 la distancia al 1 sobre media vuelta, cierra porque se hizo cerrar); la longitud
 / dirección de cada rama; el regreso "por detrás" del 1 a la semilla (la
-trayectoria real no vuelve, se queda en `1-4-2`).
+trayectoria real no vuelve, se queda en `1-4-2`); **los ángulos del coral** (16°,
+−8° o cualquier otro par); y **que cada tramo del coral mida 1 siempre** — por eso
+la distancia al centro mide *cantidad de pasos*, **no** el tamaño de los números:
+el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
 
-**Comprobado y negativo:** la altura **no** codifica el tamaño del número. La
-correlación entre latitud y `log₂(valor)` es 0,12 — nula.
+**Comprobado y negativo:**
+
+- La altura **no** codifica el tamaño del número. Correlación entre latitud y
+  `log₂(valor)`: **0,12** — nula.
+- **El 221 no prefiere ningún resto.** Pisa 55 de los 64 restos en sus 115
+  números; el puro azar daría **53,5**. Diferencia: **+1,5**. No hay señal, no
+  hay estructura, y los 9 restos que nunca pisa (`0, 13, 21, 25, 26, 37, 45, 48,
+  51`) no tienen nada en común. *(Reparto por mitades, esto sí es limpio: 22
+  restos solo en la primera mitad, 22 solo en la segunda, 11 en las dos.)*
+- **La malla del 221×1276 no demuestra circularidad.** Sus 4.959 casillas con
+  ecuación son exactas (0 fallos), pero el eje X es la cola del eje Y, así que el
+  "cierre" en el centro está puesto por construcción, no descubierto.
+- **El espejo y Collatz no se hablan.** Dos pruebas independientes:
+  (1) la correlación entre `pasos(n)` y `pasos(espejo(n))` es **+0,08** — nula,
+  del mismo orden que el 0,12 de la latitud;
+  (2) la trayectoria del 221 contiene 5 parejas espejo (`2↔8`, `20↔80`, `47↔53`,
+  `332↔668`, `350↔650`) más el punto fijo `5`. Parece mucho, pero un test de
+  aleatorización con 20.000 conjuntos al azar **del mismo reparto de décadas** da
+  media 4,53 y **p = 0,28**. El 28% del azar lo hace igual o mejor. No hay señal.
+  *(Un primer cálculo dio "11 contra 1,48 esperadas" y era falso: ignoraba el
+  reparto de décadas. Cuidado con estimar el azar a ojo — el modelo nulo tiene que
+  preservar la estructura del dato.)*
+
+**Correcciones de cosas que se creyeron y eran falsas:**
+
+- `viz3d.py:coral()` usa `giro_par=7, giro_impar=-17`. Los signos son correctos
+  pero **la proporción está invertida**: Harriss pone el impar a la *mitad* del
+  par, y aquí el impar es el doble y pico.
+- La biyección resto ↔ patrón **solo vale con el mapa del atajo**. Con la regla
+  clásica salen los Fibonacci, no los `2^k`. (Se afirmó primero lo contrario; la
+  comprobación 2 de `mallaresiduos.py` lo atrapó antes de dibujar nada falso —
+  por eso esas comprobaciones van *antes* del dibujo y cortan con `SystemExit`.)
 
 ## Nada de esto es nuevo
 
 Todos los resultados de arriba son matemática conocida: la identidad, la regla
-del resto 4, el papel de `log₂(3)`, y que las cotas de ciclos vivan en las
-convergentes de su fracción continua. Se llegó a ellos de forma independiente,
-pero no son un descubrimiento.
+del resto 4, el papel de `log₂(3)`, que las cotas de ciclos vivan en las
+convergentes de su fracción continua, que el arranque lo fije `n mod 2^k`
+(Terras / Everett), y el coral es de Harriss. Se llegó a ellos de forma
+independiente, pero no son un descubrimiento.
 
 Verificación por fuerza bruta al día: 2^71 (Barina, enero 2025). Resultado
 general más fuerte: Tao 2019, "casi todas las órbitas alcanzan valores casi
 acotados".
 
+## El proyecto de fondo, y el filtro que hay que aplicarle
+
+La idea es inyectar cualquier progresión y generar la misma malla, para proponer
+que las matemáticas no apuntan al infinito sino que dan la vuelta y se conectan.
+
+**El filtro:** un modelo que devuelve la misma malla para cualquier entrada no
+está midiendo la entrada, está midiendo el modelo. El poder de demostrar algo
+viene de que la malla **salga distinta** según lo que se inyecte. La tabla de
+ángulos de arriba es un ejemplo de hacerlo bien: mide una diferencia (0% vs 97%)
+y dice qué perilla la causa.
+
+**La versión rigurosa de la intuición:** cualquier regla determinista sobre un
+conjunto finito tiene que repetirse — principio del palomar, no es conjetura.
+Fibonacci módulo `m` cierra en el período de Pisano (mod 10 son 60 pasos);
+`n → n+k` módulo `m` cierra en `m/mcd(m,k)`. Ahí los aros existen y cada
+progresión trae el suyo, de distinto tamaño: una malla que discrimina.
+
+**Collatz es el caso raro, no el ejemplar:** su trayectoria completa **no** baja
+limpio a un espacio finito, porque `n/2` módulo `m` no queda determinado por `n`
+módulo `m`. Solo los primeros `k` pasos bajan (de ahí `mallaresiduos.py`).
+
 ## Siguiente sesión
 
-Construir mallas circulares con números que sí cierren entre ellos —
-independientes de Collatz—, guardarlas, y cruzarlas después contra los números
-que genera Collatz para buscar coincidencias de patrón.
+1. **El espejo en base 2.** Esta es la buena, y es la única puerta que queda sin
+   abrir. El espejo es base 10 y Collatz es base 2 — por eso no se hablan (ver el
+   negativo de arriba). Si en vez de complementar a la potencia de 10 se
+   complementa a la **potencia de 2** más cercana, las dos reglas hablarían el
+   mismo idioma por primera vez. Si hay un puente entre ellas, tiene que aparecer
+   ahí y en ningún otro sitio.
+2. **El umbral de los 45 rumbos.** Con `16°/−8°` hay 45 direcciones posibles y
+   cero choques en 3.000 semillas. Subir `HASTA` en `coralcollaz.py` y buscar
+   dónde aparece el primer choque. Si nunca aparece, 45 rumbos bastan para un
+   árbol infinito; si aparece, ese umbral es un número real del modelo.
+3. **Mallas de progresiones que sí cierran solas** (Fibonacci mod m, `n+k` mod m,
+   `n²` mod m), guardarlas, y cruzarlas contra Collatz — con la exigencia de que
+   las mallas salgan **distintas** entre progresiones, o el cruce no significa
+   nada. `mallaespejo.py` es la plantilla: ya hace el A/B de dos reglas.
