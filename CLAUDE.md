@@ -149,6 +149,7 @@ for a in sorted(glob.glob('*.py')):
 | `coralcollaz.py` | El coral de Harriss, con la medida de si los puntos calzan |
 | `mallaespejo.py` | **El A/B**: la misma maquinaria con dos reglas (espejo base 10 y Collatz) |
 | `mallaespejo2.py` | **El espejo en base 2**: las dos identidades exactas, y el A/B/C de tres reglas |
+| `mallascerradas.py` | **Los aros que cierran solos** (Pisano, +7, ×2 mod 27) y **la rueda del árbol** |
 | `maquinitacollaz.py` | Sin seguimiento en git. Escupe los 114 pasos de un número, uno por línea |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
 | `patron detectado manualmente.txt` | Sin seguimiento en git. Notas a mano sobre las posiciones 57 y 114 |
@@ -427,6 +428,52 @@ Tres reglas, tres mallas distintas. El espejo2 queda en el medio: más
 Collatz-like que el de base 10 (tiene colas de verdad, un solo tipo de
 sumidero), pero cerrado y demostrado.
 
+### Los aros que cierran solos, y la rueda del árbol (`mallascerradas.py`)
+
+Esta pieza ejecuta el plan original del laboratorio: mallas circulares
+independientes de Collatz, cruzadas después contra Collatz.
+
+**Parte 1 — cada progresión trae su aro, medido caminando:**
+
+| regla | cierre medido |
+|---|---|
+| `n → n+7` (mod 30) | 30 (= 30/mcd) |
+| Fibonacci (mod 10) | 60 (Pisano; mod 100 da 300) |
+| `n → 2n` (mod 3^j) | 2, 6, 18, 54, 162 para j=1…5 (= 2·3^(j−1)) |
+| `n → n²` (mod 100) | **no cierra limpio**: 6 ciclos de largos {1,4}, colas hasta 2 |
+
+Cuatro cierres distintos → la maquinaria discrimina (el requisito del filtro).
+
+**Parte 2 — la coincidencia exacta que buscaba el plan.** El árbol de Collatz
+se construye hacia atrás **doblando**, y doblar módulo m es una de esas
+progresiones cerradas. Comprobado en 200 rayos hasta k=44, **0 fallos en todo**:
+
+- **El ritmo de brotes es periódico de período 2** (el aro de 2 mod 3):
+  `v` múltiplo de 3 → el rayo **nunca** brota (67 rayos mudos); resto 1 → brota
+  exactamente en k pares (67 rayos); resto 2 → exactamente en k impares (66).
+- **Los hijos ciclan `1 → 2 → 0` con período 3** (el aro de 4 mod 9): 2.926
+  brotes, 2.793 transiciones, 0 fallos. La clase del hijo la fija
+  `2^k·v mod 9` con la tabla `{1:0, 4:1, 7:2}`.
+- **La rueda maestra: el patrón completo de cualquier rayo se repite cada 18
+  duplicaciones** — y 18 es el orden de 2 módulo 27, el mismo aro de la parte 1.
+  Ese aro recorre los 18 números no múltiplos de 3 y evita `[0,3,…,24]` — los
+  mismos múltiplos de 3 que en el árbol hacen rayos mudos. El eco es exacto.
+- **Contra los datos viejos:** los 50 vórtices del 221 cumplen la regla de la
+  rueda, 0 fallos.
+
+**Es la primera vez en el laboratorio que un ciclo gobierna la dinámica de
+Collatz sin que lo pongamos nosotros**: no es un ángulo elegido ni una esfera —
+es el aro de 2 módulo 3, engranado con el de 4 módulo 9, dentro del de 2 módulo
+27. La coincidencia de patrón entre una malla cerrada independiente y Collatz
+existe y es exacta, brote a brote — no estadística.
+
+**Los dos límites honestos:** (1) es matemática conocida — la estructura
+mod 6 / mod 9 del árbol inverso es estándar; se llegó de forma independiente.
+(2) La rueda gobierna la **contabilidad del árbol hacia atrás** (dónde brota,
+qué clase de hijo). El destino hacia adelante sigue ciego a los restos — el
+negativo de `cruzarestos.py` sigue en pie. Las dos cosas son ciertas a la vez:
+**el esqueleto es periódico, el viaje no.**
+
 ## Qué es real y qué es dibujo
 
 Importa mantenerlo separado.
@@ -525,7 +572,9 @@ paso y midió que no llega al segundo.)*
    cero choques en 3.000 semillas. Subir `HASTA` en `coralcollaz.py` y buscar
    dónde aparece el primer choque. Si nunca aparece, 45 rumbos bastan para un
    árbol infinito; si aparece, ese umbral es un número real del modelo.
-3. **Mallas de progresiones que sí cierran solas** (Fibonacci mod m, `n+k` mod m,
-   `n²` mod m), guardarlas, y cruzarlas contra Collatz — con la exigencia de que
-   las mallas salgan **distintas** entre progresiones, o el cruce no significa
-   nada. `mallaespejo.py` es la plantilla: ya hace el A/B de dos reglas.
+2. *(Hecho en `mallascerradas.py`: las progresiones cerradas se midieron, salen
+   distintas entre sí, y el cruce contra Collatz dio la coincidencia exacta —
+   la rueda del árbol.)* Lo que queda de ese hilo: **colorear el árbol de
+   `collazarbol.py` con la rueda** — cada rama según la clase mod 3 de su
+   semilla — para *ver* el tambor sobre la esfera que ya existe. Y si se quiere
+   bajar otro nivel de engranaje, la cuarta rueda: mod 81, orden 54.
