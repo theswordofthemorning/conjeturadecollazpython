@@ -57,7 +57,7 @@ def cmd_camino(args) -> None:
     camino = collatz.secuencia(args.n)
     print(f"\n  n = {args.n}: {len(camino) - 1} pasos, techo {max(camino):,}\n")
     for i in range(0, len(camino), 10):
-        print("   " + " → ".join(f"{v:,}" for v in camino[i:i + 10]))
+        print("   " + " -> ".join(f"{v:,}" for v in camino[i:i + 10]))
     print()
 
 
@@ -66,10 +66,10 @@ def cmd_graficar(args) -> None:
 
     if args.paisaje:
         ruta, s = _cronometrar(viz3d.paisaje, args.paisaje, mostrar=args.mostrar)
-        print(f"  paisaje  → {ruta}  ({s:.1f} s)")
+        print(f"  paisaje  -> {ruta}  ({s:.1f} s)")
     if args.coral:
         ruta, s = _cronometrar(viz3d.coral, args.coral, mostrar=args.mostrar)
-        print(f"  coral    → {ruta}  ({s:.1f} s)")
+        print(f"  coral    -> {ruta}  ({s:.1f} s)")
 
 
 def main() -> None:

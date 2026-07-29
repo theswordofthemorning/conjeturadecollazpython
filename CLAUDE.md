@@ -18,9 +18,20 @@ comentarios que explican lo obvio, sin abstracciones.
 pip install -r requirements.txt      # numpy, matplotlib, plotly
 ```
 
-Once de los scripts importan `plotly.graph_objects`; `mallaespejo.py` además usa
-`plotly.subplots`. Durante mucho tiempo `plotly` faltaba en `requirements.txt` y
-el repo no arrancaba en una máquina limpia — ya está arreglado.
+Doce de los scripts importan `plotly.graph_objects`; `mallaespejo.py` y
+`mallaespejo2.py` además usan `plotly.subplots`. Durante mucho tiempo `plotly`
+faltaba en `requirements.txt` y el repo no arrancaba en una máquina limpia — ya
+está arreglado.
+
+**Las dos mitades se instalan por separado, y conviene saber cuál te falta.** En
+julio de 2026, en el Python 3.14.5 de `C:\Python314`, estaban `numpy` y `plotly`
+pero **no `matplotlib`**. Con eso funcionan todos los scripts de plotly (las
+mallas, el coral, el espejo) y se cae todo lo de matplotlib: `viz3d.py`,
+`collazejecucion.py` y `python main.py graficar`. Para saber qué hay:
+
+```
+python -c "import importlib.metadata as m; [print(p, m.version(p)) for p in ['numpy','matplotlib','plotly']]"
+```
 
 No hay tests, ni linter, ni `pyproject.toml`, ni CI. No los busques.
 
@@ -91,6 +102,33 @@ patrón de la constante, no el de tkinter.
 Los gráficos de plotly se abren solos en el navegador (zoom con la rueda, giro
 con el mouse, valores al pasar el cursor).
 
+**TRAMPA DE CARACTERES EN LOS `print()`.** Cuando la salida va a una tubería —y
+la de Sublime Text lo es— Windows la codifica en **cp1252**, no en UTF-8. Un
+carácter que no exista en cp1252 hace crashear el programa con
+`UnicodeEncodeError`, aunque el archivo esté guardado bien.
+
+Sirven (están en cp1252): `· × ° — … ± « »`
+**No sirven:** `→` (U+2192), `−` el menos tipográfico (U+2212), `≤ ≥ ✓`
+
+En los comentarios y en los títulos de plotly se puede poner lo que sea, porque
+esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
+`print()` o un `raise SystemExit()`.** Escribí `->` y `-` y listo.
+
+Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
+`python main.py camino 27` crasheaba desde Sublime. Para revisarlo:
+
+```
+python -c "
+import glob
+for a in sorted(glob.glob('*.py')):
+    for i,l in enumerate(open(a,encoding='utf-8'),1):
+        if 'print(' in l or 'SystemExit' in l:
+            for c in set(l):
+                try: c.encode('cp1252')
+                except UnicodeEncodeError: print(ascii(a), i, ascii(c))
+"
+```
+
 ## Los archivos
 
 | Archivo | Qué hace |
@@ -109,7 +147,8 @@ con el mouse, valores al pasar el cursor).
 | `mallaresiduos.py` | **La malla completa de los arranques**: 2^k restos × k pasos |
 | `cruzarestos.py` | La malla de restos cruzada contra el 221 y el 1276 |
 | `coralcollaz.py` | El coral de Harriss, con la medida de si los puntos calzan |
-| `mallaespejo.py` | **El A/B**: la misma maquinaria con dos reglas (espejo y Collatz) lado a lado |
+| `mallaespejo.py` | **El A/B**: la misma maquinaria con dos reglas (espejo base 10 y Collatz) |
+| `mallaespejo2.py` | **El espejo en base 2**: las dos identidades exactas, y el A/B/C de tres reglas |
 | `maquinitacollaz.py` | Sin seguimiento en git. Escupe los 114 pasos de un número, uno por línea |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
 | `patron detectado manualmente.txt` | Sin seguimiento en git. Notas a mano sobre las posiciones 57 y 114 |
@@ -336,6 +375,58 @@ no.** El espejo nunca sale de su década; Collatz se escapa hacia arriba un terc
 de las veces (los impares con `3n+1 > N`). Por eso uno cierra en 2 pasos con
 cientos de aros y el otro tarda 57 de media hacia un solo sumidero.
 
+### El espejo en base 2: el único puente exacto (`mallaespejo2.py`)
+
+El espejo de base 10 no hablaba con Collatz porque Collatz es base 2. Así que se
+cambia de base: `espejo2(n)` = la potencia de **2** más chica que supera a `n`,
+menos `n`. Y eso es lo mismo que **`−n` módulo `2^k`** — la misma estructura que
+ya sabíamos que gobierna el arranque de Collatz (`mallaresiduos.py`).
+
+**Dos identidades exactas. 100.000 comprobaciones, 0 fallos:**
+
+```
+n PAR  :   T(2^k − n)  =  2^(k−1) − T(n)          (50.000 casos, 0 fallos)
+n IMPAR:   T(2^k − n)  =  3·2^k + 2 − T(n)        (50.000 casos, 0 fallos)
+```
+
+**La de arriba dice algo fuerte: en los pasos pares el espejo2 CONMUTA con
+Collatz.** Espejar y después dividir entre dos da lo mismo que dividir y después
+espejar (bajando un nivel). El espejo2 **es una simetría de la mitad par de
+Collatz**. Con base 10 no pasaba nada parecido.
+
+**La de abajo dice dónde se rompe: en los impares casi conmuta, pero sobra un
+`+2`.** Y ese `+2` es el `+1` del `3n+1` arrastrado:
+`3(2^k − n) + 1 = 3·2^k + 2 − (3n+1)`. Es el mismo estorbo que ya aparecía como
+el grosor 0,23 de la lámina en `collazlamina.py`.
+
+*Honestidad sobre la profundidad: son dos líneas de álgebra. Exactas y útiles,
+pero verdaderas por construcción, igual que la identidad `(A,B)`. No tocan la
+conjetura.*
+
+**Todo cae en una potencia de 2, y está demostrado.** De 1 a 100.000:
+`largos de ciclo: {1: 100000}` — **ni un solo 2-ciclo**, todos caen en punto fijo,
+y los 17 puntos fijos son exactamente `2^m`. Se demuestra en una línea: si
+`2^(k−1) < n < 2^k` entonces `2^k − n < 2^(k−1)`, o sea que baja estrictamente.
+Es el análogo **demostrado** de "todo cae en el 1". Colas de hasta 16, media 7,48.
+
+**Y los dos sistemas mueren en el mismo conjunto:** los puntos fijos del espejo2
+son las potencias de 2, y la cola de toda trayectoria de Collatz es una tirada de
+potencias de 2 — la del 221 termina en `[16, 8, 4, 2, 1]`.
+
+**El A/B/C, misma maquinaria y solo la regla cambiada (N = 1.024):**
+
+| | espejo 10 | espejo 2 | Collatz |
+|---|---|---|---|
+| ciclos distintos | 472 | 11 | **1** |
+| puntos fijos | 3 | 11 | 0 |
+| cola más larga | 2 | 9 | **176** |
+| cola media | 0,11 | 4,00 | **57,88** |
+| se escapan del rango | 2,4% | **0,0%** | **33,3%** |
+
+Tres reglas, tres mallas distintas. El espejo2 queda en el medio: más
+Collatz-like que el de base 10 (tiene colas de verdad, un solo tipo de
+sumidero), pero cerrado y demostrado.
+
 ## Qué es real y qué es dibujo
 
 Importa mantenerlo separado.
@@ -376,6 +467,11 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
   *(Un primer cálculo dio "11 contra 1,48 esperadas" y era falso: ignoraba el
   reparto de décadas. Cuidado con estimar el azar a ojo — el modelo nulo tiene que
   preservar la estructura del dato.)*
+- **El puente del espejo base 2 mide exactamente un paso y no llega al segundo.**
+  Las dos identidades son exactas para **un** paso de Collatz, pero la correlación
+  entre `pasos(n)` y `pasos(espejo2(n))` es **+0,06** — todavía *menos* que el
+  +0,08 de base 10. El `+2` se acumula al iterar y borra la relación. Un paso:
+  identidad exacta. Dos pasos: ruido. No buscar estructura de trayectoria ahí.
 
 **Correcciones de cosas que se creyeron y eran falsas:**
 
@@ -422,13 +518,10 @@ módulo `m`. Solo los primeros `k` pasos bajan (de ahí `mallaresiduos.py`).
 
 ## Siguiente sesión
 
-1. **El espejo en base 2.** Esta es la buena, y es la única puerta que queda sin
-   abrir. El espejo es base 10 y Collatz es base 2 — por eso no se hablan (ver el
-   negativo de arriba). Si en vez de complementar a la potencia de 10 se
-   complementa a la **potencia de 2** más cercana, las dos reglas hablarían el
-   mismo idioma por primera vez. Si hay un puente entre ellas, tiene que aparecer
-   ahí y en ningún otro sitio.
-2. **El umbral de los 45 rumbos.** Con `16°/−8°` hay 45 direcciones posibles y
+*(El espejo en base 2 ya se hizo — ver arriba. Encontró el puente exacto de un
+paso y midió que no llega al segundo.)*
+
+1. **El umbral de los 45 rumbos.** Con `16°/−8°` hay 45 direcciones posibles y
    cero choques en 3.000 semillas. Subir `HASTA` en `coralcollaz.py` y buscar
    dónde aparece el primer choque. Si nunca aparece, 45 rumbos bastan para un
    árbol infinito; si aparece, ese umbral es un número real del modelo.
