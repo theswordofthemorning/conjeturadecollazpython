@@ -264,60 +264,52 @@ print(f"  funden pero cuya clase NO se funde entera: coincidencias que")
 print(f"  dependen del m concreto, no solo del resto.")
 
 
-# --------------------- HACIA DONDE VA: el exceso de la razon sobre 2
+# ------------- CORRECCION: la monotonia es TRIVIAL, no un hallazgo
+#
+# Una version anterior de este archivo presentaba "la fraccion crece en los
+# 24 escalones" como si fuera un dato medido. No lo es: esta FORZADO, y la
+# demostracion es de tres lineas. Queda escrito aqui porque el error estuvo
+# publicado y conviene que se vea la correccion, no solo el resultado.
 
-print(f"\n\nHACIA DONDE VA LA FRACCION\n")
-print(f"  Escribiendo N(k+1)/N(k) = 2 + e(k), sale f(k+1)/f(k) = 1 + e(k)/2,")
-print(f"  luego  log f(infinito) = log f(k) + (1/2) * suma de los e(j) que")
-print(f"  faltan. Toda la pregunta es si esa suma converge:")
-print(f"\n    suma CONVERGE  -> la fraccion tiende a un limite < 1")
-print(f"    suma DIVERGE   -> la fraccion tiende a 1, y casi todo par")
-print(f"                      consecutivo tendria la misma altura por resto")
-print(f"\n  Si e(k) ~ C/k^p, la suma converge si y solo si p > 1. Asi que")
-print(f"  basta con medir p. La columna que se quede CONSTANTE lo dice:\n")
+print(f"\n\nCORRECCION -- que la fraccion crezca es TRIVIAL\n")
+print(f"  Si r es buena modulo 2^k, entonces r y r + 2^k son las DOS buenas")
+print(f"  modulo 2^(k+1). Por que: la formula T^k(2^k m + r) = 3^S(r) m + T^k(r)")
+print(f"  con m = 1 da T^k(2^k + r) = 3^S(r) + T^k(r), y lo mismo para r+1;")
+print(f"  si r era buena las dos salidas coinciden, luego r + 2^k tambien.")
+print(f"  Y si r es buena a nivel k, sus dos iterados ya son el MISMO numero,")
+print(f"  asi que sigue siendo buena a nivel k+1.")
+print(f"\n  Consecuencia:  N(k+1) >= 2*N(k)  siempre, por construccion.")
+print(f"  Luego f(k+1) = N(k+1)/2^(k+1) >= N(k)/2^k = f(k).")
+print(f"  LA MONOTONIA NO SE VERIFICA: SE DEMUESTRA. Y la razon > 2 tambien.")
 
-print(f"  {'k':>3} {'razon':>9} {'exceso e':>10} {'k*e':>8} {'k^1.5*e':>9} {'k^2*e':>9}")
-print(f"  {'-'*3} {'-'*9} {'-'*10} {'-'*8} {'-'*9} {'-'*9}")
-excesos = []
+heredadas = [2 * n for _, n, _ in fracciones[:-1]]
+nuevas = [fracciones[i][1] - heredadas[i - 1] for i in range(1, len(fracciones))]
+
+print(f"\n  Lo unico con contenido es cuantas clases se ESTRENAN en cada")
+print(f"  nivel, porque")
+print(f"\n      f(k+1) - f(k) = nuevas(k) / 2^(k+1)")
+print(f"\n  y entonces  f(infinito) = f(k) + suma de nuevas(j)/2^(j+1).\n")
+print(f"  {'k':>3} {'N(k)':>12} {'heredadas':>12} {'NUEVAS':>10} "
+      f"{'razon nuevas':>13} {'nuevas/2^k':>12}")
+print(f"  {'-'*3} {'-'*12} {'-'*12} {'-'*10} {'-'*13} {'-'*12}")
 for i in range(1, len(fracciones)):
-    k = fracciones[i - 1][0]
-    razon = fracciones[i][1] / fracciones[i - 1][1]
-    e = razon - 2
-    excesos.append((k, e))
-    if k >= 14:
-        print(f"  {k:>3} {razon:>9.5f} {e:>10.6f} {k*e:>8.4f} "
-              f"{k ** 1.5 * e:>9.4f} {k*k*e:>9.4f}")
+    k = fracciones[i][0]
+    if k < 14:
+        continue
+    rn = f"{nuevas[i-1]/nuevas[i-2]:.4f}" if i >= 2 and nuevas[i - 2] else ""
+    print(f"  {k:>3} {fracciones[i][1]:>12,} {heredadas[i-1]:>12,} "
+          f"{nuevas[i-1]:>10,} {rn:>13} {nuevas[i-1]/2**k:>12.6f}")
 
-# ajuste por minimos cuadrados de log e = log C - p log k
-cola = [(k, e) for k, e in excesos if k >= 14]
-if len(cola) >= 4:
-    n = len(cola)
-    sx = sum(math.log(k) for k, _ in cola)
-    sy = sum(math.log(e) for _, e in cola)
-    sxx = sum(math.log(k) ** 2 for k, _ in cola)
-    sxy = sum(math.log(k) * math.log(e) for k, e in cola)
-    p = -(n * sxy - sx * sy) / (n * sxx - sx * sx)
-    C = math.exp((sy + p * sx) / n)
-    print(f"\n  Ajuste sobre k >= 14:   e(k) ~ {C:.4f} / k^{p:.4f}")
-    if p > 1:
-        kf = cola[-1][0]
-        resto = C / ((p - 1) * kf ** (p - 1))
-        limite = fracciones[-1][2] * math.exp(resto / 2)
-        print(f"  p = {p:.3f} > 1, luego la suma converge.")
-        print(f"  Cola de la suma desde k = {kf}: {resto:.4f}")
-        print(f"  Limite estimado de la fraccion: {limite:.4f}")
-    else:
-        print(f"  p = {p:.3f} <= 1, luego la suma diverge y la fraccion")
-        print(f"  tenderia a 1.")
+print(f"\n  LA PREGUNTA, YA LIMPIA: converge la suma de nuevas(j)/2^(j+1)?")
+print(f"  Las nuevas crecen con razon ~1,92 y subiendo. Si esa razon se")
+print(f"  queda por DEBAJO de 2, la suma converge y la fraccion tiene un")
+print(f"  limite < 1. Si llega a 2, diverge y la fraccion tiende a 1.")
+print(f"  Con los datos de aqui la razon sube (1,84 -> 1,92) sin estabilizarse,")
+print(f"  asi que NO SE PUEDE DECIDIR. Es el mismo muro que antes, pero ahora")
+print(f"  formulado sobre una sucesion de enteros en vez de sobre un ajuste.")
 
-print(f"\n  POR QUE ESTO NO ES UNA RESPUESTA, Y HAY QUE DECIRLO:")
-print(f"  la columna k^1.5*e no es plana: BAJA hasta k = 18 y luego SUBE.")
-print(f"  O sea que p no es constante, esta derivando, y un ajuste de ley")
-print(f"  de potencias sobre trece puntos no lo captura. El limite estimado")
-print(f"  se mueve mucho con p: si p fuera 1,3 saldria otro numero, y si")
-print(f"  bajara de 1 la fraccion tenderia a 1.")
-print(f"\n  Lo que SI se puede afirmar con {K_MAX - 2} escalones exactos:")
-print(f"    - la fraccion crece siempre, sin una sola bajada")
-print(f"    - la razon baja hacia 2 monotonamente, sin llegar")
+print(f"\n  Lo que SI se puede afirmar:")
 print(f"    - la cota inferior demostrada va por {fracciones[-1][2]:.4%}")
+print(f"      (eso si es un resultado: no depende de muestreo ni de ajuste)")
+print(f"    - que crezca no lo es: es un teorema de tres lineas")
 print(f"  La conjetura de Wu sigue abierta.")

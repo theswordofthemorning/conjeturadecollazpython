@@ -812,47 +812,58 @@ casi todo par cruce frontera: **idéntico en los 18 valores**.
 | 10 | 351 | 0,342773 | 24 | 6.966.495 | 0,415235 |
 | 16 | 25.241 | 0,385147 | **26** | **28.247.507** | **0,420921** |
 
-**Monótona en los veinticuatro escalones**, y es una **cota inferior
-demostrada**: al menos el **42,09%** de los pares consecutivos tienen la misma
-altura, y se decide mirando solo el resto módulo 2^26.
+Es una **cota inferior demostrada**: al menos el **42,09%** de los pares
+consecutivos tienen la misma altura, y se decide mirando solo el resto módulo
+2^26. *(Eso sí es un resultado: no depende de muestreo ni de ajuste.)*
+
+> **CORRECCIÓN, y estuvo publicada mal.** Una versión anterior de esta sección
+> presentaba *"la fracción crece en los 24 escalones"* como un hallazgo. **No
+> lo es: está forzado**, y se demuestra en tres líneas.
+>
+> Si `r` es buena módulo `2^k`, entonces `r` y `r + 2^k` son **las dos** buenas
+> módulo `2^{k+1}`. Con `m = 1` en la fórmula: `T^k(2^k + r) = 3^{S(r)} +
+> T^k(r)`, e igual para `r+1`; si `r` era buena las dos salidas coinciden.
+> Y si `r` es buena a nivel `k`, sus dos iterados **ya son el mismo número**,
+> así que sigue siendo buena a nivel `k+1`.
+>
+> Luego `N(k+1) ≥ 2·N(k)` **siempre**, y por tanto `f(k+1) ≥ f(k)`. La
+> monotonía no se verifica: se demuestra. Y la razón `> 2` también es trivial.
+> Comprobado además a mano en 14 niveles: **0 fallos**.
 
 La densidad real medida es 0,5186 a 2^28. **La diferencia (unos 10 puntos) son
 los pares que se funden pero cuya clase no se funde entera** — coincidencias
 que dependen del `m` concreto, no solo del resto.
 
-#### Hacia dónde va la fracción, y por qué no se puede saber todavía
+#### Hacia dónde va la fracción: la pregunta, ya limpia
 
-Escribiendo `N(k+1)/N(k) = 2 + e(k)`, sale `f(k+1)/f(k) = 1 + e(k)/2`, luego
+Como cada clase buena se desdobla en dos, lo único con contenido es cuántas
+clases **se estrenan** en cada nivel:
 
 ```
-log f(∞)  =  log f(k)  +  ½ · (suma de los e(j) que faltan)
+f(k+1) − f(k)  =  nuevas(k) / 2^{k+1}       y       f(∞) = f(k) + Σ nuevas(j)/2^{j+1}
 ```
 
-**Toda la pregunta es si esa suma converge.** Si `e(k) ~ C/k^p`, converge si y
-solo si `p > 1`. Así que basta con medir `p`, y la columna que se quede
-constante lo dice:
+| k | N(k) | heredadas | **nuevas** | razón de nuevas |
+|---|---|---|---|---|
+| 17 | 103.358 | 102.210 | 1.148 | 1,843 |
+| 20 | 850.737 | 843.286 | 7.451 | 1,880 |
+| 23 | 6.966.495 | 6.915.582 | 50.913 | 1,907 |
+| 25 | 28.247.507 | 28.060.738 | 186.769 | **1,918** |
 
-| k | razón | e | k·e | k^1,5·e | k²·e |
-|---|---|---|---|---|---|
-| 14 | 2,03100 | 0,030995 | 0,4339 | 1,6236 | 6,075 |
-| 18 | 2,02055 | 0,020550 | 0,3699 | **1,5693** | 6,658 |
-| 22 | 2,01556 | 0,015563 | 0,3424 | 1,6059 | 7,533 |
-| 25 | 2,01331 | 0,013312 | 0,3328 | 1,6640 | 8,320 |
+**Toda la pregunta se reduce a la razón de crecimiento de `nuevas`.** Si se
+queda **por debajo de 2**, la suma converge y la fracción tiene un límite `< 1`.
+Si llega a **2**, diverge y la fracción tiende a **1** — y entonces casi todo
+par consecutivo tendría la misma altura por razón de resto.
 
-El ajuste sobre `k ≥ 14` da `e(k) ~ 1,367 / k^1,4465`, o sea **`p ≈ 1,45 > 1`,
-la suma converge, y el límite estimado de la fracción sale ≈ 0,606**.
+Con estos datos la razón **sube sin estabilizarse** (1,843 → 1,918), así que
+**no se puede decidir**. Es el mismo muro, pero ahora formulado sobre una
+sucesión de enteros en vez de sobre un ajuste de ley de potencias, que es una
+forma más honesta de no saberlo.
 
-> **Por qué eso NO es una respuesta, y hay que decirlo.** La columna `k^1,5·e`
-> **no es plana**: baja hasta `k = 18` y luego vuelve a subir. Es decir, `p` no
-> es constante, está derivando, y un ajuste de ley de potencias no lo captura.
-> El síntoma más claro: **la estimación del límite sube al añadir puntos** —
-> con datos hasta `k = 24` daba 0,594; hasta `k = 25` da 0,606. Un estimador
-> que se mueve con la muestra no es una predicción. Y si `p` bajara de 1, la
-> fracción tendería a **1**.
->
-> Lo que sí se puede afirmar con 24 escalones exactos: la fracción **crece
-> siempre**, la razón **baja hacia 2 monótonamente sin llegar**, y la cota
-> inferior demostrada va por **42,09%**. **La conjetura de Wu sigue abierta.**
+*(El intento anterior — ajustar `e(k) ~ C/k^p` y extrapolar — daba `p ≈ 1,45` y
+un límite ≈ 0,606, pero la estimación **se movía al añadir puntos** (0,594 con
+`k ≤ 24`, 0,606 con `k ≤ 25`). Un estimador que se desplaza con la muestra no
+es una predicción.)*
 
 ## Qué es real y qué es dibujo
 
