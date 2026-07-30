@@ -530,17 +530,70 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
   comprobación 2 de `mallaresiduos.py` lo atrapó antes de dibujar nada falso —
   por eso esas comprobaciones van *antes* del dibujo y cortan con `SystemExit`.)
 
-## Nada de esto es nuevo
+## Nada de esto es nuevo — el balance, hecho a propósito
 
-Todos los resultados de arriba son matemática conocida: la identidad, la regla
-del resto 4, el papel de `log₂(3)`, que las cotas de ciclos vivan en las
-convergentes de su fracción continua, que el arranque lo fije `n mod 2^k`
-(Terras / Everett), y el coral es de Harriss. Se llegó a ellos de forma
-independiente, pero no son un descubrimiento.
+Escrito el 29-07-2026, después de preguntar en frío "¿hemos visto algo que nadie
+haya visto?". La respuesta es **no**, y conviene tenerla anotada para no
+redescubrirla con entusiasmo cada seis meses.
 
-Verificación por fuerza bruta al día: 2^71 (Barina, enero 2025). Resultado
-general más fuerte: Tao 2019, "casi todas las órbitas alcanzan valores casi
-acotados".
+Aviso sobre este balance: no se hizo búsqueda bibliográfica de cada punto. El
+juicio se basa en **cuán elemental es cada derivación**, no en haber confirmado
+la fuente de todos. Lo único que se buscó en la web fue el coral.
+
+| Lo que encontramos | Estado real |
+|---|---|
+| `n mod 2^k` fija los primeros k pasos; biyección con el mapa del atajo | **Terras 1976 / Everett 1977.** Tiene nombre: el vector de paridad. Teorema clásico |
+| La rueda del árbol (período 2, hijos mod 9, maestra 18) | Consecuencia elemental de la regla mod 6, que ya estaba anotada como estándar. Aritmética modular de primer curso sobre estructura conocida |
+| Las dos identidades del espejo base 2 | Dos líneas de álgebra. Nada que publicar |
+| El espejo base 10 (44.450 ciclos, fijos en `5·10^m`) | Recreativa elemental. Se deriva en cinco minutos |
+| El coral | **De Edmund Harriss.** Publicado, con libro y Numberphile |
+| Identidad `(A,B)`, la lámina, `log₂(3)`, las convergentes | Vía clásica de las cotas de ciclos (Crandall, Steiner, Simons–de Weger) |
+| Que `F(k+2)` cuente los patrones del mapa clásico | El conteo estándar de "sin dos adyacentes". Folklore |
+| Que el rumbo del coral solo dependa de `(A,B)` | Los giros conmutan. Trivial |
+
+**Lo único que podría ser inédito:** la tabla de ángulos de `coralcollaz.py` —
+cuántos rumbos permite cada par y qué fracción de ramas colapsa (45 rumbos → 0%,
+6 rumbos → 97%), más la condición derivada del ángulo nulo
+(`impar/par = −1,7345`, la razón de descenso real). No es un teorema: es una
+medición sobre nuestro propio método de dibujo. Pero Harriss eligió ángulos por
+estética y nadie parece haber barrido el espacio. Candidata a nota original en
+visualización recreativa. **Sin verificar en la literatura.**
+
+### Lo que sí es inusual aquí, y no es matemática
+
+1. **Cinco negativos registrados** (el 221 no prefiere restos; el medio es
+   contabilidad; el espejo no correlaciona; el puente no llega al segundo paso;
+   la altura no codifica magnitud). Casi nadie anota lo que no funcionó, y por
+   eso casi todo el mundo repite las mismas búsquedas.
+2. **El A/B de control** (`mallaespejo.py`, `mallaespejo2.py`,
+   `mallascerradas.py`): meter varias reglas por la misma maquinaria y **exigir
+   que salgan distintas**. Es lo que separa "mi malla revela estructura" de "mi
+   malla dibuja lo que sea".
+3. **Comprobar antes de dibujar, cortando con `SystemExit`.** Esto atrapó un
+   error real en vivo: se afirmó la biyección resto↔patrón para el mapa clásico
+   y la comprobación 2 de `mallaresiduos.py` paró el programa antes de generar
+   un gráfico falso. Sin esa disciplina habría quedado una imagen bonita
+   sosteniendo una afirmación errónea.
+
+### El techo realista, y hacia dónde no hay camino
+
+**Hacia demostrar que Collatz es una referencia circular, o que el universo es un
+sistema cerrado: no hay camino.** No es que esté lejos — es que las mallas no son
+el tipo de objeto que demuestra eso, y en esta sesión quedó **medido** por qué:
+el cierre lo pone el ángulo que elegís (tabla del coral) o el módulo que elegís
+(`mallascerradas.py`), no Collatz. Cuando el cierre viene de la aritmética
+—la rueda mod 27— gobierna el esqueleto del árbol hacia atrás y **no** el destino
+hacia adelante, que sigue ciego a los restos.
+
+**El techo de este repo es rederivación independiente bien verificada, más
+visualización original.** Eso no es descubrimiento, pero tampoco es poco: hay
+doce programas que se auto-verifican, un documento que separa lo real de lo
+dibujado, y un historial de negativos. La mayoría de la exploración amateur no
+llega ahí.
+
+Estado del arte, para calibrar: verificación por fuerza bruta al día **2^71**
+(Barina, enero 2025). Resultado general más fuerte: **Tao 2019**, "casi todas las
+órbitas alcanzan valores casi acotados".
 
 ## El proyecto de fondo, y el filtro que hay que aplicarle
 
