@@ -1364,6 +1364,65 @@ dos son mejoras **constantes** sobre un problema **exponencial**. Lo que usa la
 literatura es otra cosa: enumerar **bloques** en vez de restos, que baja de `2^k`
 a `~m³` — por eso Hercher llega a `m = 91` y un barrido se atasca en 32.
 
+### Las cribas industriales, y por qué NO sirven para ciclos (30-07-2026)
+
+Estudio del método real con el que Barina verificó hasta `2^71` con hardware
+normal. **No comprueba los `2^71` números: criba clases de restos enteras.**
+
+**El factor de reducción total, que el paper no publica y se calculó desde sus
+propios ficheros de criba: `X ≈ 363`.** Barina comprueba de verdad **1 de cada
+363** números; para cubrir `2^71` itera unos `2^62,5`.
+
+| criba | vivos | densidad | 1 de cada |
+|---|---|---|---|
+| A076227 (clásica) `k=34` | 151.917.636 | 0,884% | 113 |
+| `h2esieve-34` (Barina, producción) | **85.234.595** | **0,496%** | **202** |
+| × criba `3²` (mod 9, `×5/9`) | — | 0,2756% | **363** |
+
+**Las seis reglas de descarte**, todas localizadas en su código abierto:
+`R0` sólo `n ≡ 3 (mod 4)` · `R1` descenso garantizado (Brown/Terras, la base) ·
+`R2` monotonía sobre niveles inferiores · **`R3` "criba de Eric": si dos
+trayectorias se funden, el menor basta** (−18%) · `R4` regla del medio paso
+(−18%) · `R5` antecesor menor módulo `3^j` (−31%) · `R6` criba `3^k` en tiempo
+de ejecución (−44%).
+
+> **`R3` ES `clasesfusion.py`.** La regla que le da a Barina un 18% es
+> exactamente el criterio de fusión que este repo calculó hasta `k=30` por otro
+> motivo. *Detalle de implementación que costó descubrir: si sólo comparás los
+> supervivientes de `R1`, `R3` no mata nada (0 bajas hasta `k=20`). Hay que
+> comparar contra **todos** los `b` menores, incluidos los ya muertos.*
+
+**Dos números que cambian la intuición:**
+
+- **Cada bit extra de criba sólo elimina un 3,4% más.** La densidad escala como
+  `2^(−0,05·k)` (el exponente es `H(log₃2) = 0,94996`). Duplicar la memoria no
+  compra casi nada, y por eso Barina se para en `2^34`.
+- **Reducción ≠ aceleración.** Un factor 138× de criba produce sólo **5,94×** de
+  velocidad, porque los supervivientes son justamente los caros — las
+  trayectorias largas. Todas las optimizaciones juntas dan 25,65× en CPU. El
+  coste total del récord fue **12.395 años-CPU + 159 años-GPU**.
+
+**Y LA RESPUESTA ESTRUCTURAL, que cierra la pregunta de si se puede cribar para
+buscar ciclos: NO, y no es por falta de ingenio.**
+
+> Por el teorema de Terras, `T^k` es una **biyección** sobre `Z/2^k`. Cada vector
+> de paridad de longitud `k` corresponde a **exactamente una** clase módulo
+> `2^k`. **No hay clases que descartar — hay tantos candidatos como vectores.**
+
+Una criba funciona porque muchas clases comparten el destino "ya bajó". Para
+ciclos no hay nada que compartir: cada clase es un candidato distinto y único.
+Es exactamente lo que `pinzaciclos.py` midió sin saberlo — *un candidato por
+resto*. El filtro que sí sirve no es modular sino **diofántico**: la
+aproximación de `log₂3` por convergentes (Crandall 1978, Eliahou 1993,
+Simons–de Weger, Hercher).
+
+**Lo que sí aporta la criba a los ciclos, y es indirecto:** certifica que todo
+`n < B` **baja**, luego ningún ciclo puede tener su mínimo por debajo de `B`. Ese
+`B` es el que se mete después en la desigualdad diofántica. *La criba compra el
+límite; la exclusión la hace otra matemática.* Y se confirma en el propio código:
+`worker.c` imprime `MAXIMUM_CYCLE_OFFSET 0` como constante literal — **el
+programa de Barina no busca ciclos en absoluto.**
+
 ## Qué es real y qué es dibujo
 
 Importa mantenerlo separado.
@@ -1570,6 +1629,40 @@ visualización original.** Eso no es descubrimiento, pero tampoco es poco: hay
 **veinticinco** programas que se auto-verifican, un documento que separa lo real de
 lo dibujado, y un historial de negativos. La mayoría de la exploración amateur no
 llega ahí.
+
+### EL CUARTO CAMINO — el objetivo realista, enunciado el 30-07-2026
+
+Después de un día entero midiendo, el enunciado que quedó, y que sustituye al
+propósito místico original:
+
+> **No vamos a encontrar un número que haga bucle. Ni a demostrar que todos bajan
+> a 1. Ni que exista uno que suba para siempre.**
+>
+> **Lo que sí se puede buscar es el cuarto camino: las reglas que generan todos
+> los números de la secuencia de Collatz, sin generar la secuencia.**
+
+Es el mejor enunciado de propósito que ha tenido este repo, por tres razones:
+
+1. **Es alcanzable.** Las otras tres salidas son la conjetura entera, un problema
+   abierto de noventa años. Ésta no lo es.
+2. **Ya está a medias, y es lo que el repo hace mejor sin haberlo dicho así:**
+   - `mallaresiduos.py`: los primeros `k` pasos los decide `n mod 2^k`. Es una
+     **regla** que da el comportamiento sin calcular la trayectoria.
+   - `clasesfusion.py`: un criterio **finito** que decide, para los **infinitos**
+     `m` de una clase, si dos consecutivos se funden. Eso es literalmente
+     "generar las reglas sin generar la secuencia".
+   - `mallascerradas.py`: la rueda mod 27 gobierna dónde brota el árbol inverso,
+     sin recorrerlo.
+   - Y el Lema 8 de Hercher —`k` impares seguidos ⟹ `n ≡ −1 mod 2^k`— es el
+     mismo tipo de objeto, y es el motor de toda la exclusión de ciclos.
+3. **Discrimina**, que es el filtro que este repo se exige: una regla que valiera
+   para cualquier entrada no diría nada de Collatz.
+
+**Lo que NO es, para no inflarlo:** esto tiene nombre en la literatura —dinámica
+simbólica, vectores de paridad, la estructura 2-ádica del mapa— y es un campo con
+cincuenta años de trabajo. El cuarto camino no es un programa nuevo: es el
+programa correcto, y el único donde este laboratorio puede aportar algo sin
+mentirse. *No demuestra la conjetura, y no pretende hacerlo.*
 
 **Por qué las constantes no pueden demostrar nada, anotado para no volver a
 preguntarlo.** El laboratorio mide **promedios**; la conjetura es una afirmación
@@ -1802,7 +1895,47 @@ concreta que tiene el laboratorio ahora mismo.
    siempre: que una razon suba hacia 2 en veinte escalones no demuestra ni que
    llegue ni que se quede corta. Acota la pregunta; no la contesta.*
 
-2. **El numero PRIMO de rumbos.** Prediccion escrita y sin medir (30-07-2026): si
+2. **EL PLAN DE LA PINZA, en tres fases** (diseñado el 30-07-2026 después de
+   destripar el método de Hercher). Lo que lo hace viable es un hallazgo del
+   estudio: **Hercher no usa el teorema de Baker en ninguna parte.** Toda la
+   maquinaria diofántica entra como **un número importado** de Simons–de Weger
+   (`K < 1,4784·m·δ^m`, arbitrado en *Acta Arith.* 117). Aceptándolo como caja
+   negra, el resto es elemental. Y la métrica del esfuerzo, medida:
+
+   ```
+   ~60 lineas de Python, solo stdlib, con solo T(n) < 3/n   ->  excluye m <= 82
+   todo el aparato de Hercher (analisis de casos, Teorema 21,
+   dos programas C++, CINCO SEMANAS de computo)             ->  excluye m <= 91
+   ```
+
+   **Fase 1 — traer `reimpl.py` al repo.** 130 líneas con `decimal` y `fractions`,
+   reproduce las siete iteraciones del Teorema 23 contra los valores publicados en
+   **5,5 segundos**. Sería el primer programa del laboratorio que no dibuja nada y
+   reproduce matemática arbitrada. *Detalle de rigor que no se puede saltar: el
+   denominador mínimo hay que buscarlo en un intervalo **ensanchado** con
+   racionales `δ_lo < δ < δ_hi`, para que el error caiga del lado seguro. Sin eso
+   es un número bonito, no una demostración — el mismo espíritu que los
+   `SystemExit` antes de dibujar.*
+
+   **Fase 2 — la escalera afín de Wang, que ES la pinza.** El cuello de botella no
+   es Baker ni el tiempo: es `X₀`. Para `m = 92` haría falta verificar hasta
+   `2^73,9` y el récord mundial es `2^71`; con `X₀ = 2^71` el bucle de Hercher
+   **sigue parando en 91**. Por eso Wang no mejoró `X₀`: cambió la técnica. Fija un
+   prefijo de exponentes, escribe cada `nᵢ` como función afín del mismo entero
+   inicial, y **el conjunto vivo queda como un intervalo intersecado con una clase
+   residual módulo `2^s`**. Un nivel vacío es la contradicción. Eso es exactamente
+   la pinza: cota por un lado, criba modular por el otro. Y media está construida —
+   `clasesfusion.py` ya hace aritmética exacta sobre clases mod `2^k` hasta `k=30`
+   con troceado en bloques.
+
+   **Fase 3 — el objetivo, y no es superar a nadie: VERIFICAR A WANG.** Su
+   preprint (Zenodo, 29-07-2026, `m ≤ 95`) **no está arbitrado**, tiene cero citas
+   y metadatos descuidados. Un resultado así necesita verificación independiente y
+   nadie la ha hecho porque tiene dos días. **Si aguanta, se dice. Si se cae, eso
+   sí es un hallazgo.** Es lo más difícil que hay al alcance que no consista en
+   repetir a otro.
+
+3. **El numero PRIMO de rumbos.** Prediccion escrita y sin medir (30-07-2026): si
    los choques del coral vienen de que `45 = 3^2 * 5`, entonces con un numero
    **primo** de rumbos el unico nucleo es la suma de las `p` raices, y un choque
    exigiria acumular las `p` direcciones exactamente por igual. El umbral de
