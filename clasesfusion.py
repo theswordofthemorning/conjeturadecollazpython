@@ -51,56 +51,113 @@
 # Y la fraccion de clases que se funden siempre se puede calcular EXACTA
 # para cada k, sin muestrear nada.
 
+import math
+
 import numpy as np
 
 # ---------------------------------------------------------------------------
 # Cambia esto aqui, guarda, y dale a Ctrl+B en Sublime.
 # ---------------------------------------------------------------------------
 
-K_MAX = 22       # hasta que exponente 2^k se llega. 22 tarda ~1 min.
+K_MAX = 26       # hasta que exponente 2^k se llega. 26 tarda unos minutos.
 K_DETALLE = 5    # de que modulo se imprime la lista entera de clases
+BLOQUE = 1 << 22  # de cuantos restos en cuantos se trabaja
+
+# POR QUE EN BLOQUES. Con k = 26 el array de restos son 67 millones de int64
+# (537 MB), y cada np.where del paso crea tres temporales mas: se va a 3-4 GB.
+# En bloques de 4 millones el pico se queda en ~100 MB, sea cual sea k. El
+# unico cuidado es el par que cruza la frontera entre bloques, que se lleva a
+# mano con el ultimo resto del bloque anterior.
 
 
-def salto_y_paridad(k):
-    """Para cada r de 0 a 2^k, devuelve (T^k(r), S_k(r)).
+def salto_y_paridad(restos, k):
+    """Para cada r del array, devuelve (T^k(r), S_k(r)).
 
-    Vectorizado: mueve los 2^k restos a la vez, k veces.
+    Todo en sitio para no duplicar memoria: se calcula la rama impar en un
+    temporal, se aplica la rama par sobre el propio array, y se copian encima
+    solo las posiciones impares.
     """
-    v = np.arange(0, (1 << k) + 1, dtype=np.int64)
-    S = np.zeros(len(v), dtype=np.int64)
+    v = np.array(restos, dtype=np.int64, copy=True)
+    S = np.zeros(len(v), dtype=np.int32)
     for _ in range(k):
         impar = (v & 1).astype(bool)
         S += impar
-        v = np.where(impar, (3 * v + 1) >> 1, v >> 1)
+        rama_impar = 3 * v + 1        # el unico temporal grande
+        rama_impar >>= 1
+        v >>= 1                        # la rama par, en sitio
+        np.copyto(v, rama_impar, where=impar)
+        del rama_impar
     return v, S
 
 
-def clases_que_se_funden(k):
-    """Los restos r modulo 2^k tales que (2^k m + r, +1) se funden para todo m."""
-    v, S = salto_y_paridad(k)
+def recorrer_clases(k, bloque=BLOQUE, listar=False):
+    """Cuenta (y opcionalmente lista) los restos r modulo 2^k que se funden
+    para todo m. Devuelve (cuantos, lista_o_None).
+
+    Criterio: S_k(r) == S_k(r+1) y T^k(r) == T^k(r+1).
+    """
     MOD = 1 << k
-    # el caso normal: r y r+1 estan en el mismo bloque
-    normal = (S[:MOD - 1] == S[1:MOD]) & (v[:MOD - 1] == v[1:MOD])
-    buenos = list(np.flatnonzero(normal))
-    # el caso del borde: r = 2^k - 1, y n+1 = 2^k (m+1) + 0
-    r = MOD - 1
-    if S[r] == S[0] and v[r] == int(3 ** int(S[0])) + v[0]:
-        buenos.append(r)
-    return sorted(int(x) for x in buenos)
+    cuantos = 0
+    lista = [] if listar else None
+    v_cero = S_cero = None
+    ultimo = None                      # (v, S) del ultimo resto del bloque previo
+
+    for lo in range(0, MOD, bloque):
+        hi = min(lo + bloque, MOD)
+        v, S = salto_y_paridad(np.arange(lo, hi, dtype=np.int64), k)
+        if lo == 0:
+            v_cero, S_cero = int(v[0]), int(S[0])
+
+        # el par que cruza la frontera con el bloque anterior
+        if ultimo is not None:
+            uv, uS = ultimo
+            if uS == int(S[0]) and uv == int(v[0]):
+                cuantos += 1
+                if listar:
+                    lista.append(lo - 1)
+
+        # los pares de dentro del bloque
+        dentro = (S[:-1] == S[1:]) & (v[:-1] == v[1:])
+        cuantos += int(dentro.sum())
+        if listar:
+            lista.extend((lo + np.flatnonzero(dentro)).tolist())
+
+        ultimo = (int(v[-1]), int(S[-1]))
+        del v, S, dentro
+
+    # el borde final: r = 2^k - 1, cuyo vecino es 2^k (m+1) + 0, o sea el
+    # resto 0 con m aumentado en uno. Hace falta 3^{S_k(0)} de mas.
+    uv, uS = ultimo
+    if uS == S_cero and uv == int(3) ** S_cero + v_cero:
+        cuantos += 1
+        if listar:
+            lista.append(MOD - 1)
+
+    return cuantos, (sorted(lista) if listar else None)
+
+
+def clases_que_se_funden(k):
+    """La lista entera. Solo para k pequenos: con k grande no cabe en memoria."""
+    return recorrer_clases(k, listar=True)[1]
+
+
+def cuantas_clases(k):
+    """Solo el numero. Es lo unico que hace falta para k grande."""
+    return recorrer_clases(k, listar=False)[0]
 
 
 # ------------------------------------- COMPROBACION 1: las dos publicadas
 
 print("COMPROBACION 1 -- las dos familias publicadas salen del criterio\n")
 
-v3, S3 = salto_y_paridad(3)
+v3, S3 = salto_y_paridad(np.arange(0, 9, dtype=np.int64), 3)
 print(f"  Lagarias 1985: 8k+4 y 8k+5 se funden siempre.")
 print(f"    r=4: T^3(4) = {v3[4]}, S_3(4) = {S3[4]}")
 print(f"    r=5: T^3(5) = {v3[5]}, S_3(5) = {S3[5]}")
 cumple_4 = (v3[4] == v3[5]) and (S3[4] == S3[5])
 print(f"    misma pendiente y misma ordenada: {cumple_4}")
 
-v5, S5 = salto_y_paridad(5)
+v5, S5 = salto_y_paridad(np.arange(0, 33, dtype=np.int64), 5)
 print(f"\n  Wu y Huang 2001: (32m+5, 32m+6) se funden siempre.")
 print(f"    r=5: T^5(5) = {v5[5]}, S_5(5) = {S5[5]}")
 print(f"    r=6: T^5(6) = {v5[6]}, S_5(6) = {S5[6]}")
@@ -170,21 +227,25 @@ for r in buenos:
 
 print(f"\n\nLA FRACCION EXACTA DE CLASES QUE SE FUNDEN SIEMPRE\n")
 print(f"  (esto ya no es una medida con muestra: es una cuenta cerrada)\n")
-print(f"  {'k':>3} {'mod 2^k':>12} {'se funden':>11} {'fraccion':>10}   {'crece?':>8}")
-print(f"  {'-'*3} {'-'*12} {'-'*11} {'-'*10}   {'-'*8}")
+print(f"  {'k':>3} {'mod 2^k':>12} {'se funden':>11} {'fraccion':>10}   {'crece?':>8}"
+      f" {'razon':>8}")
+print(f"  {'-'*3} {'-'*12} {'-'*11} {'-'*10}   {'-'*8} {'-'*8}")
 
 previa = -1.0
 bajadas = 0
 fracciones = []
 for k in range(3, K_MAX + 1):
-    buenos = clases_que_se_funden(k)
-    frac = len(buenos) / (1 << k)
+    # solo el numero: con k = 26 la lista serian 28 millones de enteros
+    cuantos = cuantas_clases(k)
+    frac = cuantos / (1 << k)
     veredicto = "sube" if frac > previa else ("igual" if frac == previa else "BAJA")
     if previa >= 0 and frac < previa:
         bajadas += 1
+    razon = f"{cuantos / fracciones[-1][1]:.4f}" if fracciones else ""
     previa = frac
-    fracciones.append((k, len(buenos), frac))
-    print(f"  {k:>3} {1 << k:>12,} {len(buenos):>11,} {frac:>10.6f}   {veredicto:>8}")
+    fracciones.append((k, cuantos, frac))
+    print(f"  {k:>3} {1 << k:>12,} {cuantos:>11,} {frac:>10.6f}   {veredicto:>8}"
+          f" {razon:>8}")
 
 print(f"\n  escalones que bajan: {bajadas} de {len(fracciones) - 1}")
 
@@ -197,11 +258,66 @@ print(f"  Esta fraccion es una COTA INFERIOR de la densidad de pares")
 print(f"  consecutivos con la misma altura, y ahora es exacta, no muestreada:")
 print(f"  al menos el {ultima[2]:.4%} de los pares se funden, demostrado,")
 print(f"  con solo mirar el resto modulo 2^{ultima[0]}.")
-print(f"\n  densidadfusion.py mide la densidad real en {0.5099:.4f} a 2^26.")
+print(f"\n  densidadfusion.py mide la densidad real en 0,5186 a 2^28.")
 print(f"  La diferencia entre esa cifra y esta cota son los pares que se")
 print(f"  funden pero cuya clase NO se funde entera: coincidencias que")
 print(f"  dependen del m concreto, no solo del resto.")
-print(f"\n  Y LO QUE ESTO NO DICE: que la fraccion crezca en {K_MAX - 2} escalones")
-print(f"  no demuestra que crezca siempre, ni que tienda a 1. La conjetura de")
-print(f"  Wu sigue abierta. Lo que si hace es quitarle el sesgo de muestreo")
-print(f"  que tenia la version medida, y dar una cota inferior de verdad.")
+
+
+# --------------------- HACIA DONDE VA: el exceso de la razon sobre 2
+
+print(f"\n\nHACIA DONDE VA LA FRACCION\n")
+print(f"  Escribiendo N(k+1)/N(k) = 2 + e(k), sale f(k+1)/f(k) = 1 + e(k)/2,")
+print(f"  luego  log f(infinito) = log f(k) + (1/2) * suma de los e(j) que")
+print(f"  faltan. Toda la pregunta es si esa suma converge:")
+print(f"\n    suma CONVERGE  -> la fraccion tiende a un limite < 1")
+print(f"    suma DIVERGE   -> la fraccion tiende a 1, y casi todo par")
+print(f"                      consecutivo tendria la misma altura por resto")
+print(f"\n  Si e(k) ~ C/k^p, la suma converge si y solo si p > 1. Asi que")
+print(f"  basta con medir p. La columna que se quede CONSTANTE lo dice:\n")
+
+print(f"  {'k':>3} {'razon':>9} {'exceso e':>10} {'k*e':>8} {'k^1.5*e':>9} {'k^2*e':>9}")
+print(f"  {'-'*3} {'-'*9} {'-'*10} {'-'*8} {'-'*9} {'-'*9}")
+excesos = []
+for i in range(1, len(fracciones)):
+    k = fracciones[i - 1][0]
+    razon = fracciones[i][1] / fracciones[i - 1][1]
+    e = razon - 2
+    excesos.append((k, e))
+    if k >= 14:
+        print(f"  {k:>3} {razon:>9.5f} {e:>10.6f} {k*e:>8.4f} "
+              f"{k ** 1.5 * e:>9.4f} {k*k*e:>9.4f}")
+
+# ajuste por minimos cuadrados de log e = log C - p log k
+cola = [(k, e) for k, e in excesos if k >= 14]
+if len(cola) >= 4:
+    n = len(cola)
+    sx = sum(math.log(k) for k, _ in cola)
+    sy = sum(math.log(e) for _, e in cola)
+    sxx = sum(math.log(k) ** 2 for k, _ in cola)
+    sxy = sum(math.log(k) * math.log(e) for k, e in cola)
+    p = -(n * sxy - sx * sy) / (n * sxx - sx * sx)
+    C = math.exp((sy + p * sx) / n)
+    print(f"\n  Ajuste sobre k >= 14:   e(k) ~ {C:.4f} / k^{p:.4f}")
+    if p > 1:
+        kf = cola[-1][0]
+        resto = C / ((p - 1) * kf ** (p - 1))
+        limite = fracciones[-1][2] * math.exp(resto / 2)
+        print(f"  p = {p:.3f} > 1, luego la suma converge.")
+        print(f"  Cola de la suma desde k = {kf}: {resto:.4f}")
+        print(f"  Limite estimado de la fraccion: {limite:.4f}")
+    else:
+        print(f"  p = {p:.3f} <= 1, luego la suma diverge y la fraccion")
+        print(f"  tenderia a 1.")
+
+print(f"\n  POR QUE ESTO NO ES UNA RESPUESTA, Y HAY QUE DECIRLO:")
+print(f"  la columna k^1.5*e no es plana: BAJA hasta k = 18 y luego SUBE.")
+print(f"  O sea que p no es constante, esta derivando, y un ajuste de ley")
+print(f"  de potencias sobre trece puntos no lo captura. El limite estimado")
+print(f"  se mueve mucho con p: si p fuera 1,3 saldria otro numero, y si")
+print(f"  bajara de 1 la fraccion tenderia a 1.")
+print(f"\n  Lo que SI se puede afirmar con {K_MAX - 2} escalones exactos:")
+print(f"    - la fraccion crece siempre, sin una sola bajada")
+print(f"    - la razon baja hacia 2 monotonamente, sin llegar")
+print(f"    - la cota inferior demostrada va por {fracciones[-1][2]:.4%}")
+print(f"  La conjetura de Wu sigue abierta.")

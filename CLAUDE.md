@@ -799,31 +799,60 @@ r=4, k=3:  T^3(4)=2, S=1   |  T^3(5)=2, S=1   -> Lagarias 1985 (8k+4, 8k+5)
 r=5, k=5:  T^5(5)=2, S=2   |  T^5(6)=2, S=2   -> Wu-Huang 2001 (32m+5, 32m+6)
 ```
 
-**Y la fracción sale exacta, sin muestrear:**
+**Y la fracción sale exacta, sin muestrear.** El cálculo va **en bloques** de
+4 millones de restos con solapamiento de uno (el array entero a `k = 26` serían
+537 MB y los temporales del paso lo llevan a 3-4 GB); verificado contra la
+versión sin trocear en `k = 3…20`, y también con bloques de 8 para forzar que
+casi todo par cruce frontera: **idéntico en los 18 valores**.
 
 | k | clases buenas | fracción | k | clases buenas | fracción |
 |---|---|---|---|---|---|
-| 3 | 1 | 0,125000 | 16 | 25.241 | 0,385147 |
-| 5 | 8 | 0,250000 | 19 | 208.840 | 0,398331 |
-| 10 | 351 | 0,342773 | 21 | 850.737 | 0,405663 |
-| 13 | 3.012 | 0,367676 | **22** | **1.715.546** | **0,409018** |
+| 3 | 1 | 0,125000 | 20 | 421.643 | 0,402110 |
+| 5 | 8 | 0,250000 | 22 | 1.715.546 | 0,409018 |
+| 10 | 351 | 0,342773 | 24 | 6.966.495 | 0,415235 |
+| 16 | 25.241 | 0,385147 | **26** | **28.247.507** | **0,420921** |
 
-**Monótona en los veinte escalones**, y ahora es una **cota inferior
-demostrada**: al menos el **40,90%** de los pares consecutivos tienen la misma
-altura, y se decide mirando solo el resto módulo 2^22.
+**Monótona en los veinticuatro escalones**, y es una **cota inferior
+demostrada**: al menos el **42,09%** de los pares consecutivos tienen la misma
+altura, y se decide mirando solo el resto módulo 2^26.
 
-La densidad real medida es 0,5186 a 2^28. **La diferencia (unos 11 puntos) son
+La densidad real medida es 0,5186 a 2^28. **La diferencia (unos 10 puntos) son
 los pares que se funden pero cuya clase no se funde entera** — coincidencias
 que dependen del `m` concreto, no solo del resto.
 
-**El número de clases buenas casi se dobla en cada paso, y la razón baja hacia
-2 desde arriba:** 3 · 2,67 · 2,25 · … · 2,018 · 2,017 · 2,0165. Si converge a
-2 exactamente, la fracción tiende a un límite `< 1`; si se queda por encima,
-tiende a 1 y casi todo par consecutivo tendría la misma altura por razón de
-resto. **No se puede decidir con estos datos**: las extrapolaciones de Aitken
-sobre los últimos tramos dan 0,4456 → 0,4484 → 0,4547 → 0,4614 → 0,4659,
-**derivando hacia arriba**, o sea que la convergencia no es geométrica y la
-extrapolación no vale.
+#### Hacia dónde va la fracción, y por qué no se puede saber todavía
+
+Escribiendo `N(k+1)/N(k) = 2 + e(k)`, sale `f(k+1)/f(k) = 1 + e(k)/2`, luego
+
+```
+log f(∞)  =  log f(k)  +  ½ · (suma de los e(j) que faltan)
+```
+
+**Toda la pregunta es si esa suma converge.** Si `e(k) ~ C/k^p`, converge si y
+solo si `p > 1`. Así que basta con medir `p`, y la columna que se quede
+constante lo dice:
+
+| k | razón | e | k·e | k^1,5·e | k²·e |
+|---|---|---|---|---|---|
+| 14 | 2,03100 | 0,030995 | 0,4339 | 1,6236 | 6,075 |
+| 18 | 2,02055 | 0,020550 | 0,3699 | **1,5693** | 6,658 |
+| 22 | 2,01556 | 0,015563 | 0,3424 | 1,6059 | 7,533 |
+| 25 | 2,01331 | 0,013312 | 0,3328 | 1,6640 | 8,320 |
+
+El ajuste sobre `k ≥ 14` da `e(k) ~ 1,367 / k^1,4465`, o sea **`p ≈ 1,45 > 1`,
+la suma converge, y el límite estimado de la fracción sale ≈ 0,606**.
+
+> **Por qué eso NO es una respuesta, y hay que decirlo.** La columna `k^1,5·e`
+> **no es plana**: baja hasta `k = 18` y luego vuelve a subir. Es decir, `p` no
+> es constante, está derivando, y un ajuste de ley de potencias no lo captura.
+> El síntoma más claro: **la estimación del límite sube al añadir puntos** —
+> con datos hasta `k = 24` daba 0,594; hasta `k = 25` da 0,606. Un estimador
+> que se mueve con la muestra no es una predicción. Y si `p` bajara de 1, la
+> fracción tendería a **1**.
+>
+> Lo que sí se puede afirmar con 24 escalones exactos: la fracción **crece
+> siempre**, la razón **baja hacia 2 monótonamente sin llegar**, y la cota
+> inferior demostrada va por **42,09%**. **La conjetura de Wu sigue abierta.**
 
 ## Qué es real y qué es dibujo
 
