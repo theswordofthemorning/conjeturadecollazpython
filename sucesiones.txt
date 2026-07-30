@@ -7,11 +7,31 @@ k = 28; mas tres variantes de la segunda sucesion). Todas devuelven
 "No results". Control con los Fibonacci: devuelve A000045, o sea que la
 consulta funciona y el "no results" es real.
 
+REVERIFICADO el mismo dia con 28 consultas mas (12 numericas para a, 11 para b,
+y variantes de texto), y con las sucesiones ya ampliadas hasta k = 30. Siguen
+sin estar. Un falso positivo que conviene anotar: el prefijo corto de b
+(1,2,2,3,4,6) casa con A001611 y cinco sucesiones mas, pero ninguna sigue con
+11,19,34; con ocho terminos ya no devuelve nada. Los prefijos cortos de
+sucesiones que arrancan lento casan con cualquier cosa.
+
+LO MAS CERCANO QUE SI EXISTE EN OEIS, y hay que citarlo: A076227, "Number of
+surviving Collatz residues mod 2^n" (misma familia de objetos, conteo
+distinto), y A341362 (primer numero de una racha de n consecutivos con la
+misma altura).
+
 QUE ES "NO ESTA EN OEIS" Y QUE NO ES. Es evidencia real de que nadie las ha
 catalogado. NO es evidencia de que sean matematicamente nuevas: el criterio
-del que salen esta publicado (Wu y Huang 2001; Elia y Tucker 2015 lo enuncian
-casi textual), asi que cualquiera que lo implementara podia contarlas. Parece
-que nadie lo hizo, o nadie penso que mereciera enviarse.
+del que salen esta publicado: Elia y Tucker 2015 lo enuncian casi textual. Asi
+que cualquiera que lo implementara podia contarlas. Parece que nadie lo hizo, o
+nadie penso que mereciera enviarse.
+
+AVISO DE CITA (30-07-2026). Este documento citaba tambien "Wu y Huang 2001"
+como fuente del criterio y de la familia (32m+5, 32m+6). NO SE PUDO VERIFICAR:
+sin DOI, no aparece en Crossref, y Elia y Tucker no la citan (su bibliografia
+son cuatro entradas: Garner 1985, Lagarias, LaTourette 2007, Terras 1976).
+Localizarla o quitarla antes de apoyarse en ella. Verificadas por Crossref si
+estan: Terras 1976, Garner 1985, Lagarias 1985, Gao 1993 y Elia-Tucker
+(INTEGERS 15 (2015) #A54).
 
 
 LA DEFINICION
@@ -52,14 +72,15 @@ a(k), para k = 3, 4, 5, ...
 
 1, 3, 8, 18, 39, 82, 170, 351, 721, 1476, 3012, 6130, 12450, 25241, 51105,
 103358, 208840, 421643, 850737, 1715546, 3457791, 6966495, 14030369, 28247507,
-56854178, 114400435
+56854178, 114400435, 230136995, 462857658
 
-(k = 3 hasta k = 28)
+(k = 3 hasta k = 30)
 
 Las fracciones a(k)/2^k en la cola:
     k = 26   0,420921
     k = 27   0,423597
     k = 28   0,426175
+    k = 30   0,431070
 
 PROPIEDAD DEMOSTRADA:  a(k+1) >= 2*a(k)  siempre.
 Porque si r es buena modulo 2^k, entonces r y r + 2^k son las dos buenas
@@ -70,11 +91,12 @@ a nivel k+1.
 
 Consecuencia: la fraccion a(k)/2^k es NO DECRECIENTE, y por tanto la sucesion
 de fracciones es una cota inferior creciente de la densidad de pares de
-enteros consecutivos con la misma altura de Collatz. En k = 28 vale 0,426175.
+enteros consecutivos con la misma altura de Collatz. En k = 30 vale 0,431070.
 
 LOS DOS ANCLAJES PUBLICADOS caen dentro y se rederivan del criterio:
-    r = 4 modulo 8   -> Lagarias (1985): 8k+4 y 8k+5 se funden en 3 pasos
+    r = 4 modulo 8   -> Garner (1985): 8k+4 y 8k+5 se funden en 3 pasos
     r = 5 modulo 32  -> Wu y Huang (2001): la familia (32m+5, 32m+6)
+                        [CITA SIN VERIFICAR, ver el aviso de arriba]
 
 Las ocho clases modulo 32 son: 2, 4, 5, 12, 18, 20, 22, 28.
 
@@ -85,9 +107,9 @@ SUCESION 2 -- cuantas clases se ESTRENAN en cada nivel
 b(k) = a(k+1) - 2*a(k),  para k = 3, 4, 5, ...
 
 1, 2, 2, 3, 4, 6, 11, 19, 34, 60, 106, 190, 341, 623, 1148, 2124, 3963, 7451,
-14072, 26699, 50913, 97379, 186769, 359164, 692079
+14072, 26699, 50913, 97379, 186769, 359164, 692079, 1336125, 2583668
 
-(k = 3 hasta k = 27)
+(k = 3 hasta k = 29)
 
 POR QUE IMPORTA. Como a(k+1) - 2*a(k) = b(k), se tiene
 
@@ -106,10 +128,20 @@ Medido: la razon b(k)/b(k-1) sube monotonamente y SIN estabilizarse.
     k = 20   1,8802        k = 25   1,9180
     k = 22   1,8886        k = 26   1,9230
     k = 23   1,8973        k = 27   1,9269
+                            k = 28   1,9306
+                            k = 29   1,9337
 
-Al pasar de k = 26 a k = 28 la razon sigue subiendo (1,9180 -> 1,9269), sin
-dar senal de techo. Con estos datos NO se puede decidir si converge por
-debajo de 2 o llega a 2.
+Ampliado a k = 30 (30-07-2026), la razon sigue subiendo sin dar senal de
+techo. Los INCREMENTOS de la razon siguen encogiendo:
+
+    0,0050  ->  0,0039  ->  0,0037  ->  0,0031
+
+pero encogen despacio, y ahi esta el problema: si decrecen geometricamente la
+razon converge por debajo de 2 (en torno a 1,95) y la fraccion tiene limite
+menor que 1; si decrecen como 1/k, la suma diverge igual y la razon acaba
+llegando a 2. Cuatro puntos no distinguen esas dos cosas. NO SE PUEDE DECIDIR,
+y no hay que extrapolar: la estimacion por Aitken ya se movio con la muestra
+una vez (0,4456 -> 0,4659).
 
 
 COMO SE COMPROBARON
@@ -134,13 +166,16 @@ REFERENCIAS
 R. Terras, A stopping time problem on the positive integers,
     Acta Arithmetica 30 (1976), 241-252.   [Teoremas 1.1 y 1.2]
 J. C. Lagarias, The 3x+1 problem and its generalizations,
-    Amer. Math. Monthly 92 (1985), 3-23.   [8k+4 y 8k+5]
+    Amer. Math. Monthly 92 (1985), 3-23.   [el survey]
 L. E. Garner, On heights in the Collatz 3n+1 problem,
-    Discrete Math. 55 (1985), 57-64.
+    Discrete Math. 55 (1985), 57-64.   [8k+4 y 8k+5 -- ES DE GARNER, no de
+    Lagarias; este documento lo atribuia mal hasta el 30-07-2026]
 G.-G. Gao, On consecutive numbers of the same height in the Collatz problem,
     Discrete Math. 112 (1993), 261-267.
 Wu Jia-Bang y Huang Guo-Lin, Family of consecutive integer pairs of the same
     height in the Collatz conjecture, Mathematica Applicata 14 (2001).
+    [CITA SIN VERIFICAR: sin DOI, no esta en Crossref, y Elia-Tucker no la
+    citan. Localizarla o quitarla.]
 M. Elia y A. Tucker, Consecutive Integers and the Collatz Conjecture,
     arXiv:1511.09141 (2015).   [contraejemplos a la conjetura de Garner]
 K. Frinkle et al., Computing streaks of consecutive numbers with the same

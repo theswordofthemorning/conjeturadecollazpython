@@ -757,6 +757,13 @@ solitario de los once, y sin la marca parecería tan conectado como el resto.)*
 - **Wu y Huang (2001)**: las familias de pares que se funden son progresiones
   aritméticas módulo `2^k`, y publicaron los ejemplos `(32m+5, 32m+6)`,
   `(64m+45, 64m+46)`, `(128m+29, 128m+30)`.
+  > **CITA SIN VERIFICAR (30-07-2026).** No se pudo confirmar esta referencia: no
+  > tiene DOI, no aparece en Crossref, y **Elia–Tucker 2015 no la citan** — su
+  > bibliografía entera son cuatro entradas (Garner 1985, Lagarias, LaTourette
+  > 2007, Terras 1976). O la cita está mal copiada de algún sitio, o el trabajo
+  > existe pero es de difícil acceso. **Antes de apoyarse en ella hay que
+  > localizarla o quitarla.** Lo que sí está verificado por Crossref: Terras 1976,
+  > Garner 1985, Lagarias 1985, Gao 1993 y Elia–Tucker (INTEGERS 15 (2015) #A54).
 - **Oliveira e Silva** usa la fusión de `n` y `n−1` como optimización
   industrial de su criba de verificación: le quita el **17,5%** de las hojas.
 
@@ -766,7 +773,7 @@ Comprobado en `m = 1, 2, 7, 100, 3125, 9999, 40000`: **todos se funden en el
 paso 6 contra el paso 6, desfase 0, sin excepción.** La literatura predijo
 nuestro hallazgo veinticinco años antes de que lo miráramos.
 
-**Y el mecanismo general estaba en Lagarias 1985**: `8k+4` y `8k+5` se funden
+**Y el mecanismo general estaba en Garner 1985**: `8k+4` y `8k+5` se funden
 siempre en 3 pasos; y si dos trayectorias se funden, entonces
 `2^r·k + n₁` y `2^r·k + n₂` se funden **para todo `k`** — una sola fusión
 genera una progresión aritmética infinita de fusiones. Eso es exactamente lo
@@ -848,7 +855,7 @@ mod 64 :                                                 18 de 64  = 0,281
 
 **Y las dos familias publicadas caen dentro, exactamente:**
 
-- **resto 4 mod 8** → es el `8k+4` y `8k+5` de **Lagarias 1985**, que se funden
+- **resto 4 mod 8** → es el `8k+4` y `8k+5` de **Garner 1985**, que se funden
   siempre en 3 pasos. Sale tasa **1,0000**.
 - **resto 5 mod 32** → es la familia `(32m+5, 32m+6)` de **Wu y Huang 2001**.
   Sale tasa **1,0000**.
@@ -888,7 +895,7 @@ fuerza bruta en 9.672 pares: **0 fallos**.
 **Las dos familias publicadas se rederivan en tres líneas:**
 
 ```
-r=4, k=3:  T^3(4)=2, S=1   |  T^3(5)=2, S=1   -> Lagarias 1985 (8k+4, 8k+5)
+r=4, k=3:  T^3(4)=2, S=1   |  T^3(5)=2, S=1   -> Garner 1985 (8k+4, 8k+5)
 r=5, k=5:  T^5(5)=2, S=2   |  T^5(6)=2, S=2   -> Wu-Huang 2001 (32m+5, 32m+6)
 ```
 
@@ -903,9 +910,9 @@ casi todo par cruce frontera: **idéntico en los 18 valores**.
 | 3 | 1 | 0,125000 | 22 | 1.715.546 | 0,409018 |
 | 5 | 8 | 0,250000 | 24 | 6.966.495 | 0,415235 |
 | 10 | 351 | 0,342773 | 26 | 28.247.507 | 0,420921 |
-| 16 | 25.241 | 0,385147 | **28** | **114.400.435** | **0,426175** |
+| 16 | 25.241 | 0,385147 | **30** | **462.857.658** | **0,431070** |
 
-Es una **cota inferior demostrada**: al menos el **42,62%** de los pares
+Es una **cota inferior demostrada**: al menos el **43,11%** de los pares
 consecutivos tienen la misma altura, y se decide mirando solo el resto módulo
 2^28. *(Eso sí es un resultado: no depende de muestreo ni de ajuste.)*
 
@@ -943,7 +950,9 @@ f(k+1) − f(k)  =  nuevas(k) / 2^{k+1}       y       f(∞) = f(k) + Σ nuevas(
 | 23 | 6.966.495 | 6.915.582 | 50.913 | 1,8973 |
 | 25 | 28.247.507 | 28.060.738 | 186.769 | 1,9180 |
 | 26 | 56.854.178 | 56.495.014 | 359.164 | 1,9230 |
-| 27 | 114.400.435 | 113.708.356 | 692.079 | **1,9269** |
+| 27 | 114.400.435 | 113.708.356 | 692.079 | 1,9269 |
+| 28 | 230.136.995 | 228.800.870 | 1.336.125 | 1,9306 |
+| 29 | 462.857.658 | 460.273.990 | 2.583.668 | **1,9337** |
 
 **Toda la pregunta se reduce a la razón de crecimiento de `nuevas`.** Si se
 queda **por debajo de 2**, la suma converge y la fracción tiene un límite `< 1`.
@@ -964,14 +973,32 @@ extendida, la ampliada hasta `k = 28`, y tres variantes de la segunda).
 
 ```
 a(k) = clases mod 2^k que se funden   1, 3, 8, 18, 39, 82, 170, 351, 721, …
-       …, 28247507, 56854178, 114400435           (k = 3 … 28)
+       …, 114400435, 230136995, 462857658          (k = 3 … 30)
 
 b(k) = a(k+1) − 2·a(k)  (las nuevas)  1, 2, 2, 3, 4, 6, 11, 19, 34, 60, …
-       …, 186769, 359164, 692079                  (k = 3 … 27)
+       …, 692079, 1336125, 2583668                 (k = 3 … 29)
 ```
 
 Los términos, la definición, la demostración del criterio y las cuatro
-verificaciones están en **`sucesiones.txt`**, listos por si se quieren enviar.
+verificaciones están en **`sucesiones.txt`**, y el envío queda redactado en
+**`oeis_borrador.txt`** con los campos de OEIS ya montados. **No se ha enviado
+nada, y de momento no se va a enviar** — la decisión requiere una cuenta y una
+firma que son de una persona, no de este repo.
+
+**Reverificado el 30-07-2026 con 28 consultas** (12 numéricas para `a`, 11 para
+`b`, más variantes de texto), con control de Fibonacci que devolvió `A000045`
+las dos veces: **siguen sin estar**. Un falso positivo que conviene anotar: el
+prefijo corto de `b` (`1,2,2,3,4,6`) casa con `A001611` y cinco más, pero
+ninguna sigue con `11,19,34`; con ocho términos ya no devuelve nada. *Los
+prefijos cortos de sucesiones que empiezan lento casan con cualquier cosa.*
+
+> **Lo más cercano que sí existe, y hay que citarlo: `A076227`, "Number of
+> surviving Collatz residues mod 2^n".** Misma familia de objetos —restos módulo
+> `2^k` filtrados por un criterio de Collatz— con un conteo distinto. Y tiene
+> **actividad reciente** (julio de 2026, preprints sobre vectores de paridad), o
+> sea que esta esquina del problema está viva y con gente mirándola. También
+> existe `A341362` (primer número de una racha de `n` consecutivos con la misma
+> altura), que es el objeto de Wu contado por el otro lado.
 
 > **Qué significa "no está en OEIS", y qué no.** Es evidencia real de que
 > **nadie las ha catalogado**. **No** es evidencia de que sean matemáticamente
@@ -1191,6 +1218,72 @@ piso es ajustado para la mayoría. Es lo único de la sesión con la forma de un
 teorema en vez de la de una medición, y por eso vale más aunque diga menos.
 *(El `+1` del enunciado es `log₂(2)` y viene de mezclar mapas: con el mapa del atajo
 el piso es `racha · log₂(3/2)` sin el `+1`, también con 0 fallos.)*
+
+### La pinza de descarte de ciclos (`pinzaciclos.py`, 30-07-2026)
+
+Junta cuatro piezas que vivían sueltas: la identidad de Terras, la tabla de
+convergentes, el barrido de restos y los negativos. De la identidad
+`T^k(2^k·m + r) = 3^{S(r)}·m + T^k(r)` y de la condición de ciclo `T^k(n) = n`
+sale, despejando:
+
+```
+m = (r − T^k(r)) / (3^{S(r)} − 2^k)
+```
+
+**Por cada resto hay como mucho UN candidato, y se calcula en cerrado.** Si `m`
+no es entero, esa clase queda descartada para los infinitos números que contiene.
+
+**Barrido de 2.147.483.646 restos (`k = 1…30`), en bloques.** Supervivientes
+positivos: **`n = 1` y `n = 2`, y nada más.** La predicción escrita antes de
+medir se cumplió. Verificaciones que cortan con `SystemExit`: fórmula de Terras
+contra iteración cruda (10.000 casos, 0 fallos), el ciclo trivial presente en los
+15 `k` pares y ausente en los impares, fuerza bruta hasta 100.000, y una
+implementación independiente en Python puro sin numpy — 0 discrepancias.
+
+**Lo que no se buscaba: la ecuación no mira el signo de `m`.** Un `m` negativo
+también es solución y da un `n` negativo que cicla, así que el barrido resuelve
+el problema **sobre todo `Z`** sin proponérselo. Recupera los cuatro ciclos de
+Collatz sobre los enteros sin que se le hable nunca de negativos:
+
+```
+dividen(k) = 2 + 2·[2|k] + 3·[3|k] + 11·[11|k]
+```
+
+**0 desacuerdos en los 30 valores de `k`, y 0 restos sin explicar en los 2.147
+millones.** Cada superviviente es un punto de `{0}`, `{1,2}`, `{−1}`,
+`{−5,−7,−10}` o `{−17,…,−34}`. La casilla `(A,B) = (7,11)` de la tabla de
+convergentes predijo el ciclo de periodo 11 antes de encontrarlo, y el lado
+descartado de la tabla (`2^B < 3^A`) resultó ser exactamente `B/A = 1/1, 3/2,
+11/7` — los tres ciclos de `3n−1`.
+
+**Y AQUÍ EL RESULTADO QUE MATA EL MÉTODO, anotado para no volver a intentarlo:**
+
+| `k` | coste | |
+|---|---|---|
+| 30 | 12,5 min | medido |
+| 32 | 50 min | |
+| 35 | 6,7 h | |
+| 40 | 8,9 días | |
+| 45 | 285 días | |
+
+Pero el tiempo no es el problema. **Terras excluyó en 1976 todos los bucles de
+periodo ≤ 2.592, y nuestro `k` ES ese periodo.** O sea que **todo el rango que un
+barrido de restos puede alcanzar ya está demostrado vacío desde hace cincuenta
+años.** Subir `k` no verifica nada desconocido: reverifica un teorema. Para pisar
+territorio virgen haría falta `k > 2592`, o sea `2^2592` restos — un número de
+**781 cifras**, contra los ~10^80 átomos del universo observable.
+
+> **El barrido de restos no es lento: está muerto.** No puede encontrar nada por
+> construcción. Se deja `pinzaciclos.py` como rederivación verificada y como
+> registro de por qué esta vía está cerrada. **No subir `K_MAX`.**
+
+*Dos afinados que se evaluaron y no salvan nada:* filtrar por el `S` viable
+(`S ≈ k/1,585`) ahorra ~6× — menos de 3 niveles de `k`; y el cruce con
+`clasesfusion.py` (si `r` y `r+1` se funden, sus candidatos difieren en
+`1/(3^S − 2^k)`, luego como mucho uno es entero, por Catalan) poda un 21%. Los
+dos son mejoras **constantes** sobre un problema **exponencial**. Lo que usa la
+literatura es otra cosa: enumerar **bloques** en vez de restos, que baja de `2^k`
+a `~m³` — por eso Hercher llega a `m = 91` y un barrido se atasca en 32.
 
 ## Qué es real y qué es dibujo
 
@@ -1513,41 +1606,100 @@ medida que se comporte bien con `n/2` y con `3n`.
 *Esto no es un argumento para dejarlo. Es el mapa de dónde NO está la salida,
 que es lo que evita gastar seis meses en el sitio equivocado.*
 
+### "La maquinita de `if/else`": buscar los que siempre suben y los que siempre bajan
+
+*(Idea planteada el 30-07-2026, evaluada y descartada. Se anota entera porque es
+de las que vuelven cada seis meses.)*
+
+**La idea.** Escribir condiciones —`if`/`else` de toda la vida— que garanticen que
+un número suba siempre, y otras que garanticen que baje siempre. Aislar las series
+que ascienden al 99,9% y las que descienden al 99,9%. Un número que junte las dos
+—que suba hasta la cima y desde ahí empiece a bajar hasta volver— sería el ciclo.
+
+Tiene tres partes, y cada una falla de una forma distinta:
+
+**1. Las condiciones ya existen, y son exactas.** Es Terras 1976, y este repo lo
+tiene verificado en `mallaresiduos.py`:
+
+```
+n ≡ 2^k − 1  (mod 2^k)   ->  sube k veces seguidas, garantizado
+n ≡ 0        (mod 2^k)   ->  baja  k veces seguidas, garantizado
+```
+
+No son estadísticas: son teoremas, y se escriben como `if`. Ya se usaron hoy para
+fabricar `2^4000 − 1`, que da 3.999 pasos impares seguidos.
+
+**2. "Sube siempre" no existe entre los enteros positivos.** Haría falta
+`n ≡ 2^k − 1 (mod 2^k)` para **todo** `k` a la vez, y el único objeto que lo
+cumple es **`−1`** — el número que "termina en unos" infinitos en base 2. O sea
+que el ascensor perfecto existe, pero es uno de los ciclos negativos, no un
+entero positivo. *(Y es justo uno de los que la pinza encontró sin buscarlos.)*
+
+**3. EL ERROR DE PUNTERÍA, que es lo que hay que recordar.** Medido:**
+
+| número | qué es | distancia a `log₂3` |
+|---|---|---|
+| `2²⁰−1` | sube 20 veces seguidas | 0,3331 |
+| `2¹²−1` | sube 12 veces seguidas | 0,2186 |
+| 27 | uno cualquiera | **0,1224** |
+| 77.031 | uno cualquiera | **0,1282** |
+| **un ciclo** | — | **0 exacto** |
+
+**Los números corrientes están MÁS CERCA del ciclo que los "subidores del 100%".**
+Porque `2^k − 1` sube `k` veces y después se desploma, y esa caída le dispara el
+`B/A`. Cuanto más extremo se hace el arranque, más lejos del equilibrio acaba.
+
+> **Un ciclo no es ni ascendente ni descendente: está perfectamente equilibrado.**
+> Buscar en los extremos (99,9% arriba, 99,9% abajo) es buscar en los dos únicos
+> sitios donde con seguridad no está. El ciclo vive en el centro.
+
+Y "sube hasta un pico y luego baja" **describe todas las trayectorias sin
+excepción** — el 27 sube a 9.232 y baja. Para que sea ciclo hace falta *volver
+exactamente al punto de partida*, y eso no lo decide ningún `if`: lo decide la
+ecuación de `pinzaciclos.py`.
+
+**Lo que sí queda en pie de la idea.** Una máquina de condicionales es un
+autómata, y ésa es la forma del único enfoque que hoy rompe el molde: **Yolcu,
+Aaronson y Heule (2021)** convierten Collatz en un sistema de **reescritura de
+cadenas** sobre una representación mixta binaria-ternaria —puro `if`/`else`— cuya
+terminación equivale a la conjetura, y le lanzan un SAT solver con
+interpretaciones matriciales. Es el único que ataca el `+1` de frente en vez de
+rodearlo. *Con el aviso de Conway (1972): la versión generalizada de Collatz es
+**indecidible**, así que puede existir una máquina para este caso, pero no puede
+existir un método que la construya en general.*
+
 ## Siguiente sesión
 
-> ### ⇢ POR AQUÍ SE EMPIEZA: `clasesfusion.py` con `K_MAX = 30`
+> ### ⇢ HECHO EL 30-07-2026: `clasesfusion.py` llegó a `K_MAX = 30`
 >
-> **Estado al cerrar el 2026-07-30.** Se llegó a `k = 28`. Subir a 30 es un
-> cambio de una línea (`K_MAX = 30` arriba del archivo) y **ya no tiene
-> problema de memoria** — el troceado en bloques lo resolvió. Cuesta tiempo:
-> unos 20 minutos. Conviene lanzarlo en segundo plano y hacer otra cosa
-> mientras.
->
-> **Qué se está mirando.** La razón de crecimiento de las clases que se
-> estrenan, `b(k)/b(k−1)`:
+> Tardó unos veinte minutos. `K_MAX` queda en 30 en el archivo. Resultados:
 >
 > ```
-> k=17: 1,8427    k=25: 1,9180    k=27: 1,9269
+>  k         N(k)        NUEVAS    razon
+> 28  114.400.435       692.079   1,9269
+> 29  230.136.995     1.336.125   1,9306   <- nuevo
+> 30  462.857.658     2.583.668   1,9337   <- nuevo
 > ```
 >
-> - Si esa razón se queda **por debajo de 2** → la fracción converge a un
->   límite `< 1`.
-> - Si **llega a 2** → la fracción tiende a 1, y *casi todo par consecutivo
->   tendría la misma altura por razón de resto*, lo que probaría la conjetura
->   de Wu por la vía fuerte.
+> **La cota inferior demostrada sube de 42,6175% a `43,1070%`.** Eso es lo
+> único duro: no depende de muestreo ni de ajuste.
 >
-> **Qué mirar exactamente en los dos valores nuevos:** los incrementos de la
-> razón se están encogiendo (0,0207 → 0,0050 → 0,0039). Si en `k = 28` y `29`
-> siguen encogiendo al mismo ritmo, apunta a converger hacia 1,94–1,96. Si
-> dejan de encoger, apunta a 2. **Dos números decidirían mucho.**
+> **Y la pregunta sigue sin decidirse.** Se pedía mirar si los incrementos de
+> la razón seguían encogiendo. Siguen — `0,0050 → 0,0039 → 0,0037 → 0,0031` —
+> **pero encogen despacio, y ahí está el problema:** si decrecen
+> geométricamente, la razón converge por debajo de 2 (en torno a 1,95) y la
+> fracción tiene límite `< 1`; si decrecen como `1/k`, la suma diverge igual y
+> la razón acaba llegando a 2. **Cuatro puntos no distinguen esas dos cosas.**
+> El aviso de no extrapolar sigue en pie y ahora vale doble.
 >
-> **Y el aviso que ya nos ganamos dos veces:** no extrapolar. La estimación
-> por Aitken se movía con la muestra (0,4456 → 0,4659), y la de ley de
-> potencias también (0,594 → 0,606). Añadir puntos y mirar la tendencia; no
-> ajustar y anunciar un límite.
+> Los términos están en `sucesiones.txt` y las consultas a OEIS se repitieron
+> con la sucesión ampliada: siguen sin estar.
 >
-> Al terminar, **añadir los términos a `sucesiones.txt`** (que es lo que se
-> enviaría a OEIS) y volver a consultar OEIS con la sucesión ampliada.
+> **Por dónde seguiría este hilo:** `k = 32` costaría unas 4 veces más (una
+> hora y pico) y daría dos puntos más. No decidiría nada tampoco — pero si los
+> incrementos siguen la misma pauta, la sucesión de incrementos empieza a ser
+> larga como para distinguir geométrico de `1/k`. Es la única vía barata que
+> queda en este hilo.
 
 *(Ya hechos: el espejo en base 2 (puente exacto de un paso, no llega al segundo);
 la rueda del arbol; las once mallas en disco; los once hilos en sqlite; el espejo
@@ -1561,11 +1713,15 @@ quedarse, hay que convertirlo en programas con la forma de siempre (constantes
 arriba, comprobaciones antes del dibujo, `SystemExit` si fallan). Es la deuda mas
 concreta que tiene el laboratorio ahora mismo.
 
-1. **LA PREGUNTA MAS CONCRETA QUE HAY EN EL REPO** sigue siendo la de arriba:
-   `clasesfusion.py` con `K_MAX = 30`, y si la razon `b(k)/b(k-1)` converge a 2 o
-   se queda por debajo. El calculo es **exacto**, no muestreado, que es lo que lo
-   hace valioso. *Y el aviso de siempre: que una razon baje hacia 2 en veinte
-   escalones no demuestra que llegue a 2. Acota la pregunta; no la contesta.*
+1. **LA PREGUNTA MAS CONCRETA QUE HAY EN EL REPO** sigue siendo si la razon
+   `b(k)/b(k-1)` converge por debajo de 2 o llega a 2. El `k = 30` ya se corrio y
+   **no la decidio** (ver arriba). El siguiente escalon barato es `K_MAX = 32`:
+   cuesta unas cuatro veces mas, algo mas de una hora, y da dos puntos mas de la
+   sucesion de incrementos. Tampoco va a decidirlo, pero alarga la unica serie que
+   puede distinguir "decrece geometricamente" de "decrece como 1/k". El calculo es
+   **exacto**, no muestreado, que es lo que lo hace valioso. *Y el aviso de
+   siempre: que una razon suba hacia 2 en veinte escalones no demuestra ni que
+   llegue ni que se quede corta. Acota la pregunta; no la contesta.*
 
 2. **El numero PRIMO de rumbos.** Prediccion escrita y sin medir (30-07-2026): si
    los choques del coral vienen de que `45 = 3^2 * 5`, entonces con un numero

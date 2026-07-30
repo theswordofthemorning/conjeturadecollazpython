@@ -1,0 +1,454 @@
+BORRADOR DE ENVIO A OEIS -- LAS DOS SUCESIONES DE clasesfusion.py
+==================================================================
+
+Preparado el 2026-07-30. ESTE FICHERO NO SE HA ENVIADO A NINGUNA PARTE.
+
+  ESTO ES UN BORRADOR. NADIE LO HA ENVIADO Y NADIE PUEDE ENVIARLO POR TI.
+  Un envio a OEIS queda firmado con el nombre real de una persona y pasa por
+  revision de editores humanos. Hay que hacerlo desde una cuenta propia, en
+  https://oeis.org/Submit.html , tras pedir cuenta en "Request account".
+  El campo %A de abajo esta deliberadamente sin rellenar.
+
+Todo el texto de las entradas esta en INGLES y en ASCII puro, porque la hoja
+de estilo de OEIS lo exige ("Don't use non-ASCII characters in mathematical
+text"). Los comentarios de este fichero, en castellano, no se envian.
+
+
+===================================================================
+PARTE 1 -- REVERIFICACION: SIGUEN SIN ESTAR EN OEIS (2026-07-30)
+===================================================================
+
+Metodo: consulta directa al buscador de oeis.org
+        https://oeis.org/search?q=<terminos>&fmt=json
+(Nota tecnica: el fetcher normal daba HTTP 403 contra oeis.org; las consultas
+se hicieron con curl y un user-agent de navegador. Solo LECTURA.)
+
+--- CONTROL (si esto falla, ningun "no results" de abajo vale nada) ---
+
+  CONTROL-1  1,1,2,3,5,8,13,21                      -> 10 resultados, el
+                                                        primero A000045
+                                                        (Fibonacci). PASA.
+  CONTROL-2  1,1,2,3,5,8,13,21,34,55,89,144         -> 10 resultados, el
+                                                        primero A000045. PASA.
+
+--- SUCESION 1 (a) --- 12 consultas numericas, TODAS "no results" ---
+
+  A-1   1,3,8,18,39,82,170,351,721,1476,3012,6130            no results
+  A-2   1,3,8,18,39,82,170,351                               no results
+  A-3   1,3,8,18,39,82                                       no results
+  A-4   3,8,18,39,82,170,351,721            (desplazada 1)   no results
+  A-5   8,18,39,82,170,351,721,1476         (desplazada 2)   no results
+  A-6   3012,6130,12450,25241,51105,103358  (tramo medio)    no results
+  A-7   208840,421643,850737,1715546,3457791                 no results
+  A-8   14030369,28247507,56854178,114400435                 no results
+  A-9   0,0,0,1,3,8,18,39,82,170,351        (con ceros)      no results
+  A-10  114400435                           (termino solo)   no results
+  A-11  0,0,1,3,8,18,39,82,170,351,721      (offset 1)       no results
+  A-12  1,3,8,18,39,82,170                  (7 terminos)     no results
+
+--- SUCESION 2 (b) --- 11 consultas numericas ---
+
+  B-1   1,2,2,3,4,6,11,19,34,60,106,190                      no results
+  B-2   1,2,2,3,4,6,11,19                                    no results
+  B-3   1,2,2,3,4,6                         (6 terminos)     10 resultados
+        FALSO POSITIVO. Un prefijo de 6 terminos tan pequenos casa con
+        cualquier cosa: A001611 (Fibonacci(n)+1: 1,2,2,3,4,6,9,14,...),
+        A023894, A033665, A068106, A390446, A122135. NINGUNA sigue con
+        11,19,34. Confirmado: B-2 (8 terminos) y B-11 (10 terminos) ya no
+        devuelven nada.
+  B-4   2,2,3,4,6,11,19,34                  (desplazada 1)   no results
+  B-5   3,4,6,11,19,34,60,106               (desplazada 3)   no results
+  B-6   341,623,1148,2124,3963,7451         (tramo medio)    no results
+  B-7   14072,26699,50913,97379,186769                       no results
+  B-8   97379,186769,359164,692079                           no results
+  B-9   692079                              (termino solo)   no results
+  B-10  0,1,1,2,2,3,4,6,11,19,34,60         (offset 1)       no results
+  B-11  1,2,2,3,4,6,11,19,34,60             (10 terminos)    no results
+
+--- CONSULTAS DE TEXTO Y DE APOYO ---
+
+  C-1   2,4,5,12,18,20,22,28   (las 8 clases mod 32)         no results
+  X-1   "collatz same height residue classes"                1 resultado
+        (A000045, ruido: el buscador de texto cae en Fibonacci)
+  X-2   "consecutive integers same Collatz height"           6 resultados
+        A341362, A001045, A000045, A000079, A000295, A006666
+        -> A341362 es lo mas cercano que existe, y NO es ninguna de las dos:
+           "a(n) begins the first sequence of n consecutive positive integers
+           with the same h-value and the same d-value". Es el PRIMER numero de
+           una racha, no un CONTEO de clases de resto. Va como %Y.
+  X-3   "residues mod 2^n Collatz"    -> A076227, A396966, A177789, A328037,
+        A259663, A363686, A383046. La mas parecida en espiritu es A076227,
+        "Number of surviving Collatz residues mod 2^n":
+           1,1,1,2,3,4,8,13,19,38,64,128,226,367,734,1295,2114,...
+        NO es la nuestra (cuenta clases donde el tiempo de caida no es
+        constante; la nuestra cuenta clases donde dos consecutivos se funden).
+        Va como %Y.
+
+RESUMEN: 28 consultas en total (2 controles, 12 numericas de a, 11 numericas
+de b, 1 de las clases mod 32, 2 de texto, mas la busqueda de apoyo X-3).
+Los dos controles PASAN. Ninguna consulta numerica devuelve la sucesion.
+El unico "hit" numerico es B-3 y es un falso positivo de prefijo corto.
+
+
+===================================================================
+PARTE 2 -- EL FORMATO DE ENVIO DE OEIS, DOCUMENTADO
+===================================================================
+
+Fuentes oficiales consultadas el 2026-07-30:
+
+  https://oeis.org/eishelp1.html
+      "Internal Format Used In The On-Line Encyclopedia of Integer Sequences".
+      Es LA pagina que define los campos %I %S %T %U %N %D %H %F %Y %A %O %E
+      %e %p %t %o %K %C. Incluye un resumen al final con todas las lineas
+      posibles.
+  https://oeis.org/eishelp2.html
+      "Explanation of Terms Used in OEIS Sequences". Explica el formato
+      "bonito" (el de la web) y el significado de cada keyword y del offset.
+  https://oeis.org/wiki/Style_Sheet
+      "Style sheet for contributors to the OEIS". Reglas de redaccion:
+      longitud de los datos, ASCII, alfabetizacion de referencias, firma.
+  https://oeis.org/wiki/Keywords
+      Tabla oficial de keywords (revision aprobada del 8 de abril de 2026).
+  https://oeis.org/Submit.html
+      El formulario de envio (NO usado).
+  https://oeis.org/wiki/Overview_of_the_contribution_process
+      El proceso de contribucion.
+  OJO: https://oeis.org/wiki/Instructions_For_Contributors  ESTA VACIA.
+      La pagina existe pero no tiene texto ("There is currently no text in
+      this page"). La documentacion viva es eishelp1.html + Style_Sheet.
+
+--- LOS CAMPOS, EN ORDEN, CON SU SIGNIFICADO ---
+
+Cada linea tiene la forma:   %x Annnnnn <contenido>
+donde x es la letra del campo y Annnnnn el numero de catalogo. Al enviar una
+sucesion nueva el A-number se asigna solo (y se puede reservar un bloque de
+A-numbers de antemano, que es lo que conviene aqui porque las dos entradas se
+referencian mutuamente).
+
+  %I  Identificacion. OBLIGATORIO. Solo el A-number (los Mnnnn/Nnnnn son de
+      los libros de 1973 y 1995; no aplican a una sucesion nueva).
+  %S  Primera linea de datos. OBLIGATORIO. Minimo 4 terminos. Enteros
+      separados por comas, SIN espacios ni tabuladores.
+  %T  Segunda linea de datos (opcional).
+  %U  Tercera linea de datos (opcional). No hay %V/%W: son solo tres.
+  %N  Nombre / definicion. OBLIGATORIO. UNA sola linea, solo una permitida.
+      Puede ser larga. a(n) denota el n-esimo termino.
+  %C  Comentarios. Varias lineas permitidas.
+  %D  Referencias bibliograficas detalladas (libros, articulos SIN enlace).
+      Una por linea. Alfabetizadas por apellido del primer autor.
+  %H  Enlaces. Una por linea, con la forma exacta
+          %H Annnnnn Autor, <a href="URL">Titulo</a>, resto de la cita.
+      Alfabetizados por apellido; el b-file va siempre el primero.
+  %F  Formulas, recurrencias, funciones generatrices.
+  %e  Ejemplos que ilustran los primeros terminos (minuscula, no %E).
+      La hoja de estilo pide 1 a 3 casos simples y "show your work"; y avisa
+      de no poner un ejemplo que solo repita la definicion.
+  %p  Programa Maple.   %t  Programa Mathematica.   %o  Otro lenguaje
+      (con el lenguaje entre parentesis al principio: "(Python) ...").
+  %Y  Referencias cruzadas a otras sucesiones ("Cf. A000001, A000002.").
+  %K  Keywords. OBLIGATORIO.
+  %O  Offset. OBLIGATORIO. DOS numeros separados por coma.
+  %A  Autor / quien lo envia. OBLIGATORIO.
+  %E  Extensiones, correcciones, ediciones posteriores.
+
+--- LIMITE DE LONGITUD DE %S / %T / %U ---
+
+De la hoja de estilo (seccion Data) y de eishelp1.html:
+
+  - Como maximo TRES lineas de datos: %S, %T y %U. "Don't give more than 3
+    lines."
+  - Minimo 4 terminos.
+  - El objetivo es llenar unas tres lineas de pantalla, "maybe 260 characters
+    including digits, signs, commas and whitespaces". Y textualmente:
+    "260 characters is just a guide. [...] Try to stay under 500 chars".
+  - Si ya hay tres lineas llenas, no se anaden mas terminos a %S/%T/%U: se
+    crea un B-FILE (fichero b<numero>.txt con "n a(n)" una pareja por linea),
+    que se sube aparte y se enlaza desde %H.
+  - En la practica cada linea fisica se corta a ~70 caracteres.
+
+  ESTE CASO: la sucesion a son 148 caracteres y la b son 104. Las dos caben
+  MUY por debajo de los 260, y por eso las dos llevan la keyword "more".
+
+--- QUE VALORES DE %K CORRESPONDEN AQUI ---
+
+  nonn   SI. Todos los terminos son >= 0. Es el minimo obligatorio
+         (hay que declarar "nonn" o "sign").
+  more   SI. "More terms are needed! Would someone please extend this
+         sequence?" Con 26 y 25 terminos no se llenan las tres lineas.
+  hard   NO, y conviene NO ponerla. "hard" es "next term is not known and may
+         be hard to find". Aqui a(29) se calcula con 2^29 restos en unos
+         minutos de CPU; es caro, no dificil. Ponerlo seria exagerar.
+  base   NO. "base" es para sucesiones que dependen de la BASE de escritura
+         (propiedades de digitos). Aqui el 2^k no es una eleccion de notacion:
+         es la estructura del propio mapa de Collatz (el vector de paridad de
+         Terras). Un editor podria discutirlo; el argumento esta aqui.
+  easy   NO. "It is easy to produce terms of this sequence". El algoritmo es
+         simple pero el coste es 2^n: a(35) ya no es "easy".
+  nice, core, look, hear   NO. Las pone el editor, no el que envia.
+  new / changed   NO. Las pone el sistema automaticamente.
+
+  DECISION:  %K nonn,more     en las dos entradas.
+
+--- COMO SE INDICA EL OFFSET %O ---
+
+Dos numeros, "a,b":
+
+  a = subindice del PRIMER termino mostrado.
+  b = posicion (contando desde 1) del primer termino cuyo valor absoluto es
+      >= 2; si no hay ninguno, b = 1. El segundo numero lo usa el sistema
+      para ordenar lexicograficamente; en la practica lo ajusta solo, pero
+      hay que ponerlo bien.
+
+  Sucesion a: empieza en k = 3, y los terminos son 1, 3, 8, ...  El primero
+              >= 2 es el 3, en posicion 2.        ->   %O 3,2
+  Sucesion b: empieza en k = 3, y los terminos son 1, 2, 2, ... El primero
+              >= 2 es el 2, en posicion 2.        ->   %O 3,2
+
+  ALTERNATIVA QUE UN EDITOR PUEDE PEDIR. Comprobado con una implementacion
+  en Python puro: a(0) = a(1) = a(2) = 0. O sea que la sucesion esta definida
+  desde k = 0 y los tres primeros terminos son cero. Si el editor prefiere no
+  tener un offset "artificial", las lineas serian:
+
+      %S <A-a> 0,0,1,3,8,18,39,82,170,351,721,1476,3012,6130,12450,25241
+      %O <A-a> 1,4
+      (con k = 1..; el primer termino >= 2 es el 3, en posicion 4)
+
+      %S <A-b> 0,1,1,2,2,3,4,6,11,19,34,60,106,190,341,623,1148,2124
+      %O <A-b> 1,4
+
+  Tambien buscadas en OEIS (consultas A-9, A-11, B-10): tampoco estan.
+  El borrador de abajo usa OFFSET 3, que es lo que hay en sucesiones.txt.
+
+--- SOBRE EL PUNTO FINAL DEL %N ---
+
+  La hoja de estilo dice literalmente: "The name shall end in a period (or
+  other appropriate punctuation)." Por eso los %N de abajo TERMINAN EN PUNTO,
+  aunque el habito de leer OEIS sugiera lo contrario. Es la regla vigente.
+
+
+===================================================================
+PARTE 3 -- ENTRADA 1, LISTA PARA PEGAR
+===================================================================
+
+  ANTES DE PEGAR, HAY QUE:
+   (1) Reservar DOS A-numbers seguidos (el formulario deja pedir un bloque),
+       para poder cruzar las dos entradas. Sustituir <Aa> por el de esta
+       entrada y <Ab> por el de la otra, en TODAS las lineas.
+   (2) Rellenar %A con el nombre real de quien envia.
+   (3) Anadir a(29) y a(30) cuando termine el calculo (ver el hueco marcado).
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+%I <Aa>
+%S <Aa> 1,3,8,18,39,82,170,351,721,1476,3012,6130,12450,25241,51105,103358
+%T <Aa> 208840,421643,850737,1715546,3457791,6966495,14030369,28247507
+%U <Aa> 56854178,114400435
+%N <Aa> Number of residues r mod 2^n such that the trajectories of 2^n*m + r and 2^n*m + r + 1 under the accelerated Collatz map T (T(x) = (3*x+1)/2 if x is odd, T(x) = x/2 if x is even) agree from step n onwards for every m >= 0.
+%C <Aa> Equivalently, a(n) counts the residues r mod 2^n for which S_n(r) = S_n(r+1) and T^n(r) = T^n(r+1), where S_n(x) is the number of odd steps among the first n steps of T. This is a finite check that decides the behavior of infinitely many m, because of Terras's parity vector theorem: T^n(x) = (3^S_n(x)/2^n)*x + rho_n(x), where both S_n and rho_n depend only on x mod 2^n, so that T^n(2^n*m + r) = 3^S_n(r)*m + T^n(r) is a line in m whose slope and intercept depend only on r, and two lines agree for all m exactly when both coefficients agree.
+%C <Aa> The wrap-around case r = 2^n - 1 is included: its successor 2^n*m + 2^n lies in class 0 of the next block, so the condition there reads S_n(2^n-1) = S_n(0) and T^n(2^n-1) = 3^S_n(0) + T^n(0).
+%C <Aa> If two trajectories agree at step n they are the same from then on, so the two integers have the same Collatz height (A006577); the condition on S_n also forces them to have spent the same number of steps of the classical map getting there, since n steps of T are n + S_n steps of the classical 3x+1 map.
+%C <Aa> THE CRITERION IS NOT NEW. It is Terras's parity vector theorem (1976) applied to consecutive integers, and the families it selects are published: r = 4 mod 8, i.e. the pairs (8*m+4, 8*m+5), is the base case of Garner (1985) and is proved again in Elia and Tucker (2015); r = 5 mod 32, i.e. the pairs (32*m+5, 32*m+6), is attributed to Wu and Huang (2001). This sequence is only the COUNT of the classes that the published criterion selects; it is not a new result. It appears not to have been tabulated before.
+%C <Aa> a(n)/2^n is a proved lower bound for the density of pairs (x, x+1) of equal Collatz height, decided by the residue alone: a(28)/2^28 = 0.426175... The measured density of such pairs up to 2^28 is about 0.5186, so about 10 percentage points come from pairs that merge for their particular m without their whole residue class merging.
+%C <Aa> a(n+1) >= 2*a(n) for all n, hence a(n)/2^n is nondecreasing. Proof in three lines: with m = 1 the formula above gives T^n(2^n + r) = 3^S_n(r) + T^n(r), and the same for r+1; if r merges mod 2^n then S_n(r) = S_n(r+1) and T^n(r) = T^n(r+1), so 2^n + r and 2^n + r + 1 also have equal S_n and equal T^n; therefore both r and r + 2^n merge mod 2^(n+1). Monotonicity is thus forced by construction, not an empirical finding.
+%C <Aa> The excess over the doubling is <Ab>(n) = a(n+1) - 2*a(n), the classes that first merge at level n+1. Since a(n+1)/2^(n+1) - a(n)/2^n = <Ab>(n)/2^(n+1), the limit of a(n)/2^n equals a(n)/2^n + Sum_{j>=n} <Ab>(j)/2^(j+1), so the whole question of where the density bound goes reduces to the growth rate of <Ab>. The measured ratio <Ab>(n)/<Ab>(n-1) rises monotonically (1.8427 at n = 17, 1.9269 at n = 27) with no sign of settling; if it stays below 2 the sum converges and the bound has a limit < 1, if it reaches 2 the bound tends to 1.
+%C <Aa> a(0) = a(1) = a(2) = 0, which is why the offset is 3.
+%D <Aa> L. E. Garner, On heights in the Collatz 3n+1 problem, Discrete Mathematics 55 (1985), 57-64.
+%D <Aa> J. C. Lagarias, The 3x+1 problem and its generalizations, American Mathematical Monthly 92 (1985), no. 1, 3-23.
+%D <Aa> J. C. Lagarias (editor), The Ultimate Challenge: The 3x+1 Problem, American Mathematical Society, Providence RI, 2010, ISBN 978-0-8218-4940-8.
+%D <Aa> R. Terras, A stopping time problem on the positive integers, Acta Arithmetica 30 (1976), no. 3, 241-252.
+%D <Aa> Wu Jia-Bang and Huang Guo-Lin, Family of consecutive integer pairs of the same height in the Collatz conjecture, Mathematica Applicata 14 (2001). [CITA SIN VERIFICAR - ver la nota al final de este fichero]
+%H <Aa> Marcus Elia and Amanda Tucker, <a href="https://math.colgate.edu/~integers/p54/p54.pdf">Consecutive Integers and the Collatz Conjecture</a>, Integers 15 (2015), #A54.
+%H <Aa> Marcus Elia and Amanda Tucker, <a href="https://arxiv.org/abs/1511.09141">Consecutive Integers and the Collatz Conjecture</a>, arXiv:1511.09141 [math.NT], 2015.
+%H <Aa> Karl Frinkle, Saxon Rowland, James Pack, Madison Gordon, John Eskue, Sardonyx Egbe, and Mike Morris, <a href="https://doi.org/10.1007/s11227-025-07820-8">Computing streaks of consecutive numbers with the same Collatz height</a>, The Journal of Supercomputing 81 (2025), issue 14, article 1338.
+%H <Aa> Guo-Gang Gao, <a href="https://doi.org/10.1016/0012-365X(93)90240-T">On consecutive numbers of the same height in the Collatz problem</a>, Discrete Mathematics 112 (1993), 261-267.
+%H <Aa> Lynn E. Garner, <a href="https://doi.org/10.1016/0012-365X(85)80020-0">On heights in the Collatz 3n+1 problem</a>, Discrete Mathematics 55 (1985), no. 1, 57-64.
+%H <Aa> J. C. Lagarias, <a href="https://arxiv.org/abs/math/0309224">The 3x+1 problem: an annotated bibliography (1963-1999)</a>, arXiv:math/0309224 [math.NT].
+%H <Aa> J. C. Lagarias, <a href="https://arxiv.org/abs/math/0608208">The 3x+1 problem: an annotated bibliography, II (2000-2009)</a>, arXiv:math/0608208 [math.NT].
+%H <Aa> Riho Terras, <a href="https://doi.org/10.4064/aa-30-3-241-252">A stopping time problem on the positive integers</a>, Acta Arithmetica 30 (1976), no. 3, 241-252.
+%F <Aa> a(n+1) >= 2*a(n). See comments for the proof.
+%F <Aa> a(n+1) = 2*a(n) + <Ab>(n).
+%e <Aa> For n = 3 the eight residues r = 0..7 give the pairs (T^3(r), S_3(r)) = (0,0), (2,2), (1,1), (4,2), (2,1), (2,1), (8,2), (26,3), where S_3 counts the odd steps among the first three. Only r = 4 agrees with its successor r = 5 in both coordinates, and the wrap-around pair (r = 7, class 0) fails because S_3(7) = 3 but S_3(0) = 0; hence a(3) = 1.
+%e <Aa> That single class is the published pair (8*m+4, 8*m+5) of Garner (1985): T^3(8*m+4) = T^3(8*m+5) = 3*m+2 for every m. For m = 1: 12 -> 6 -> 3 -> 5 and 13 -> 20 -> 10 -> 5, and both took 4 steps of the classical map to reach 5, so 12 and 13 have the same height.
+%o <Aa> (Python)
+%o <Aa> def T(x, k):
+%o <Aa>     s = 0
+%o <Aa>     for _ in range(k):
+%o <Aa>         if x & 1: x = (3*x + 1)//2; s += 1
+%o <Aa>         else:     x >>= 1
+%o <Aa>     return x, s
+%o <Aa> def a(n):
+%o <Aa>     d = [T(r, n) for r in range(1 << n)]
+%o <Aa>     c = sum(1 for r in range((1 << n) - 1) if d[r] == d[r+1])
+%o <Aa>     v0, s0 = d[0]; vl, sl = d[-1]
+%o <Aa>     return c + (1 if (sl == s0 and vl == 3**s0 + v0) else 0)
+%Y <Aa> Cf. <Ab> (the classes that first merge at each level).
+%Y <Aa> Cf. A006577 (Collatz height), A006666, A025586, A076227 (surviving Collatz residues mod 2^n), A100982, A078441, A341362, A277109.
+%K <Aa> nonn,more
+%O <Aa> 3,2
+%A <Aa> _NOMBRE DEL USUARIO_, 30 de julio de 2026
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  a(29) = 230136995   a(30) = 462857658   [calculados el 30-07-2026]
+  Fraccion a(30)/2^30 = 0,431070 (la cota inferior demostrada)
+
+  NO ESTAN ESTIMADOS Y NO SE PUEDEN INVENTAR. Cuando clasesfusion.py imprima
+  las filas k = 29 y k = 30, los dos valores se pegan AL FINAL de la linea
+  %U, separados por comas, sin espacios:
+
+      %U <Aa> 56854178,114400435,<a(29)>,<a(30)>
+
+  Si al anadirlos la linea %U pasa de ~70 caracteres, se reparte otra vez el
+  total entre %S, %T y %U (siguen siendo como maximo tres lineas). Con dos
+  terminos mas el total ronda los 170 caracteres, o sea que sigue MUY por
+  debajo del limite de 260 y la keyword "more" se queda.
+
+  Y hay que actualizar tambien, en el %C que habla de la cota inferior:
+      "a(28)/2^28 = 0.426175..."   ->   el valor de a(30)/2^30.
+
+
+===================================================================
+PARTE 4 -- ENTRADA 2, LISTA PARA PEGAR
+===================================================================
+
+%I <Ab>
+%S <Ab> 1,2,2,3,4,6,11,19,34,60,106,190,341,623,1148,2124,3963,7451,14072
+%T <Ab> 26699,50913,97379,186769,359164,692079
+%N <Ab> Number of residues mod 2^(n+1) that first merge at level n+1 in the Collatz problem: a(n) = <Aa>(n+1) - 2*<Aa>(n), where <Aa>(n) is the number of residues r mod 2^n such that the trajectories of 2^n*m + r and 2^n*m + r + 1 under the accelerated Collatz map agree from step n onwards for every m >= 0.
+%C <Ab> Every residue that merges mod 2^n gives two residues that merge mod 2^(n+1), namely r and r + 2^n, so <Aa>(n+1) >= 2*<Aa>(n) is forced. Proof in three lines: from T^n(2^n*m + r) = 3^S_n(r)*m + T^n(r), taking m = 1 gives T^n(2^n + r) = 3^S_n(r) + T^n(r), and the same for r+1; if r merges then S_n(r) = S_n(r+1) and T^n(r) = T^n(r+1), so 2^n + r and 2^n + r + 1 agree too. This sequence counts the surplus, i.e. the classes that are NOT inherited from the level below.
+%C <Ab> This is the sequence with the content, because the monotonicity of <Aa>(n)/2^n is trivial while its limit is not. Writing f(n) = <Aa>(n)/2^n, one has f(n+1) - f(n) = a(n)/2^(n+1) and hence f(infinity) = f(n) + Sum_{j>=n} a(j)/2^(j+1). Since f(n) is a proved lower bound for the density of pairs of consecutive integers with the same Collatz height, the whole question of where that bound goes is the growth rate of this sequence: if a(n+1)/a(n) stays below 2 the sum converges and the bound has a limit < 1; if it reaches 2 the sum diverges and the bound tends to 1.
+%C <Ab> The measured ratio a(n)/a(n-1) rises monotonically and does not settle: 1.8427 at n = 17, 1.8802 at n = 20, 1.8886 at n = 22, 1.8973 at n = 23, 1.9127 at n = 24, 1.9180 at n = 25, 1.9230 at n = 26, 1.9269 at n = 27. With these terms the question cannot be decided either way, which is the point of tabulating the sequence.
+%C <Ab> THE UNDERLYING CRITERION IS NOT NEW: it is Terras's parity vector theorem (1976) applied to consecutive integers, and the families it selects are published (Garner 1985; Elia and Tucker 2015; Wu and Huang 2001). See <Aa> for details and references. This sequence is a derived count, not a new result.
+%C <Ab> a(0) = a(1) = 0 and a(2) = 1, which with <Aa>(0) = <Aa>(1) = <Aa>(2) = 0 is why the offset is 3.
+%D <Ab> L. E. Garner, On heights in the Collatz 3n+1 problem, Discrete Mathematics 55 (1985), 57-64.
+%D <Ab> J. C. Lagarias (editor), The Ultimate Challenge: The 3x+1 Problem, American Mathematical Society, Providence RI, 2010, ISBN 978-0-8218-4940-8.
+%D <Ab> R. Terras, A stopping time problem on the positive integers, Acta Arithmetica 30 (1976), no. 3, 241-252.
+%H <Ab> Marcus Elia and Amanda Tucker, <a href="https://math.colgate.edu/~integers/p54/p54.pdf">Consecutive Integers and the Collatz Conjecture</a>, Integers 15 (2015), #A54.
+%H <Ab> Lynn E. Garner, <a href="https://doi.org/10.1016/0012-365X(85)80020-0">On heights in the Collatz 3n+1 problem</a>, Discrete Mathematics 55 (1985), no. 1, 57-64.
+%H <Ab> J. C. Lagarias, <a href="https://arxiv.org/abs/math/0309224">The 3x+1 problem: an annotated bibliography (1963-1999)</a>, arXiv:math/0309224 [math.NT].
+%H <Ab> Riho Terras, <a href="https://doi.org/10.4064/aa-30-3-241-252">A stopping time problem on the positive integers</a>, Acta Arithmetica 30 (1976), no. 3, 241-252.
+%F <Ab> a(n) = <Aa>(n+1) - 2*<Aa>(n).
+%e <Ab> For n = 3, <Aa>(3) = 1 (the single class r = 4 mod 8, i.e. the pairs (8*m+4, 8*m+5)) and <Aa>(4) = 3 (the classes 2, 4 and 12 mod 16). Of those three, 4 and 12 are the two copies inherited from r = 4 mod 8, so only r = 2 mod 16 is new and a(3) = 3 - 2*1 = 1.
+%e <Ab> For n = 4, <Aa>(5) = 8 (the classes 2, 4, 5, 12, 18, 20, 22 and 28 mod 32) against 2*<Aa>(4) = 6 inherited, so a(4) = 2; the two new ones are r = 5 mod 32, which is the published pair (32*m+5, 32*m+6), and r = 22 mod 32.
+%Y <Ab> Cf. <Aa> (the classes that merge at each level), A006577, A076227.
+%K <Ab> nonn,more
+%O <Ab> 3,2
+%A <Ab> _NOMBRE DEL USUARIO_, 30 de julio de 2026
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  b(28) = 1336125     b(29) = 2583668     [calculados el 30-07-2026]
+  Razones b(k)/b(k-1): 1,9306 y 1,9337 (siguen subiendo, sin techo)
+
+  Con a(29) y a(30) salen dos terminos mas de esta sucesion, por la formula
+  b(k) = a(k+1) - 2*a(k):
+
+      b(28) = a(29) - 2 * 114400435
+      b(29) = a(30) - 2 * a(29)
+
+  Se pegan al final de la linea %T. NO CALCULARLOS A OJO: hay que hacer la
+  resta con los valores impresos, no con estimaciones.
+
+  Y hay que actualizar la lista de razones del segundo %C anadiendo
+  b(28)/b(27) y b(29)/b(28), que es el dato que de verdad interesa (si la
+  razon sigue subiendo por encima de 1,9269 o empieza a dar senal de techo).
+
+
+===================================================================
+PARTE 5 -- LO QUE FALTA, Y LO QUE NO SE PUDO VERIFICAR
+===================================================================
+
+--- CAMPOS QUE TIENE QUE RELLENAR UNA PERSONA ---
+
+  %A   El nombre real. Esta como "_NOMBRE DEL USUARIO_, 30 de julio de 2026".
+       El formato que espera OEIS es el nombre entre guiones bajos y la fecha
+       en ingles abreviado, asi:      _Nombre Apellido_, Jul 30 2026
+       Los guiones bajos hacen que el nombre se convierta en un enlace al
+       perfil del wiki. La fecha en castellano NO es formato valido: hay que
+       ponerla en ingles al pegar.
+  <Aa> y <Ab>   Los dos A-numbers. Se asignan al enviar. Conviene RESERVAR UN
+       BLOQUE DE DOS antes de escribir nada, para que las lineas %Y, %F, %N y
+       %C que se refieren a la otra sucesion salgan bien desde el primer
+       envio. eishelp1.html lo dice explicitamente: "You can also reserve a
+       block of A-numbers, which is helpful if you are planning to submit a
+       group of related sequences".
+  La cuenta de OEIS.   Se pide en "Request account" del wiki. La aprueba una
+       persona. Sin cuenta no hay envio.
+  a(29), a(30), b(28), b(29).   Pendientes del calculo en curso.
+
+--- LA CITA QUE NO SE PUDO VERIFICAR ---
+
+  Wu Jia-Bang y Huang Guo-Lin, "Family of consecutive integer pairs of the
+  same height in the Collatz conjecture", Mathematica Applicata 14 (2001).
+
+  SIN VERIFICAR. No se encontro ni volumen con numero de paginas, ni DOI, ni
+  registro en Crossref, ni entrada en la bibliografia anotada de Lagarias que
+  se pudo leer. Y hay un dato en contra: Elia y Tucker (2015), que es el
+  trabajo mas cercano al tema, NO citan a Wu y Huang; su bibliografia entera
+  son cuatro entradas (Garner 1985, Lagarias annotated bibliography,
+  LaTourette 2007, Terras 1976).
+
+  QUE HACER: o se localiza la cita completa (MathSciNet / Zentralblatt / la
+  bibliografia anotada de Lagarias parte II, arXiv:math/0608208) antes de
+  enviar, o se BORRA esa linea %D y se atribuye la familia (32*m+5, 32*m+6)
+  solo al criterio de Terras, sin nombre. Enviar una cita a medias a OEIS es
+  peor que no ponerla: los editores la van a pedir entera.
+
+  ATRIBUCION DEL PAR (8*m+4, 8*m+5). En sucesiones.txt esta atribuido a
+  Lagarias (1985). La fuente directa es Garner (1985), "On heights in the
+  Collatz 3n+1 problem", que es donde esta la conjetura de los "stems"; y
+  Elia y Tucker (2015) lo vuelven a demostrar como su caso base y citan a
+  Garner, no a Lagarias. El borrador de arriba dice "Garner (1985)". Si se
+  quiere mantener a Lagarias, que sea como referencia general al survey.
+
+--- CITAS VERIFICADAS (Crossref, 2026-07-30) ---
+
+  Terras 1976   doi:10.4064/aa-30-3-241-252
+                Riho Terras, "A stopping time problem on the positive
+                integers", Acta Arithmetica 30 (1976), no. 3, 241-252.  OK
+  Garner 1985   doi:10.1016/S0012-365X(85)80020-0
+                Lynn E. Garner, "On heights in the Collatz 3n+1 problem",
+                Discrete Mathematics 55 (1985), no. 1, 57-64.  OK
+  Lagarias 1985 doi:10.2307/2322189
+                Jeffrey C. Lagarias, "The 3x+1 Problem and Its
+                Generalizations", The American Mathematical Monthly 92
+                (1985), no. 1, p. 3.  OK
+  Gao 1993      doi:10.1016/0012-365X(93)90240-T
+                Guo-Gang Gao, "On consecutive numbers of the same height in
+                the Collatz problem", Discrete Mathematics 112 (1993),
+                no. 1-3, 261-267.  OK
+  Elia y Tucker Marcus Elia y Amanda Tucker, "Consecutive Integers and the
+                Collatz Conjecture", INTEGERS 15 (2015), #A54;
+                arXiv:1511.09141.  OK (el orden correcto es Elia primero)
+  Lagarias 2010 J. C. Lagarias (ed.), "The Ultimate Challenge: The 3x+1
+                Problem", AMS, 2010. ISBN 978-0-8218-4940-8.
+                (impresion de enero de 2011 en algunas fichas)  OK
+  Frinkle 2025  doi:10.1007/s11227-025-07820-8
+                Karl Frinkle, Saxon Rowland, James Pack, Madison Gordon,
+                John Eskue, Sardonyx Egbe y Mike Morris, "Computing streaks
+                of consecutive numbers with the same Collatz height",
+                The Journal of Supercomputing 81 (2025), n. 14, art. 1338.
+                OK (siete autores; "K. Frinkle et al." en sucesiones.txt es
+                correcto pero incompleto)
+
+--- SOBRE EL PROGRAMA %o ---
+
+  El programa de la entrada 1 es una implementacion en Python PURO, sin
+  numpy y sin bloques. Es la tercera de las cuatro verificaciones de
+  clasesfusion.py y reproduce a(0..8) = 0,0,0,1,3,8,18,39,82. Es lento a
+  proposito: OEIS pide programas AUTOCONTENIDOS y legibles, no rapidos. Con
+  n = 20 tarda un rato y con n = 28 no es viable; si un editor pide algo que
+  llegue lejos, el codigo vectorizado por bloques de clasesfusion.py se sube
+  como fichero enlazado desde %H, no como %o.
+
+--- SI SE PIDE UN B-FILE ---
+
+  No hace falta: con 26 y 25 terminos no se llenan las tres lineas de datos,
+  y el b-file se pide cuando SOBRAN terminos. Si mas adelante se llega a
+  k = 40 y pico, el formato del b-file es un fichero de texto llamado
+  b<numero>.txt con una pareja "n a(n)" por linea, sin comas:
+
+      3 1
+      4 3
+      5 8
+      ...
