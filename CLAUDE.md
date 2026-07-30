@@ -1093,3 +1093,26 @@ paso y midió que no llega al segundo.)*
    restos) sigue en pie. La rueda mod 27 funciona porque el árbol *dobla*, y
    doblar es literalmente esa malla. Sin esa correspondencia estructural, un
    cruce que dé positivo sería sospechoso antes que interesante.
+
+4. **LA PREGUNTA MÁS CONCRETA QUE HAY AHORA MISMO EN EL REPO.** En
+   `clasesfusion.py`, el número de clases módulo `2^k` que se funden siempre
+   casi se dobla en cada paso, y la razón baja **hacia 2 desde arriba**:
+
+   ```
+   3 · 2,67 · 2,25 · 2,17 · 2,10 · … · 2,0190 · 2,0177 · 2,0165
+   ```
+
+   - Si converge a **2 exacto** → la fracción tiende a un límite `< 1`.
+   - Si se queda **por encima de 2** → tiende a 1, y *casi todo par consecutivo
+     tendría la misma altura por pura razón de resto*, lo que resolvería la
+     conjetura de Wu por la vía fuerte.
+
+   **Por qué merece la pena:** el cálculo es **exacto**, no muestreado — no hay
+   sesgo que lo estropee. Subir `K_MAX` de 22 a 26–28 cuesta memoria
+   (`2^k` enteros de 64 bits) pero no astucia, y daría cuatro cifras más de la
+   razón. Las extrapolaciones de Aitken que probé **derivan hacia arriba**
+   (0,4456 → 0,4659), o sea que la convergencia no es geométrica y hace falta
+   más rango, no más listeza.
+
+   *Y el aviso de siempre: que una razón baje hacia 2 en veinte escalones no
+   demuestra que llegue a 2. Esto acota la pregunta; no la contesta.*
