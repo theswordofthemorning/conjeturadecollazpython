@@ -1,0 +1,132 @@
+DOS SUCESIONES QUE NO ESTAN EN OEIS
+===================================
+
+Comprobado el 2026-07-30 con seis consultas a oeis.org (la sucesion entera,
+un prefijo, una version desplazada y una extendida, mas las dos variantes de
+la segunda sucesion). Todas devuelven "No results". Control con los Fibonacci:
+devuelve A000045, o sea que la consulta funciona.
+
+QUE ES "NO ESTA EN OEIS" Y QUE NO ES. Es evidencia real de que nadie las ha
+catalogado. NO es evidencia de que sean matematicamente nuevas: el criterio
+del que salen esta publicado (Wu y Huang 2001; Elia y Tucker 2015 lo enuncian
+casi textual), asi que cualquiera que lo implementara podia contarlas. Parece
+que nadie lo hizo, o nadie penso que mereciera enviarse.
+
+
+LA DEFINICION
+-------------
+
+Sea T el mapa 3x+1 acelerado:  T(n) = (3n+1)/2 si n impar,  n/2 si n par.
+Sea S_k(r) el numero de pasos impares entre los k primeros iterados de r.
+
+Se dice que la clase de resto r modulo 2^k SE FUNDE si las trayectorias de
+2^k*m + r y de 2^k*m + r + 1 coinciden a partir del paso k PARA TODO m >= 0,
+lo cual equivale (ver abajo) a:
+
+        S_k(r) == S_k(r+1)      y      T^k(r) == T^k(r+1)
+
+con el caso de borde r = 2^k - 1, cuyo vecino cae en la clase 0 del bloque
+siguiente, y que exige  S_k(2^k-1) == S_k(0)  y  T^k(2^k-1) == 3^{S_k(0)} + T^k(0).
+
+POR QUE EL CRITERIO ES EXACTO. De la identidad de Terras (1976, Teorema 1.1),
+T^k(n) = lambda_k(n)*n + rho_k(n) con lambda_k = 3^{S_k}/2^k, y del Teorema 1.2
+(lambda_k y rho_k dependen solo de n modulo 2^k), poniendo n = 2^k*m + r sale
+
+        T^k(2^k*m + r) = 3^{S_k(r)} * m + T^k(r)
+
+una recta en m cuya pendiente y ordenada dependen solo de r. Dos rectas
+coinciden para todo m si y solo si tienen la misma pendiente y la misma
+ordenada. Es una comprobacion FINITA valida para los infinitos m de la clase.
+
+Si las dos trayectorias coinciden en el paso k, a partir de ahi son la misma,
+luego los dos numeros tienen la misma ALTURA (mismo numero de pasos del mapa
+clasico hasta el 1). La condicion sobre S_k garantiza ademas que hayan gastado
+el mismo numero de pasos clasicos para llegar (k pasos de T son k + S_k de C).
+
+
+SUCESION 1 -- cuantas clases modulo 2^k se funden
+--------------------------------------------------
+
+a(k), para k = 3, 4, 5, ...
+
+1, 3, 8, 18, 39, 82, 170, 351, 721, 1476, 3012, 6130, 12450, 25241, 51105,
+103358, 208840, 421643, 850737, 1715546, 3457791, 6966495, 14030369, 28247507
+
+(k = 3 hasta k = 26)
+
+PROPIEDAD DEMOSTRADA:  a(k+1) >= 2*a(k)  siempre.
+Porque si r es buena modulo 2^k, entonces r y r + 2^k son las dos buenas
+modulo 2^(k+1): con m = 1 en la formula de arriba, T^k(2^k + r) = 3^{S(r)} +
+T^k(r), e igual para r+1; si r era buena las dos salidas coinciden. Y si r es
+buena a nivel k sus dos iterados ya son el MISMO numero, luego sigue siendolo
+a nivel k+1.
+
+Consecuencia: la fraccion a(k)/2^k es NO DECRECIENTE, y por tanto la sucesion
+de fracciones es una cota inferior creciente de la densidad de pares de
+enteros consecutivos con la misma altura de Collatz. En k = 26 vale 0,420921.
+
+LOS DOS ANCLAJES PUBLICADOS caen dentro y se rederivan del criterio:
+    r = 4 modulo 8   -> Lagarias (1985): 8k+4 y 8k+5 se funden en 3 pasos
+    r = 5 modulo 32  -> Wu y Huang (2001): la familia (32m+5, 32m+6)
+
+Las ocho clases modulo 32 son: 2, 4, 5, 12, 18, 20, 22, 28.
+
+
+SUCESION 2 -- cuantas clases se ESTRENAN en cada nivel
+--------------------------------------------------------
+
+b(k) = a(k+1) - 2*a(k),  para k = 3, 4, 5, ...
+
+1, 2, 2, 3, 4, 6, 11, 19, 34, 60, 106, 190, 341, 623, 1148, 2124, 3963, 7451,
+14072, 26699, 50913, 97379, 186769
+
+(k = 3 hasta k = 25)
+
+POR QUE IMPORTA. Como a(k+1) - 2*a(k) = b(k), se tiene
+
+        f(k+1) - f(k) = b(k) / 2^(k+1)        con f(k) = a(k)/2^k
+        f(infinito)   = f(k) + suma de b(j)/2^(j+1) para j >= k
+
+o sea que TODA la pregunta de hacia donde va la fraccion se reduce al
+crecimiento de b. Si b(k+1)/b(k) se queda por debajo de 2, la suma converge y
+la fraccion tiene limite < 1. Si llega a 2, diverge y la fraccion tiende a 1
+(y entonces casi todo par de consecutivos tendria la misma altura por razon
+de resto, lo que probaria la conjetura de Wu por la via fuerte).
+
+Medido: la razon b(k+1)/b(k) sube de 1,843 (k=17) a 1,918 (k=25) SIN
+estabilizarse. Con estos datos no se puede decidir.
+
+
+COMO SE COMPROBARON
+-------------------
+
+1. El criterio contra fuerza bruta: 9.672 pares (n, n+1) probados a mano
+   para k = 3..7 y varios m. 0 fallos.
+2. Implementacion vectorizada por bloques contra implementacion sin trocear,
+   k = 3..20: identico. Y con bloques de 8, para forzar que casi todo par
+   cruce frontera: identico.
+3. Implementacion independiente en Python puro (sin numpy, sin bloques),
+   k = 3..16: identico, 0 discrepancias.
+4. Para las 8 clases modulo 32 marcadas como buenas, 1.600 pares con m al
+   azar hasta 10^7: 0 fallos.
+
+El codigo esta en clasesfusion.py.
+
+
+REFERENCIAS
+-----------
+
+R. Terras, A stopping time problem on the positive integers,
+    Acta Arithmetica 30 (1976), 241-252.   [Teoremas 1.1 y 1.2]
+J. C. Lagarias, The 3x+1 problem and its generalizations,
+    Amer. Math. Monthly 92 (1985), 3-23.   [8k+4 y 8k+5]
+L. E. Garner, On heights in the Collatz 3n+1 problem,
+    Discrete Math. 55 (1985), 57-64.
+G.-G. Gao, On consecutive numbers of the same height in the Collatz problem,
+    Discrete Math. 112 (1993), 261-267.
+Wu Jia-Bang y Huang Guo-Lin, Family of consecutive integer pairs of the same
+    height in the Collatz conjecture, Mathematica Applicata 14 (2001).
+M. Elia y A. Tucker, Consecutive Integers and the Collatz Conjecture,
+    arXiv:1511.09141 (2015).   [contraejemplos a la conjetura de Garner]
+K. Frinkle et al., Computing streaks of consecutive numbers with the same
+    Collatz height, J. Supercomputing 81 (2025).

@@ -162,6 +162,7 @@ for a in sorted(glob.glob('*.py')):
 | `redhilos.py` | **Una red neuronal a mano** (solo numpy) puesta a buscar dónde muere la predicción |
 | `densidadfusion.py` | **La conjetura abierta de Wu, medida** hasta 2^28 (tabla vectorizada) |
 | `clasesfusion.py` | **El criterio demostrado**: qué clases mod 2^k se funden para todo `m` |
+| `sucesiones.txt` | Las dos sucesiones que **no están en OEIS**, con definición y verificaciones |
 | `espejobases.py` | **El espejo en 15 bases**: por qué la base 2 es la única con teorema |
 | `mallas/*.json` | Las mallas guardadas, **sí versionadas**. `indice.json` lista las once |
 | `maquinitacollaz.py` | Escupe los 114 pasos de un número, uno por línea |
@@ -859,6 +860,32 @@ Con estos datos la razón **sube sin estabilizarse** (1,843 → 1,918), así que
 **no se puede decidir**. Es el mismo muro, pero ahora formulado sobre una
 sucesión de enteros en vez de sobre un ajuste de ley de potencias, que es una
 forma más honesta de no saberlo.
+
+#### Y las dos sucesiones no están en OEIS
+
+Comprobado con seis consultas (la sucesión entera, un prefijo, desplazada,
+extendida, y las dos variantes de la segunda). **Todas devuelven "No results".**
+Control con los Fibonacci: devuelve `A000045`, o sea que la consulta funciona.
+
+```
+a(k) = clases mod 2^k que se funden     1, 3, 8, 18, 39, 82, 170, 351, 721, …
+b(k) = a(k+1) − 2·a(k)  (las nuevas)    1, 2, 2, 3, 4, 6, 11, 19, 34, 60, …
+```
+
+Los términos, la definición, la demostración del criterio y las cuatro
+verificaciones están en **`sucesiones.txt`**, listos por si se quieren enviar.
+
+> **Qué significa "no está en OEIS", y qué no.** Es evidencia real de que
+> **nadie las ha catalogado**. **No** es evidencia de que sean matemáticamente
+> nuevas: el criterio del que salen está publicado (Wu–Huang 2001; Elia–Tucker
+> 2015 lo enuncian casi textual), así que cualquiera que lo implementara podía
+> contarlas. Parece que nadie lo hizo, o nadie pensó que mereciera enviarse.
+>
+> Es lo único de toda la sesión que no está ya registrado en algún sitio. Es
+> modesto —una entrada de catálogo, no un teorema— pero es real y es
+> comprobable. **Verificado cuatro veces:** contra fuerza bruta (9.672 pares),
+> vectorizado contra sin trocear, con bloques de 8 para forzar fronteras, y con
+> una implementación independiente en Python puro (`k = 3…16`, 0 discrepancias).
 
 *(El intento anterior — ajustar `e(k) ~ C/k^p` y extrapolar — daba `p ≈ 1,45` y
 un límite ≈ 0,606, pero la estimación **se movía al añadir puntos** (0,594 con
