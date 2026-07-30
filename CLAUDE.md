@@ -18,16 +18,18 @@ comentarios que explican lo obvio, sin abstracciones.
 pip install -r requirements.txt      # numpy, matplotlib, plotly
 ```
 
-Doce de los scripts importan `plotly.graph_objects`; `mallaespejo.py` y
-`mallaespejo2.py` además usan `plotly.subplots`. Durante mucho tiempo `plotly`
-faltaba en `requirements.txt` y el repo no arrancaba en una máquina limpia — ya
-está arreglado.
+**Trece** de los scripts importan `plotly.graph_objects`; `mallaespejo.py`,
+`mallaespejo2.py` y `mallascerradas.py` además usan `plotly.subplots`. Durante
+mucho tiempo `plotly` faltaba en `requirements.txt` y el repo no arrancaba en una
+máquina limpia — ya está arreglado. `numpy` lo usa **solo `viz3d.py`**.
 
-**Las dos mitades se instalan por separado, y conviene saber cuál te falta.** En
-julio de 2026, en el Python 3.14.5 de `C:\Python314`, estaban `numpy` y `plotly`
-pero **no `matplotlib`**. Con eso funcionan todos los scripts de plotly (las
-mallas, el coral, el espejo) y se cae todo lo de matplotlib: `viz3d.py`,
-`collazejecucion.py` y `python main.py graficar`. Para saber qué hay:
+**Las dos mitades se instalan por separado, y conviene saber cuál te falta.** Al
+**30-07-2026**, en el Python 3.14.5 de esta máquina, están las tres:
+`numpy 2.4.4`, `matplotlib 3.11.1`, `plotly 6.9.0` — o sea que **ahora corre todo,
+incluido lo de matplotlib** (`viz3d.py`, `collazejecucion.py`,
+`python main.py graficar`), que durante meses se caía por falta de `matplotlib`.
+Si algo de matplotlib falla, lo primero es comprobar que no cambiaste de
+intérprete. Para saber qué hay:
 
 ```
 python -c "import importlib.metadata as m; [print(p, m.version(p)) for p in ['numpy','matplotlib','plotly']]"
@@ -66,6 +68,15 @@ legibles. (Ojo: no es *una* función duplicada, son **tres versiones distintas**
 Unas devuelven la lista sola, `collazcruce` devuelve `(valores, colores)`, y
 `collazcirculo`/`collazejecucion` la arman con un `while` a nivel de módulo.)
 
+El inventario exacto, para no buscarlo a mano — **ocho** archivos definen
+`secuencia_de(n)`: `collazarbol`, `collazcruce`, `collazlamina`, `collazmalla`,
+`coralcollaz`, `cruzarestos`, `mallacollaz`, `mallascerradas`. **Dos** la arman
+inline con un `while` (`collazcirculo`, `collazejecucion`). Y **cuatro no tienen
+trayectoria completa** porque no la necesitan: `mallaespejo` y `mallaespejo2`
+trabajan con reglas de **un paso** (`collatz(n)`, `T(n)`, `espejo`, `espejo2`),
+`mallaresiduos` solo mira el arranque (`patron_de_arranque`), y `mallabasica` es
+la malla de control **sin Collatz** de ningún tipo.
+
 Su forma es siempre la misma:
 
 1. Un bloque de comentarios arriba explicando qué se está mirando y por qué.
@@ -97,7 +108,9 @@ cada script trae el valor en una constante editable arriba del archivo, nunca
 solo `input()`. `collazejecucion.py` es el único que además tiene salida de
 emergencia: si `NUMERO_FIJO = None`, prueba `input()` cuando hay tty de verdad y
 si no abre una ventanita de tkinter. Al escribir un script nuevo, copia el
-patrón de la constante, no el de tkinter.
+patrón de la constante, no el de tkinter. *(Hoy `NUMERO_FIJO` no es `None`: vale
+`2213046546463218645`, un número de 19 cifras que quedó de una prueba. La rama de
+tkinter está ahí pero no se ejecuta.)*
 
 Los gráficos de plotly se abren solos en el navegador (zoom con la rueda, giro
 con el mouse, valores al pasar el cursor).
@@ -115,7 +128,9 @@ esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
 `print()` o un `raise SystemExit()`.** Escribí `->` y `-` y listo.
 
 Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
-`python main.py camino 27` crasheaba desde Sublime. Para revisarlo:
+`python main.py camino 27` crasheaba desde Sublime. Corrido el **30-07-2026**
+sobre los 19 `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
+metiste vos. Para revisarlo:
 
 ```
 python -c "
@@ -150,10 +165,15 @@ for a in sorted(glob.glob('*.py')):
 | `mallaespejo.py` | **El A/B**: la misma maquinaria con dos reglas (espejo base 10 y Collatz) |
 | `mallaespejo2.py` | **El espejo en base 2**: las dos identidades exactas, y el A/B/C de tres reglas |
 | `mallascerradas.py` | **Los aros que cierran solos** (Pisano, +7, ×2 mod 27) y **la rueda del árbol** |
-| `maquinitacollaz.py` | Sin seguimiento en git. Escupe los 114 pasos de un número, uno por línea |
+| `maquinitacollaz.py` | Escupe los 114 pasos de un número, uno por línea |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
-| `patron detectado manualmente.txt` | Sin seguimiento en git. Notas a mano sobre las posiciones 57 y 114 |
-| `collazclaude.png` | Captura del coral de Harriss 16°/−8°, para mirarlo sin renderizar |
+| `patron detectado manualmente.txt` | Notas a mano sobre las posiciones 57 y 114 |
+| `collazclaude.png` | Captura del coral de Harriss 16°/−8°, para mirarlo sin renderizar. **No está en git** (`*.png` está ignorado): existe solo en esta máquina y no sobrevive a un clon |
+
+Todos los archivos de la tabla están trackeados **salvo `collazclaude.png`**. (Antes
+aquí decía que `maquinitacollaz.py` y `patron detectado manualmente.txt` estaban
+fuera de git; ya no es cierto, los dos se commitearon.) Para comprobarlo:
+`git ls-files`.
 
 ## Lo que se estableció, con verificación
 
@@ -285,7 +305,7 @@ semillas, 6.520 ramas):
 
 | par | impar | rumbos | posiciones | encimadas |
 |---|---|---|---|---|
-| 16° | −8° (Harriss) | 45 | 6.520 | **0%** |
+| 16° | −8° (Harriss) | 45 | 6.520 | **0%** ← *sólo hasta 3.000 semillas, ver abajo* |
 | 7° | −17° (el de `viz3d`) | 357 | 6.520 | **0%** |
 | 60° | −30° | 13 | 3.497 | 46% |
 | 90° | −45° | 9 | 1.476 | 77% |
@@ -294,12 +314,71 @@ semillas, 6.520 ramas):
 Con 120°/−60° hay 6 direcciones posibles, el paseo cae en una retícula hexagonal
 y por el principio del palomar los puntos **tienen** que repetirse. Es cierre de
 verdad, **pero lo trae el ángulo elegido, no Collatz.** Collatz pone el paseo; el
-ángulo pone el cierre. Con los ángulos de Harriss no cierra nada, y por eso parece
-un coral: se ramifica para siempre y nunca se vuelve a juntar.
+ángulo pone el cierre.
+
+#### El umbral de los 45 rumbos: el `0%` era falso (30-07-2026)
+
+Esto resuelve el punto 1 de "Siguiente sesión" y **corrige la fila de arriba**. El
+`0%` de Harriss no era una propiedad del ángulo: era el resultado de mirar sólo
+3.000 semillas.
+
+**Con `16°/−8°` sí hay choques. Dos umbrales, según qué se pregunte:**
+
+| pregunta | respuesta |
+|---|---|
+| primer `HASTA` con choque | **10.452** (y la semilla culpable es el propio 10.452) |
+| segundo choque | `HASTA` = 25.527 |
+| **primera profundidad con choque** (árbol inverso completo) | **31** |
+| choques a profundidad 59 | **39.831** en 3.121.576 nodos |
+| tasa a partir de la profundidad 42 | **1–1,5% de los nodos de cada nivel** |
+
+Los dos umbrales son distintos y los dos son ciertos: barrer por semillas sólo ve
+las ramas que cuelgan de semillas chicas, y por eso el primer choque parece estar
+en 10.452; barriendo el **árbol inverso completo** aparece en la profundidad 31,
+con cero choques hasta la 30 inclusive, exhaustivo.
+
+**Y son coincidencias exactas, no ruido de coma flotante.** Cada arista es una raíz
+45-ésima de la unidad, así que dos ramas caen en el mismo punto **si y sólo si**
+`Φ₄₅(x) = x²⁴ − x²¹ + x¹⁵ − x¹² + x⁹ − x³ + 1` divide al polinomio diferencia en
+`Z[x]`. Los dos primeros pares dan **resto exactamente cero** en aritmética entera,
+sin un solo float; recalculada a 60 dígitos, la distancia real es `8,9·10⁻⁵⁹`. Lo
+que se medía como `1,4·10⁻¹⁴` era el error de sumar 35 cosenos.
+
+**No son choques triviales:** los `(A,B)` son distintos en los dos pares —`(9,26)`
+contra `(6,23)` y `(45,85)` contra `(40,81)`— y los rumbos finales también. No es
+el caso degenerado de "mismo `(A,B)`, misma posición".
+
+**La causa, y refuerza la doctrina en vez de romperla: `45 = 3² · 5`.** El retículo
+de relaciones enteras entre las 45 raíces tiene rango `45 − 24 = 21`, y las
+relaciones son el **triángulo** (`e_k + e_{k+15} + e_{k+30} = 0`, tres direcciones a
+120°) y el **pentágono** (cinco a 72°). El segundo choque es literalmente tres
+triángulos; el primero es una mezcla que usa la simetría de orden 5. O sea que **el
+cierre lo trae la conmensurabilidad del ángulo —16 y 8 dividen a 120—, no Collatz.**
+Es el mismo fenómeno que el hexágono, sólo que hace falta llegar a profundidad 31
+para verlo.
+
+Conclusión para la pregunta que se hizo: **45 rumbos NO bastan para un árbol
+infinito.** El coral de Harriss sí se vuelve a juntar; lo que pasa es que tarda.
+
+*Predicción derivada, sin medir todavía:* si la causa es la factorización de 45,
+entonces con un número **primo** de rumbos el único núcleo es la suma de las `p`
+raíces, y un choque exigiría acumular las `p` direcciones exactamente por igual. El
+umbral de profundidad debería dispararse. Es barato de medir y sería el candidato
+serio a nota original sobre el método de dibujo.
 
 **De dónde sale la forma, y cómo se apaga.** En el coral **63,43% de los pasos
 son pares y 36,57% impares** → **1,7345 divisiones por multiplicación**, por
-encima del equilibrio. Con `16°/−8°` eso da un **giro medio de +7,22° por paso**:
+encima del equilibrio.
+
+> **CUIDADO: el `1,7345` no es una constante, es el valor de una muestra**
+> (30-07-2026). Se midió a `HASTA = 3.000`; con más semillas se mueve y se asienta
+> en **`1,7320 ± 0,0003`**: `10³`→1,7292 · `3·10³`→1,7345 · `10⁴`→1,7338 ·
+> `10⁵`→1,7321 · `10⁶`→1,7321. La cuarta cifra nunca fue estable. Y cae a 0,02% de
+> `√3 = 1,7320508`, que es **el tipo exacto de coincidencia que este repo se ha
+> propuesto no creerse**: la descomposición del valor dice que es casual. No
+> construir nada sobre esa cifra.
+
+Con `16°/−8°` eso da un **giro medio de +7,22° por paso**:
 una vuelta completa cada 50 pasos, y la rama más larga (216 pasos) da 4,3 vueltas.
 
 Y entonces —esto se **predijo antes de medirlo**— la espiral debe anularse
@@ -428,6 +507,18 @@ Tres reglas, tres mallas distintas. El espejo2 queda en el medio: más
 Collatz-like que el de base 10 (tiene colas de verdad, un solo tipo de
 sumidero), pero cerrado y demostrado.
 
+> **CORRECCIÓN AL PROTOCOLO DEL A/B (30-07-2026): la fila "se escapan del rango"
+> NO discrimina.** Aquí parece que sí, pero es un espejismo: separa a los espejos
+> de Collatz sólo porque los espejos están **acotados por construcción**. Entre dos
+> reglas del mismo tipo no separa nada. Medido con `3n+1` contra `3n−1`, a cuatro
+> tamaños: `N=256` → 33,20% las dos · `N=1024` → 33,30% las dos · `N=4096` →
+> 33,33% las dos · `N=10.000` → 33,33% las dos. **Los mismos conteos absolutos,
+> no sólo los mismos porcentajes.** Se escapan los impares con `3n±1 > N`, y el
+> `±1` casi nunca cambia de lado del corte a un impar: **esa fila mide el rango,
+> no la regla.** Las que sí discriminan son "ciclos distintos", "cola más larga" y
+> "cola media". *Lección general: no toda fila de una tabla A/B vale como
+> discriminante, y hay que comprobar cuál vale antes de apoyarse en ella.*
+
 ### Los aros que cierran solos, y la rueda del árbol (`mallascerradas.py`)
 
 Esta pieza ejecuta el plan original del laboratorio: mallas circulares
@@ -474,6 +565,208 @@ qué clase de hijo). El destino hacia adelante sigue ciego a los restos — el
 negativo de `cruzarestos.py` sigue en pie. Las dos cosas son ciertas a la vez:
 **el esqueleto es periódico, el viaje no.**
 
+### Los negativos son el mapa `3n−1` (30-07-2026)
+
+No hay fichero: todo esto se midió en scripts sueltos, y está aquí porque el
+resultado sí importa. **Collatz sobre los enteros negativos es exactamente el mapa
+`3m−1` sobre los positivos.** Dos líneas: si `n = −m`, par → `n/2 = −(m/2)`;
+impar → `3n+1 = −3m+1 = −(3m−1)`.
+
+Comprobado paso a paso para `m` de 1 a 100.000: **8.095.665 pasos comparados, 0
+fallos**, con dos implementaciones que no comparten una línea (una con `Fraction`,
+otra separando signo y magnitud, ninguna dividiendo un negativo). *Aviso para quien
+copie esto: `-7 // 2 == -4` estorbaría, pero el floor nunca actúa sobre un impar
+porque los impares no dividen, multiplican.*
+
+**Hay exactamente tres ciclos, y ningún cuarto.** Verificado por tres caminos
+independientes (cerrar en positivo, cerrar en negativo, y detección de ciclo de
+Brent), y barrido hasta 1.000.000 con 0 sin clasificar:
+
+| ciclo | largo | cuánto atrae |
+|---|---|---|
+| `[−1, −2]` | 2 | 32,8% |
+| `[−5, −14, −7, −20, −10]` | 5 | 32,3% |
+| `[−17, −50, −25, … , −34]` | 18 | 34,9% |
+
+**El A/B discrimina** (N = 1.024): `3n+1` da 1 ciclo y cola media 57,88; `3n−1` da
+3 ciclos y cola media 25,20 — converge en menos de la mitad de pasos porque tiene
+tres sumideros en vez de uno. *(La fila "se escapan del rango" empata en las dos;
+ver la corrección al protocolo, más arriba.)*
+
+**Lo que sí es un hallazgo estructural: las dos reglas viven en lados opuestos de
+`log₂(3)`, y es forzoso.** En un ciclo de `3n+1` la constante `C` de la identidad
+del repo es **positiva**, luego `2^B > 3^A`, luego `B/A > log₂(3)`. En un ciclo de
+`3n−1` la `C` es **negativa** y todo se invierte. Comprobado en los tres ciclos
+negativos y en el único positivo, 0 fallos. **El "el balance decide todo" se parte
+en dos mitades: `3n+1` sólo puede ciclar por encima del equilibrio, `3n−1` sólo por
+debajo.**
+
+Y el ciclo de `−1` escrito con la identidad del repo da **`2 = 3 − 1`**, el espejo
+exacto del `4 = 3 + 1`. Los tres `B/A` negativos son `1/1`, `3/2` y `11/7`: los tres
+convergentes de la fracción continua de `log₂(3)` — *que no es hallazgo nuevo, es el
+mismo mecanismo de las 480 casillas, y sirve como comprobación de consistencia entre
+las dos mitades del laboratorio.*
+
+**Estado de novedad: nada de esto es inédito.** Los tres ciclos negativos son
+estándar en la literatura; lo que aporta la sesión es la verificación con conteos y
+el A/B.
+
+### Las constantes de Collatz (30-07-2026)
+
+Salió de preguntar si existe "la constante de Collatz". **Existe, y varias.** Todas
+medidas sobre trayectorias de 2 a 10⁷.
+
+| constante | valor teórico | medido | error |
+|---|---|---|---|
+| **Wagon** (tiempo de caída medio, tiene entrada propia en OEIS) | **9,4779555565593** | 9,471872 | **−0,064%** |
+| hermana de la anterior (conteo reducido) | 3,4926518521864 | 3,49031 | −0,067% |
+| media geométrica por paso del atajo, `√3/2` | 0,8660254 | 0,8643758 | −0,190% |
+| pasos impares contra `ln(n)`, `1/ln(4/3)` | 3,4760595 | 3,46363 | −0,35% |
+| pasos del **atajo** contra `ln(n)`, `2/ln(4/3)` | 6,9521189 | 6,93247 | −0,28% |
+| pasos **clásicos** contra `ln(n)`, `3/ln(4/3)` | **10,4281785** | 10,3961 | −0,31% |
+| divisiones por multiplicación, `B/A` | **2** | 2,014002 | +0,70% |
+
+**La escalera 1 : 2 : 3 es la misma constante mirada de tres formas** — un bloque
+impar cuesta 1, 2 o 3 pasos según se cuenten sólo los `3n+1`, los del atajo o los
+clásicos. **Ojo con la atribución:** `2/ln(4/3) = 6,952` es la del **atajo**, no la
+del mapa clásico; el clásico es `3/ln(4/3) = 10,428`. Confundirlas da un 49,5% de
+error.
+
+**Y `B/A` converge a 2, no a `log₂(3)`.** La raíz es que la valuación 2-ádica media
+de `3n+1` vale 2 (porque `P(v=k) = 2⁻ᵏ`): medido **1,99048** sobre 4.041.132 saltos.
+El `log₂(3) = 1,585` es el punto de *equilibrio*, no el valor *típico*; son dos
+números distintos y no se contradicen.
+
+**TRAMPA DE ESTIMADOR, anotada porque mordió:** la media de las razones `B/A`
+trayectoria por trayectoria da **2,174** (+8,7%, no coincide), porque promedia un
+cociente con denominador chico y por Jensen se va hacia arriba. El estimador
+correcto es el **agregado** `Σ B / Σ A`. La misma trampa reapareció en el ajuste
+fino: pesar por pasos y pesar por números dan cosas distintas.
+
+### El ajuste fino: por qué el 3 y no otro (30-07-2026)
+
+Regla generalizada `qn+1` con `q` impar. En el mapa del atajo cada paso multiplica
+por `q/2` o por `1/2` mitad y mitad, así que la media geométrica es `√q/2` y el
+sistema debería converger sólo si `q < 4`. Medido sobre 100.000 semillas por cada
+`q`, con topes de 10⁴⁰ y 10.000 pasos:
+
+| `q` | cae | se dispara | ciclos |
+|---|---|---|---|
+| 1 | 100% | 0% | 1 |
+| **3** | **100%** | **0%** | **1** |
+| 5 | 3,03% | 96,97% | 3 |
+| 7 | 0,16% | 99,84% | 1 |
+| 9, 11, 13 | **0%** | **100%** | **0** |
+
+**Como `q` tiene que ser impar, el 3 es el único valor que converge.** Robusto: con
+topes de 10²⁰, 10⁴⁰ y 10⁸⁰ los porcentajes salen idénticos a la milésima.
+
+**PERO el `4,0019` medido no es evidencia independiente, y hay que decirlo.** Se
+comprobó que `media = q^f / 2` **exactamente** (desviación máxima 0,00009), donde
+`f` es la fracción de pasos impares. Entonces "media = 1" es *idéntico* a `f = 1/2`,
+y `f = 1/2` es Terras 1976, que ya estaba anotado como demostrado. **La precisión
+del 0,048% mide con qué exactitud recuperamos una densidad conocida, no el umbral.**
+El fenómeno (el 3 es especial) es real; el número no es un descubrimiento.
+
+*Honestidad obligatoria: que `5n+1` diverja no está demostrado — es tan conjetural
+como Collatz. Lo medido es lo medido. La literatura (Kontorovich–Lagarias) predice
+para `5x+1` que sólo `≈ x^0,65` enteros bajo `x` llegan a 1.*
+
+### Collatz contra la moneda (30-07-2026)
+
+El argumento heurístico estándar de por qué Collatz debería ser cierta **es** un
+modelo de moneda, y viene de Terras/Everett vía Lagarias. Medirlo dio la
+comparación más útil de la sesión.
+
+**Fracciones de paridad, todas las trayectorias de 2 a 10⁶:**
+
+| | atajo | clásico |
+|---|---|---|
+| fracción impar medida | **0,496524** | **0,331785** |
+| predicción | 0,500000 | 0,333333 |
+
+La relación entre los dos mapas es **exacta**: los pasos impares coinciden dígito a
+dígito (43.607.946 en los dos) y los pares del clásico son pares + impares del
+atajo. El par forzado existe uno por uno, no en promedio.
+
+**Dónde Collatz ES una moneda perfecta:** la entropía de bloques de `k` paridades da
+**exactamente `k` bits** para `k = 1…12`, sin un solo bloque faltante — la biyección
+resto↔patrón medida como información. Y **sigue dando 12 bits a profundidad 128**:
+el proceso no se degrada. 300 trayectorias de semillas de 2000 bits pasan el test de
+rachas con `z` medio **+0,020**; el control con `random.Random` da **−0,077**.
+Indistinguibles.
+
+**Dónde no lo es, y es brutal:**
+
+- Con el mapa clásico `P(impar | impar) = 0` **exacto**, en 3,3 millones de
+  oportunidades. Es la prohibición que genera los Fibonacci, medida directamente.
+- La desviación **no se encoge como `1/√N`**: `|desv|·√N` va 1,45 → 1,05 → 1,76 →
+  3,62 → **13,02** de 10³ a 10⁷ pasos. Firma de sesgo fijo, no de ruido. El 0,5
+  queda a **26 sigmas**.
+- **El patrón se puede encargar:** `2^4000 − 1` da 3.999 pasos impares seguidos y
+  `2^4000 + 1` da 4.000 alternando. Una moneda produce eso con probabilidad `2⁻⁴⁰⁰⁰`.
+
+**Pero el sesgo no es del proceso, es de la muestra, y se va con el tamaño:**
+
+| bits de la semilla | 16 | 32 | 64 | 128 | 256 |
+|---|---|---|---|---|---|
+| desviación de 0,5 | −0,0044 | −0,0020 | −0,0015 | −0,0006 | −0,0007 |
+
+**Collatz converge a la moneda justa agrandando la semilla, no acumulando tiradas.**
+Ésa es la diferencia exacta con una moneda física.
+
+**Y el origen del sesgo es OTRA VEZ el `+1`**, cerrado con una identidad exacta
+(residuo `1,7·10⁻⁷`):
+
+```
+−Σ ln(n)  =  I·ln(3/2) + P·ln(1/2) + S ,    S = Σ ln(1 + 1/(3x)) sobre los impares
+```
+
+Despejando: sin el sobrante `S` la fracción impar daría 0,497877; **con** `S` da
+**0,496064**, que es exactamente lo medido. **Tercera aparición del mismo `+1`** —
+las otras dos son el grosor 0,2286 de la lámina y el `+2` del espejo base 2.
+
+**La grieta, formulada:** la fracción impar queda **determinada** por cuánto bajó la
+trayectoria y cuántos pasos tardó, y sólo se puede medir en trayectorias **que ya
+terminaron en 1**. O sea que el `1/2` no es una ley del proceso sino una
+consecuencia contable de haber llegado al final: **el argumento de la moneda asume
+lo que habría que demostrar.**
+
+*Contexto bibliográfico, buscado y verificado:* el estudio de la moneda es Bartoš et
+al., 350.757 lanzamientos con 48 personas, publicado en JASA 2025 — `Pr(mismo lado
+que empezó) = 0,508`, pero `Pr(cara) = 0,500` exacto. El sesgo es **condicional a la
+condición inicial** y se anula al marginalizar. Fue **predicho en 2007** por
+Diaconis–Holmes–Montgomery desde la mecánica de la precesión, que ya midieron 0,508
+con fotografía de alta velocidad. **La analogía con Collatz sale al revés de lo
+esperado:** condicionada a su lado inicial la moneda queda *sesgada* (50,8%);
+condicionado a `n mod 2^k`, Collatz queda *determinado al 100%*. **La moneda es una
+moneda cargada con multiplicadores simétricos; Collatz es una moneda justa con
+multiplicadores asimétricos.** El `√3/2` **no** es un sesgo de moneda — confundirlos
+sería el error central.
+
+### El piso de la altitud: lo único con forma de teorema (30-07-2026)
+
+Buscando por qué unos números se disparan y otros caen de hocico, se predijo que
+`log₂(altitud/n)` crecería con la racha inicial de impares con pendiente
+`log₂(3/2) = 0,585`. **La predicción falló como se escribió y acertó donde importa:**
+la correlación es **0,59**, no la 0,8 que se exigía — la racha explica el 35% de la
+varianza, no el 80%. Pero la **pendiente** da **0,5837**, y leída sobre las medianas
+da `+0,5850` **once veces seguidas**, de `k=1` a `k=11`.
+
+**Y el hallazgo real no es una tendencia, es una cota:**
+
+```
+log₂(altitud(n) / n)  ≥  racha(n) · log₂(3/2) + 1
+99.999 casos, 0 fallos, holgura mínima +0,000002
+```
+
+Se demuestra en una línea (`k` pasos impares del atajo llevan `n` a al menos
+`3^k·n / 2^(k−1)`). **La racha no predice la altitud: le pone un piso exacto**, y el
+piso es ajustado para la mayoría. Es lo único de la sesión con la forma de un
+teorema en vez de la de una medición, y por eso vale más aunque diga menos.
+*(El `+1` del enunciado es `log₂(2)` y viene de mezclar mapas: con el mapa del atajo
+el piso es `racha · log₂(3/2)` sin el `+1`, también con 0 fallos.)*
+
 ## Qué es real y qué es dibujo
 
 Importa mantenerlo separado.
@@ -519,6 +812,19 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
   entre `pasos(n)` y `pasos(espejo2(n))` es **+0,06** — todavía *menos* que el
   +0,08 de base 10. El `+2` se acumula al iterar y borra la relación. Un paso:
   identidad exacta. Dos pasos: ruido. No buscar estructura de trayectoria ahí.
+- **Ninguna constante de Collatz coincide con ninguna constante fundamental**
+  (30-07-2026). Se hizo el test entero *con modelo nulo*, que es la única forma de
+  que valga algo: 9 constantes de Collatz × 8 transformaciones contra 16 constantes
+  adimensionales. **1 coincidencia observada, 0,394 esperadas por azar, p = 0,317.**
+  El escéptico encontró tres defectos en el nulo (distribución más ancha que la
+  real, número de comparaciones desigual, doble conteo), y al corregirlos **el `p`
+  sube a 0,40–0,45**: los errores empujaban *a favor* de la señal. Control
+  definitivo: el método **no distingue** Collatz de reglas `qn+1` arbitrarias
+  (`p = 0,264`). *Y las constantes dimensionales —`c`, `G`, `h`— ni siquiera son
+  comparables con un número puro: su valor depende del sistema de unidades.*
+- **La racha inicial de impares NO predice la altitud** — correlación 0,59, explica
+  el 35% de la varianza. *(Lo que sí hace es ponerle un piso exacto; ver la sección
+  del piso. Cota sí, tendencia no.)*
 
 **Correcciones de cosas que se creyeron y eran falsas:**
 
@@ -529,6 +835,18 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
   clásica salen los Fibonacci, no los `2^k`. (Se afirmó primero lo contrario; la
   comprobación 2 de `mallaresiduos.py` lo atrapó antes de dibujar nada falso —
   por eso esas comprobaciones van *antes* del dibujo y cortan con `SystemExit`.)
+- **El `0%` de encimadas de Harriss era falso** (30-07-2026): sólo valía hasta 3.000
+  semillas. Hay choques exactos desde la profundidad 31, y a la 59 son el 1–1,5% de
+  cada nivel. Ver la sección del umbral de los 45 rumbos.
+- **El `1,7345` del coral no es una constante**, es el valor de una muestra a
+  `HASTA = 3.000`. Se asienta en `1,7320 ± 0,0003`.
+- **La fila "se escapan del rango" del A/B no discrimina**: da 33,3% para `3n+1` y
+  `3n−1` por igual, con los mismos conteos absolutos a cuatro tamaños. Mide el
+  rango, no la regla.
+- **`2/ln(4/3) = 6,952` es la constante del mapa del ATAJO, no del clásico.** Para
+  el clásico es `3/ln(4/3) = 10,428`. Atribuirla mal da un 49,5% de error. La
+  escalera correcta es 1 : 2 : 3 según se cuenten los `3n+1`, los pasos del atajo o
+  los clásicos.
 
 ## Nada de esto es nuevo — el balance, hecho a propósito
 
@@ -550,21 +868,37 @@ la fuente de todos. Lo único que se buscó en la web fue el coral.
 | Identidad `(A,B)`, la lámina, `log₂(3)`, las convergentes | Vía clásica de las cotas de ciclos (Crandall, Steiner, Simons–de Weger) |
 | Que `F(k+2)` cuente los patrones del mapa clásico | El conteo estándar de "sin dos adyacentes". Folklore |
 | Que el rumbo del coral solo dependa de `(A,B)` | Los giros conmutan. Trivial |
+| Que los negativos sean `3n−1` y tengan tres ciclos | Estándar: "`3x+1` sobre `Z` tiene cuatro ciclos conocidos". Dos líneas de álgebra |
+| Que `3n+1` cicle por encima de `log₂(3)` y `3n−1` por debajo | Se sigue del signo de `C` en la identidad `(A,B)`. Elemental una vez planteado |
+| Las constantes de parada `k/ln(4/3)` | Literatura clásica (Lagarias, Applegate–Lagarias). La de Wagon tiene entrada propia en OEIS |
+| El umbral `q < 4` del `qn+1` | Es `f = 1/2` reescrito, o sea Terras 1976 otra vez |
+| Que la paridad se comporte como moneda | El modelo probabilístico estándar, formalizado en Lagarias–Weiss 1992 y Kontorovich–Lagarias |
 
 **Lo único que podría ser inédito:** la tabla de ángulos de `coralcollaz.py` —
-cuántos rumbos permite cada par y qué fracción de ramas colapsa (45 rumbos → 0%,
-6 rumbos → 97%), más la condición derivada del ángulo nulo
-(`impar/par = −1,7345`, la razón de descenso real). No es un teorema: es una
-medición sobre nuestro propio método de dibujo. Pero Harriss eligió ángulos por
-estética y nadie parece haber barrido el espacio. Candidata a nota original en
-visualización recreativa. **Sin verificar en la literatura.**
+cuántos rumbos permite cada par y qué fracción de ramas colapsa— **ahora con el
+umbral medido** (30-07-2026): primer choque exacto en la profundidad **31**, y la
+causa identificada en la factorización `45 = 3²·5` vía las relaciones enteras entre
+raíces de la unidad. No es un teorema: es una medición sobre nuestro propio método
+de dibujo. Pero Harriss eligió ángulos por estética y nadie parece haber barrido el
+espacio. Candidata a nota original en visualización recreativa. **Sin verificar en
+la literatura.** *(La otra mitad de esa candidatura, la condición del ángulo nulo,
+queda debilitada: el `1,7345` en que se apoyaba no era estable.)*
+
+*Un paralelo que tampoco se encontró en las fuentes, buscado explícitamente el
+30-07-2026: nadie parece trazar la comparación moneda-física ↔ Collatz en los
+términos de "sesgo condicional a la condición inicial". Lo más cerca es Lagarias
+diciendo que la paridad se comporta "en cierto sentido como lanzamientos
+independientes". "No encontrado" no es "no existe", pero al menos no es obvio.*
 
 ### Lo que sí es inusual aquí, y no es matemática
 
-1. **Cinco negativos registrados** (el 221 no prefiere restos; el medio es
+1. **Siete negativos registrados** (el 221 no prefiere restos; el medio es
    contabilidad; el espejo no correlaciona; el puente no llega al segundo paso;
-   la altura no codifica magnitud). Casi nadie anota lo que no funcionó, y por
-   eso casi todo el mundo repite las mismas búsquedas.
+   la altura no codifica magnitud; ninguna constante de Collatz coincide con
+   ninguna constante fundamental; la racha no predice la altitud). Casi nadie
+   anota lo que no funcionó, y por eso casi todo el mundo repite las mismas
+   búsquedas. **Y cinco correcciones a afirmaciones propias que resultaron
+   falsas**, que es la parte que de verdad cuesta escribir.
 2. **El A/B de control** (`mallaespejo.py`, `mallaespejo2.py`,
    `mallascerradas.py`): meter varias reglas por la misma maquinaria y **exigir
    que salgan distintas**. Es lo que separa "mi malla revela estructura" de "mi
@@ -591,6 +925,31 @@ doce programas que se auto-verifican, un documento que separa lo real de lo
 dibujado, y un historial de negativos. La mayoría de la exploración amateur no
 llega ahí.
 
+**Por qué las constantes no pueden demostrar nada, anotado para no volver a
+preguntarlo.** El laboratorio mide **promedios**; la conjetura es una afirmación
+sobre **cada** número. Un promedio nunca demuestra un caso individual: `√3/2 < 1`
+dice "en promedio las trayectorias bajan", y una sola órbita que subiera para
+siempre no movería ese promedio ni un decimal, porque sería un conjunto de medida
+cero. Prueba de que no es paranoia: el `5n+1` tiene media geométrica `1,118 > 1`
+("todo sube") **y sin embargo tiene un ciclo**, el del 13, donde nada sube. La
+constante no impide la excepción. Y la historia tiene casos peores — la conjetura
+de Pólya y la de Mertens se verificaron en millones de casos y son **falsas**, y de
+`Li(x) > π(x)` se sabe *con demostración* que falla en algún punto antes de `10³¹⁶`
+sin que nadie pueda alcanzarlo con una máquina.
+
+**Lo que sí tendría forma de demostración son cotas, no promedios.** El único
+resultado de esta sesión con esa forma es el piso de la altitud
+(`log₂(alt/n) ≥ racha·log₂(3/2) + 1`, 0 fallos en 99.999): un "nunca por debajo
+de", demostrable en una línea. Vale más que las tres constantes juntas aunque diga
+mucho menos. **Cuando aparezca algo nuevo, la pregunta es: ¿es un promedio o es una
+cota?**
+
+**Y la fuerza bruta no puede demostrar esto, jamás.** No por falta de máquina: los
+enteros son infinitos y verificar hasta `2⁷¹` o hasta `2^(10^100)` deja exactamente
+la misma cantidad sin verificar. Sirve para refutar, nunca para demostrar. Tampoco
+ayudan los ordenadores cuánticos: no hay algoritmo cuántico para esto, y lo mejor
+que da una búsqueda sin estructura es la raíz cuadrada del esfuerzo.
+
 Estado del arte, para calibrar: verificación por fuerza bruta al día **2^71**
 (Barina, enero 2025). Resultado general más fuerte: **Tao 2019**, "casi todas las
 órbitas alcanzan valores casi acotados".
@@ -603,8 +962,16 @@ que las matemáticas no apuntan al infinito sino que dan la vuelta y se conectan
 **El filtro:** un modelo que devuelve la misma malla para cualquier entrada no
 está midiendo la entrada, está midiendo el modelo. El poder de demostrar algo
 viene de que la malla **salga distinta** según lo que se inyecte. La tabla de
-ángulos de arriba es un ejemplo de hacerlo bien: mide una diferencia (0% vs 97%)
-y dice qué perilla la causa.
+ángulos de arriba es un ejemplo de hacerlo bien: mide una diferencia (0,003% vs
+97%) y dice qué perilla la causa. *(Era "0% vs 97%" hasta que se midió el umbral:
+a 65.145 ramas hay 2 choques, no cero. La conclusión no cambia — cambia tres
+órdenes de magnitud, no el signo.)*
+
+**Y el segundo filtro, aprendido el 30-07-2026: no toda fila de una tabla A/B
+discrimina.** La fila "se escapan del rango" da el mismo número para `3n+1` y
+`3n−1` porque mide el rango elegido, no la regla. Antes de apoyarse en una fila hay
+que meterle dos reglas *parecidas* y comprobar que las separa; con reglas muy
+distintas cualquier fila parece funcionar.
 
 **La versión rigurosa de la intuición:** cualquier regla determinista sobre un
 conjunto finito tiene que repetirse — principio del palomar, no es conjetura.
@@ -618,16 +985,29 @@ módulo `m`. Solo los primeros `k` pasos bajan (de ahí `mallaresiduos.py`).
 
 ## Siguiente sesión
 
-*(El espejo en base 2 ya se hizo — ver arriba. Encontró el puente exacto de un
-paso y midió que no llega al segundo.)*
+*(Ya hechos: el espejo en base 2, la rueda del árbol, y —el 30-07-2026— el umbral
+de los 45 rumbos, los negativos, las constantes, el ajuste fino y el A/B contra la
+moneda. Todo eso está arriba, con sus correcciones.)*
 
-1. **El umbral de los 45 rumbos.** Con `16°/−8°` hay 45 direcciones posibles y
-   cero choques en 3.000 semillas. Subir `HASTA` en `coralcollaz.py` y buscar
-   dónde aparece el primer choque. Si nunca aparece, 45 rumbos bastan para un
-   árbol infinito; si aparece, ese umbral es un número real del modelo.
-2. *(Hecho en `mallascerradas.py`: las progresiones cerradas se midieron, salen
-   distintas entre sí, y el cruce contra Collatz dio la coincidencia exacta —
-   la rueda del árbol.)* Lo que queda de ese hilo: **colorear el árbol de
-   `collazarbol.py` con la rueda** — cada rama según la clase mod 3 de su
-   semilla — para *ver* el tambor sobre la esfera que ya existe. Y si se quiere
-   bajar otro nivel de engranaje, la cuarta rueda: mod 81, orden 54.
+**Nada de lo de abajo está escrito en un fichero todavía: la sesión del 30-07-2026
+se hizo entera en scripts sueltos fuera del repo.** Lo primero, si algo de esto
+merece quedarse, es convertirlo en programas con la forma de siempre (constantes
+arriba, comprobaciones antes del dibujo, `SystemExit` si fallan).
+
+1. **El número primo de rumbos.** La predicción está escrita y sin medir: si los
+   choques del coral vienen de que `45 = 3²·5`, entonces con un número **primo** de
+   rumbos el único núcleo es la suma de las `p` raíces y el umbral de profundidad
+   debería dispararse. Es barato: mismo código, otro ángulo. Y es lo más cerca de
+   una nota original que hay en el repo.
+2. **Colorear el árbol de `collazarbol.py` con la rueda** — cada rama según la clase
+   mod 3 de su semilla — para *ver* el tambor sobre la esfera que ya existe. Y si se
+   quiere bajar otro nivel de engranaje, la cuarta rueda: mod 81, orden 54.
+3. **El `+1` aparece ya tres veces** (grosor 0,2286 de la lámina, el `+2` del espejo
+   base 2, la desviación `−0,0035` de la fracción impar). Las tres son el mismo
+   estorbo medido en tres sitios. Vale la pena buscar si se pueden escribir como una
+   sola cantidad, porque sería la única cosa del laboratorio que unifica piezas en
+   vez de acumularlas.
+4. **Persistencia.** No hay base de datos en el repo y hasta ahora no hacía falta.
+   Si se van a comparar puntas de mallas grandes o repetir barridos de millones de
+   trayectorias, un `.csv` o `.json` de trayectorias evitaría recalcular todo cada
+   vez. Sólo si aparece la necesidad — no antes.
