@@ -1,10 +1,11 @@
 DOS SUCESIONES QUE NO ESTAN EN OEIS
 ===================================
 
-Comprobado el 2026-07-30 con seis consultas a oeis.org (la sucesion entera,
-un prefijo, una version desplazada y una extendida, mas las dos variantes de
-la segunda sucesion). Todas devuelven "No results". Control con los Fibonacci:
-devuelve A000045, o sea que la consulta funciona.
+Comprobado el 2026-07-30 con ocho consultas a oeis.org (la sucesion entera, un
+prefijo, una version desplazada, una extendida, y la sucesion ampliada hasta
+k = 28; mas tres variantes de la segunda sucesion). Todas devuelven
+"No results". Control con los Fibonacci: devuelve A000045, o sea que la
+consulta funciona y el "no results" es real.
 
 QUE ES "NO ESTA EN OEIS" Y QUE NO ES. Es evidencia real de que nadie las ha
 catalogado. NO es evidencia de que sean matematicamente nuevas: el criterio
@@ -50,9 +51,15 @@ SUCESION 1 -- cuantas clases modulo 2^k se funden
 a(k), para k = 3, 4, 5, ...
 
 1, 3, 8, 18, 39, 82, 170, 351, 721, 1476, 3012, 6130, 12450, 25241, 51105,
-103358, 208840, 421643, 850737, 1715546, 3457791, 6966495, 14030369, 28247507
+103358, 208840, 421643, 850737, 1715546, 3457791, 6966495, 14030369, 28247507,
+56854178, 114400435
 
-(k = 3 hasta k = 26)
+(k = 3 hasta k = 28)
+
+Las fracciones a(k)/2^k en la cola:
+    k = 26   0,420921
+    k = 27   0,423597
+    k = 28   0,426175
 
 PROPIEDAD DEMOSTRADA:  a(k+1) >= 2*a(k)  siempre.
 Porque si r es buena modulo 2^k, entonces r y r + 2^k son las dos buenas
@@ -63,7 +70,7 @@ a nivel k+1.
 
 Consecuencia: la fraccion a(k)/2^k es NO DECRECIENTE, y por tanto la sucesion
 de fracciones es una cota inferior creciente de la densidad de pares de
-enteros consecutivos con la misma altura de Collatz. En k = 26 vale 0,420921.
+enteros consecutivos con la misma altura de Collatz. En k = 28 vale 0,426175.
 
 LOS DOS ANCLAJES PUBLICADOS caen dentro y se rederivan del criterio:
     r = 4 modulo 8   -> Lagarias (1985): 8k+4 y 8k+5 se funden en 3 pasos
@@ -78,9 +85,9 @@ SUCESION 2 -- cuantas clases se ESTRENAN en cada nivel
 b(k) = a(k+1) - 2*a(k),  para k = 3, 4, 5, ...
 
 1, 2, 2, 3, 4, 6, 11, 19, 34, 60, 106, 190, 341, 623, 1148, 2124, 3963, 7451,
-14072, 26699, 50913, 97379, 186769
+14072, 26699, 50913, 97379, 186769, 359164, 692079
 
-(k = 3 hasta k = 25)
+(k = 3 hasta k = 27)
 
 POR QUE IMPORTA. Como a(k+1) - 2*a(k) = b(k), se tiene
 
@@ -93,8 +100,16 @@ la fraccion tiene limite < 1. Si llega a 2, diverge y la fraccion tiende a 1
 (y entonces casi todo par de consecutivos tendria la misma altura por razon
 de resto, lo que probaria la conjetura de Wu por la via fuerte).
 
-Medido: la razon b(k+1)/b(k) sube de 1,843 (k=17) a 1,918 (k=25) SIN
-estabilizarse. Con estos datos no se puede decidir.
+Medido: la razon b(k)/b(k-1) sube monotonamente y SIN estabilizarse.
+
+    k = 17   1,8427        k = 24   1,9127
+    k = 20   1,8802        k = 25   1,9180
+    k = 22   1,8886        k = 26   1,9230
+    k = 23   1,8973        k = 27   1,9269
+
+Al pasar de k = 26 a k = 28 la razon sigue subiendo (1,9180 -> 1,9269), sin
+dar senal de techo. Con estos datos NO se puede decidir si converge por
+debajo de 2 o llega a 2.
 
 
 COMO SE COMPROBARON

@@ -59,7 +59,7 @@ import numpy as np
 # Cambia esto aqui, guarda, y dale a Ctrl+B en Sublime.
 # ---------------------------------------------------------------------------
 
-K_MAX = 26       # hasta que exponente 2^k se llega. 26 tarda unos minutos.
+K_MAX = 28       # hasta que exponente 2^k se llega. 28 tarda unos minutos.
 K_DETALLE = 5    # de que modulo se imprime la lista entera de clases
 BLOQUE = 1 << 22  # de cuantos restos en cuantos se trabaja
 

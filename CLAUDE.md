@@ -808,14 +808,14 @@ casi todo par cruce frontera: **idéntico en los 18 valores**.
 
 | k | clases buenas | fracción | k | clases buenas | fracción |
 |---|---|---|---|---|---|
-| 3 | 1 | 0,125000 | 20 | 421.643 | 0,402110 |
-| 5 | 8 | 0,250000 | 22 | 1.715.546 | 0,409018 |
-| 10 | 351 | 0,342773 | 24 | 6.966.495 | 0,415235 |
-| 16 | 25.241 | 0,385147 | **26** | **28.247.507** | **0,420921** |
+| 3 | 1 | 0,125000 | 22 | 1.715.546 | 0,409018 |
+| 5 | 8 | 0,250000 | 24 | 6.966.495 | 0,415235 |
+| 10 | 351 | 0,342773 | 26 | 28.247.507 | 0,420921 |
+| 16 | 25.241 | 0,385147 | **28** | **114.400.435** | **0,426175** |
 
-Es una **cota inferior demostrada**: al menos el **42,09%** de los pares
+Es una **cota inferior demostrada**: al menos el **42,62%** de los pares
 consecutivos tienen la misma altura, y se decide mirando solo el resto módulo
-2^26. *(Eso sí es un resultado: no depende de muestreo ni de ajuste.)*
+2^28. *(Eso sí es un resultado: no depende de muestreo ni de ajuste.)*
 
 > **CORRECCIÓN, y estuvo publicada mal.** Una versión anterior de esta sección
 > presentaba *"la fracción crece en los 24 escalones"* como un hallazgo. **No
@@ -844,32 +844,38 @@ clases **se estrenan** en cada nivel:
 f(k+1) − f(k)  =  nuevas(k) / 2^{k+1}       y       f(∞) = f(k) + Σ nuevas(j)/2^{j+1}
 ```
 
-| k | N(k) | heredadas | **nuevas** | razón de nuevas |
+| k | N(k+1) | heredadas | **nuevas** | razón de nuevas |
 |---|---|---|---|---|
-| 17 | 103.358 | 102.210 | 1.148 | 1,843 |
-| 20 | 850.737 | 843.286 | 7.451 | 1,880 |
-| 23 | 6.966.495 | 6.915.582 | 50.913 | 1,907 |
-| 25 | 28.247.507 | 28.060.738 | 186.769 | **1,918** |
+| 17 | 103.358 | 102.210 | 1.148 | 1,8427 |
+| 20 | 850.737 | 843.286 | 7.451 | 1,8802 |
+| 23 | 6.966.495 | 6.915.582 | 50.913 | 1,8973 |
+| 25 | 28.247.507 | 28.060.738 | 186.769 | 1,9180 |
+| 26 | 56.854.178 | 56.495.014 | 359.164 | 1,9230 |
+| 27 | 114.400.435 | 113.708.356 | 692.079 | **1,9269** |
 
 **Toda la pregunta se reduce a la razón de crecimiento de `nuevas`.** Si se
 queda **por debajo de 2**, la suma converge y la fracción tiene un límite `< 1`.
 Si llega a **2**, diverge y la fracción tiende a **1** — y entonces casi todo
 par consecutivo tendría la misma altura por razón de resto.
 
-Con estos datos la razón **sube sin estabilizarse** (1,843 → 1,918), así que
-**no se puede decidir**. Es el mismo muro, pero ahora formulado sobre una
-sucesión de enteros en vez de sobre un ajuste de ley de potencias, que es una
-forma más honesta de no saberlo.
+Con estos datos la razón **sube sin estabilizarse y sin dar señal de techo**
+(1,8427 → 1,9269 en diez escalones), así que **no se puede decidir**. Es el
+mismo muro, pero ahora formulado sobre una sucesión de enteros en vez de sobre
+un ajuste de ley de potencias, que es una forma más honesta de no saberlo.
 
 #### Y las dos sucesiones no están en OEIS
 
-Comprobado con seis consultas (la sucesión entera, un prefijo, desplazada,
-extendida, y las dos variantes de la segunda). **Todas devuelven "No results".**
-Control con los Fibonacci: devuelve `A000045`, o sea que la consulta funciona.
+Comprobado con **ocho consultas** (la sucesión entera, un prefijo, desplazada,
+extendida, la ampliada hasta `k = 28`, y tres variantes de la segunda).
+**Todas devuelven "No results".** Control con los Fibonacci: devuelve
+`A000045`, o sea que la consulta funciona y el "no results" es real.
 
 ```
-a(k) = clases mod 2^k que se funden     1, 3, 8, 18, 39, 82, 170, 351, 721, …
-b(k) = a(k+1) − 2·a(k)  (las nuevas)    1, 2, 2, 3, 4, 6, 11, 19, 34, 60, …
+a(k) = clases mod 2^k que se funden   1, 3, 8, 18, 39, 82, 170, 351, 721, …
+       …, 28247507, 56854178, 114400435           (k = 3 … 28)
+
+b(k) = a(k+1) − 2·a(k)  (las nuevas)  1, 2, 2, 3, 4, 6, 11, 19, 34, 60, …
+       …, 186769, 359164, 692079                  (k = 3 … 27)
 ```
 
 Los términos, la definición, la demostración del criterio y las cuatro
