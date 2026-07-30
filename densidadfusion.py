@@ -49,35 +49,55 @@ import numpy as np
 # Cambia esto aqui, guarda, y dale a Ctrl+B en Sublime.
 # ---------------------------------------------------------------------------
 
-POTENCIA = 26        # se llega hasta 2^POTENCIA. 26 tarda ~8 min y ~270 MB.
-POTENCIA_PICO = 22   # la tabla de picos es int64 y pesa el doble: se corta antes
+POTENCIA = 28        # se llega hasta 2^POTENCIA
+POTENCIA_PICO = 22   # la tabla de picos es int64 y pesa 8 veces: se corta antes
 DESDE = 10           # la primera potencia de la tabla
+BLOQUE = 1 << 22     # de cuantos en cuantos se vectoriza
+
+# LO QUE CUESTA. La tabla de alturas es int16 (los pasos no pasan de ~700 en
+# este rango, y el tope de int16 es 32.767), o sea 2 bytes por numero:
+#     2^26 -> 134 MB      2^28 -> 537 MB      2^29 -> 1,1 GB
+# mas la mascara de coincidencias, que es un byte por numero. Con 2^28 hace
+# falta ~1 GB libre. Si la maquina no lo tiene, bajar POTENCIA a 26.
 
 TOPE = 1 << POTENCIA
 TOPE_PICO = 1 << POTENCIA_PICO
 
 
-def tabla_de_pasos(tope):
+def tabla_de_pasos(tope, bloque=BLOQUE):
     """pasos[n] = cuantos pasos tarda n en llegar a 1 (mapa clasico 3n+1).
 
-    Se memoiza: cuando la cadena cae por debajo del tope y ya esta calculada,
-    se para y se rellena hacia atras.
+    Vectorizada por bloques. La idea: se procesan los numeros en bloques
+    consecutivos y crecientes, asi que **todo lo que esta por debajo del
+    bloque actual ya esta calculado**. Se avanza el bloque entero un paso a
+    la vez con numpy, y en cuanto un numero cae por debajo del inicio del
+    bloque, se le suma el valor que ya habia y se le da por hecho.
+
+    Un bucle de Python sobre 2^28 numeros tardaria media hora; esto tarda
+    un par de minutos porque cada paso mueve millones de numeros a la vez.
     """
-    pasos = np.full(tope + 1, -1, dtype=np.int32)
+    pasos = np.full(tope + 1, -1, dtype=np.int16)
     pasos[1] = 0
-    for arranque in range(2, tope + 1):
-        if pasos[arranque] >= 0:
-            continue
-        cadena = []
-        n = arranque
-        while n > tope or pasos[n] < 0:
-            cadena.append(n)
-            n = n // 2 if n % 2 == 0 else 3 * n + 1
-        cuenta = int(pasos[n])
-        for m in reversed(cadena):
-            cuenta += 1
-            if m <= tope:
-                pasos[m] = cuenta
+    pasos[2] = 1
+    for lo in range(3, tope + 1, bloque):
+        hi = min(lo + bloque, tope + 1)
+        origen = np.arange(lo, hi, dtype=np.int64)
+        actual = origen.copy()
+        cuenta = np.zeros(len(actual), dtype=np.int32)
+        vivos = np.ones(len(actual), dtype=bool)
+        while vivos.any():
+            donde = np.flatnonzero(vivos)
+            w = actual[donde]
+            # un paso de Collatz, a lo ancho
+            w = np.where((w & 1) == 0, w >> 1, 3 * w + 1)
+            actual[donde] = w
+            cuenta[donde] += 1
+            # los que ya cayeron por debajo del bloque estan resueltos
+            bajos = w < lo
+            if bajos.any():
+                listos = donde[bajos]
+                pasos[origen[listos]] = cuenta[listos] + pasos[w[bajos]]
+                vivos[listos] = False
     return pasos
 
 
@@ -181,25 +201,33 @@ print(f"\nLAS TUPLAS: rachas de consecutivos con el mismo tiempo de parada\n")
 print(f"  {'N':>3} {'2^N':>12} {'tupla mas larga':>16} {'empieza en':>14}")
 print(f"  {'-'*3} {'-'*12} {'-'*16} {'-'*14}")
 
+# las rachas se calculan UNA vez sobre todo el rango y luego se filtran por
+# escala. Contarlas con un bucle de Python sobre 2^28 seria inviable.
+iguales = (pasos[1:TOPE] == pasos[2:TOPE + 1])
+marca = np.zeros(len(iguales) + 2, dtype=np.int8)
+marca[1:-1] = iguales
+del iguales
+bordes = np.diff(marca)
+del marca
+# a int32 en cuanto se puede: en int64 las dos listas pesarian 1 GB
+arranques = np.flatnonzero(bordes == 1).astype(np.int32)
+finales = np.flatnonzero(bordes == -1).astype(np.int32)
+del bordes
+# el menor numero de la tupla es arranque+1; la tupla mide (final-arranque)+1
+primeros = arranques + 1
+largos = (finales - arranques) + 1
+del arranques, finales
+
 for N in range(DESDE, POTENCIA + 1):
     hasta = 1 << N
-    trozo = pasos[1:hasta + 1]
-    iguales = trozo[1:] == trozo[:-1]
-    mejor = mejor_inicio = 0
-    racha = 0
-    inicio = 1
-    for i, ig in enumerate(iguales):
-        if ig:
-            if racha == 0:
-                inicio = i + 1
-            racha += 1
-        else:
-            if racha + 1 > mejor:
-                mejor, mejor_inicio = racha + 1, inicio
-            racha = 0
-    if racha + 1 > mejor:
-        mejor, mejor_inicio = racha + 1, inicio
-    print(f"  {N:>3} {hasta:>12,} {mejor:>16} {mejor_inicio:>14,}")
+    dentro = primeros <= hasta
+    if not dentro.any():
+        continue
+    # una tupla que empieza dentro pero sigue fuera se recorta
+    l = np.minimum(largos[dentro], hasta - primeros[dentro] + 1)
+    k = int(l.argmax())
+    print(f"  {N:>3} {hasta:>12,} {int(l[k]):>16} "
+          f"{int(primeros[dentro][k]):>14,}")
 
 print(f"\n  Wu Jia-Bang (1992) reporta la tupla mas larga bajo 2^30: mide 176")
 print(f"  y empieza en 722.067.240. Aqui solo se llega a 2^{POTENCIA}, asi que")
@@ -212,21 +240,24 @@ print(f"  crecimiento hasta donde llegamos.")
 print(f"\nDE DONDE SALE LA DENSIDAD\n")
 hasta = TOPE
 a, b = pasos[1:hasta], pasos[2:hasta + 1]
-coinciden = np.flatnonzero(a == b) + 1
+cuantos_coinciden = int((a == b).sum())   # contar, no listar: listar cuesta 1 GB
 print(f"  pares consecutivos con el mismo tiempo hasta 2^{POTENCIA}: "
-      f"{len(coinciden):,}")
-print(f"  o sea el {len(coinciden) / hasta:.4%} de los pares")
+      f"{cuantos_coinciden:,}")
+print(f"  o sea el {cuantos_coinciden / hasta:.4%} de los pares")
 
 # la TASA por resto, no el conteo: cuantos de los que tienen ese resto
 # coinciden con su vecino. El conteo bruto sale plano por construccion.
-menores = np.arange(1, hasta, dtype=np.int64)
+#
+# TRUCO DE MEMORIA: el menor del par en la posicion i vale i+1, asi que
+# "menor congruente con r modulo M" es la rebanada mismo[(r-1) % M :: M].
+# Materializar np.arange(1, 2^28) costaria 2 GB; una rebanada no cuesta nada.
 mismo = (a == b)
 print(f"\n  TASA de coincidencia segun el resto del menor del par modulo 32:")
 print(f"  (la media global es {mismo.mean():.4f})")
 tasas = []
 for r in range(32):
-    marca = (menores % 32) == r
-    tasas.append((r, float(mismo[marca].mean()), int(marca.sum())))
+    rebanada = mismo[(r - 1) % 32::32]
+    tasas.append((r, float(rebanada.mean()), int(len(rebanada))))
 tasas.sort(key=lambda t: -t[1])
 print(f"    los ocho restos con MAS coincidencia:")
 for r, t, c in tasas[:8]:
@@ -258,16 +289,18 @@ previa = -1.0
 rotos_clases = 0
 for k in range(3, POTENCIA - 8):
     MOD = 1 << k
-    restos = menores % MOD
-    suma = np.bincount(restos, weights=mismo, minlength=MOD)
-    cuenta = np.bincount(restos, minlength=MOD)
-    tasa = suma / np.maximum(cuenta, 1)
-    siempre = int(((tasa > 0.99999) & (cuenta > 30)).sum())
+    siempre = 0
+    menor_muestra = len(mismo)
+    for r in range(MOD):
+        rebanada = mismo[(r - 1) % MOD::MOD]
+        menor_muestra = min(menor_muestra, len(rebanada))
+        if len(rebanada) > 30 and rebanada.all():
+            siempre += 1
     frac = siempre / MOD
     if previa >= 0 and frac < previa:
         rotos_clases += 1
     previa = frac
-    print(f"  {MOD:>7} {siempre:>8} {frac:>9.5f} {int(cuenta.min()):>14,}")
+    print(f"  {MOD:>7} {siempre:>8} {frac:>9.5f} {menor_muestra:>14,}")
 
 print(f"\n  escalones que bajan: {rotos_clases}")
 print(f"\n  LOS DOS ANCLAJES CONOCIDOS CAEN DENTRO:")

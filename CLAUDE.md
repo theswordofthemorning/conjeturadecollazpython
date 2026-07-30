@@ -160,7 +160,8 @@ for a in sorted(glob.glob('*.py')):
 | `hilos.db` | La base: tablas `hilos`, `pasos`, `cruces`, `fusiones`, `cola_comun` |
 | `mapahilos.py` | **Los once a la vez**, cuatro paneles. La razón de unos lo explica todo |
 | `redhilos.py` | **Una red neuronal a mano** (solo numpy) puesta a buscar dónde muere la predicción |
-| `densidadfusion.py` | **La conjetura abierta de Wu, medida** hasta 2^26 |
+| `densidadfusion.py` | **La conjetura abierta de Wu, medida** hasta 2^28 (tabla vectorizada) |
+| `clasesfusion.py` | **El criterio demostrado**: qué clases mod 2^k se funden para todo `m` |
 | `espejobases.py` | **El espejo en 15 bases**: por qué la base 2 es la única con teorema |
 | `mallas/*.json` | Las mallas guardadas, **sí versionadas**. `indice.json` lista las once |
 | `maquinitacollaz.py` | Escupe los 114 pasos de un número, uno por línea |
@@ -692,17 +693,22 @@ same height"*, así que su magnitud es la de los pasos.
 la densidad de pares consecutivos con la misma altura **crece** con `N`, y
 conjeturó sin demostrarlo que la versión sin condicionar también crece.
 
-**Medido hasta 2^26 = 67.108.864, con tabla memoizada:**
+**Medido hasta 2^28 = 268.435.456.** La tabla de alturas es `int16` (los pasos
+no pasan de ~700 en este rango) y se construye **vectorizada por bloques**: se
+avanza un bloque entero un paso a la vez y, en cuanto un número cae por debajo
+del inicio del bloque, ya está resuelto. Un bucle de Python sobre 268 millones
+tardaría media hora; esto tarda un par de minutos. *(Verificado contra la
+versión lenta en los primeros 300.000: **0 discrepancias**.)*
 
 | 2^N | d(altura) | 2^N | d(altura) |
 |---|---|---|---|
-| 2^10 | 0,364614 | 2^19 | 0,470931 |
-| 2^12 | 0,396581 | 2^21 | 0,483710 |
-| 2^14 | 0,423305 | 2^23 | 0,495086 |
-| 2^16 | 0,445212 | **2^24** | **0,500265** |
-| 2^18 | 0,463060 | 2^26 | **0,509861** |
+| 2^10 | 0,364614 | 2^23 | 0,495086 |
+| 2^14 | 0,423305 | **2^24** | **0,500265** |
+| 2^18 | 0,463060 | 2^26 | 0,509861 |
+| 2^21 | 0,483710 | 2^27 | 0,514313 |
+| 2^22 | 0,489504 | **2^28** | **0,518577** |
 
-**Monótona en los dieciséis escalones. Cero bajadas.** La conjetura de Wu
+**Monótona en los dieciocho escalones. Cero bajadas.** La conjetura de Wu
 aguanta en todo el rango medido.
 
 **Y hay un segundo hito.** Garner (1985) conjeturó que *"la mayoría de los
@@ -719,13 +725,14 @@ de la maquinaria — la maquinaria discrimina.
 **Las tuplas crecen** (rachas de consecutivos con la misma altura):
 
 ```
-2^10:  7      2^18: 27      2^23: 65
-2^13: 17      2^20: 40      2^25: 96   (empieza en 24.455.681)
-2^16: 25      2^22: 52      2^26: 96
+2^10:   7      2^20:  40      2^25:  96
+2^13:  17      2^22:  52      2^26:  96
+2^16:  25      2^23:  65      2^27:  98   (en 98.041.684)
+2^18:  27      2^24:  77      2^28: 120   (en 136.696.632)
 ```
 
-Wu (1992) reporta **176** bajo 2^30, empezando en 722.067.240. Nuestro 96 en
-2^26 es compatible con esa trayectoria de crecimiento, pero no la confirma:
+Wu (1992) reporta **176** bajo 2^30, empezando en 722.067.240. Nuestro **120 en
+2^28** es compatible con esa trayectoria de crecimiento, pero no la confirma:
 no llegamos.
 
 *Aviso, por delante: medir que una sucesión crece en dieciséis puntos NO
@@ -757,11 +764,66 @@ mod 64 :                                                 18 de 64  = 0,281
 `2^k` cada vez mayores, y la fracción de clases que coinciden siempre crece.
 Los peores restos son `31` (9%), `0` (15%) y `15` (16%).
 
-> **Aviso de sesgo, y es serio.** Al doblar el módulo, la muestra por clase se
-> parte por la mitad. Con pocas decenas de ejemplos, una clase con tasa real
-> 0,99 se mide como 1,000. Las filas de módulo grande están **infladas** y no
-> valen como cota inferior. Fiables solo las de arriba, con miles de ejemplos
-> por clase.
+> **Aviso de sesgo.** Al doblar el módulo, la muestra por clase se parte por la
+> mitad, así que con pocos ejemplos una clase de tasa 0,99 se mide como 1,000.
+> **Ese sesgo está eliminado abajo: el criterio se puede demostrar.**
+
+#### El criterio demostrado, sin muestrear (`clasesfusion.py`)
+
+De la identidad de Terras sale un criterio **exacto y finito** que decide, de
+una vez y para los infinitos `m` de la clase, si `(2^k·m + r, +1)` se funden.
+
+Poniendo `n = 2^k·m + r` en `T^k(n) = λ_k·n + ρ_k`, y usando que `λ_k` y `ρ_k`
+dependen **solo del resto** (Teorema 1.2):
+
+```
+T^k(2^k·m + r)  =  3^{S_k(r)} · m  +  T^k(r)
+```
+
+Es una **recta en `m`**, con pendiente `3^{S_k(r)}` y ordenada `T^k(r)`, y las
+dos dependen solo de `r`. Luego las dos trayectorias coinciden en el paso `k`
+**para todo `m`** exactamente cuando:
+
+```
+S_k(r) == S_k(r+1)      (misma pendiente)
+T^k(r) == T^k(r+1)      (misma ordenada)
+```
+
+Una comprobación finita que vale para infinitos números. Verificado contra
+fuerza bruta en 9.672 pares: **0 fallos**.
+
+**Las dos familias publicadas se rederivan en tres líneas:**
+
+```
+r=4, k=3:  T^3(4)=2, S=1   |  T^3(5)=2, S=1   -> Lagarias 1985 (8k+4, 8k+5)
+r=5, k=5:  T^5(5)=2, S=2   |  T^5(6)=2, S=2   -> Wu-Huang 2001 (32m+5, 32m+6)
+```
+
+**Y la fracción sale exacta, sin muestrear:**
+
+| k | clases buenas | fracción | k | clases buenas | fracción |
+|---|---|---|---|---|---|
+| 3 | 1 | 0,125000 | 16 | 25.241 | 0,385147 |
+| 5 | 8 | 0,250000 | 19 | 208.840 | 0,398331 |
+| 10 | 351 | 0,342773 | 21 | 850.737 | 0,405663 |
+| 13 | 3.012 | 0,367676 | **22** | **1.715.546** | **0,409018** |
+
+**Monótona en los veinte escalones**, y ahora es una **cota inferior
+demostrada**: al menos el **40,90%** de los pares consecutivos tienen la misma
+altura, y se decide mirando solo el resto módulo 2^22.
+
+La densidad real medida es 0,5186 a 2^28. **La diferencia (unos 11 puntos) son
+los pares que se funden pero cuya clase no se funde entera** — coincidencias
+que dependen del `m` concreto, no solo del resto.
+
+**El número de clases buenas casi se dobla en cada paso, y la razón baja hacia
+2 desde arriba:** 3 · 2,67 · 2,25 · … · 2,018 · 2,017 · 2,0165. Si converge a
+2 exactamente, la fracción tiende a un límite `< 1`; si se queda por encima,
+tiende a 1 y casi todo par consecutivo tendría la misma altura por razón de
+resto. **No se puede decidir con estos datos**: las extrapolaciones de Aitken
+sobre los últimos tramos dan 0,4456 → 0,4484 → 0,4547 → 0,4614 → 0,4659,
+**derivando hacia arriba**, o sea que la convergencia no es geométrica y la
+extrapolación no vale.
 
 ## Qué es real y qué es dibujo
 
