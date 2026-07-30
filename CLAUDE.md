@@ -75,7 +75,12 @@ Su forma es siempre la misma:
    navegador.
 4. Los de plotly terminan en `figura.write_html(archivo, auto_open=True)`.
 
-Los `.html` y `.png` están en `.gitignore`.
+Los `.html` y `.png` están en `.gitignore`. **Los `.json` de `mallas/` no** — son
+el único resultado que sobrevive a cerrar el navegador, y están para eso.
+
+**`guardarmallas.py` es la excepción a la forma de arriba:** no dibuja, no abre
+el navegador, no tiene `NUMERO`. Escribe archivos y comprueba que se puedan
+volver a leer. Es el único programa del repo cuyo resultado no es una imagen.
 
 **Los scripts nuevos (`malla*`, `cruzarestos`, `coralcollaz`) usan ventana
 completa**: sin `width`/`height` fijos, con `autosize=True` y
@@ -150,9 +155,13 @@ for a in sorted(glob.glob('*.py')):
 | `mallaespejo.py` | **El A/B**: la misma maquinaria con dos reglas (espejo base 10 y Collatz) |
 | `mallaespejo2.py` | **El espejo en base 2**: las dos identidades exactas, y el A/B/C de tres reglas |
 | `mallascerradas.py` | **Los aros que cierran solos** (Pisano, +7, ×2 mod 27) y **la rueda del árbol** |
-| `maquinitacollaz.py` | Sin seguimiento en git. Escupe los 114 pasos de un número, uno por línea |
+| `guardarmallas.py` | **Persiste 11 mallas cerradas** en `mallas/*.json`. No dibuja nada |
+| `guardarhilos.py` | **Los 11 hilos 100000–100010 en sqlite** (`hilos.db`) y la malla de sus cruces |
+| `hilos.db` | La base: tablas `hilos`, `pasos`, `cruces`, `fusiones`, `cola_comun` |
+| `mallas/*.json` | Las mallas guardadas, **sí versionadas**. `indice.json` lista las once |
+| `maquinitacollaz.py` | Escupe los 114 pasos de un número, uno por línea |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
-| `patron detectado manualmente.txt` | Sin seguimiento en git. Notas a mano sobre las posiciones 57 y 114 |
+| `patron detectado manualmente.txt` | Notas a mano sobre las posiciones 57 y 114 |
 | `collazclaude.png` | Captura del coral de Harriss 16°/−8°, para mirarlo sin renderizar |
 
 ## Lo que se estableció, con verificación
@@ -169,6 +178,10 @@ aplicó `n/2` en el tramo:
 
 donde `C` se actualiza `C → 3C + 2^B` en cada paso impar y no cambia en los
 pares. Comprobado en **los 6.555 pares** de la trayectoria del 221: **0 fallos**.
+
+> **Es el Teorema 1.1 de Terras (1976)**, publicado en forma cerrada:
+> `T^k n = λ_k(n)·n + ϱ_k(n)` con `λ_k = 3^{S_k}/2^k`. Multiplicando por `2^k`
+> queda nuestra identidad, y `2^k ϱ_k` es nuestro `C`.
 
 **El único ciclo es una ecuación.** El ciclo `1 → 4 → 2 → 1` escrito con esa
 identidad da `A=1, B=2, C=1`, o sea **`2² = 3¹ + 1`** → **`4 = 3 + 1`**.
@@ -204,6 +217,20 @@ que quedan en pie son exactamente las **convergentes y semiconvergentes de la
 fracción continua de `log₂(3)`** — comprobado en las 10 más cercanas, todas sin
 excepción. Para esconder un ciclo por encima de lo verificado (2^71, Barina 2025)
 haría falta que `2^B` coincidiera con `3^A` hasta la cifra 22.
+
+> **Esto es la Tabla C de Terras (1976), literalmente.** Sus *jump values* son
+> los `k` donde `3^⌊kγ⌋ / 2^k` bate récord acercándose a 1 por debajo, con
+> `γ = 1/log₂3`. Recalculado aquí con `Fraction` exacto:
+>
+> ```
+> k (= nuestro B):  1, 2, 5, 8, 27, 46, 65, 149, 233, 317, 401, 485, 1539, 2593
+> b (= nuestro A):  0, 1, 3, 5, 17, 29, 41,  94, 147, 200, 253, 306,  971, 1636
+> ```
+>
+> **La fila 7 es `(A=41, B=65)`** — el mismo par que este repo encontró para el
+> 221. Terras la tabuló hace cincuenta años, y la usó para excluir bucles hasta
+> periodo **2592**. La lista entera son las convergentes y semiconvergentes de
+> `γ`, exactamente como se rederivó aquí.
 
 ### El 1276 y la mitad del 221
 
@@ -467,12 +494,117 @@ es el aro de 2 módulo 3, engranado con el de 4 módulo 9, dentro del de 2 módu
 27. La coincidencia de patrón entre una malla cerrada independiente y Collatz
 existe y es exacta, brote a brote — no estadística.
 
+### Las mallas guardadas (`guardarmallas.py`, carpeta `mallas/`)
+
+El paso que faltaba del plan original: **guardarlas**. Once mallas circulares,
+ninguna calculada con Collatz, escritas en `mallas/<nombre>.json` y versionadas.
+Ya no hay que recalcularlas: se abren con `json.load` y se cruzan.
+
+Cada archivo trae `orbita` (el anillo en orden), `aro`, `cola`, `visitados`, y
+**`evitados`** — los números del `0` al `módulo−1` que el anillo no pisa. Ese es
+el campo que sirve para cruzar.
+
+**El juicio se mide, no se supone.** De cada regla se recorre el espacio entero,
+no solo el arranque, y se parte en anillos y colas:
+
+```
+cierra_limpio  =  (la cola más larga de todo el espacio es 0)
+```
+
+O sea: la regla cierra limpio si y solo si es una biyección. Diez de las once lo
+son; `n → n²  (mod 100)` no, y por eso hace renacuajos (cola 2, aro 4). **Se
+guarda igual: sin ella la colección no discriminaría nada.**
+
+| malla | aro | cierra | evita |
+|---|---|---|---|
+| `n+7` mod 30 | 30 | sí | 0 de 30 |
+| `n+6` mod 30 | **5** | sí | 25 de 30 |
+| `n+1` mod 12 | 12 | sí | 0 de 12 |
+| Fibonacci mod 10 | 60 | sí | 0 de 10 |
+| Fibonacci mod 100 | 300 | sí | 0 de 100 |
+| `2n` mod 3 / 9 / 27 / 81 | 2 / 6 / 18 / 54 | sí | los múltiplos de 3 |
+| `3n` mod 10 | 4 | sí | 6 de 10 |
+| `n²` mod 100 | 4 | **no** | 96 de 100 |
+
+**10 tamaños de cierre distintos en 11 mallas** — el filtro se cumple.
+
+**Y las cuatro comprobaciones cortan con `SystemExit` antes de dar nada por
+guardado:** (1) cada aro coincide con su fórmula; (2) los cierres salen
+distintos; (3) **ida y vuelta** — los 11 archivos se releen del disco y tienen
+que salir idénticos a lo calculado, 0 fallos; (4) el cruce, **leyendo del
+archivo y no de memoria**: los `evitados` de `duplicar-mod27.json` son
+exactamente los múltiplos de 3, y usando **solo** ese archivo se predice cuáles
+de 200 rayos del árbol son mudos — **67 predichos, 0 fallos**. Una malla
+guardada predice Collatz sin volver a calcular Collatz.
+
+*Los JSON son ASCII puro a propósito* (`2*3^(j-1)`, no `2·3^(j-1)`): este repo
+ya tiene un historial de líos con cp1252, y un archivo de datos no es lugar para
+arriesgarlo.
+
 **Los dos límites honestos:** (1) es matemática conocida — la estructura
 mod 6 / mod 9 del árbol inverso es estándar; se llegó de forma independiente.
 (2) La rueda gobierna la **contabilidad del árbol hacia atrás** (dónde brota,
 qué clase de hijo). El destino hacia adelante sigue ciego a los restos — el
 negativo de `cruzarestos.py` sigue en pie. Las dos cosas son ciertas a la vez:
 **el esqueleto es periódico, el viaje no.**
+
+### Los once hilos y el cruce por índice de paso (`guardarhilos.py`, `hilos.db`)
+
+Los once números `100000 … 100010`, cada uno hasta el 1, en sqlite; y cada paso
+de cada hilo cruzado contra cada paso de todos los demás. La pregunta no es
+*qué valor sale* sino **en qué paso sale**.
+
+**Lo que hay ahí:**
+
+| n | pasos | pico |
+|---|---|---|
+| 100000, 100008, 100010 | **128 los tres** | ≤ 150.016 |
+| 100001 | 89 | 300.004 |
+| **100002 … 100007** | **53 los seis** | ≤ 854.368 |
+| 100009 | **309** | **35.075.104** |
+
+Seis consecutivos con 53 pasos exactos no es casualidad: **se funden**. Y se
+funden **con desfase cero** — paso 18 contra paso 18, paso 26 contra paso 26.
+
+**El número que resume todo: de los 983 cruces que no son cola común, 833
+(el 85%) tienen desfase 0.** Y 18 de las 55 parejas se funden en desfase 0.
+Comparar por índice de paso no es una manera de mirar entre otras: es donde
+está casi toda la estructura.
+
+**La trampa, medida y separada.** Las once trayectorias comparten la cola
+`[16, 8, 4, 2, 1]` por obligación. 275 de los 1.258 cruces son eso y no
+significan nada. `hilos.db` marca cada cruce con `es_cola` para que el ruido
+no se cuente como hallazgo. *(Ejemplo de por qué importa: `100001` no se funde
+de verdad con nadie — todos sus "cruces" son la cola. Es el único hilo
+solitario de los once, y sin la marca parecería tan conectado como el resto.)*
+
+**Esto tiene nombre y bibliografía desde 1985 — no es nuestro:**
+
+- **Garner (1985)**: hay infinitos pares de consecutivos con la misma altura y
+  el mismo tiempo de parada total; la prueba es exactamente el estudio de cómo
+  se funden los consecutivos.
+- **Gao (1993)**: si existe **una** tupla de `k` consecutivos con la misma
+  altura, existen infinitas. Hay una de **35.654** empezando en `2^500 + 1`.
+- **Wu Jia-Bang (1992, 1993, 1995)**: la tupla más larga bajo `2^30` mide
+  **176** y empieza en `722.067.240`; encontró otra de **310** en
+  `6.622.073.000`. Nuestro 6 es minúsculo en comparación.
+- **Wu y Huang (2001)**: las familias de pares que se funden son progresiones
+  aritméticas módulo `2^k`, y publicaron los ejemplos `(32m+5, 32m+6)`,
+  `(64m+45, 64m+46)`, `(128m+29, 128m+30)`.
+- **Oliveira e Silva** usa la fusión de `n` y `n−1` como optimización
+  industrial de su criba de verificación: le quita el **17,5%** de las hojas.
+
+**La comprobación 4 cierra el círculo.** `100005 = 32·3125 + 5`, así que
+nuestro par `(100005, 100006)` **es un caso de la primera familia publicada**.
+Comprobado en `m = 1, 2, 7, 100, 3125, 9999, 40000`: **todos se funden en el
+paso 6 contra el paso 6, desfase 0, sin excepción.** La literatura predijo
+nuestro hallazgo veinticinco años antes de que lo miráramos.
+
+**Y el mecanismo general estaba en Lagarias 1985**: `8k+4` y `8k+5` se funden
+siempre en 3 pasos; y si dos trayectorias se funden, entonces
+`2^r·k + n₁` y `2^r·k + n₂` se funden **para todo `k`** — una sola fusión
+genera una progresión aritmética infinita de fusiones. Eso es exactamente lo
+que produce los bloques de pasos iguales.
 
 ## Qué es real y qué es dibujo
 
@@ -547,7 +679,8 @@ la fuente de todos. Lo único que se buscó en la web fue el coral.
 | Las dos identidades del espejo base 2 | Dos líneas de álgebra. Nada que publicar |
 | El espejo base 10 (44.450 ciclos, fijos en `5·10^m`) | Recreativa elemental. Se deriva en cinco minutos |
 | El coral | **De Edmund Harriss.** Publicado, con libro y Numberphile |
-| Identidad `(A,B)`, la lámina, `log₂(3)`, las convergentes | Vía clásica de las cotas de ciclos (Crandall, Steiner, Simons–de Weger) |
+| Identidad `(A,B)`, la lámina, `log₂(3)`, las convergentes | Vía clásica de las cotas de ciclos (Crandall, Steiner, Simons–de Weger). **Fechado: Shanks 1965, Atkin 1966. Guy 1983 imprime la lista `1/1, 2/1, 3/2, 8/5, 19/12, 65/41, 84/53, 485/306, 1054/665, 24727/15601, 50508/31867` y dice que hay ciclos en los denominadores 1, 2, 5, 12 y ninguno en 41, 53, 306** — es casilla por casilla nuestro barrido `(A,B)` |
+| Fundirse los consecutivos, tuplas con el mismo número de pasos | **Garner 1985, Gao 1993, Wu Jia-Bang 1992–95, Wu–Huang 2001.** El mecanismo general está en Lagarias 1985 |
 | Que `F(k+2)` cuente los patrones del mapa clásico | El conteo estándar de "sin dos adyacentes". Folklore |
 | Que el rumbo del coral solo dependa de `(A,B)` | Los giros conmutan. Trivial |
 
@@ -558,6 +691,52 @@ cuántos rumbos permite cada par y qué fracción de ramas colapsa (45 rumbos �
 medición sobre nuestro propio método de dibujo. Pero Harriss eligió ángulos por
 estética y nadie parece haber barrido el espacio. Candidata a nota original en
 visualización recreativa. **Sin verificar en la literatura.**
+
+### Collatz llegó a esto desde la teoría de grafos, igual que nosotros
+
+De su único artículo sobre el tema (1986, en chino, reimpreso en el libro).
+Importa porque cambia qué es "el problema original".
+
+Collatz no buscaba un problema aritmético. Estaba **clasificando los grafos
+dirigidos de funciones aritméticas** (línea, árbol, bosque, punto fijo, ciclo)
+y quería un ejemplo de la última categoría que fuera *"lo más simple posible,
+pero también representativo"*. Razonó que **para tener un ciclo la función
+tiene que a veces subir y a veces bajar**, y fabricó el `3n+1` por diseño:
+
+- probó `n+1` para los impares → solo el ciclo trivial. **Sube muy poco.**
+- probó `2n+1` → los impares crecen para siempre, ningún ciclo. **Sube demasiado.**
+- probó `3n+1` → *"solo he encontrado el ciclo trivial (4,2,1)"*.
+
+Y su enunciado propio no es "todo llega a 1" sino **"el grafo de la función es
+conexo"**. Buscaba **ciclos**, no convergencia. Nunca lo publicó: *"como no pude
+resolver el problema, no he publicado la conjetura"*; se lo contó a Hasse en
+Hamburgo en 1952 y de ahí salió todo.
+
+*(Es decir: mirar esto como grafo, contar vórtices, buscar el árbol — el punto
+de partida de este repo — es literalmente el punto de partida de Collatz en
+1932. No es un desvío del problema: es de donde salió.)*
+
+### La demostración de Everett, y qué dice en nuestro lenguaje
+
+Everett 1977 demuestra en tres páginas que casi todo `n` tiene un iterado menor
+que `n`. El truco que le permite prescindir del `+1`: en vez del factor exacto
+`3/2` usa la cota **`m_{n+1}/m_n ≤ 5/3`** válida siempre que `m_n ≥ 3`. Y define
+
+```
+L = log 2 / log(10/3) ≈ 0,5757
+```
+
+Su condición de bajada garantizada es `X/N < L`, donde `X` = pasos impares.
+**Traducido a nuestras coordenadas** (`A` = veces `3n+1`, `B` = veces `n/2`):
+
+```
+Everett:   A / (A+B) < 0,5757    ⟺   B/A > 0,7369
+Exacto:                              B/A > log₂3 = 1,585
+```
+
+Es más flojo a propósito. `5/3 > 3/2` es una cota pesimista, y ése es el precio
+de tener una demostración de tres páginas sin un solo agujero. **Nuestro 1,585
+es el umbral verdadero; el 0,7369 es el umbral que se sabe demostrar.**
 
 ### Lo que sí es inusual aquí, y no es matemática
 
@@ -627,7 +806,15 @@ paso y midió que no llega al segundo.)*
    árbol infinito; si aparece, ese umbral es un número real del modelo.
 2. *(Hecho en `mallascerradas.py`: las progresiones cerradas se midieron, salen
    distintas entre sí, y el cruce contra Collatz dio la coincidencia exacta —
-   la rueda del árbol.)* Lo que queda de ese hilo: **colorear el árbol de
-   `collazarbol.py` con la rueda** — cada rama según la clase mod 3 de su
-   semilla — para *ver* el tambor sobre la esfera que ya existe. Y si se quiere
-   bajar otro nivel de engranaje, la cuarta rueda: mod 81, orden 54.
+   la rueda del árbol. Y hecho en `guardarmallas.py`: las once están en disco,
+   incluida la cuarta rueda mod 81.)* Lo que queda de ese hilo: **colorear el
+   árbol de `collazarbol.py` con la rueda** — cada rama según la clase mod 3 de
+   su semilla — para *ver* el tambor sobre la esfera que ya existe.
+3. **Usar las mallas guardadas contra algo que todavía no sepamos.** Ahora que
+   `mallas/*.json` existe, el cruce ya no cuesta calcular: se puede barrer las
+   once contra trayectorias de Collatz buscando qué otra malla predice algo.
+   Aviso por adelantado: lo más probable es que **no prediga nada**, porque el
+   negativo de `cruzarestos.py` (el destino hacia adelante es ciego a los
+   restos) sigue en pie. La rueda mod 27 funciona porque el árbol *dobla*, y
+   doblar es literalmente esa malla. Sin esa correspondencia estructural, un
+   cruce que dé positivo sería sospechoso antes que interesante.
