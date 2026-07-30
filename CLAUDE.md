@@ -1145,6 +1145,40 @@ que es lo que evita gastar seis meses en el sitio equivocado.*
 
 ## Siguiente sesión
 
+> ### ⇢ POR AQUÍ SE EMPIEZA: `clasesfusion.py` con `K_MAX = 30`
+>
+> **Estado al cerrar el 2026-07-30.** Se llegó a `k = 28`. Subir a 30 es un
+> cambio de una línea (`K_MAX = 30` arriba del archivo) y **ya no tiene
+> problema de memoria** — el troceado en bloques lo resolvió. Cuesta tiempo:
+> unos 20 minutos. Conviene lanzarlo en segundo plano y hacer otra cosa
+> mientras.
+>
+> **Qué se está mirando.** La razón de crecimiento de las clases que se
+> estrenan, `b(k)/b(k−1)`:
+>
+> ```
+> k=17: 1,8427    k=25: 1,9180    k=27: 1,9269
+> ```
+>
+> - Si esa razón se queda **por debajo de 2** → la fracción converge a un
+>   límite `< 1`.
+> - Si **llega a 2** → la fracción tiende a 1, y *casi todo par consecutivo
+>   tendría la misma altura por razón de resto*, lo que probaría la conjetura
+>   de Wu por la vía fuerte.
+>
+> **Qué mirar exactamente en los dos valores nuevos:** los incrementos de la
+> razón se están encogiendo (0,0207 → 0,0050 → 0,0039). Si en `k = 28` y `29`
+> siguen encogiendo al mismo ritmo, apunta a converger hacia 1,94–1,96. Si
+> dejan de encoger, apunta a 2. **Dos números decidirían mucho.**
+>
+> **Y el aviso que ya nos ganamos dos veces:** no extrapolar. La estimación
+> por Aitken se movía con la muestra (0,4456 → 0,4659), y la de ley de
+> potencias también (0,594 → 0,606). Añadir puntos y mirar la tendencia; no
+> ajustar y anunciar un límite.
+>
+> Al terminar, **añadir los términos a `sucesiones.txt`** (que es lo que se
+> enviaría a OEIS) y volver a consultar OEIS con la sucesión ampliada.
+
 *(El espejo en base 2 ya se hizo — ver arriba. Encontró el puente exacto de un
 paso y midió que no llega al segundo.)*
 
