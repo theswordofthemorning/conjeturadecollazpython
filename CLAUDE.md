@@ -186,6 +186,10 @@ for a in sorted(glob.glob('*.py')):
 | `maquinitacollaz.py` | Escupe los 114 pasos de un número, uno por línea |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
 | `patron detectado manualmente.txt` | Notas a mano sobre las posiciones 57 y 114 |
+| `pinzaciclos.py` | **La pinza de descarte de ciclos**: un candidato por resto, en cerrado. Barrido de 2^30 restos |
+| `records.json` | **Los récords publicados** de Roosendaal y Barina: retraso, altitud, clase, planeo, residuo |
+| `cruzarecords.py` | El repo cruzado contra esos récords. Cinco comprobaciones |
+| `oeis_borrador.txt` | El envío a OEIS redactado y listo. **No se ha enviado** |
 | `collazclaude.png` | Captura del coral de Harriss 16°/−8°, para mirarlo sin renderizar. **No está en git** (`*.png` está ignorado): existe solo en la máquina donde se generó y no sobrevive a un clon |
 
 Todo lo de la tabla está trackeado **salvo `collazclaude.png`** y los `.html`/`.png`
@@ -1208,8 +1212,8 @@ da `+0,5850` **once veces seguidas**, de `k=1` a `k=11`.
 **Y el hallazgo real no es una tendencia, es una cota:**
 
 ```
-log₂(altitud(n) / n)  ≥  racha(n) · log₂(3/2) + 1
-99.999 casos, 0 fallos, holgura mínima +0,000002
+PARA n IMPAR:   log₂(altitud(n) / n)  ≥  racha(n) · log₂(3/2) + 1
+                99.999 casos, 0 fallos, holgura mínima +0,000002
 ```
 
 Se demuestra en una línea (`k` pasos impares del atajo llevan `n` a al menos
@@ -1217,7 +1221,82 @@ Se demuestra en una línea (`k` pasos impares del atajo llevan `n` a al menos
 piso es ajustado para la mayoría. Es lo único de la sesión con la forma de un
 teorema en vez de la de una medición, y por eso vale más aunque diga menos.
 *(El `+1` del enunciado es `log₂(2)` y viene de mezclar mapas: con el mapa del atajo
-el piso es `racha · log₂(3/2)` sin el `+1`, también con 0 fallos.)*
+el piso es `racha · log₂(3/2)` sin el `+1`, y ése **sí vale para las dos paridades**.)*
+
+> **CORRECCIÓN (30-07-2026, misma sesión): al enunciado le faltaba la hipótesis
+> `n impar`, y sin ella es FALSO.** Con `n` par la racha vale 0, el piso exige
+> `altitud ≥ 2n`, y eso **falla en 28.325 de los 50.000 pares** de 1 a 100.000
+> — el 10, por ejemplo, sube sólo hasta 16 y necesitaría 20.
+>
+> **Lo que hay que aprender de cómo apareció:** el error **no lo encontraron los
+> casos extremos**. Se probó el piso contra los 243 récords publicados de
+> Roosendaal y Barina —los números que más suben y más tardan de todo lo
+> conocido— y **pasaron los 243**. Los 15 récords pares pasan **por casualidad**,
+> porque son `2 × impar`. Quien lo cazó fue el **barrido de control** sobre
+> números corrientes. *Los extremos confirman; los controles refutan. Es el
+> mismo argumento que sostiene la doctrina del A/B de este repo, aparecido solo.*
+
+### Los récords publicados, y el repo cruzado contra ellos (`records.json`, `cruzarecords.py`)
+
+30-07-2026. En vez de generar números, **traer los que ya generaron otros** y usar
+el repo contra ellos. Son los casos extremos de Collatz: los que más suben y los
+que más tardan de todo lo conocido.
+
+| tipo de récord | registros | fuente |
+|---|---|---|
+| retraso (delay) | 149 | OEIS A006877/A006878 + ericr.nl |
+| altitud (path) | 98 | Barina + OEIS A006884/A006885 + ericr.nl |
+| clase | 2.425 | ericr.nl |
+| planeo (glide) | 34 | ericr.nl |
+| completitud y residuo | 39 | ericr.nl |
+
+**Verificación cruzada entre fuentes independientes:** la lista de `n` de los
+récords de altitud, Barina contra OEIS — **98/98 idénticos**; las alturas contra
+A006885, 96/97 (la excepción es el trivial `n=2`). Y **las 98 altitudes y los 148
+retrasos publicados se recalcularon desde cero con enteros exactos: 0
+discrepancias.** Lo que no está en dos fuentes va marcado en el JSON.
+
+**Trampas técnicas que costaron tiempo y conviene tener anotadas:**
+
+- **`ericr.nl` sirve un certificado TLS inválido.** `WebFetch` fuerza HTTPS y
+  falla siempre; `curl -k` funciona. Wayback está bloqueado.
+- **Barina publica la altitud en el mapa del ATAJO** — la clásica es exactamente
+  el doble. Confundirlo habría corrompido el cruce en silencio, sin error visible.
+- Los **4 récords nuevos** de Barina son las cuatro entradas de 71 bits
+  (`1378299700343633691495`, `1735519168865914451271`, `1765856170146672440559`,
+  `2358909599867980429759`). Roosendaal le atribuye cinco; el quinto es de 68 bits
+  y de su tanda anterior.
+
+**Los cinco cruces:**
+
+1. **El piso de la altitud: 243/243, 0 fallos**, comprobado en forma entera exacta
+   (`alt·2^r ≥ 2n·3^r`, sin floats). *Pero el control encontró que al enunciado le
+   faltaba una hipótesis — ver la corrección de la sección anterior.*
+2. **El residuo de Roosendaal: 0 por debajo de 1 y 0 por encima de `1,253142144`,
+   hasta `2^71`.** Roosendaal sólo lo verificó hasta `2^32`, así que **esto es
+   evidencia nueva para su conjetura**. Máximo hallado 1,2486 en `n=9`; confirmado
+   que `4164943872 = 993·2^22` tiene el mismo residuo que el 993.
+3. **El balance `B/A`: 0 récords por debajo de `log₂(3)`.** La predicción se
+   confirmó —los récords están **3,3 a 4,7 veces más cerca** del equilibrio que el
+   control, con `z` de 24 a 33— **pero el mecanismo que se había supuesto era
+   falso.** No es que "subir mucho exija pocas divisiones". La identidad exacta
+   `B/A − log₂3 = (ln n + ln Res)/(A·ln 2)` (verificada a `5,6·10⁻¹⁷`) dice que
+   **depende sólo de `A`**: los récords están cerca del equilibrio por ser
+   **largos**, no por ser **empinados**. La prueba está en el propio dato — los
+   récords de *retraso*, que son los más largos, son los que caen más cerca.
+4. **La constante de parada** se rompe hacia arriba, como debe: récords de retraso
+   **4,25×** lo normal, de altitud **2,81×** (control 10,02 y 10,22, que reproduce
+   el 10,396 medido antes).
+5. **La fracción impar** también sube (0,3684 y 0,3755 contra 0,331785, a 21 y 38
+   sigmas) — **pero no es un hallazgo independiente**: `f = 1/(1 + B/A)` exacto, o
+   sea que es el cruce 3 escrito en otras coordenadas. *Anotado para no contarlo
+   dos veces.*
+
+**Veredicto: nada de lo que el repo midió se rompe en los casos extremos.** Las
+dos cotas demostrables aguantan con cero fallos, y las dos tendencias
+estadísticas se desvían hacia arriba exactamente en la dirección y la magnitud
+previstas. La única corrección fue de enunciado, no de medición — y la encontró
+un control, no los récords.
 
 ### La pinza de descarte de ciclos (`pinzaciclos.py`, 30-07-2026)
 
