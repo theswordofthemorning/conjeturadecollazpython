@@ -1,0 +1,60 @@
+{
+  "nombre": "sumar6-mod30",
+  "regla": "n -> n+6 (mod 30)",
+  "modulo": 30,
+  "arranque": "0",
+  "cierra_limpio": true,
+  "cola": 0,
+  "aro": 5,
+  "formula": "m / mcd(m, k) = 30 / mcd(30, 6)",
+  "orbita": [
+    0,
+    6,
+    12,
+    18,
+    24
+  ],
+  "orbita_cortada": false,
+  "visitados": [
+    0,
+    6,
+    12,
+    18,
+    24
+  ],
+  "evitados": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    19,
+    20,
+    21,
+    22,
+    23,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "espacio_completo": {
+    "estados": 30,
+    "anillos": 6,
+    "largos_de_anillo": [
+      5
+    ],
+    "cola_maxima": 0
+  }
+}

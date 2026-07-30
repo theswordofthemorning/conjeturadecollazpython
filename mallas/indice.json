@@ -1,0 +1,94 @@
+{
+  "que_es": "mallas circulares cerradas, ninguna de Collatz, para cruzarlas despues contra los numeros que genera Collatz",
+  "generado_por": "guardarmallas.py",
+  "mallas": [
+    {
+      "nombre": "sumar7-mod30",
+      "regla": "n -> n+7 (mod 30)",
+      "modulo": 30,
+      "aro": 30,
+      "cierra_limpio": true,
+      "archivo": "sumar7-mod30.json"
+    },
+    {
+      "nombre": "sumar6-mod30",
+      "regla": "n -> n+6 (mod 30)",
+      "modulo": 30,
+      "aro": 5,
+      "cierra_limpio": true,
+      "archivo": "sumar6-mod30.json"
+    },
+    {
+      "nombre": "sumar1-mod12",
+      "regla": "n -> n+1 (mod 12)",
+      "modulo": 12,
+      "aro": 12,
+      "cierra_limpio": true,
+      "archivo": "sumar1-mod12.json"
+    },
+    {
+      "nombre": "fibonacci-mod10",
+      "regla": "Fibonacci (mod 10)",
+      "modulo": 10,
+      "aro": 60,
+      "cierra_limpio": true,
+      "archivo": "fibonacci-mod10.json"
+    },
+    {
+      "nombre": "fibonacci-mod100",
+      "regla": "Fibonacci (mod 100)",
+      "modulo": 100,
+      "aro": 300,
+      "cierra_limpio": true,
+      "archivo": "fibonacci-mod100.json"
+    },
+    {
+      "nombre": "duplicar-mod3",
+      "regla": "n -> 2n (mod 3)",
+      "modulo": 3,
+      "aro": 2,
+      "cierra_limpio": true,
+      "archivo": "duplicar-mod3.json"
+    },
+    {
+      "nombre": "duplicar-mod9",
+      "regla": "n -> 2n (mod 9)",
+      "modulo": 9,
+      "aro": 6,
+      "cierra_limpio": true,
+      "archivo": "duplicar-mod9.json"
+    },
+    {
+      "nombre": "duplicar-mod27",
+      "regla": "n -> 2n (mod 27)",
+      "modulo": 27,
+      "aro": 18,
+      "cierra_limpio": true,
+      "archivo": "duplicar-mod27.json"
+    },
+    {
+      "nombre": "duplicar-mod81",
+      "regla": "n -> 2n (mod 81)",
+      "modulo": 81,
+      "aro": 54,
+      "cierra_limpio": true,
+      "archivo": "duplicar-mod81.json"
+    },
+    {
+      "nombre": "triplicar-mod10",
+      "regla": "n -> 3n (mod 10)",
+      "modulo": 10,
+      "aro": 4,
+      "cierra_limpio": true,
+      "archivo": "triplicar-mod10.json"
+    },
+    {
+      "nombre": "cuadrado-mod100",
+      "regla": "n -> n^2 (mod 100)",
+      "modulo": 100,
+      "aro": 4,
+      "cierra_limpio": false,
+      "archivo": "cuadrado-mod100.json"
+    }
+  ]
+}
