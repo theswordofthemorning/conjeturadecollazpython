@@ -72,15 +72,16 @@ a(k), para k = 3, 4, 5, ...
 
 1, 3, 8, 18, 39, 82, 170, 351, 721, 1476, 3012, 6130, 12450, 25241, 51105,
 103358, 208840, 421643, 850737, 1715546, 3457791, 6966495, 14030369, 28247507,
-56854178, 114400435, 230136995, 462857658
+56854178, 114400435, 230136995, 462857658, 930718308, 1871137623
 
-(k = 3 hasta k = 30)
+(k = 3 hasta k = 32)
 
 Las fracciones a(k)/2^k en la cola:
     k = 26   0,420921
     k = 27   0,423597
     k = 28   0,426175
     k = 30   0,431070
+    k = 32   0,435658
 
 PROPIEDAD DEMOSTRADA:  a(k+1) >= 2*a(k)  siempre.
 Porque si r es buena modulo 2^k, entonces r y r + 2^k son las dos buenas
@@ -91,7 +92,7 @@ a nivel k+1.
 
 Consecuencia: la fraccion a(k)/2^k es NO DECRECIENTE, y por tanto la sucesion
 de fracciones es una cota inferior creciente de la densidad de pares de
-enteros consecutivos con la misma altura de Collatz. En k = 30 vale 0,431070.
+enteros consecutivos con la misma altura de Collatz. En k = 32 vale 0,435658.
 
 LOS DOS ANCLAJES PUBLICADOS caen dentro y se rederivan del criterio:
     r = 4 modulo 8   -> Garner (1985): 8k+4 y 8k+5 se funden en 3 pasos
@@ -107,9 +108,9 @@ SUCESION 2 -- cuantas clases se ESTRENAN en cada nivel
 b(k) = a(k+1) - 2*a(k),  para k = 3, 4, 5, ...
 
 1, 2, 2, 3, 4, 6, 11, 19, 34, 60, 106, 190, 341, 623, 1148, 2124, 3963, 7451,
-14072, 26699, 50913, 97379, 186769, 359164, 692079, 1336125, 2583668
+14072, 26699, 50913, 97379, 186769, 359164, 692079, 1336125, 2583668, 5002992, 9701007
 
-(k = 3 hasta k = 29)
+(k = 3 hasta k = 31)
 
 POR QUE IMPORTA. Como a(k+1) - 2*a(k) = b(k), se tiene
 
@@ -130,6 +131,8 @@ Medido: la razon b(k)/b(k-1) sube monotonamente y SIN estabilizarse.
     k = 23   1,8973        k = 27   1,9269
                             k = 28   1,9306
                             k = 29   1,9337
+                            k = 30   1,9364
+                            k = 31   1,9390
 
 Ampliado a k = 30 (30-07-2026), la razon sigue subiendo sin dar senal de
 techo. Los INCREMENTOS de la razon siguen encogiendo:

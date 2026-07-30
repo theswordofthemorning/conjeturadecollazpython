@@ -186,6 +186,8 @@ for a in sorted(glob.glob('*.py')):
 | `maquinitacollaz.py` | Escupe los 114 pasos de un número, uno por línea |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
 | `patron detectado manualmente.txt` | Notas a mano sobre las posiciones 57 y 114 |
+| `bitacora.md` | **Resumen por sesion y lo que queda pendiente.** Empezar por aqui |
+| `clasesparalelo.py` | El barrido de clases repartido entre nucleos. Se verifica solo contra a(30) |
 | `pinzaciclos.py` | **La pinza de descarte de ciclos**: un candidato por resto, en cerrado. Barrido de 2^30 restos |
 | `records.json` | **Los récords publicados** de Roosendaal y Barina: retraso, altitud, clase, planeo, residuo |
 | `cruzarecords.py` | El repo cruzado contra esos récords. Cinco comprobaciones |
@@ -914,9 +916,9 @@ casi todo par cruce frontera: **idéntico en los 18 valores**.
 | 3 | 1 | 0,125000 | 22 | 1.715.546 | 0,409018 |
 | 5 | 8 | 0,250000 | 24 | 6.966.495 | 0,415235 |
 | 10 | 351 | 0,342773 | 26 | 28.247.507 | 0,420921 |
-| 16 | 25.241 | 0,385147 | **30** | **462.857.658** | **0,431070** |
+| 16 | 25.241 | 0,385147 | **32** | **1.871.137.623** | **0,435658** |
 
-Es una **cota inferior demostrada**: al menos el **43,11%** de los pares
+Es una **cota inferior demostrada**: al menos el **43,57%** de los pares
 consecutivos tienen la misma altura, y se decide mirando solo el resto módulo
 2^28. *(Eso sí es un resultado: no depende de muestreo ni de ajuste.)*
 
@@ -956,7 +958,9 @@ f(k+1) − f(k)  =  nuevas(k) / 2^{k+1}       y       f(∞) = f(k) + Σ nuevas(
 | 26 | 56.854.178 | 56.495.014 | 359.164 | 1,9230 |
 | 27 | 114.400.435 | 113.708.356 | 692.079 | 1,9269 |
 | 28 | 230.136.995 | 228.800.870 | 1.336.125 | 1,9306 |
-| 29 | 462.857.658 | 460.273.990 | 2.583.668 | **1,9337** |
+| 29 | 462.857.658 | 460.273.990 | 2.583.668 | 1,9337 |
+| 30 | 930.718.308 | 925.715.316 | 5.002.992 | 1,9364 |
+| 31 | 1.871.137.623 | 1.861.436.616 | 9.701.007 | **1,9390** |
 
 **Toda la pregunta se reduce a la razón de crecimiento de `nuevas`.** Si se
 queda **por debajo de 2**, la suma converge y la fracción tiene un límite `< 1`.
@@ -977,10 +981,10 @@ extendida, la ampliada hasta `k = 28`, y tres variantes de la segunda).
 
 ```
 a(k) = clases mod 2^k que se funden   1, 3, 8, 18, 39, 82, 170, 351, 721, …
-       …, 114400435, 230136995, 462857658          (k = 3 … 30)
+       …, 462857658, 930718308, 1871137623         (k = 3 … 32)
 
 b(k) = a(k+1) − 2·a(k)  (las nuevas)  1, 2, 2, 3, 4, 6, 11, 19, 34, 60, …
-       …, 692079, 1336125, 2583668                 (k = 3 … 29)
+       …, 2583668, 5002992, 9701007                (k = 3 … 31)
 ```
 
 Los términos, la definición, la demostración del criterio y las cuatro
