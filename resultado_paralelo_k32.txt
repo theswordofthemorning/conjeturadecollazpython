@@ -1,0 +1,7 @@
+﻿VERIFICACION CRUZADA DE a(32)   [2026-07-30 20:02:49]
+
+  secuencial (clasesfusion.py) : 1871137623
+  paralelo   (clasesparalelo.py): 1871137623
+  COINCIDEN: el valor esta confirmado por dos caminos independientes.
+
+a(31) ya habia coincidido por los dos caminos: 930718308.
