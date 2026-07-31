@@ -304,7 +304,7 @@ for k in range(3, POTENCIA - 8):
 
 print(f"\n  escalones que bajan: {rotos_clases}")
 print(f"\n  LOS DOS ANCLAJES CONOCIDOS CAEN DENTRO:")
-print(f"    resto 4 mod 8   -> Lagarias 1985: 8k+4 y 8k+5 se funden en 3 pasos")
+print(f"    resto 4 mod 8   -> Garner 1985: 8k+4 y 8k+5 se funden en 3 pasos")
 print(f"    resto 5 mod 32  -> Wu y Huang 2001: la familia (32m+5, 32m+6)")
 print(f"\n  AVISO DE SESGO, y es serio. Al doblar el modulo la muestra por clase")
 print(f"  se parte por la mitad. Con pocas decenas de ejemplos por clase, una")

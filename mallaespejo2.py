@@ -278,12 +278,21 @@ for fila, saca in (
     ("puntos fijos", lambda d: f"{len(d['fijos'])}"),
     ("cola mas larga", lambda d: f"{d['cola_max']}"),
     ("cola media", lambda d: f"{d['cola_media']:.2f}"),
-    ("se escapan del rango", lambda d: f"{100 * (N - d['se_quedan']) / N:.1f}%"),
+    ("se escapan (NO vale)", lambda d: f"{100 * (N - d['se_quedan']) / N:.1f}%"),
 ):
     print(f"  {fila:<22}" + "".join(f"{saca(resumen[e]):>20}" for e in etiquetas))
 print()
 print(f"  -> tres reglas, tres mallas distintas. La maquinaria discrimina:")
 print(f"     lo que dibuja depende de lo que se le mete, no de como dibuja.")
+print()
+print(f"  CUIDADO CON LA ULTIMA FILA -- NO DISCRIMINA (correccion del 30-07-2026).")
+print(f"  Aqui parece que separa, pero es un espejismo: separa a los espejos de")
+print(f"  Collatz solo porque los espejos estan ACOTADOS por construccion. Entre")
+print(f"  dos reglas del mismo tipo no separa nada: medida con 3n+1 contra 3n-1")
+print(f"  da 33,3% en las dos, con los MISMOS conteos absolutos, a N = 256, 1024,")
+print(f"  4096 y 10.000. Se escapan los impares con 3n±1 > N, y el ±1 casi nunca")
+print(f"  cambia de lado del corte. Esa fila mide el RANGO, no la REGLA.")
+print(f"  Las tres que si valen son: ciclos distintos, cola mas larga, cola media.")
 
 
 # ------------------------------------------------------------- el dibujo

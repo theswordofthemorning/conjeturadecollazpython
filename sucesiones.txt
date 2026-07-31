@@ -14,6 +14,12 @@ sin estar. Un falso positivo que conviene anotar: el prefijo corto de b
 11,19,34; con ocho terminos ya no devuelve nada. Los prefijos cortos de
 sucesiones que arrancan lento casan con cualquier cosa.
 
+PRECISION SOBRE EL ALCANCE DE ESA COMPROBACION. Las consultas se hicieron con
+las sucesiones hasta k = 30. Los terminos a(31) = 930718308 y a(32) =
+1871137623 se calcularon DESPUES y no se han vuelto a consultar. No cambia la
+conclusion --si un prefijo de 28 terminos no esta, alargarlo no lo mete-- pero
+conviene no decir que se comprobo hasta k = 32, porque no es lo que se hizo.
+
 LO MAS CERCANO QUE SI EXISTE EN OEIS, y hay que citarlo: A076227, "Number of
 surviving Collatz residues mod 2^n" (misma familia de objetos, conteo
 distinto), y A341362 (primer numero de una racha de n consecutivos con la
@@ -134,17 +140,20 @@ Medido: la razon b(k)/b(k-1) sube monotonamente y SIN estabilizarse.
                             k = 30   1,9364
                             k = 31   1,9390
 
-Ampliado a k = 30 (30-07-2026), la razon sigue subiendo sin dar senal de
+Ampliado a k = 32 (30-07-2026), la razon sigue subiendo sin dar senal de
 techo. Los INCREMENTOS de la razon siguen encogiendo:
 
-    0,0050  ->  0,0039  ->  0,0037  ->  0,0031
+    0,0050 -> 0,0039 -> 0,0037 -> 0,0031 -> 0,0027 -> 0,0026
 
 pero encogen despacio, y ahi esta el problema: si decrecen geometricamente la
 razon converge por debajo de 2 (en torno a 1,95) y la fraccion tiene limite
 menor que 1; si decrecen como 1/k, la suma diverge igual y la razon acaba
-llegando a 2. Cuatro puntos no distinguen esas dos cosas. NO SE PUEDE DECIDIR,
-y no hay que extrapolar: la estimacion por Aitken ya se movio con la muestra
-una vez (0,4456 -> 0,4659).
+llegando a 2. SEIS puntos siguen sin distinguir esas dos cosas. NO SE PUEDE
+DECIDIR, y no hay que extrapolar: la estimacion por Aitken ya se movio con la
+muestra una vez (0,4456 -> 0,4659).
+
+El siguiente escalon es k = 34, con clasesparalelo.py (cuesta unas 4 veces lo
+de k = 32). Tampoco va a decidirlo; solo alarga la unica serie que puede.
 
 
 COMO SE COMPROBARON

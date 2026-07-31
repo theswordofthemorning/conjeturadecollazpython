@@ -18,13 +18,14 @@ comentarios que explican lo obvio, sin abstracciones.
 pip install -r requirements.txt      # numpy, matplotlib, plotly
 ```
 
-**Catorce** de los 25 scripts importan `plotly.graph_objects`, y **cuatro** usan
-además `plotly.subplots`. Durante mucho tiempo `plotly` faltaba en
+**Catorce** de los **28** scripts importan `plotly.graph_objects`, y **cuatro**
+usan además `plotly.subplots`. Durante mucho tiempo `plotly` faltaba en
 `requirements.txt` y el repo no arrancaba en una máquina limpia — ya está
-arreglado. `numpy` lo usan **cuatro**: `viz3d.py`, `clasesfusion.py`,
-`densidadfusion.py` y `redhilos.py` (la red neuronal a mano). Y `sqlite3` lo usan
-`guardarhilos.py` y `mapahilos.py`, pero **ése viene con Python** y no hay que
-instalar nada.
+arreglado. `numpy` lo usan **seis**: `viz3d.py`, `clasesfusion.py`,
+`clasesparalelo.py`, `densidadfusion.py`, `pinzaciclos.py` y `redhilos.py` (la red
+neuronal a mano). **`matplotlib` solo dos**: `viz3d.py` y `collazejecucion.py`. Y
+`sqlite3` lo usan `guardarhilos.py` y `mapahilos.py`, pero **ése viene con Python**
+y no hay que instalar nada.
 
 **Las dos mitades se instalan por separado, y conviene saber cuál te falta.** Al
 **30-07-2026**, en el Python 3.14.5 de esta máquina, están las tres:
@@ -71,9 +72,10 @@ legibles. (Ojo: no es *una* función duplicada, son **tres versiones distintas**
 Unas devuelven la lista sola, `collazcruce` devuelve `(valores, colores)`, y
 `collazcirculo`/`collazejecucion` la arman con un `while` a nivel de módulo.)
 
-El inventario exacto, para no buscarlo a mano — **ocho** archivos definen
+El inventario exacto, para no buscarlo a mano — **nueve** archivos definen
 `secuencia_de(n)`: `collazarbol`, `collazcruce`, `collazlamina`, `collazmalla`,
-`coralcollaz`, `cruzarestos`, `mallacollaz`, `mallascerradas`. **Dos** la arman
+`coralcollaz`, `cruzarestos`, `guardarhilos`, `mallacollaz`, `mallascerradas`.
+**Dos** la arman
 inline con un `while` (`collazcirculo`, `collazejecucion`). Y **cuatro no tienen
 trayectoria completa** porque no la necesitan: `mallaespejo` y `mallaespejo2`
 trabajan con reglas de **un paso** (`collatz(n)`, `T(n)`, `espejo`, `espejo2`),
@@ -89,8 +91,15 @@ Su forma es siempre la misma:
    navegador.
 4. Los de plotly terminan en `figura.write_html(archivo, auto_open=True)`.
 
-Los `.html` y `.png` están en `.gitignore`. **Los `.json` de `mallas/` no** — son
-el único resultado que sobrevive a cerrar el navegador, y están para eso.
+**Excepción obligatoria al punto 3: `clasesparalelo.py` sí lleva
+`if __name__ == "__main__"`**, y lo necesita — `multiprocessing` en Windows
+reimporta el módulo en cada proceso hijo, y sin el guard el barrido se fork-bombea.
+No se lo quites por uniformidad. (`main.py` también lo lleva, pero ése es la CLI y
+nunca tuvo la forma de los sueltos.)
+
+Los `.html`, los `.png` y los `.pdf` están en `.gitignore`. **Los `.json` de
+`mallas/` no** — son el único resultado que sobrevive a cerrar el navegador, y
+están para eso.
 
 **`guardarmallas.py` es la excepción a la forma de arriba:** no dibuja, no abre
 el navegador, no tiene `NUMERO`. Escribe archivos y comprueba que se puedan
@@ -137,7 +146,7 @@ esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
 
 Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
 `python main.py camino 27` crasheaba desde Sublime. Corrido el **30-07-2026**
-sobre los 19 `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
+sobre los **28** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
 metiste vos. Para revisarlo:
 
 ```
@@ -192,10 +201,74 @@ for a in sorted(glob.glob('*.py')):
 | `records.json` | **Los récords publicados** de Roosendaal y Barina: retraso, altitud, clase, planeo, residuo |
 | `cruzarecords.py` | El repo cruzado contra esos récords. Cinco comprobaciones |
 | `oeis_borrador.txt` | El envío a OEIS redactado y listo. **No se ha enviado** |
-| `collazclaude.png` | Captura del coral de Harriss 16°/−8°, para mirarlo sin renderizar. **No está en git** (`*.png` está ignorado): existe solo en la máquina donde se generó y no sobrevive a un clon |
+| `resultado_paralelo_k32.txt` | La verificación cruzada de `a(32)`: secuencial y paralelo dan `1.871.137.623` |
+| `pisoaltitud.py` | **El piso de la altitud**, con su corrección: vale para `n` impar, y los pares fallan a propósito |
+| `elmasuno.py` | **`ε` y `S` son la misma suma**, exacto. El `+1` aparece dos veces, no tres |
+| `reimpl.py` | **El Teorema 23 de Hercher reproducido**, 7/7, sin un float en la cadena que decide |
+| `coralprimos.py` | El número **primo** de rumbos. La predicción falló y la explicación del 45 se cayó |
+| `descensoresto.py` | **El tiempo de descenso contra el resto**. `A076227` reproducida; la criba nunca se vacía |
+| `guardarafirmaciones.py` | Escribe `afirmaciones.db`. No dibuja nada |
+| `afirmaciones.db` | **Las tres capas**: `afirmaciones` (con cuantificador), `constantes` (con aviso), `correcciones` |
+| `guardarrespuestas.py` | Captura las transcripciones de Claude Code y las mete en `respuestas.db` |
+| `respuestas.db` | **El cuaderno de las conversaciones.** Tabla `respuestasclaude`, append-only |
+| `lecturas/*.pdf` | Terras 1976, Tao 2019 y las dos bibliografías de Lagarias. **NO están en git** |
+| `the-ultimate-challenge...pdf` | El libro de 2010 (22 MB). **Tampoco está en git** |
+| `.claude/settings.local.json` | Permisos ya concedidos: `python *`, `py *`, `git fetch *` |
 
-Todo lo de la tabla está trackeado **salvo `collazclaude.png`** y los `.html`/`.png`
-que se regeneran. Para comprobarlo: `git ls-files`.
+Todo lo de la tabla está trackeado **salvo los `.pdf`** y los `.html`/`.png` que se
+regeneran. Para comprobarlo: `git ls-files`.
+
+> **AVISO SOBRE LOS PDF (30-07-2026).** `.gitignore` ignora `*.pdf`, así que **la
+> bibliografía leída no sobrevive a un clon**: `lecturas/` y el libro de 22 MB
+> existen sólo en esta máquina. Es el mismo aviso que tenía `collazclaude.png` —
+> que ya se cumplió: **ese archivo ya no existe**, se perdió, y por eso se quitó de
+> esta tabla. Si los PDF hacen falta en otra máquina, hay que volver a bajarlos; lo
+> que **sí** sobrevive es lo que se extrajo de ellos, que está escrito aquí abajo.
+
+## REGLA: el registro de las conversaciones (`respuestas.db`)
+
+**Las respuestas de Claude en consola traen observaciones, correcciones y
+lineamientos que no están en ningún otro sitio.** Se dieron por perdidas más de
+cien. El `CLAUDE.md` no puede absorberlas porque crecería sin control, así que
+van a su propia tabla.
+
+**No estaban perdidas.** Claude Code guarda la transcripción entera de cada
+sesión, literal y con marca de tiempo, en:
+
+```
+~/.claude/projects/C--Users-Home-Desktop-conjeturadecollazpython/*.jsonl
+```
+
+> **Ojo con la idea de "capturar el stdout": no existe.** El texto del asistente
+> no pasa por ninguna consola —Claude Code lo renderiza directo— así que no hay
+> nada que redirigir. La transcripción es la única fuente, y por eso es la que
+> se lee.
+
+**LA REGLA, en una línea: al cerrar una sesión que haya producido algo, correr
+`python guardarrespuestas.py`.**
+
+Eso lee las transcripciones que haya, mete lo nuevo en `respuestas.db` y no
+toca lo viejo. Es **append-only** e **idempotente por `(sesion, orden)`**:
+correrlo mil veces no duplica ni borra nada. Al 31-07-2026 lleva **288 mensajes
+de tres sesiones — 63 preguntas y 213 respuestas, 345.084 caracteres**, desde el
+29-07.
+
+**Por qué se hace así y no anotando turno a turno:** una regla que exige que el
+asistente escriba una fila en cada respuesta depende de que la cumpla siempre, y
+eso se degrada. Leer la transcripción al final no depende de nadie y además sale
+**literal** en vez de reconstruido.
+
+**Las columnas de análisis van vacías a propósito.** `tipo`, `resumen`,
+`hallazgos`, `decisiones` y `ficheros` quedan `NULL` al capturar y se llenan
+después, leyendo la fila. Rellenarlas automáticamente sería inventar, y mezclaría
+el registro crudo con su interpretación — que es justo lo que el resto del repo
+se cuida de no hacer. La columna `origen` separa `capturado` (de la
+transcripción, con hora exacta) de `reconstruido` (escrito después, de memoria).
+
+*Esta base rompe a propósito la regla de que las bases se regeneran
+(`guardarmallas.py`, `guardarhilos.py`). Un registro histórico no se regenera: si
+algún día se limpian las transcripciones viejas, ésta será el único sitio donde
+queden.*
 
 ## Lo que se estableció, con verificación
 
@@ -1630,9 +1703,9 @@ hacia adelante, que sigue ciego a los restos.
 
 **El techo de este repo es rederivación independiente bien verificada, más
 visualización original.** Eso no es descubrimiento, pero tampoco es poco: hay
-**veinticinco** programas que se auto-verifican, un documento que separa lo real de
-lo dibujado, y un historial de negativos. La mayoría de la exploración amateur no
-llega ahí.
+**veintiocho** programas, **veinte** de ellos con comprobaciones que cortan con
+`SystemExit`, un documento que separa lo real de lo dibujado, y un historial de
+negativos. La mayoría de la exploración amateur no llega ahí.
 
 ### EL CUARTO CAMINO — el objetivo realista, enunciado el 30-07-2026
 
@@ -1846,36 +1919,45 @@ existir un método que la construya en general.*
 
 ## Siguiente sesión
 
-> ### ⇢ HECHO EL 30-07-2026: `clasesfusion.py` llegó a `K_MAX = 30`
+> **Esta lista existe tambien en `bitacora.md`, mas corta y mas nueva.** Si las dos
+> no dicen lo mismo, **manda la bitacora** — ahi es donde se escribe al cerrar cada
+> sesion. Lo de aqui abajo es la version larga, con el razonamiento.
+
+> ### ⇢ HECHO EL 30-07-2026: `clasesfusion.py` llegó a `K_MAX = 32`
 >
-> Tardó unos veinte minutos. `K_MAX` queda en 30 en el archivo. Resultados:
+> Se corrió primero a 30 (unos veinte minutos) y después a 32. **`K_MAX` vale
+> **32** en el archivo**, y `a(32) = 1.871.137.623` está **confirmado por dos
+> caminos independientes** — el secuencial de `clasesfusion.py` y el repartido
+> por núcleos de `clasesparalelo.py` — con el resultado escrito en
+> `resultado_paralelo_k32.txt`. (`a(31) = 930.718.308` ya había coincidido igual.)
 >
 > ```
 >  k         N(k)        NUEVAS    razon
 > 28  114.400.435       692.079   1,9269
-> 29  230.136.995     1.336.125   1,9306   <- nuevo
-> 30  462.857.658     2.583.668   1,9337   <- nuevo
+> 29  230.136.995     1.336.125   1,9306
+> 30  462.857.658     2.583.668   1,9337
+> 31  930.718.308     5.002.992   1,9364
+> 32  1.871.137.623   9.701.007   1,9390
 > ```
 >
-> **La cota inferior demostrada sube de 42,6175% a `43,1070%`.** Eso es lo
+> **La cota inferior demostrada sube de 42,6175% a `43,5658%`.** Eso es lo
 > único duro: no depende de muestreo ni de ajuste.
 >
 > **Y la pregunta sigue sin decidirse.** Se pedía mirar si los incrementos de
-> la razón seguían encogiendo. Siguen — `0,0050 → 0,0039 → 0,0037 → 0,0031` —
-> **pero encogen despacio, y ahí está el problema:** si decrecen
-> geométricamente, la razón converge por debajo de 2 (en torno a 1,95) y la
-> fracción tiene límite `< 1`; si decrecen como `1/k`, la suma diverge igual y
-> la razón acaba llegando a 2. **Cuatro puntos no distinguen esas dos cosas.**
-> El aviso de no extrapolar sigue en pie y ahora vale doble.
+> la razón seguían encogiendo. Siguen — `0,0050 → 0,0039 → 0,0037 → 0,0031 →
+> 0,0027 → 0,0026` — **pero encogen despacio, y ahí está el problema:** si
+> decrecen geométricamente, la razón converge por debajo de 2 (en torno a 1,95)
+> y la fracción tiene límite `< 1`; si decrecen como `1/k`, la suma diverge
+> igual y la razón acaba llegando a 2. **Seis puntos siguen sin distinguir esas
+> dos cosas.** El aviso de no extrapolar sigue en pie y ahora vale doble.
 >
 > Los términos están en `sucesiones.txt` y las consultas a OEIS se repitieron
 > con la sucesión ampliada: siguen sin estar.
 >
-> **Por dónde seguiría este hilo:** `k = 32` costaría unas 4 veces más (una
-> hora y pico) y daría dos puntos más. No decidiría nada tampoco — pero si los
-> incrementos siguen la misma pauta, la sucesión de incrementos empieza a ser
-> larga como para distinguir geométrico de `1/k`. Es la única vía barata que
-> queda en este hilo.
+> **Por dónde seguiría este hilo:** `k = 34`, que con `clasesparalelo.py` cuesta
+> unas 4 veces lo de `k = 32`. No decidiría nada tampoco — pero alarga la única
+> serie que puede distinguir geométrico de `1/k`. Es la única vía barata que
+> queda aquí, y está en la cola de `bitacora.md`.
 
 *(Ya hechos: el espejo en base 2 (puente exacto de un paso, no llega al segundo);
 la rueda del arbol; las once mallas en disco; los once hilos en sqlite; el espejo
@@ -1883,21 +1965,27 @@ en quince bases; y la conjetura de Wu medida. El 30-07-2026 se sumaron: el umbra
 de los 45 rumbos, los negativos como 3n-1, las constantes, el ajuste fino de qn+1
 y el A/B contra la moneda. Todo eso esta arriba, con sus correcciones.)*
 
-**AVISO SOBRE LA SESION DEL 30-07-2026: no dejo ni un fichero.** Se hizo entera en
-scripts sueltos fuera del repo, y solo quedo escrito aqui. Si algo de eso merece
-quedarse, hay que convertirlo en programas con la forma de siempre (constantes
-arriba, comprobaciones antes del dibujo, `SystemExit` si fallan). Es la deuda mas
-concreta que tiene el laboratorio ahora mismo.
+**AVISO SOBRE LA SESION DEL 30-07-2026: casi no dejo ficheros.** Se hizo casi
+entera en scripts sueltos fuera del repo, y solo quedo escrito aqui.
+**Sobrevivieron cuatro cosas** — `pinzaciclos.py`, `cruzarecords.py`,
+`records.json` y `clasesparalelo.py`; **todo lo demas no se puede reproducir**: el
+umbral de los 45 rumbos, los negativos como `3n-1`, las constantes, el ajuste fino
+de `qn+1`, el A/B contra la moneda y el piso de la altitud estan medidos y
+escritos, pero sin codigo detras. Si algo de eso merece quedarse, hay que
+convertirlo en programas con la forma de siempre (constantes arriba,
+comprobaciones antes del dibujo, `SystemExit` si fallan). Es la deuda mas concreta
+que tiene el laboratorio ahora mismo.
 
 1. **LA PREGUNTA MAS CONCRETA QUE HAY EN EL REPO** sigue siendo si la razon
-   `b(k)/b(k-1)` converge por debajo de 2 o llega a 2. El `k = 30` ya se corrio y
-   **no la decidio** (ver arriba). El siguiente escalon barato es `K_MAX = 32`:
-   cuesta unas cuatro veces mas, algo mas de una hora, y da dos puntos mas de la
-   sucesion de incrementos. Tampoco va a decidirlo, pero alarga la unica serie que
-   puede distinguir "decrece geometricamente" de "decrece como 1/k". El calculo es
-   **exacto**, no muestreado, que es lo que lo hace valioso. *Y el aviso de
-   siempre: que una razon suba hacia 2 en veinte escalones no demuestra ni que
-   llegue ni que se quede corta. Acota la pregunta; no la contesta.*
+   `b(k)/b(k-1)` converge por debajo de 2 o llega a 2. El `k = 32` ya se corrio,
+   por dos caminos independientes, y **no la decidio** (ver arriba). El siguiente
+   escalon es `K_MAX = 34` con `clasesparalelo.py`: cuesta unas cuatro veces mas y
+   da dos puntos mas de la sucesion de incrementos. Tampoco va a decidirlo, pero
+   alarga la unica serie que puede distinguir "decrece geometricamente" de "decrece
+   como 1/k". El calculo es **exacto**, no muestreado, que es lo que lo hace
+   valioso. *Y el aviso de siempre: que una razon suba hacia 2 en veinte escalones
+   no demuestra ni que llegue ni que se quede corta. Acota la pregunta; no la
+   contesta.*
 
 2. **EL PLAN DE LA PINZA, en tres fases** (diseñado el 30-07-2026 después de
    destripar el método de Hercher). Lo que lo hace viable es un hallazgo del
@@ -1929,8 +2017,8 @@ concreta que tiene el laboratorio ahora mismo.
    inicial, y **el conjunto vivo queda como un intervalo intersecado con una clase
    residual módulo `2^s`**. Un nivel vacío es la contradicción. Eso es exactamente
    la pinza: cota por un lado, criba modular por el otro. Y media está construida —
-   `clasesfusion.py` ya hace aritmética exacta sobre clases mod `2^k` hasta `k=30`
-   con troceado en bloques.
+   `clasesfusion.py` ya hace aritmética exacta sobre clases mod `2^k` hasta `k=32`
+   con troceado en bloques, y `clasesparalelo.py` lo reparte entre núcleos.
 
    **Fase 3 — el objetivo, y no es superar a nadie: VERIFICAR A WANG.** Su
    preprint (Zenodo, 29-07-2026, `m ≤ 95`) **no está arbitrado**, tiene cero citas
@@ -1946,12 +2034,12 @@ concreta que tiene el laboratorio ahora mismo.
    profundidad deberia dispararse. Es barato —mismo codigo, otro angulo— y es lo
    mas cerca de una nota original que hay en el repo.
 
-3. **Colorear el arbol de `collazarbol.py` con la rueda** — cada rama segun la
+4. **Colorear el arbol de `collazarbol.py` con la rueda** — cada rama segun la
    clase mod 3 de su semilla — para *ver* el tambor sobre la esfera que ya existe.
    Las once mallas ya estan en disco (`guardarmallas.py`), incluida la cuarta rueda
    mod 81.
 
-4. **Usar las mallas guardadas contra algo que todavia no sepamos.** Ahora que
+5. **Usar las mallas guardadas contra algo que todavia no sepamos.** Ahora que
    `mallas/*.json` existe, el cruce ya no cuesta calcular: se pueden barrer las once
    contra trayectorias de Collatz buscando que otra malla predice algo. Aviso por
    adelantado: lo mas probable es que **no prediga nada**, porque el negativo de
@@ -1960,7 +2048,7 @@ concreta que tiene el laboratorio ahora mismo.
    malla. Sin esa correspondencia estructural, un cruce que de positivo seria
    sospechoso antes que interesante.
 
-5. **El `+1` aparece ya tres veces**: el grosor 0,2286 de la lamina, el `+2` del
+6. **El `+1` aparece ya tres veces**: el grosor 0,2286 de la lamina, el `+2` del
    espejo base 2, y la desviacion -0,0035 de la fraccion impar. Las tres son el
    mismo estorbo medido en tres sitios distintos. Vale la pena buscar si se pueden
    escribir como una sola cantidad — seria lo unico del laboratorio que **unifica**

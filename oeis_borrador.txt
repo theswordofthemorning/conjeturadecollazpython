@@ -235,22 +235,26 @@ PARTE 3 -- ENTRADA 1, LISTA PARA PEGAR
        para poder cruzar las dos entradas. Sustituir <Aa> por el de esta
        entrada y <Ab> por el de la otra, en TODAS las lineas.
    (2) Rellenar %A con el nombre real de quien envia.
-   (3) Anadir a(29) y a(30) cuando termine el calculo (ver el hueco marcado).
+   (3) [HECHO el 30-07-2026] a(29) ... a(32) ya estan puestos. La sucesion
+       llega a k = 32 y a(32) = 1871137623 esta confirmado por dos caminos
+       independientes: clasesfusion.py y clasesparalelo.py (ver
+       resultado_paralelo_k32.txt). No queda ningun hueco por rellenar
+       salvo el nombre.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 %I <Aa>
 %S <Aa> 1,3,8,18,39,82,170,351,721,1476,3012,6130,12450,25241,51105,103358
 %T <Aa> 208840,421643,850737,1715546,3457791,6966495,14030369,28247507
-%U <Aa> 56854178,114400435
+%U <Aa> 56854178,114400435,230136995,462857658,930718308,1871137623
 %N <Aa> Number of residues r mod 2^n such that the trajectories of 2^n*m + r and 2^n*m + r + 1 under the accelerated Collatz map T (T(x) = (3*x+1)/2 if x is odd, T(x) = x/2 if x is even) agree from step n onwards for every m >= 0.
 %C <Aa> Equivalently, a(n) counts the residues r mod 2^n for which S_n(r) = S_n(r+1) and T^n(r) = T^n(r+1), where S_n(x) is the number of odd steps among the first n steps of T. This is a finite check that decides the behavior of infinitely many m, because of Terras's parity vector theorem: T^n(x) = (3^S_n(x)/2^n)*x + rho_n(x), where both S_n and rho_n depend only on x mod 2^n, so that T^n(2^n*m + r) = 3^S_n(r)*m + T^n(r) is a line in m whose slope and intercept depend only on r, and two lines agree for all m exactly when both coefficients agree.
 %C <Aa> The wrap-around case r = 2^n - 1 is included: its successor 2^n*m + 2^n lies in class 0 of the next block, so the condition there reads S_n(2^n-1) = S_n(0) and T^n(2^n-1) = 3^S_n(0) + T^n(0).
 %C <Aa> If two trajectories agree at step n they are the same from then on, so the two integers have the same Collatz height (A006577); the condition on S_n also forces them to have spent the same number of steps of the classical map getting there, since n steps of T are n + S_n steps of the classical 3x+1 map.
 %C <Aa> THE CRITERION IS NOT NEW. It is Terras's parity vector theorem (1976) applied to consecutive integers, and the families it selects are published: r = 4 mod 8, i.e. the pairs (8*m+4, 8*m+5), is the base case of Garner (1985) and is proved again in Elia and Tucker (2015); r = 5 mod 32, i.e. the pairs (32*m+5, 32*m+6), is attributed to Wu and Huang (2001). This sequence is only the COUNT of the classes that the published criterion selects; it is not a new result. It appears not to have been tabulated before.
-%C <Aa> a(n)/2^n is a proved lower bound for the density of pairs (x, x+1) of equal Collatz height, decided by the residue alone: a(28)/2^28 = 0.426175... The measured density of such pairs up to 2^28 is about 0.5186, so about 10 percentage points come from pairs that merge for their particular m without their whole residue class merging.
+%C <Aa> a(n)/2^n is a proved lower bound for the density of pairs (x, x+1) of equal Collatz height, decided by the residue alone: a(32)/2^32 = 0.435658... The measured density of such pairs up to 2^28 is about 0.5186, so about 8 percentage points come from pairs that merge for their particular m without their whole residue class merging.
 %C <Aa> a(n+1) >= 2*a(n) for all n, hence a(n)/2^n is nondecreasing. Proof in three lines: with m = 1 the formula above gives T^n(2^n + r) = 3^S_n(r) + T^n(r), and the same for r+1; if r merges mod 2^n then S_n(r) = S_n(r+1) and T^n(r) = T^n(r+1), so 2^n + r and 2^n + r + 1 also have equal S_n and equal T^n; therefore both r and r + 2^n merge mod 2^(n+1). Monotonicity is thus forced by construction, not an empirical finding.
-%C <Aa> The excess over the doubling is <Ab>(n) = a(n+1) - 2*a(n), the classes that first merge at level n+1. Since a(n+1)/2^(n+1) - a(n)/2^n = <Ab>(n)/2^(n+1), the limit of a(n)/2^n equals a(n)/2^n + Sum_{j>=n} <Ab>(j)/2^(j+1), so the whole question of where the density bound goes reduces to the growth rate of <Ab>. The measured ratio <Ab>(n)/<Ab>(n-1) rises monotonically (1.8427 at n = 17, 1.9269 at n = 27) with no sign of settling; if it stays below 2 the sum converges and the bound has a limit < 1, if it reaches 2 the bound tends to 1.
+%C <Aa> The excess over the doubling is <Ab>(n) = a(n+1) - 2*a(n), the classes that first merge at level n+1. Since a(n+1)/2^(n+1) - a(n)/2^n = <Ab>(n)/2^(n+1), the limit of a(n)/2^n equals a(n)/2^n + Sum_{j>=n} <Ab>(j)/2^(j+1), so the whole question of where the density bound goes reduces to the growth rate of <Ab>. The measured ratio <Ab>(n)/<Ab>(n-1) rises monotonically (1.8427 at n = 17, 1.9269 at n = 27, 1.9390 at n = 31) with no sign of settling; if it stays below 2 the sum converges and the bound has a limit < 1, if it reaches 2 the bound tends to 1.
 %C <Aa> a(0) = a(1) = a(2) = 0, which is why the offset is 3.
 %D <Aa> L. E. Garner, On heights in the Collatz 3n+1 problem, Discrete Mathematics 55 (1985), 57-64.
 %D <Aa> J. C. Lagarias, The 3x+1 problem and its generalizations, American Mathematical Monthly 92 (1985), no. 1, 3-23.
@@ -289,22 +293,28 @@ PARTE 3 -- ENTRADA 1, LISTA PARA PEGAR
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  a(29) = 230136995   a(30) = 462857658   [calculados el 30-07-2026]
-  Fraccion a(30)/2^30 = 0,431070 (la cota inferior demostrada)
+  YA ESTAN PUESTOS EN LA LINEA %U (30-07-2026). Los cuatro terminos que
+  faltaban, todos calculados, ninguno estimado:
 
-  NO ESTAN ESTIMADOS Y NO SE PUEDEN INVENTAR. Cuando clasesfusion.py imprima
-  las filas k = 29 y k = 30, los dos valores se pegan AL FINAL de la linea
-  %U, separados por comas, sin espacios:
+      a(29) =   230136995      a(31) =   930718308
+      a(30) =   462857658      a(32) =  1871137623
 
-      %U <Aa> 56854178,114400435,<a(29)>,<a(30)>
+  Fraccion a(32)/2^32 = 0,435658 (la cota inferior demostrada). Sube desde el
+  0,426175 de a(28) que citaba la version anterior de este borrador.
 
-  Si al anadirlos la linea %U pasa de ~70 caracteres, se reparte otra vez el
-  total entre %S, %T y %U (siguen siendo como maximo tres lineas). Con dos
-  terminos mas el total ronda los 170 caracteres, o sea que sigue MUY por
-  debajo del limite de 260 y la keyword "more" se queda.
+  a(31) y a(32) estan CONFIRMADOS POR DOS CAMINOS INDEPENDIENTES: el
+  secuencial de clasesfusion.py y el repartido entre nucleos de
+  clasesparalelo.py, que ademas se autoverifica contra a(30) antes de
+  calcular nada. El registro esta en resultado_paralelo_k32.txt.
 
-  Y hay que actualizar tambien, en el %C que habla de la cota inferior:
-      "a(28)/2^28 = 0.426175..."   ->   el valor de a(30)/2^30.
+  La linea %U mide ahora 59 caracteres y el total de %S + %T + %U ronda los
+  190, o sea que sigue por debajo del limite de 260 y la keyword "more" se
+  queda. No hace falta repartir de nuevo.
+
+  LO QUE SIGUE PENDIENTE DE VERDAD: las consultas a OEIS se hicieron con la
+  sucesion hasta k = 30. Los dos terminos nuevos no se han vuelto a consultar.
+  No cambia la conclusion (un prefijo de 28 terminos que no esta no aparece
+  por alargarlo), pero no se puede afirmar que se comprobo hasta k = 32.
 
 
 ===================================================================
@@ -313,11 +323,12 @@ PARTE 4 -- ENTRADA 2, LISTA PARA PEGAR
 
 %I <Ab>
 %S <Ab> 1,2,2,3,4,6,11,19,34,60,106,190,341,623,1148,2124,3963,7451,14072
-%T <Ab> 26699,50913,97379,186769,359164,692079
+%T <Ab> 26699,50913,97379,186769,359164,692079,1336125
+%U <Ab> 2583668,5002992,9701007
 %N <Ab> Number of residues mod 2^(n+1) that first merge at level n+1 in the Collatz problem: a(n) = <Aa>(n+1) - 2*<Aa>(n), where <Aa>(n) is the number of residues r mod 2^n such that the trajectories of 2^n*m + r and 2^n*m + r + 1 under the accelerated Collatz map agree from step n onwards for every m >= 0.
 %C <Ab> Every residue that merges mod 2^n gives two residues that merge mod 2^(n+1), namely r and r + 2^n, so <Aa>(n+1) >= 2*<Aa>(n) is forced. Proof in three lines: from T^n(2^n*m + r) = 3^S_n(r)*m + T^n(r), taking m = 1 gives T^n(2^n + r) = 3^S_n(r) + T^n(r), and the same for r+1; if r merges then S_n(r) = S_n(r+1) and T^n(r) = T^n(r+1), so 2^n + r and 2^n + r + 1 agree too. This sequence counts the surplus, i.e. the classes that are NOT inherited from the level below.
 %C <Ab> This is the sequence with the content, because the monotonicity of <Aa>(n)/2^n is trivial while its limit is not. Writing f(n) = <Aa>(n)/2^n, one has f(n+1) - f(n) = a(n)/2^(n+1) and hence f(infinity) = f(n) + Sum_{j>=n} a(j)/2^(j+1). Since f(n) is a proved lower bound for the density of pairs of consecutive integers with the same Collatz height, the whole question of where that bound goes is the growth rate of this sequence: if a(n+1)/a(n) stays below 2 the sum converges and the bound has a limit < 1; if it reaches 2 the sum diverges and the bound tends to 1.
-%C <Ab> The measured ratio a(n)/a(n-1) rises monotonically and does not settle: 1.8427 at n = 17, 1.8802 at n = 20, 1.8886 at n = 22, 1.8973 at n = 23, 1.9127 at n = 24, 1.9180 at n = 25, 1.9230 at n = 26, 1.9269 at n = 27. With these terms the question cannot be decided either way, which is the point of tabulating the sequence.
+%C <Ab> The measured ratio a(n)/a(n-1) rises monotonically and does not settle: 1.8427 at n = 17, 1.8802 at n = 20, 1.8886 at n = 22, 1.8973 at n = 23, 1.9127 at n = 24, 1.9180 at n = 25, 1.9230 at n = 26, 1.9269 at n = 27, 1.9306 at n = 28, 1.9337 at n = 29, 1.9364 at n = 30, 1.9390 at n = 31. The increments of that ratio do shrink (0.0050, 0.0039, 0.0037, 0.0031, 0.0027, 0.0026) but too slowly to tell geometric decay, which would give a limit near 1.95, from 1/n decay, which would reach 2. With these terms the question cannot be decided either way, which is the point of tabulating the sequence.
 %C <Ab> THE UNDERLYING CRITERION IS NOT NEW: it is Terras's parity vector theorem (1976) applied to consecutive integers, and the families it selects are published (Garner 1985; Elia and Tucker 2015; Wu and Huang 2001). See <Aa> for details and references. This sequence is a derived count, not a new result.
 %C <Ab> a(0) = a(1) = 0 and a(2) = 1, which with <Aa>(0) = <Aa>(1) = <Aa>(2) = 0 is why the offset is 3.
 %D <Ab> L. E. Garner, On heights in the Collatz 3n+1 problem, Discrete Mathematics 55 (1985), 57-64.
@@ -337,21 +348,26 @@ PARTE 4 -- ENTRADA 2, LISTA PARA PEGAR
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  b(28) = 1336125     b(29) = 2583668     [calculados el 30-07-2026]
-  Razones b(k)/b(k-1): 1,9306 y 1,9337 (siguen subiendo, sin techo)
+  YA ESTAN PUESTOS (30-07-2026). Los cuatro terminos nuevos, todos salidos de
+  la resta b(k) = a(k+1) - 2*a(k) con los valores impresos, no estimados:
 
-  Con a(29) y a(30) salen dos terminos mas de esta sucesion, por la formula
-  b(k) = a(k+1) - 2*a(k):
+      b(28) = 230136995  - 2 *  114400435 =  1336125
+      b(29) = 462857658  - 2 *  230136995 =  2583668
+      b(30) = 930718308  - 2 *  462857658 =  5002992
+      b(31) = 1871137623 - 2 *  930718308 =  9701007
 
-      b(28) = a(29) - 2 * 114400435
-      b(29) = a(30) - 2 * a(29)
+  Razones b(k)/b(k-1): 1,9306 - 1,9337 - 1,9364 - 1,9390.
+  Siguen subiendo y siguen sin dar senal de techo.
 
-  Se pegan al final de la linea %T. NO CALCULARLOS A OJO: hay que hacer la
-  resta con los valores impresos, no con estimaciones.
+  Como la linea %T pasaba de 70 caracteres con los cuatro, se repartio: los
+  tres ultimos van ahora en una linea %U nueva. El total sigue en unos 136
+  caracteres, muy por debajo del limite de 260, y la keyword "more" se queda.
 
-  Y hay que actualizar la lista de razones del segundo %C anadiendo
-  b(28)/b(27) y b(29)/b(28), que es el dato que de verdad interesa (si la
-  razon sigue subiendo por encima de 1,9269 o empieza a dar senal de techo).
+  LO QUE DE VERDAD INTERESA, y sigue sin decidirse: los INCREMENTOS de la
+  razon son 0,0050 -> 0,0039 -> 0,0037 -> 0,0031 -> 0,0027 -> 0,0026. Encogen,
+  pero despacio. Seis puntos no distinguen "decrece geometricamente" (razon
+  hacia ~1,95, cota con limite < 1) de "decrece como 1/k" (razon hacia 2, cota
+  hacia 1). El siguiente escalon barato es k = 34 con clasesparalelo.py.
 
 
 ===================================================================

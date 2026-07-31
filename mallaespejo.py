@@ -153,7 +153,7 @@ filas = [
     ("cola mas larga", f"{max(e['colas'])}", f"{max(c['colas'])}"),
     ("cola media", f"{sum(k*v for k,v in e['colas'].items())/N:.2f}",
      f"{sum(k*v for k,v in c['colas'].items())/N:.2f}"),
-    ("pasos que se escapan", f"{100*e['se_escapan']/N:.1f}%",
+    ("se escapan (NO vale)", f"{100*e['se_escapan']/N:.1f}%",
      f"{100*c['se_escapan']/N:.1f}%"),
 ]
 print(f"  {'':<24} {'ESPEJO':>12} {'COLLATZ':>12}")
@@ -164,6 +164,13 @@ veces = len(e["ciclos"]) / len(c["ciclos"])
 print(f"  -> el espejo tiene {veces:.0f} veces mas ciclos que Collatz.")
 print(f"     Las mallas NO se parecen en nada. La maquinaria discrimina:")
 print(f"     lo que dibuja depende de lo que le metes, no de como dibuja.")
+print()
+print(f"  CUIDADO CON LA ULTIMA FILA -- NO DISCRIMINA (correccion del 30-07-2026).")
+print(f"  Aqui parece que separa, pero solo porque el espejo esta ACOTADO por")
+print(f"  construccion. Entre dos reglas parecidas no separa nada: medida con")
+print(f"  3n+1 contra 3n-1 da 33,3% en las dos, con los MISMOS conteos absolutos,")
+print(f"  a N = 256, 1024, 4096 y 10.000. Mide el RANGO elegido, no la regla.")
+print(f"  Las que si valen aqui son: ciclos distintos, cola mas larga, cola media.")
 
 
 # ------------------------------------------------------------- el dibujo

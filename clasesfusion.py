@@ -45,8 +45,14 @@
 #
 # Las dos familias publicadas caen dentro, y se rederivan en tres lineas:
 #
-#   resto 4 mod 8   -> 8k+4 y 8k+5 (Lagarias 1985)
-#   resto 5 mod 32  -> (32m+5, 32m+6) (Wu y Huang 2001)
+#   resto 4 mod 8   -> 8k+4 y 8k+5 (Garner 1985)
+#   resto 5 mod 32  -> (32m+5, 32m+6) (Wu y Huang 2001, CITA SIN VERIFICAR)
+#
+# CORRECCION DE ATRIBUCION (30-07-2026). Este archivo decia "Lagarias 1985"
+# para el par (8k+4, 8k+5). Es de GARNER: L. E. Garner, "On heights in the
+# Collatz 3n+1 problem", Discrete Math. 55 (1985), 57-64. Lagarias 1985 es el
+# survey general, otra cosa. Y la de Wu y Huang no se pudo verificar: sin DOI,
+# no esta en Crossref, y Elia-Tucker no la citan. Ver sucesiones.txt.
 #
 # Y la fraccion de clases que se funden siempre se puede calcular EXACTA
 # para cada k, sin muestrear nada.
@@ -152,7 +158,7 @@ def cuantas_clases(k):
 print("COMPROBACION 1 -- las dos familias publicadas salen del criterio\n")
 
 v3, S3 = salto_y_paridad(np.arange(0, 9, dtype=np.int64), 3)
-print(f"  Lagarias 1985: 8k+4 y 8k+5 se funden siempre.")
+print(f"  Garner 1985: 8k+4 y 8k+5 se funden siempre.")
 print(f"    r=4: T^3(4) = {v3[4]}, S_3(4) = {S3[4]}")
 print(f"    r=5: T^3(5) = {v3[5]}, S_3(5) = {S3[5]}")
 cumple_4 = (v3[4] == v3[5]) and (S3[4] == S3[5])
@@ -220,7 +226,7 @@ for r in buenos:
     if K_DETALLE == 5 and r == 5:
         marca = "   <- la familia de Wu y Huang"
     if K_DETALLE == 3 and r == 4:
-        marca = "   <- la familia de Lagarias"
+        marca = "   <- la familia de Garner"
     print(f"    {r:>4} = {r:0{K_DETALLE}b}{marca}")
 
 

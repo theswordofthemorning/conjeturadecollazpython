@@ -32,7 +32,7 @@
 #   2. SI LOS PUNTOS CALZAN O NO, y de que depende.
 #      Depende de cuantos rumbos distintos permiten los angulos:
 #
-#         par 16, impar  -8  (Harriss)  ->  45 rumbos  ->      0 choques
+#         par 16, impar  -8  (Harriss)  ->  45 rumbos  ->  ver el aviso de abajo
 #         par  7, impar -17  (tu repo)  -> 357 rumbos  ->      0 choques
 #         par 60, impar -30             ->  13 rumbos  ->  46% choques
 #         par 90, impar -45             ->   9 rumbos  ->  77% choques
@@ -42,11 +42,45 @@
 #      reticula hexagonal, y 6.520 ramas distintas terminan en 221 puntos.
 #      AHI los puntos calzan.
 #
-# HONESTIDAD SOBRE ESTO: el cierre es matematica de verdad (si el grupo de
-# direcciones es finito, por el principio del palomar las posiciones se repiten),
-# pero lo trae EL ANGULO QUE ELEGIS TU, no Collatz. Collatz pone el paseo; el
-# angulo pone el cierre. Con los angulos de Harriss no cierra nada, y por eso
-# parece un coral: se ramifica para siempre y nunca se vuelve a juntar.
+# ---------------------------------------------------------------------------
+# CORRECCION IMPORTANTE (30-07-2026): EL "0 CHOQUES" DE HARRISS ERA FALSO
+# ---------------------------------------------------------------------------
+#
+# Este archivo afirmaba que con 16/-8 el coral no se vuelve a juntar NUNCA. No
+# es cierto: era el resultado de mirar solo 3.000 semillas. Con 45 rumbos SI
+# hay choques, y son coincidencias exactas, no ruido de coma flotante.
+#
+#   primer HASTA con choque (barriendo semillas)   :  10.452
+#   segundo choque                                 :  25.527
+#   primera profundidad con choque (arbol entero)  :      31
+#   a profundidad 59                               :  39.831 choques
+#
+# Los dos umbrales son distintos y los dos son ciertos: barrer por semillas solo
+# ve las ramas que cuelgan de semillas chicas. Barriendo el arbol inverso
+# completo el primer choque esta en la profundidad 31, con cero hasta la 30
+# inclusive, exhaustivo.
+#
+# Que son exactos se comprobo en aritmetica entera: cada arista es una raiz
+# 45-esima de la unidad, asi que dos ramas caen en el mismo punto si y solo si
+# el polinomio ciclotomico Phi_45 divide al polinomio diferencia en Z[x]. Los
+# dos primeros pares dan resto CERO, sin un solo float. Lo que se media como
+# 1,4e-14 era el error de sumar 35 cosenos.
+#
+# LA CAUSA REFUERZA LA DOCTRINA EN VEZ DE ROMPERLA: 45 = 3^2 * 5. Las relaciones
+# enteras entre las 45 raices son el triangulo (tres direcciones a 120 grados) y
+# el pentagono (cinco a 72). El cierre lo trae la CONMENSURABILIDAD del angulo
+# --16 y 8 dividen a 120--, no Collatz. Es el mismo fenomeno que el hexagono,
+# solo que hace falta llegar a profundidad 31 para verlo.
+#
+# POR ESO HASTA VALE 11.000 Y NO 3.000. Con 3.000 este programa imprime "NO
+# CALZAN" y esa es exactamente la lectura que resulto falsa. Con 11.000 pasa el
+# umbral de 10.452 y el choque aparece. Si lo bajas otra vez, sabe lo que estas
+# viendo: ausencia de evidencia, no evidencia de ausencia.
+#
+# HONESTIDAD SOBRE EL CIERRE: es matematica de verdad (si el grupo de
+# direcciones es finito, por el principio del palomar las posiciones se
+# repiten), pero lo trae EL ANGULO QUE ELEGIS TU, no Collatz. Collatz pone el
+# paseo; el angulo pone el cierre.
 #
 # Genera un .html que ocupa toda la ventana.
 
@@ -70,10 +104,12 @@ import plotly.graph_objects as go
 # y esa razon la pone Collatz, no nosotros. El programa la mide y te la dice.
 # ---------------------------------------------------------------------------
 
-ANGULO_PAR = 8.0
-ANGULO_IMPAR = -13.876
+ANGULO_PAR = 16.0
+ANGULO_IMPAR = -8.0
 
-HASTA = 3000        # cuantas semillas se dibujan
+HASTA = 11000       # cuantas semillas se dibujan. Con 16/-8 el primer choque
+                    # aparece en 10.452, asi que por debajo de eso el programa
+                    # dice "NO CALZAN" y miente. Ver la correccion de arriba.
 K_RESTOS = 6        # para la comprobacion contra la malla de restos
 TOLERANCIA = 6      # decimales al comparar posiciones
 
@@ -193,8 +229,12 @@ print(f"  ramas encimadas      : {ramas_encimadas:,}"
       f"  ({100 * ramas_encimadas / len(coral):.1f}% del total)")
 
 if ramas_encimadas == 0:
-    print(f"\n  -> NO CALZAN. Cada camino termina en su propio punto y nada se")
-    print(f"     vuelve a juntar. Es un arbol de verdad. Por eso parece un coral.")
+    print(f"\n  -> NO SE VE NINGUN CHOQUE **A ESTA ESCALA**. Ojo con leer esto")
+    print(f"     como 'no cierra nunca': eso es justo lo que resulto falso el")
+    print(f"     30-07-2026. Con 16/-8 el primer choque esta en HASTA = 10.452,")
+    print(f"     y barriendo el arbol inverso entero aparece en la profundidad 31.")
+    print(f"     Con HASTA = {HASTA:,} esto es ausencia de evidencia, no evidencia")
+    print(f"     de ausencia. Sube HASTA antes de concluir nada.")
 else:
     apilado = max(len(ks) for ks in choques.values())
     print(f"\n  -> CALZAN. {len(coral):,} ramas caen en solo {len(sitios):,} puntos.")
@@ -318,9 +358,9 @@ if ramas_encimadas:
               f" ({100 * ramas_encimadas / len(coral):.0f}% encimadas),"
               f" porque solo hay {len(rumbos_distintos)} rumbos posibles")
 else:
-    remate = (f"NO CALZAN: {len(coral):,} ramas, {len(sitios):,} puntos distintos,"
-              f" cero encimados — con {len(rumbos_distintos)} rumbos posibles"
-              f" el arbol nunca se vuelve a juntar")
+    remate = (f"sin choques a esta escala: {len(coral):,} ramas, {len(sitios):,}"
+              f" puntos distintos, con {len(rumbos_distintos)} rumbos posibles"
+              f" — pero con 45 rumbos los hay a partir de la profundidad 31")
 
 figura.update_layout(
     title=dict(

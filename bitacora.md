@@ -101,6 +101,128 @@ sueltos fuera del repo y sólo quedó escrito en el `CLAUDE.md`. Sobrevivieron
 resto de las mediciones **no se pueden reproducir**. Es la deuda más concreta
 que tiene el laboratorio.
 
+*(Parte de esa deuda se pagó el mismo día: `pisoaltitud.py`, `elmasuno.py`,
+`reimpl.py` y `coralprimos.py` devolvieron cuatro de esas mediciones a fichero
+ejecutable, y `afirmaciones.db` recoge los enunciados con su cuantificador.)*
+
+### 4. LA PASADA CRUZADA — encargada a Fable 5, pendiente
+
+**Qué hay que hacer.** Cruzar **cada una de las afirmaciones de
+`afirmaciones.db`** contra **dos pools de datos a la vez**:
+
+1. **Los once hilos de `hilos.db`** (100000 … 100010, con sus pasos, cruces,
+   fusiones y cola común ya calculados). Son el caso ORDINARIO.
+2. **Los 243 récords publicados de `records.json`** — retraso y altitud, de
+   Roosendaal y Barina, hasta 2^71. Son el caso EXTREMO. `cruzarecords.py` ya
+   sabe leerlos, así que el código de lectura está hecho.
+
+Por cada pareja (dato, afirmación), decir si la cumple, la contradice, o si la
+afirmación no aplica.
+
+Nada hay que recalcular: las dos bases y el JSON están en el disco y
+versionados. Se abren con `sqlite3` y `json.load` y se cruzan.
+
+**Por qué los dos pools, y no uno.** Es la lección que dejó el piso de la
+altitud el 30-07-2026, y es el mejor argumento que tiene este laboratorio:
+
+> **Los extremos confirman; los controles refutan.**
+
+Al piso lo probaron contra los 243 récords —los números que más suben y más
+tardan de todo lo conocido— y **pasaron los 243**. El error del enunciado (le
+faltaba la hipótesis `n impar`) lo cazó el barrido de números corrientes. Los
+récords son tan raros que confirman casi cualquier cosa; los números del montón
+son los que rompen.
+
+Los once hilos aportan el montón, con casos incómodos a propósito: el `100009`
+tarda 309 pasos y sube a 35 millones; el `100001` es el único solitario de los
+once (todos sus cruces son cola común); y los seis del `100002` al `100007` se
+funden con desfase cero. Los 243 récords aportan el rango: de 2 a 71 bits, que
+es donde una cota se rompe si va a romperse por tamaño.
+
+Si una afirmación falla en cualquiera de los dos pools, es un hallazgo. Si
+aguanta en los dos, es un control de verdad.
+
+**EL AVISO QUE NO SE PUEDE SALTAR, y es la razón de que la columna
+`cuantificador` exista.** La pasada sólo significa algo para dos de los seis
+cuantificadores:
+
+| cuantificador | ¿tiene sentido cruzarlo contra 11 hilos? |
+|---|---|
+| `todo_n` | **Sí.** Once contraejemplos potenciales. Si falla uno, la afirmación es falsa |
+| `clase_mod_2k` | **Sí**, vía los restos de los once. Comprobación real |
+| `casi_todo_n` | No. Once números no dicen nada de una densidad |
+| `promedio` | **NO, y es peligroso.** Once trayectorias no estiman una media |
+| `ciclos` | No aplica: ninguno de los once es un ciclo |
+| `verificado_hasta` | No aplica: son afirmaciones sobre rangos, no sobre números |
+
+**El modo de fallo concreto a evitar:** informar «11 de 11 confirmadas» sobre
+una fila de tipo `promedio`. Eso no es confirmación, es ruido con forma de
+tabla — el mismo error que produjo el `1,7345` del coral (valor de una muestra
+tomado por constante) y el `+0,000002` de la holgura mínima del piso (dos
+rangos distintos mezclados en la misma frase). La pasada tiene que **negarse a
+evaluar** las filas de `promedio` y `casi_todo_n`, no evaluarlas y matizar.
+
+**Y la trampa propia de estos once, que ya está medida:** las once trayectorias
+comparten la cola `[16, 8, 4, 2, 1]` por obligación. 275 de los 1.258 cruces son
+eso y no significan nada. `hilos.db` marca cada cruce con `es_cola` justamente
+para esto; hay que usar esa columna y no contar la cola como coincidencia.
+
+### 5. CONSOLIDAR EL `CLAUDE.md` — pendiente, y es lo primero de la próxima sesión
+
+La sesión del **31-07-2026** dejó seis ficheros nuevos y **seis correcciones sin
+escribir en el documento**. El código está hecho y verificado; la documentación
+va atrasada. Es exactamente la deuda del punto 3, otra vez, sólo que al revés.
+
+**Las seis correcciones al `CLAUDE.md`:**
+
+1. **La holgura mínima del piso no es una constante.** Vale `log2(1 + 1/(3n))` y
+   decrece con `n`, o sea que depende del rango barrido. Y la frase del documento
+   **mezcla dos rangos**: el `+0,000002` y los `99.999 casos` son de un barrido a
+   **200.000**; el `28.325 de 50.000` de los pares es a **100.000**.
+   *(Tercera vez que aparece el mismo modo de fallo: tomar el valor de una muestra
+   por una constante. Las otras dos fueron el `1,7345` del coral y ésta.)*
+2. **El `+1` aparece DOS veces, no tres.** `ε = ln(2^B/(3^A·n))` y
+   `S = Σ ln(1+1/(3x))` son **idénticamente la misma suma** (`elmasuno.py`,
+   20.011 casos exactos). El residuo `1,7e-7` era error de coma flotante. Y de ahí
+   sale que `ε > 0` queda **demostrado para todo `n`**, no medido en 6.555 pares.
+3. **La explicación del coral era casi toda falsa.** `45 = 3²·5` adelanta el choque
+   **de 32 a 31: un nivel de treinta y uno**. El motor real son las permutaciones
+   de aristas, que existen para cualquier `N`. La ley medida es
+   `(N+11)/2` si `N ≡ 3 (mod 4)` y `(N+19)/2` si `N ≡ 1 (mod 4)`, sin rastro de la
+   factorización. **Y la predicción del número primo de rumbos FALLÓ**: 43 y 47
+   chocan antes que 45. Hay que reescribir la sección entera y quitar esa
+   candidatura a nota original.
+4. **El exponente de la criba `2^(−0,05k)` es el asintótico.** En el rango real
+   (`k = 34`) es ≈ **0,108**, el doble.
+5. **El grosor `0,2286` y `ln(Res(993)) = 0,225654` NO son el mismo número.** El
+   documento los identifica; uno se midió sobre pares de una trayectoria y el otro
+   sobre trayectorias enteras, y difieren en la tercera cifra.
+6. **Errata de constante:** `mapahilos.py` guarda `RES_993 = 1.2531421442887503`
+   y el exacto es `2^61/(3^32·993) = 1,2531421443950680…` — mal desde la décima
+   cifra. No mueve nada medido, pero hay que arreglarlo.
+
+**Y cuatro cosas más que salieron al clasificar y no están escritas:**
+
+- **`«cualquier otro ciclo mide ≥ 19.478.780.533 pasos»` no tiene fuente.** Se
+  atribuye a «la literatura de 2025», sin autor ni título. Es la única afirmación
+  marcada `demostrado` cuya fuente no nombra a nadie. Localizarla o degradarla.
+- **La comprobación 4 de `guardarhilos.py`** se anuncia como «la literatura
+  predijo nuestro hallazgo» y se apoya en **Wu–Huang 2001, marcada como no
+  verificable**. El hecho es cierto (`clasesfusion.py` lo rederiva); la atribución
+  no está comprobada.
+- **El vocabulario de `afirmaciones.db` se quedó corto:** la rueda del árbol es una
+  clase residual **módulo `3^j`, no `2^k`**. La categoría real es «clase residual».
+- **Las dos discrepancias con Hercher** (`reimpl.py`) no están documentadas: el
+  séptimo `epsilon` (`1,2298e-43` contra `1,11e-43`) y la tercera fila de la
+  Tabla 1 (`4,640282e18` contra `4,68e18`).
+
+**Y la observación estructural que más importa para el objetivo elegido:** de las
+72 afirmaciones de la base, el bucle `casi_todo_n` tiene **5 filas y 3 sin fichero
+detrás**. El repo **no tiene ni una línea de código propio** que verifique nada de
+tipo «casi todo `n`» — todo es literatura ajena (Everett, Tao). Y ése es justo el
+hueco «casi todos → todos» donde se decidió apuntar. Hay 31 piezas que componen
+sobre clases y **cero instrumentos propios sobre densidad**.
+
 ---
 
 ## El objetivo, reformulado
