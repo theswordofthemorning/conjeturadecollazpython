@@ -35,9 +35,40 @@ confusión de mapas (tres). *Y salió un extra: al formalizar, la hipótesis
 `0 < n₀` del corolario resultó **sobrar**. Primera vez que se quita una en vez
 de descubrir que faltaba.*
 
-**Pendiente inmediato:** el control A/B en Lean (`3n−1`, donde `C` es negativa y
-**el tipo `ℕ` deja de servir** — la discriminación aparece como cambio de tipo
-forzoso), y la capa 2 sobre el propio `.lean`.
+### ⇢ EL PRIMER TRÍO YA ESTÁ LANZADO: el control A/B del `3n−1`
+
+**Estrena la regla con algo cuyo resultado ya sospechamos**, que es la manera
+barata de saber si el trío funciona antes de gastarlo en algo caro.
+
+| agente | crea | encargo |
+|---|---|---|
+| **1 · LEAN** | `cotatramos3n1.lean` | demostrar la cota **invertida** `2^B·n_k ≤ 3^A·n₀` para `3n−1` |
+| **2 · INDEPENDIENTE** | `cotatramos3n1.py` | lo mismo, calculando, **sin ver el `.lean`** |
+| **3 · COMPARADOR** | — | se lanza cuando los dos entreguen |
+
+**A los dos se les dio el MISMO enunciado y NO se les dio la identidad** — cada
+uno tiene que derivar la forma de `C` por su lado, o la comparación no mide nada.
+**La pregunta que se les hace explícita:** ¿hace falta salir de `ℕ` e irse a `ℤ`,
+y dónde exactamente se rompe? *(Y el aviso que lleva el encargo: en `ℕ` la resta
+es truncada, así que ahí se puede esconder un enunciado que se cumple por
+accidente.)*
+
+### PENDIENTES, en orden
+
+1. **Cerrar el trío** — lanzar el comparador cuando 1 y 2 entreguen, y aplicar el
+   veredicto a `CLAUDE.md`.
+2. **`wzu334m64`** va 6 de 7 agentes; falta commitear `medidamonotona.py`. *No se
+   subdividió a propósito: lo que queda es un solo agente y partirlo habría
+   tirado su trabajo.*
+3. **Leer entera la auditoría de las diez refutaciones** (`eea5a8d`) y aplicar lo
+   que salga — sobre todo las **dos EXAGERADAS** y los fallos que el adversarial
+   encontró **en la propia auditoría**.
+4. **Aplicar a `CLAUDE.md`** lo que produzcan las tres vías (franja, CST, medida
+   monótona). Los workflows tienen prohibido tocar la documentación a propósito.
+5. **La pregunta grande sigue en pie:** `a(k)` sale **idéntica** para `3n+1` y
+   `3n−1` (verificado `k = 3…13`). Llegar a `k ≥ 20` decide si es teorema o si se
+   rompe. Es lo que mató el borrador de OEIS y sigue sin contestarse.
+6. **Nueve de los diez bloques de la búsqueda web siguen sin código propio.**
 
 ## 1. LA PURGA, hecha (commit `4f8efdc`)
 
