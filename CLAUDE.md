@@ -155,15 +155,11 @@ No hay tests, ni linter, ni `pyproject.toml`, ni CI. No los busques.
 **`jq` no está instalado en esta máquina.** Si haces falta parsear JSON en un
 hook o en un script de shell, usa `python -c`.
 
-## Las dos mitades del repo
+## Cómo está repartido el repo
 
-Esto es lo que no se ve leyendo un archivo solo. **Las dos mitades no se hablan
-entre ellas**, y es a propósito.
-
-> **AVISO: esta sección se llamaba «las dos mitades» y describía un repo que ya
-> no existe.** La purga del 01-08-2026 se llevó 16 programas de visualización, y
-> lo que queda no son dos mitades: es **un núcleo de cálculo con cuatro dibujos
-> colgando**. Lo que sigue es el reparto real.
+*(Esta sección se llamaba «las dos mitades» y describía un repo que ya no existe:
+la purga del 01-08-2026 se llevó 16 programas de visualización. **Ya no hay dos
+mitades — hay un núcleo de cálculo con cuatro dibujos colgando.**)*
 
 **El núcleo — los que no dibujan, 24 de 28.** Su resultado es **stdout, un
 `.txt` o un `.db`**. No abren navegador. Conservan la constante en MAYÚSCULAS
@@ -220,33 +216,19 @@ nunca tuvo la forma de los sueltos.)
 
 Los `.html`, los `.png` y los `.pdf` están en `.gitignore`.
 
-**Y los siete `verificar_*.py` son una familia aparte dentro de la Mitad C**
-(01-08-2026). No calculan nada nuevo: **re-derivan con aritmética exacta lo que
-el repo importa de la literatura, y lo que el repo afirma de sí mismo.** Su
-salida es un veredicto, no un dato. Nacieron de la auditoría del 01-08 y entre
-los siete encontraron el `m ≥ 1` del criterio de fusión, la traducción falsa de
-Everett, la cota de ciclos demasiado fuerte, el bug de la frontera y la cita de
-Wu–Huang que sí existía. **Si escribís uno nuevo, la forma es: comprobar contra
-una implementación que no comparta código con la original, y cortar con
-`SystemExit` antes de sacar conclusiones.**
+**Y los siete `verificar_*.py` son una familia aparte** (01-08-2026). No calculan
+nada nuevo: **re-derivan con aritmética exacta lo que el repo importa de la
+literatura, y lo que el repo afirma de sí mismo.** Su salida es un veredicto, no
+un dato. Entre los siete encontraron el `m ≥ 1` del criterio de fusión, la
+traducción falsa de Everett, la cota de ciclos demasiado fuerte, el bug de la
+frontera y la cita de Wu–Huang que sí existía. **Si escribís uno nuevo, la forma
+es: comprobar contra una implementación que no comparta código con la original, y
+cortar con `SystemExit` antes de sacar conclusiones.**
 
-Los de la Mitad C no abren el navegador, no tienen `NUMERO`, y su resultado es
-**stdout, un `.json`, un `.txt` o un `.db`**. Conservan del resto la constante en
-MAYÚSCULAS arriba y las comprobaciones que cortan con `SystemExit`, pero no la
-parte de plotly. **Al escribir uno nuevo de cálculo, copiá la forma de
-`pinzaciclos.py`, no la de `collazmalla.py`** — y acordate de que la advertencia
-de "importarlos te abre el navegador" no aplica a éstos, pero **sí ejecutan el
+**Cuidado con `collazmalla.py` si cambias `NUMERO`:** es O(L²) con exponenciación
+de enteros grandes dentro del bucle. Con el 221 (115 números) va instantáneo; con
+una trayectoria de 500 pasos se arrastra. Y los que no dibujan **ejecutan el
 cálculo entero al importarlos**, que en `clasesfusion.py` son veinte minutos.
-
-**Los scripts nuevos (`malla*`, `cruzarestos`, `coralcollaz`) usan ventana
-completa**: sin `width`/`height` fijos, con `autosize=True` y
-`default_height="100vh"`. Y ponen los números a dos radios alternados para que
-dos vecinos no se pisen. El texto 3D de plotly tiene tamaño fijo en píxeles, así
-que al hacer zoom la geometría crece y los números se separan solos.
-
-**Cuidado con `collazmalla.py` y `collazlamina.py` si cambias `NUMERO`:** son
-O(L²) con exponenciación de enteros grandes dentro del bucle. Con el 221 (115
-números) va instantáneo; con una trayectoria de 500 pasos se arrastra.
 
 ## Cómo se ejecuta
 
@@ -255,14 +237,11 @@ Se abre el archivo, se cambia el número de arriba, y se corre
 
 **Sublime Text no acepta `input()`** — el programa se cuelga esperando. Por eso
 cada script trae el valor en una constante editable arriba del archivo, nunca
-solo `input()`. `collazejecucion.py` es el único que además tiene salida de
-emergencia: si `NUMERO_FIJO = None`, prueba `input()` cuando hay tty de verdad y
-si no abre una ventanita de tkinter. Al escribir un script nuevo, copia el
-patrón de la constante, no el de tkinter. *(Hoy `NUMERO_FIJO` no es `None`: vale
-`2213046546463218645`, un número de 19 cifras que quedó de una prueba. La rama de
-tkinter está ahí pero no se ejecuta.)*
+solo `input()`. *(El único que tenía salida de emergencia con `tkinter` era
+`collazejecucion.py`, borrado en la purga. **No copies ese patrón: copiá el de la
+constante.**)*
 
-Los gráficos de plotly se abren solos en el navegador (zoom con la rueda, giro
+Los cuatro que dibujan abren plotly solo en el navegador (zoom con la rueda, giro
 con el mouse, valores al pasar el cursor).
 
 > **REGLA (01-08-2026, del usuario): NO SE RE-EJECUTAN LOS BARRIDOS CAROS EN
@@ -297,8 +276,8 @@ esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
 
 Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
 `python main.py camino 27` crasheaba desde Sublime. Corrido el **01-08-2026**
-sobre los **43** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
-metiste vos. Para revisarlo:
+sobre los **28** `.py` que quedan tras la purga: **0 hallazgos**, está limpio —
+si aparece uno nuevo, lo metiste vos. Para revisarlo:
 
 ```
 python -c "
@@ -334,7 +313,6 @@ for a in sorted(glob.glob('*.py')):
 | `pinzaciclos.py` | **La pinza de descarte de ciclos**: un candidato por resto, en cerrado. Barrido de 2^30 restos |
 | `records.json` | **Los récords publicados** de Roosendaal y Barina: retraso, altitud, clase, planeo, residuo |
 | `cruzarecords.py` | El repo cruzado contra esos récords. Cinco comprobaciones |
-| `oeis_borrador.txt` | El envío a OEIS redactado y listo. **No se ha enviado** |
 | `resultado_paralelo_k32.txt` | La verificación cruzada de `a(32)`: secuencial y paralelo dan `1.871.137.623` |
 | `pisoaltitud.py` | **El piso de la altitud**, con su corrección: vale para `n` impar, y los pares fallan a propósito |
 | `elmasuno.py` | **`ε` y `S` son la misma suma**, exacto. El `+1` aparece dos veces, no tres |
@@ -345,8 +323,6 @@ for a in sorted(glob.glob('*.py')):
 | `afirmaciones.db` | **Las tres capas**: `afirmaciones` (con cuantificador), `constantes` (con aviso), `correcciones` |
 | `guardarrespuestas.py` | Captura las transcripciones de Claude Code y las mete en `respuestas.db` |
 | `respuestas.db` | **El cuaderno de las conversaciones.** Tabla `respuestasclaude`, append-only |
-| `lecturas/*.pdf` | Terras 1976, Tao 2019 y las dos bibliografías de Lagarias. **NO están en git** |
-| `the-ultimate-challenge...pdf` | El libro de 2010 (22 MB). **Tampoco está en git** |
 | `otramedicion2.py` | **La capa de promedios sobre la malla de hilos**, cruzada contra `afirmaciones.db`. La capa no anade informacion |
 | **`verificar_terras.py`** | **La columna vertebral, re-derivada**: T1.1, T1.2, C1.4, la Tabla C y la exclusión de periodos. Con el aviso del bug de `frontera()` |
 | `verificar_frontera_ciclos.py` | **La revisión adversarial de `verificar_terras.py [6](d)`**. Encontró el bug de la frontera |
@@ -357,15 +333,14 @@ for a in sorted(glob.glob('*.py')):
 | `verificar_constantes.py` | Wagon contra A122790, las constantes de parada con **dos estimadores**, `Res ≥ 1`, y la biyección de Terras al pie de la letra |
 | `.claude/settings.local.json` | Permisos ya concedidos: `python *`, `py *`, `git fetch *` |
 
-Todo lo de la tabla está trackeado **salvo los `.pdf`** y los `.html`/`.png` que se
-regeneran. Para comprobarlo: `git ls-files`.
+**Todo lo de la tabla está trackeado.** Para comprobarlo: `git ls-files`.
 
-> **AVISO SOBRE LOS PDF (30-07-2026).** `.gitignore` ignora `*.pdf`, así que **la
-> bibliografía leída no sobrevive a un clon**: `lecturas/` y el libro de 22 MB
-> existen sólo en esta máquina. Es el mismo aviso que tenía `collazclaude.png` —
-> que ya se cumplió: **ese archivo ya no existe**, se perdió, y por eso se quitó de
-> esta tabla. Si los PDF hacen falta en otra máquina, hay que volver a bajarlos; lo
-> que **sí** sobrevive es lo que se extrajo de ellos, que está escrito aquí abajo.
+> **EL AVISO DE LOS PDF SE CUMPLIÓ, y por eso ya no hay fila para ellos.**
+> `.gitignore` ignora `*.pdf`, así que la bibliografía leída (Terras 1976, Tao
+> 2019, las dos bibliografías de Lagarias y el libro de 2010) vivía **sólo en
+> esta máquina**. Al 01-08-2026 **`lecturas/` ya no existe**, igual que le pasó
+> antes a `collazclaude.png`. *Lo que sobrevive es lo que se extrajo de ellos y
+> está escrito aquí abajo — que es exactamente la razón de escribirlo aquí.*
 
 ## REGLA: el registro de las conversaciones (`respuestas.db`)
 
@@ -416,7 +391,8 @@ se cuida de no hacer. La columna `origen` separa `capturado` (de la
 transcripción, con hora exacta) de `reconstruido` (escrito después, de memoria).
 
 *Esta base rompe a propósito la regla de que las bases se regeneran
-(`guardarmallas.py`, `guardarhilos.py`). Un registro histórico no se regenera: si
+(`guardarhilos.py`, `guardarafirmaciones.py`). Un registro histórico no se
+regenera: si
 algún día se limpian las transcripciones viejas, ésta será el único sitio donde
 queden.*
 
@@ -587,8 +563,9 @@ los `+1`: con `3n` en vez de `3n+1` sería cero.
 **Los vórtices.** Un número tiene dos padres si y solo si deja resto 4 al
 dividirlo entre 6 (el segundo padre es `(v−1)/3`). Es la regla estándar de la
 literatura. La trayectoria del 221 tiene 50 vórtices en sus 115 números.
-*(En `collazarbol.py:padres()` el 4 se excluye a mano — su otro padre es el 1, que
-ya es el arranque del tronco. Es decisión de dibujo, no de aritmética.)*
+*(En el `collazarbol.py` que se borró, el 4 se excluía a mano en `padres()` — su
+otro padre es el 1, que ya es el arranque del tronco. Era decisión de dibujo, no
+de aritmética.)*
 
 **El balance decide todo.** El punto de equilibrio es `log₂(3) = 1,585`
 divisiones por multiplicación. El 221 tiene `73/41 = 1,78` → cae. Por debajo de
@@ -1082,10 +1059,15 @@ b(k) = a(k+1) − 2·a(k)  (las nuevas)  1, 2, 2, 3, 4, 6, 11, 19, 34, 60, …
 ```
 
 Los términos, la definición, la demostración del criterio y las cuatro
-verificaciones están en **`sucesiones.txt`**, y el envío queda redactado en
-**`oeis_borrador.txt`** con los campos de OEIS ya montados. **No se ha enviado
-nada, y de momento no se va a enviar** — la decisión requiere una cuenta y una
-firma que son de una persona, no de este repo.
+verificaciones están en **`sucesiones.txt`**.
+
+> **EL BORRADOR DE ENVÍO SE BORRÓ EL 01-08-2026, y no por orden.** El bloqueo ya
+> no es la firma: es que **`a(k)` sale idéntica para `3n+1` y para `3n−1`**
+> (verificado `k = 3…13`). Una sucesión que no distingue un mapa con **un** ciclo
+> de uno con **tres** no puede ser evidencia sobre convergencia. **Publicarla
+> habría sido el error caro**, del tipo que no se corrige con un commit.
+> *Lo que queda vivo es la pregunta: ¿la coincidencia es un teorema, o se rompe
+> en algún `k ≥ 20`? Eso sí decide algo, y es barato.*
 
 **Reverificado el 30-07-2026 con 28 consultas** (12 numéricas para `a`, 11 para
 `b`, más variantes de texto), con control de Fibonacci que devolvió `A000045`
@@ -1722,19 +1704,35 @@ programa de Barina no busca ciclos en absoluto.**
 
 Importa mantenerlo separado.
 
-**Aritmética verificada:** los números del árbol y sus conexiones; la *altura* de
-cada punto en la esfera = su distancia real al 1 (comprobado en los 5.674 números
-de las ramas); los vórtices; que las ramas se funden y nunca se cruzan; la
-topología del coral; que el rumbo dependa de (A,B); que el arranque dependa del
-resto; el 1,7345 de divisiones por multiplicación.
+> **LA PURGA DEL 01-08-2026 RESOLVIÓ ESTA SECCIÓN BORRANDO EL LADO «DIBUJO».**
+> Los 16 programas de visualización se fueron precisamente porque medían la
+> esfera, el ángulo o el módulo elegidos a mano. **Lo que queda dibuja cuatro
+> cosas y las cuatro sostienen un teorema antes de dibujarlo.** La sección se
+> conserva porque la distinción sigue siendo la doctrina, no porque siga habiendo
+> mucho dibujo que separar.
+
+**Aritmética verificada, de lo que queda:** los números del árbol y sus
+conexiones; los vórtices; que las ramas se funden y nunca se cruzan; que el
+arranque dependa del resto (`mallaresiduos.py`); la identidad `(A,B)`
+(`collazmalla.py`); las tres ruedas (`mallascerradas.py`).
+
+> **CORRECCIÓN (01-08-2026): esta lista se contradecía con sus propias
+> correcciones.** Incluía **«el 1,7345 de divisiones por multiplicación»** como
+> aritmética verificada, cuando cuatro páginas más abajo el propio documento
+> dice que **no es una constante, es el valor de una muestra**. Incluía también
+> *«la topología del coral»* y *«que el rumbo dependa de (A,B)»*, de un fichero
+> que ya no existe. **Los tres fuera.**
+>
+> *Es un modo de fallo nuevo y hay que anotarlo: una lista de «verificado» que no
+> se revisa cuando se escribe una corrección más abajo. La corrección estaba
+> bien; el índice no se actualizó. **Cuando se corrija algo, hay que buscar dónde
+> más se afirmaba.***
 
 **Elección de dibujo:** la esfera misma (el árbol no vive en una esfera; se mapeó
-la distancia al 1 sobre media vuelta, cierra porque se hizo cerrar); la longitud
-/ dirección de cada rama; el regreso "por detrás" del 1 a la semilla (la
-trayectoria real no vuelve, se queda en `1-4-2`); **los ángulos del coral** (16°,
-−8° o cualquier otro par); y **que cada tramo del coral mida 1 siempre** — por eso
-la distancia al centro mide *cantidad de pasos*, **no** el tamaño de los números:
-el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
+la distancia al 1 sobre media vuelta, cierra porque se hizo cerrar) y los ángulos
+del coral. *Las dos cosas se borraron con sus ficheros: eran el ejemplo perfecto
+de «el cierre lo pone lo que elegís, no Collatz», y una vez aprendida la lección
+el código sobraba.*
 
 **Comprobado y negativo:**
 
@@ -1779,9 +1777,6 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
 
 **Correcciones de cosas que se creyeron y eran falsas:**
 
-- `viz3d.py:coral()` usa `giro_par=7, giro_impar=-17`. Los signos son correctos
-  pero **la proporción está invertida**: Harriss pone el impar a la *mitad* del
-  par, y aquí el impar es el doble y pico.
 - La biyección resto ↔ patrón **solo vale con el mapa del atajo**. Con la regla
   clásica salen los Fibonacci, no los `2^k`. (Se afirmó primero lo contrario; la
   comprobación 2 de `mallaresiduos.py` lo atrapó antes de dibujar nada falso —
@@ -1961,7 +1956,7 @@ más.**
   sucesiones del borrador de OEIS**;
 - `pinzaciclos.py` entero — **su ecuación `m = (r − T^k(r))/(3^{S(r)} − 2^k)`
   ES T1.2 despejada**;
-- `cruzarestos.py` y `descensoresto.py`;
+- `descensoresto.py` y `cotatramos.py`;
 - **A076227** (la sucesión de OEIS, no sólo nuestro cálculo de ella);
 - la **regla `R1`** de la criba de Barina, que es la base de la verificación
   hasta `2^71`;
@@ -2014,23 +2009,24 @@ la fuente de todos. Lo único que se buscó en la web fue el coral.
 | El umbral `q < 4` del `qn+1` | Es `f = 1/2` reescrito, o sea Terras 1976 otra vez |
 | Que la paridad se comporte como moneda | El modelo probabilístico estándar, formalizado en Lagarias–Weiss 1992 y Kontorovich–Lagarias |
 
-**Lo único que podría ser inédito:** la tabla de ángulos de `coralcollaz.py` —
-cuántos rumbos permite cada par y qué fracción de ramas colapsa— **con el umbral
-medido** (30-07-2026): primer choque exacto en la profundidad **31**. No es un
-teorema: es una medición sobre nuestro propio método de dibujo. Pero Harriss
-eligió ángulos por estética y nadie parece haber barrido el espacio. Candidata a
-nota original en visualización recreativa. **Sin verificar en la literatura.**
+**Lo único que podría ser inédito, y ha encogido tres veces:** el umbral de
+choque del coral de Harriss. Vive ahora en `coralprimos.py`, que es lo único que
+quedó de esa línea tras la purga.
 
-**Y la candidatura ha encogido dos veces, las dos por control propio:**
+| se anunció | quedó |
+|---|---|
+| las ramas **nunca** se juntan (`0%` de encimadas) | se juntan desde la **profundidad 31** |
+| la causa es la factorización `45 = 3²·5` | eso explicaba **un nivel de treinta y uno**; el motor son las permutaciones de aristas |
+| con `N` **primo** el umbral se dispararía | **falso**: el 43 y el 47 chocan antes que el 45 |
+| la condición del ángulo nulo, apoyada en el `1,7345` | el `1,7345` era una muestra |
 
-- *La condición del ángulo nulo* se cayó con el `1,7345`, que no era estable.
-- *La explicación del umbral por `45 = 3²·5`* se cayó con `coralprimos.py`:
-  explicaba un nivel de treinta y uno. Lo que queda en pie es **el umbral medido
-  y la recta en `N` con dos ramas según `N mod 4`** — que es un resultado más
-  pobre y más cierto que el que se había anunciado.
+**Lo que sobrevive:** el umbral medido, y que es una **recta en `N` con dos ramas
+según `N mod 4`**. Harriss eligió los ángulos por estética y nadie parece haber
+barrido el espacio. **Sin verificar en la literatura.**
 
-*Es el patrón de siempre en este repo: lo que sobrevive al control es menos
-vistoso que lo que se escribió primero, y por eso vale.*
+*Es el patrón de siempre: lo que sobrevive al control es menos vistoso que lo que
+se escribió primero, y por eso vale. Las cuatro correcciones las encontró el
+propio repo.*
 
 *Un paralelo que tampoco se encontró en las fuentes, buscado explícitamente el
 30-07-2026: nadie parece trazar la comparación moneda-física ↔ Collatz en los
@@ -2218,15 +2214,30 @@ absolutamente nada de ella, y ahí es donde viviría un contraejemplo.*
    eso casi todo el mundo repite las mismas búsquedas. **Y las correcciones a
    afirmaciones propias que resultaron falsas**, que es la parte que de verdad
    cuesta escribir — hay una lista entera de ellas más arriba.
-2. **El A/B de control** (`mallaespejo.py`, `mallaespejo2.py`,
-   `mallascerradas.py`): meter varias reglas por la misma maquinaria y **exigir
+2. **El A/B de control**: meter varias reglas por la misma maquinaria y **exigir
    que salgan distintas**. Es lo que separa "mi malla revela estructura" de "mi
    malla dibuja lo que sea".
-3. **Comprobar antes de dibujar, cortando con `SystemExit`.** Esto atrapó un
+
+   > **⚠ ESTA DOCTRINA PERDIÓ DOS DE SUS TRES FICHEROS EN LA PURGA** (01-08-2026).
+   > La encarnaban `mallaespejo.py`, `mallaespejo2.py` y `mallascerradas.py`, y
+   > los dos espejos se borraron por medir **otro mapa**. Queda **uno**.
+   >
+   > **La doctrina NO se toca — lo que hay que decidir es dónde vive ahora.** Y
+   > la respuesta ya está en el repo sin que nadie la escribiera: el control A/B
+   > se mudó de «dos reglas por la misma malla» a **«toda cantidad se mide
+   > también sobre `3n−1`»**. Esa versión es más fuerte, porque `3n−1` es el mapa
+   > *más parecido posible* a Collatz y aun así **no converge** — tiene tres
+   > ciclos. Una cantidad que no los distinga no puede decir nada de la
+   > convergencia.
+   >
+   > **Y ya se cobró la pieza más grande del repo:** así se cayó `a(k)` de
+   > `clasesfusion.py`, que es idéntica para los dos mapas. `cotatramos.py` pasa
+   > ese control (sobre `3n−1` la desigualdad se invierte, porque `C` es
+   > negativa) y por eso vale.
+3. **Comprobar antes de concluir, cortando con `SystemExit`.** Esto atrapó un
    error real en vivo: se afirmó la biyección resto↔patrón para el mapa clásico
    y la comprobación 2 de `mallaresiduos.py` paró el programa antes de generar
-   un gráfico falso. Sin esa disciplina habría quedado una imagen bonita
-   sosteniendo una afirmación errónea.
+   un gráfico falso. Hoy lo tienen **26 de los 28** ficheros.
 
 ### El techo realista, y hacia dónde no hay camino
 
@@ -2238,11 +2249,14 @@ el cierre lo pone el ángulo que elegís (tabla del coral) o el módulo que eleg
 —la rueda mod 27— gobierna el esqueleto del árbol hacia atrás y **no** el destino
 hacia adelante, que sigue ciego a los restos.
 
-**El techo de este repo es rederivación independiente bien verificada, más
-visualización original.** Eso no es descubrimiento, pero tampoco es poco: hay
-**treinta y cinco** programas, **veintisiete** de ellos con comprobaciones que
-cortan con `SystemExit`, un documento que separa lo real de lo dibujado, y un
-historial de negativos. La mayoría de la exploración amateur no llega ahí.
+**El techo de este repo es rederivación independiente bien verificada.** Eso no
+es descubrimiento, pero tampoco es poco: hay **veintiocho** programas,
+**veintiséis** de ellos con comprobaciones que cortan con `SystemExit`, un
+documento que separa lo real de lo dibujado, y un historial de negativos. La
+mayoría de la exploración amateur no llega ahí.
+
+*(Decía «más visualización original», y la purga del 01-08-2026 se llevó esa
+mitad entera: 16 programas. **El techo se estrechó y se hizo más firme.**)*
 
 ### EL CUARTO CAMINO — el objetivo realista, enunciado el 30-07-2026
 
@@ -2742,19 +2756,15 @@ merece quedarse, hay que convertirla en un programa con la forma de siempre
    `(N+19)/2` / `(N+11)/2` segun `N mod 4`: esta medida pero no demostrada, y
    demostrarla si tendria forma de cota.*
 
-4. **Colorear el arbol de `collazarbol.py` con la rueda** — cada rama segun la
-   clase mod 3 de su semilla — para *ver* el tambor sobre la esfera que ya existe.
-   Las once mallas ya estan en disco (`guardarmallas.py`), incluida la cuarta rueda
-   mod 81.
-
-5. **Usar las mallas guardadas contra algo que todavia no sepamos.** Ahora que
-   `mallas/*.json` existe, el cruce ya no cuesta calcular: se pueden barrer las once
-   contra trayectorias de Collatz buscando que otra malla predice algo. Aviso por
-   adelantado: lo mas probable es que **no prediga nada**, porque el negativo de
-   `cruzarestos.py` (el destino hacia adelante es ciego a los restos) sigue en pie.
-   La rueda mod 27 funciona porque el arbol *dobla*, y doblar es literalmente esa
-   malla. Sin esa correspondencia estructural, un cruce que de positivo seria
-   sospechoso antes que interesante.
+4. **⇢ CERRADOS POR LA PURGA (01-08-2026), y no por haberse hecho.** Dos
+   pendientes de esta lista dependían de ficheros que ya no existen:
+   *«colorear el árbol de `collazarbol.py` con la rueda»* y *«usar las once
+   mallas de `mallas/*.json` contra algo que no sepamos»*. **El árbol sobre la
+   esfera y las once mallas se borraron**, porque el cierre lo ponía la esfera o
+   el módulo elegidos a mano.
+   *El segundo llevaba escrito su propio epitafio: «lo más probable es que no
+   prediga nada, porque el destino hacia adelante es ciego a los restos». Se
+   cierra dándole la razón.*
 
 6. **⇢ HECHO: el `+1` no aparece tres veces, aparece DOS (`elmasuno.py`).** Se
    pedia buscar si el grosor `0,2286` de la lamina *(ojo: ese numero es el `ε`
