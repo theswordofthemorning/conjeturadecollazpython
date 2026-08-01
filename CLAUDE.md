@@ -214,6 +214,24 @@ tkinter está ahí pero no se ejecuta.)*
 Los gráficos de plotly se abren solos en el navegador (zoom con la rueda, giro
 con el mouse, valores al pasar el cursor).
 
+> **REGLA (01-08-2026, del usuario): NO SE RE-EJECUTAN LOS BARRIDOS CAROS EN
+> PASADAS DE RIGOR.** Si una sesión sólo corrige comentarios, prosa o
+> atribuciones, **no se vuelven a correr**:
+>
+> ```
+> clasesfusion.py    K_MAX = 32       mas de una hora
+> pinzaciclos.py     K_MAX = 30       12,5 minutos
+> densidadfusion.py  POTENCIA = 28    varios minutos y GB de RAM
+> redhilos.py        experimento 3
+> coralprimos.py
+> ```
+>
+> Sus resultados están en `sucesiones.txt`, en `resultado_paralelo_k32.txt` y en
+> este documento. Lo que sí hay que hacer al tocarlos: **comprobar la sintaxis,
+> pasar el barrido cp1252, y dejar dicho que no se corrieron.** *Gastar una hora
+> de CPU para validar un cambio de prosa es gastar la máquina en el sitio
+> equivocado.*
+
 **TRAMPA DE CARACTERES EN LOS `print()`.** Cuando la salida va a una tubería —y
 la de Sublime Text lo es— Windows la codifica en **cp1252**, no en UTF-8. Un
 carácter que no exista en cp1252 hace crashear el programa con

@@ -5,6 +5,114 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+## 2026-08-01 (noche) — LAS DOS AUDITORÍAS APLICADAS. 6 de 6 adversarios rompieron algo
+
+Se aplicaron al repo las correcciones de dos auditorías con revisores
+adversariales. **La matemática venía verificada; esta pasada era de escritura** —
+que el repo *diga* lo correcto. Nueve commits temáticos.
+
+### La regla nueva, primero, porque cambia cómo se trabaja
+
+> **NO SE RE-EJECUTAN LOS BARRIDOS CAROS EN PASADAS DE RIGOR.** Decisión del
+> usuario, 01-08-2026. Los que quedan excluidos: `clasesfusion.py` (`K_MAX=32`,
+> más de una hora), `pinzaciclos.py` (`K_MAX=30`, 12,5 min), `densidadfusion.py`
+> (`POTENCIA=28`), el experimento 3 de `redhilos.py`, y `coralprimos.py`.
+>
+> **Sus resultados están en `sucesiones.txt`, en `resultado_paralelo_k32.txt` y
+> en este documento, y no se vuelven a calcular para corregir un comentario.**
+> Si una pasada toca uno de esos ficheros, se comprueba la sintaxis y el barrido
+> cp1252 y se deja constancia de que no se corrió. *Correr una hora de CPU para
+> validar un cambio de prosa es gastar la máquina en el sitio equivocado.*
+
+### El saldo
+
+**Seis adversarios, seis rompieron algo.** Ninguno salió con las manos vacías, y
+eso es un dato sobre el repo, no sobre los adversarios.
+
+### Las sorpresas, ordenadas por lo que cambian
+
+1. **La cota de ciclos estaba mal, Y A NUESTRO FAVOR.** El
+   `217.976.794.617 / 355.504.839.929` que se había escrito esa misma mañana
+   exige `X₀ ≥ 2^71,884`, y Barina está en `2^71,019`. La buena es
+   **`114.208.327.604` (atajo) / `186.265.759.595` (clásico)**, certificada por
+   tres caminos. **Y el número lo publica Barina 2025 §6 y lo repite Wikipedia**:
+   copiamos bien una fuente arbitrada equivocada. *Es el tercer caso de la misma
+   familia y el primero en el que el error nos favorecía — que es la dirección en
+   la que nadie mira.*
+
+2. **La marca «CITA SIN VERIFICAR» de Wu–Huang 2001 era el error, no la cita.**
+   Existe: *Mathematica Applicata* (Wuhan) 14 (2001), supl., 21–25, MR 1885838,
+   y está en la bibliografía anotada de Lagarias con los vectores de paridad
+   textuales, que se recalculan bit a bit. **No estaba en Crossref porque es un
+   suplemento de una revista china.** *Primera vez que se corrige una refutación
+   propia y no una afirmación — o sea que el pendiente de «auditar las
+   refutaciones» ya se cobró su primera pieza sin que nadie lo ejecutara a
+   propósito.*
+
+3. **Everett estaba mal traducido en las DOS frases**, y una de ellas
+   (`«1,585 es el umbral verdadero»`) se contradecía con la sección de la lámina
+   del propio documento. Lo correcto es `B/A > 1,73697`, y el `0,7369` es
+   literalmente `1/L − 1`. **De ahí salió el hallazgo de la pasada**: el hueco
+   `log₂(10/9) = 0,152` es el precio exacto de usar `5/3`, y los 24 números que
+   Everett no certifica caen los 24 dentro.
+
+4. **El criterio de fusión vale para `m ≥ 1`, no «para todo `m`».** Falla en
+   `m = 0` en tres clases. **Y nadie lo vio porque `clasesfusion.py:202` dice
+   `for m in range(1, 40)`** — la fuerza bruta no podía ver el único `m` que
+   rompe. **Segunda vez del mismo patrón**, después del piso de la altitud.
+   La cota del 43,57% no se mueve.
+
+5. **«`T^k` es una biyección sobre `Z/2^k`» es falso al pie de la letra**, pero
+   la conclusión estratégica se salva entera porque sólo usaba la versión
+   verdadera. **El repo tuvo suerte**: la frase falsa estaba escrita al lado de
+   la buena.
+
+6. **Hercher tiene CORRIGENDUM (14-06-2026)** sobre el Teorema 21 — la pieza que
+   `reimpl.py` marca como caja negra. Y **agradece el hallazgo a Xinjun Wang**,
+   el mismo cuyo preprint este repo descartaba por «cero citas y metadatos
+   descuidados». La Fase 3 del plan estaba calibrada sobre una impresión que hubo
+   que revisar.
+
+7. **`γ(ρ)` unifica cuatro entradas en una.** La identidad de `mapahilos.py` es
+   exacta y es Terras en logaritmos; evaluada en `ρ = 1/2` da las tres constantes
+   de parada, y el `1:2:3` es `ρ : 1 : 1+ρ`. **Pero no sirve para la fórmula**:
+   para conocer `ρ` hay que haber terminado la trayectoria. Vale como
+   unificación, no como vía.
+
+8. **El `120` de `densidadfusion.py` es de Wu 1993.** Lo redescubrimos.
+
+### Y lo que aguantó, que es la otra mitad
+
+Trece piezas atacadas con implementación independiente, cero movidas: Terras
+1.1, 1.2 y C1.4, la Tabla C, Gao 1993 (los 35.654 uno a uno sobre números de 151
+cifras), Wu 1995, A076227, Elia–Tucker, la cota `5/3`, Eliahou, Sinisalo, el
+`1,4784` y el Teorema 23. **Está en `CLAUDE.md`, en la sección nueva «La otra
+mitad de la auditoría».**
+
+**Y con ella el ANDAMIO**, que no se había escrito nunca: qué se cae si cae cada
+pieza. De Terras 1.2 cuelgan seis ficheros, la cota del 43,57%, las dos
+sucesiones de OEIS y el enunciado del cuarto camino — y por eso es la mejor
+verificada. **De la traducción de Everett no cuelga nada, y por eso su error
+vivió un año.** *Lo que sostiene mucho se delata solo; lo que no sostiene nada
+hay que ir a auditarlo a propósito.*
+
+### Estado de los pendientes de más abajo
+
+- **La deuda de los siete `verificar_*.py`: SALDADA.** Están trackeados, y de
+  paso se arregló el bug que uno de ellos tenía dentro (`frontera()` devolvía el
+  último *jump value* en vez del último periodo, con las tres filas de su tabla
+  cortas por 1,04× / 16,57× / 10,94×).
+- **El pendiente de auditar las refutaciones sigue vivo y acaba de justificarse
+  solo** con el caso de Wu–Huang. La tabla de las diez sigue sin ejecutarse.
+- **El bloque 1 de la búsqueda web (la conjetura CST) tiene ahora un puntero
+  desde la sección de las constantes**: `σ = χ` resultó ser esa conjetura, y el
+  enunciado honesto (`E[χ]` es cota inferior demostrada de `E[σ]`) **mejora** la
+  categoría de la constante de Wagon en vez de degradarla.
+- **`oeis_borrador.txt` sigue sin enviarse**, pero ya no por la cita: la línea
+  `%D` está completa. El bloqueo es el de `a(k)` idéntica para `3n+1` y `3n−1`.
+
+---
+
 ## ⇢ LA AUDITORÍA DEL 01-08-2026: tres cosas que hay que decidir antes de nada
 
 9 agentes, 3 fases, revisores adversariales, **20 correcciones a la propia
@@ -77,6 +185,13 @@ mismo fallo del 30-07 —matemática fuera del repo— todavía a tiempo de evit
 **Nadie los ha auditado**: los escribió el workflow de lo ajeno mientras corría la
 auditoría, y no entraban en su inventario.
 
+> **⇢ SALDADA la misma noche (ver la entrada de arriba).** Están trackeados. Y el
+> aviso de «nadie los ha auditado» resultó ser bueno: `verificar_terras.py [6](d)`
+> tenía un bug —devolvía el último *jump value* que pasa en vez del último periodo
+> `k`— que dejaba su tabla corta por factores de hasta 16,57×. Lo cazó
+> `verificar_frontera_ciclos.py`, que es su revisión adversarial, y ya está
+> arreglado con el hueco entre jump values comprobado en vez de supuesto.
+
 ---
 
 ## ⇢ PENDIENTE: convertir en `.py` lo que trajo la búsqueda web del 01-08-2026
@@ -131,6 +246,17 @@ auditoría; Monks 2006 y Knight (2026) están en formalización.*
 búsqueda difusa de «la fórmula» y pasa a ser un enunciado preciso con cincuenta
 años, que el repo tiene el instrumental para atacar.
 
+> **⇢ PRIMER CONTACTO CON EL BLOQUE 1 (01-08-2026, noche), y viene por un lado
+> inesperado.** Auditando las constantes salió que el repo daba `σ = χ` por
+> hecho, y **es precisamente la conjetura CST**: lo demostrado es `σ ≥ χ`.
+> Medido: 0 diferencias en los impares hasta `2·10⁶`.
+>
+> **Y el enunciado honesto MEJORA la categoría de la constante de Wagon:**
+> `E[χ]` es una **cota inferior demostrada** de `E[σ]`, no un «promedio». En la
+> taxonomía de este repo eso vale más. *Es la única corrección de toda la pasada
+> que sube algo de categoría en vez de bajarlo.* El puntero está escrito en la
+> sección de las constantes de `CLAUDE.md`.
+
 ---
 
 ## ⇢ PENDIENTE PRIORITARIO: auditar las REFUTACIONES, no sólo las afirmaciones
@@ -171,6 +297,23 @@ controles refutan.*
 
 **Ocho de las diez son computables, y cinco se pueden atacar directamente contra
 los once hilos.** La 58 es bibliográfica y no hay que fingir que se verifica.
+
+> **⇢ ESTE PENDIENTE ACABA DE JUSTIFICARSE SOLO (01-08-2026, noche).** Sin
+> ejecutarlo, apareció el primer caso: **la refutación de la cita de Wu–Huang
+> 2001 era la equivocada.** Se había dado por buena porque «no aparece en
+> Crossref», y resulta que Crossref no indexa suplementos de revistas chinas de
+> 2001. La cita existe, está catalogada, y sus datos se reprodujeron bit a bit.
+>
+> *O sea que la hipótesis de fondo de este pendiente —«una refutación es una
+> afirmación como cualquier otra y puede tener los mismos defectos»— ya tiene un
+> caso confirmado, y el defecto fue exactamente uno de los previstos: usar un
+> instrumento fuera de su rango de validez.* **La tabla de las diez sigue sin
+> ejecutarse, y ahora con más motivo.**
+>
+> *Y la 58 hay que releerla: el «11× más débil» de la cita de Laurore se calculó
+> contra el `217.976.794.617` de Barina, que resultó ser el número equivocado.
+> Contra la cota correcta el factor es **5,9**. La conclusión —cita válida pero
+> débil, y publicada en mal sitio— no cambia.*
 
 **Sólo después de esta pasada se borra el bloque E del resumen.** No antes.
 
