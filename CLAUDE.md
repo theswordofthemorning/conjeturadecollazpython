@@ -12,14 +12,30 @@ número configurable arriba del archivo, pensados para ejecutarse y mirar el
 resultado. **El código se escribe simple a propósito**: nombres en castellano,
 comentarios que explican lo obvio, sin abstracciones.
 
-## REGLA CERO: ADVERSARIAL CONTRA UNO MISMO, ANTES DE ENSEÑAR UN NÚMERO
+## REGLA CERO: REVISAR, REVISAR, REVISAR
 
-**Establecida el 01-08-2026, después de que el asistente cometiera —midiendo en
-vivo, delante del usuario— el error del mapa clásico contra el mapa del atajo:
-exactamente el que este documento tiene registrado dos veces.**
+**El cambio de mentalidad, dicho por el usuario el 01-08-2026 y establecido como
+la regla que manda sobre todas las demás:**
 
-> **Antes de enseñar cualquier número, pásale a tu propio cálculo la misma lista
-> con la que se ataca a los agentes.** No después, no si sobra tiempo: antes.
+> **NO** «hacer el menor esfuerzo y lo más rápido posible».
+> **SÍ** «hacer el mejor esfuerzo, comprobando siempre, y después mandar un
+> agente adversarial para que además lo revise».
+
+**Son DOS capas, y ninguna sustituye a la otra:**
+
+| capa | quién | cuándo |
+|---|---|---|
+| **1** | **yo, contra mi propio cálculo** | antes de enseñar el número |
+| **2** | **un agente adversarial** | después, sobre lo que ya di por bueno |
+
+*Se establece después de que el asistente cometiera —midiendo en vivo, delante
+del usuario— el error del mapa clásico contra el del atajo: exactamente el que
+este documento tiene registrado dos veces. La capa 1 lo habría atrapado.*
+
+### Capa 1 — antes de enseñar cualquier número
+
+> **Pásale a tu propio cálculo la misma lista con la que se ataca a los
+> agentes.** No después, no si sobra tiempo: antes.
 
 ```
 1. QUE MAPA USE?  clasico (3n+1) o atajo ((3n+1)/2)?
@@ -35,15 +51,26 @@ exactamente el que este documento tiene registrado dos veces.**
 7. SE PUEDE EVALUAR SIN HABER TERMINADO LA TRAYECTORIA?  Si no, es contabilidad.
 ```
 
+### Capa 2 — el adversarial, después
+
+**Todo lo que se dé por bueno va a un agente adversarial**, con el encargo de
+romperlo y no de aplaudirlo. No es un lujo para lo grande: es el paso normal.
+El adversario recibe la lista de arriba más los modos de fallo históricos, y su
+resultado válido incluye «no pude romperlo» — pero sólo después de intentarlo.
+
 **POR QUÉ ES LA REGLA CERO Y NO UNA MÁS.** Estos errores **no se quedan
 quietos**: se escriben, se citan al día siguiente, y otra medición se apoya en
 ellos. La cota de ciclos hizo esa cadena tres veces en un día —`19.478.780.533`
 → `217.976.794.617` → `114.208.327.604`— y cada eslabón parecía una corrección
 rigurosa. **Un error propio no revisado tumba días de trabajo, no minutos.**
 
-*Y el corolario incómodo: los seis adversarios de la auditoría rompieron los seis
-bloques. Si un revisor externo encuentra algo el 100% de las veces, la medición
-sin revisar tiene, por defecto, un fallo dentro.*
+*Y el corolario incómodo, que es el argumento entero: los seis adversarios de la
+auditoría rompieron los seis bloques. **Seis de seis.** Si un revisor externo
+encuentra algo el 100% de las veces, entonces una medición sin revisar tiene, por
+defecto, un fallo dentro — y eso incluye las del asistente.*
+
+> **El coste de revisar se paga una vez. El de no revisar se paga cada día que
+> otra cosa se apoye encima.**
 
 ## REGLA DE PRIORIDAD: lo secundario va a un agente, siempre
 
