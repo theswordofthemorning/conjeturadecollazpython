@@ -1128,9 +1128,42 @@ hipótesis — `altura(5) = 5` contra `altura(6) = 8`. Ver la corrección del
 
 **Y el mecanismo general estaba en Garner 1985**: `8k+4` y `8k+5` se funden
 siempre en 3 pasos; y si dos trayectorias se funden, entonces
-`2^r·k + n₁` y `2^r·k + n₂` se funden **para todo `k`** — una sola fusión
-genera una progresión aritmética infinita de fusiones. Eso es exactamente lo
-que produce los bloques de pasos iguales.
+`2^r·k + n₁` y `2^r·k + n₂` se funden — una sola fusión genera una progresión
+aritmética infinita de fusiones. Eso es exactamente lo que produce los bloques
+de pasos iguales.
+
+> **PERO TAL COMO ESTE DOCUMENTO REPETÍA G2, ERA FALSO** (01-08-2026,
+> `verificar_fusiones.py`). Decía *«si dos trayectorias se funden, entonces
+> `2^r·k + n₁` y `2^r·k + n₂` se funden **para todo `k`**»*, sin más. Le faltan
+> **dos hipótesis**, y sin las dos se rompe:
+>
+> 1. **`r` tiene que ser mayor que el número de pasos pares del tramo.** El
+>    enunciado suelto no dice cuánto vale `r`. Con `r = e` (exactamente los pares
+>    del tramo) la propagación falla en **9.954 de 62.400 casos**; con `r = e+1`
+>    va perfecta, 62.400 comprobados y **0 fallos**.
+> 2. **Los dos tramos deben gastar los mismos pares Y los mismos impares.**
+>    «Fundirse» a secas no basta: hace falta que se encuentren en el **mismo
+>    índice** y con las mismas cuentas.
+>
+> **El contraejemplo bueno es `(3, 20)`**: los dos pasan por el 10 en el índice
+> 1, o sea que «se funden» en el sentido flojo, pero uno gasta 1 impar y el otro
+> 0. Y entonces `2^r·m + 3` contra `2^r·m + 20` da la misma altura en sólo **2 de
+> 40** valores de `m`, para `r = 8, 10, 12`. **Control con `(4, 5)`, que sí
+> cumple las dos hipótesis: 40 de 40.**
+>
+> *La forma del error es la de siempre en este repo: un enunciado publicado,
+> copiado sin sus cuantificadores. Lo mismo que le pasó al piso de la altitud
+> (le faltaba `n impar`) y al criterio de fusión (le falta `m ≥ 1`, abajo).*
+
+**G1 sí está confirmada, y limpia:** `8k+4` y `8k+5` caen los dos en `6k+4` en 3
+pasos, gastando 2 pares y 1 impar cada uno. **200.000 casos, 0 fallos.** Es una
+identidad algebraica, no una medida.
+
+> **Pero el corolario de «misma altura» falla en `k = 0`:** `altura(4) = 2` y
+> `altura(5) = 5`. El 4 llega al 1 **antes** del paso 3 en el que se encontrarían.
+> De `k = 1` a `k = 20.000`: 0 fallos. **El enunciado correcto lleva `k ≥ 1`**, y
+> es exactamente el mismo agujero que el `m ≥ 1` del criterio de clases — el
+> mismo agujero, encontrado por dos caminos distintos el mismo día.
 
 ### La conjetura abierta de Wu Jia-Bang, medida (`densidadfusion.py`)
 
@@ -1165,9 +1198,27 @@ versión lenta en los primeros 300.000: **0 discrepancias**.)*
 aguanta en todo el rango medido.
 
 **Y hay un segundo hito.** Garner (1985) conjeturó que *"la mayoría de los
-enteros positivos tienen la misma altura que un entero adyacente"*. La densidad
-**cruza el 50% entre 2^23 y 2^24**, y en 2^26 va por **50,99%**. La mayoría ya
-está cruzada.
+enteros positivos tienen la misma altura que un entero adyacente"*. **Nuestra**
+densidad de pares cruza el 50% entre `2^23` y `2^24`, y en `2^26` va por
+**50,99%**.
+
+> **CORRECCIÓN (01-08-2026): ese cruce NO es el hito de Garner, y el hito de
+> Garner está diecisiete escalones más abajo.** La conjetura de Garner es sobre
+> la densidad **`K`** — la fracción de **enteros que pertenecen a alguna tupla**
+> de altura repetida— y no sobre la fracción de **pares** consecutivos que
+> coinciden. Son dos cantidades distintas: un entero puede estar en una tupla por
+> su vecino de la izquierda o de la derecha, así que `K` es sistemáticamente
+> mayor.
+>
+> Recalculada como Garner la enuncia, **`K` cruza el 50% en `2^6 = 64`**
+> (`0,5079`), y en `2^10` ya va por **`0,6061`**. La frase *«la mayoría ya está
+> cruzada»* es cierta desde hace mucho más de lo que este documento decía, y
+> **el `2^23`–`2^24` mide otra cosa** — una cosa nuestra, que está bien medida y
+> hay que seguir publicando, pero con su nombre.
+>
+> *Aviso de procedencia: esto es **medición única de un adversario**, no cruzada
+> por un tercero. Vale como corrección de atribución; el número concreto
+> convendría reproducirlo con código propio antes de apoyarse en él.*
 
 **El control que importa: no todas las nociones de "parecerse" se portan
 igual.** La misma medición con el **pico** en vez de la altura **NO es
@@ -1184,14 +1235,42 @@ de la maquinaria — la maquinaria discrimina.
 2^18:  27      2^24:  77      2^28: 120   (en 136.696.632)
 ```
 
-Wu (1992) reporta **176** bajo 2^30, empezando en 722.067.240. Nuestro **120 en
-2^28** es compatible con esa trayectoria de crecimiento, pero no la confirma:
-no llegamos.
+Wu (1992) reporta **176** bajo 2^30, empezando en 722.067.240.
+
+> **CORRECCIÓN (01-08-2026): el `120 en 136.696.632` no lo descubrió este repo.
+> Lo redescubrió. Es de Wu Jia-Bang 1993** (MR 1277568). La ficha de ese trabajo
+> —entrada 189 de la bibliografía de Lagarias— dice textual: *«checked all
+> positive integers up to 1.5 × 10⁸ … and found a 120-tuple, which is the
+> longest tuple among all checked numbers»*. Y **`136.696.632 < 1,5·10⁸`**: cae
+> **dentro** del rango que Wu barrió hace treinta y tres años.
+>
+> O sea que la frase *«nuestro 120 es compatible con la trayectoria de
+> crecimiento de Wu pero no la confirma»* estaba mirando al sitio equivocado: no
+> es un dato nuestro que apunte hacia el de Wu, **es el dato de Wu**. Barrido
+> propio hasta `1,5·10⁸` para cerrarlo: la racha más larga es **única, 120 en
+> 136.696.632**, y la siguiente es 106 en 137.408.360.
+>
+> *Lo que sí es nuestro y sigue en pie: el `98` en `98.041.684`, que es la más
+> larga bajo `2^27`. Y la medición reproduce la de Wu con otra maquinaria, que
+> tiene su valor — pero es reproducción, no descubrimiento.*
 
 *Aviso, por delante: medir que una sucesión crece en dieciséis puntos NO
 demuestra que crezca siempre. Esto no resuelve la conjetura de Wu. Lo único que
 podía hacer era darle crédito o quitárselo — y si hubiera salido no monótona,
 eso sí habría sido un resultado.*
+
+> **UN CONTROL QUE FUNCIONÓ, Y CONVIENE ANOTARLO PORQUE ES LA MITAD INVISIBLE
+> DEL TRABAJO.** En esta misma pasada estuvo a punto de entrar una corrección
+> más: *«y Wu ya había calculado `d(2^N)` hasta `N = 24`, así que la tabla de
+> densidad de arriba reproduce a Wu en vez de ampliarlo»*. **Un revisor la paró
+> antes de que se escribiera, y tenía razón: son dos cantidades distintas.** El
+> `d(2^N)` de Wu es `K/(2^N−1)` —la densidad de **enteros en tupla**— y el de
+> esta tabla es la fracción de **pares** consecutivos que coinciden. En `2^24`:
+> **`0,724756` contra `0,500265`**. La tabla de este repo mide algo suyo.
+>
+> *Es exactamente el mismo error de magnitud que el hito de Garner, y por eso
+> los dos aparecieron juntos. La diferencia es que uno entró y el otro no: el
+> control existe y muerde.*
 
 #### El mecanismo, y dónde encajan las dos familias publicadas
 
@@ -1224,7 +1303,7 @@ Los peores restos son `31` (9%), `0` (15%) y `15` (16%).
 #### El criterio demostrado, sin muestrear (`clasesfusion.py`)
 
 De la identidad de Terras sale un criterio **exacto y finito** que decide, de
-una vez y para los infinitos `m` de la clase, si `(2^k·m + r, +1)` se funden.
+una vez y para los infinitos `m ≥ 1` de la clase, si `(2^k·m + r, +1)` se funden.
 
 Poniendo `n = 2^k·m + r` en `T^k(n) = λ_k·n + ρ_k`, y usando que `λ_k` y `ρ_k`
 dependen **solo del resto** (Teorema 1.2):
@@ -1235,7 +1314,7 @@ T^k(2^k·m + r)  =  3^{S_k(r)} · m  +  T^k(r)
 
 Es una **recta en `m`**, con pendiente `3^{S_k(r)}` y ordenada `T^k(r)`, y las
 dos dependen solo de `r`. Luego las dos trayectorias coinciden en el paso `k`
-**para todo `m`** exactamente cuando:
+**para todo `m ≥ 1`** exactamente cuando:
 
 ```
 S_k(r) == S_k(r+1)      (misma pendiente)
@@ -1244,6 +1323,55 @@ T^k(r) == T^k(r+1)      (misma ordenada)
 
 Una comprobación finita que vale para infinitos números. Verificado contra
 fuerza bruta en 9.672 pares: **0 fallos**.
+
+> **CORRECCIÓN (01-08-2026): decía «para todo `m`», y con `m = 0` es FALSO.**
+>
+> ```
+> r = 5, k = 5 :  el par (5, 6)  ->  alturas 5 y 8.   NO coinciden.
+> r = 4, k = 3 :  el par (4, 5)  ->  alturas 2 y 5.   NO coinciden.
+> ```
+>
+> **La causa es una hipótesis que el documento no escribía.** El criterio se
+> apoya en la descomposición `altura(n) = k + S_k(n) + altura(T^k(n))`, y ésa
+> exige que **la trayectoria no toque el 1 antes del paso `k`**. Medido y
+> separado: **4.792 casos CON la hipótesis → 0 fallos; 144 casos SIN ella → 144
+> fallos, el 100%.**
+>
+> **Y con `m ≥ 1` la hipótesis es gratis, con demostración de una línea:** si
+> `n = 2^k·m + r` con `m ≥ 1` entonces `n ≥ 2^k`, y como `T` no baja más rápido
+> que dividir entre dos, `T^j(n) ≥ n/2^j ≥ 2^(k−j) ≥ 2` para todo `j < k`. Con
+> `m = 0` el número es `r < 2^k` y no hay garantía ninguna.
+>
+> **Fallan exactamente 3 clases: `r = 2, 4, 5`**, y son **las mismas** de `k = 5`
+> a `k = 22`. No es un goteo que crezca: son tres, siempre las tres.
+>
+> **La cota de densidad del 43,57% NO se mueve** — tres excepciones no cambian
+> una densidad asintótica. Lo que cambia es el **enunciado**.
+>
+> > **Y AQUÍ LO QUE HAY QUE ESCRIBIR, PORQUE ES LA PARTE ÚTIL: por qué nadie lo
+> > vio en tres sesiones.** `clasesfusion.py:202` dice
+> > ```python
+> > for m in range(1, 40)
+> > ```
+> > La verificación contra fuerza bruta **empieza en 1**. Por construcción no
+> > podía ver el único `m` que rompe el enunciado. **La comprobación no falló:
+> > es que no miraba ahí.**
+> >
+> > **Es exactamente el patrón de la corrección del piso de la altitud** —donde
+> > el barrido de récords confirmaba y fue un control sobre números corrientes
+> > el que refutó— y **es la segunda vez**. La regla que sale de las dos:
+> > *cuando una verificación tenga un rango, hay que preguntarse qué queda fuera
+> > del rango, porque el contraejemplo vive ahí.* Los bordes (`m = 0`, `k = 0`,
+> > `n` par) no son casos raros: son donde se esconden las hipótesis que uno no
+> > escribió.
+>
+> **Y el error se hereda de la nota bibliográfica, no lo inventamos.** La
+> entrada 125 de la bibliografía de Lagarias escribe la familia como
+> `{(2^k·m + r, 2^k·m + r + 1) : m ≥ 0}` —**con `m ≥ 0`**, glifo verificado byte
+> a byte— y con su primera familia, `(32m+5, 32m+6)`, eso es falso en `m = 0`.
+> El repo copió el cuantificador de ahí y nadie lo probó. *No exculpa: el repo
+> tiene una regla de no copiar enunciados sin comprobar sus cuantificadores, y
+> aquí no se aplicó.*
 
 **Las dos familias publicadas se rederivan en tres líneas:**
 
@@ -1267,7 +1395,9 @@ casi todo par cruce frontera: **idéntico en los 18 valores**.
 
 Es una **cota inferior demostrada**: al menos el **43,57%** de los pares
 consecutivos tienen la misma altura, y se decide mirando solo el resto módulo
-2^28. *(Eso sí es un resultado: no depende de muestreo ni de ajuste.)*
+2^32. *(Eso sí es un resultado: no depende de muestreo ni de ajuste. Y **la
+corrección del `m ≥ 1` no lo toca**: son tres clases de excepción, `r = 2, 4,
+5`, contra mil ochocientos millones.)*
 
 > **CORRECCIÓN, y estuvo publicada mal.** Una versión anterior de esta sección
 > presentaba *"la fracción crece en los 24 escalones"* como un hallazgo. **No
@@ -2011,6 +2141,26 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
 - **«La lista entera de la Tabla C son las convergentes y semiconvergentes»**
   (01-08-2026): es **la mitad** — sólo las que aproximan `log₂3` por encima.
   `3/2`, `19/12`, `84/53`, `1054/665` son convergentes y no son jump values.
+- **El criterio de fusión vale para `m ≥ 1`, no «para todo `m`»** (01-08-2026).
+  En `m = 0` es falso: `(5,6)` da alturas 5 y 8, y `(4,5)` da 2 y 5. Fallan
+  exactamente 3 clases (`r = 2, 4, 5`), estables de `k=5` a `k=22`. **La cota
+  del 43,57% no se mueve.** *Nadie lo vio porque `clasesfusion.py:202` dice
+  `for m in range(1, 40)`: la fuerza bruta empezaba en 1 y por construcción no
+  podía ver el único `m` que rompe. **Segunda vez del mismo patrón** — la
+  primera fue el piso de la altitud.*
+- **El G2 de Garner, tal como lo repetía el repo, era falso** (01-08-2026). Le
+  faltaban dos hipótesis: `r` mayor que los pares del tramo (con `r = e` falla
+  9.954 de 62.400), y que los dos tramos gasten los mismos pares y los mismos
+  impares. Contraejemplo: `(3, 20)`.
+- **El corolario de G1 falla en `k = 0`** (01-08-2026): `altura(4) = 2` y
+  `altura(5) = 5`. La confluencia sí es exacta (200.000 casos, 0 fallos); la
+  igualdad de altura pide `k ≥ 1`.
+- **La tupla de `120` en `136.696.632` no es nuestra: es de Wu 1993**
+  (01-08-2026, MR 1277568). Barrió hasta `1,5·10⁸` y la publicó, y
+  `136.696.632 < 1,5·10⁸`. La redescubrimos.
+- **El hito de Garner está diecisiete escalones más abajo** (01-08-2026): su
+  conjetura es sobre la densidad `K` de **enteros en tupla**, no sobre la
+  fracción de **pares**. Cruza el 50% en `2^6`, no entre `2^23` y `2^24`.
 - **La traducción de Everett estaba mal, y con ella la frase «1,585 es el umbral
   verdadero»** (01-08-2026). `A/(A+B) < 0,5757 ⟺ B/A > 0,7369` es falso: la `N`
   de Everett son pasos del **atajo**, luego `X = A` y `N = B`. La condición real

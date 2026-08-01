@@ -58,7 +58,7 @@ Sea T el mapa 3x+1 acelerado:  T(n) = (3n+1)/2 si n impar,  n/2 si n par.
 Sea S_k(r) el numero de pasos impares entre los k primeros iterados de r.
 
 Se dice que la clase de resto r modulo 2^k SE FUNDE si las trayectorias de
-2^k*m + r y de 2^k*m + r + 1 coinciden a partir del paso k PARA TODO m >= 0,
+2^k*m + r y de 2^k*m + r + 1 coinciden a partir del paso k PARA TODO m >= 1,
 lo cual equivale (ver abajo) a:
 
         S_k(r) == S_k(r+1)      y      T^k(r) == T^k(r+1)
@@ -80,6 +80,36 @@ Si las dos trayectorias coinciden en el paso k, a partir de ahi son la misma,
 luego los dos numeros tienen la misma ALTURA (mismo numero de pasos del mapa
 clasico hasta el 1). La condicion sobre S_k garantiza ademas que hayan gastado
 el mismo numero de pasos clasicos para llegar (k pasos de T son k + S_k de C).
+
+CORRECCION AL CUANTIFICADOR (01-08-2026): ES "m >= 1", NO "m >= 0"
+------------------------------------------------------------------
+Este documento decia "PARA TODO m >= 0", y con m = 0 el enunciado de la ALTURA
+es FALSO:
+
+        r = 5, k = 5 :  el par (5, 6)  ->  alturas 5 y 8
+        r = 4, k = 3 :  el par (4, 5)  ->  alturas 2 y 5
+
+La causa es una hipotesis que no estaba escrita: el paso de "coinciden en el
+paso k" a "tienen la misma altura" usa
+
+        altura(n) = k + S_k(n) + altura(T^k(n))
+
+y eso exige que la trayectoria NO toque el 1 antes del paso k. Con m >= 1 es
+gratis: n >= 2^k y T no baja mas rapido que dividir entre dos, luego
+T^j(n) >= 2^(k-j) >= 2 para todo j < k. Con m = 0 el numero es r < 2^k y no
+hay garantia. Medido: 4.792 casos CON la hipotesis, 0 fallos; 144 SIN ella,
+144 fallos (el 100%).
+
+Fallan exactamente TRES clases -- r = 2, 4 y 5 -- y son las mismas de k = 5 a
+k = 22. LOS TERMINOS DE LAS DOS SUCESIONES NO CAMBIAN, porque el criterio
+sobre restos es el mismo; lo que cambia es el enunciado que lo acompana.
+
+Y el error se hereda de la nota bibliografica: la entrada 125 de la
+bibliografia anotada de Lagarias escribe la familia como
+{(2^k m + r, 2^k m + r + 1) : m >= 0}, y con su primera familia -(32m+5,
+32m+6)- eso es falso en m = 0. Se copio el cuantificador sin comprobarlo,
+porque la fuerza bruta de clasesfusion.py empieza en m = 1 y por construccion
+no podia verlo.
 
 
 SUCESION 1 -- cuantas clases modulo 2^k se funden

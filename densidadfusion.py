@@ -14,6 +14,17 @@
 #     existen infinitas. Hay una de 35.654 empezando en 2^500 + 1.
 #   Wu Jia-Bang (1992): la tupla mas larga bajo 2^30 mide 176 y empieza en
 #     722.067.240. En (1995) encontro otra de 310 en 6.622.073.000.
+#   Wu Jia-Bang (1993), MR 1277568: barrio todos los enteros hasta 1,5 x 10^8
+#     y publico una tupla de 120 como la mas larga de ese rango.
+#
+# OJO CON EL 120 QUE SALE ABAJO (corregido el 01-08-2026). Este programa
+# encuentra una tupla de 120 empezando en 136.696.632 y el CLAUDE.md la
+# presentaba como medida propia. NO LO ES: 136.696.632 < 1,5 x 10^8, o sea que
+# cae dentro del rango que Wu barrio en 1993, y el 120 es exactamente su
+# numero. Esto lo REDESCUBRE, no lo descubre. Barrido propio hasta 1,5 x 10^8
+# para cerrarlo: la racha mas larga es unica, 120 en 136.696.632, y la
+# siguiente es 106 en 137.408.360. Lo que si es propio es el 98 en 98.041.684,
+# la mas larga bajo 2^27.
 #
 # LA CONJETURA (Wu Jia-Bang, 1995). Escribe d(2^N) para la densidad de pares
 # consecutivos que se funden dentro del intervalo [1, 2^N]. Demostro que una
@@ -233,6 +244,11 @@ print(f"\n  Wu Jia-Bang (1992) reporta la tupla mas larga bajo 2^30: mide 176")
 print(f"  y empieza en 722.067.240. Aqui solo se llega a 2^{POTENCIA}, asi que")
 print(f"  no se puede ni confirmar ni desmentir ese dato; lo que se ve es el")
 print(f"  crecimiento hasta donde llegamos.")
+print(f"\n  Y OJO CON LA TUPLA DE 120 EN 136.696.632: no es nuestra. Wu (1993,")
+print(f"  MR 1277568) barrio hasta 1,5 x 10^8 y publico ese mismo 120 como el")
+print(f"  record de su rango, y 136.696.632 < 150.000.000. Esto lo reproduce,")
+print(f"  no lo descubre. Lo que si es propio es el 98 en 98.041.684, que es")
+print(f"  la racha mas larga bajo 2^27.")
 
 
 # ------------------------ que fraccion de la densidad la explican los pares

@@ -27,7 +27,7 @@
 #
 # Es una recta en m, con pendiente 3^{S_k(r)} y ordenada T^k(r), y **las dos
 # cosas dependen solo de r**. Entonces las trayectorias de 2^k m + r y de
-# 2^k m + r+1 coinciden en el paso k **para todo m** exactamente cuando
+# 2^k m + r+1 coinciden en el paso k **para todo m >= 1** exactamente cuando
 #
 #     S_k(r) == S_k(r+1)      (misma pendiente)
 #     T^k(r) == T^k(r+1)      (misma ordenada)
@@ -37,7 +37,16 @@
 # hayan gastado el mismo numero de pasos del mapa clasico para llegar ahi
 # (k pasos de T son k + S_k pasos de C).
 #
-# Es una comprobacion FINITA que vale para los INFINITOS m de la clase.
+# Es una comprobacion FINITA que vale para los INFINITOS m >= 1 de la clase.
+#
+# OJO CON EL m = 0, Y NO ES UN DETALLE (corregido el 01-08-2026). El enunciado
+# se escribia "para todo m" y ASI ES FALSO: el par (5, 6) tiene alturas 5 y 8,
+# y el par (4, 5) tiene 2 y 5. La descomposicion de la altura de arriba exige
+# que la trayectoria no toque el 1 antes del paso k, y con m = 0 el numero es
+# r < 2^k y puede tocarlo. Fallan exactamente tres clases: r = 2, 4 y 5,
+# estables de k = 5 a k = 22. La cota de densidad NO cambia; el enunciado si.
+# Ver el bloque largo junto a la COMPROBACION 2, que explica por que nadie lo
+# vio en tres sesiones.
 #
 # ---------------------------------------------------------------------------
 # LO QUE SALE
@@ -120,7 +129,7 @@ def salto_y_paridad(restos, k):
 
 def recorrer_clases(k, bloque=BLOQUE, listar=False):
     """Cuenta (y opcionalmente lista) los restos r modulo 2^k que se funden
-    para todo m. Devuelve (cuantos, lista_o_None).
+    para todo m >= 1. Devuelve (cuantos, lista_o_None).
 
     Criterio: S_k(r) == S_k(r+1) y T^k(r) == T^k(r+1).
     """
@@ -186,7 +195,7 @@ cumple_4 = (v3[4] == v3[5]) and (S3[4] == S3[5])
 print(f"    misma pendiente y misma ordenada: {cumple_4}")
 
 v5, S5 = salto_y_paridad(np.arange(0, 33, dtype=np.int64), 5)
-print(f"\n  Wu y Huang 2001: (32m+5, 32m+6) se funden siempre.")
+print(f"\n  Wu y Huang 2001: (32m+5, 32m+6) se funden para todo m >= 1.")
 print(f"    r=5: T^5(5) = {v5[5]}, S_5(5) = {S5[5]}")
 print(f"    r=6: T^5(6) = {v5[6]}, S_5(6) = {S5[6]}")
 cumple_5 = (v5[5] == v5[6]) and (S5[5] == S5[6])
@@ -211,16 +220,43 @@ def altura(n):
     return c
 
 
+# ---------------------------------------------------------------------------
+# EL RANGO DE m, Y POR QUE EMPIEZA EN 1 -- LEER ESTO ANTES DE TOCARLO
+# ---------------------------------------------------------------------------
+# El bucle de abajo dice `for m in range(1, 40)`, y ESO ESCONDIO UN ERROR
+# DURANTE TRES SESIONES. El criterio se anunciaba "para todo m", y en m = 0 es
+# FALSO: el par (5, 6) da alturas 5 y 8, y el par (4, 5) da 2 y 5. Como la
+# fuerza bruta empezaba en 1, por construccion no podia verlo.
+#
+# LA CAUSA. El criterio se apoya en la descomposicion
+#     altura(n) = k + S_k(n) + altura(T^k(n))
+# que exige que la trayectoria NO toque el 1 antes del paso k. Con m >= 1 eso
+# es gratis: n >= 2^k, y como T no baja mas rapido que dividir entre dos,
+# T^j(n) >= n/2^j >= 2^(k-j) >= 2 para todo j < k. Con m = 0 el numero es
+# r < 2^k y no hay garantia. Medido en verificar_wu.py: 4.792 casos CON la
+# hipotesis, 0 fallos; 144 casos SIN ella, 144 fallos.
+#
+# Fallan exactamente TRES clases -- r = 2, 4, 5 -- y son las mismas de k = 5 a
+# k = 22. La cota de densidad no se mueve; el ENUNCIADO si: es "para todo
+# m >= 1", no "para todo m".
+#
+# El rango se deja empezando en 1 A PROPOSITO, porque es donde el criterio
+# vale. Lo que NO se puede volver a hacer es escribir "para todo m" arriba.
+# ---------------------------------------------------------------------------
+
+M_DESDE = 1      # el criterio vale para m >= 1. Con m = 0 es falso: ver arriba.
+M_HASTA = 40
+
 fallos = 0
 probados = 0
 for k in (3, 4, 5, 6, 7):
     MOD = 1 << k
     buenos = set(clases_que_se_funden(k))
     for r in range(MOD):
-        # se prueban varios m: si el criterio dice que se funde para TODO m,
-        # ninguno puede fallar; y si dice que no, alguno tiene que fallar.
+        # se prueban varios m: si el criterio dice que se funde para todo
+        # m >= 1, ninguno puede fallar; y si dice que no, alguno tiene que.
         iguales = [altura(MOD * m + r) == altura(MOD * m + r + 1)
-                   for m in range(1, 40)]
+                   for m in range(M_DESDE, M_HASTA)]
         probados += len(iguales)
         if r in buenos and not all(iguales):
             fallos += 1

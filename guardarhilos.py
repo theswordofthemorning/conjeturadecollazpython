@@ -383,15 +383,24 @@ print(f"\nCOMPROBACION 4 -- la familia (32m+5, 32m+6)")
 print(f"  nuestro par 100005 / 100006 es el caso m = {(100005 - 5) // 32}")
 print(f"  EL HECHO: verificado aqui y rederivado por clasesfusion.py desde el")
 print(f"    criterio de Terras (r=5, k=5: T^5(5)=T^5(6)=2 con S=2 los dos),")
-print(f"    que lo decide para los INFINITOS m de la clase, no solo estos ocho.")
+print(f"    que lo decide para los INFINITOS m de la clase, no solo estos siete.")
 print(f"  LA ATRIBUCION: Wu y Huang 2001, Mathematica Applicata (Wuhan) 14,")
 print(f"    supl., 21-25, MR 1885838. LOCALIZADA el 01-08-2026; hasta ese dia")
 print(f"    iba marcada aqui como CITA SIN VERIFICAR porque no aparecia en")
 print(f"    Crossref -que no indexa suplementos de revistas chinas de 2001-.")
 print(f"    Aun asi el hecho y la atribucion se siguen diciendo por separado.")
+# EL m EMPIEZA EN 1 A PROPOSITO (01-08-2026). La familia vale para m >= 1, no
+# "para todo m": con m = 0 el par es (5, 6) y sus alturas son 5 y 8, o sea que
+# NO se funden en el sentido de tener la misma altura. La causa esta explicada
+# en clasesfusion.py: la descomposicion altura(n) = k + S_k + altura(T^k(n))
+# exige que la trayectoria no toque el 1 antes del paso k, y eso solo esta
+# garantizado si n >= 2^k. Antes esta lista empezaba en 0 y se llamaba "el caso
+# degenerado"; no lo es, es un contraejemplo al enunciado sin hipotesis.
+print(f"  EL RANGO: m >= 1. En m = 0 el par es (5, 6), con alturas 5 y 8:")
+print(f"    NO se funden. El enunciado sin la hipotesis es falso.")
 fallos_familia = 0
 desfases = []
-for m in [0, 1, 2, 7, 100, 3125, 9999, 40000]:
+for m in [1, 2, 7, 100, 3125, 9999, 40000]:
     x, y = 32 * m + 5, 32 * m + 6
     r = se_funden(x, y)
     if r is None:

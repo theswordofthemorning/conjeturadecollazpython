@@ -3,6 +3,15 @@
 # RE-DERIVACION INDEPENDIENTE DE LO QUE EL REPO IMPORTA DE WU JIA-BANG
 # Y DE LA CITA "WU Y HUANG 2001".
 #
+# AVISO SOBRE UNA AFIRMACION PROPIA DE ESTE FICHERO QUE RESULTO FALSA
+# (01-08-2026). En el BALANCE del final se decia que "Wu ya habia calculado
+# d(2^N) hasta N = 24, asi que este barrido reproduce a Wu y no lo amplia".
+# NO ES CIERTO: el d(2^N) de Wu es K/(2^N - 1) -la densidad de ENTEROS que
+# pertenecen a alguna tupla- y el del repo es la fraccion de PARES
+# consecutivos que coinciden. En 2^24 valen 0,724756 y 0,500265. Un revisor lo
+# caza antes de que la "correccion" entrara en el CLAUDE.md. El texto se deja
+# corregido en su sitio, no borrado.
+#
 # Nada de aqui se cree por estar publicado. Todo se recalcula con enteros
 # exactos de Python (int nativo, precision ilimitada). Cero numpy en la cadena
 # que decide algo; numpy solo aparece para construir la tabla de alturas del
@@ -737,8 +746,17 @@ print("  PROMEDIO (no sirve para la formula):")
 print("    - la densidad d(2^N). Crece en todo el rango medido, pero medir que")
 print("      una sucesion sube en catorce escalones no demuestra que suba")
 print("      siempre. La conjetura de Wu sigue abierta.")
-print("    - y Wu ya habia calculado d(2^N) hasta N = 24 en 1992. El barrido")
-print("      de este fichero llega justo a 2^24: reproduce a Wu, no lo amplia.")
+print("    - ESTE FICHERO AFIRMABA AQUI que 'Wu ya habia calculado d(2^N)")
+print("      hasta N = 24 en 1992, asi que el barrido reproduce a Wu y no lo")
+print("      amplia'. ESO ES FALSO y lo cazo un revisor el 01-08-2026 antes")
+print("      de que entrara en el CLAUDE.md: son DOS cantidades distintas.")
+print("      El d(2^N) de Wu es K/(2^N - 1), la densidad de ENTEROS que")
+print("      pertenecen a alguna tupla; el de este repo es la fraccion de")
+print("      PARES consecutivos que coinciden. En 2^24 valen 0,724756 y")
+print("      0,500265. La tabla de densidad del repo mide algo suyo.")
+print("      (Se deja escrito en vez de borrarlo: es el mismo error de")
+print("       magnitud que el hito de Garner, y los dos aparecieron juntos.")
+print("       La diferencia es que uno entro y el otro no.)")
 print()
 print("  NO VERIFICABLE CON ESTOS MEDIOS, y hay que decirlo:")
 print("    - que 176 sea la tupla MAS LARGA bajo 2^30 (haria falta la tabla")
