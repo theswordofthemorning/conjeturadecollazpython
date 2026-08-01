@@ -2011,6 +2011,15 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
 - **«La lista entera de la Tabla C son las convergentes y semiconvergentes»**
   (01-08-2026): es **la mitad** — sólo las que aproximan `log₂3` por encima.
   `3/2`, `19/12`, `84/53`, `1054/665` son convergentes y no son jump values.
+- **La traducción de Everett estaba mal, y con ella la frase «1,585 es el umbral
+  verdadero»** (01-08-2026). `A/(A+B) < 0,5757 ⟺ B/A > 0,7369` es falso: la `N`
+  de Everett son pasos del **atajo**, luego `X = A` y `N = B`. La condición real
+  es `B/A > 1/L = log₂(10/3) = 1,73697`, que es **más fuerte** que `log₂3`, no
+  más floja — 17.433 números de 3 a 20.000 pasan el `0,7369` sin haber bajado.
+  Y `B/A > log₂3` **tampoco** garantiza el descenso (`n = 7` sube a 8), porque
+  `C > 0`. *El `0,7369` es literalmente `1/L − 1`: la marca algebraica de haber
+  puesto un paso de más en el denominador.* **Vivió casi un año porque de esa
+  sección no colgaba ningún cálculo.**
 - **El cuantificador `clase_mod_2k` de `afirmaciones.db` nombraba mal a dos de
   sus filas** (01-08-2026): la rueda del árbol y los evitados de `2n mod 27` son
   clases módulo `3^j`. Renombrado a **`clase_residual`** — la categoría es la
@@ -2093,25 +2102,148 @@ de partida de este repo — es literalmente el punto de partida de Collatz en
 
 ### La demostración de Everett, y qué dice en nuestro lenguaje
 
+> **ESTA SECCIÓN ESTABA MAL ENTERA Y SE REESCRIBIÓ EL 01-08-2026**
+> (`verificar_everett.py`). Lo que decía, y por qué era falso, va marcado abajo
+> párrafo a párrafo. **Es el error que más tiempo vivió sin que nadie lo
+> tocara** — casi un año — y hay una razón estructural para eso, anotada al
+> final: de aquí no colgaba ningún cálculo.
+
 Everett 1977 demuestra en tres páginas que casi todo `n` tiene un iterado menor
 que `n`. El truco que le permite prescindir del `+1`: en vez del factor exacto
-`3/2` usa la cota **`m_{n+1}/m_n ≤ 5/3`** válida siempre que `m_n ≥ 3`. Y define
+`3/2` usa la cota **`m_{i+1}/m_i ≤ 5/3`** válida siempre que `m_i ≥ 3`. Y define
 
 ```
-L = log 2 / log(10/3) ≈ 0,5757
+L = log 2 / log(10/3) = 0,57571664249344500482
 ```
 
-Su condición de bajada garantizada es `X/N < L`, donde `X` = pasos impares.
-**Traducido a nuestras coordenadas** (`A` = veces `3n+1`, `B` = veces `n/2`):
+**La cota `5/3` está confirmada y es ajustada.** 50.000 impares más 999 pares
+con `Fraction`: el máximo es **`5/3` exacto**, alcanzado con igualdad en `m = 3`.
+Falla **sólo** en `m = 1` (razón 2), y por eso Everett pide `m ≥ 3`: el conjunto
+que hay que excluir por ese motivo es exactamente `{1}`.
+
+Su condición de bajada garantizada es `X/N < L`, donde `X` = pasos impares y
+`N` = pasos **del mapa del atajo**.
+
+#### B1 — la traducción a `(A, B)` estaba mal
+
+> **LO QUE DECÍA ESTE DOCUMENTO, y es FALSO:**
+> ```
+> Everett:   A / (A+B) < 0,5757    ⟺   B/A > 0,7369
+> ```
+
+El error es poner `N = A+B`. **La `N` de Everett son pasos del ATAJO, y en el
+atajo cada paso impar contiene un `3n+1` y una división**, así que
 
 ```
-Everett:   A / (A+B) < 0,5757    ⟺   B/A > 0,7369
-Exacto:                              B/A > log₂3 = 1,585
+X = A     y     N = B          (comprobado en los 29.998 casos de n = 2..30.000)
 ```
 
-Es más flojo a propósito. `5/3 > 3/2` es una cota pesimista, y ése es el precio
-de tener una demostración de tres páginas sin un solo agujero. **Nuestro 1,585
-es el umbral verdadero; el 0,7369 es el umbral que se sabe demostrar.**
+Luego `X/N = A/B`, y la condición correcta es:
+
+```
+Everett, bien traducido:   A/B < L   ⟺   B/A > 1/L = log₂(10/3) = 1,73696559416620616641
+```
+
+**Verificado en las dos direcciones:** la desigualdad de fondo
+`m_N · 3^X · 2^(N−X) ≤ 5^X · m_0` en **forma entera**, sin un solo float —
+**1.225.964 comprobaciones, 0 fallos**, y la holgura mínima es exactamente 0
+(se toca la igualdad, que es el caso `m = 3`). Y la implicación
+`A/B < L ⟹ m_N < n`: **754.549 pares, 0 fallos**.
+
+**Y la versión falsa se refuta con números, no con un argumento.** Escrita en
+forma entera (`5^A < 3^A·2^B` con `N = A+B`), **17.433 números de 3 a 20.000 la
+cumplen en algún `N` sin haber bajado**. El más chico es `n = 3`: a los dos
+pasos tiene `B/A = 1/1 = 1`, que pasa el `0,7369` de sobra y no llega ni a
+`log₂3` ni a `1,737`.
+
+> **LA FIRMA DEL ERROR, que es lo que hay que saber reconocer.** El `0,7369` es
+> literalmente **`1/L − 1`**:
+> ```
+> (1 − L)/L  =  1/L − 1  =  0,73696559416620616641
+> ```
+> Ese `−1` es exactamente lo que se cuela al despejar `A/(A+B) < L` en vez de
+> `A/B < L`. **Un número que sale de la constante correcta menos uno es la marca
+> algebraica de haber sumado un paso de más al denominador.** Si vuelve a
+> aparecer un umbral que es «la constante menos 1», es esto.
+>
+> Y había una comprobación de coherencia que lo delataba sin tocar un dato: una
+> condición **suficiente** de descenso tiene que ser **más exigente** que el
+> umbral exacto, nunca más floja. `1,737 > 1,585` es coherente;
+> `0,7369 < 1,585` es imposible — prometería descenso donde no lo hay.
+
+#### B2 — y `log₂3` tampoco es «el umbral verdadero»
+
+> **LO QUE DECÍA ESTE DOCUMENTO, y también es FALSO:** *«Nuestro 1,585 es el
+> umbral verdadero; el 0,7369 es el umbral que se sabe demostrar.»*
+
+**`B/A > log₂3` NO garantiza el descenso.** Contraejemplo mínimo: **`n = 7` con
+`A = 5, B = 8`** (o sea `B/A = 1,6 > 1,585`) llega a **8, que es mayor que 7**.
+Igual pasa con 9, 14, 15 y 18.
+
+Y lo impide **la propia identidad de este repo**: `2^B·m_N = 3^A·n + C` con
+`C > 0`, luego `m_N > 3^A·n / 2^B` **siempre**. El `+1` es justo lo que obliga
+al colchón del `5/3`.
+
+> **La corrección del enunciado: `log₂3` es el umbral del modelo SIN el `+1`. El
+> único umbral demostrable sobre el mapa real es `1,73697`.** Y lo peor de la
+> frase vieja es que **las dos mitades de este mismo documento se
+> contradecían**: la sección de la lámina lleva desde el principio diciendo que
+> `C > 0` siempre, que es exactamente lo que hace falta para refutarla. El error
+> no necesitaba un dato nuevo — necesitaba leer dos secciones a la vez.
+
+#### B3 — EL HUECO, que es el hallazgo de la pasada
+
+La distancia entre el umbral demostrable y el del modelo tiene **forma cerrada**:
+
+```
+1/L − log₂3  =  log₂(10/3) − log₂3  =  log₂(10/9)  =  0,15200309344504998496
+```
+
+**Es el precio exacto de haber usado `5/3` en vez de `3/2`**, ni más ni menos:
+`log₂(5/3) − log₂(3/2) = log₂(10/9)`.
+
+**Y la franja está poblada.** De 3 a 20.000 hay **24 números que Everett no
+certifica jamás** —bajan, pero ningún `N` de su trayectoria cumple la
+condición—, y **los 24 caen dentro de la franja**:
+
+```
+log₂3 = 1,58496  <  B/A  <=  1,73697 = 1/L
+```
+
+El más chico es el **27** (`B/A = 1,7073`). El **47** se queda fuera del
+certificado por **0,000124** — `1,736842` contra `1,736966`.
+
+> **MATIZ OBLIGATORIO, y sin él esto se inflaría solo:** que los 24 caigan en la
+> franja **es un teorema forzado por las definiciones, no una medición**. Si un
+> número tuviera `B/A > 1/L` en su trayectoria entera, Everett lo certificaría;
+> si tuviera `B/A < log₂3`, no bajaría. **Y el recíproco es falso**: hasta
+> 20.000 hay **42** números en la franja y sólo **24** sin certificado. Estar en
+> la franja es necesario, no suficiente.
+
+> **EL LÍMITE DE FORMA, que es lo que impide construir nada encima.** Aunque se
+> cerrara la franja entera —aunque se demostrara que todo `n` de la franja
+> también baja— el resultado sería *«todo `n` baja alguna vez»*, y **eso NO es
+> la conjetura**. Falta poder **iterar** la bajada sin tope, y eso exige una
+> cantidad que decrezca monótonamente a lo largo de la trayectoria, que nadie
+> conoce. Błażewicz y Pettorossi (1983) lo intentaron. **El `+1` es la razón**:
+> rompe cualquier medida que se porte bien con `n/2` y con `3n`.
+
+#### Qué es cada cosa, y por qué este error duró un año
+
+**Cota:** la desigualdad de Everett por trayectoria, en forma entera, 0 fallos.
+**Promedio:** la densidad del conjunto excepcional (`0,0612` a nivel `K=16`,
+`0,0000000` a `K=1000`) — tiende a 0 pero el conjunto es **infinito para cada
+`K`**, y toda la clase `n ≡ 2^K − 1 (mod 2^K)` está fuera. *Everett no dice
+absolutamente nada de ella, y ahí es donde viviría un contraejemplo.*
+
+> **Y la razón de que esto sobreviviera un año entero:** de esta sección **no
+> cuelga ningún cálculo**. No hay un solo `.py` que use el `0,7369`, ni un
+> número del documento que dependa de él. Es texto explicativo, y el texto
+> explicativo no se cae solo cuando está mal — no rompe ningún `SystemExit`, no
+> desajusta ninguna tabla. **Compárese con Terras 1.2**, de la que cuelga medio
+> repo y que por eso es la pieza mejor verificada de todas (ver «El andamio»).
+> *La lección de gestión: lo que nadie ejecuta hay que auditarlo a propósito,
+> porque no se va a delatar solo.*
 
 ### Lo que sí es inusual aquí, y no es matemática
 
