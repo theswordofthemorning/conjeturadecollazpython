@@ -282,8 +282,16 @@ van a su propia tabla.
 sesión, literal y con marca de tiempo, en:
 
 ```
-~/.claude/projects/C--Users-Home-Desktop-conjeturadecollazpython/*.jsonl
+~/.claude/projects/<ruta-del-proyecto-con-guiones>/*.jsonl
 ```
+
+> **NO pongas ese slug a mano.** Estuvo fijado a
+> `C--Users-Home-Desktop-conjeturadecollazpython` y **el programa no arrancaba en
+> ninguna máquina cuyo usuario no fuera `Home`** — el 01-08-2026 se descubrió que
+> la regla llevaba una sesión entera sin poder cumplirse, fallando con un
+> `SystemExit` que parecía «no hay transcripciones». Ahora `guardarrespuestas.py`
+> **deduce el slug del directorio actual** (cambia `:`, `\` y `/` por guiones) y,
+> si aun así no la encuentra, busca la carpeta que termine igual que el proyecto.
 
 > **Ojo con la idea de "capturar el stdout": no existe.** El texto del asistente
 > no pasa por ninguna consola —Claude Code lo renderiza directo— así que no hay
@@ -295,9 +303,9 @@ sesión, literal y con marca de tiempo, en:
 
 Eso lee las transcripciones que haya, mete lo nuevo en `respuestas.db` y no
 toca lo viejo. Es **append-only** e **idempotente por `(sesion, orden)`**:
-correrlo mil veces no duplica ni borra nada. Al 31-07-2026 lleva **288 mensajes
-de tres sesiones — 63 preguntas y 213 respuestas, 345.084 caracteres**, desde el
-29-07.
+correrlo mil veces no duplica ni borra nada. Al **01-08-2026** lleva **643
+mensajes de seis sesiones — 152 preguntas y 456 respuestas, 1.065.063
+caracteres**, desde el 29-07.
 
 **Por qué se hace así y no anotando turno a turno:** una regla que exige que el
 asistente escriba una fila en cada respuesta depende de que la cumpla siempre, y

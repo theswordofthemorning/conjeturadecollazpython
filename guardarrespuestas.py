@@ -61,8 +61,28 @@ import sqlite3
 # ---------------------------------------------------------------------------
 
 ARCHIVO = "respuestas.db"
-SLUG = "C--Users-Home-Desktop-conjeturadecollazpython"
+
+# El SLUG se DEDUCE del directorio en que estas, no se escribe a mano. Claude
+# Code nombra la carpeta de transcripciones con la ruta del proyecto y le cambia
+# cada separador por un guion: C:\Users\Pepe\Desktop\x -> C--Users-Pepe-Desktop-x
+#
+# Estuvo a fuego como "C--Users-Home-Desktop-conjeturadecollazpython" y por eso
+# el programa no arrancaba en una maquina cuyo usuario no fuera "Home": el 01-08
+# se descubrio que la regla del registro llevaba una sesion entera sin poder
+# cumplirse. Si lo vuelves a fijar a mano, se rompe en la siguiente maquina.
+SLUG = os.path.abspath(os.getcwd()).replace(":", "-").replace("\\", "-").replace("/", "-")
 CARPETA = os.path.join(os.path.expanduser("~"), ".claude", "projects", SLUG)
+
+# Salida de emergencia: si Claude Code cambia como arma el nombre, se busca la
+# carpeta que termine igual que este proyecto en vez de rendirse.
+if not os.path.isdir(CARPETA):
+    raiz = os.path.join(os.path.expanduser("~"), ".claude", "projects")
+    fin = "-" + os.path.basename(os.getcwd())
+    if os.path.isdir(raiz):
+        cand = [d for d in os.listdir(raiz) if d.endswith(fin)]
+        if len(cand) == 1:
+            CARPETA = os.path.join(raiz, cand[0])
+            SLUG = cand[0]
 
 ROLES = ("usuario", "asistente", "sistema")
 ORIGENES = ("capturado", "reconstruido")
