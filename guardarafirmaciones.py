@@ -310,13 +310,13 @@ AFIRMACIONES = [
          "Ambito: todo k >= 0. Rederivado desde el criterio: r=4, k=3 da "
          "T^3(4) = T^3(5) = 2 con S = 1 en los dos. Tasa 1,0000."),
 
-    fila("(32m+5, 32m+6) se funden para todo m",
+    fila("(32m+5, 32m+6) se funden para todo m >= 1",
          "clase_residual", "demostrado", "guardarhilos.py",
-         "Wu-Huang 2001 (CITA SIN VERIFICAR: sin DOI, no esta en Crossref)",
-         "Ambito: todo m; probado en m = 0,1,2,7,100,3125,9999,40000, todos "
-         "con desfase 0. Nuestro par (100005, 100006) es el caso m = 3125. El "
-         "HECHO si esta verificado porque el criterio lo rederiva; lo que no "
-         "se pudo verificar es la referencia."),
+         "Wu-Huang 2001, Mathematica Applicata (Wuhan) 14, supl., 21-25, "
+         "MR 1885838 (LOCALIZADA el 01-08-2026)",
+         "Ambito: todo m >= 1; probado en m = 1,2,7,100,3125,9999,40000, "
+         "todos con desfase 0. Nuestro par (100005, 100006) es el caso "
+         "m = 3125. En m = 0 es FALSO: altura(5) = 5 y altura(6) = 8."),
 
     fila("si dos trayectorias se funden, entonces 2^r*k + n1 y 2^r*k + n2 se "
          "funden para TODO k",
@@ -838,13 +838,21 @@ CORRECCIONES = [
      "atribuir mal una fuente es tan grave como medir mal: el que venga detras "
      "buscara en el sitio equivocado"),
 
-    ("Wu-Huang 2001 es una referencia solida en la que apoyarse",
-     "no se pudo verificar: no tiene DOI, no aparece en Crossref, y "
-     "Elia-Tucker 2015 no la citan -su bibliografia entera son cuatro "
-     "entradas. El HECHO si esta verificado, porque el criterio lo rederiva "
-     "(2026-07-30)",
-     "una cita copiada de otro sitio no es una cita comprobada. Hay que "
-     "separar 'el hecho es cierto' de 'la fuente existe'"),
+    ("Wu-Huang 2001 no se pudo verificar: no tiene DOI, no aparece en "
+     "Crossref, y Elia-Tucker 2015 no la citan. Antes de apoyarse en ella "
+     "hay que localizarla o quitarla (2026-07-30)",
+     "LA REFUTACION ERA LA EQUIVOCADA. La cita EXISTE: Mathematica Applicata "
+     "(Wuhan) 14 (2001), suplemento, 21-25, MR 1885838, Zbl 1002.11023, y "
+     "esta en la bibliografia anotada de Lagarias (arXiv:math/0608208, "
+     "entrada 125) con las tres familias y los vectores de paridad "
+     "textuales, que se recalcularon clavados bit a bit. No estaba en "
+     "Crossref porque es un SUPLEMENTO de una revista china de 2001 "
+     "(2026-08-01)",
+     "el error no fue de la cita, fue del indice donde se busco. 'No esta en "
+     "Crossref' es una afirmacion sobre Crossref, no sobre el mundo, y para "
+     "Collatz el indice correcto es la bibliografia anotada de Lagarias. Y "
+     "el aviso de fondo: una REFUTACION es una afirmacion como cualquier "
+     "otra y hay que auditarla igual"),
 
     ("cualquier ciclo no trivial mide al menos 19.478.780.533 pasos, segun 'la "
      "literatura de 2025'",

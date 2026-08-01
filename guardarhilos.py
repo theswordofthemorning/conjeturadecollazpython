@@ -34,34 +34,45 @@
 #     existen infinitas. Hay una tupla de 35.654 empezando en 2^500 + 1.
 #   - Wu Jia-Bang (1992,1993,1995): la tupla mas larga bajo 2^30 es de 176,
 #     empezando en 722.067.240; y encontro una de 310 en 6.622.073.000.
-#   - Wu y Huang (2001), CITA SIN VERIFICAR -- LEER EL AVISO DE ABAJO: las
-#     familias de pares consecutivos que se funden son progresiones
+#   - Wu Jia-Bang y Huang Guo-Lin (2001), "Family of consecutive integer pairs
+#     of the same height in the Collatz conjecture", Mathematica Applicata
+#     (Wuhan) 14 (2001), suplemento, 21-25.  MR 1885838,  Zbl 1002.11023.
+#     Las familias de pares consecutivos que se funden son progresiones
 #     aritmeticas modulo 2^k, con los ejemplos
 #         (32m+5, 32m+6),  (64m+45, 64m+46),  (128m+29, 128m+30)
 #     La COMPROBACION 4 de abajo usa la primera: 100005 = 32*3125 + 5, o sea
 #     que nuestro par (100005, 100006) es un caso de esa familia.
 #
-# AVISO SOBRE ESA CUARTA REFERENCIA, Y HAY QUE SEPARAR DOS COSAS.
+# LA CUARTA REFERENCIA, LOCALIZADA EL 01-08-2026. Hasta hoy iba marcada aqui
+# como CITA SIN VERIFICAR. Ya no: esta catalogada (MR, Zbl) y aparece en la
+# bibliografia anotada de Lagarias (arXiv:math/0608208, entrada 125) con las
+# tres familias y los vectores de paridad textuales, que verificar_wu.py
+# recalcula clavados bit a bit.
 #
-#   EL HECHO ES CIERTO Y ESTA VERIFICADO AQUI: (32m+5, 32m+6) se funden para
-#   todo m. La comprobacion 4 lo prueba en ocho valores de m, y clasesfusion.py
-#   lo REDERIVA de forma independiente desde el criterio de Terras -r = 5,
+#   LA LECCION DE METODO, que vale mas que la cita: no estaba en Crossref
+#   porque es un SUPLEMENTO de una revista china de 2001, y eso no se indexa
+#   ahi. El error no fue de la cita, fue nuestro: buscamos en un indice que no
+#   cubre esa literatura. El indice correcto para Collatz es la bibliografia
+#   anotada de Lagarias.
+#
+#   EL HECHO, ADEMAS, ES PROPIO: (32m+5, 32m+6) se funden para todo m >= 1.
+#   La comprobacion 4 lo prueba en siete valores de m, y clasesfusion.py lo
+#   REDERIVA de forma independiente desde el criterio de Terras -r = 5,
 #   k = 5 da T^5(5) = T^5(6) = 2 con S = 2 en los dos- lo cual decide de golpe
 #   los infinitos m de la clase. O sea que el resultado no depende de la cita.
 #
-#   LA ATRIBUCION NO ESTA COMPROBADA. "Wu y Huang 2001" no tiene DOI, no
-#   aparece en Crossref, y Elia-Tucker 2015 -que enuncian el criterio casi
-#   textual- no la citan: su bibliografia entera son cuatro entradas (Garner
-#   1985, Lagarias, LaTourette 2007, Terras 1976). O la cita esta mal copiada
-#   de algun sitio, o el trabajo existe y es de dificil acceso.
+#   LO QUE SIGUE SIN VERIFICARSE: el CONTENIDO del paper, que esta en chino y
+#   sin copia accesible. Verificado esta que la referencia existe y que los
+#   datos que Lagarias cita de ella son exactos.
 #
-#   Por eso esta comprobacion NO se puede anunciar como "la literatura predijo
-#   nuestro hallazgo". Lo unico que se puede decir es que el hecho es cierto,
-#   que lo demuestra un criterio propio, y que la referencia esta pendiente de
-#   localizar. Las que SI estan verificadas por Crossref son Terras 1976,
-#   Garner 1985, Lagarias 1985, Gao 1993 y Elia-Tucker (INTEGERS 15 (2015)
-#   #A54), y de esas el mecanismo general -si dos se funden, 2^r*k + n1 y
-#   2^r*k + n2 se funden para todo k- es de Garner.
+#   Con la referencia localizada, la comprobacion SI se puede anunciar como
+#   "la literatura publico esta familia en 2001", pero con el hecho y la
+#   atribucion dichos por separado, que es la disciplina que quedo de la
+#   pasada anterior. Las verificadas por Crossref son Terras 1976, Garner
+#   1985, Lagarias 1985, Gao 1993 y Elia-Tucker (INTEGERS 15 (2015) #A54);
+#   Wu-Huang 2001 esta por MR/Zbl y por la bibliografia de Lagarias. De todas
+#   ellas el mecanismo general -si dos se funden, 2^r*k + n1 y 2^r*k + n2 se
+#   funden para todo k- es de Garner.
 #   - Oliveira e Silva usa la fusion de n y n-1 como optimizacion industrial
 #     de su criba: le quita el 17,5% de las hojas del arbol de busqueda.
 #
@@ -352,8 +363,9 @@ if fallos_vuelta:
 # criterio de Terras, y ese criterio decide de golpe los infinitos m. Aqui se
 # comprueba a mano en ocho valores para que se vea.
 #
-# LA ATRIBUCION a Wu y Huang 2001 esta PENDIENTE DE LOCALIZAR (sin DOI, no
-# esta en Crossref, Elia-Tucker no la citan). Ver el aviso de la cabecera.
+# LA ATRIBUCION a Wu y Huang 2001 esta LOCALIZADA desde el 01-08-2026:
+# Mathematica Applicata (Wuhan) 14 (2001), supl., 21-25. MR 1885838.
+# Ver el aviso de la cabecera.
 
 def se_funden(x, y):
     """Devuelve (valor, paso_x, paso_y) del primer numero comun, o None."""
@@ -372,10 +384,11 @@ print(f"  nuestro par 100005 / 100006 es el caso m = {(100005 - 5) // 32}")
 print(f"  EL HECHO: verificado aqui y rederivado por clasesfusion.py desde el")
 print(f"    criterio de Terras (r=5, k=5: T^5(5)=T^5(6)=2 con S=2 los dos),")
 print(f"    que lo decide para los INFINITOS m de la clase, no solo estos ocho.")
-print(f"  LA ATRIBUCION: 'Wu y Huang 2001' esta SIN VERIFICAR -sin DOI, no")
-print(f"    esta en Crossref, y Elia-Tucker 2015 no la citan. Esto NO es 'la")
-print(f"    literatura predijo nuestro hallazgo': es un hecho propio con una")
-print(f"    referencia pendiente de localizar. Son dos cosas distintas.")
+print(f"  LA ATRIBUCION: Wu y Huang 2001, Mathematica Applicata (Wuhan) 14,")
+print(f"    supl., 21-25, MR 1885838. LOCALIZADA el 01-08-2026; hasta ese dia")
+print(f"    iba marcada aqui como CITA SIN VERIFICAR porque no aparecia en")
+print(f"    Crossref -que no indexa suplementos de revistas chinas de 2001-.")
+print(f"    Aun asi el hecho y la atribucion se siguen diciendo por separado.")
 fallos_familia = 0
 desfases = []
 for m in [0, 1, 2, 7, 100, 3125, 9999, 40000]:

@@ -46,13 +46,34 @@
 # Las dos familias publicadas caen dentro, y se rederivan en tres lineas:
 #
 #   resto 4 mod 8   -> 8k+4 y 8k+5 (Garner 1985)
-#   resto 5 mod 32  -> (32m+5, 32m+6) (Wu y Huang 2001, CITA SIN VERIFICAR)
+#   resto 5 mod 32  -> (32m+5, 32m+6) (Wu y Huang 2001)
 #
 # CORRECCION DE ATRIBUCION (30-07-2026). Este archivo decia "Lagarias 1985"
 # para el par (8k+4, 8k+5). Es de GARNER: L. E. Garner, "On heights in the
 # Collatz 3n+1 problem", Discrete Math. 55 (1985), 57-64. Lagarias 1985 es el
-# survey general, otra cosa. Y la de Wu y Huang no se pudo verificar: sin DOI,
-# no esta en Crossref, y Elia-Tucker no la citan. Ver sucesiones.txt.
+# survey general, otra cosa.
+#
+# LA CITA DE WU Y HUANG, LOCALIZADA (01-08-2026). Este archivo la llevaba
+# marcada como CITA SIN VERIFICAR desde el 30-07. Ya no:
+#
+#   Wu Jia-Bang y Huang Guo-Lin, "Family of consecutive integer pairs of the
+#   same height in the Collatz conjecture", Mathematica Applicata (Wuhan) 14
+#   (2001), suplemento, 21-25.  MR 1885838,  Zbl 1002.11023.
+#
+# Esta en la bibliografia anotada de Lagarias (arXiv:math/0608208, entrada
+# 125), con las tres familias y los vectores de paridad textuales; los dos
+# vectores citados se recalculan clavados bit a bit en verificar_wu.py.
+#
+# Y LA LECCION DE METODO VALE MAS QUE LA CITA: no estaba en Crossref porque es
+# un SUPLEMENTO de una revista china de 2001, y ese tipo de publicacion no esta
+# indexado ahi. El error no fue de la cita, fue nuestro: buscamos en un indice
+# que no cubre esa literatura. "No esta en Crossref" es una afirmacion sobre
+# Crossref, no sobre el mundo. El indice correcto para Collatz es la
+# bibliografia anotada de Lagarias.
+#
+# Lo que sigue sin verificarse, y no se finge: el CONTENIDO del paper, que esta
+# en chino y no tiene copia accesible. Verificado esta que la referencia existe
+# y que los datos que Lagarias cita de ella son exactos.
 #
 # Y la fraccion de clases que se funden siempre se puede calcular EXACTA
 # para cada k, sin muestrear nada.

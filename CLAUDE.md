@@ -426,10 +426,14 @@ nada: le faltaban nueve órdenes de magnitud.)*
 > - **Pero el sitio es malo:** *Advances in Pure Mathematics* es de **SCIRP**, y
 >   el artículo tiene **cero citas**. No es *Acta Arithmetica* ni el *J. Integer
 >   Sequences*.
-> - **Y el número es ONCE VECES MÁS DÉBIL que el estado del arte.** La cota
->   buena es la de **Barina 2025** (*J. Supercomputing* 81(7), art. 810), que da
->   `217.976.794.617` en el atajo. O sea que el repo llevaba citada como *«lo
->   que exige la literatura»* **una cota peor que la que ya se conocía**.
+> - **Y el número es MÁS DÉBIL que el estado del arte, por un factor 5,9.** La
+>   cota buena con `X₀ = 2^71` es `114.208.327.604` en el atajo, y
+>   `114.208.327.604 / 19.478.780.533 = 5,86`. O sea que el repo llevaba citada
+>   como *«lo que exige la literatura»* **una cota peor que la que ya se
+>   conocía**. *(Aquí decía «ONCE VECES», y era la comparación contra el
+>   `217.976.794.617` de Barina §6, que resultó ser el número equivocado — ver
+>   la corrección de arriba. La cita de Laurore es **válida pero débil**; el
+>   factor es 5,9, no 11.)*
 > - **Tercer aviso, y es el que lo cierra:** la cota de longitud de ciclo tiene
 >   forma cerrada desde **Eliahou (*Discrete Math.* 118, 1993)** —vale
 >   `301994a + 17087915b + 85137581c` con `b ≥ 1` y `a·c = 0`— y el
@@ -541,8 +545,20 @@ haría falta que `2^B` coincidiera con `3^A` hasta la cifra 22.
 >
 > **La fila 7 es `(A=41, B=65)`** — el mismo par que este repo encontró para el
 > 221. Terras la tabuló hace cincuenta años, y la usó para excluir bucles hasta
-> periodo **2592**. La lista entera son las convergentes y semiconvergentes de
-> `γ`, exactamente como se rederivó aquí.
+> periodo **2592** con la verificación por fuerza bruta que había en 1976.
+>
+> **CORRECCIÓN (01-08-2026): «la lista entera son las convergentes y
+> semiconvergentes de `γ`» es LA MITAD.** Los *jump values* son sólo las que
+> aproximan `log₂(3)` **por encima** — las que dejan `2^k > 3^b`. Las que
+> aproximan por debajo son convergentes legítimas y **no** son jump values:
+> `3/2`, `19/12`, `84/53` y `1054/665` están en la fracción continua y no
+> aparecen en la Tabla C. *(Y no es casual que sean justo las que salen del lado
+> descartado del barrido `(A,B)`: son los `B/A` de los ciclos de `3n−1`.)*
+>
+> **La Tabla C en sí está confirmada**: barrido exacto hasta `k = 3.000` da
+> exactamente los 14 publicados, y extendido a `k = 20.000` da 30, idénticos a
+> los que produce la fracción continua (`verificar_terras.py [5]`,
+> `verificar_ciclos.py [1]`).
 
 ### El 1276 y la mitad del 221
 
@@ -1729,12 +1745,34 @@ descartado de la tabla (`2^B < 3^A`) resultó ser exactamente `B/A = 1/1, 3/2,
 | 40 | 8,9 días | |
 | 45 | 285 días | |
 
-Pero el tiempo no es el problema. **Terras excluyó en 1976 todos los bucles de
-periodo ≤ 2.592, y nuestro `k` ES ese periodo.** O sea que **todo el rango que un
-barrido de restos puede alcanzar ya está demostrado vacío desde hace cincuenta
-años.** Subir `k` no verifica nada desconocido: reverifica un teorema. Para pisar
-territorio virgen haría falta `k > 2592`, o sea `2^2592` restos — un número de
-**781 cifras**, contra los ~10^80 átomos del universo observable.
+Pero el tiempo no es el problema. **Todo el rango que un barrido de restos puede
+alcanzar ya está demostrado vacío**, y nuestro `k` ES ese periodo. Subir `k` no
+verifica nada desconocido: reverifica un teorema.
+
+> **CORRECCIÓN (01-08-2026): el `2.592` estaba presentado como «la frontera», y
+> no lo es. Es una FOTO DE 1976** — el periodo que Terras podía excluir con la
+> verificación por fuerza bruta que existía entonces. La frontera se mueve con
+> `X₀`, y `X₀` ha crecido cincuenta años. Recalculado con la misma desigualdad
+> elemental (`verificar_terras.py [6]`, `verificar_frontera_ciclos.py`):
+>
+> | `X₀` verificado | periodo `k` excluido | en pasos clásicos |
+> |---|---|---|
+> | `10^6` (un barrido de un minuto en esta máquina) | **4.700** | 7.663 |
+> | Terras 1976, `~10^8` | 24.726 | 40.326 |
+> | Oliveira e Silva 2008, `2^62` | 10.439.860.590 | 17.026.679.259 |
+> | **Barina 2025, `2^71`** | **114.208.327.603** | **186.265.759.593** |
+>
+> **Con sólo `X = 10^6` de fuerza bruta —un minuto de CPU— el mismo argumento ya
+> alcanza periodo 4.700**, casi el doble del 2.592. Y con lo verificado hoy la
+> frontera está **44 millones de veces** por encima de esa cifra. *(El 2.592
+> sigue siendo la cifra histórica correcta y hay que citarla como tal: es lo que
+> Terras excluyó en 1976, no lo que se sabe hoy.)*
+>
+> **La conclusión no cambia — cambia por cuánto.** Para pisar territorio virgen
+> ya no bastaría `k > 2592`: haría falta `k > 114.208.327.603`, o sea
+> `2^114208327603` restos. El barrido no está lejos del frente: está a nueve
+> órdenes de magnitud de él, y crece exponencialmente en la dirección
+> equivocada.
 
 > **El barrido de restos no es lento: está muerto.** No puede encontrar nada por
 > construcción. Se deja `pinzaciclos.py` como rederivación verificada y como
@@ -1946,12 +1984,33 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
   ahora la calculan en vez de copiarla.
 - **La cota de longitud de ciclo que citaba el repo era peor que la conocida**
   (01-08-2026). Decía `≥ 19.478.780.533` citando *«la literatura de 2025»*; la
-  fuente resultó ser un artículo de SCIRP con cero citas, y el número es **11
-  veces más débil** que el `217.976.794.617` de Barina 2025. Sustituido.
-- **La comprobación 4 de `guardarhilos.py` no es «la literatura predijo nuestro
-  hallazgo»** (01-08-2026): se apoyaba entera en Wu–Huang 2001, que el propio
-  documento tenía marcada como no verificable. El hecho es cierto y es propio
-  (`clasesfusion.py` lo rederiva); la atribución sigue pendiente.
+  fuente resultó ser un artículo de SCIRP con cero citas (Laurore 2025), y el
+  número es **5,9 veces más débil** que el bueno. *(Se escribió «once veces» y
+  eso también estaba mal: se comparaba contra el `217.976.794.617` de Barina,
+  que es el número corregido abajo. Contra la cota correcta,
+  `114.208.327.604 / 19.478.780.533 = 5,86`. La cita era válida pero débil, y
+  el factor era otro.)*
+- **⇢ Y LA COTA QUE LA SUSTITUYÓ TAMBIÉN ESTABA MAL, ESTA VEZ A FAVOR NUESTRO**
+  (01-08-2026). El `217.976.794.617` que publica **Barina 2025 §6** y repite
+  **Wikipedia** corresponde a `X₀ ≥ 2^71,884`, y el récord es `2^71,019`. Con el
+  `X₀` real la cota es `114.208.327.604` (atajo) / `186.265.759.595` (clásico).
+  **Copiamos bien una fuente arbitrada equivocada**, y el error nos favorecía —
+  que es justamente la dirección en la que nadie mira. Certificado por tres
+  caminos en `verificar_ciclos.py`.
+- **La frontera de exclusión de ciclos de `verificar_terras.py` salía corta**
+  (01-08-2026): `frontera()` devolvía el último *jump value* que pasa en vez del
+  último periodo `k` que pasa, y las tres filas de su tabla estaban cortas por
+  factores de 1,04 / 16,57 / 10,94. Arreglado, con el hueco entre jump values
+  comprobado en vez de supuesto.
+- **La marca «CITA SIN VERIFICAR» de Wu–Huang 2001 era el error, no la cita**
+  (01-08-2026). La referencia existe (*Mathematica Applicata* (Wuhan) 14 (2001),
+  supl., 21–25; MR 1885838) y está en la bibliografía anotada de Lagarias. No
+  aparecía en Crossref porque es un **suplemento** de una revista china.
+  **Buscamos en el índice equivocado y leímos «no aparece» como «no existe».**
+  Es la primera vez que se corrige una *refutación* propia y no una afirmación.
+- **«La lista entera de la Tabla C son las convergentes y semiconvergentes»**
+  (01-08-2026): es **la mitad** — sólo las que aproximan `log₂3` por encima.
+  `3/2`, `19/12`, `84/53`, `1054/665` son convergentes y no son jump values.
 - **El cuantificador `clase_mod_2k` de `afirmaciones.db` nombraba mal a dos de
   sus filas** (01-08-2026): la rueda del árbol y los evitados de `2n mod 27` son
   clases módulo `3^j`. Renombrado a **`clase_residual`** — la categoría es la
@@ -2154,8 +2213,17 @@ Estado del arte, para calibrar: verificación por fuerza bruta al día **2^71**
 (Barina, enero 2025; publicado en *J. Supercomputing* 81(7), art. 810, con
 aceleración 1.335× de CPU a GPU sobre supercomputadores europeos). De ahí sale
 la cota de longitud de ciclo vigente, metiendo ese límite en la forma cerrada de
-**Eliahou (*Discrete Math.* 118, 1993)**: **≥ 217.976.794.617 pasos del atajo**,
-**355.504.839.929** del mapa clásico. Resultado general más fuerte: **Tao
+**Eliahou (*Discrete Math.* 118, 1993)**: **≥ 114.208.327.604 pasos del atajo**,
+**186.265.759.595** del mapa clásico.
+
+> *No es lo que publica Barina 2025 §6, que dice `217.976.794.617` /
+> `355.504.839.929` y lo repite Wikipedia. **Esa fila exige `X₀ ≥ 2^71,884` y el
+> récord está en `2^71,019`.** Corregido el 01-08-2026 tras certificarlo por
+> tres caminos independientes; el detalle y la lección están arriba, en «El
+> único ciclo es una ecuación». `114.208.327.604 = (0, 361, 1269)` en la forma
+> cerrada de Eliahou.*
+
+Resultado general más fuerte: **Tao
 2019**, "casi todas las órbitas alcanzan valores casi acotados".
 
 **Posterior al libro de 2010, y por tanto no cubierto por él:**

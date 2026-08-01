@@ -31,11 +31,22 @@ del que salen esta publicado: Elia y Tucker 2015 lo enuncian casi textual. Asi
 que cualquiera que lo implementara podia contarlas. Parece que nadie lo hizo, o
 nadie penso que mereciera enviarse.
 
-AVISO DE CITA (30-07-2026). Este documento citaba tambien "Wu y Huang 2001"
-como fuente del criterio y de la familia (32m+5, 32m+6). NO SE PUDO VERIFICAR:
-sin DOI, no aparece en Crossref, y Elia y Tucker no la citan (su bibliografia
-son cuatro entradas: Garner 1985, Lagarias, LaTourette 2007, Terras 1976).
-Localizarla o quitarla antes de apoyarse en ella. Verificadas por Crossref si
+LA CITA DE WU Y HUANG, LOCALIZADA (01-08-2026). Este documento la llevaba
+marcada como NO VERIFICADA desde el 30-07, por no aparecer en Crossref. Esta
+localizada:
+
+    Wu Jia-Bang y Huang Guo-Lin, "Family of consecutive integer pairs of the
+    same height in the Collatz conjecture", Mathematica Applicata (Wuhan) 14
+    (2001), suplemento, 21-25.   MR 1885838,  Zbl 1002.11023.
+
+Aparece en la bibliografia anotada de Lagarias (arXiv:math/0608208, entrada
+125) con las tres familias y los vectores de paridad textuales, que se
+recalcularon clavados bit a bit (verificar_wu.py). LA LECCION DE METODO vale
+mas que la cita: no estaba en Crossref porque es un SUPLEMENTO de una revista
+china de 2001. El error no fue de la cita, fue nuestro: buscamos en un indice
+que no cubre esa literatura. El indice correcto para Collatz es la
+bibliografia anotada de Lagarias. Lo que sigue sin verificarse es el CONTENIDO
+del paper (esta en chino y sin copia accesible). Verificadas por Crossref
 estan: Terras 1976, Garner 1985, Lagarias 1985, Gao 1993 y Elia-Tucker
 (INTEGERS 15 (2015) #A54).
 
@@ -103,7 +114,6 @@ enteros consecutivos con la misma altura de Collatz. En k = 32 vale 0,435658.
 LOS DOS ANCLAJES PUBLICADOS caen dentro y se rederivan del criterio:
     r = 4 modulo 8   -> Garner (1985): 8k+4 y 8k+5 se funden en 3 pasos
     r = 5 modulo 32  -> Wu y Huang (2001): la familia (32m+5, 32m+6)
-                        [CITA SIN VERIFICAR, ver el aviso de arriba]
 
 Las ocho clases modulo 32 son: 2, 4, 5, 12, 18, 20, 22, 28.
 
@@ -185,9 +195,11 @@ L. E. Garner, On heights in the Collatz 3n+1 problem,
 G.-G. Gao, On consecutive numbers of the same height in the Collatz problem,
     Discrete Math. 112 (1993), 261-267.
 Wu Jia-Bang y Huang Guo-Lin, Family of consecutive integer pairs of the same
-    height in the Collatz conjecture, Mathematica Applicata 14 (2001).
-    [CITA SIN VERIFICAR: sin DOI, no esta en Crossref, y Elia-Tucker no la
-    citan. Localizarla o quitarla.]
+    height in the Collatz conjecture, Mathematica Applicata (Wuhan) 14
+    (2001), suplemento, 21-25.  MR 1885838, Zbl 1002.11023.
+    [LOCALIZADA el 01-08-2026 via la bibliografia anotada de Lagarias,
+    arXiv:math/0608208 entrada 125. No esta en Crossref porque es un
+    suplemento; ese indice no cubre esta literatura.]
 M. Elia y A. Tucker, Consecutive Integers and the Collatz Conjecture,
     arXiv:1511.09141 (2015).   [contraejemplos a la conjetura de Garner]
 K. Frinkle et al., Computing streaks of consecutive numbers with the same

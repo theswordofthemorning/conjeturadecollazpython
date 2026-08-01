@@ -260,7 +260,7 @@ PARTE 3 -- ENTRADA 1, LISTA PARA PEGAR
 %D <Aa> J. C. Lagarias, The 3x+1 problem and its generalizations, American Mathematical Monthly 92 (1985), no. 1, 3-23.
 %D <Aa> J. C. Lagarias (editor), The Ultimate Challenge: The 3x+1 Problem, American Mathematical Society, Providence RI, 2010, ISBN 978-0-8218-4940-8.
 %D <Aa> R. Terras, A stopping time problem on the positive integers, Acta Arithmetica 30 (1976), no. 3, 241-252.
-%D <Aa> Wu Jia-Bang and Huang Guo-Lin, Family of consecutive integer pairs of the same height in the Collatz conjecture, Mathematica Applicata 14 (2001). [CITA SIN VERIFICAR - ver la nota al final de este fichero]
+%D <Aa> Wu Jia-Bang and Huang Guo-Lin, Family of consecutive integer pairs of the same height in the Collatz conjecture, Mathematica Applicata (Wuhan) 14 (2001), supplement, 21-25. MR 1885838, Zbl 1002.11023.
 %H <Aa> Marcus Elia and Amanda Tucker, <a href="https://math.colgate.edu/~integers/p54/p54.pdf">Consecutive Integers and the Collatz Conjecture</a>, Integers 15 (2015), #A54.
 %H <Aa> Marcus Elia and Amanda Tucker, <a href="https://arxiv.org/abs/1511.09141">Consecutive Integers and the Collatz Conjecture</a>, arXiv:1511.09141 [math.NT], 2015.
 %H <Aa> Karl Frinkle, Saxon Rowland, James Pack, Madison Gordon, John Eskue, Sardonyx Egbe, and Mike Morris, <a href="https://doi.org/10.1007/s11227-025-07820-8">Computing streaks of consecutive numbers with the same Collatz height</a>, The Journal of Supercomputing 81 (2025), issue 14, article 1338.
@@ -392,23 +392,36 @@ PARTE 5 -- LO QUE FALTA, Y LO QUE NO SE PUDO VERIFICAR
        persona. Sin cuenta no hay envio.
   a(29), a(30), b(28), b(29).   Pendientes del calculo en curso.
 
---- LA CITA QUE NO SE PUDO VERIFICAR ---
+--- LA CITA QUE NO SE PODIA VERIFICAR, Y QUE SE LOCALIZO (01-08-2026) ---
 
   Wu Jia-Bang y Huang Guo-Lin, "Family of consecutive integer pairs of the
-  same height in the Collatz conjecture", Mathematica Applicata 14 (2001).
+  same height in the Collatz conjecture", Mathematica Applicata (Wuhan) 14
+  (2001), suplemento, 21-25.   MR 1885838,  Zbl 1002.11023.
 
-  SIN VERIFICAR. No se encontro ni volumen con numero de paginas, ni DOI, ni
-  registro en Crossref, ni entrada en la bibliografia anotada de Lagarias que
-  se pudo leer. Y hay un dato en contra: Elia y Tucker (2015), que es el
-  trabajo mas cercano al tema, NO citan a Wu y Huang; su bibliografia entera
-  son cuatro entradas (Garner 1985, Lagarias annotated bibliography,
-  LaTourette 2007, Terras 1976).
+  RESUELTO. La linea %D queda con la cita completa y ya se puede enviar tal
+  cual. Aparece en la bibliografia anotada de Lagarias (arXiv:math/0608208,
+  entrada 125), con las tres familias y los vectores de paridad textuales;
+  los dos vectores citados -(1001101) para 29 y (0111100) para 30- se
+  recalcularon aqui y salen clavados bit a bit (verificar_wu.py).
 
-  QUE HACER: o se localiza la cita completa (MathSciNet / Zentralblatt / la
-  bibliografia anotada de Lagarias parte II, arXiv:math/0608208) antes de
-  enviar, o se BORRA esa linea %D y se atribuye la familia (32*m+5, 32*m+6)
-  solo al criterio de Terras, sin nombre. Enviar una cita a medias a OEIS es
-  peor que no ponerla: los editores la van a pedir entera.
+  QUE DECIA ESTE FICHERO ANTES, Y POR QUE ERA FALSO. Decia: "no se encontro
+  ni volumen con numero de paginas, ni DOI, ni registro en Crossref, ni
+  entrada en la bibliografia anotada de Lagarias que se pudo leer", y anotaba
+  como dato en contra que Elia y Tucker (2015) no la citan.
+
+  De eso, lo unico cierto es que no tiene DOI ni esta en Crossref -- y no lo
+  esta porque es un SUPLEMENTO de una revista china de 2001, que ese indice
+  no cubre. Lo de la bibliografia de Lagarias era simplemente FALSO: si esta,
+  en la entrada 125. Y que Elia-Tucker no la citen no es evidencia de nada.
+
+  LA LECCION, que es lo que hay que llevarse: buscamos en el indice
+  equivocado y leimos "no aparece en Crossref" como "no existe". Es una
+  afirmacion sobre Crossref, no sobre el mundo. Para Collatz el indice
+  correcto es la bibliografia anotada de Lagarias.
+
+  LO QUE SIGUE SIN VERIFICARSE: el contenido del paper. Esta en chino y no
+  hay copia accesible. Verificado esta que la referencia existe, que esta
+  catalogada, y que los datos que Lagarias cita de ella son exactos.
 
   ATRIBUCION DEL PAR (8*m+4, 8*m+5). En sucesiones.txt esta atribuido a
   Lagarias (1985). La fuente directa es Garner (1985), "On heights in the
