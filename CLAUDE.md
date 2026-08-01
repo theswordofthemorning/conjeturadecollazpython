@@ -164,7 +164,7 @@ navegador o ventana:
 NO DIBUJAN (27)  clasesfusion, clasesparalelo, collatz, coralprimos, cruzarecords,
                  densidadfusion, descensoresto, elmasuno, espejobases,
                  guardarafirmaciones, guardarhilos, guardarmallas, guardarrespuestas,
-                 main, maquinitacollaz, otramedicion, pinzaciclos, pisoaltitud,
+                 main, maquinitacollaz, otramedicion2, pinzaciclos, pisoaltitud,
                  redhilos, reimpl, y los SIETE verificar_*
 DIBUJAN    (16)  los 14 de plotly + viz3d y collazejecucion (matplotlib)
 ```
@@ -313,7 +313,7 @@ for a in sorted(glob.glob('*.py')):
 | `respuestas.db` | **El cuaderno de las conversaciones.** Tabla `respuestasclaude`, append-only |
 | `lecturas/*.pdf` | Terras 1976, Tao 2019 y las dos bibliografías de Lagarias. **NO están en git** |
 | `the-ultimate-challenge...pdf` | El libro de 2010 (22 MB). **Tampoco está en git** |
-| `otramedicion.py` | La malla de los once hilos extendida a los dos lados y a los negativos. Cuatro preguntas, dos respuestas negativas |
+| `otramedicion2.py` | **La capa de promedios sobre la malla de hilos**, cruzada contra `afirmaciones.db`. La capa no anade informacion |
 | **`verificar_terras.py`** | **La columna vertebral, re-derivada**: T1.1, T1.2, C1.4, la Tabla C y la exclusión de periodos. Con el aviso del bug de `frontera()` |
 | `verificar_frontera_ciclos.py` | **La revisión adversarial de `verificar_terras.py [6](d)`**. Encontró el bug de la frontera |
 | `verificar_everett.py` | La traducción de Everett a `(A,B)`. **Refutó las dos frases del CLAUDE.md** |
