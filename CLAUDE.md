@@ -157,16 +157,27 @@ Los `.html`, los `.png` y los `.pdf` están en `.gitignore`. **Los `.json` de
 están para eso.
 
 **Mitad C — los que no dibujan, y ya son mayoría.** `guardarmallas.py` empezó
-siendo *la excepción*; hoy **19 de los 35 no dibujan nada** y sólo 16 abren
+siendo *la excepción*; hoy **27 de los 43 no dibujan nada** y sólo 16 abren
 navegador o ventana:
 
 ```
-NO DIBUJAN (19)  clasesfusion, clasesparalelo, collatz, coralprimos, cruzarecords,
+NO DIBUJAN (27)  clasesfusion, clasesparalelo, collatz, coralprimos, cruzarecords,
                  densidadfusion, descensoresto, elmasuno, espejobases,
                  guardarafirmaciones, guardarhilos, guardarmallas, guardarrespuestas,
-                 main, maquinitacollaz, pinzaciclos, pisoaltitud, redhilos, reimpl
+                 main, maquinitacollaz, otramedicion, pinzaciclos, pisoaltitud,
+                 redhilos, reimpl, y los SIETE verificar_*
 DIBUJAN    (16)  los 14 de plotly + viz3d y collazejecucion (matplotlib)
 ```
+
+**Y los siete `verificar_*.py` son una familia aparte dentro de la Mitad C**
+(01-08-2026). No calculan nada nuevo: **re-derivan con aritmética exacta lo que
+el repo importa de la literatura, y lo que el repo afirma de sí mismo.** Su
+salida es un veredicto, no un dato. Nacieron de la auditoría del 01-08 y entre
+los siete encontraron el `m ≥ 1` del criterio de fusión, la traducción falsa de
+Everett, la cota de ciclos demasiado fuerte, el bug de la frontera y la cita de
+Wu–Huang que sí existía. **Si escribís uno nuevo, la forma es: comprobar contra
+una implementación que no comparta código con la original, y cortar con
+`SystemExit` antes de sacar conclusiones.**
 
 Los de la Mitad C no abren el navegador, no tienen `NUMERO`, y su resultado es
 **stdout, un `.json`, un `.txt` o un `.db`**. Conservan del resto la constante en
@@ -217,7 +228,7 @@ esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
 
 Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
 `python main.py camino 27` crasheaba desde Sublime. Corrido el **01-08-2026**
-sobre los **35** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
+sobre los **43** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
 metiste vos. Para revisarlo:
 
 ```
@@ -284,6 +295,14 @@ for a in sorted(glob.glob('*.py')):
 | `respuestas.db` | **El cuaderno de las conversaciones.** Tabla `respuestasclaude`, append-only |
 | `lecturas/*.pdf` | Terras 1976, Tao 2019 y las dos bibliografías de Lagarias. **NO están en git** |
 | `the-ultimate-challenge...pdf` | El libro de 2010 (22 MB). **Tampoco está en git** |
+| `otramedicion.py` | La malla de los once hilos extendida a los dos lados y a los negativos. Cuatro preguntas, dos respuestas negativas |
+| **`verificar_terras.py`** | **La columna vertebral, re-derivada**: T1.1, T1.2, C1.4, la Tabla C y la exclusión de periodos. Con el aviso del bug de `frontera()` |
+| `verificar_frontera_ciclos.py` | **La revisión adversarial de `verificar_terras.py [6](d)`**. Encontró el bug de la frontera |
+| `verificar_everett.py` | La traducción de Everett a `(A,B)`. **Refutó las dos frases del CLAUDE.md** |
+| `verificar_fusiones.py` | Garner G1/G2/G3 y Gao. **Encontró el `m ≥ 1`** y las dos hipótesis que le faltaban a G2 |
+| `verificar_wu.py` | Wu 1992–95, Wu–Huang 2001, A076227. **Localizó la cita** y midió el agujero del `m = 0` |
+| `verificar_ciclos.py` | La cota de longitud de ciclo **por tres caminos**, la fracción continua certificada, Simons–de Weger y el Teorema 23 |
+| `verificar_constantes.py` | Wagon contra A122790, las constantes de parada con **dos estimadores**, `Res ≥ 1`, y la biyección de Terras al pie de la letra |
 | `.claude/settings.local.json` | Permisos ya concedidos: `python *`, `py *`, `git fetch *` |
 
 Todo lo de la tabla está trackeado **salvo los `.pdf`** y los `.html`/`.png` que se
@@ -2104,15 +2123,39 @@ a `~m³` — por eso Hercher llega a `m = 91` y un barrido se atasca en 32.
 Estudio del método real con el que Barina verificó hasta `2^71` con hardware
 normal. **No comprueba los `2^71` números: criba clases de restos enteras.**
 
-**El factor de reducción total, que el paper no publica y se calculó desde sus
-propios ficheros de criba: `X ≈ 363`.** Barina comprueba de verdad **1 de cada
-363** números; para cubrir `2^71` itera unos `2^62,5`.
+**El factor de reducción total, que el paper no publica: `X ≈ 363`** — o sea que
+Barina comprobaría de verdad **1 de cada 363** números, y para cubrir `2^71`
+iteraría unos `2^62,5`.
 
 | criba | vivos | densidad | 1 de cada |
 |---|---|---|---|
 | A076227 (clásica) `k=34` | 151.917.636 | 0,884% | 113 |
 | `h2esieve-34` (Barina, producción) | **85.234.595** | **0,496%** | **202** |
 | × criba `3²` (mod 9, `×5/9`) | — | 0,2756% | **363** |
+
+> **DEGRADADO (01-08-2026): esto NO es un hallazgo. Es una composición
+> aritmética correcta de dos números no verificados.** Estaba en negrita como si
+> fuera una medición propia, y hay que separar las tres piezas:
+>
+> | pieza | estado |
+> |---|---|
+> | `a(34) = 151.917.636` | **VERIFICADO** contra el b-file de OEIS (A076227), y contra cribado real de restos para `k = 1…14`, 0 discrepancias |
+> | la aritmética de componer los tres factores | **VERIFICADA** — sale `362,81`, y el `~363` del documento es correcto |
+> | `85.234.595` de `h2esieve-34` | **NO VERIFICADO.** Sale de un fichero binario de criba de Barina que **no está en esta máquina** |
+> | el factor `5/9` de su criba `3²` | **NO VERIFICADO.** Son sus reglas `R5`/`R6` |
+>
+> **Dos de los tres insumos no se han podido comprobar**, así que el `363` vale
+> lo que valga la fuente, no lo que valga nuestra aritmética. *Componer bien dos
+> números que no has verificado no verifica el resultado — sólo garantiza que la
+> multiplicación está bien.*
+>
+> **Lo que sí se re-deriva del todo es el primer nivel, `3¹`, y es una cota
+> demostrable en una línea:** si `n ≡ 2 (mod 3)`, entonces `x = (2n−1)/3` es un
+> entero **impar** y positivo con `x < n`, y `3x+1 = 2n`, luego la trayectoria de
+> `x` pasa por `n`. Si todo `m < n` baja, `n` baja: esa clase entera se puede
+> saltar. **Comprobado para todo `n ≡ 2 (mod 3)` hasta 300.000: 0 fallos.**
+> Quita exactamente 1 de cada 3 números — factor `3/2` de criba, demostrado. **El
+> salto de `2/3` a `5/9` es de Barina y no se reconstruye aquí.**
 
 **Las seis reglas de descarte**, todas localizadas en su código abierto:
 `R0` sólo `n ≡ 3 (mod 4)` · `R1` descenso garantizado (Brown/Terras, la base) ·
@@ -2417,6 +2460,72 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
   sus filas** (01-08-2026): la rueda del árbol y los evitados de `2n mod 27` son
   clases módulo `3^j`. Renombrado a **`clase_residual`** — la categoría es la
   *forma* del argumento, y el módulo es un detalle del enunciado.
+
+## La otra mitad de la auditoría: LO QUE AGUANTÓ (01-08-2026)
+
+Una lista de correcciones sola miente por omisión. **Estas son las piezas que se
+atacaron con implementación independiente y no se movieron ni un dígito.** Es la
+mitad del valor de la pasada, y la que nadie escribe.
+
+| pieza | cómo se atacó | resultado |
+|---|---|---|
+| **Terras, Teorema 1.1** | 8 semillas, 1.469 pasos, `Fraction` exacto contra forma cerrada | **0 fallos** |
+| **la forma del repo `2^B·seq[j] = 3^A·seq[i] + C` ES T1.1** | 96.510 pares, y el puente `C == 2^k·ρ_k` en 1.469 igualdades | **0 fallos** |
+| **Terras, Teorema 1.2** | **exhaustivo en los 4.096 restos de `k=12` × 7 valores de `m` = 86.016 comprobaciones** | **0 fallos** |
+| **Terras, Corolario 1.4** (paridades 50/50) | biyección **exhaustiva** `k = 1…16` | **0 fallos** |
+| **la Tabla C de jump values** | barrido exacto a `k = 3.000` (los 14) y a `k = 20.000` (los 30) | idénticos |
+| **Gao 1993**, la tupla de `2^500 + 1` | los **35.654** verificados uno a uno sobre números de **151 cifras** | mide 35.654 exactos, **se rompe en el desplazamiento 35.654** |
+| **Wu 1995**, la tupla de 310 | recalculada entera en `6.622.073.000` | 310 exactos, maximal |
+| **A076227** | 45 términos contra el b-file oficial, más 4 lejanos (hasta 283 cifras) | **0 discrepancias** |
+| **Elia–Tucker 2015** | la familia `2^19·m + 3067` recalculada | correcta *(con el `j` mínimo en 18, no 19)* |
+| **la cota `5/3` de Everett** | 50.000 impares + 999 pares con `Fraction` | máximo **`5/3` exacto**, igualdad en `m=3` |
+| **Eliahou 1993 y Sinisalo 2003** | las dos cotas de longitud de ciclo, recalculadas | `17.087.915` y `1.027.712.276`, **clavadas** |
+| **el `1,4784` de Simons–de Weger** | re-derivado por bisección desde `A(91) = 55` | `1,478381`, y su tabla de campeones 4/4 |
+| **el Teorema 23 de Hercher** | segunda implementación, sin compartir logaritmos con `reimpl.py` | **7/7 `m₂`, 7/7 cotas de `K`** |
+
+*Honestidad sobre T1.2, que es la pieza que más peso lleva: el barrido es
+**exhaustivo en `r` y MUESTREADO en `m`** (siete valores). Eso no es un defecto
+del test —para `m` no hay barrido exhaustivo posible— pero hay que decirlo, y
+más después de que el `m = 0` haya mordido esta misma semana.*
+
+### EL ANDAMIO: qué se lleva por delante cada pieza si cae
+
+Esto no se había escrito nunca, y explica por qué unas cosas están mejor
+verificadas que otras. **No es que unas se auditaran mejor: es que unas sostienen
+más.**
+
+**Si cayera TERRAS 1.2 se cae medio repo.** De ella cuelgan, directamente:
+
+- `mallaresiduos.py` entero — «los primeros `k` pasos los decide `n mod 2^k`»;
+- `clasesfusion.py` entero, y con él **la cota del 43,57%** y **las dos
+  sucesiones del borrador de OEIS**;
+- `pinzaciclos.py` entero — **su ecuación `m = (r − T^k(r))/(3^{S(r)} − 2^k)`
+  ES T1.2 despejada**;
+- `cruzarestos.py` y `descensoresto.py`;
+- **A076227** (la sucesión de OEIS, no sólo nuestro cálculo de ella);
+- la **regla `R1`** de la criba de Barina, que es la base de la verificación
+  hasta `2^71`;
+- el **Lema 8 de Hercher** (`k` impares seguidos ⟹ `n ≡ −1 mod 2^k`), motor de
+  toda la exclusión de ciclos;
+- el **experimento 1 de `redhilos.py`** (el acantilado 50% / 100%);
+- **y el enunciado mismo del cuarto camino**, que es «reglas finitas sobre clases
+  de restos».
+
+**Es la pieza que más peso lleva, y por eso es la mejor verificada de todas** —
+exhaustiva sobre los 4.096 restos de `k=12`, con `Fraction`, contra iteración
+cruda. No es casualidad: se verificó tanto porque se sabía que sostenía todo.
+
+**Y el contraste, que es la lección de gestión: de la traducción de Everett NO
+cuelga NADA.** Ni un `.py`, ni un número de este documento. Es texto explicativo.
+**Por eso un error vivió ahí casi un año sin consecuencias** — no rompía ningún
+`SystemExit`, no desajustaba ninguna tabla, no contradecía ningún cálculo.
+
+> **Eso mide exactamente cuánto peso lleva cada cosa, y da la regla de
+> auditoría:** lo que sostiene mucho se delata solo en cuanto falla, así que se
+> puede confiar en el sistema para vigilarlo. **Lo que no sostiene nada hay que
+> ir a auditarlo a propósito**, porque nunca va a avisar. *En este repo eso es:
+> las traducciones, las atribuciones y las frases de contexto — que son
+> justamente las tres categorías donde esta auditoría encontró todo.*
 
 ## Nada de esto es nuevo — el balance, hecho a propósito
 
