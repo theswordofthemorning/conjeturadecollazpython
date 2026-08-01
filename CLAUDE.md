@@ -373,11 +373,48 @@ identidad da `A=1, B=2, C=1`, o sea **`2² = 3¹ + 1`** → **`4 = 3 + 1`**.
 Buscando ciclos escondidos en los 6.555 pares aparecieron 95 candidatos enteros
 positivos; los 95 ciclan de verdad y son `n ∈ {1, 2, 4}` dando 1, 2 o 3 vueltas.
 Cero impostores. *(Esto no es evidencia de nada: cualquier otro ciclo tendría
-que medir **≥ 217.976.794.617 pasos del atajo** —355.504.839.929 del mapa
+que medir **≥ 114.208.327.604 pasos del atajo** —186.265.759.595 del mapa
 clásico— y nuestro tramo más largo mide 114. La búsqueda no podía encontrar
 nada: le faltaban nueve órdenes de magnitud.)*
 
-> **LA CITA DE ESA COTA ESTABA MAL, Y SE CORRIGIÓ EL 01-08-2026.** El documento
+> **⇢ SEGUNDA CORRECCIÓN A ESTA MISMA COTA (01-08-2026), Y ESTA VEZ EL ERROR
+> ESTABA A NUESTRO FAVOR.** Arriba se cuenta cómo el `19.478.780.533` (Laurore
+> 2025) se sustituyó por el `217.976.794.617` de **Barina 2025 §6**. **Pues ese
+> número tampoco vale con el `X₀` que hay hoy.**
+>
+> ```
+> con X0 = 2^71 (Barina 2025):   114.208.327.604 atajo / 186.265.759.595 clasico
+> el 217.976.794.617 exige       X0 >= 4,358487e21 = 2^71,884
+> Barina esta en 2075*2^60 =     2,392312e21 = 2^71,019
+> ```
+>
+> Es **una fila de más** en la tabla de convergentes: el `217.976.794.617` es la
+> siguiente entrada, y hace falta `2^72` para alcanzarla. Certificado por
+> **tres caminos independientes** en `verificar_ciclos.py`: Stern–Brocot sobre
+> intervalo ensanchado, certificado en las dos direcciones sobre
+> `Λ = n·log2 − k·log3`, y la vía elemental de `verificar_terras.py [6]`. La
+> maquinaria se valida antes reproduciendo **Eliahou 1993** (`17.087.915`) y
+> **Sinisalo 2003** (`1.027.712.276`) clavados. Y la corrobora la última fila de
+> la **Tabla 1 del propio Hercher** (`K > 7,20e10`, que es del orden de
+> `1,14e11` y no de `2,18e11`).
+>
+> **Y ESTO ES LO QUE HAY QUE ESCRIBIR CON TODAS LAS LETRAS: el
+> `217.976.794.617` lo publica Barina 2025 §6 y lo repite Wikipedia.** O sea que
+> aquí **copiamos bien una fuente arbitrada que está equivocada**. Ya no es
+> «citar mal»: es que la cita era correcta y el número no.
+>
+> > **Es el tercer caso de la misma familia, pero al revés: la cita era
+> > demasiado FUERTE, o sea a favor nuestro — que es la dirección en la que un
+> > error no duele y por eso nadie lo busca.** Los otros dos (Wu–Huang sin DOI,
+> > Laurore once veces más débil) molestaban, y por eso se miraron. Éste
+> > favorecía, y sobrevivió una pasada entera de auditoría. **La regla que sale:
+> > revisar con la misma dureza los números que nos vienen bien.**
+>
+> *Y la conclusión no se mueve ni un milímetro: el tramo más largo del repo mide
+> 114 pasos, y 114 sigue estando nueve órdenes de magnitud por debajo de
+> 114.208.327.604. Lo que se cae es el número, no el argumento.*
+
+> **LA PRIMERA CORRECCIÓN A ESTA COTA, DEL MISMO DÍA.** El documento
 > decía `≥ 19.478.780.533 pasos` y lo atribuía a *«la literatura de 2025»*, sin
 > autor ni título. Era **la única afirmación marcada como demostrada cuya fuente
 > no nombraba a nadie.** Se buscó, y salió peor de lo esperado:
@@ -998,49 +1035,80 @@ solitario de los once, y sin la marca parecería tan conectado como el resto.)*
 - **Wu Jia-Bang (1992, 1993, 1995)**: la tupla más larga bajo `2^30` mide
   **176** y empieza en `722.067.240`; encontró otra de **310** en
   `6.622.073.000`. Nuestro 6 es minúsculo en comparación.
-- **Wu y Huang (2001)**: las familias de pares que se funden son progresiones
-  aritméticas módulo `2^k`, y publicaron los ejemplos `(32m+5, 32m+6)`,
-  `(64m+45, 64m+46)`, `(128m+29, 128m+30)`.
-  > **CITA SIN VERIFICAR (30-07-2026).** No se pudo confirmar esta referencia: no
-  > tiene DOI, no aparece en Crossref, y **Elia–Tucker 2015 no la citan** — su
-  > bibliografía entera son cuatro entradas (Garner 1985, Lagarias, LaTourette
-  > 2007, Terras 1976). O la cita está mal copiada de algún sitio, o el trabajo
-  > existe pero es de difícil acceso. **Antes de apoyarse en ella hay que
-  > localizarla o quitarla.** Lo que sí está verificado por Crossref: Terras 1976,
-  > Garner 1985, Lagarias 1985, Gao 1993 y Elia–Tucker (INTEGERS 15 (2015) #A54).
+- **Wu Jia-Bang y Huang Guo-Lin (2001)**, *«Family of consecutive integer pairs
+  of the same height in the Collatz conjecture»*, **Mathematica Applicata
+  (Wuhan) 14 (2001), suplemento, 21–25. MR 1885838, Zbl 1002.11023.** Las
+  familias de pares que se funden son progresiones aritméticas módulo `2^k`, y
+  publicaron los ejemplos `(32m+5, 32m+6)`, `(64m+45, 64m+46)`,
+  `(128m+29, 128m+30)`.
+  > **⇢ LOCALIZADA EL 01-08-2026. SE QUITA LA MARCA «CITA SIN VERIFICAR».** La
+  > referencia existe, está catalogada en MathSciNet y en Zentralblatt, y
+  > aparece en la **bibliografía anotada de Lagarias** (`arXiv:math/0608208`,
+  > **entrada 125**), cuyo PDF se leyó y se comprobó byte a byte: trae las tres
+  > familias y los vectores de paridad textuales. `verificar_wu.py` los recalcula
+  > y salen **clavados bit a bit** — `n=29` da `1001101` y `n=30` da `0111100`,
+  > exactamente los dos que cita Lagarias.
+  >
+  > **Y LA LECCIÓN DE MÉTODO VALE MÁS QUE LA CITA.** No estaba en Crossref
+  > porque es un **suplemento** de una revista china de 2001, y ese tipo de
+  > publicación no está indexada ahí. **El error no fue de la cita: fue
+  > nuestro.** Buscamos en un índice que no cubre esa literatura y leímos el
+  > «no aparece» como «no existe». *«No está en Crossref» es una afirmación
+  > sobre Crossref, no sobre el mundo.*
+  >
+  > **El índice correcto para Collatz es la bibliografía anotada de Lagarias**
+  > (`arXiv:math/0608208` y su continuación), que cataloga la literatura entera
+  > —incluida la que no tiene DOI, la que está en chino y la de actas— con una
+  > nota de contenido por entrada. Empezar por ahí y sólo después ir a Crossref.
+  >
+  > *Lo que sigue sin poderse verificar, y no se finge: el **contenido** del
+  > paper. Está en chino y no hay copia accesible. Lo verificado es (a) que la
+  > referencia existe y está catalogada, y (b) que los datos que Lagarias cita
+  > de ella son exactos.*
+  >
+  > Lo verificado por Crossref sigue siendo Terras 1976, Garner 1985,
+  > Lagarias 1985, Gao 1993 y Elia–Tucker (*INTEGERS* 15 (2015) #A54).
 - **Oliveira e Silva** usa la fusión de `n` y `n−1` como optimización
   industrial de su criba de verificación: le quita el **17,5%** de las hojas.
 
 **La comprobación 4, y hay que separar dos cosas que estaban juntas.**
 `100005 = 32·3125 + 5`, así que nuestro par `(100005, 100006)` es un caso de la
-familia `(32m+5, 32m+6)`. Comprobado en `m = 0, 1, 2, 7, 100, 3125, 9999,
-40000`: **todos se funden en el paso 6 contra el paso 6, desfase 0** (el `m = 0`
-es el caso degenerado `5/6`, desfase −3).
+familia `(32m+5, 32m+6)`. Comprobado en `m = 1, 2, 7, 100, 3125, 9999, 40000`:
+**todos se funden en el paso 6 contra el paso 6, desfase 0.** El `m = 0` **no
+vale**, y no es un caso degenerado: es un **contraejemplo** al enunciado sin
+hipótesis — `altura(5) = 5` contra `altura(6) = 8`. Ver la corrección del
+`m ≥ 1`, más abajo.
 
-> **CORRECCIÓN (01-08-2026): esto NO es «la literatura predijo nuestro hallazgo
-> veinticinco años antes de que lo miráramos», que es como estaba escrito.** Esa
-> frase se apoya entera en **Wu–Huang 2001, que este mismo documento tiene
-> marcada como CITA SIN VERIFICAR** desde el 30-07-2026 — sin DOI, no está en
-> Crossref, y Elia–Tucker 2015 no la citan. **Afirmar que la literatura predijo
-> algo apoyándose en una referencia que no se ha podido localizar es exactamente
-> el error que la marca pretendía evitar.**
+> **HISTORIAL DE ESTA FRASE, EN TRES TIEMPOS, Y ES INSTRUCTIVO.**
 >
-> Lo que se puede decir, separado:
+> **30-07-2026.** Se escribió *«la literatura predijo nuestro hallazgo
+> veinticinco años antes de que lo miráramos»*, apoyada entera en Wu–Huang 2001.
 >
-> - **EL HECHO ES CIERTO Y ES NUESTRO.** `clasesfusion.py` lo **rederiva de
->   forma independiente** desde el criterio de Terras: `r = 5, k = 5` da
+> **01-08-2026, primera pasada.** Se quitó, porque Wu–Huang 2001 estaba marcada
+> como CITA SIN VERIFICAR: sin DOI, ausente de Crossref, y no citada por
+> Elia–Tucker 2015. El razonamiento era correcto **dado lo que se sabía**.
+>
+> **01-08-2026, segunda pasada — y aquí la frase vuelve.** La referencia se
+> localizó (*Mathematica Applicata* 14 (2001), supl., 21–25; MR 1885838) y los
+> datos que Lagarias cita de ella se reprodujeron bit a bit. **La atribución es
+> buena.** Lo que falló fue el índice donde se buscó, no la cita.
+>
+> Lo que se mantiene, y hay que seguir diciéndolo separado:
+>
+> - **EL HECHO ES CIERTO Y ES NUESTRO IGUAL.** `clasesfusion.py` lo **rederiva
+>   de forma independiente** desde el criterio de Terras: `r = 5, k = 5` da
 >   `T⁵(5) = T⁵(6) = 2` con `S = 2` en los dos, y eso decide de golpe **los
->   infinitos `m`** de la clase, no los ocho que probamos a mano. El resultado
->   no depende de ninguna cita.
-> - **LA ATRIBUCIÓN SIGUE PENDIENTE.** Wu–Huang 2001 está sin localizar. Si
->   aparece, la frase vuelve; mientras tanto, no.
-> - **Lo que sí está verificado por Crossref** en esta lista es Terras 1976,
->   Garner 1985, Lagarias 1985, Gao 1993 y Elia–Tucker (*INTEGERS* 15 (2015)
->   #A54) — y el mecanismo general que produce estas familias es **de Garner**,
->   no de la cita dudosa (ver el párrafo siguiente).
+>   infinitos `m ≥ 1`** de la clase, no los siete que probamos a mano. El
+>   resultado no depende de ninguna cita.
+> - **La atribución es de Wu–Huang para la familia concreta y de Garner para el
+>   mecanismo general** que la produce (ver el párrafo siguiente).
 >
-> `guardarhilos.py` imprime las dos mitades por separado, para que la salida del
-> programa no vuelva a sugerir lo que la fuente no sostiene.
+> *Lección doble: (1) retirar una cita por no encontrarla es correcto, pero
+> «retirada» no es «refutada» — hay que dejar la puerta abierta a que aparezca;
+> (2) el repo dio por bueno un **negativo bibliográfico** sin auditar el
+> instrumento que lo produjo. Es exactamente lo que su propio pendiente de
+> «auditar las refutaciones, no sólo las afirmaciones» venía avisando, y aquí
+> mordió.*
 
 **Y el mecanismo general estaba en Garner 1985**: `8k+4` y `8k+5` se funden
 siempre en 3 pasos; y si dos trayectorias se funden, entonces
