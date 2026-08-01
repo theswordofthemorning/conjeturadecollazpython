@@ -12,6 +12,39 @@ número configurable arriba del archivo, pensados para ejecutarse y mirar el
 resultado. **El código se escribe simple a propósito**: nombres en castellano,
 comentarios que explican lo obvio, sin abstracciones.
 
+## REGLA CERO: ADVERSARIAL CONTRA UNO MISMO, ANTES DE ENSEÑAR UN NÚMERO
+
+**Establecida el 01-08-2026, después de que el asistente cometiera —midiendo en
+vivo, delante del usuario— el error del mapa clásico contra el mapa del atajo:
+exactamente el que este documento tiene registrado dos veces.**
+
+> **Antes de enseñar cualquier número, pásale a tu propio cálculo la misma lista
+> con la que se ataca a los agentes.** No después, no si sobra tiempo: antes.
+
+```
+1. QUE MAPA USE?  clasico (3n+1) o atajo ((3n+1)/2)?
+   En el atajo cada paso impar TAMBIEN divide, asi que  B_clasico = A + B_atajo.
+   Confundirlos ya costo: el 2/ln(4/3) atribuido mal (49,5% de error), la
+   traduccion de Everett (0,7369 en vez de 1,73697), y este mismo error.
+2. ES PROMEDIO O ES COTA?  Un promedio no demuestra ningun caso individual.
+3. VERIFICACION CIRCULAR?  Estoy comparando una constante del repo consigo misma?
+4. CUANTIFICADOR ESCONDIDO?  El bucle empieza en 1 y digo "para todo m"?
+5. MUESTRA TOMADA POR CONSTANTE?  Paso con el 1,7345, con el 0% de Harriss y
+   con la holgura del piso.
+6. MISMAS UNIDADES?  Bits contra nats ya dio un factor 1,42 de diferencia.
+7. SE PUEDE EVALUAR SIN HABER TERMINADO LA TRAYECTORIA?  Si no, es contabilidad.
+```
+
+**POR QUÉ ES LA REGLA CERO Y NO UNA MÁS.** Estos errores **no se quedan
+quietos**: se escriben, se citan al día siguiente, y otra medición se apoya en
+ellos. La cota de ciclos hizo esa cadena tres veces en un día —`19.478.780.533`
+→ `217.976.794.617` → `114.208.327.604`— y cada eslabón parecía una corrección
+rigurosa. **Un error propio no revisado tumba días de trabajo, no minutos.**
+
+*Y el corolario incómodo: los seis adversarios de la auditoría rompieron los seis
+bloques. Si un revisor externo encuentra algo el 100% de las veces, la medición
+sin revisar tiene, por defecto, un fallo dentro.*
+
 ## REGLA DE PRIORIDAD: lo secundario va a un agente, siempre
 
 **El tiempo de la sesión es para pensar sobre Collatz, no para mantenimiento.**
