@@ -35,9 +35,30 @@
 #       Es el unico sitio por donde entra la aproximacion diofantica dura.
 #       Arbitrada en Acta Arithmetica 117 (2005) y su version web de 2010.
 #       HALLAZGO DEL ESTUDIO PREVIO, y es lo que hace viable este fichero:
-#       Hercher NO usa el teorema de Baker en ninguna parte. Toda la
+#       Hercher NO INVOCA el teorema de Baker en ninguna parte. Toda la
 #       maquinaria pesada entra como ESTE UNICO NUMERO importado. Aceptandolo,
 #       el resto de la demostracion del Teorema 23 es elemental.
+#
+#       PRECISION (01-08-2026), y hay que decirla: la frase vale para EL
+#       ARTICULO DE HERCHER, no para LA CADENA. Comprobado sobre hercher5.tex:
+#       "Baker" 0 veces, "Matveev" 0, "Rhin" 0, "linear form" 0. Pero un
+#       escalon mas abajo, Simons-de Weger tienen una seccion titulada
+#       "Application of Transcendence Theory" cuyo Lema 12
+#            Lambda > e^(-13,3*(0,46057 + log K))
+#       sale de RHIN (1987), una medida efectiva de irracionalidad para
+#       log(3)/log(2) por aproximantes de Pade. Ese lema entra en K_1(m), que
+#       entra en el Lema 16, de donde sale el 1,4784. O sea: la caja negra que
+#       se importa SI contiene trascendencia. Redaccion correcta: "Hercher no
+#       invoca Baker; la caja negra que importa si la contiene".
+#
+#       Y LA CAJA NO ES TAN NEGRA (01-08-2026). verificar_ciclos.py [4]
+#       re-deriva el 1,4784 en diez lineas desde la propia definicion de
+#       Simons-de Weger, resolviendo su ecuacion de K_2(m) por biseccion con
+#       decimal a 200 cifras: b = 0,64576012, c_m = 0,3057636284, A(91) = 55,
+#       K_2(91) = 2,140701e20, k_2(91) = 1,478381. El 1,4784 es k_2(91)
+#       redondeado hacia arriba. Su tabla de campeones sale clavada en las 4
+#       filas que caben en el rango certificado. Lo importado de verdad es el
+#       Lema 12, no el numero final.
 #
 #   (b) EL ARRANQUE:  K > 7·10^11  para m <= 91, del Teorema 3 de la misma
 #       version web de Simons-de Weger.
@@ -46,6 +67,28 @@
 #           delta < (K+L)/K < delta + (1/(K·3·log2)) · (tres sumandos)
 #       con sus tres variantes segun m_2 sea m, m-1 o menor. Se usa la formula;
 #       no se rehace su demostracion (que ocupa la mitad del articulo).
+#
+#       OJO: ESE TEOREMA TIENE CORRIGENDUM (localizado el 01-08-2026). La misma
+#       revista publico el 14-06-2026 un corrigendum que dice que la
+#       demostracion del Teorema 21 "contains an error". El ENUNCIADO NO
+#       CAMBIA -la reparacion aterriza en la misma desigualdad-, asi que este
+#       fichero sigue valiendo tal cual. Su ultimo paso, (2^v - 1)^delta <
+#       2^(delta*v) - 1, se comprueba en verificar_ciclos.py [5b] en 12
+#       valores de v, incluidos los siete que salen de las iteraciones de
+#       abajo: 0 fallos. Lo que NO se puede comprobar es el argumento de
+#       convexidad sobre el politopo, que es el cuerpo del corrigendum.
+#
+#       Y EL DATO QUE IMPORTA MAS ALLA DE LA MATEMATICA: el corrigendum
+#       agradece el hallazgo del error a XINJUN WANG (ORCID
+#       0009-0007-5895-5984), el mismo Wang cuyo preprint el CLAUDE.md
+#       descartaba por "no arbitrado, cero citas, metadatos descuidados".
+#       Encontrar un error real en un articulo arbitrado y que el autor lo
+#       reconozca por escrito es mejor credencial que una cita. La Fase 3 del
+#       plan de la pinza estaba calibrada sobre una impresion equivocada.
+#
+#       Y para este fichero hay una lectura directa: la caja negra (c) que
+#       aqui se acepta "por estar arbitrada" llevaba TRES ANOS con un error
+#       dentro. Estar arbitrado no es estar verificado.
 #
 #   (d) EL LEMA 22, que dice que el denominador mas chico de todas las
 #       fracciones de un intervalo abierto se encuentra por fracciones
@@ -788,6 +831,15 @@ print("      denominador minimo es plano en ese rango.")
 print("    - la tercera fila de la Tabla 1 (sale 4,64e18 contra 4,68e18). El")
 print("      4,68e18 no es denominador de ninguna semiconvergente de log2(3),")
 print("      asi que no es alcanzable por este metodo.")
+print("\n  LAS DOS, CONFIRMADAS POR SEGUNDA VIA (01-08-2026). verificar_ciclos.py")
+print("  rehace las siete iteraciones sin compartir ni los logaritmos ni las")
+print("  cotas de redondeo con este fichero -rejilla 10^-80, t3 con exponente")
+print("  79/50, raiz entera por Newton- y da NUMEROS IDENTICOS: eps_7 =")
+print("  1,2298e-43 y m=276 -> 4,640282e18. Los siete m_2 y las siete cotas de")
+print("  K coinciden con lo publicado, 0 de 7 fuera. Cuando una segunda")
+print("  implementacion independiente da tu numero, y el del papel no puede")
+print("  salir del metodo del papel, la carga de la prueba cambia de lado.")
+print("  Ninguna de las dos mueve la conclusion del articulo.")
 print("\n  Y LO QUE NO SE INTENTO SIQUIERA, que es la mitad dificil del articulo:")
 print("    - el Teorema 21 y toda la cadena de cotas sobre las sumas de T(n_i)")
 print("      que lo sostienen (Seccion 3 entera, mas un programa en C++ que")

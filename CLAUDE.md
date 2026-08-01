@@ -1084,6 +1084,18 @@ solitario de los once, y sin la marca parecería tan conectado como el resto.)*
   >
   > Lo verificado por Crossref sigue siendo Terras 1976, Garner 1985,
   > Lagarias 1985, Gao 1993 y Elia–Tucker (*INTEGERS* 15 (2015) #A54).
+- **Elia y Tucker (2015)**, *INTEGERS* 15 #A54. Este documento los cita **cuatro
+  veces como árbitro** de otras referencias, y **no dice cuál es su resultado
+  principal: refutar la descripción que Garner daba de la FORMA de estas
+  familias.** No refutan que existan, y el criterio de Terras que usa
+  `clasesfusion.py` no depende de esa descripción, así que **no queda tocado** —
+  pero citar a alguien de árbitro sin decir qué demuestra es tratarlo como
+  autoridad en vez de como fuente.
+  > **Y su ejemplo tiene un detalle medido (01-08-2026):** para la familia
+  > `2^19·m + 3067` el **`j` mínimo real es 18, no 19**. O sea que la familia ya
+  > se funde un nivel antes del que publican, y el par más chico es
+  > `(3067, 3068)` — donde, al revés que en la familia de Wu–Huang, **`m = 0` sí
+  > cumple**.
 - **Oliveira e Silva** usa la fusión de `n` y `n−1` como optimización
   industrial de su criba de verificación: le quita el **17,5%** de las hojas.
 
@@ -2745,6 +2757,14 @@ Resultado general más fuerte: **Tao
   `m`-ciclos de Collatz con `m ≤ 91`**, donde `m` = número de mínimos locales
   del ciclo. Mejora el `m ≥ 76` de Simons–de Weger (y el `m ≥ 83` que daba la
   verificación actualizada). El libro de 2010 todavía dice `m ≤ 68`.
+  > **Y TIENE CORRIGENDUM, del 14-06-2026, en la misma revista** (localizado el
+  > 01-08-2026). Dice que la demostración del **Teorema 21** *«contains an
+  > error»* — **justo la pieza que `reimpl.py` marca como caja negra `(c)`**. El
+  > **enunciado no cambia**: la reparación aterriza en la misma desigualdad, y
+  > su último paso (`(2^v − 1)^δ < 2^{δv} − 1`) se comprueba aquí en 12 valores
+  > de `v`, incluidos los siete del Teorema 23, con **0 fallos**. Lo que sí
+  > cambia es que la demostración vivió **tres años** en una revista arbitrada
+  > con un error dentro.
 - **[ccchallenge.org](https://ccchallenge.org/)** — proyecto comunitario vivo
   que está **formalizando la literatura de Collatz paper a paper** en un
   asistente de pruebas. 372 entradas catalogadas, 364 por formalizar, **1
@@ -2960,10 +2980,47 @@ merece quedarse, hay que convertirla en un programa con la forma de siempre
 
 2. **EL PLAN DE LA PINZA, en tres fases** (diseñado el 30-07-2026 después de
    destripar el método de Hercher). Lo que lo hace viable es un hallazgo del
-   estudio: **Hercher no usa el teorema de Baker en ninguna parte.** Toda la
+   estudio: **Hercher no INVOCA el teorema de Baker en ninguna parte.** Toda la
    maquinaria diofántica entra como **un número importado** de Simons–de Weger
    (`K < 1,4784·m·δ^m`, arbitrado en *Acta Arith.* 117). Aceptándolo como caja
-   negra, el resto es elemental. Y la métrica del esfuerzo, medida:
+   negra, el resto es elemental.
+
+   > **PRECISIÓN (01-08-2026), y afecta a la Fase 2: la frase valía para SU
+   > ARTÍCULO, no para LA CADENA.** Comprobado sobre el fuente LaTeX que la
+   > revista sirve junto al PDF (`hercher5.tex`): «Baker» aparece **0 veces**,
+   > «Matveev» **0**, «Rhin» **0**, «linear form» **0**. Hasta ahí, cierto al pie
+   > de la letra.
+   >
+   > **Pero un escalón más abajo sí hay trascendencia.** Simons–de Weger tienen
+   > una sección titulada *«Application of Transcendence Theory»* cuyo **Lema
+   > 12** —`Λ > e^(−13,3·(0,46057 + log K))`— sale de **Rhin (1987)**, una medida
+   > efectiva de irracionalidad para `log3/log2` por aproximantes de Padé. Ese
+   > lema entra en `K₁(m)`, que entra en el Lema 16, que es de donde sale el
+   > `1,4784`.
+   >
+   > ```
+   > "Hercher no usa Baker"                          -> CIERTO
+   > "toda la diofantica entra como un numero"       -> CIERTO
+   > "aceptandolo, el resto es elemental"            -> CIERTO
+   > "no hay Baker en NINGUNA PARTE DE LA CADENA"    -> FALSO
+   > ```
+   >
+   > La redacción correcta: **«Hercher no invoca Baker; la caja negra que
+   > importa sí contiene trascendencia.»** *No es grave, pero la Fase 2 se
+   > apoyaba en que la caja negra fuera aritmética pura, y no lo es del todo.*
+
+   > **Y LA CAJA NEGRA NO ES TAN NEGRA (01-08-2026).** `K < 1,4784·m·δ^m` **se
+   > re-deriva en diez líneas** desde la propia definición de Simons–de Weger,
+   > resolviendo su ecuación de `K₂(m)` por bisección con `decimal` a 200 cifras:
+   > `b = 0,64576012`, `c_m = 0,3057636284`, `A(91) = 55`,
+   > `K₂(91) = 2,140701e20`, `k₂(91) = 1,478381`. **El `1,4784` es `k₂(91)`
+   > redondeado hacia arriba**, y `A(91) = 55` sale de la fracción continua. Su
+   > tabla de campeones (§6.2 de la versión web 1.44) se reproduce **clavada en
+   > las 4 filas** que caben en el rango certificado. *Lo que este repo trataba
+   > como número mágico tiene, al menos en su último tramo, aritmética
+   > comprobable.*
+
+   Y la métrica del esfuerzo, medida:
 
    ```
    ~60 lineas de Python, solo stdlib, con solo T(n) < 3/n   ->  excluye m <= 82
@@ -3033,6 +3090,46 @@ merece quedarse, hay que convertirla en un programa con la forma de siempre
    cuáles no cuadran; y cuando algo no cuadra, **medir si importa** antes de
    decidir de quién es el error.*
 
+   > **⇢ LAS DOS DISCREPANCIAS, CONFIRMADAS POR SEGUNDA VÍA (01-08-2026), Y EL
+   > PAPEL ES EL QUE ESTÁ MAL.** `verificar_ciclos.py [5]` rehace las siete
+   > iteraciones **sin compartir ni los logaritmos ni las cotas de redondeo con
+   > `reimpl.py`** (rejilla `10⁻⁸⁰`, `t3` acotado con exponente `79/50`, raíz
+   > entera por Newton) y da **números idénticos**: `ε₇ = 1,2298e-43` y
+   > `Tabla 1, m = 276 → 4,640282e18`. Los siete `m₂` y las siete cotas de `K`
+   > coinciden con lo publicado, **0 de 7 fuera**.
+   >
+   > Y el argumento estructural contra el papel se sostiene: **las siete cotas
+   > del Teorema 23 son denominadores de (semi)convergente, 7 de 7, 0
+   > excepciones** — y `4,68e18` **no lo es**, luego es inalcanzable por el
+   > método. *Cuando una segunda implementación independiente da tu número y el
+   > del papel no puede salir del método del papel, la carga de la prueba cambia
+   > de lado. Ninguna de las dos mueve la conclusión.*
+
+   > **⇢ Y HAY CORRIGENDUM (14-06-2026), justo sobre la caja negra
+   > (01-08-2026).** La misma revista publicó un corrigendum que dice que la
+   > demostración del **Teorema 21** *«contains an error»* — el Teorema 21 es
+   > exactamente la pieza `(c)` que `reimpl.py` marca como importada sin
+   > verificar. **El enunciado no cambia**: la reparación aterriza en la misma
+   > desigualdad, y su último paso, `(2^v − 1)^δ < 2^{δv} − 1`, se comprueba aquí
+   > en 12 valores de `v` —incluidos los siete que salen de las iteraciones— con
+   > **0 fallos**. *Lo que no se puede comprobar desde aquí es el argumento de
+   > convexidad sobre el politopo, que es el cuerpo del corrigendum. Se lee, no
+   > se verifica.*
+   >
+   > **Y EL DATO QUE RECALIBRA LA FASE 3: el corrigendum agradece el hallazgo
+   > del error a XINJUN WANG** (ORCID `0009-0007-5895-5984`) — **el mismo Wang
+   > cuyo preprint este documento descarta más abajo por «no arbitrado, cero
+   > citas, metadatos descuidados».**
+   >
+   > **Encontrar un error real en un artículo arbitrado y que el autor lo
+   > reconozca por escrito en la misma revista es mejor credencial que una
+   > cita.** La Fase 3 estaba calibrada sobre una impresión de Wang que hay que
+   > revisar: *«cero citas» mide la edad del preprint, «metadatos descuidados»
+   > mide su maquetación, y ninguna de las dos mide si tiene razón.* Sigue
+   > siendo verdad que su preprint no está arbitrado y que necesita verificación
+   > independiente — **lo que ya no vale es tratarlo como sospechoso por
+   > defecto.**
+
    **Fase 2 — la escalera afín de Wang, que ES la pinza.** El cuello de botella no
    es Baker ni el tiempo: es `X₀`. Para `m = 92` haría falta verificar hasta
    `2^73,9` y el récord mundial es `2^71`; con `X₀ = 2^71` el bucle de Hercher
@@ -3045,11 +3142,24 @@ merece quedarse, hay que convertirla en un programa con la forma de siempre
    con troceado en bloques, y `clasesparalelo.py` lo reparte entre núcleos.
 
    **Fase 3 — el objetivo, y no es superar a nadie: VERIFICAR A WANG.** Su
-   preprint (Zenodo, 29-07-2026, `m ≤ 95`) **no está arbitrado**, tiene cero citas
-   y metadatos descuidados. Un resultado así necesita verificación independiente y
-   nadie la ha hecho porque tiene dos días. **Si aguanta, se dice. Si se cae, eso
-   sí es un hallazgo.** Es lo más difícil que hay al alcance que no consista en
-   repetir a otro.
+   preprint (Zenodo, 29-07-2026, `m ≤ 95`) **no está arbitrado** y necesita
+   verificación independiente, que nadie ha hecho porque tiene dos días. **Si
+   aguanta, se dice. Si se cae, eso sí es un hallazgo.** Es lo más difícil que
+   hay al alcance que no consista en repetir a otro.
+
+   > **RECALIBRADA EL 01-08-2026.** Aquí decía *«cero citas y metadatos
+   > descuidados»* como razones para desconfiar. **Las dos son malos
+   > indicadores**, y ahora hay un dato que las tumba: **el corrigendum de
+   > Hercher del 14-06-2026 agradece a este mismo Wang el haber encontrado el
+   > error del Teorema 21.** Un autor arbitrado reconociéndote por escrito un
+   > fallo real en su propia revista pesa más que un contador de citas.
+   >
+   > Lo que se mantiene: **no está arbitrado**, y este repo no acepta nada por
+   > firma. Lo que cambia: **se verifica porque es interesante y verificable, no
+   > porque se sospeche de él.** *Y la lección de método es la de siempre en esta
+   > auditoría, otra vez: juzgamos una fuente por su envoltorio (Crossref con
+   > Wu–Huang, SCIRP con Laurore, metadatos con Wang) en vez de por su contenido.
+   > Tres veces en una semana.*
 
 3. **⇢ HECHO: el numero PRIMO de rumbos (`coralprimos.py`). La prediccion
    FALLO**, y es de los pendientes que mas ha enseñado. Se predijo que con `N`
