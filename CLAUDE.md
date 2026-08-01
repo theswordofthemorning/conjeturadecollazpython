@@ -12,6 +12,31 @@ número configurable arriba del archivo, pensados para ejecutarse y mirar el
 resultado. **El código se escribe simple a propósito**: nombres en castellano,
 comentarios que explican lo obvio, sin abstracciones.
 
+## REGLA DE PRIORIDAD: lo secundario va a un agente, siempre
+
+**El tiempo de la sesión es para pensar sobre Collatz, no para mantenimiento.**
+Establecido el 01-08-2026, después de una sesión entera gastada en arreglar
+documentación mientras la investigación no avanzaba ni un paso.
+
+**Manda a un agente en segundo plano, sin preguntar, todo lo que sea:**
+
+- correcciones de documentación, conteos, erratas y consolidaciones del `CLAUDE.md`
+- barridos largos (`clasesfusion.py` a `k` grande, cribas, verificaciones masivas)
+- localizar o degradar citas bibliográficas
+- limpiezas de datos, vocabularios de `afirmaciones.db`, reindexados
+- cualquier cosa cuyo resultado sea *«el repo queda más ordenado»* en vez de
+  *«ahora sabemos algo que no sabíamos»*
+
+**Se queda en la conversación principal** lo que exige juicio sobre la
+matemática: decidir qué medir, leer un resultado, discutir si algo es un promedio
+o una cota, y las decisiones que cambian el rumbo.
+
+> **La prueba para decidir, en una línea: ¿esto responde una pregunta sobre
+> Collatz, o deja el repo más prolijo?** Lo segundo se delega. Siempre.
+
+Y si una tarea secundaria aparece a mitad de otra cosa: **no se hace en el
+momento.** Se anota y se delega, o se manda al agente y se sigue.
+
 ## LO PRIMERO DE TODO: `git fetch` antes de tocar nada
 
 **Antes de editar este archivo, `bitacora.md`, o cualquier cosa, sincronizá con
