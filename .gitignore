@@ -5,3 +5,6 @@ venv/
 *.png
 *.html
 *.pdf
+.lake/
+*.olean
+*.ilean

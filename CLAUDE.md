@@ -72,6 +72,114 @@ defecto, un fallo dentro — y eso incluye las del asistente.*
 > **El coste de revisar se paga una vez. El de no revisar se paga cada día que
 > otra cosa se apoye encima.**
 
+## LEAN 4: el verificador, y QUÉ MITAD de los errores caza
+
+**Instalado el 01-08-2026** (`elan` + Lean 4.32.2, en `~/.elan`). Primer fichero:
+**`cotatramos.lean`**, que **demuestra** lo que `cotatramos.py` mide.
+
+**Por qué hacía falta, en una frase del usuario:** *«el código se escribe, se
+ejecuta, se testea; las matemáticas son más delicadas»*. Exacto — **el código
+tiene oráculo y las matemáticas no.** Un test falla y no hay discusión; un
+enunciado mal escrito se ve bien y se cae tres días después. **Lean es ese
+oráculo: no te deja compilar una demostración falsa.**
+
+*(Y hay que anotar cómo apareció: el usuario preguntó por esto **el primer día**
+y el asistente respondió «no hay» **de memoria, sin buscar**. Salió con una
+búsqueda de treinta segundos. Es el mismo modo de fallo que «no está en
+Crossref» leído como «no existe»: **una afirmación sobre lo que uno recuerda,
+presentada como una afirmación sobre el mundo.**)*
+
+### NO arregla «los errores que frenan el avance». Arregla una mitad concreta
+
+Clasificando la lista de correcciones que este documento ya tiene:
+
+| clase de error | ¿Lean lo caza? | los nuestros |
+|---|---|---|
+| Hipótesis que faltaba | **SÍ** | `m ≥ 1`, `k ≥ 1`, `n impar`, las dos de G2 |
+| Cuantificador copiado mal | **SÍ** | `Res ≥ 1` no estricta, «para todo `m`» |
+| Confusión de mapas | **SÍ** | clásico/atajo, `2/ln(4/3)`, altura vs `σ_∞` |
+| Definición falsa | **SÍ** | «`T^k` es biyección sobre `Z/2^k`» |
+| Conjetura tomada por hecho | **SÍ** | `σ = χ` |
+| Muestra tomada por constante | **NO** | `1,7345`, el `0%`, la holgura del piso |
+| Estimador equivocado | **NO** | agregado contra pendiente |
+| Cita mala o mal juzgada | **NO** | Laurore, Wu–Huang, la fórmula de Wagon |
+| Número publicado que no cuadra | **NO** | el `217.976.794.617` de Barina |
+
+**Por conteo son unas 13 de 32 — menos de la mitad**, y escribir *«Lean reduce
+altamente nuestra tasa de errores»* sería cometer el error de esta semana otra
+vez. **Lo que sí es cierto:** la clase que caza es **exactamente la que este
+repo repite**. El agujero de hipótesis apareció **cuatro veces** y la confusión
+de mapas **tres**. Esas siete no vuelven con Lean delante. Las demás siguen
+necesitando el adversarial y los controles que ya hay.
+
+> **LA REGLA: lo que tenga forma de TEOREMA va a Lean. Lo que tenga forma de
+> MEDICIÓN se queda en Python con su control A/B y su adversarial.** Es la misma
+> partición de «¿esto es un promedio o es una cota?», ahora con herramienta
+> distinta para cada lado.
+
+### LA TRAMPA, y es la única que importa
+
+**Lean garantiza que la demostración corresponde al ENUNCIADO. No garantiza que
+el enunciado hable del OBJETO que uno cree.** Si `paso` no fuera Collatz de
+verdad, tendrías un teorema impecable sobre otra cosa — y con el sello de
+«demostrado» encima, que es peor que no tenerlo.
+
+**Por eso todo `.lean` de este repo lleva obligatoriamente dos cosas:**
+
+1. **Un caso conocido comprobado contra el repo.** En `cotatramos.lean` es el
+   221: tiene que dar `A = 41`, `B = 73`, que es lo que este documento lleva
+   escrito desde el principio.
+2. **Un cruce con una implementación que no comparta código.** Se hizo con
+   Python: 913 estados, 265 tramos descendentes, **0 fallos**, y los mismos
+   `A = 41, B = 73`.
+
+**Y `#eval` NO vale como comprobación.** Lo calcula el **compilador**, y su
+resultado no lo revisa nadie. Hay que escribirlo como teorema `by decide`, que
+lo revisa el **núcleo** — que es lo único en lo que se apoya la confianza de
+todo lo demás. *(Los 114 pasos del 221 pasan del límite de recursión por
+defecto; hace falta `set_option maxRecDepth 20000`.)*
+
+### El control final: `#print axioms`
+
+```
+#print axioms cota      ->  'cota' depends on axioms: [propext]
+```
+
+**Si ahí apareciera `sorryAx`, habría un agujero tapado.** Es el equivalente
+formal del `SystemExit` de los `.py`, y es lo que un «0 fallos» de Python no
+puede dar. Al 01-08-2026, `cotatramos.lean` sale limpio y **la comprobación
+entera tarda 1,8 segundos**.
+
+### Coste real, medido
+
+**Cinco ejecuciones** hasta compilar: un fallo (`by_contra` **no existe en el
+núcleo**, es de Mathlib), dos sondas `#check` para no adivinar nombres de lemas,
+un fallo de `maxRecDepth` —que Lean arregla diciéndote el remedio en el propio
+mensaje— y la buena. **No hizo falta Mathlib**, sólo el núcleo.
+
+**Y sale más barato que el adversarial**, que es la comparación que decide:
+
+```
+una llamada a Lean      ~ como un resultado de Bash o de Read
+un agente adversarial   ~ decenas de miles de tokens, turno completo de modelo
+```
+
+*Un adversarial es una **opinión cara**; Lean es un **veredicto barato**. Donde
+los dos se solapan —«¿esta demostración tiene un agujero?»— el barato es además
+el que no se equivoca.* **Aviso de rango, porque este repo ya publicó tres
+números sin él: cinco iteraciones es el coste del caso FÁCIL.** Un teorema duro
+o con Mathlib puede costar mucho más, y eso no está medido.
+
+### Lo que falta, dicho para que no se pierda
+
+**`cotatramos.lean` no tiene el control A/B**, que es doctrina de este repo:
+`cotatramos.py` comprueba también que sobre `3n−1` la desigualdad **se
+invierte**. Y aquí hay algo que merece formalizarse: sobre `ℕ`, `C ≥ 0` es
+gratis por tipo, y por eso la cota salió sin trabajo. **Para `3n−1` la `C` es
+negativa y el tipo `ℕ` ya no sirve.** O sea que **la discriminación del control
+A/B aparece en Lean como un cambio de tipo forzoso, no como una medición** — que
+es la forma más fuerte que puede tomar.
+
 ## REGLA DE PRIORIDAD: lo secundario va a un agente, siempre
 
 **El tiempo de la sesión es para pensar sobre Collatz, no para mantenimiento.**
@@ -127,6 +235,30 @@ parece.
 ```
 pip install -r requirements.txt      # numpy, matplotlib, plotly
 ```
+
+**Y Lean 4, que es aparte y no va en `requirements.txt`** (01-08-2026). No está
+en `winget`; se instala con `elan`, bajando el instalador de GitHub:
+
+```
+https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-pc-windows-msvc.zip
+elan-init.exe -y --default-toolchain stable
+```
+
+Queda en `~/.elan\bin` (que `elan` añade al PATH del usuario). Para comprobar un
+fichero — **si no imprime ningún `error:`, está demostrado**:
+
+```
+lean cotatramos.lean
+```
+
+*No hace falta Mathlib para lo que hay hoy.* Y ojo con la diferencia, porque es
+la que separa una táctica que existe de una que no: **`by_contra`, `ring`,
+`set`, `rcases` y `obtain` son de Mathlib**, no del núcleo. Con núcleo solo hay
+`by_cases`, `cases … with`, `calc`, `rw`, `rwa`, `omega`, `decide`, `exfalso`,
+`show`, `unfold`, `split`, `rename_i`. **Y no adivines nombres de lemas: sondealos
+con `#check @Nat.mul_le_mul` en un fichero suelto** — ahí se ve la firma exacta,
+que cambia entre versiones (`Nat.mul_lt_mul_left` es un **iff**, no una
+implicación).
 
 **De los 28 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
 `mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos usan
@@ -299,6 +431,7 @@ for a in sorted(glob.glob('*.py')):
 | `main.py` | CLI: `verificar`, `records`, `camino` |
 | `collazmalla.py` | **La malla real**: cada par de puntos en coordenadas (A, B). Dibuja |
 | `cotatramos.py` | **LA COTA POR TRAMO**, rescatada de `collazlamina.py`: `2^B·seq[j] ≥ 3^A·seq[i]`, y si un tramo baja entonces `2^B > 3^A`. Verificada sobre prefijos que **nunca llegan al 1** |
+| **`cotatramos.lean`** | **La misma cota, DEMOSTRADA en Lean 4** para todo `n₀` y todo `k`, sin Mathlib. Identidad de Terras, cota y corolario; `#print axioms` limpio; el 221 comprobado por el núcleo. **El único fichero del repo que demuestra en vez de verificar** |
 | `mallaresiduos.py` | **La malla completa de los arranques**: 2^k restos × k pasos. Dibuja |
 | `mallascerradas.py` | **Los aros que cierran solos** y **la rueda del árbol**. Dibuja |
 | `guardarhilos.py` | **Los 11 hilos 100000–100010 en sqlite** (`hilos.db`) y la malla de sus cruces |
