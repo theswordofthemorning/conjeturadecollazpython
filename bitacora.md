@@ -5,6 +5,110 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ ESTADO AL CIERRE DEL 01-08-2026 — EMPEZAR POR AQUÍ
+
+*(Escrito con dos workflows todavía corriendo, por si la sesión se cierra antes
+de que terminen. Si estás leyendo esto en una sesión nueva: lo primero es
+comprobar si dejaron sus ficheros.)*
+
+## 1. LA PURGA, hecha (commit `4f8efdc`)
+
+El repo pasó de **43 a 28 `.py`**, de 16 programas que dibujan a **4**, y el
+`CLAUDE.md` perdió **616 líneas (18,5%)**. Total: **−7.106 líneas.**
+
+Lo borrado no estaba mal calculado: **medía la esfera, el ángulo o el módulo
+elegidos a mano, no Collatz.** Fuera `collazcirculo`, `collazcruce`,
+`mallabasica`, `mallacollaz`, `maquinitacollaz`, `collazejecucion`, `viz3d`,
+`coralcollaz`, `cruzarestos`, `collazarbol`, `mallaespejo`, `mallaespejo2`,
+`espejobases`, `densidadfusion`, `guardarmallas`, `collazlamina`, las 12 mallas
+`.json`, `oeis_borrador.txt`, las notas a mano, y los `.html`/`.png`.
+
+**Dos cosas se rescataron, y las dos importan:**
+
+- **`cotatramos.py`** — el cálculo que `collazlamina.py` hacía antes de dibujar.
+  De `C ≥ 0` en la identidad de Terras salen dos desigualdades:
+  `2^B·seq[j] ≥ 3^A·seq[i]` para todo par, y **si un tramo baja entonces
+  `2^B > 3^A`**. Verificadas sobre **prefijos que nunca tocan el 1** (329.400
+  pares, 252.014 tramos descendentes, 0 fallos), o sea que **no asumen
+  convergencia**. Y el control A/B discrimina: sobre `3n−1` la `C` es negativa y
+  la desigualdad se invierte. *Convierte «el balance decide todo» de promedio
+  sobre trayectorias en **cota por tramo**.*
+- **`mallascerradas.py` se salvó.** El auditor lo acusaba de no discriminar. Se
+  corrió el A/B que nunca se había corrido —los seis restos mod 6— y **sólo el
+  resto 4 sale con 0 fallos en las dos ruedas**. La refutación era falsa.
+
+`matplotlib` **se queda** en `requirements.txt` aunque ahora no lo importe nadie:
+decisión del usuario, tarde o temprano hará falta.
+
+## 2. LO QUE ESTABA CORRIENDO AL CERRAR
+
+Los dos tienen **conjuntos de ficheros disjuntos** y **prohibido tocar
+`CLAUDE.md` y `bitacora.md`** — la documentación se aplica después, a mano.
+
+| workflow | crea | qué busca |
+|---|---|---|
+| **`wzu334m64`** — las tres vías | `paradacoef.py`, `franjaeverett.py`, `medidamonotona.py` | CST, la franja `log₂(10/9)`, y una cantidad monótona |
+| **`wyefzghui`** — auditar refutaciones | `auditarrefutaciones.py` | las diez correcciones del bloque E, con adversario |
+
+**Si esos ficheros existen, los workflows llegaron a commitear. Si no, se
+perdieron y hay que relanzarlos** — los guiones quedan en el directorio de
+workflows de la sesión.
+
+### Las tres vías, en una línea cada una
+
+- **CST** (`σ*(x) = min{k : 2^k > 3^{m_k}}` contra `σ(x)`). Es la **única** de las
+  tres que da un criterio evaluable **antes** de terminar la trayectoria, porque
+  `σ*` se calcula sólo del vector de paridad, o sea sólo de `n mod 2^k`. Si
+  `σ* = σ`, **no hay ciclos** y el tiempo de parada queda descrito por clases.
+  **El control que decide si sirve: medirla sobre `3n−1`.**
+- **La franja `log₂(10/9) = 0,152`.** Everett certifica descenso desde
+  `B/A > 1,73697`; el equilibrio está en `1,58496`. Los 24 números de 3 a 20.000
+  que no certifica caen los 24 dentro, y el más chico es el **27**. La idea a
+  probar: afinando la cota `5/3` a `(3M+1)/(2M)` el umbral **baja hacia
+  `log₂3`** — pero condicionar a `m ≥ M` sólo vale en el prefijo. **Si queda un
+  núcleo que resiste a todo `M`, ese núcleo es el resultado.**
+- **La cantidad monótona.** No se espera encontrarla —el `+1` rompe toda medida
+  que se porte bien con `n/2` y con `3n`—; **el objetivo es medir CÓMO fallan**.
+  Una `Q` que decrece salvo en un conjunto describible es una demostración con un
+  agujero localizado. Variante con más posibilidades: que decrezca **en todo
+  tramo de `k` pasos** para algún `k` fijo, que basta igual.
+
+## 3. LO QUE HAY QUE HACER CUANDO CIERREN
+
+1. Aplicar al `CLAUDE.md` lo que salga de las dos pasadas.
+2. **La cola de la purga**: ~50 menciones sueltas a ficheros borrados y una
+   docena de conteos viejos en secciones que no se tocaron. Mecánico, a un agente.
+
+## 4. LOS PENDIENTES DE FONDO, por orden
+
+1. **`a(k)` es idéntica para `3n+1` y `3n−1`** (verificado `k = 3…13`). Falta
+   llegar a `k ≥ 20` y decidir si es **teorema** o se rompe. Es lo único que
+   puede tumbar o salvar lo que el repo tenía por mejor resultado, y es barato.
+2. **Nueve de los diez bloques de la búsqueda web siguen sin código propio**:
+   Böhm–Sontacchi, Bernstein–Lagarias, Monks 2006, Krasikov–Lagarias `x^0,84`,
+   Applegate–Lagarias, Steiner 1977, la reducción mod 4, y el paper de Fibonacci
+   de 2026. *(El bloque 1, CST, es la vía que está corriendo.)*
+3. **El hueco de densidad.** `afirmaciones.db` tiene **5 filas `casi_todo_n` y
+   las 5 sin fichero**. Cero instrumentos propios sobre densidad, y ahí vive el
+   salto «casi todos → todos».
+4. **La pasada cruzada**: las 80 afirmaciones contra los dos pools
+   (`hilos.db` + `records.json`), respetando el filtro de cuantificador —
+   `promedio` y `casi_todo_n` **no se evalúan**, se rechazan.
+5. **La Fase 3 del plan de la pinza hay que recalibrarla**: apareció el
+   corrigendum de Hercher (14-06-2026) que **acredita el hallazgo a Xinjun
+   Wang**, el mismo cuyo preprint el repo descartaba por «cero citas».
+
+## 5. LAS DOS REGLAS NUEVAS DE HOY
+
+- **`git fetch` antes de tocar nada.** `git status` a secas compara contra la
+  última copia local del remoto y puede mentir.
+- **Lo secundario va a un agente, siempre.** La prueba: ¿esto responde una
+  pregunta sobre Collatz, o deja el repo más prolijo? Lo segundo se delega.
+- Y una tercera, del usuario: **no se re-ejecutan los barridos caros** en pasadas
+  de rigor.
+
+---
+
 ## 2026-08-01 (noche) — LAS DOS AUDITORÍAS APLICADAS. 6 de 6 adversarios rompieron algo
 
 Se aplicaron al repo las correcciones de dos auditorías con revisores
