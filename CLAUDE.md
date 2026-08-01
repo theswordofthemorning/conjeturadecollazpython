@@ -193,6 +193,21 @@ negativa y el tipo `ℕ` ya no sirve.** O sea que **la discriminación del contr
 A/B aparece en Lean como un cambio de tipo forzoso, no como una medición** — que
 es la forma más fuerte que puede tomar.
 
+> **⚠ ESAS DOS FRASES ESTÁN EN DISPUTA DESDE EL MISMO DÍA QUE SE ESCRIBIERON, Y
+> NO LAS DES POR BUENAS.** El trío que se lanzó para comprobarlas devolvió lo
+> contrario: **el agente de Lean dice que NO hizo falta salir de `ℕ`.** Su
+> diagnóstico es que el problema no es el tipo sino **dónde se pone la `C`** —
+> escrito como `2^B·n_k = 3^A·n₀ − C` la inducción no cierra sola en `ℕ` (habría
+> que arrastrar `C ≤ 3^A·n₀`), pero escrito como `2^B·n_k + C = 3^A·n₀` **no hay
+> ninguna resta** y cierra. El agente independiente, por su lado, dice que lo que
+> cambia es **el signo de `C`**.
+>
+> **El comparador estaba corriendo cuando se cerró la sesión.** Hasta que dicte:
+> tratar «el tipo `ℕ` deja de servir» como **NO VERIFICADO**. Si el comparador le
+> da la razón al agente de Lean, hay que reescribir este párrafo entero — y hay
+> que anotarlo como lo que sería: **una frase que el asistente escribió el mismo
+> día en que documentaba que no se escriben frases así.**
+
 ## LA REGLA DE LOS TRES: Lean, el independiente, y quien los compara
 
 **Dictada por el usuario el 01-08-2026**, inmediatamente después de instalar

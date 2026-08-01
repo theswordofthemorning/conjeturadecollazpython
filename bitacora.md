@@ -40,35 +40,98 @@ de descubrir que faltaba.*
 **Estrena la regla con algo cuyo resultado ya sospechamos**, que es la manera
 barata de saber si el trío funciona antes de gastarlo en algo caro.
 
-| agente | crea | encargo |
+| agente | crea | estado |
 |---|---|---|
-| **1 · LEAN** | `cotatramos3n1.lean` | demostrar la cota **invertida** `2^B·n_k ≤ 3^A·n₀` para `3n−1` |
-| **2 · INDEPENDIENTE** | `cotatramos3n1.py` | lo mismo, calculando, **sin ver el `.lean`** |
-| **3 · COMPARADOR** | — | se lanza cuando los dos entreguen |
+| **1 · LEAN** | `cotatramos3n1.lean` | **ENTREGADO.** Compila sin Mathlib, sin `sorry`, 4 invocaciones y 0 fallidas |
+| **2 · INDEPENDIENTE** | `cotatramos3n1.py` | **ENTREGADO.** 307.807 pares, 0 fallos, 0,63 s |
+| **3 · COMPARADOR** | — | **CORRIENDO AL CERRAR LA SESIÓN.** Su veredicto es lo primero que hay que recuperar |
 
 **A los dos se les dio el MISMO enunciado y NO se les dio la identidad** — cada
-uno tiene que derivar la forma de `C` por su lado, o la comparación no mide nada.
-**La pregunta que se les hace explícita:** ¿hace falta salir de `ℕ` e irse a `ℤ`,
-y dónde exactamente se rompe? *(Y el aviso que lleva el encargo: en `ℕ` la resta
-es truncada, así que ahí se puede esconder un enunciado que se cumple por
-accidente.)*
+uno tuvo que derivar la forma de `C` por su lado, o la comparación no mediría
+nada. Los dos ficheros están **commiteados pero sin veredicto**: no los cites
+como verificados hasta que el comparador dicte.
+
+### ⚠ LO QUE HAY QUE MIRAR PRIMERO AL VOLVER: una frase mía puede estar mal
+
+**Los dos coinciden en (II), (III) y en la discriminación.** Pero sobre la
+pregunta del tipo dicen cosas distintas, y **una de ellas contradice lo que yo
+escribí en `CLAUDE.md` unas horas antes**:
+
+| | qué dice |
+|---|---|
+| **yo, en `CLAUDE.md`** | *«para `3n−1` la `C` es negativa y **el tipo `ℕ` ya no sirve**»* |
+| **agente 1 (Lean)** | **NO hizo falta `ℤ`.** El problema no es el tipo sino **dónde se pone la `C`**: con `2^B·n_k + C = 3^A·n₀` no hay resta y la inducción cierra sola |
+| **agente 2 (Python)** | lo que cambia es **el signo de `C`** (`C ≤ 0`), y la desigualdad lo arrastra |
+
+**Está marcado como NO VERIFICADO en `CLAUDE.md`.** Si el comparador le da la
+razón al agente de Lean, hay que reescribir ese párrafo — y anotar que es *una
+frase escrita el mismo día en que se documentaba que no se escriben frases así.*
+
+**Dos cosas más que dejaron los agentes y que el comparador tiene encargadas:**
+
+- El corolario **no se traduce cambiando una palabra**: en `3n−1`, *«baja ⟹
+  `2^B > 3^A`»* es **falso** (`n₀ = 2 → 1`, `A=2, B=3`, o sea `8 ≤ 9`; 2.023
+  casos). El que vale es *«**sube** ⟹ `2^B < 3^A`»*.
+- El agente 2 **confesó un riesgo de contaminación**: leyó `cotatramos.py` como
+  plantilla, y ese fichero trae un cruce parcial sobre `3n−1`. *Que lo declarara
+  él solo es exactamente lo que la regla busca.*
+
+### LO QUE SE SACÓ EN LIMPIO, y es poco pero es duro
+
+1. **`cotatramos.lean` — lo único DEMOSTRADO del repo.** La identidad de Terras,
+   la cota y el corolario, para todo `n₀` y todo `k`. `#print axioms` sin
+   `sorryAx`. **No es «0 fallos en 329.400 pares»: es todos.**
+2. **Lean instalado y con su regla de uso escrita**, incluida la parte incómoda:
+   caza **unas 13 de 32** correcciones, menos de la mitad. Lo que caza es la
+   clase que este repo repite.
+3. **LA REGLA DE LOS TRES**, y con ella la REGLA CERO pasa a tres capas.
+4. **La auditoría de las diez refutaciones** (`eea5a8d`): 8 confirmada, 2
+   exagerada, **0 refutada**. Y el adversarial encontró cuatro defectos **en la
+   auditoría**, mejores que los que la auditoría encontró.
+5. **Las tres vías cerradas** (`wzu334m64`, 7 agentes): CST sigue viva y es la
+   mejor; franja y monótona se cierran **con su razón escrita**; y las tres
+   midieron **`A076227` sin darse cuenta**, cruzada por accidente con 0
+   discrepancias entre tres implementaciones.
+
+### PUNTOS A FAVOR, al día
+
+| pieza | categoría | estado |
+|---|---|---|
+| **la cota por tramo** `3^A·n₀ ≤ 2^B·n_k` | **teorema** | **demostrado en Lean**, todo `n₀`, todo `k` |
+| el corolario «baja ⟹ `2^B > 3^A`» | **teorema** | **demostrado en Lean** |
+| el piso de la altitud | cota | 0 fallos; enunciado afinado dos veces |
+| el criterio de fusión (43,57%) | cota | exacto hasta `k = 32`, sin muestreo |
+| la pinza de ciclos | rederivación | verificada; **vía cerrada a propósito** |
+| **CST: «no hay contraejemplo con `σ* ≤ 16.294`, para todo `x`»** | **cota** | del workflow, **sin aplicar aún** |
+| `A076227` | dato | **cruzada por tres implementaciones independientes** |
 
 ### PENDIENTES, en orden
 
-1. **Cerrar el trío** — lanzar el comparador cuando 1 y 2 entreguen, y aplicar el
-   veredicto a `CLAUDE.md`.
-2. **`wzu334m64`** va 6 de 7 agentes; falta commitear `medidamonotona.py`. *No se
-   subdividió a propósito: lo que queda es un solo agente y partirlo habría
-   tirado su trabajo.*
-3. **Leer entera la auditoría de las diez refutaciones** (`eea5a8d`) y aplicar lo
-   que salga — sobre todo las **dos EXAGERADAS** y los fallos que el adversarial
-   encontró **en la propia auditoría**.
-4. **Aplicar a `CLAUDE.md`** lo que produzcan las tres vías (franja, CST, medida
-   monótona). Los workflows tienen prohibido tocar la documentación a propósito.
+1. **RECUPERAR EL VEREDICTO DEL COMPARADOR** y aplicar la corrección de la frase
+   del tipo `ℕ`. Es lo primero.
+2. **Aplicar la auditoría de las diez** al `CLAUDE.md`: las dos EXAGERADAS, los
+   cuatro defectos del adversarial (re-tecleo presentado como reimplementación,
+   dos tautologías con recuento, una sensibilidad mal medida, y el `5,86x` que es
+   una **elección de unidad** blindada con un `SystemExit` — verificación
+   circular cometida por el auditor).
+3. **Aplicar las tres vías** al `CLAUDE.md`: las dos correcciones obligatorias de
+   CST, y las razones por las que franja y monótona se cierran.
+4. **Commitear `medidamonotona.py`** si el workflow no lo dejó.
 5. **La pregunta grande sigue en pie:** `a(k)` sale **idéntica** para `3n+1` y
-   `3n−1` (verificado `k = 3…13`). Llegar a `k ≥ 20` decide si es teorema o si se
-   rompe. Es lo que mató el borrador de OEIS y sigue sin contestarse.
-6. **Nueve de los diez bloques de la búsqueda web siguen sin código propio.**
+   `3n−1` (`k = 3…13`). Llegar a `k ≥ 20` decide si es teorema o se rompe. Es lo
+   que mató el borrador de OEIS.
+6. **El control A/B en Lean para el resto de piezas** — ahora que hay trío, es
+   barato.
+7. **Nueve de los diez bloques de la búsqueda web siguen sin código propio.**
+
+### LA LECCIÓN DEL DÍA, que se repitió tres veces
+
+**Auditar una refutación encuentra tanto como auditar una afirmación.** Pasó con
+las diez del bloque E (dos exageradas), pasó con el adversarial que auditó a esa
+auditoría (cuatro defectos más), y pasó **conmigo**: la frase del tipo `ℕ` la
+escribí el mismo día en que documentaba que no se escriben frases así.
+
+> *Una corrección suena a rigor, y por eso nadie la revisa.*
 
 ## 1. LA PURGA, hecha (commit `4f8efdc`)
 
