@@ -11,6 +11,34 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 de que terminen. Si estás leyendo esto en una sesión nueva: lo primero es
 comprobar si dejaron sus ficheros.)*
 
+## ⇢ LO MÁS NUEVO: LEAN 4 ENTRA AL REPO, Y CON ÉL LA REGLA DE LOS TRES
+
+**`cotatramos.lean`** (commit `3b3c6c2`) **demuestra** lo que `cotatramos.py`
+mide: la identidad de Terras, la cota `3^A·n₀ ≤ 2^B·n_k` y el corolario, **para
+todo `n₀` y todo `k`**, sin Mathlib, comprobado en 1,8 s. `#print axioms` sale
+limpio (**no hay `sorryAx`**), y el 221 está verificado por el **núcleo** —
+`A = 41, B = 73`, cruzado además contra Python sin compartir una línea.
+*Es el primer fichero del repo que demuestra en vez de verificar.*
+
+**Y el procedimiento que manda desde ahora, dictado por el usuario:**
+
+> **Toda comprobación aritmética o matemática va por TRES agentes:** uno la
+> demuestra en **Lean**, otro la calcula **por su cuenta sin ver el primero**, y
+> un tercero **compara los dos**. Detalle completo en `CLAUDE.md` →
+> *LA REGLA DE LOS TRES*.
+
+**El matiz que hay que conservar, porque es fácil inflarlo:** Lean caza **unas
+13 de las 32** correcciones que este repo tiene registradas — **menos de la
+mitad**. No caza muestras tomadas por constante, estimadores ni citas. Lo que sí
+caza es **la clase que este repo repite**: hipótesis que faltan (cuatro veces) y
+confusión de mapas (tres). *Y salió un extra: al formalizar, la hipótesis
+`0 < n₀` del corolario resultó **sobrar**. Primera vez que se quita una en vez
+de descubrir que faltaba.*
+
+**Pendiente inmediato:** el control A/B en Lean (`3n−1`, donde `C` es negativa y
+**el tipo `ℕ` deja de servir** — la discriminación aparece como cambio de tipo
+forzoso), y la capa 2 sobre el propio `.lean`.
+
 ## 1. LA PURGA, hecha (commit `4f8efdc`)
 
 El repo pasó de **43 a 28 `.py`**, de 16 programas que dibujan a **4**, y el
@@ -45,14 +73,21 @@ decisión del usuario, tarde o temprano hará falta.
 Los dos tienen **conjuntos de ficheros disjuntos** y **prohibido tocar
 `CLAUDE.md` y `bitacora.md`** — la documentación se aplica después, a mano.
 
-| workflow | crea | qué busca |
-|---|---|---|
-| **`wzu334m64`** — las tres vías | `paradacoef.py`, `franjaeverett.py`, `medidamonotona.py` | CST, la franja `log₂(10/9)`, y una cantidad monótona |
-| **`wyefzghui`** — auditar refutaciones | `auditarrefutaciones.py` | las diez correcciones del bloque E, con adversario |
+| workflow | crea | qué busca | estado |
+|---|---|---|---|
+| **`wzu334m64`** — las tres vías | `paradacoef.py`, `franjaeverett.py`, `medidamonotona.py` | CST, la franja `log₂(10/9)`, y una cantidad monótona | **corriendo**; ya dejó `2884b3d` (franja) y `c9b0bca` (CST) |
+| **`wyefzghui`** — auditar refutaciones | `auditarrefutaciones.py` | las diez correcciones del bloque E, con adversario | **TERMINADO**, commit `eea5a8d` |
 
 **Si esos ficheros existen, los workflows llegaron a commitear. Si no, se
 perdieron y hay que relanzarlos** — los guiones quedan en el directorio de
 workflows de la sesión.
+
+**Resultado del que terminó (`wyefzghui`), en una línea: 8 CONFIRMADA, 2
+EXAGERADA, 0 REFUTADA** — no hay nada que rescatar, las diez apuntaban al sitio
+correcto, pero dos se sostenían con un número que no pasa el filtro que ellas
+mismas exigen. *La regla que sale: **una refutación se publica con el mismo rigor
+que una afirmación** — con su rango y sus cifras significativas.* El adversarial
+además encontró fallos en la propia auditoría. **Está sin leer entera.**
 
 ### Las tres vías, en una línea cada una
 

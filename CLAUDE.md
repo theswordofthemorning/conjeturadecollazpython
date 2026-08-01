@@ -21,12 +21,18 @@ la regla que manda sobre todas las demás:**
 > **SÍ** «hacer el mejor esfuerzo, comprobando siempre, y después mandar un
 > agente adversarial para que además lo revise».
 
-**Son DOS capas, y ninguna sustituye a la otra:**
+**Son TRES capas, y ninguna sustituye a la otra:**
 
 | capa | quién | cuándo |
 |---|---|---|
 | **1** | **yo, contra mi propio cálculo** | antes de enseñar el número |
 | **2** | **un agente adversarial** | después, sobre lo que ya di por bueno |
+| **3** | **el trío: Lean + independiente + comparador** | toda comprobación matemática — ver **LA REGLA DE LOS TRES**, más abajo |
+
+*(La capa 3 se añadió el mismo día, al instalar Lean. Donde aplica —cualquier
+cosa con forma de teorema o de cálculo— **sustituye a la capa 2**, porque el
+comparador es un adversarial mejor apuntado: tiene una discrepancia que buscar
+en vez de una página en blanco.)*
 
 *Se establece después de que el asistente cometiera —midiendo en vivo, delante
 del usuario— el error del mapa clásico contra el del atajo: exactamente el que
@@ -57,6 +63,13 @@ este documento tiene registrado dos veces. La capa 1 lo habría atrapado.*
 romperlo y no de aplaudirlo. No es un lujo para lo grande: es el paso normal.
 El adversario recibe la lista de arriba más los modos de fallo históricos, y su
 resultado válido incluye «no pude romperlo» — pero sólo después de intentarlo.
+
+> **⇢ PERO SI LO QUE SE REVISA ES MATEMÁTICA O UN CÁLCULO, esta capa se hace
+> con el trío de LA REGLA DE LOS TRES**, no con un adversarial suelto. Un
+> adversarial solo tiene que inventar por dónde atacar; el comparador del trío
+> ya tiene dos derivaciones independientes delante. **El adversarial suelto
+> queda para lo que no se puede partir en dos**: prosa, atribuciones,
+> decisiones de método y lecturas bibliográficas.
 
 **POR QUÉ ES LA REGLA CERO Y NO UNA MÁS.** Estos errores **no se quedan
 quietos**: se escriben, se citan al día siguiente, y otra medición se apoya en
@@ -179,6 +192,84 @@ gratis por tipo, y por eso la cota salió sin trabajo. **Para `3n−1` la `C` es
 negativa y el tipo `ℕ` ya no sirve.** O sea que **la discriminación del control
 A/B aparece en Lean como un cambio de tipo forzoso, no como una medición** — que
 es la forma más fuerte que puede tomar.
+
+## LA REGLA DE LOS TRES: Lean, el independiente, y quien los compara
+
+**Dictada por el usuario el 01-08-2026**, inmediatamente después de instalar
+Lean. Es el procedimiento en regla, no una opción:
+
+> **Para cada comprobación aritmética, cada resultado matemático y cada
+> planteamiento que haya que comprobar, van TRES agentes:**
+>
+> | # | agente | encargo |
+> |---|---|---|
+> | **1** | **LEAN** | demostrarlo en Lean 4 |
+> | **2** | **INDEPENDIENTE** | calcularlo por su cuenta, **sin ver lo del primero** |
+> | **3** | **COMPARADOR** | revisar los dos trabajos y compararlos |
+
+**Es la doctrina A/B de este repo aplicada al MÉTODO en vez de al objeto.** El
+repo ya exigía «comprobar contra una implementación que no comparta código»; esto
+lo vuelve obligatorio y le añade un juez.
+
+**Y es más fuerte que el adversarial suelto**, por una razón concreta: un
+adversarial se enfrenta a una página en blanco y tiene que inventar por dónde
+atacar. **El comparador tiene una discrepancia que buscar** — o, si no la hay,
+una coincidencia que explicar. Trabaja con señal en vez de a ciegas.
+
+### Lo que hace que funcione: que 1 y 2 NO SE VEAN
+
+**Si el agente independiente lee el `.lean`, deja de ser independiente y el
+método entero se cae.** Al lanzarlos hay que decírselo explícitamente, y hay que
+darles **el mismo enunciado literal** — si cada uno recibe una paráfrasis
+distinta, la comparación mide las paráfrasis, no la matemática.
+
+### El comparador no aplaude: su encargo es esta lista
+
+1. **¿Los dos enunciaron LO MISMO?** Mapa (clásico o atajo), cuantificadores,
+   rango, unidades. **Esto va primero**, antes de mirar ningún número.
+2. **¿Coinciden en un caso común calculado por los dos?**
+3. **Si COINCIDEN: ¿pudieron coincidir por compartir un error de premisa?**
+4. **Si DISCREPAN: ¿quién tiene razón y por qué?** No se promedia, no se elige
+   el más bonito. Se decide, y si no se puede decidir, se dice.
+5. **¿Sale `sorryAx` en el `#print axioms`? ¿Saltó algún `SystemExit`?**
+
+> **EL PUNTO 3 ES EL QUE SOSTIENE TODO, y es el que se va a olvidar. Dos
+> agentes que leyeron mal el mismo enunciado coinciden perfectamente.** El
+> ejemplo no es hipotético: si los dos usan el mapa del atajo cuando la
+> afirmación era del clásico, dan idénticos y los dos están mal.
+> **Coincidir no es verificar.** Un veredicto que dice «coinciden» sin haber
+> buscado la premisa compartida no es un veredicto.
+
+### Cuando el agente de Lean NO puede formalizarlo, eso ES el resultado
+
+**No todo tiene forma de teorema**, y el propio repo lo tiene medido: las
+muestras tomadas por constante, los estimadores y las citas no se formalizan.
+**Si el agente 1 no consigue enunciarlo en Lean, su entregable es decir POR QUÉ
+no.** Y esa respuesta suele ser una de estas, que son las que este documento
+lleva toda la semana repitiendo:
+
+```
+"no es un teorema, es un promedio"          -> ver la seccion del cuarto camino
+"no es una cota, es una medicion con rango" -> hay que publicar el rango
+"depende de haber terminado la trayectoria" -> es contabilidad, no criterio
+"la fuente lo afirma, no lo demuestra"      -> es bibliografia, no matematica
+```
+
+> **Ese fallo no es un fracaso del trío: es el detector «¿esto es un promedio o
+> es una cota?» ejecutándose solo.** Es la parte más barata de todo el
+> procedimiento y a veces la que más dice.
+
+### Proporción, para que la regla sea sostenible
+
+Tres agentes cuestan tres agentes. **El trío completo va a todo lo que se vaya a
+escribir en este documento o sobre lo que se vaya a construir después** — que es
+justo la definición de lo que hace daño cuando está mal, porque *«un error propio
+no revisado tumba días de trabajo, no minutos»*. Para un tanteo que se va a tirar,
+basta la capa 1 de la REGLA CERO.
+
+*El orden importa poco, pero conviene lanzar 1 y 2 a la vez: son independientes
+por construcción, así que no hay motivo para serializarlos, y el comparador no
+puede empezar hasta tener los dos.*
 
 ## REGLA DE PRIORIDAD: lo secundario va a un agente, siempre
 
