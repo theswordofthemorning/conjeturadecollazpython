@@ -55,7 +55,19 @@ este documento tiene registrado dos veces. La capa 1 lo habría atrapado.*
    con la holgura del piso.
 6. MISMAS UNIDADES?  Bits contra nats ya dio un factor 1,42 de diferencia.
 7. SE PUEDE EVALUAR SIN HABER TERMINADO LA TRAYECTORIA?  Si no, es contabilidad.
+8. EL LIMITE DEL BARRIDO LO ELEGI REDONDO?  4^k y 10^k son TODOS = 4 (mod 6),
+   asi que 10^6, 10^7, 2^28, 2^30, 2^32 y 100000 caen en la MISMA clase.
+   Si lo que mido es del tamano de UN termino, el limite no es un detalle:
+   es un parametro, y redondo significa sesgado.
 ```
+
+*(El punto 8 salio el 01-08-2026 de la auditoría de la refutación **#51**, y es
+**prima hermana** del punto 5, no la misma: allí el problema era el **tamaño** de
+la muestra, aquí es que el **borde** cae en una clase especial. Los cuatro `N`
+que «coincidían» lo hacían por construcción — el `512`, el `2048` y el `8192`
+**sí** difieren, y nadie los probó porque no suenan a límite de barrido. **Muerde
+sólo cuando el efecto medido es del orden de un término**; en un promedio sobre
+todos los `n < N` da igual.)*
 
 ### Capa 2 — el adversarial, después
 
