@@ -20,6 +20,40 @@
 # Comprobado abajo: los once caen sobre esa curva. No es correlacion, es
 # identidad, y sale de despejar 2^B = 3^A * n + C.
 #
+# ---------------------------------------------------------------------------
+# QUE ES ESTA IDENTIDAD, EN REALIDAD (anotado el 01-08-2026)
+# ---------------------------------------------------------------------------
+#
+# Un auditor clasifico este fichero como "despeje algebraico trivial verificado
+# en 11 casos", y la clasificacion es correcta. Lo que faltaba era la razon:
+# es TRIVIAL PORQUE ES TERRAS 1976 ESCRITO EN LOGARITMOS. La forma completa,
+# sin aproximar nada, es
+#
+#     B*(ln2 - razon*ln3)  =  ln n + S
+#
+# con S = suma de ln(1 + 1/(3x)) sobre los impares de la trayectoria.
+# Verificado en 27, 221, 703, 9663, 100009 y 63728127: error relativo 3e-15,
+# o sea ruido de coma flotante. Y ese S es EL MISMO eps de abajo, que
+# elmasuno.py demostro identico al grosor de la lamina. O sea que "la
+# correccion" no es un ajuste empirico: es el +1.
+#
+# Y LO QUE UNIFICA. Evaluada en razon = 1/2, gamma da clavadas las tres
+# constantes de parada que el CLAUDE.md listaba por separado:
+#
+#     solo los 3n+1   (A)     gamma(1/2) =  3,4760595  =  1/ln(4/3)
+#     pasos del atajo (B)     gamma(1/2) =  6,9521190  =  2/ln(4/3)
+#     pasos clasicos  (A+B)   gamma(1/2) = 10,4281785  =  3/ln(4/3)
+#
+# La "escalera 1:2:3" no son tres constantes: es razon : 1 : 1+razon evaluado
+# en razon = 1/2.
+#
+# EL VEREDICTO HONESTO, que va al lado: NO SIRVE PARA LA FORMULA. Para conocer
+# la razon hay que haber terminado la trayectoria, o sea que este enunciado
+# solo se puede evaluar sobre numeros que ya se sabe que llegan al 1. Es el
+# mismo defecto que el argumento de la moneda, que el repo ya tenia cazado.
+# Vale como UNIFICACION -- quita piezas del inventario en vez de anadirlas --
+# no como via hacia la conjetura.
+#
 # Y LA CORRECCION ES EL GROSOR DE LA LAMINA. La identidad no es perfecta;
 # le sobra un termino, que es exactamente
 #

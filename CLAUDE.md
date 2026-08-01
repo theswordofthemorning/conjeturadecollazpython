@@ -1567,24 +1567,89 @@ el A/B.
 
 ### Las constantes de Collatz (30-07-2026)
 
-Salió de preguntar si existe "la constante de Collatz". **Existe, y varias.** Todas
-medidas sobre trayectorias de 2 a 10⁷.
+Salió de preguntar si existe "la constante de Collatz". **Existe, y varias.**
 
-| constante | valor teórico | medido | error |
-|---|---|---|---|
-| **Wagon** (tiempo de caída medio, tiene entrada propia en OEIS) | **9,4779555565593** | 9,471872 | **−0,064%** |
-| hermana de la anterior (conteo reducido) | 3,4926518521864 | 3,49031 | −0,067% |
-| media geométrica por paso del atajo, `√3/2` | 0,8660254 | 0,8643758 | −0,190% |
-| pasos impares contra `ln(n)`, `1/ln(4/3)` | 3,4760595 | 3,46363 | −0,35% |
-| pasos del **atajo** contra `ln(n)`, `2/ln(4/3)` | 6,9521189 | 6,93247 | −0,28% |
-| pasos **clásicos** contra `ln(n)`, `3/ln(4/3)` | **10,4281785** | 10,3961 | −0,31% |
-| divisiones por multiplicación, `B/A` | **2** | 2,014002 | +0,70% |
+> **CORRECCIÓN (01-08-2026): esta tabla mezclaba DOS ESTIMADORES y DOS RANGOS
+> sin decirlo, y eso es exactamente lo que el propio documento tituló «TRAMPA DE
+> ESTIMADOR, anotada porque mordió» — cuatro párrafos más abajo, en la misma
+> sección.** La columna «medido» decía *«todas medidas sobre trayectorias de 2 a
+> 10⁷»* y no era verdad de todas las filas. Ahora cada fila lleva su etiqueta.
+
+| constante | valor teórico | medido | estimador y rango | error |
+|---|---|---|---|---|
+| **Wagon** (tiempo de caída medio, OEIS **A122790**) | **9,477955556559274736916681012589** | 9,471872 | muestreo a 10⁷ | **−0,064%** |
+| hermana de la anterior (conteo reducido) | 3,4926518521864249123 | 3,49031 | **⚠ sin explicar** | −0,067% |
+| media geométrica por paso del atajo, `√3/2` | 0,8660254 | 0,8643758 | muestreo a 10⁷ | −0,190% |
+| pasos impares contra `ln(n)`, `1/ln(4/3)` | 3,4760595 | 3,46140 | **pendiente de regresión, 10⁷** | −0,42% |
+| pasos del **atajo** contra `ln(n)`, `2/ln(4/3)` | 6,9521189 | 6,92916 | **pendiente de regresión, 10⁷** | −0,33% |
+| pasos **clásicos** contra `ln(n)`, `3/ln(4/3)` | **10,4281785** | 10,39057 | **pendiente de regresión, 10⁷** | −0,36% |
+| divisiones por multiplicación, `B/A` | **2** | 2,014002 | **agregado `ΣB/ΣA`, 10⁶** | +0,70% |
+| lo mismo, un rango más | **2** | 2,012389 | agregado `ΣB/ΣA`, 10⁷ | +0,62% |
+| lo mismo, con el otro estimador | **2** | **2,0018** | pendiente de regresión, 10⁷ | **+0,09%** |
+
+**Y LA IRONÍA HAY QUE DEJARLA ESCRITA:** el `B/A = 2,014002` es **agregado a
+10⁶**, y las tres constantes de parada son **pendiente de regresión a 10⁷**.
+Ponerlas en la misma columna «medido» sugiere que son comparables, y no lo son.
+*Pasó en la misma sección que avisa de esto, y ni así se vio. Una advertencia
+escrita no es una comprobación.*
+
+> **Y el agregado NO converge a `10,428` en ningún rango alcanzable.** El
+> intercepto de la recta vale **`−1,73` pasos** y sólo se diluye como `1/ln n`:
+> a `10⁶` el agregado da `10,25588` y sigue subiendo lentísimo. **Con término
+> aditivo, el estimador correcto es la pendiente, no el cociente de sumas** — y
+> con la pendiente sale `B/A = 2,0018` y `(A+B)/A = 3,0018`, o sea la escalera
+> `1:2:3` casi exacta. *El agregado y la pendiente están los dos bien medidos y
+> miden cosas distintas; lo que estaba mal era no decir cuál era cuál.*
 
 **La escalera 1 : 2 : 3 es la misma constante mirada de tres formas** — un bloque
 impar cuesta 1, 2 o 3 pasos según se cuenten sólo los `3n+1`, los del atajo o los
 clásicos. **Ojo con la atribución:** `2/ln(4/3) = 6,952` es la del **atajo**, no la
 del mapa clásico; el clásico es `3/ln(4/3) = 10,428`. Confundirlas da un 49,5% de
 error.
+
+#### `γ(ρ)` unifica cuatro entradas de este documento en una sola
+
+Y la escalera **no son tres constantes**: es una función evaluada en un punto.
+La identidad `γ = 1/(ln2 − ρ·ln3)` que gobierna los once hilos (`mapahilos.py`)
+**no es una hipótesis ajustada — es exacta**, y es la identidad de la trayectoria
+escrita en logaritmos, o sea **Terras 1976 otra vez**:
+
+```
+B·(ln2 − ρ·ln3)  =  ln n + S       con  ρ = A/B  y  S = Σ ln(1 + 1/(3x)) sobre los impares
+```
+
+Verificado en 27, 221, 703, 9663, 100009 y 63728127: error relativo **`3·10⁻¹⁵`**,
+o sea ruido de coma flotante. **Y ese `S` es el mismo `ε` que `elmasuno.py`
+demostró idéntico al grosor de la lámina** — el «término de corrección» de
+`mapahilos.py` **es el `+1`**, no un ajuste empírico.
+
+**Evaluada en `ρ = 1/2` da clavadas las tres constantes de parada:**
+
+```
+solo los 3n+1   (A)     gamma(1/2) =  3,4760595  =  1/ln(4/3)
+pasos del atajo (B)     gamma(1/2) =  6,9521190  =  2/ln(4/3)
+pasos clasicos  (A+B)   gamma(1/2) = 10,4281785  =  3/ln(4/3)
+```
+
+**El `1 : 2 : 3` es `ρ : 1 : 1+ρ` evaluado en `ρ = 1/2`.** Cuatro entradas que
+este documento listaba por separado —la identidad de los once hilos, las tres
+constantes de parada, el `ε` de la lámina y el sobrante `S` de la fracción
+impar— son **una sola cosa** contada de varias maneras.
+
+> **PERO EL VEREDICTO HONESTO ES QUE NO SIRVE PARA LA FÓRMULA, y hay que
+> escribirlo al lado.** Por el detector que salió de esta misma auditoría —*«si
+> un enunciado sólo se puede evaluar sobre trayectorias que ya llegaron a 1, no
+> es un criterio: es contabilidad»*— esto cae del lado malo: **para conocer `ρ`
+> hay que haber terminado la trayectoria.** Es exactamente el mismo defecto que
+> el argumento de la moneda, que el repo ya tenía cazado (*«la fracción impar
+> queda determinada por cuánto bajó y cuántos pasos tardó»*).
+>
+> **Vale como unificación, no como vía.** Y unificar tiene valor propio: es lo
+> único que este laboratorio hace que **quite** piezas del inventario en vez de
+> añadirlas. *Anotado también por qué el auditor había clasificado
+> `mapahilos.py` como «despeje algebraico trivial verificado en 11 casos»: era
+> trivial porque **es Terras en logaritmos**. La clasificación era correcta y su
+> razón estaba a la vista.*
 
 **Y `B/A` converge a 2, no a `log₂(3)`.** La raíz es que la valuación 2-ádica media
 de `3n+1` vale 2 (porque `P(v=k) = 2⁻ᵏ`): medido **1,99048** sobre 4.041.132 saltos.
@@ -1595,7 +1660,96 @@ números distintos y no se contradicen.
 trayectoria por trayectoria da **2,174** (+8,7%, no coincide), porque promedia un
 cociente con denominador chico y por Jensen se va hacia arriba. El estimador
 correcto es el **agregado** `Σ B / Σ A`. La misma trampa reapareció en el ajuste
-fino: pesar por pasos y pesar por números dan cosas distintas.
+fino: pesar por pasos y pesar por números dan cosas distintas. *(Y una tercera
+vez, arriba, en esta misma tabla.)*
+
+#### Wagon: el valor está bien y la fórmula publicada está mal
+
+**Confirmada a 35 cifras** contra **OEIS A122790**, por un camino que no es el de
+OEIS: programación dinámica exacta sobre vectores de paridad, `K = 2.200`
+niveles, con el entero escalado por `2^K` para no tocar un solo `float`.
+
+```
+aquí:  9.477955556559274736916681012589
+OEIS:  9.477955556559274736916681012589041942281871...
+```
+
+> **PERO LA FÓRMULA ESTÁ MAL IMPRESA DESDE 1985, y OEIS lo documenta.** La
+> entrada **A100982** recoge la errata **en Wagon *y* en Chamberland**:
+> `floor(1 + 2i + i·log₂3)` debería ser **`floor(1 + i + i·log₂3)`**. **El valor
+> es correcto; la definición publicada no.** Se anota porque es el caso limpio
+> de algo que este repo ya vio dos veces esta semana: *una constante puede estar
+> bien calculada y mal enunciada, y quien la reimplemente desde el enunciado
+> obtiene otra cosa.*
+
+#### `E[unos] = E[σ]/2` no es una coincidencia numérica
+
+La media de pasos impares dentro de la ventana de descenso sale **exactamente**
+la mitad de la media de pasos:
+
+```
+media de pasos (atajo)  = 3,492651852186424912
+media de pasos impares  = 1,746325926093212456
+```
+
+**Es el teorema del paro opcional de Doob** sobre la biyección de Terras: los
+bits de paridad son monedas justas y `σ` es un tiempo de paro, luego
+`E[unos] = E[σ]/2`. **Las dos «constantes independientes» que este documento
+listaba son una sola** — la de arriba y la «hermana» son la misma medición
+dividida por dos.
+
+#### El `3,49031` es un número sin explicar
+
+En la columna «medido» de la fila «hermana de Wagon» hay un `3,49031` de la
+sesión del 30-07-2026, **y ninguna variante probada lo reproduce**:
+
+| definición | valor a 10⁷ |
+|---|---|
+| la natural (media del tiempo de descenso en el atajo, todos los `n`) | 3,490781 |
+| sólo impares | 5,981561 |
+| contando unos | 1,745155 |
+| clásico sobre todos | 5,235936 |
+
+**Queda marcado como NÚMERO SIN EXPLICAR.** Es de la sesión que *no dejó
+ficheros*, así que no hay código que reproducirlo — que es exactamente la razón
+por la que esa deuda está anotada. *No se borra: se marca. Un número que nadie
+puede reproducir es un dato sobre nuestro proceso, no sobre Collatz.*
+
+#### `Res ≥ 1` no es estricta: vale `1` clavado en las potencias de 2
+
+La cota `Res(n) = 2^B/(3^A·n) ≥ 1` se demuestra en una línea (`C ≥ 0` en la
+identidad), pero **la igualdad se alcanza**: `C = 0` exacto en las **19 potencias
+de 2** hasta 10⁶ (`2^1 … 2^19`), en todas y sólo en ellas. Fuera de ahí es
+estricta.
+
+```
+Res(n) >= 1,  con igualdad exactamente en n = 2^m
+```
+
+*Coherente: una potencia de 2 no tiene ni un solo paso impar, luego no hay ningún
+`+1` que sumar. Es el mismo `+1` otra vez, contado por su ausencia.*
+
+#### `σ = χ` es una CONJETURA ABIERTA de Terras, no un hecho
+
+El *dropping time* `σ` (dónde baja de verdad) y el *coefficient stopping time*
+`χ` (dónde el coeficiente `2^k/3^{m_k}` baja de 1) **no son lo mismo por
+definición**. Lo demostrado es `σ ≥ χ`; que sean iguales es la **conjetura CST**,
+abierta desde 1976.
+
+Medido aquí: **0 diferencias en los impares hasta `2·10⁶`**.
+
+> **El enunciado honesto, y en la taxonomía de este repo vale MÁS que el que
+> tenía:** `E[χ]` es una **cota inferior demostrada** de `E[σ]`, no un
+> «promedio». La constante de Wagon se etiquetaba como promedio; la mitad de lo
+> que la sostiene es una cota. *Es la primera vez que una corrección de esta
+> auditoría mejora la categoría de algo en vez de degradarla.*
+>
+> **Y conecta con un pendiente que ya está en `bitacora.md`**: el bloque 1 de la
+> lista de la búsqueda web es precisamente la conjetura CST, con el aviso de que
+> *si CST es cierta no hay ciclos no triviales*. **En coordenadas del repo,
+> `2^k > 3^{m_k}` es `B/A > log₂3`, y la diferencia entre `σ` y `χ` es
+> exactamente el `C` de la identidad, o sea el `+1`.** El puntero queda aquí
+> para que las dos mitades se encuentren.
 
 ### El ajuste fino: por qué el 3 y no otro (30-07-2026)
 
@@ -2185,6 +2339,26 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
 - **«La lista entera de la Tabla C son las convergentes y semiconvergentes»**
   (01-08-2026): es **la mitad** — sólo las que aproximan `log₂3` por encima.
   `3/2`, `19/12`, `84/53`, `1054/665` son convergentes y no son jump values.
+- **La tabla de constantes mezclaba dos estimadores y dos rangos sin decirlo**
+  (01-08-2026). Las tres constantes de parada son **pendiente de regresión a
+  10⁷**; el `B/A = 2,014002` es **agregado a 10⁶**. *Y pasó en la misma sección
+  que lleva el título «TRAMPA DE ESTIMADOR, anotada porque mordió»: una
+  advertencia escrita no es una comprobación.*
+- **`E[unos]` y `E[σ]` no son dos constantes independientes** (01-08-2026): son
+  la misma dividida por dos, por el teorema del paro opcional de Doob sobre la
+  biyección de Terras.
+- **La fórmula de Wagon está mal impresa desde 1985** (01-08-2026), y OEIS lo
+  documenta en **A100982** — la errata está en Wagon *y* en Chamberland. El
+  **valor** es correcto (confirmado a 35 cifras contra A122790 por camino
+  independiente); la definición publicada no.
+- **`Res ≥ 1` no es estricta** (01-08-2026): vale `1` clavado en las 19 potencias
+  de 2 hasta 10⁶, y sólo en ellas.
+- **El `3,49031` de la tabla de constantes no lo reproduce ninguna definición**
+  (01-08-2026). Marcado como **número sin explicar**. Viene de la sesión que no
+  dejó ficheros.
+- **`σ = χ` es una conjetura abierta de Terras, no un hecho** (01-08-2026). Lo
+  demostrado es `σ ≥ χ`. *Y eso MEJORA la categoría: `E[χ]` es una cota inferior
+  demostrada de `E[σ]`, no un promedio.*
 - **«`T^k` es una biyección sobre `Z/2^k`» es falso al pie de la letra**
   (01-08-2026). `T^k` ni está bien definida módulo `2^k` (`k=1`: `T(0)=0`,
   `T(2)=1` y son la misma clase), ni `T` es inyectiva sobre `Z` (`T(1)=T(4)=2`).
