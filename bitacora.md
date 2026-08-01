@@ -5,7 +5,68 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
-## 2026-08-01 — el día en que la documentación se editó a ciegas
+## 2026-08-01 (tarde) — el punto 5 cerrado, y una cita que existía y aun así sobraba
+
+Mantenimiento otra vez, delegado a un agente como manda la regla de prioridad.
+**Se cerraron las diez correcciones que quedaban del punto 5.** El detalle está
+ahí abajo, en el propio punto 5. Lo que vale la pena contar aquí son las tres
+cosas que salieron y no estaban previstas.
+
+### 1. La cita fantasma existía. Y había que quitarla igual
+
+El plan decía: *«localizar la cita del `≥ 19.478.780.533` o degradarla»*. Se
+localizó — **Laurore, *Adv. Pure Math.* 15(6) (2025), DOI
+`10.4236/apm.2025.156018`**, con DOI que resuelve en Crossref. Y aun así hubo que
+sacarla, por tres razones acumuladas:
+
+- editorial **SCIRP**, **cero citas**;
+- el número es **once veces más débil** que el estado del arte (Barina 2025:
+  `217.976.794.617` en el atajo, `355.504.839.929` en el clásico). O sea que el
+  repo llevaba citada como *«lo que exige la literatura»* **una cota peor que la
+  que ya se conocía**;
+- **no encaja en la forma cerrada de Eliahou 1993** (`301994a + 17087915b +
+  85137581c`, `b ≥ 1`, `a·c = 0`). Barrido exhaustivo propio: **0 soluciones**,
+  mientras que `10.439.860.591`, `114.208.327.604` y `217.976.794.617` sí
+  encajan.
+
+> **La salida que faltaba en la lista.** Eran dos opciones —localizar o
+> degradar— y resultan ser tres: **localizar y descartar igualmente.** Que una
+> cita exista no la hace buena; hay que mirar dónde se publicó y si el número
+> mejora o empeora lo que ya se sabía.
+
+### 2. El `0,2286` no difería «en la tercera cifra». Estaba en otra unidad
+
+El punto 5 decía que el grosor de la lámina y `ln(Res(993))` diferían en la
+tercera cifra. **Es peor: uno está en bits y el otro en nats, y no miden lo
+mismo.** `0,2286 bits = 0,158478 nats` contra `0,225654 nats = 0,325550 bits` —
+factor **1,42**. Y el `0,2286` **ni siquiera es una cota**: su máximo se alcanza
+en el par `(221 → 16)`, que es la trayectoria entera del 221, así que ese número
+mide el 221 y nada más.
+
+*Es la hermana exacta del acierto de `elmasuno.py` —allí dos números que parecían
+distintos eran el mismo—, y las dos se arreglan igual: **traducir a las mismas
+unidades antes de comparar.***
+
+### 3. La frase de la holgura mezclaba TRES rangos, no dos
+
+Lo que estaba anotado eran dos. Con `pisoaltitud.py` delante salieron tres: los
+`99.999 casos` no son del enunciado de los impares (ése tiene **49.999**), son de
+la variante del **atajo**. **Tercera aparición del mismo modo de fallo** — tomar
+el valor de una muestra por una constante — después del `1,7345` del coral y del
+`0%` de encimadas de Harriss.
+
+### El saldo en código
+
+`mapahilos.py` y `elmasuno.py` calculan `RES_993` en vez de copiarla (y el
+segundo corta con `SystemExit` si alguien la vuelve a escribir a mano);
+`guardarhilos.py` imprime por separado el hecho y la atribución;
+`guardarafirmaciones.py` renombra el cuantificador a `clase_residual` y añade
+tres correcciones y una constante. Los cuatro corridos, 0 fallos. Barrido cp1252
+sobre los 35 `.py`: **0 hallazgos**.
+
+---
+
+## 2026-08-01 (mañana) — el día en que la documentación se editó a ciegas
 
 Sesión corta y de mantenimiento. **El saldo es una regla nueva, y la pagó un
 error propio.**
@@ -65,11 +126,12 @@ Y **la Fase 1 del plan de la pinza** figuraba como pendiente teniendo ya
 
 ### Lo que NO se hizo, para que no se dé por cerrado
 
-**El punto 5 sigue abierto: se cerraron 2 de sus 6 correcciones.** Quedan la
+**El punto 5 quedó abierto: se cerraron 2 de sus 6 correcciones.** Quedaban la
 holgura mínima del piso (1), el exponente de la criba (4), el `0,2286` contra
 `ln(Res(993))` (5) y la errata de `RES_993` en `mapahilos.py` (6) — más las
 cuatro cosas de la lista de abajo, de las que sólo se mencionó que las dos
-discrepancias con Hercher existen, **sin escribir sus valores**.
+discrepancias con Hercher existen, **sin escribir sus valores**. *(Las ocho se
+cerraron esa misma tarde; ver la entrada de arriba.)*
 
 *Nota de fechas: el punto 5 habla de «la sesión del 31-07-2026» y el commit que
 la contiene está fechado el 30-07. No se tocó; queda anotado por si confunde.*
@@ -220,7 +282,7 @@ cuantificadores:
 | cuantificador | ¿tiene sentido cruzarlo contra 11 hilos? |
 |---|---|
 | `todo_n` | **Sí.** Once contraejemplos potenciales. Si falla uno, la afirmación es falsa |
-| `clase_mod_2k` | **Sí**, vía los restos de los once. Comprobación real |
+| `clase_residual` | **Sí**, vía los restos de los once. Comprobación real. *(Se llamaba `clase_mod_2k` hasta el 01-08-2026; el módulo no siempre es `2^k`.)* |
 | `casi_todo_n` | No. Once números no dicen nada de una densidad |
 | `promedio` | **NO, y es peligroso.** Once trayectorias no estiman una media |
 | `ciclos` | No aplica: ninguno de los once es un ciclo |
@@ -238,64 +300,90 @@ comparten la cola `[16, 8, 4, 2, 1]` por obligación. 275 de los 1.258 cruces so
 eso y no significan nada. `hilos.db` marca cada cruce con `es_cola` justamente
 para esto; hay que usar esa columna y no contar la cola como coincidencia.
 
-### 5. CONSOLIDAR EL `CLAUDE.md` — abierto: 2 de 6 hechas el 01-08-2026
+### 5. CONSOLIDAR EL `CLAUDE.md` — ⇢ CERRADO EL 01-08-2026
 
 La sesión del **31-07-2026** dejó seis ficheros nuevos y **seis correcciones sin
-escribir en el documento**. El código está hecho y verificado; la documentación
-va atrasada. Es exactamente la deuda del punto 3, otra vez, sólo que al revés.
-
-**Estado: las número 2 y 3 se consolidaron el 01-08-2026 (commit `d8b1d73`).
-Quedan la 1, la 4, la 5 y la 6, y las cuatro de la lista de después.**
+escribir en el documento**, más cuatro cosas sueltas. **Las diez están hechas:**
+la 2 y la 3 el 01-08-2026 por la mañana (commit `d8b1d73`), y las ocho restantes
+esa misma tarde.
 
 **Las seis correcciones al `CLAUDE.md`:**
 
-1. **La holgura mínima del piso no es una constante.** Vale `log2(1 + 1/(3n))` y
-   decrece con `n`, o sea que depende del rango barrido. Y la frase del documento
-   **mezcla dos rangos**: el `+0,000002` y los `99.999 casos` son de un barrido a
-   **200.000**; el `28.325 de 50.000` de los pares es a **100.000**.
-   *(Tercera vez que aparece el mismo modo de fallo: tomar el valor de una muestra
-   por una constante. Las otras dos fueron el `1,7345` del coral y ésta.)*
-2. **El `+1` aparece DOS veces, no tres.** `ε = ln(2^B/(3^A·n))` y
-   `S = Σ ln(1+1/(3x))` son **idénticamente la misma suma** (`elmasuno.py`,
-   20.011 casos exactos). El residuo `1,7e-7` era error de coma flotante. Y de ahí
-   sale que `ε > 0` queda **demostrado para todo `n`**, no medido en 6.555 pares.
-3. **La explicación del coral era casi toda falsa.** `45 = 3²·5` adelanta el choque
-   **de 32 a 31: un nivel de treinta y uno**. El motor real son las permutaciones
-   de aristas, que existen para cualquier `N`. La ley medida es
-   `(N+11)/2` si `N ≡ 3 (mod 4)` y `(N+19)/2` si `N ≡ 1 (mod 4)`, sin rastro de la
-   factorización. **Y la predicción del número primo de rumbos FALLÓ**: 43 y 47
-   chocan antes que 45. Hay que reescribir la sección entera y quitar esa
-   candidatura a nota original.
-4. **El exponente de la criba `2^(−0,05k)` es el asintótico.** En el rango real
-   (`k = 34`) es ≈ **0,108**, el doble.
-5. **El grosor `0,2286` y `ln(Res(993)) = 0,225654` NO son el mismo número.** El
-   documento los identifica; uno se midió sobre pares de una trayectoria y el otro
-   sobre trayectorias enteras, y difieren en la tercera cifra.
-6. **Errata de constante:** `mapahilos.py` guarda `RES_993 = 1.2531421442887503`
-   y el exacto es `2^61/(3^32·993) = 1,2531421443950680…` — mal desde la décima
-   cifra. No mueve nada medido, pero hay que arreglarlo.
+1. ⇢ **HECHA. La holgura mínima del piso no es una constante.** Vale
+   `log2(1 + 1/(3n))` y decrece con `n`. *Y la frase mezclaba **tres** barridos,
+   no dos, que fue lo que apareció al mirarla con `pisoaltitud.py` delante:* los
+   `99.999 casos` son del barrido a 100.000 **pero de la variante del atajo** —el
+   enunciado de los impares tiene **49.999**—, el `+0,000002` es de un barrido a
+   **200.000**, y el `28.325 de 50.000` es de 100.000. Verificado que la fórmula
+   reproduce el mínimo medido: `log2(1+1/(3·99.997)) = +0,000004809` contra
+   `+0,000004809` medido. *(Tercera vez del mismo modo de fallo; las otras dos
+   son el `1,7345` del coral y el `0%` de encimadas de Harriss.)*
+2. ⇢ **HECHA (`d8b1d73`). El `+1` aparece DOS veces, no tres.**
+3. ⇢ **HECHA (`d8b1d73`). La explicación del coral era casi toda falsa.**
+4. ⇢ **HECHA. El exponente de la criba `2^(−0,05k)` es el asintótico.** En el
+   tramo `k = 20..40`, que es donde vive el `k = 34` de Barina, el decaimiento
+   medido es **`0,108101`** — el doble. Cada bit extra elimina **7,2%** ahí y
+   **3,4%** en el límite. La tabla por tramos de `descensoresto.py` (hasta
+   `k = 1400`) está copiada al documento, con el aviso del signo: un exponente
+   mayor significa que la densidad cae **más deprisa**.
+5. ⇢ **HECHA, y salió peor de lo que decía este punto. El `0,2286` y el
+   `ln(Res(993)) = 0,225654` no difieren «en la tercera cifra»: están en
+   UNIDADES DISTINTAS.** El `0,2286` es `log₂` (bits) sobre los 6.555 pares del
+   221; el `0,225654` es `ln` (nats) sobre trayectorias enteras. Traducidos:
+   `0,2286 bits = 0,158478 nats` contra `0,225654 nats = 0,325550 bits`, factor
+   **1,42**. Y el `0,2286` **ni siquiera es una cota**: el máximo sobre los pares
+   del 221 se alcanza en el par `(221 → 16)`, que es su trayectoria entera, así
+   que ese número es el `ε` del propio 221 en bits (`Res(221) = 1,17173`). Lo que
+   sí vale es la desigualdad `h ≤ log₂(Res(seq[i]))`.
+6. ⇢ **HECHA. Errata de constante.** `mapahilos.py` y `elmasuno.py` guardaban a
+   mano `RES_993 = 1.2531421442887503`; ahora los dos la calculan como
+   `2**61/(3**32*993)` y `elmasuno.py` corta con `SystemExit` si alguien vuelve a
+   copiarla. Comprobado que no mueve nada: `mapahilos.py` sigue imprimiendo
+   `techo = 0.225654` y `fallos: 0`.
 
-**Y cuatro cosas más que salieron al clasificar y no están escritas:**
+**Y las cuatro cosas más que salieron al clasificar:**
 
-- **`«cualquier otro ciclo mide ≥ 19.478.780.533 pasos»` no tiene fuente.** Se
-  atribuye a «la literatura de 2025», sin autor ni título. Es la única afirmación
-  marcada `demostrado` cuya fuente no nombra a nadie. Localizarla o degradarla.
-- **La comprobación 4 de `guardarhilos.py`** se anuncia como «la literatura
-  predijo nuestro hallazgo» y se apoya en **Wu–Huang 2001, marcada como no
-  verificable**. El hecho es cierto (`clasesfusion.py` lo rederiva); la atribución
-  no está comprobada.
-- **El vocabulario de `afirmaciones.db` se quedó corto:** la rueda del árbol es una
-  clase residual **módulo `3^j`, no `2^k`**. La categoría real es «clase residual».
-- **Las dos discrepancias con Hercher** (`reimpl.py`) no están documentadas: el
-  séptimo `epsilon` (`1,2298e-43` contra `1,11e-43`) y la tercera fila de la
-  Tabla 1 (`4,640282e18` contra `4,68e18`).
+- ⇢ **HECHA, con giro. La cita de `≥ 19.478.780.533 pasos` SE LOCALIZÓ, y hubo
+  que quitarla igual.** Es **Laurore, *Adv. Pure Math.* 15(6) (2025) 351–389,
+  DOI `10.4236/apm.2025.156018`** — el DOI resuelve en Crossref. Pero es de
+  **SCIRP**, tiene **cero citas**, y sobre todo **el número es 11 veces más
+  débil que el estado del arte**: Barina 2025 da `217.976.794.617` (atajo) y
+  `355.504.839.929` (clásico). Además **no encaja en la forma cerrada de
+  Eliahou 1993** (`301994a + 17087915b + 85137581c`, `b ≥ 1`, `a·c = 0`):
+  barrido exhaustivo, **0 soluciones**, mientras que las tres cotas verificadas
+  sí encajan. Sustituida por la de Barina en los dos sitios donde vivía.
+  *Lección que no estaba prevista: la salida no era «localizar o degradar»,
+  eran tres — faltaba **localizar y descartar igualmente**.*
+- ⇢ **HECHA. La comprobación 4 de `guardarhilos.py`.** Separadas las dos cosas
+  en el `CLAUDE.md` y en el `print()`: **el hecho es cierto y es propio**
+  (`clasesfusion.py` lo rederiva desde Terras y decide los infinitos `m`), **la
+  atribución a Wu–Huang 2001 sigue pendiente de localizar**. Quitada la frase
+  «la literatura predijo nuestro hallazgo».
+- ⇢ **HECHA. El vocabulario de `afirmaciones.db`.** `clase_mod_2k` renombrado a
+  **`clase_residual`** en las 23 apariciones, con la razón escrita en la
+  cabecera: la categoría es la **forma** del argumento —una comprobación finita
+  que decide para los infinitos números de una clase de resto— y el módulo es un
+  detalle del enunciado. Las dos filas que lo motivaron (la rueda del árbol, mod
+  3/9/27; y los evitados de `2n mod 27`) ya no llevan una nota pidiendo perdón
+  por la casilla. Base regenerada: **80 afirmaciones, 22 correcciones, 20
+  constantes, las tres comprobaciones a 0 fallos.**
+- ⇢ **HECHA. Las dos discrepancias con Hercher**, con sus valores y con la
+  explicación de por qué ninguna mueve el resultado. El séptimo `ε` sale
+  `1,2298e-43` contra `1,11e-43` (el nuestro es **más conservador**, y el
+  denominador mínimo es **plano** en todo el rango: seis valores de `ε` entre
+  `8e-44` y `5e-43` dan el mismo `7.941.964.418.702.608.664.581`). La fila
+  `m = 276` de la Tabla 1 sale `4,640282e+18` contra `4,68e18`, y ahí la
+  sospecha va contra el papel: `4,68e18` **no es denominador de ninguna
+  semiconvergente de `log₂3`**, luego no es alcanzable por el método.
 
 **Y la observación estructural que más importa para el objetivo elegido:** de las
-72 afirmaciones de la base, el bucle `casi_todo_n` tiene **5 filas y 3 sin fichero
-detrás**. El repo **no tiene ni una línea de código propio** que verifique nada de
-tipo «casi todo `n`» — todo es literatura ajena (Everett, Tao). Y ése es justo el
-hueco «casi todos → todos» donde se decidió apuntar. Hay 31 piezas que componen
-sobre clases y **cero instrumentos propios sobre densidad**.
+**80** afirmaciones de la base, el bucle `casi_todo_n` tiene **5 filas y las 5 sin
+fichero detrás**. El repo **no tiene ni una línea de código propio** que verifique
+nada de tipo «casi todo `n`» — todo es literatura ajena (Everett, Tao). Y ése es
+justo el hueco «casi todos → todos» donde se decidió apuntar. Hay **34** piezas
+que componen sobre clases y **cero instrumentos propios sobre densidad**.
+*(Conteos reverificados contra `afirmaciones.db` el 01-08-2026; los que había
+—72, 3 sin fichero, 31 piezas— estaban desfasados.)*
 
 ---
 

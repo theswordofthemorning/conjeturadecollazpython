@@ -34,12 +34,34 @@
 #     existen infinitas. Hay una tupla de 35.654 empezando en 2^500 + 1.
 #   - Wu Jia-Bang (1992,1993,1995): la tupla mas larga bajo 2^30 es de 176,
 #     empezando en 722.067.240; y encontro una de 310 en 6.622.073.000.
-#   - Wu y Huang (2001): las familias de pares consecutivos que se funden son
-#     progresiones aritmeticas modulo 2^k. Dan ejemplos publicados:
+#   - Wu y Huang (2001), CITA SIN VERIFICAR -- LEER EL AVISO DE ABAJO: las
+#     familias de pares consecutivos que se funden son progresiones
+#     aritmeticas modulo 2^k, con los ejemplos
 #         (32m+5, 32m+6),  (64m+45, 64m+46),  (128m+29, 128m+30)
-#     La COMPROBACION 4 de abajo usa esto: 100005 = 32*3125 + 5, o sea que
-#     nuestro par (100005, 100006) es un caso de la primera familia. Si la
-#     literatura tiene razon, ese par se funde para CUALQUIER m. Se comprueba.
+#     La COMPROBACION 4 de abajo usa la primera: 100005 = 32*3125 + 5, o sea
+#     que nuestro par (100005, 100006) es un caso de esa familia.
+#
+# AVISO SOBRE ESA CUARTA REFERENCIA, Y HAY QUE SEPARAR DOS COSAS.
+#
+#   EL HECHO ES CIERTO Y ESTA VERIFICADO AQUI: (32m+5, 32m+6) se funden para
+#   todo m. La comprobacion 4 lo prueba en ocho valores de m, y clasesfusion.py
+#   lo REDERIVA de forma independiente desde el criterio de Terras -r = 5,
+#   k = 5 da T^5(5) = T^5(6) = 2 con S = 2 en los dos- lo cual decide de golpe
+#   los infinitos m de la clase. O sea que el resultado no depende de la cita.
+#
+#   LA ATRIBUCION NO ESTA COMPROBADA. "Wu y Huang 2001" no tiene DOI, no
+#   aparece en Crossref, y Elia-Tucker 2015 -que enuncian el criterio casi
+#   textual- no la citan: su bibliografia entera son cuatro entradas (Garner
+#   1985, Lagarias, LaTourette 2007, Terras 1976). O la cita esta mal copiada
+#   de algun sitio, o el trabajo existe y es de dificil acceso.
+#
+#   Por eso esta comprobacion NO se puede anunciar como "la literatura predijo
+#   nuestro hallazgo". Lo unico que se puede decir es que el hecho es cierto,
+#   que lo demuestra un criterio propio, y que la referencia esta pendiente de
+#   localizar. Las que SI estan verificadas por Crossref son Terras 1976,
+#   Garner 1985, Lagarias 1985, Gao 1993 y Elia-Tucker (INTEGERS 15 (2015)
+#   #A54), y de esas el mecanismo general -si dos se funden, 2^r*k + n1 y
+#   2^r*k + n2 se funden para todo k- es de Garner.
 #   - Oliveira e Silva usa la fusion de n y n-1 como optimizacion industrial
 #     de su criba: le quita el 17,5% de las hojas del arbol de busqueda.
 #
@@ -321,11 +343,17 @@ if fallos_vuelta:
     raise SystemExit("Lo guardado no coincide con lo calculado. No sirve.")
 
 
-# ------------- COMPROBACION 4: la familia publicada (32m+5, 32m+6)
+# ------------- COMPROBACION 4: la familia (32m+5, 32m+6)
 #
-# Wu y Huang (2001) publicaron que los pares (32m+5, 32m+6) se funden para
-# todo m. Nuestro par (100005, 100006) es el caso m = 3125. Si la literatura
-# tiene razon, debe cumplirse para cualquier m que probemos.
+# Los pares (32m+5, 32m+6) se funden para todo m. Nuestro par (100005, 100006)
+# es el caso m = 3125.
+#
+# EL HECHO no depende de ninguna cita: clasesfusion.py lo rederiva desde el
+# criterio de Terras, y ese criterio decide de golpe los infinitos m. Aqui se
+# comprueba a mano en ocho valores para que se vea.
+#
+# LA ATRIBUCION a Wu y Huang 2001 esta PENDIENTE DE LOCALIZAR (sin DOI, no
+# esta en Crossref, Elia-Tucker no la citan). Ver el aviso de la cabecera.
 
 def se_funden(x, y):
     """Devuelve (valor, paso_x, paso_y) del primer numero comun, o None."""
@@ -339,8 +367,15 @@ def se_funden(x, y):
     return None
 
 
-print(f"\nCOMPROBACION 4 -- la familia publicada (32m+5, 32m+6), Wu y Huang 2001")
+print(f"\nCOMPROBACION 4 -- la familia (32m+5, 32m+6)")
 print(f"  nuestro par 100005 / 100006 es el caso m = {(100005 - 5) // 32}")
+print(f"  EL HECHO: verificado aqui y rederivado por clasesfusion.py desde el")
+print(f"    criterio de Terras (r=5, k=5: T^5(5)=T^5(6)=2 con S=2 los dos),")
+print(f"    que lo decide para los INFINITOS m de la clase, no solo estos ocho.")
+print(f"  LA ATRIBUCION: 'Wu y Huang 2001' esta SIN VERIFICAR -sin DOI, no")
+print(f"    esta en Crossref, y Elia-Tucker 2015 no la citan. Esto NO es 'la")
+print(f"    literatura predijo nuestro hallazgo': es un hecho propio con una")
+print(f"    referencia pendiente de localizar. Son dos cosas distintas.")
 fallos_familia = 0
 desfases = []
 for m in [0, 1, 2, 7, 100, 3125, 9999, 40000]:

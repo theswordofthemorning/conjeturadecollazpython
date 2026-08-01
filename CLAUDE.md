@@ -275,7 +275,7 @@ for a in sorted(glob.glob('*.py')):
 | `resultado_paralelo_k32.txt` | La verificación cruzada de `a(32)`: secuencial y paralelo dan `1.871.137.623` |
 | `pisoaltitud.py` | **El piso de la altitud**, con su corrección: vale para `n` impar, y los pares fallan a propósito |
 | `elmasuno.py` | **`ε` y `S` son la misma suma**, exacto. El `+1` aparece dos veces, no tres |
-| `reimpl.py` | **El Teorema 23 de Hercher reproducido**, 7/7, sin un float en la cadena que decide |
+| `reimpl.py` | **El Teorema 23 de Hercher reproducido**, 7/7, sin un float en la cadena que decide. **Y dos discrepancias contra lo publicado**, ninguna de las cuales mueve el resultado |
 | `coralprimos.py` | El número **primo** de rumbos. La predicción falló y la explicación del 45 se cayó |
 | `descensoresto.py` | **El tiempo de descenso contra el resto**. `A076227` reproducida; la criba nunca se vacía |
 | `guardarafirmaciones.py` | Escribe `afirmaciones.db`. No dibuja nada |
@@ -372,29 +372,100 @@ pares. Comprobado en **los 6.555 pares** de la trayectoria del 221: **0 fallos**
 identidad da `A=1, B=2, C=1`, o sea **`2² = 3¹ + 1`** → **`4 = 3 + 1`**.
 Buscando ciclos escondidos en los 6.555 pares aparecieron 95 candidatos enteros
 positivos; los 95 ciclan de verdad y son `n ∈ {1, 2, 4}` dando 1, 2 o 3 vueltas.
-Cero impostores. *(Esto no es evidencia de nada: la literatura de 2025 exige que
-cualquier otro ciclo mida ≥ 19.478.780.533 pasos, y nuestro tramo más largo mide
-114. La búsqueda no podía encontrar nada.)*
+Cero impostores. *(Esto no es evidencia de nada: cualquier otro ciclo tendría
+que medir **≥ 217.976.794.617 pasos del atajo** —355.504.839.929 del mapa
+clásico— y nuestro tramo más largo mide 114. La búsqueda no podía encontrar
+nada: le faltaban nueve órdenes de magnitud.)*
+
+> **LA CITA DE ESA COTA ESTABA MAL, Y SE CORRIGIÓ EL 01-08-2026.** El documento
+> decía `≥ 19.478.780.533 pasos` y lo atribuía a *«la literatura de 2025»*, sin
+> autor ni título. Era **la única afirmación marcada como demostrada cuya fuente
+> no nombraba a nadie.** Se buscó, y salió peor de lo esperado:
+>
+> - **La fuente existe:** Laurore, *«On the Link between Stopping Time and
+>   Non-Trivial Cycles in the Collatz Problem»*, **Advances in Pure Mathematics
+>   15(6) (2025) 351–389**, DOI `10.4236/apm.2025.156018`. El DOI resuelve en
+>   Crossref. Hasta ahí, localizada.
+> - **Pero el sitio es malo:** *Advances in Pure Mathematics* es de **SCIRP**, y
+>   el artículo tiene **cero citas**. No es *Acta Arithmetica* ni el *J. Integer
+>   Sequences*.
+> - **Y el número es ONCE VECES MÁS DÉBIL que el estado del arte.** La cota
+>   buena es la de **Barina 2025** (*J. Supercomputing* 81(7), art. 810), que da
+>   `217.976.794.617` en el atajo. O sea que el repo llevaba citada como *«lo
+>   que exige la literatura»* **una cota peor que la que ya se conocía**.
+> - **Tercer aviso, y es el que lo cierra:** la cota de longitud de ciclo tiene
+>   forma cerrada desde **Eliahou (*Discrete Math.* 118, 1993)** —vale
+>   `301994a + 17087915b + 85137581c` con `b ≥ 1` y `a·c = 0`— y el
+>   `19.478.780.533` **no encaja**: barrido exhaustivo, **0 soluciones**.
+>   Las tres cotas verificadas sí encajan: `10.439.860.591 = (0, 33, 116)`,
+>   `114.208.327.604 = (0, 361, 1269)` y `217.976.794.617 = (0, 689, 2422)`.
+>   Comprobado aquí con enteros.
+>
+> *Lección, y no estaba prevista: la lista de salidas era «localizar la cita o
+> degradarla», y faltaba la tercera — **localizarla y descartarla igualmente**.
+> Que una cita exista no la hace buena. Hay que mirar dónde se publicó y si el
+> número mejora o empeora lo que ya se sabía.*
 
 **Es una lámina, no una esfera.** Puestos los pares en (tamaño de salida, tamaño
-de llegada, desviación del equilibrio), los 6.555 caen entre `0` y `0,2286` por
-encima del plano `desviación = salida − llegada`. **Ninguno cae por debajo.**
-Grosor = 1,1% del espacio. Ese grosor es exactamente la contribución de los
-`+1`: con `3n` en vez de `3n+1` sería cero.
+de llegada, desviación del equilibrio), los 6.555 caen entre `0` y `0,2286`
+**bits** por encima del plano `desviación = salida − llegada`. **Ninguno cae por
+debajo.** Grosor = 1,1% del espacio. Ese grosor es exactamente la contribución de
+los `+1`: con `3n` en vez de `3n+1` sería cero.
 
-> **Y el grosor tiene nombre.** Sobre trayectorias enteras el mismo objeto es
-> `ε = ln( 2^B / (3^A·n) )`, y `2^B/(3^A·n)` es el **residuo de Roosendaal**.
-> Su máximo conocido es **`Res(993) = 1,253142144`**, verificado por Roosendaal
-> para todo `x < 2^32` y **conjeturado máximo absoluto**. Su logaritmo:
+> **CORRECCIÓN (01-08-2026): el `0,2286` y el `ln(Res(993)) = 0,225654` NO son
+> el mismo número, y este documento los identificaba.** Se parecen en tres
+> cifras y esa es toda la relación. Son dos objetos distintos medidos en dos
+> unidades distintas:
+>
+> | | qué mide | sobre qué | unidad | valor |
+> |---|---|---|---|---|
+> | `0,2286` (`collazlamina.py`) | `h = log₂(2^B·seq[j] / (3^A·seq[i]))` | los **6.555 pares** de la trayectoria **del 221** | **bits** | 0,2286349110 |
+> | `0,225654` (`elmasuno.py`) | `ε = ln(2^B / (3^A·n))` | **trayectorias enteras**, máximo hasta 200.000 | **nats** | 0,2256541127 |
+>
+> Puestos en las mismas unidades no se parecen en nada:
 >
 > ```
-> ln(1,253142144) = 0,225654
+> 0,2286 bits  = 0,158478 nats
+> 0,225654 nats = 0,325550 bits        ->  factor 1,42 entre los dos
+> ```
+>
+> **Y el `0,2286` ni siquiera es una cota: mide el 221 y nada más.** El máximo
+> sobre sus pares se alcanza en el par `(221 → 16)`, que es su trayectoria
+> entera, así que ese número **es el propio `ε` del 221 escrito en bits** —
+> `Res(221) = 2^73/(3^41·221) = 1,17173`. Nada que ver con el 993.
+>
+> **Lo que sí es cierto, y es lo que hay que escribir:** para cualquier par,
+> `h ≤ log₂(Res(seq[i]))`, porque un producto parcial de factores `(3x+1)/(3x)`
+> es menor que el total. Con la conjetura de Roosendaal eso acota **todos** los
+> pares de **todas** las trayectorias por `0,325550` bits, y el `0,2286` del 221
+> cae holgadamente debajo. La relación es **una cota, no una igualdad.**
+>
+> *Es la hermana del error contrario que cazó `elmasuno.py` —allí dos números
+> que parecían distintos eran el mismo—; las dos se arreglan igual: **traducir
+> a las mismas unidades antes de comparar.***
+
+> **Y el grosor tiene nombre.** Sobre trayectorias enteras el objeto es
+> `ε = ln( 2^B / (3^A·n) )`, y `2^B/(3^A·n)` es el **residuo de Roosendaal**.
+> Su máximo conocido es **`Res(993) = 2^61/(3^32·993) = 1,2531421443950680…`**,
+> verificado por Roosendaal para todo `x < 2^32` y **conjeturado máximo
+> absoluto**. Su logaritmo:
+>
+> ```
+> ln(1,2531421443950680) = 0,225654   nats   =   0,325550 bits
 > ```
 >
 > Barrido propio hasta 200.000 con `Fraction` exacto: `ε` **nunca sale
 > negativo** y su máximo es exactamente ese, alcanzado en `n = 993` (y en
-> `1986`, `3972`, … que son el mismo número doblado). **El 0,23 de la lámina no
-> salió de nuestro dibujo: es una constante con conjetura propia.**
+> `1986`, `3972`, … que son el mismo número doblado). **El techo de la lámina no
+> salió de nuestro dibujo: es una constante con conjetura propia** — lo que no
+> vale es identificarla con el `0,2286` del 221.
+>
+> *(Errata de constante corregida el 01-08-2026: `mapahilos.py` y `elmasuno.py`
+> escribían a mano `RES_993 = 1.2531421442887503`, mal desde la **décima
+> cifra**. Coincide en las nueve que publica Roosendaal, y por eso no movía nada
+> de lo medido — el techo sigue imprimiendo `0,225654` y los once `ε` siguen
+> debajo, 0 fallos. Los dos ficheros la calculan ahora como `2**61/(3**32*993)`
+> y `elmasuno.py` corta con `SystemExit` si alguien vuelve a copiarla a mano.)*
 >
 > Y de ahí sale la identidad que gobierna los once hilos (`mapahilos.py`):
 > `γ(n) = 1/(ln2 − ρ·ln3)` con corrección exacta `B·ε / (ln n·(ln n + ε))`,
@@ -940,11 +1011,36 @@ solitario de los once, y sin la marca parecería tan conectado como el resto.)*
 - **Oliveira e Silva** usa la fusión de `n` y `n−1` como optimización
   industrial de su criba de verificación: le quita el **17,5%** de las hojas.
 
-**La comprobación 4 cierra el círculo.** `100005 = 32·3125 + 5`, así que
-nuestro par `(100005, 100006)` **es un caso de la primera familia publicada**.
-Comprobado en `m = 1, 2, 7, 100, 3125, 9999, 40000`: **todos se funden en el
-paso 6 contra el paso 6, desfase 0, sin excepción.** La literatura predijo
-nuestro hallazgo veinticinco años antes de que lo miráramos.
+**La comprobación 4, y hay que separar dos cosas que estaban juntas.**
+`100005 = 32·3125 + 5`, así que nuestro par `(100005, 100006)` es un caso de la
+familia `(32m+5, 32m+6)`. Comprobado en `m = 0, 1, 2, 7, 100, 3125, 9999,
+40000`: **todos se funden en el paso 6 contra el paso 6, desfase 0** (el `m = 0`
+es el caso degenerado `5/6`, desfase −3).
+
+> **CORRECCIÓN (01-08-2026): esto NO es «la literatura predijo nuestro hallazgo
+> veinticinco años antes de que lo miráramos», que es como estaba escrito.** Esa
+> frase se apoya entera en **Wu–Huang 2001, que este mismo documento tiene
+> marcada como CITA SIN VERIFICAR** desde el 30-07-2026 — sin DOI, no está en
+> Crossref, y Elia–Tucker 2015 no la citan. **Afirmar que la literatura predijo
+> algo apoyándose en una referencia que no se ha podido localizar es exactamente
+> el error que la marca pretendía evitar.**
+>
+> Lo que se puede decir, separado:
+>
+> - **EL HECHO ES CIERTO Y ES NUESTRO.** `clasesfusion.py` lo **rederiva de
+>   forma independiente** desde el criterio de Terras: `r = 5, k = 5` da
+>   `T⁵(5) = T⁵(6) = 2` con `S = 2` en los dos, y eso decide de golpe **los
+>   infinitos `m`** de la clase, no los ocho que probamos a mano. El resultado
+>   no depende de ninguna cita.
+> - **LA ATRIBUCIÓN SIGUE PENDIENTE.** Wu–Huang 2001 está sin localizar. Si
+>   aparece, la frase vuelve; mientras tanto, no.
+> - **Lo que sí está verificado por Crossref** en esta lista es Terras 1976,
+>   Garner 1985, Lagarias 1985, Gao 1993 y Elia–Tucker (*INTEGERS* 15 (2015)
+>   #A54) — y el mecanismo general que produce estas familias es **de Garner**,
+>   no de la cita dudosa (ver el párrafo siguiente).
+>
+> `guardarhilos.py` imprime las dos mitades por separado, para que la salida del
+> programa no vuelva a sugerir lo que la fuente no sostiene.
 
 **Y el mecanismo general estaba en Garner 1985**: `8k+4` y `8k+5` se funden
 siempre en 3 pasos; y si dos trayectorias se funden, entonces
@@ -1392,7 +1488,8 @@ da `+0,5850` **once veces seguidas**, de `k=1` a `k=11`.
 
 ```
 PARA n IMPAR:   log₂(altitud(n) / n)  ≥  racha(n) · log₂(3/2) + 1
-                99.999 casos, 0 fallos, holgura mínima +0,000002
+                barrido de control 1..100.000 (pisoaltitud.py)
+                49.999 impares, 0 fallos
 ```
 
 Se demuestra en una línea (`k` pasos impares del atajo llevan `n` a al menos
@@ -1400,7 +1497,47 @@ Se demuestra en una línea (`k` pasos impares del atajo llevan `n` a al menos
 piso es ajustado para la mayoría. Es lo único de la sesión con la forma de un
 teorema en vez de la de una medición, y por eso vale más aunque diga menos.
 *(El `+1` del enunciado es `log₂(2)` y viene de mezclar mapas: con el mapa del atajo
-el piso es `racha · log₂(3/2)` sin el `+1`, y ése **sí vale para las dos paridades**.)*
+el piso es `racha · log₂(3/2)` sin el `+1`, y ése **sí vale para las dos paridades**:
+`99.999 casos, 0 fallos` en el mismo barrido. **Ésa es la versión que hay que
+citar.**)*
+
+> **CORRECCIÓN (01-08-2026): la holgura mínima NO es una constante, y la frase
+> que había aquí mezclaba tres barridos distintos.** Decía *«99.999 casos, 0
+> fallos, holgura mínima +0,000002»*, y las tres cifras venían de sitios
+> distintos:
+>
+> | cifra | de dónde sale de verdad |
+> |---|---|
+> | `99.999 casos` | del barrido a **100.000**, pero de la variante del **atajo**, que cubre las dos paridades. El enunciado de arriba, el de los impares, tiene **49.999** |
+> | `+0,000002` | de un barrido a **200.000** |
+> | `28.325 de 50.000 pares` (la corrección de abajo) | del barrido a **100.000** |
+>
+> **Y el `+0,000002` no es un número que se pueda publicar solo, porque tiene
+> fórmula cerrada y depende del rango.** Los casos más apretados son los impares
+> de racha 1, donde `altitud = 3n+1` exacto, y ahí
+>
+> ```
+> holgura(n)  =  log₂((3n+1)/n) − (log₂(3/2) + 1)  =  log₂(1 + 1/(3n))
+> ```
+>
+> que **decrece con `n`** y tiende a 0. Evaluada:
+>
+> ```
+> log₂(1 + 1/(3·100.000)) = 4,8090e-06     <- el mínimo de un barrido a 100.000
+> log₂(1 + 1/(3·200.000)) = 2,4045e-06     <- el mínimo de un barrido a 200.000
+> ```
+>
+> `pisoaltitud.py` lo comprueba contra el mínimo medido: el mayor impar de racha
+> 1 del rango es **99.997**, la fórmula da `+0,000004809` y lo medido es
+> `+0,000004809`. **Coinciden, luego el mínimo depende SÓLO de hasta dónde se
+> barra.** Lo que hay que escribir es la fórmula, no el valor.
+>
+> **Es la TERCERA vez que este repo comete el mismo error: tomar el valor de una
+> muestra por una constante.** Las otras dos fueron el `1,7345` del coral (era
+> el valor a `HASTA = 3.000`; se asienta en `1,7320`) y el `0%` de encimadas de
+> Harriss (era el valor a 3.000 semillas; hay choques desde la profundidad 31).
+> *Regla, ya con tres casos detrás: **un número que sale de un barrido se
+> publica CON su rango, y si tiene fórmula cerrada se publica la fórmula.***
 
 > **CORRECCIÓN (30-07-2026, misma sesión): al enunciado le faltaba la hipótesis
 > `n impar`, y sin ella es FALSO.** Con `n` par la racha vale 0, el piso exige
@@ -1573,9 +1710,39 @@ de ejecución (−44%).
 
 **Dos números que cambian la intuición:**
 
-- **Cada bit extra de criba sólo elimina un 3,4% más.** La densidad escala como
-  `2^(−0,05·k)` (el exponente es `H(log₃2) = 0,94996`). Duplicar la memoria no
-  compra casi nada, y por eso Barina se para en `2^34`.
+- **Cada bit extra de criba elimina un 7,2% más** *en el rango donde se usa*, y
+  sólo un **3,4%** en el límite. Duplicar la memoria no compra casi nada, y por
+  eso Barina se para en `2^34`. **Los dos números son ciertos y no son
+  intercambiables** — ver el aviso de abajo.
+
+> **CORRECCIÓN (01-08-2026): el `2^(−0,05·k)` que decía aquí es el
+> ASINTÓTICO, no el del rango real.** El `0,05` sale de `1 − H(log₃2)` con
+> `H(log₃2) = 0,949956`, y ése es el **límite** cuando `k → ∞`.
+> `descensoresto.py` mide la pendiente de `log₂(a(k))` por tramos hasta
+> `k = 1400`:
+>
+> | tramo de `k` | pendiente | decaimiento `1 − pend.` | cada bit elimina |
+> |---|---|---|---|
+> | 10 … 20 | 0,873809 | **0,126191** | 8,4% |
+> | **20 … 40** *(donde vive `k = 34`)* | **0,891899** | **0,108101** | **7,2%** |
+> | 40 … 80 | 0,921707 | 0,078293 | 5,3% |
+> | 160 … 320 | 0,941358 | 0,058642 | 4,0% |
+> | 640 … 1280 | 0,947700 | 0,052300 | 3,6% |
+> | límite `1 − H(log₃2)` | 0,949956 | **0,050044** | **3,4%** |
+>
+> **En el rango que usa la criba de Barina el exponente de decaimiento es
+> `0,108` — el DOBLE del asintótico `0,050`.** La pendiente medida sube tramo a
+> tramo y se acerca a `H` por debajo; nunca lo alcanza en un `k` alcanzable.
+>
+> **Y OJO CON EL SIGNO DE LA FRASE, porque es fácil escribirlo al revés:** un
+> exponente de decaimiento **mayor** significa que la densidad cae **más
+> deprisa**. `2^(−0,108k)` decae el doble de rápido que `2^(−0,050k)`, no la
+> mitad. **La criba muerde más de lo que decía el documento justo donde se usa,
+> y menos a la larga.**
+>
+> *Es el mismo modo de fallo que la holgura del piso, en otra coordenada: citar
+> un número sin decir en qué régimen vale. Allí era el rango del barrido; aquí
+> es local contra asintótico.*
 - **Reducción ≠ aceleración.** Un factor 138× de criba produce sólo **5,94×** de
   velocidad, porque los supervivientes son justamente los caros — las
   trayectorias largas. Todas las optimizaciones juntas dan 25,65× en CPU. El
@@ -1693,6 +1860,34 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
 - **`pisoaltitud.py` confirma que al piso le faltaba `n impar`** — la corrección
   ya estaba escrita, pero ahora tiene código que la reproduce, con los pares
   fallando a propósito para que no se pueda volver a perder.
+- **La holgura mínima del piso no es una constante** (01-08-2026). Vale
+  `log₂(1 + 1/(3n))`, decrece con `n`, y el `+0,000002` que estaba publicado era
+  el valor de un barrido a 200.000 pegado a un conteo de casos de otro barrido.
+  **Tercera aparición del mismo modo de fallo** — las otras dos son las dos de
+  arriba, el `1,7345` y el `0%`.
+- **El exponente de la criba `2^(−0,05·k)` es el asintótico, no el del rango**
+  (01-08-2026). En `k = 34` el decaimiento real es `0,108`, el **doble**. Cada
+  bit extra elimina un 7,2% ahí y un 3,4% en el límite.
+- **El `0,2286` de la lámina y el `ln(Res(993)) = 0,225654` no son el mismo
+  número** (01-08-2026). Uno está en **bits** sobre los pares del 221 y el otro
+  en **nats** sobre trayectorias enteras; en las mismas unidades difieren en un
+  factor 1,42. La relación buena es una **cota**, no una igualdad.
+- **`RES_993` estaba mal desde la décima cifra** (01-08-2026): se escribía a
+  mano `1.2531421442887503` en vez de `2^61/(3^32·993) = 1,2531421443950680…`.
+  No movía nada de lo medido. Corregido en `mapahilos.py` y `elmasuno.py`, que
+  ahora la calculan en vez de copiarla.
+- **La cota de longitud de ciclo que citaba el repo era peor que la conocida**
+  (01-08-2026). Decía `≥ 19.478.780.533` citando *«la literatura de 2025»*; la
+  fuente resultó ser un artículo de SCIRP con cero citas, y el número es **11
+  veces más débil** que el `217.976.794.617` de Barina 2025. Sustituido.
+- **La comprobación 4 de `guardarhilos.py` no es «la literatura predijo nuestro
+  hallazgo»** (01-08-2026): se apoyaba entera en Wu–Huang 2001, que el propio
+  documento tenía marcada como no verificable. El hecho es cierto y es propio
+  (`clasesfusion.py` lo rederiva); la atribución sigue pendiente.
+- **El cuantificador `clase_mod_2k` de `afirmaciones.db` nombraba mal a dos de
+  sus filas** (01-08-2026): la rueda del árbol y los evitados de `2n mod 27` son
+  clases módulo `3^j`. Renombrado a **`clase_residual`** — la categoría es la
+  *forma* del argumento, y el módulo es un detalle del enunciado.
 
 ## Nada de esto es nuevo — el balance, hecho a propósito
 
@@ -1888,9 +2083,12 @@ ayudan los ordenadores cuánticos: no hay algoritmo cuántico para esto, y lo me
 que da una búsqueda sin estructura es la raíz cuadrada del esfuerzo.
 
 Estado del arte, para calibrar: verificación por fuerza bruta al día **2^71**
-(Barina, enero 2025; publicado en *J. Supercomputing* 2025, con aceleración
-1.335× de CPU a GPU sobre supercomputadores europeos). Resultado general más
-fuerte: **Tao 2019**, "casi todas las órbitas alcanzan valores casi acotados".
+(Barina, enero 2025; publicado en *J. Supercomputing* 81(7), art. 810, con
+aceleración 1.335× de CPU a GPU sobre supercomputadores europeos). De ahí sale
+la cota de longitud de ciclo vigente, metiendo ese límite en la forma cerrada de
+**Eliahou (*Discrete Math.* 118, 1993)**: **≥ 217.976.794.617 pasos del atajo**,
+**355.504.839.929** del mapa clásico. Resultado general más fuerte: **Tao
+2019**, "casi todas las órbitas alcanzan valores casi acotados".
 
 **Posterior al libro de 2010, y por tanto no cubierto por él:**
 
@@ -2127,13 +2325,64 @@ merece quedarse, hay que convertirla en un programa con la forma de siempre
    **Fase 1 — ⇢ HECHA: `reimpl.py` ya está en el repo.** Reproduce las siete
    iteraciones del Teorema 23 de Hercher, **7/7**, sin un solo `float` en la
    cadena que decide. Es el primer programa del laboratorio que reproduce
-   matemática arbitrada. **Y encontró dos discrepancias contra lo publicado**, que
-   es justo el tipo de resultado que justificaba hacerlo. *Detalle de rigor que no
+   matemática arbitrada. *Detalle de rigor que no
    se puede saltar, y que sigue valiendo para la Fase 2: el
    denominador mínimo hay que buscarlo en un intervalo **ensanchado** con
    racionales `δ_lo < δ < δ_hi`, para que el error caiga del lado seguro. Sin eso
    es un número bonito, no una demostración — el mismo espíritu que los
    `SystemExit` antes de dibujar.*
+
+   **LAS DOS DISCREPANCIAS CONTRA LO PUBLICADO, con sus valores** (escritas el
+   01-08-2026; hasta hoy sólo constaba que existían). Es el resultado que
+   justificaba hacer la Fase 1: **verificación independiente de matemática
+   arbitrada.**
+
+   **Lo que SÍ se reprodujo, idéntico:** los siete `m₂` de la demostración del
+   Teorema 23 (`47, 67, 77, 82, 86, 88, 91`), las siete cotas inferiores de `K`
+   —cada una es la nuestra recortada a las cifras que el artículo imprime—, la
+   cota importada de Simons–de Weger evaluada en `m = 91`
+   (`K < 2,140728e+20`, que el artículo redondea a `2,2e20`), la contradicción
+   final (`7,941964e+21 > 2,140728e+20`, factor **37,1**), y dos de las tres
+   primeras filas de la Tabla 1.
+
+   | | aquí | Hercher 2023 | |
+   |---|---|---|---|
+   | **`ε` de la iteración 7** | **`1,2298e-43`** | `1,11e-43` | razón 1,1079 |
+   | **Tabla 1, fila `m = 276`** | **`4,640282e+18`** | `4,68e18` | diferencia 0,85% |
+
+   **Ninguna de las dos mueve el resultado, y las dos tienen explicación
+   medida:**
+
+   - **El séptimo `ε`.** El nuestro es **más grande**, o sea **más
+     conservador**: da un intervalo más ancho y por tanto una cota de `K` más
+     floja o igual. Y aun así la cota sale **idéntica**, porque el denominador
+     mínimo es **plano** en todo ese rango: metiendo a mano
+     `ε = 8e-44, 1,0e-43, 1,11e-43, 1,2298e-43, 2e-43, 5e-43` sale **siempre**
+     el mismo `7.941.964.418.702.608.664.581`. **Un solo denominador distinto:
+     ninguno.** Los dos `ε` caen entre las mismas dos convergentes de `log₂3`.
+     *Y el `1,11` del artículo trae tres cifras cuando los otros seis traen dos,
+     lo que apunta a un desliz de transcripción antes que a otro cálculo.*
+   - **La fila `m = 276`.** Aquí la sospecha va **contra el papel**, y hay
+     argumento: la cota sólo puede caer en un **denominador de convergente o
+     semiconvergente de `log₂3`**, y los candidatos cerca de `4,68e18` son
+     `2,652481e18 · 3,050041e18 · 3,447601e18 · 3,845162e18 · 4,242722e18 ·
+     4,640282e18 · 8,883004e18`. **El `4,68e18` no está entre ellos, así que no
+     es alcanzable por este método; el nuestro sí.** *(Las siete cotas del
+     Teorema 23 pasan ese mismo filtro: **7 de 7 son denominadores de
+     (semi)convergente, 0 excepciones.**)*
+
+   **El límite honesto, que el propio programa imprime:** esto **no** es una
+   verificación del artículo. No se intentó el Teorema 21 ni la cadena de cotas
+   sobre las sumas de `T(nᵢ)` (la Sección 3 entera, más un programa en C++ que
+   analiza sumas parciales de hasta 36 sumandos), ni la cota de Simons–de Weger,
+   que es donde vive la aproximación diofántica de verdad. **Lo reproducido es
+   su aritmética final** — la parte que se comprueba en cinco segundos y la que
+   nadie suele volver a mirar. Que es exactamente donde estaban las dos erratas.
+
+   *Lección, y va al lado de la de Wu–Huang: reproducir un resultado no es
+   reproducir un número. Hay que comparar **todos** los intermedios y decir
+   cuáles no cuadran; y cuando algo no cuadra, **medir si importa** antes de
+   decidir de quién es el error.*
 
    **Fase 2 — la escalera afín de Wang, que ES la pinza.** El cuello de botella no
    es Baker ni el tiempo: es `X₀`. Para `m = 92` haría falta verificar hasta
@@ -2180,7 +2429,9 @@ merece quedarse, hay que convertirla en un programa con la forma de siempre
    sospechoso antes que interesante.
 
 6. **⇢ HECHO: el `+1` no aparece tres veces, aparece DOS (`elmasuno.py`).** Se
-   pedia buscar si el grosor `0,2286` de la lamina, el `+2` del espejo base 2 y el
+   pedia buscar si el grosor `0,2286` de la lamina *(ojo: ese numero es el `ε`
+   del 221 escrito en bits, no `ln(Res(993))` — ver la correccion de unidades de
+   la seccion «Es una lamina, no una esfera»)*, el `+2` del espejo base 2 y el
    sobrante `S` de la fraccion impar se podian escribir como una sola cantidad.
    **Dos de las tres son la misma suma, y no aproximadamente: identicamente.** El
    `ε = ln(2^B / (3^A·n))` de la lamina y el `S = Σ ln(1 + 1/(3x))` de la fraccion

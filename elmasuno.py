@@ -120,7 +120,10 @@ HASTA_MAXIMO = 200000      # barrido para buscar el maximo de eps
 GRANDES = [27, 703, 871, 6171, 77031, 100009, 993, 1986, 3972,
            2 ** 31 - 1, 2 ** 40 + 1]      # a mano, para salir del rango chico
 
-RES_993 = 1.2531421442887503     # el residuo de Roosendaal, maximo conjeturado
+# El residuo de Roosendaal, maximo conjeturado. Se calcula desde su
+# definicion en vez de copiarse a mano: 2^61 / (3^32 * 993). Ver la
+# comprobacion 4, que es donde se cazo la errata.
+RES_993 = 2 ** 61 / (3 ** 32 * 993)
 
 L2, L3 = math.log(2), math.log(3)
 
@@ -346,13 +349,17 @@ print(f"  eps maximo = ln(Res) = {eps_maximo:.9f}")
 print(f"  publicado    ln(Res(993)) = {techo:.9f}   (CLAUDE.md: 0,225654)")
 print(f"  diferencia: {abs(eps_maximo - techo):.3e}")
 print()
-print("  DE PROPINA, UNA ERRATA EN UNA CONSTANTE DEL REPO. mapahilos.py")
-print("  guarda RES_993 = 1.2531421442887503, y el valor exacto es")
-print(f"     {decimal_de(res_exacto, 16)}")
+print("  DE PROPINA, UNA ERRATA EN UNA CONSTANTE DEL REPO -- YA ARREGLADA.")
+print("  mapahilos.py guardaba a mano RES_993 = 1.2531421442887503, y el")
+print(f"  valor exacto es {decimal_de(res_exacto, 16)}")
 print("  Coinciden en las nueve cifras publicadas (1,253142144) y se separan")
-print("  en la decima: ...4428875 contra ...4439507. No cambia nada de lo")
-print("  medido -el techo en logaritmos sigue siendo 0,225654- pero la")
-print("  constante literal esta mal a partir de la decima cifra.")
+print("  en la decima: ...4428875 contra ...4439507. No cambiaba nada de lo")
+print("  medido -el techo en logaritmos sigue siendo 0,225654 y los once eps")
+print("  seguian por debajo- pero la constante literal estaba mal.")
+print("  CORREGIDO EL 01-08-2026: los dos ficheros la calculan ahora desde su")
+print("  definicion, 2^61/(3^32*993), y ninguno la escribe a mano.")
+if abs(RES_993 - float(res_exacto)) > 0:
+    raise SystemExit("RES_993 no es la fraccion exacta. Alguien la copio a mano otra vez.")
 if m != 993:
     raise SystemExit(f"El maximo no cae en 993 sino en {m}. Mira eso primero.")
 if abs(eps_maximo - techo) > 1e-9:

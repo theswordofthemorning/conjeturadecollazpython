@@ -124,7 +124,18 @@ if fallos_identidad:
 
 # --- COMPROBACION 2: eps es ln del residuo de Roosendaal, y esta acotado
 
-RES_993 = 1.2531421442887503     # el maximo conocido, conjeturado absoluto
+# El maximo conocido, conjeturado absoluto. NO se copia a mano: se calcula
+# desde su definicion, 2^61 / (3^32 * 993), que es la fraccion exacta de la
+# trayectoria del 993 (A = 32 multiplicaciones, B = 61 divisiones).
+#
+# ERRATA CORREGIDA EL 01-08-2026. Aqui habia escrito a mano
+# RES_993 = 1.2531421442887503, que esta mal a partir de la DECIMA cifra: el
+# valor exacto es 1,2531421443950680... Coinciden en las nueve cifras que
+# publica Roosendaal (1,253142144), y por eso no cambiaba nada de lo medido
+# -el techo en logaritmos sigue siendo 0,225654 y los once eps siguen debajo-
+# pero una constante copiada a mano hay que recalcularla desde su definicion
+# una vez, aunque solo sea decorativa. Lo cazo elmasuno.py.
+RES_993 = 2 ** 61 / (3 ** 32 * 993)
 TECHO = math.log(RES_993)
 
 fallos_techo = 0

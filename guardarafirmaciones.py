@@ -12,14 +12,14 @@
 #
 # LA COLUMNA QUE IMPORTA ES EL CUANTIFICADOR, Y NO ES UN DETALLE
 #
-#   No es lo mismo decir "para todo n", que "para toda clase mod 2^k", que
+#   No es lo mismo decir "para todo n", que "para toda clase residual", que
 #   "para casi todo n", que "en promedio". Son cosas distintas y solo algunas
 #   sirven para encadenar un argumento:
 #
 #     todo_n            vale para CADA numero, uno por uno. Encadena.
-#     clase_mod_2k      vale para los INFINITOS numeros de una clase, decidido
-#                       con una comprobacion finita. Encadena. Es el "cuarto
-#                       camino" del repo: la regla sin la secuencia.
+#     clase_residual    vale para los INFINITOS numeros de una clase de resto,
+#                       decidido con una comprobacion finita. Encadena. Es el
+#                       "cuarto camino" del repo: la regla sin la secuencia.
 #     casi_todo_n       vale salvo un conjunto de densidad cero. Encadena con
 #                       cuidado: la excepcion que buscamos podria vivir ahi.
 #     promedio          NO ENCADENA CON NADA. Un promedio no dice nada de
@@ -28,6 +28,19 @@
 #                       siempre no moveria ese promedio ni un decimal.
 #     ciclos            afirmaciones sobre orbitas periodicas, no sobre n.
 #     verificado_hasta  fuerza bruta. Sirve para refutar, jamas para demostrar.
+#
+#   POR QUE "clase_residual" Y NO "clase_mod_2k", QUE ES COMO SE LLAMABA.
+#   Corregido el 01-08-2026. El nombre viejo describia el modulo de la mayoria
+#   de las filas -2^k, que es donde vive el teorema de Terras- y no la
+#   categoria. Y se le quedaba estrecho a dos filas que estan en la base desde
+#   el primer dia: la rueda del arbol inverso (periodo 2 segun v mod 3, hijos
+#   ciclando mod 9, patron completo cada 18 duplicaciones porque 18 es el orden
+#   de 2 modulo 27) y los evitados de la malla 2n mod 27. Esas dos son clases
+#   modulo 3^j, no modulo 2^k, y sin embargo son EXACTAMENTE el mismo tipo de
+#   objeto: una clase de resto que decide el comportamiento sin recorrer nada.
+#   Meterlas en una casilla que las nombra mal obliga a explicarlo en las notas
+#   de cada fila, que es donde nadie mira. El modulo concreto va en el
+#   enunciado y en las notas; el cuantificador dice la FORMA del argumento.
 #
 #   La prueba de que la distincion no es paranoia: 5n+1 tiene media geometrica
 #   1,118 > 1 ("todo sube") y sin embargo TIENE un ciclo, el del 13, donde nada
@@ -75,7 +88,7 @@ ARCHIVO = "afirmaciones.db"
 CARPETA = os.path.dirname(os.path.abspath(__file__))
 ANCHO = 78
 
-CUANTIFICADORES = ("todo_n", "clase_mod_2k", "casi_todo_n", "promedio",
+CUANTIFICADORES = ("todo_n", "clase_residual", "casi_todo_n", "promedio",
                    "ciclos", "verificado_hasta")
 
 ESTADOS = ("demostrado", "medido", "conjeturado", "refutado")
@@ -240,20 +253,23 @@ AFIRMACIONES = [
          "que permite cruzar el mapa del atajo (donde Terras es exacto) con "
          "los records de ericr.nl (que estan en el clasico)."),
 
-    # -------------------------------------------------------- clase_mod_2k
+    # ------------------------------------------------------ clase_residual
     #
     # Una comprobacion FINITA que decide para los INFINITOS numeros de la
-    # clase. Es lo que el repo llama el cuarto camino.
+    # clase. Es lo que el repo llama el cuarto camino. El modulo suele ser
+    # 2^k -ahi vive Terras- pero no siempre: la rueda del arbol es mod 3^j y
+    # es el mismo tipo de objeto. Por eso la casilla no lleva el modulo en el
+    # nombre; el modulo va en el enunciado.
 
     fila("los primeros k pasos de cualquier numero los decide n mod 2^k",
-         "clase_mod_2k", "demostrado", "mallaresiduos.py",
+         "clase_residual", "demostrado", "mallaresiduos.py",
          "Terras 1976 / Everett 1977",
          "Ambito: todo k >= 1. Tiene nombre: el vector de paridad. 64 restos x "
          "12 representantes = 768 numeros, 0 discrepancias."),
 
     fila("biyeccion perfecta entre los 2^k restos y los 2^k patrones de "
          "paridad posibles",
-         "clase_mod_2k", "demostrado", "mallaresiduos.py",
+         "clase_residual", "demostrado", "mallaresiduos.py",
          "Terras 1976 / Everett 1977",
          "Ambito: SOLO el mapa del ATAJO, k = 1..10. Con la regla CLASICA no "
          "hay biyeccion: salen los Fibonacci. Los dos mapas no se pueden "
@@ -262,14 +278,14 @@ AFIRMACIONES = [
 
     fila("T^k(2^k*m + r) = 3^{S_k(r)} * m + T^k(r): una recta en m cuya "
          "pendiente y ordenada dependen SOLO del resto",
-         "clase_mod_2k", "demostrado", "clasesfusion.py",
+         "clase_residual", "demostrado", "clasesfusion.py",
          "Terras 1976 (Teorema 1.2)",
          "Ambito: todo k, todo r < 2^k. De aqui salen las dos piezas mas "
          "utiles del repo: el criterio de fusion y la pinza de ciclos."),
 
     fila("dos consecutivos se funden para TODOS los infinitos m de la clase "
          "exactamente cuando S_k(r) == S_k(r+1) y T^k(r) == T^k(r+1)",
-         "clase_mod_2k", "demostrado", "clasesfusion.py",
+         "clase_residual", "demostrado", "clasesfusion.py",
          "propio; Wu-Huang 2001 y Elia-Tucker 2015 lo enuncian casi textual",
          "Ambito: todo k, todo r. Comprobacion finita que vale para infinitos "
          "numeros. Verificado contra fuerza bruta en 9.672 pares, 0 fallos. Y "
@@ -277,25 +293,25 @@ AFIRMACIONES = [
 
     fila("a(32) = 1.871.137.623 clases mod 2^32 se funden: cota inferior "
          "DEMOSTRADA del 43,5658% de los pares consecutivos",
-         "clase_mod_2k", "demostrado", "clasesfusion.py", "propio",
+         "clase_residual", "demostrado", "clasesfusion.py", "propio",
          "Ambito: k <= 32. Confirmado por dos caminos independientes, el "
          "secuencial y el repartido por nucleos de clasesparalelo.py. No "
          "depende de muestreo ni de ajuste, y por eso es lo unico duro de esa "
          "seccion. La sucesion no esta en OEIS (28 consultas)."),
 
     fila("N(k+1) >= 2*N(k) siempre, luego la fraccion f(k) es monotona",
-         "clase_mod_2k", "demostrado", "clasesfusion.py", "propio",
+         "clase_residual", "demostrado", "clasesfusion.py", "propio",
          "Ambito: todo k >= 3. La monotonia NO se verifica: se demuestra en "
          "tres lineas. Si r es buena mod 2^k, r y r+2^k son las dos buenas mod "
          "2^(k+1). Presentarla como hallazgo empirico fue un error, corregido."),
 
     fila("(8k+4, 8k+5) se funden siempre, en 3 pasos",
-         "clase_mod_2k", "demostrado", "guardarhilos.py", "Garner 1985",
+         "clase_residual", "demostrado", "guardarhilos.py", "Garner 1985",
          "Ambito: todo k >= 0. Rederivado desde el criterio: r=4, k=3 da "
          "T^3(4) = T^3(5) = 2 con S = 1 en los dos. Tasa 1,0000."),
 
     fila("(32m+5, 32m+6) se funden para todo m",
-         "clase_mod_2k", "demostrado", "guardarhilos.py",
+         "clase_residual", "demostrado", "guardarhilos.py",
          "Wu-Huang 2001 (CITA SIN VERIFICAR: sin DOI, no esta en Crossref)",
          "Ambito: todo m; probado en m = 0,1,2,7,100,3125,9999,40000, todos "
          "con desfase 0. Nuestro par (100005, 100006) es el caso m = 3125. El "
@@ -304,14 +320,14 @@ AFIRMACIONES = [
 
     fila("si dos trayectorias se funden, entonces 2^r*k + n1 y 2^r*k + n2 se "
          "funden para TODO k",
-         "clase_mod_2k", "demostrado", "guardarhilos.py", "Garner 1985",
+         "clase_residual", "demostrado", "guardarhilos.py", "Garner 1985",
          "Una sola fusion genera una progresion aritmetica infinita de "
          "fusiones. Eso es lo que produce los bloques de numeros consecutivos "
          "con los mismos pasos."),
 
     fila("por cada resto mod 2^k hay COMO MUCHO UN candidato de ciclo, y sale "
          "en cerrado: m = (r - T^k(r)) / (3^{S(r)} - 2^k)",
-         "clase_mod_2k", "demostrado", "pinzaciclos.py",
+         "clase_residual", "demostrado", "pinzaciclos.py",
          "propio (de la identidad de Terras)",
          "Ambito: barrido entero de k = 1..30. Si m no es entero, la clase "
          "queda descartada para los infinitos numeros que contiene. Verificado "
@@ -319,7 +335,7 @@ AFIRMACIONES = [
 
     fila("T^k es una BIYECCION sobre Z/2^k, luego no hay clases que cribar "
          "para buscar ciclos",
-         "clase_mod_2k", "demostrado", "pinzaciclos.py", "Terras 1976",
+         "clase_residual", "demostrado", "pinzaciclos.py", "Terras 1976",
          "Es la razon ESTRUCTURAL de que el barrido de restos este muerto: "
          "cada vector de paridad es una clase unica, hay tantos candidatos "
          "como vectores, y una criba necesita que muchas clases compartan "
@@ -327,7 +343,7 @@ AFIRMACIONES = [
 
     fila("n = 2^k - 1 (mod 2^k) sube k veces seguidas; n = 0 (mod 2^k) baja k "
          "veces seguidas",
-         "clase_mod_2k", "demostrado", "mallaresiduos.py",
+         "clase_residual", "demostrado", "mallaresiduos.py",
          "Terras 1976; es el Lema 8 de Hercher 2023",
          "Ambito: todo k. No son estadisticas: son teoremas, y se escriben "
          "como un if. Con esto se fabrico 2^4000 - 1, que da 3.999 pasos "
@@ -337,29 +353,34 @@ AFIRMACIONES = [
     fila("el ritmo de brotes del arbol inverso es periodico de periodo 2 segun "
          "v mod 3, los hijos ciclan con periodo 3 mod 9, y el patron completo "
          "se repite cada 18 duplicaciones (orden de 2 mod 27)",
-         "clase_mod_2k", "demostrado", "mallascerradas.py",
+         "clase_residual", "demostrado", "mallascerradas.py",
          "propio; la estructura mod 6 / mod 9 es estandar",
-         "Ambito: 200 rayos hasta k=44, 2.926 brotes, 0 fallos. OJO CON LA "
-         "CASILLA: aqui el modulo es 3^j, no 2^k. Es el mismo TIPO de objeto "
-         "-una clase residual que decide el comportamiento sin recorrer nada- "
-         "pero el nombre del cuantificador se le queda estrecho."),
+         "Ambito: 200 rayos hasta k=44, 2.926 brotes, 0 fallos. EL MODULO AQUI "
+         "ES 3^j, NO 2^k: mod 3 el ritmo de brotes, mod 9 la clase del hijo, "
+         "mod 27 la rueda maestra. Es el mismo TIPO de objeto que las filas de "
+         "Terras -una clase de resto que decide el comportamiento sin recorrer "
+         "nada- y por eso la casilla se llama clase_residual desde el "
+         "01-08-2026 y no clase_mod_2k, que la nombraba mal. Y el limite de la "
+         "rueda sigue en pie: gobierna la contabilidad del arbol HACIA ATRAS, "
+         "no el destino hacia adelante, que sigue ciego a los restos."),
 
     fila("los evitados de la malla 2n mod 27 son exactamente los multiplos de "
          "3, y predicen que rayos del arbol son mudos",
-         "clase_mod_2k", "demostrado", "guardarmallas.py", "propio",
+         "clase_residual", "demostrado", "guardarmallas.py", "propio",
          "200 rayos impares, 67 predichos mudos, 0 fallos. Una malla guardada "
          "en disco, calculada sin mirar Collatz ni una vez, predice Collatz "
-         "sin volver a calcular Collatz."),
+         "sin volver a calcular Collatz. El modulo es 27 = 3^3, no 2^k: la "
+         "otra fila de la base que obligo a renombrar la casilla."),
 
     fila("la malla de restos acierta el arranque de los 173 numeros del 221 y "
          "del 1276, 0 fallos",
-         "clase_mod_2k", "medido", "cruzarestos.py", "propio",
+         "clase_residual", "medido", "cruzarestos.py", "propio",
          "64 restos contra 173 numeros. Calculada sin mirar el 221 ni una vez: "
          "cada resto usa un representante ajeno a las trayectorias."),
 
     fila("a(k) >= 1 para todo k: el resto 2^k - 1 sobrevive siempre a la criba "
          "de Brown/Terras, luego la criba NUNCA se vacia",
-         "clase_mod_2k", "demostrado", "descensoresto.py", "propio",
+         "clase_residual", "demostrado", "descensoresto.py", "propio",
          "Demostracion de una linea: el resto que en binario son todos unos da "
          "S_j = j en todos los pasos, y 3^j > 2^j siempre. ES EL MURO "
          "ESTRUCTURAL DE CRIBAR POR RESTOS: se puede llegar a 'casi todos' con "
@@ -371,7 +392,7 @@ AFIRMACIONES = [
     fila("los supervivientes de la criba tienen densidad -> 0 pero cardinal -> "
          "infinito, del orden de 2^(0,95k). La criba compra densidad, no "
          "compra cobertura",
-         "clase_mod_2k", "demostrado", "descensoresto.py", "propio",
+         "clase_residual", "demostrado", "descensoresto.py", "propio",
          "Medida cero, cardinal infinito. Un contraejemplo de la conjetura "
          "tendria que vivir justo en el conjunto que la criba no ve, y ese "
          "conjunto nunca se queda vacio. Es el mismo muro de pinzaciclos.py "
@@ -563,12 +584,24 @@ AFIRMACIONES = [
          "el teorema de Baker en ninguna parte, toda la maquinaria pesada "
          "entra como este unico numero importado."),
 
-    fila("cualquier ciclo distinto del trivial mide al menos 19.478.780.533 "
-         "pasos",
-         "ciclos", "demostrado", None, "literatura 2025",
+    fila("cualquier ciclo distinto del trivial mide al menos 217.976.794.617 "
+         "pasos del ATAJO (355.504.839.929 del mapa clasico)",
+         "ciclos", "demostrado", None,
+         "Barina 2025, J. Supercomputing 81(7) art. 810; forma de Eliahou, "
+         "Discrete Math. 118 (1993)",
+         "Ambito: todo ciclo no trivial sobre los enteros positivos. La cota "
+         "sale de meter el limite de verificacion por fuerza bruta en la forma "
+         "de Eliahou: la longitud es 301994a + 17087915b + 85137581c con "
+         "b >= 1 y a*c = 0, y 217.976.794.617 = (a=0, b=689, c=2422), "
+         "comprobado aqui. SUSTITUYE al 19.478.780.533 que este repo citaba "
+         "como 'literatura de 2025' sin nombrar a nadie: ese numero SI existe "
+         "-Laurore 2025, Adv. Pure Math. 15(6), DOI 10.4236/apm.2025.156018- "
+         "pero es de SCIRP, tiene cero citas, es ONCE VECES MAS DEBIL que el "
+         "estado del arte, y no encaja en la forma de Eliahou (0 soluciones). "
          "Por eso buscar ciclos escondidos en los 6.555 pares del 221 no podia "
-         "encontrar nada: el tramo mas largo mide 114 pasos. La busqueda no "
-         "era evidencia de nada."),
+         "encontrar nada: el tramo mas largo mide 114 pasos, y la cota real es "
+         "dos mil millones de veces mayor. La busqueda no era evidencia de "
+         "nada."),
 
     fila("no hay bucles de periodo <= 2.592",
          "ciclos", "demostrado", None, "Terras 1976 (Tabla C, jump values)",
@@ -813,6 +846,25 @@ CORRECCIONES = [
      "una cita copiada de otro sitio no es una cita comprobada. Hay que "
      "separar 'el hecho es cierto' de 'la fuente existe'"),
 
+    ("cualquier ciclo no trivial mide al menos 19.478.780.533 pasos, segun 'la "
+     "literatura de 2025'",
+     "la fuente se localizo el 01-08-2026 y resulto ser mala por partida "
+     "triple. Es Laurore, Adv. Pure Math. 15(6) 351-389 (2025), DOI "
+     "10.4236/apm.2025.156018: editorial SCIRP, cero citas en Crossref. Y el "
+     "numero es ONCE VECES MAS DEBIL que el estado del arte -Barina 2025 da "
+     "217.976.794.617 en el atajo y 355.504.839.929 en el clasico-, o sea que "
+     "el repo llevaba citada como 'lo que exige la literatura' una cota "
+     "peor que la conocida. Ademas no encaja en la forma de Eliahou "
+     "(301994a + 17087915b + 85137581c con b >= 1 y a*c = 0): barrido "
+     "exhaustivo, 0 soluciones, mientras que las tres cotas verificadas si "
+     "encajan. Sustituida por la de Barina",
+     "'la literatura dice' sin autor no es una cita, es un rumor. Y "
+     "localizarla no basta: hay que mirar DONDE se publico y si el numero "
+     "mejora o empeora lo que ya se sabia. Aqui la cita existia y aun asi "
+     "habia que quitarla, que es un caso que no estaba previsto - la lista de "
+     "salidas era 'localizar o degradar' y falto la tercera, 'localizar y "
+     "descartar igualmente'"),
+
     ("la trayectoria del 221 contiene 11 parejas espejo contra 1,48 esperadas",
      "el modelo nulo estaba mal: ignoraba el reparto de decadas. Con un test "
      "de aleatorizacion de 20.000 conjuntos que SI lo preserva salen 5 parejas "
@@ -879,9 +931,49 @@ CORRECCIONES = [
      "el valor exacto es 2^61/(3^32*993) = 1,2531421443950680..., que se separa "
      "en la DECIMA cifra. Coinciden en las nueve publicadas (1,253142144) y no "
      "cambia nada de lo medido, pero la constante literal esta mal. Lo cazo "
-     "elmasuno.py, comprobacion 4 (2026-07-30)",
+     "elmasuno.py, comprobacion 4 (2026-07-30). ARREGLADO EL 01-08-2026: "
+     "mapahilos.py y elmasuno.py la calculan ahora como 2**61/(3**32*993) y "
+     "ninguno la escribe a mano; elmasuno.py ademas corta con SystemExit si "
+     "alguien vuelve a copiarla. Comprobado que no mueve nada: el techo sigue "
+     "imprimiendo 0,225654 y los once eps siguen por debajo, 0 fallos",
      "una constante copiada a mano hay que recalcularla desde su definicion "
-     "una vez, aunque solo sea decorativa"),
+     "una vez, aunque solo sea decorativa. Y mejor todavia: no copiarla, "
+     "escribir la definicion y dejar que la maquina la evalue"),
+
+    ("el grosor 0,2286 de la lamina ES ln(Res(993)) = 0,225654, o sea que el "
+     "0,23 del dibujo era una constante con conjetura propia (asi esta en el "
+     "CLAUDE.md, seccion 'Es una lamina, no una esfera')",
+     "NO SON EL MISMO NUMERO, y el parecido es una colision de unidades sobre "
+     "dos objetos distintos. El 0,2286 sale de collazlamina.py, que mide "
+     "h = log2(2^B*y / (3^A*x)) sobre los 6.555 PARES de la trayectoria del "
+     "221, o sea en BITS; el 0,225654 es ln(Res(993)), o sea en NATS. Pasados "
+     "a las mismas unidades: 0,2286 bits = 0,158478 nats, y 0,225654 nats = "
+     "0,325550 bits. Difieren en un factor 1,42, no en la tercera cifra. Y el "
+     "0,2286 ni siquiera es una cota: es el eps de UN numero -el maximo sobre "
+     "los pares del 221 se alcanza en el par (221 -> 16), que es su "
+     "trayectoria entera- asi que mide el 221, no la lamina. Lo que si es "
+     "cierto y es lo que hay que escribir: h(par) <= log2(Res(seq[i])) porque "
+     "un producto parcial de factores (3x+1)/(3x) es menor que el total, y por "
+     "tanto la conjetura de Roosendaal acota TODOS los pares por 0,325550 "
+     "bits. El 0,2286 del 221 cae holgadamente debajo (2026-08-01)",
+     "antes de decir que dos numeros medidos son el mismo, pasarlos a las "
+     "mismas unidades. Dos cantidades en escalas distintas pueden parecerse en "
+     "tres cifras por casualidad, y aqui paso: log2 contra ln sobre dos "
+     "objetos que ni siquiera son el mismo barrido. Es la hermana del error "
+     "contrario que cazo elmasuno.py -alli dos numeros que parecian distintos "
+     "eran el mismo- y las dos se arreglan igual: traducir antes de comparar"),
+
+    ("el cuantificador clase_mod_2k de afirmaciones.db nombra bien a sus filas",
+     "se le queda corto a dos: la rueda del arbol inverso (mod 3, mod 9, mod "
+     "27) y los evitados de la malla 2n mod 27. Las dos son clases residuales "
+     "modulo 3^j, no 2^k, y las dos estaban en esa casilla con una nota que "
+     "pedia perdon por el nombre. La categoria real es la FORMA del argumento "
+     "-una comprobacion finita que decide para los infinitos numeros de una "
+     "clase de resto- y el modulo es un detalle del enunciado. Renombrado a "
+     "clase_residual el 01-08-2026",
+     "el nombre de una casilla tiene que describir la categoria, no el caso "
+     "mayoritario. Si hay que explicar en las notas de una fila por que esta "
+     "donde esta, la casilla esta mal puesta o mal llamada"),
 
     ("reimpl.py reproduce el Teorema 23 de Hercher sin ninguna discrepancia",
      "hay DOS. (1) El septimo epsilon sale 1,23e-43 donde el articulo imprime "
@@ -1013,15 +1105,34 @@ CONSTANTES = [
         "CON LA CONSTANTE LITERAL: mapahilos.py guarda 1.2531421442887503, que "
         "esta mal desde la decima cifra. El exacto es 2^61/(3^32*993)."),
 
-    cte("grosor de la lamina, ln(Res(993))", 0.2256541127319812, 0.2286, None,
+    cte("techo del grosor, ln(Res(993))", 0.2256541127319812, None, None,
         "ln( 2^61 / (3^32 * 993) )",
         "cuanto se separa como maximo un punto de la lamina del plano de "
-        "equilibrio",
+        "equilibrio, medido en NATS sobre trayectorias enteras",
         "Roosendaal (conjeturado)", "elmasuno.py",
-        "El 0,2286 medido en collazlamina.py es sobre PARES de una trayectoria "
-        "y el 0,225654 es sobre trayectorias enteras: no son el mismo barrido. "
-        "Que eps sea > 0 esta demostrado; que este ACOTADO por este numero "
-        "sigue siendo la conjetura de Roosendaal."),
+        "OJO CON LAS UNIDADES, QUE AQUI HUBO UN ERROR HASTA EL 01-08-2026. "
+        "Este numero esta en NATS. El 0,2286 de collazlamina.py, que estaba "
+        "puesto en la columna 'medido' de esta misma fila como si fuera lo "
+        "mismo, esta en BITS y ademas se mide sobre PARES de la trayectoria "
+        "del 221, no sobre trayectorias enteras. En las mismas unidades: "
+        "0,2286 bits = 0,158478 nats contra 0,225654 nats. No se parecen: "
+        "difieren en un factor 1,42. Que eps sea > 0 esta demostrado "
+        "(elmasuno.py); que este ACOTADO por este numero sigue siendo la "
+        "conjetura de Roosendaal."),
+
+    cte("grosor de la lamina del 221", 0.2286349110, None, None,
+        "max sobre los 6.555 pares i<j de log2( 2^B * seq[j] / (3^A * seq[i]) )",
+        "cuanto sobresalen del plano de equilibrio los pares de UNA "
+        "trayectoria concreta, la del 221, medido en BITS",
+        "propio", "collazlamina.py",
+        "NO ES UNA COTA NI UNA CONSTANTE DEL PROBLEMA: mide el 221 y nada mas. "
+        "El maximo se alcanza en el par (221 -> 16), que es la trayectoria "
+        "entera del 221, asi que este numero es su propio eps en bits: "
+        "0,2286 bits = 0,158478 nats, o sea Res(221) = 2^73/(3^41*221) = "
+        "1,17173. Lo que si es cierto es la desigualdad: para cualquier par, "
+        "h <= log2(Res(seq[i])), porque un producto parcial de factores "
+        "(3x+1)/(3x) es menor que el total. Con la conjetura de Roosendaal eso "
+        "acota todos los pares de todas las trayectorias por 0,325550 BITS."),
 
     cte("L de Everett", 0.5757166424934449, None, None,
         "log(2) / log(10/3)",
@@ -1198,7 +1309,7 @@ CREATE TABLE afirmaciones (
     id            INTEGER PRIMARY KEY,
     enunciado     TEXT NOT NULL,
     cuantificador TEXT NOT NULL CHECK (cuantificador IN
-                      ('todo_n','clase_mod_2k','casi_todo_n','promedio',
+                      ('todo_n','clase_residual','casi_todo_n','promedio',
                        'ciclos','verificado_hasta')),
     estado        TEXT NOT NULL CHECK (estado IN
                       ('demostrado','medido','conjeturado','refutado')),
@@ -1314,7 +1425,7 @@ print()
 
 
 print("=" * ANCHO)
-print("LAS QUE COMPONEN - 'todo_n' demostradas y 'clase_mod_2k'")
+print("LAS QUE COMPONEN - 'todo_n' demostradas y 'clase_residual'")
 print("=" * ANCHO)
 print()
 print("  Son las unicas con las que se puede encadenar un argumento: valen")
@@ -1323,7 +1434,7 @@ print()
 
 componen = c2.execute(
     "SELECT cuantificador, enunciado, fichero FROM afirmaciones"
-    " WHERE cuantificador='clase_mod_2k'"
+    " WHERE cuantificador='clase_residual'"
     "    OR (cuantificador='todo_n' AND estado='demostrado')"
     " ORDER BY cuantificador DESC, id").fetchall()
 
