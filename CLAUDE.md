@@ -12,23 +12,53 @@ número configurable arriba del archivo, pensados para ejecutarse y mirar el
 resultado. **El código se escribe simple a propósito**: nombres en castellano,
 comentarios que explican lo obvio, sin abstracciones.
 
+## LO PRIMERO DE TODO: `git fetch` antes de tocar nada
+
+**Antes de editar este archivo, `bitacora.md`, o cualquier cosa, sincronizá con
+el remoto.** No es formalidad: aquí se trabaja desde varias sesiones el mismo
+día, y `CLAUDE.md` es un archivo de 2.000 líneas que se edita en todas.
+
+```
+git fetch origin && git status -sb
+```
+
+**`git status` a secas NO basta, y esta es la trampa exacta.** Sin `fetch`,
+`status` compara contra la última copia *local* del remoto y escribe
+`## main...origin/main` sin flechas — que se lee como «sincronizado» y puede ser
+mentira. Sólo después del `fetch` aparece el `[behind N]` de verdad.
+
+**Ya mordió, el 01-08-2026:** una sesión corrigió los conteos de `CLAUDE.md`
+contra una versión que tenía un commit de menos — y ese commit ya había hecho las
+mismas correcciones, además de añadir siete `.py`. Todo el trabajo salió
+redundante y hubo que rehacerlo contra la versión buena.
+
+Si ya editaste sin haber hecho `fetch` y aparece `behind`: **no fuerces el
+merge.** `git stash push -- <archivo>`, `git merge --ff-only origin/main`, y
+después mirá qué de lo tuyo sigue haciendo falta. Casi siempre es menos de lo que
+parece.
+
 ## Instalación
 
 ```
 pip install -r requirements.txt      # numpy, matplotlib, plotly
 ```
 
-**Catorce** de los **28** scripts importan `plotly.graph_objects`, y **cuatro**
+**Catorce** de los **35** scripts importan `plotly.graph_objects`, y **cuatro**
 usan además `plotly.subplots`. Durante mucho tiempo `plotly` faltaba en
 `requirements.txt` y el repo no arrancaba en una máquina limpia — ya está
-arreglado. `numpy` lo usan **seis**: `viz3d.py`, `clasesfusion.py`,
-`clasesparalelo.py`, `densidadfusion.py`, `pinzaciclos.py` y `redhilos.py` (la red
-neuronal a mano). **`matplotlib` solo dos**: `viz3d.py` y `collazejecucion.py`. Y
-`sqlite3` lo usan `guardarhilos.py` y `mapahilos.py`, pero **ése viene con Python**
-y no hay que instalar nada.
+arreglado. `numpy` lo usan **siete**: `viz3d.py`, `clasesfusion.py`,
+`clasesparalelo.py`, `densidadfusion.py`, `descensoresto.py`, `pinzaciclos.py` y
+`redhilos.py` (la red neuronal a mano). **`matplotlib` solo dos**: `viz3d.py` y
+`collazejecucion.py`. Y `sqlite3` lo usan **cuatro** (`guardarafirmaciones.py`,
+`guardarhilos.py`, `guardarrespuestas.py`, `mapahilos.py`), pero **ése viene con
+Python** y no hay que instalar nada.
+
+> **La proporción que importa: sólo 14 de 35 dibujan.** El repo empezó siendo de
+> visualización y hoy la mayoría son programas de cálculo que escupen números por
+> stdout. Al escribir uno nuevo, el caso por defecto ya no es plotly.
 
 **Las dos mitades se instalan por separado, y conviene saber cuál te falta.** Al
-**30-07-2026**, en el Python 3.14.5 de esta máquina, están las tres:
+**01-08-2026**, en el Python 3.14.5 de esta máquina, están las tres:
 `numpy 2.4.4`, `matplotlib 3.11.1`, `plotly 6.9.0` — o sea que **ahora corre todo,
 incluido lo de matplotlib** (`viz3d.py`, `collazejecucion.py`,
 `python main.py graficar`), que durante meses se caía por falta de `matplotlib`.
@@ -72,10 +102,10 @@ legibles. (Ojo: no es *una* función duplicada, son **tres versiones distintas**
 Unas devuelven la lista sola, `collazcruce` devuelve `(valores, colores)`, y
 `collazcirculo`/`collazejecucion` la arman con un `while` a nivel de módulo.)
 
-El inventario exacto, para no buscarlo a mano — **nueve** archivos definen
+El inventario exacto, para no buscarlo a mano — **diez** archivos definen
 `secuencia_de(n)`: `collazarbol`, `collazcruce`, `collazlamina`, `collazmalla`,
-`coralcollaz`, `cruzarestos`, `guardarhilos`, `mallacollaz`, `mallascerradas`.
-**Dos** la arman
+`coralcollaz`, `cruzarestos`, `elmasuno`, `guardarhilos`, `mallacollaz`,
+`mallascerradas`. **Dos** la arman
 inline con un `while` (`collazcirculo`, `collazejecucion`). Y **cuatro no tienen
 trayectoria completa** porque no la necesitan: `mallaespejo` y `mallaespejo2`
 trabajan con reglas de **un paso** (`collatz(n)`, `T(n)`, `espejo`, `espejo2`),
@@ -101,9 +131,25 @@ Los `.html`, los `.png` y los `.pdf` están en `.gitignore`. **Los `.json` de
 `mallas/` no** — son el único resultado que sobrevive a cerrar el navegador, y
 están para eso.
 
-**`guardarmallas.py` es la excepción a la forma de arriba:** no dibuja, no abre
-el navegador, no tiene `NUMERO`. Escribe archivos y comprueba que se puedan
-volver a leer. Es el único programa del repo cuyo resultado no es una imagen.
+**Mitad C — los que no dibujan, y ya son mayoría.** `guardarmallas.py` empezó
+siendo *la excepción*; hoy **19 de los 35 no dibujan nada** y sólo 16 abren
+navegador o ventana:
+
+```
+NO DIBUJAN (19)  clasesfusion, clasesparalelo, collatz, coralprimos, cruzarecords,
+                 densidadfusion, descensoresto, elmasuno, espejobases,
+                 guardarafirmaciones, guardarhilos, guardarmallas, guardarrespuestas,
+                 main, maquinitacollaz, pinzaciclos, pisoaltitud, redhilos, reimpl
+DIBUJAN    (16)  los 14 de plotly + viz3d y collazejecucion (matplotlib)
+```
+
+Los de la Mitad C no abren el navegador, no tienen `NUMERO`, y su resultado es
+**stdout, un `.json`, un `.txt` o un `.db`**. Conservan del resto la constante en
+MAYÚSCULAS arriba y las comprobaciones que cortan con `SystemExit`, pero no la
+parte de plotly. **Al escribir uno nuevo de cálculo, copiá la forma de
+`pinzaciclos.py`, no la de `collazmalla.py`** — y acordate de que la advertencia
+de "importarlos te abre el navegador" no aplica a éstos, pero **sí ejecutan el
+cálculo entero al importarlos**, que en `clasesfusion.py` son veinte minutos.
 
 **Los scripts nuevos (`malla*`, `cruzarestos`, `coralcollaz`) usan ventana
 completa**: sin `width`/`height` fijos, con `autosize=True` y
@@ -145,8 +191,8 @@ esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
 `print()` o un `raise SystemExit()`.** Escribí `->` y `-` y listo.
 
 Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
-`python main.py camino 27` crasheaba desde Sublime. Corrido el **30-07-2026**
-sobre los **28** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
+`python main.py camino 27` crasheaba desde Sublime. Corrido el **01-08-2026**
+sobre los **35** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
 metiste vos. Para revisarlo:
 
 ```
@@ -480,23 +526,38 @@ que se medía como `1,4·10⁻¹⁴` era el error de sumar 35 cosenos.
 contra `(6,23)` y `(45,85)` contra `(40,81)`— y los rumbos finales también. No es
 el caso degenerado de "mismo `(A,B)`, misma posición".
 
-**La causa, y refuerza la doctrina en vez de romperla: `45 = 3² · 5`.** El retículo
-de relaciones enteras entre las 45 raíces tiene rango `45 − 24 = 21`, y las
-relaciones son el **triángulo** (`e_k + e_{k+15} + e_{k+30} = 0`, tres direcciones a
-120°) y el **pentágono** (cinco a 72°). El segundo choque es literalmente tres
-triángulos; el primero es una mezcla que usa la simetría de orden 5. O sea que **el
-cierre lo trae la conmensurabilidad del ángulo —16 y 8 dividen a 120—, no Collatz.**
-Es el mismo fenómeno que el hexágono, sólo que hace falta llegar a profundidad 31
-para verlo.
+**La causa que se le atribuyó — `45 = 3² · 5` — era casi toda falsa.** Lo que se
+escribió: el retículo de relaciones enteras entre las 45 raíces tiene rango
+`45 − 24 = 21`, generado por el **triángulo** (`e_k + e_{k+15} + e_{k+30} = 0`,
+tres direcciones a 120°) y el **pentágono** (cinco a 72°); luego el cierre lo
+traería la conmensurabilidad del ángulo, no Collatz.
 
-Conclusión para la pregunta que se hizo: **45 rumbos NO bastan para un árbol
-infinito.** El coral de Harriss sí se vuelve a juntar; lo que pasa es que tarda.
+> ### ⇢ CORREGIDO por `coralprimos.py`: el `45 = 3²·5` explicaba UN nivel de 31
+>
+> La parte reticular **es cierta y quedó medida**: con `N` primo el único núcleo
+> es `(1,1,…,1)`, y en todos los primos del barrido la clave cruda y la clave
+> reducida módulo `Φ_N` dan **el mismo número, sin una excepción**. Ninguna
+> relación no trivial entre raíces ayuda nunca.
+>
+> **Pero el motor de los choques no son las relaciones entre raíces.** Es el caso
+> trivial que el razonamiento se dejó fuera: **dos ramas que usan las mismas
+> aristas en otro orden.** Diferencia de vectores exactamente cero, ninguna
+> relación de por medio, y **existe para cualquier `N`**. Sale de que una tirada
+> larga de pasos pares recorre el círculo entero de direcciones y vuelve a pisar
+> las mismas que la otra rama pisó en otro orden.
+>
+> **La cuenta que lo cierra:** con `N = 45` el triángulo y el pentágono adelantan
+> el choque **un solo nivel**. El 45 habría chocado casi igual siendo primo.
+> Atribuirle el choque a su factorización era **quedarse con la causa de un nivel
+> e ignorar la de treinta y uno.**
+>
+> **Lo que sí gobierna el umbral es una recta en `N`, con dos ramas según
+> `N mod 4`** — `(N+19)/2` si `N ≡ 1`, `(N+11)/2` si `N ≡ 3`. No sabe nada de si
+> `N` es primo.
 
-*Predicción derivada, sin medir todavía:* si la causa es la factorización de 45,
-entonces con un número **primo** de rumbos el único núcleo es la suma de las `p`
-raíces, y un choque exigiría acumular las `p` direcciones exactamente por igual. El
-umbral de profundidad debería dispararse. Es barato de medir y sería el candidato
-serio a nota original sobre el método de dibujo.
+Conclusión para la pregunta que se hizo, y **ésta sí aguanta**: **45 rumbos NO
+bastan para un árbol infinito.** El coral de Harriss sí se vuelve a juntar; lo
+que pasa es que tarda. Lo que se cayó fue el *porqué*, no el *qué*.
 
 **De dónde sale la forma, y cómo se apaga.** En el coral **63,43% de los pasos
 son pares y 36,57% impares** → **1,7345 divisiones por multiplicación**, por
@@ -1256,8 +1317,16 @@ Indistinguibles.
 ```
 
 Despejando: sin el sobrante `S` la fracción impar daría 0,497877; **con** `S` da
-**0,496064**, que es exactamente lo medido. **Tercera aparición del mismo `+1`** —
-las otras dos son el grosor 0,2286 de la lámina y el `+2` del espejo base 2.
+**0,496064**, que es exactamente lo medido.
+
+> **CORREGIDO por `elmasuno.py`: este `S` y el grosor de la lámina no son dos
+> apariciones del `+1`, son UNA.** Se creyó que el `+1` salía en tres sitios
+> distintos (grosor `0,2286`, el `+2` del espejo base 2, y este `S`). Pero
+> `ε = ln(2^B/(3^A·n))` y `S = Σ ln(1 + 1/(3x))` son **el mismo objeto, término a
+> término, idénticamente** — porque en un paso impar el factor es
+> `(3x+1)/x = 3·(1 + 1/(3x))`. Verificado con `Fraction` exacto, 20.011 casos.
+> **El `+1` aparece dos veces, no tres**, y la lámina queda *demostrada* para todo
+> `n` en vez de medida.
 
 **La grieta, formulada:** la fracción impar queda **determinada** por cuánto bajó la
 trayectoria y cuántos pasos tardó, y sólo se puede medir en trayectorias **que ya
@@ -1580,6 +1649,17 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
   el clásico es `3/ln(4/3) = 10,428`. Atribuirla mal da un 49,5% de error. La
   escalera correcta es 1 : 2 : 3 según se cuenten los `3n+1`, los pasos del atajo o
   los clásicos.
+- **La causa del umbral del coral NO es `45 = 3²·5`** (`coralprimos.py`). La parte
+  reticular era cierta pero **no era el motor**: explicaba un nivel de treinta y
+  uno. Los choques los producen dos ramas con las mismas aristas en otro orden,
+  que existe para cualquier `N`; el 43 y el 47 —primos— chocan *antes* que el 45.
+  *Se predijo que el umbral se dispararía con `N` primo y no se disparó.*
+- **El `+1` no aparece tres veces, aparece dos** (`elmasuno.py`). El grosor de la
+  lámina y el sobrante `S` de la fracción impar son **idénticamente la misma
+  suma**, no dos apariciones del mismo estorbo. 20.011 casos con `Fraction`.
+- **`pisoaltitud.py` confirma que al piso le faltaba `n impar`** — la corrección
+  ya estaba escrita, pero ahora tiene código que la reproduce, con los pares
+  fallando a propósito para que no se pueda volver a perder.
 
 ## Nada de esto es nuevo — el balance, hecho a propósito
 
@@ -1609,14 +1689,22 @@ la fuente de todos. Lo único que se buscó en la web fue el coral.
 | Que la paridad se comporte como moneda | El modelo probabilístico estándar, formalizado en Lagarias–Weiss 1992 y Kontorovich–Lagarias |
 
 **Lo único que podría ser inédito:** la tabla de ángulos de `coralcollaz.py` —
-cuántos rumbos permite cada par y qué fracción de ramas colapsa— **ahora con el
-umbral medido** (30-07-2026): primer choque exacto en la profundidad **31**, y la
-causa identificada en la factorización `45 = 3²·5` vía las relaciones enteras entre
-raíces de la unidad. No es un teorema: es una medición sobre nuestro propio método
-de dibujo. Pero Harriss eligió ángulos por estética y nadie parece haber barrido el
-espacio. Candidata a nota original en visualización recreativa. **Sin verificar en
-la literatura.** *(La otra mitad de esa candidatura, la condición del ángulo nulo,
-queda debilitada: el `1,7345` en que se apoyaba no era estable.)*
+cuántos rumbos permite cada par y qué fracción de ramas colapsa— **con el umbral
+medido** (30-07-2026): primer choque exacto en la profundidad **31**. No es un
+teorema: es una medición sobre nuestro propio método de dibujo. Pero Harriss
+eligió ángulos por estética y nadie parece haber barrido el espacio. Candidata a
+nota original en visualización recreativa. **Sin verificar en la literatura.**
+
+**Y la candidatura ha encogido dos veces, las dos por control propio:**
+
+- *La condición del ángulo nulo* se cayó con el `1,7345`, que no era estable.
+- *La explicación del umbral por `45 = 3²·5`* se cayó con `coralprimos.py`:
+  explicaba un nivel de treinta y uno. Lo que queda en pie es **el umbral medido
+  y la recta en `N` con dos ramas según `N mod 4`** — que es un resultado más
+  pobre y más cierto que el que se había anunciado.
+
+*Es el patrón de siempre en este repo: lo que sobrevive al control es menos
+vistoso que lo que se escribió primero, y por eso vale.*
 
 *Un paralelo que tampoco se encontró en las fuentes, buscado explícitamente el
 30-07-2026: nadie parece trazar la comparación moneda-física ↔ Collatz en los
@@ -1703,9 +1791,9 @@ hacia adelante, que sigue ciego a los restos.
 
 **El techo de este repo es rederivación independiente bien verificada, más
 visualización original.** Eso no es descubrimiento, pero tampoco es poco: hay
-**veintiocho** programas, **veinte** de ellos con comprobaciones que cortan con
-`SystemExit`, un documento que separa lo real de lo dibujado, y un historial de
-negativos. La mayoría de la exploración amateur no llega ahí.
+**treinta y cinco** programas, **veintisiete** de ellos con comprobaciones que
+cortan con `SystemExit`, un documento que separa lo real de lo dibujado, y un
+historial de negativos. La mayoría de la exploración amateur no llega ahí.
 
 ### EL CUARTO CAMINO — el objetivo realista, enunciado el 30-07-2026
 
@@ -1965,16 +2053,19 @@ en quince bases; y la conjetura de Wu medida. El 30-07-2026 se sumaron: el umbra
 de los 45 rumbos, los negativos como 3n-1, las constantes, el ajuste fino de qn+1
 y el A/B contra la moneda. Todo eso esta arriba, con sus correcciones.)*
 
-**AVISO SOBRE LA SESION DEL 30-07-2026: casi no dejo ficheros.** Se hizo casi
-entera en scripts sueltos fuera del repo, y solo quedo escrito aqui.
-**Sobrevivieron cuatro cosas** — `pinzaciclos.py`, `cruzarecords.py`,
-`records.json` y `clasesparalelo.py`; **todo lo demas no se puede reproducir**: el
-umbral de los 45 rumbos, los negativos como `3n-1`, las constantes, el ajuste fino
-de `qn+1`, el A/B contra la moneda y el piso de la altitud estan medidos y
-escritos, pero sin codigo detras. Si algo de eso merece quedarse, hay que
-convertirlo en programas con la forma de siempre (constantes arriba,
-comprobaciones antes del dibujo, `SystemExit` si fallan). Es la deuda mas concreta
-que tiene el laboratorio ahora mismo.
+**AVISO SOBRE LA SESION DEL 30-07-2026: casi no dejo ficheros, y la deuda ya se
+pago a medias.** Se hizo casi entera en scripts sueltos fuera del repo. Lo que
+sobrevivio de entrada: `pinzaciclos.py`, `cruzarecords.py`, `records.json` y
+`clasesparalelo.py`. **Y el mismo dia se devolvieron cuatro mediciones mas a
+fichero ejecutable** — `pisoaltitud.py`, `elmasuno.py`, `reimpl.py` y
+`coralprimos.py` — mas `afirmaciones.db`, que recoge los enunciados con su
+cuantificador.
+
+**Lo que SIGUE sin codigo detras, y es la deuda que queda** (medido y escrito
+aqui, pero no reproducible): **los negativos como `3n-1`, las constantes, el
+ajuste fino de `qn+1` y el A/B contra la moneda.** Cuatro, no seis. Si alguna
+merece quedarse, hay que convertirla en un programa con la forma de siempre
+(constantes arriba, comprobaciones antes del dibujo, `SystemExit` si fallan).
 
 1. **LA PREGUNTA MAS CONCRETA QUE HAY EN EL REPO** sigue siendo si la razon
    `b(k)/b(k-1)` converge por debajo de 2 o llega a 2. El `k = 32` ya se corrio,
@@ -2000,10 +2091,12 @@ que tiene el laboratorio ahora mismo.
    dos programas C++, CINCO SEMANAS de computo)             ->  excluye m <= 91
    ```
 
-   **Fase 1 — traer `reimpl.py` al repo.** 130 líneas con `decimal` y `fractions`,
-   reproduce las siete iteraciones del Teorema 23 contra los valores publicados en
-   **5,5 segundos**. Sería el primer programa del laboratorio que no dibuja nada y
-   reproduce matemática arbitrada. *Detalle de rigor que no se puede saltar: el
+   **Fase 1 — ⇢ HECHA: `reimpl.py` ya está en el repo.** Reproduce las siete
+   iteraciones del Teorema 23 de Hercher, **7/7**, sin un solo `float` en la
+   cadena que decide. Es el primer programa del laboratorio que reproduce
+   matemática arbitrada. **Y encontró dos discrepancias contra lo publicado**, que
+   es justo el tipo de resultado que justificaba hacerlo. *Detalle de rigor que no
+   se puede saltar, y que sigue valiendo para la Fase 2: el
    denominador mínimo hay que buscarlo en un intervalo **ensanchado** con
    racionales `δ_lo < δ < δ_hi`, para que el error caiga del lado seguro. Sin eso
    es un número bonito, no una demostración — el mismo espíritu que los
@@ -2027,12 +2120,17 @@ que tiene el laboratorio ahora mismo.
    sí es un hallazgo.** Es lo más difícil que hay al alcance que no consista en
    repetir a otro.
 
-3. **El numero PRIMO de rumbos.** Prediccion escrita y sin medir (30-07-2026): si
-   los choques del coral vienen de que `45 = 3^2 * 5`, entonces con un numero
-   **primo** de rumbos el unico nucleo es la suma de las `p` raices, y un choque
-   exigiria acumular las `p` direcciones exactamente por igual. El umbral de
-   profundidad deberia dispararse. Es barato —mismo codigo, otro angulo— y es lo
-   mas cerca de una nota original que hay en el repo.
+3. **⇢ HECHO: el numero PRIMO de rumbos (`coralprimos.py`). La prediccion
+   FALLO**, y es de los pendientes que mas ha enseñado. Se predijo que con `N`
+   primo el umbral de profundidad se dispararia. **Los dos primos vecinos del 45,
+   el 43 y el 47, chocan ANTES que el 45**, y el maximo del rango no lo tiene un
+   primo. La mitad reticular de la teoria si se confirmo (con `N` primo el unico
+   nucleo es `(1,1,…,1)`, sin excepcion), pero **resulto no ser el motor**: los
+   choques los producen dos ramas que usan las mismas aristas en otro orden, algo
+   que existe para cualquier `N`. Ver la correccion completa en la seccion del
+   umbral de los 45 rumbos. *Lo que queda para una sesion futura es la recta
+   `(N+19)/2` / `(N+11)/2` segun `N mod 4`: esta medida pero no demostrada, y
+   demostrarla si tendria forma de cota.*
 
 4. **Colorear el arbol de `collazarbol.py` con la rueda** — cada rama segun la
    clase mod 3 de su semilla — para *ver* el tambor sobre la esfera que ya existe.
@@ -2048,8 +2146,14 @@ que tiene el laboratorio ahora mismo.
    malla. Sin esa correspondencia estructural, un cruce que de positivo seria
    sospechoso antes que interesante.
 
-6. **El `+1` aparece ya tres veces**: el grosor 0,2286 de la lamina, el `+2` del
-   espejo base 2, y la desviacion -0,0035 de la fraccion impar. Las tres son el
-   mismo estorbo medido en tres sitios distintos. Vale la pena buscar si se pueden
-   escribir como una sola cantidad — seria lo unico del laboratorio que **unifica**
-   piezas en vez de acumularlas.
+6. **⇢ HECHO: el `+1` no aparece tres veces, aparece DOS (`elmasuno.py`).** Se
+   pedia buscar si el grosor `0,2286` de la lamina, el `+2` del espejo base 2 y el
+   sobrante `S` de la fraccion impar se podian escribir como una sola cantidad.
+   **Dos de las tres son la misma suma, y no aproximadamente: identicamente.** El
+   `ε = ln(2^B / (3^A·n))` de la lamina y el `S = Σ ln(1 + 1/(3x))` de la fraccion
+   impar son **el mismo objeto termino a termino**, y sale de una linea de
+   aritmetica: en un paso impar el factor es `(3x+1)/x = 3·(1 + 1/(3x))`.
+   Comprobado con `Fraction` exacto en 20.011 casos. **La lamina deja de ser una
+   medicion y pasa a estar demostrada para todo `n`.** El `+2` del espejo base 2
+   sigue siendo la tercera pieza, aparte. *Es lo unico del laboratorio que
+   **unifica** piezas en vez de acumularlas, que era exactamente lo que se pedia.*
