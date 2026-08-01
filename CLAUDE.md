@@ -1171,9 +1171,26 @@ De todo lo leído de la literatura, **esto es lo único que quedó abierto y al
 alcance de medir**. El resto son teoremas de 1976–2005.
 
 **Cuidado con la palabra "altura".** En la literatura de Collatz, `h(n)` es el
-**número de pasos** hasta llegar al 1, no el valor más alto. El valor más alto
-se llama *excursión máxima* `t(n)`. Wu habla de *"consecutive numbers of the
-same height"*, así que su magnitud es la de los pasos.
+**número de pasos del mapa CLÁSICO** hasta llegar al 1, no el valor más alto. El
+valor más alto se llama *excursión máxima* `t(n)`. Wu habla de *"consecutive
+numbers of the same height"*, así que su magnitud es la de los pasos.
+
+> **PRECISIÓN (01-08-2026): «altura = tiempo de parada total» NO vale citando el
+> `σ_∞` de Lagarias.** Bajo la definición de Lagarias, `σ_∞` es el tiempo de
+> parada total **sobre el mapa `T` (el atajo)**, y `h` de Garner y Wu es sobre el
+> mapa clásico. **Difieren en 19.985 de 19.999 casos** — `n = 27` da `111` en el
+> clásico y `70` en el atajo. Son dos magnitudes distintas y este documento las
+> igualaba.
+>
+> **El atenuante, y por eso no se cae ninguna medición:** como **relación entre
+> consecutivos** coinciden. `h(n) = h(n+1) ⟺ σ_∞(n) = σ_∞(n+1)`, comprobado de
+> `n = 2` a `29.999` con **0 discrepancias** — y es lo esperable, porque dos
+> trayectorias que se funden llegan con las mismas cuentas de pares y de
+> impares. **Todo lo que este repo mide son relaciones entre consecutivos**, así
+> que ningún número cambia. Lo que cambia es la frase.
+>
+> *Es la misma clase de error que `2/ln(4/3)` contra `3/ln(4/3)`: confundir el
+> mapa del atajo con el clásico. Tercera aparición.*
 
 **La conjetura (Wu Jia-Bang, 1995):** demostró que una versión condicionada de
 la densidad de pares consecutivos con la misma altura **crece** con `N`, y
@@ -1987,9 +2004,36 @@ de ejecución (−44%).
 **Y LA RESPUESTA ESTRUCTURAL, que cierra la pregunta de si se puede cribar para
 buscar ciclos: NO, y no es por falta de ingenio.**
 
-> Por el teorema de Terras, `T^k` es una **biyección** sobre `Z/2^k`. Cada vector
-> de paridad de longitud `k` corresponde a **exactamente una** clase módulo
-> `2^k`. **No hay clases que descartar — hay tantos candidatos como vectores.**
+> Por el teorema de Terras, el mapa **resto → vector de paridad** es una
+> **biyección `Z/2^k → {0,1}^k`**. Cada vector de paridad de longitud `k`
+> corresponde a **exactamente una** clase módulo `2^k`. **No hay descarte en
+> bloque — hay tantos candidatos como vectores.**
+
+> **CORRECCIÓN (01-08-2026): aquí ponía «`T^k` es una biyección sobre `Z/2^k`»,
+> y eso es FALSO al pie de la letra.** `T^k` **ni siquiera está bien definida**
+> módulo `2^k`: con `k = 1`, los restos `0` y `2` son la misma clase y
+> `T(0) = 0` mientras `T(2) = 1`. Y `T` tampoco es inyectiva sobre `Z`:
+> `T(1) = T(4) = 2`.
+>
+> **Lo verdadero es el enunciado de Terras que hay arriba** — la biyección es
+> `resto ↔ vector de paridad`, no `T^k` sobre las clases. Comprobado exhaustivo
+> de `k = 1` a `k = 16` (`verificar_constantes.py [6]`): el vector de paridad
+> depende sólo del resto (0 fallos) y el mapa es biyectivo (0 fallos, `2^16`
+> vectores distintos).
+>
+> **Y LA CONCLUSIÓN ESTRATÉGICA SE SALVA ENTERA**, porque sólo usa la versión
+> verdadera: hay exactamente `2^k` clases y una por vector, luego no hay dos
+> clases que compartan destino y puedan descartarse juntas. **El repo tuvo
+> suerte** — la línea falsa estaba escrita al lado de la verdadera, y el
+> argumento se apoyaba en la de al lado. *Que la conclusión aguante no es mérito
+> del razonamiento: es que había dos frases y la que trabajaba era la buena. Si
+> se hubiera apoyado en la otra, la decisión de abandonar el barrido de restos
+> estaría construida sobre nada.*
+>
+> **Matiz que también se pasaba de fuerte: «no hay clases que descartar».** Las
+> hay — `pinzaciclos.py` descarta casi todas. Lo que no hay es descarte **en
+> bloque**: cada clase exige su propia decisión, aunque sea `O(1)`, y por eso el
+> coste es `Θ(2^k)` y no menos.
 
 Una criba funciona porque muchas clases comparten el destino "ya bajó". Para
 ciclos no hay nada que compartir: cada clase es un candidato distinto y único.
@@ -2141,6 +2185,19 @@ el salto de 9.232 a 4.616 dibuja lo mismo que el de 2 a 1.
 - **«La lista entera de la Tabla C son las convergentes y semiconvergentes»**
   (01-08-2026): es **la mitad** — sólo las que aproximan `log₂3` por encima.
   `3/2`, `19/12`, `84/53`, `1054/665` son convergentes y no son jump values.
+- **«`T^k` es una biyección sobre `Z/2^k`» es falso al pie de la letra**
+  (01-08-2026). `T^k` ni está bien definida módulo `2^k` (`k=1`: `T(0)=0`,
+  `T(2)=1` y son la misma clase), ni `T` es inyectiva sobre `Z` (`T(1)=T(4)=2`).
+  Lo verdadero es **«resto → vector de paridad es una biyección
+  `Z/2^k → {0,1}^k`»**. **La conclusión estratégica se salva entera** porque
+  sólo usaba esa versión — el repo tuvo suerte de tener las dos frases juntas.
+  Y «no hay clases que descartar» también se pasaba: las hay, lo que no hay es
+  descarte **en bloque**.
+- **«altura = tiempo de parada total» citando el `σ_∞` de Lagarias** era una
+  igualdad entre dos mapas distintos (01-08-2026): `σ_∞` es sobre `T` y `h` es
+  sobre el clásico, y difieren en 19.985 de 19.999 casos. Como **relación entre
+  consecutivos** sí coinciden (0 discrepancias), así que ningún número del repo
+  se mueve.
 - **El criterio de fusión vale para `m ≥ 1`, no «para todo `m`»** (01-08-2026).
   En `m = 0` es falso: `(5,6)` da alturas 5 y 8, y `(4,5)` da 2 y 5. Fallan
   exactamente 3 clases (`r = 2, 4, 5`), estables de `k=5` a `k=22`. **La cota
