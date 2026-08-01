@@ -5,6 +5,134 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+## ⇢ LA AUDITORÍA DEL 01-08-2026: tres cosas que hay que decidir antes de nada
+
+9 agentes, 3 fases, revisores adversariales, **20 correcciones a la propia
+clasificación**. El informe entero está en el output del workflow `wkujctscn`.
+Aquí va sólo lo que cambia decisiones.
+
+### 1. `a(k)` ES IDÉNTICA PARA `3n+1` Y PARA `3n−1` — y eso toca el envío a OEIS
+
+Verificado por el revisor con implementación propia, `k = 3…13`:
+`1, 3, 8, 18, 39, 82, 170, 351, 721, 1476, 3012` — **los mismos términos con las
+dos reglas**. El signo del `+1` es justo lo que convierte un mapa con **un**
+ciclo en uno con **tres**; una cantidad invariante bajo esa simetría **no puede
+ser evidencia sobre convergencia**.
+
+El criterio de fusión sigue siendo **exacto y correcto** — es la regla `R3` de la
+criba de Barina. Lo que se cae es su `sirve_para_la_formula`.
+
+> **`oeis_borrador.txt` NO se envía hasta resolver esto.** Sería publicar una
+> sucesión que no distingue el mapa de un ciclo del de tres.
+
+*Pendiente: llegar a `k ≥ 20` y decidir si la coincidencia es un teorema o se
+rompe. La biyección `r → 2^k−2−r` que se alegó **no se pudo confirmar**: los
+cardinales coinciden, los conjuntos no.*
+
+### 2. EVERETT ESTABA MAL TRADUCIDO, y la versión escrita era infalsificable
+
+El `CLAUDE.md` decía `A/(A+B) < 0,5757 ⟺ B/A > 0,7369`, «más flojo que
+`log₂3 = 1,585`». **Falso.** La `N` de Everett son pasos del **atajo**, donde
+`X ≡ A` y `N ≡ B` exactamente (comprobado en 27, 221, 703, 9663, 100009,
+63728127). La condición real es **`B/A > 1,73697`**, que es **más FUERTE** que
+`log₂3`, no más floja.
+
+Y muerde: el **27** (`B/A = 1,7073`) y el **63728127** (`1,6583`) **no la
+cumplen y convergen igual** — que es exactamente lo que significa «casi todo `n`».
+
+> Tal como estaba escrita, **toda trayectoria que llega a 1 la cumplía de sobra:
+> una comprobación que no puede fallar.** Es justo lo que este repo se prohíbe.
+
+### 3. UNA COTA NUEVA, Y ES MÁS FUERTE QUE LO QUE TENÍAMOS
+
+De `C ≥ 0` en la identidad, sin asumir convergencia:
+
+```
+2^B · seq[j]  >=  3^A · seq[i]        para TODO par i<j de TODO n
+si un tramo BAJA, entonces 2^B > 3^A
+```
+
+Verificado sobre **prefijos que nunca tocan el 1** (semillas de 20/60/200 bits):
+356.850 pares, **0 fallos, 0 valores de `C` negativos**; y 272.063 tramos
+descendentes, **0 violaciones**. **Convierte «el balance decide todo» de promedio
+sobre trayectorias en cota por tramo.** Vive en `collazlamina.py`, en el cálculo
+que el fichero hace antes de dibujar.
+
+### Y el hueco, confirmado con números
+
+`afirmaciones.db`: **5 filas `casi_todo_n`, las 5 con `fichero = NULL`.** Cero
+instrumentos propios sobre densidad. Reparto: `todo_n` 17 · `clase_residual` 17 ·
+`verificado_hasta` 15 · `promedio` 16 · `ciclos` 10.
+
+**Y el repo tiene demostrado él mismo que el cuarto camino está vallado por los
+dos lados:** `a(k) ≥ 1` para todo `k` (`descensoresto.py`) dice que la criba
+modular **nunca se vacía**; la columna «ambiguo» de `redhilos.py` dice que ninguna
+clase se decide antes del bit `k`. Lo que falta no es un pool más grande: es un
+instrumento que mida **densidad logarítmica**, que hoy no existe en ninguna línea.
+
+### Deuda inmediata
+
+**7 ficheros `verificar_*.py` (5.034 líneas) están sin trackear en git.** Es el
+mismo fallo del 30-07 —matemática fuera del repo— todavía a tiempo de evitarse.
+**Nadie los ha auditado**: los escribió el workflow de lo ajeno mientras corría la
+auditoría, y no entraban en su inventario.
+
+---
+
+## ⇢ PENDIENTE: convertir en `.py` lo que trajo la búsqueda web del 01-08-2026
+
+Encargado el **01-08-2026**. Una búsqueda web cruzó los 63 puntos del repo contra
+la literatura y trajo diez cosas. **Ninguna está comprobada con código propio, y
+todas salen de fragmentos de búsqueda, no de haber leído los papers.** Es
+exactamente el error de Wu–Huang otra vez si se construye algo encima sin
+verificar. Un `verificar_*.py` por bloque, con revisor adversarial.
+
+### Lo más importante que se encontró
+
+**LA CONJETURA DEL *COEFFICIENT STOPPING TIME* (Terras 1976, bautizada por
+Lagarias).** Es el cuarto camino enunciado por otro hace cincuenta años:
+
+```
+σ*(x) := min{ k >= 1 : 2^k > 3^{m_k(x)} }     <- solo el coeficiente
+σ (x) := min{ k >= 1 : T^k(x) < x }           <- la parada de verdad
+Siempre σ*(x) <= σ(x).   CST: son IGUALES para todo x >= 2.
+```
+
+- **Si CST es cierta, NO hay ciclos no triviales.**
+- **Si CST es cierta, el conjunto de `n` con tiempo de parada `k` es exactamente
+  una unión de clases de congruencia módulo `2^k`.**
+
+Y en coordenadas del repo, `2^k > 3^{m_k}` es **`B/A > log₂3`**. La diferencia
+entre `σ*` y `σ` es **exactamente el `C` de la identidad, o sea el `+1`**: `σ*`
+ignora `C`, `σ` lo incluye. Luego **CST dice que el `+1` nunca cambia dónde cae
+la primera bajada** — el objeto que este repo lleva tres sesiones midiendo sin
+saber para qué servía.
+
+### Los diez bloques a convertir en código
+
+| # | resultado | qué comprobar |
+|---|---|---|
+| 1 | **CST** (Terras / Lagarias) | `σ*(n) == σ(n)` en los 11 hilos, los 243 récords y un barrido. Y medir la holgura `σ − σ*` |
+| 2 | **Böhm–Sontacchi 1978**: `x = Σ 2^{m−b_k−1}·3^{k−1} / (2^m − 3^n)` | Es la misma familia que `pinzaciclos.py` (mismo denominador `2^m − 3^n`). Comprobar que las dos fórmulas dan lo mismo, y que recupera los tres ciclos negativos |
+| 3 | **Bernstein–Lagarias 1996**: `Φ∘S∘Φ⁻¹ = T`, y `Q_∞` es homeomorfismo 2-ádico | Nuestra biyección finita mod `2^k` es su sombra. Verificar la conjugación a profundidad finita |
+| 4 | **Monks 2006** (PAMS 134): **toda** progresión `A + BN` no constante es un conjunto suficiente | ⚠️ **doble filo**: legitima trabajar por clases, pero implica que **ninguna clase es más fácil que el problema entero** |
+| 5 | **Krasikov–Lagarias 2003**: `#{n ≤ x que llegan a 1} ≥ x^0,84` | **Es la cota sobre densidad que el repo no tiene** (el hueco #64) |
+| 6 | **Applegate–Lagarias 1995**: `π_a(x) ≥ x^0,81` para `a ≢ 0 (mod 3)` | la versión previa, por árbol |
+| 7 | **Applegate–Lagarias 2003**: infinitos `n` con `σ_∞(n) > 6,14316·log n` | cota demostrada; nosotros sólo tenemos el promedio `10,428` |
+| 8 | **Steiner 1977**: no hay 1-ciclos salvo el trivial | es la **base** de Simons–de Weger y Hercher. Tenemos el tejado sin cimientos |
+| 9 | reducción a **`n ≡ 3 (mod 4)`** | las otras tres clases tienen secuencia finita que baja. Lo tenemos implícito y sin enunciar |
+| 10 | **arXiv 2606.02621 (2026)**, Fibonacci vía estructura modular | puede ser nuestro `F(k+2)` de `mallaresiduos.py`, o algo mejor. **Leerlo entero** |
+
+*Contexto: [ccchallenge.org](https://ccchallenge.org/) lleva 372 papers
+catalogados y **1 formalizado**. Tao, Eliahou y Bernstein–Lagarias esperan
+auditoría; Monks 2006 y Knight (2026) están en formalización.*
+
+**Prioridad 1 es el bloque 1.** Si CST resulta ser lo que parece, deja de ser una
+búsqueda difusa de «la fórmula» y pasa a ser un enunciado preciso con cincuenta
+años, que el repo tiene el instrumental para atacar.
+
+---
+
 ## ⇢ PENDIENTE PRIORITARIO: auditar las REFUTACIONES, no sólo las afirmaciones
 
 Encargado el **01-08-2026**, para ejecutar **en cuanto terminen** los dos
