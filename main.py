@@ -2,8 +2,12 @@
 
   python main.py verificar --limite 1000000
   python main.py records   --limite 10000
-  python main.py graficar  --paisaje 1000 --coral 3000
   python main.py camino    27
+
+El subcomando `graficar` se retiro el 01-08-2026 junto con viz3d.py: aquellas
+vistas 3D no tenian ni una comprobacion y arrastraban la proporcion de Harriss
+invertida. Lo que dibujaban -- la altura sobre una esfera -- ya estaba medido y
+era ruido: la correlacion entre latitud y log2(valor) es 0,12.
 """
 
 from __future__ import annotations
@@ -61,17 +65,6 @@ def cmd_camino(args) -> None:
     print()
 
 
-def cmd_graficar(args) -> None:
-    import viz3d
-
-    if args.paisaje:
-        ruta, s = _cronometrar(viz3d.paisaje, args.paisaje, mostrar=args.mostrar)
-        print(f"  paisaje  -> {ruta}  ({s:.1f} s)")
-    if args.coral:
-        ruta, s = _cronometrar(viz3d.coral, args.coral, mostrar=args.mostrar)
-        print(f"  coral    -> {ruta}  ({s:.1f} s)")
-
-
 def main() -> None:
     p = argparse.ArgumentParser(description="Laboratorio de la conjetura de Collatz")
     sub = p.add_subparsers(dest="comando", required=True)
@@ -87,12 +80,6 @@ def main() -> None:
     c = sub.add_parser("camino", help="imprime la trayectoria de una semilla")
     c.add_argument("n", type=int)
     c.set_defaults(func=cmd_camino)
-
-    g = sub.add_parser("graficar", help="genera las vistas 3D")
-    g.add_argument("--paisaje", type=int, default=1000, help="semillas del paisaje (0 = omitir)")
-    g.add_argument("--coral", type=int, default=3000, help="semillas del coral (0 = omitir)")
-    g.add_argument("--mostrar", action="store_true", help="abre la ventana interactiva")
-    g.set_defaults(func=cmd_graficar)
 
     args = p.parse_args()
     args.func(args)

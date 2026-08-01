@@ -68,27 +68,23 @@ parece.
 pip install -r requirements.txt      # numpy, matplotlib, plotly
 ```
 
-**Catorce** de los **35** scripts importan `plotly.graph_objects`, y **cuatro**
-usan además `plotly.subplots`. Durante mucho tiempo `plotly` faltaba en
-`requirements.txt` y el repo no arrancaba en una máquina limpia — ya está
-arreglado. `numpy` lo usan **siete**: `viz3d.py`, `clasesfusion.py`,
-`clasesparalelo.py`, `densidadfusion.py`, `descensoresto.py`, `pinzaciclos.py` y
-`redhilos.py` (la red neuronal a mano). **`matplotlib` solo dos**: `viz3d.py` y
-`collazejecucion.py`. Y `sqlite3` lo usan **cuatro** (`guardarafirmaciones.py`,
-`guardarhilos.py`, `guardarrespuestas.py`, `mapahilos.py`), pero **ése viene con
-Python** y no hay que instalar nada.
+**De los 28 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
+`mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos usan
+además `plotly.subplots`. `numpy` lo usan **seis**: `clasesfusion.py`,
+`clasesparalelo.py`, `descensoresto.py`, `pinzaciclos.py`, `redhilos.py` (la red
+neuronal a mano) y `verificar_wu.py`. Y `sqlite3` lo usan **cinco**
+(`guardarafirmaciones.py`, `guardarhilos.py`, `guardarrespuestas.py`,
+`mapahilos.py`, `otramedicion2.py`), pero **ése viene con Python** y no hay que
+instalar nada.
 
-> **La proporción que importa: sólo 14 de 35 dibujan.** El repo empezó siendo de
-> visualización y hoy la mayoría son programas de cálculo que escupen números por
-> stdout. Al escribir uno nuevo, el caso por defecto ya no es plotly.
+*(`matplotlib` se queda en `requirements.txt` aunque ahora mismo no lo importe
+nadie: la purga del 01-08-2026 se llevó sus dos clientes, pero tarde o temprano
+va a hacer falta y no vale la pena tocarlo.)*
 
-**Las dos mitades se instalan por separado, y conviene saber cuál te falta.** Al
-**01-08-2026**, en el Python 3.14.5 de esta máquina, están las tres:
-`numpy 2.4.4`, `matplotlib 3.11.1`, `plotly 6.9.0` — o sea que **ahora corre todo,
-incluido lo de matplotlib** (`viz3d.py`, `collazejecucion.py`,
-`python main.py graficar`), que durante meses se caía por falta de `matplotlib`.
-Si algo de matplotlib falla, lo primero es comprobar que no cambiaste de
-intérprete. Para saber qué hay:
+> **La proporción se dio vuelta: 24 de 28 NO dibujan.** El repo empezó siendo de
+> visualización y hoy es de cálculo. **Al escribir un programa nuevo, el caso por
+> defecto es stdout, no plotly** — copiá la forma de `pinzaciclos.py` o de
+> `cotatramos.py`.
 
 ```
 python -c "import importlib.metadata as m; [print(p, m.version(p)) for p in ['numpy','matplotlib','plotly']]"
@@ -104,47 +100,57 @@ hook o en un script de shell, usa `python -c`.
 Esto es lo que no se ve leyendo un archivo solo. **Las dos mitades no se hablan
 entre ellas**, y es a propósito.
 
-**Mitad A — el motor y su CLI.** `collatz.py` es el único módulo de verdad:
-tiene type hints, docstrings y `tabla_de_pasos` con memoización. `main.py`
-(argparse) y `viz3d.py` lo importan. Nadie más lo importa.
+> **AVISO: esta sección se llamaba «las dos mitades» y describía un repo que ya
+> no existe.** La purga del 01-08-2026 se llevó 16 programas de visualización, y
+> lo que queda no son dos mitades: es **un núcleo de cálculo con cuatro dibujos
+> colgando**. Lo que sigue es el reparto real.
+
+**El núcleo — los que no dibujan, 24 de 28.** Su resultado es **stdout, un
+`.txt` o un `.db`**. No abren navegador. Conservan la constante en MAYÚSCULAS
+arriba y las comprobaciones que cortan con `SystemExit` antes de afirmar nada
+— **26 de los 28 tienen `SystemExit`**.
+
+```
+clasesfusion  clasesparalelo  collatz  coralprimos  cotatramos  cruzarecords
+descensoresto  elmasuno  guardarafirmaciones  guardarhilos  guardarrespuestas
+main  otramedicion2  pinzaciclos  pisoaltitud  redhilos  reimpl
++ los SIETE verificar_*
+```
+
+**Al escribir uno nuevo, copiá la forma de `pinzaciclos.py` o `cotatramos.py`.**
+
+**Los cuatro que dibujan:** `collazmalla.py`, `mallaresiduos.py`,
+`mallascerradas.py` y `mapahilos.py`. Los cuatro sobrevivieron a la purga
+**porque su cálculo sostiene un teorema**, no porque dibujen: la identidad de
+Terras, el resto mod `2^k`, las tres ruedas del árbol inverso, y los once hilos.
+Terminan en `figura.write_html(archivo, auto_open=True)`, así que **importarlos
+te abre el navegador** — no hagas `import collazmalla` para inspeccionarlo.
+
+**El motor y su CLI.** `collatz.py` es el único módulo de verdad: type hints,
+docstrings y `tabla_de_pasos` con memoización. Sólo `main.py` lo importa.
 
 ```
 python main.py verificar --limite 1000000    # busca contraejemplos
 python main.py records   --limite 10000      # semillas que baten records
 python main.py camino    27                  # imprime la trayectoria
-python main.py graficar  --paisaje 1000 --coral 3000 [--mostrar]
 ```
 
-`viz3d.py` es matplotlib y escribe **`.png`** (`paisaje3d.png`, `coral3d.png`).
-`main.py graficar` lo importa de forma diferida, solo si se lo pide.
+*(El subcomando `graficar` se retiró con `viz3d.py` el 01-08-2026.)*
 
-**Mitad B — los programas sueltos (`collaz*.py`, `malla*.py`, `cruzarestos.py`,
-`coralcollaz.py`).** Ninguno importa `collatz.py`. Cada uno **redefine su propio
-`secuencia_de(n)` de cinco líneas**. Eso es duplicación deliberada: cada archivo
-se abre, se lee entero y se ejecuta por sí solo, sin saltar a otro. **No los
-refactorices para que compartan el motor** — romperías justamente lo que los hace
-legibles. (Ojo: no es *una* función duplicada, son **tres versiones distintas**.
-Unas devuelven la lista sola, `collazcruce` devuelve `(valores, colores)`, y
-`collazcirculo`/`collazejecucion` la arman con un `while` a nivel de módulo.)
+**La duplicación de `secuencia_de(n)` es deliberada y sigue en pie.** Siete
+archivos la redefinen —`collazmalla`, `cotatramos`, `elmasuno`, `guardarhilos`,
+`mallascerradas`, `otramedicion2`, `verificar_fusiones`— en vez de importar
+`collatz.py`. Cada archivo se abre, se lee entero y se ejecuta por sí solo, sin
+saltar a otro. **No los refactorices para que compartan el motor.**
 
-El inventario exacto, para no buscarlo a mano — **diez** archivos definen
-`secuencia_de(n)`: `collazarbol`, `collazcruce`, `collazlamina`, `collazmalla`,
-`coralcollaz`, `cruzarestos`, `elmasuno`, `guardarhilos`, `mallacollaz`,
-`mallascerradas`. **Dos** la arman
-inline con un `while` (`collazcirculo`, `collazejecucion`). Y **cuatro no tienen
-trayectoria completa** porque no la necesitan: `mallaespejo` y `mallaespejo2`
-trabajan con reglas de **un paso** (`collatz(n)`, `T(n)`, `espejo`, `espejo2`),
-`mallaresiduos` solo mira el arranque (`patron_de_arranque`), y `mallabasica` es
-la malla de control **sin Collatz** de ningún tipo.
+**Forma de un programa suelto:**
 
-Su forma es siempre la misma:
-
-1. Un bloque de comentarios arriba explicando qué se está mirando y por qué.
-2. Constantes en MAYÚSCULAS editables (`NUMERO = 221`, `TAMANO_LETRA`, …).
+1. Un bloque de comentarios arriba explicando qué se mira y por qué.
+2. Constantes en MAYÚSCULAS editables.
 3. Código a nivel de módulo, sin `main()` ni `if __name__`. **Importarlos los
-   ejecuta.** No hagas `import collazmalla` para inspeccionarlo: te abre el
-   navegador.
-4. Los de plotly terminan en `figura.write_html(archivo, auto_open=True)`.
+   ejecuta.**
+4. Las comprobaciones **antes** de cualquier conclusión, cortando con
+   `SystemExit` si fallan.
 
 **Excepción obligatoria al punto 3: `clasesparalelo.py` sí lleva
 `if __name__ == "__main__"`**, y lo necesita — `multiprocessing` en Windows
@@ -152,22 +158,7 @@ reimporta el módulo en cada proceso hijo, y sin el guard el barrido se fork-bom
 No se lo quites por uniformidad. (`main.py` también lo lleva, pero ése es la CLI y
 nunca tuvo la forma de los sueltos.)
 
-Los `.html`, los `.png` y los `.pdf` están en `.gitignore`. **Los `.json` de
-`mallas/` no** — son el único resultado que sobrevive a cerrar el navegador, y
-están para eso.
-
-**Mitad C — los que no dibujan, y ya son mayoría.** `guardarmallas.py` empezó
-siendo *la excepción*; hoy **27 de los 43 no dibujan nada** y sólo 16 abren
-navegador o ventana:
-
-```
-NO DIBUJAN (27)  clasesfusion, clasesparalelo, collatz, coralprimos, cruzarecords,
-                 densidadfusion, descensoresto, elmasuno, espejobases,
-                 guardarafirmaciones, guardarhilos, guardarmallas, guardarrespuestas,
-                 main, maquinitacollaz, otramedicion2, pinzaciclos, pisoaltitud,
-                 redhilos, reimpl, y los SIETE verificar_*
-DIBUJAN    (16)  los 14 de plotly + viz3d y collazejecucion (matplotlib)
-```
+Los `.html`, los `.png` y los `.pdf` están en `.gitignore`.
 
 **Y los siete `verificar_*.py` son una familia aparte dentro de la Mitad C**
 (01-08-2026). No calculan nada nuevo: **re-derivan con aritmética exacta lo que
@@ -266,35 +257,18 @@ for a in sorted(glob.glob('*.py')):
 | Archivo | Qué hace |
 |---|---|
 | `collatz.py` | Motor: `secuencia`, `altitud_maxima`, `tabla_de_pasos`, `verificar`, `records` |
-| `main.py` | CLI: `verificar`, `records`, `camino`, `graficar` |
-| `viz3d.py` | Vistas 3D en matplotlib → `.png` (paisaje de trayectorias, coral) |
-| `collazejecucion.py` | Una trayectoria como línea de tiempo horizontal (matplotlib, con barra para desplazarse) |
-| `collazcirculo.py` | La trayectoria dada la vuelta al globo: ida por delante (F), vuelta por detrás (B) |
-| `collazcruce.py` | Dos trayectorias de igual longitud cruzándose sobre una esfera |
-| `collazarbol.py` | El árbol de Collatz sobre la esfera: tronco + ramas que brotan en los vórtices |
-| `collazmalla.py` | **La malla real**: cada par de puntos en coordenadas (A, B) |
-| `collazlamina.py` | **La lámina**: los pares en 3D, todos sobre un plano de grosor 0,23 |
-| `mallabasica.py` | Malla de control **sin Collatz**: 100 paralelos × 100 meridianos numerados |
-| `mallacollaz.py` | La malla con los números de verdad: eje Y = el 221, eje X = el 1276 |
-| `mallaresiduos.py` | **La malla completa de los arranques**: 2^k restos × k pasos |
-| `cruzarestos.py` | La malla de restos cruzada contra el 221 y el 1276 |
-| `coralcollaz.py` | El coral de Harriss, con la medida de si los puntos calzan |
-| `mallaespejo.py` | **El A/B**: la misma maquinaria con dos reglas (espejo base 10 y Collatz) |
-| `mallaespejo2.py` | **El espejo en base 2**: las dos identidades exactas, y el A/B/C de tres reglas |
-| `mallascerradas.py` | **Los aros que cierran solos** (Pisano, +7, ×2 mod 27) y **la rueda del árbol** |
-| `guardarmallas.py` | **Persiste 11 mallas cerradas** en `mallas/*.json`. No dibuja nada |
+| `main.py` | CLI: `verificar`, `records`, `camino` |
+| `collazmalla.py` | **La malla real**: cada par de puntos en coordenadas (A, B). Dibuja |
+| `cotatramos.py` | **LA COTA POR TRAMO**, rescatada de `collazlamina.py`: `2^B·seq[j] ≥ 3^A·seq[i]`, y si un tramo baja entonces `2^B > 3^A`. Verificada sobre prefijos que **nunca llegan al 1** |
+| `mallaresiduos.py` | **La malla completa de los arranques**: 2^k restos × k pasos. Dibuja |
+| `mallascerradas.py` | **Los aros que cierran solos** y **la rueda del árbol**. Dibuja |
 | `guardarhilos.py` | **Los 11 hilos 100000–100010 en sqlite** (`hilos.db`) y la malla de sus cruces |
-| `hilos.db` | La base: tablas `hilos`, `pasos`, `cruces`, `fusiones`, `cola_comun` |
-| `mapahilos.py` | **Los once a la vez**, cuatro paneles. La razón de unos lo explica todo |
+| `hilos.db` | La base: tablas `hilos`, `pasos`, `cruces`, `fusiones`, `cola_comun`. **El pool ORDINARIO** |
+| `mapahilos.py` | **Los once a la vez**, cuatro paneles. La razón de unos lo explica todo. Dibuja |
 | `redhilos.py` | **Una red neuronal a mano** (solo numpy) puesta a buscar dónde muere la predicción |
-| `densidadfusion.py` | **La conjetura abierta de Wu, medida** hasta 2^28 (tabla vectorizada) |
-| `clasesfusion.py` | **El criterio demostrado**: qué clases mod 2^k se funden para todo `m` |
+| `clasesfusion.py` | **El criterio demostrado**: qué clases mod 2^k se funden para todo `m ≥ 1` |
 | `sucesiones.txt` | Las dos sucesiones que **no están en OEIS**, con definición y verificaciones |
-| `espejobases.py` | **El espejo en 15 bases**: por qué la base 2 es la única con teorema |
-| `mallas/*.json` | Las mallas guardadas, **sí versionadas**. `indice.json` lista las once |
-| `maquinitacollaz.py` | Escupe los 114 pasos de un número, uno por línea |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
-| `patron detectado manualmente.txt` | Notas a mano sobre las posiciones 57 y 114 |
 | `bitacora.md` | **Resumen por sesion y lo que queda pendiente.** Empezar por aqui |
 | `clasesparalelo.py` | El barrido de clases repartido entre nucleos. Se verifica solo contra a(30) |
 | `pinzaciclos.py` | **La pinza de descarte de ciclos**: un candidato por resto, en cerrado. Barrido de 2^30 restos |
@@ -597,27 +571,6 @@ haría falta que `2^B` coincidiera con `3^A` hasta la cifra 22.
 > los que produce la fracción continua (`verificar_terras.py [5]`,
 > `verificar_ciclos.py [1]`).
 
-### El 1276 y la mitad del 221
-
-**La trayectoria del 1276 ES la segunda mitad de la del 221.** El 1276 es la
-posición 57, y `seq(221)[57:] == seq(1276)` da **True**. No son dos objetos: el
-1276 es la cola del 221. Los dos tienen el mismo pico, 9.232, porque comparten
-ese tramo.
-
-**Pero partirse por el medio no es un patrón. Es contabilidad.** Si `n` tarda `S`
-pasos, el número de la posición `k` tarda `S − k`; entonces el de la posición
-`S/2` tarda `S/2`. Siempre. Comprobado en **los 10.011 números del 2 al 20.000
-con cantidad par de pasos: 10.011 lo cumplen, 0 excepciones.** El 221 solo tuvo
-la suerte de tener 114 pasos, que es par.
-
-Y eso explica las notas a mano: **9784 tarda 135 pasos, 87090 tarda 195, 2734182
-tarda 125 — los tres impares.** No tienen medio exacto, y por eso en
-`patron detectado manualmente.txt` quedaban sobras (el 244 debiendo 21 pasos, el
-52 debiendo 11). Todas las cadenas de esas notas son composición de función:
-`pos57(pos57(n)) = pos114(n)`, nada más. Y dónde cae la posición 114 lo decide
-`(114 − pasos(n)) mod 3`, porque desde el 1 se entra al carrusel `1-4-2` de
-período 3: da 0 → aterrizas en 1, da 1 → en 4, da 2 → en 2.
-
 ### La malla de los arranques (`mallaresiduos.py`)
 
 **Los primeros `k` pasos de cualquier número los decide `n mod 2^k`.**
@@ -647,313 +600,20 @@ aparece en la trayectoria del 221** — la ruta es otra y toda la estructura del
 paso 57 se cae. El atajo da la biyección; la clásica da el 221. Cada malla vive
 en su regla.
 
-### El cruce restos × 221 (`cruzarestos.py`)
+### El coral de Harriss: el cierre lo pone el angulo, no Collatz
 
-**La malla predice.** Calculada sin mirar el 221 ni una vez (cada resto usa un
-representante ajeno a las trayectorias), acierta el arranque de **los 173 números
-del 221 y del 1276: 0 fallos.** Los dos lados se calcularon por separado y
-coinciden en todo.
+Se retiro el 01-08-2026, con `coralcollaz.py`. Lo que medía era **el metodo de
+dibujo**, no Collatz: los rumbos permitidos y las ramas que colapsan dependen
+del par de angulos que se elige a mano, y el propio repo lo corrigio tres veces
+(el `0%` de encimadas era falso, el `1,7345` no era constante, y el
+`45 = 3^2*5` explicaba un nivel de treinta y uno).
 
-### El coral de Harriss (`coralcollaz.py`)
+**Lo unico que queda en pie, y vive en `coralprimos.py`:** el umbral de choque
+es una recta en `N` con dos ramas segun `N mod 4` — `(N+19)/2` si `N = 1`,
+`(N+11)/2` si `N = 3` —, y la prediccion propia de que un `N` primo dispararia
+el umbral **FALLO**: el 43 y el 47 chocan antes que el 45. Es la unica
+refutacion ejecutable de una prediccion propia que tiene el laboratorio.
 
-**De quién es.** Es el **Collatz Seaweed** de **Edmund Harriss** (U. de Arkansas),
-salido en Numberphile con Alex Bellos, del libro *Visions of Numberland*. La
-regla, textual: *"si el paso actual es el doble del siguiente, gira una cantidad
-fija en sentido horario; si no, gira **la mitad** de esa cantidad en antihorario"*.
-Par → `+θ`, impar → `−θ/2`. Se dibuja **al revés**, del 1 hacia afuera, y por eso
-las trayectorias que comparten final comparten tronco.
-
-**El rumbo de cada rama solo depende de (A, B).** Los giros se suman y da igual
-el orden: `rumbo = A · θ_impar + B · θ_par`. Comprobado: **730 pares (A,B), 0 con
-rumbo ambiguo.** Y `(A, B)` son exactamente las coordenadas de `collazmalla.py`:
-los rumbos del coral **son** esa malla pasada a ángulos.
-
-**La punta de cada rama la fija `n mod 2^k`.** 64 restos, 0 con dos versiones. La
-malla de `mallaresiduos.py` es la punta de este coral. Los tres objetos —malla
-(A,B), malla de restos, coral— son el mismo objeto mirado de tres formas.
-
-**Si los puntos calzan depende de cuántos rumbos permiten los ángulos** (3.000
-semillas, 6.520 ramas):
-
-| par | impar | rumbos | posiciones | encimadas |
-|---|---|---|---|---|
-| 16° | −8° (Harriss) | 45 | 6.520 | **0%** ← *sólo hasta 3.000 semillas, ver abajo* |
-| 7° | −17° (el de `viz3d`) | 357 | 6.520 | **0%** |
-| 60° | −30° | 13 | 3.497 | 46% |
-| 90° | −45° | 9 | 1.476 | 77% |
-| 120° | −60° | 6 | **221** | **97%** |
-
-Con 120°/−60° hay 6 direcciones posibles, el paseo cae en una retícula hexagonal
-y por el principio del palomar los puntos **tienen** que repetirse. Es cierre de
-verdad, **pero lo trae el ángulo elegido, no Collatz.** Collatz pone el paseo; el
-ángulo pone el cierre.
-
-#### El umbral de los 45 rumbos: el `0%` era falso (30-07-2026)
-
-Esto resuelve el punto 1 de "Siguiente sesión" y **corrige la fila de arriba**. El
-`0%` de Harriss no era una propiedad del ángulo: era el resultado de mirar sólo
-3.000 semillas.
-
-**Con `16°/−8°` sí hay choques. Dos umbrales, según qué se pregunte:**
-
-| pregunta | respuesta |
-|---|---|
-| primer `HASTA` con choque | **10.452** (y la semilla culpable es el propio 10.452) |
-| segundo choque | `HASTA` = 25.527 |
-| **primera profundidad con choque** (árbol inverso completo) | **31** |
-| choques a profundidad 59 | **39.831** en 3.121.576 nodos |
-| tasa a partir de la profundidad 42 | **1–1,5% de los nodos de cada nivel** |
-
-Los dos umbrales son distintos y los dos son ciertos: barrer por semillas sólo ve
-las ramas que cuelgan de semillas chicas, y por eso el primer choque parece estar
-en 10.452; barriendo el **árbol inverso completo** aparece en la profundidad 31,
-con cero choques hasta la 30 inclusive, exhaustivo.
-
-**Y son coincidencias exactas, no ruido de coma flotante.** Cada arista es una raíz
-45-ésima de la unidad, así que dos ramas caen en el mismo punto **si y sólo si**
-`Φ₄₅(x) = x²⁴ − x²¹ + x¹⁵ − x¹² + x⁹ − x³ + 1` divide al polinomio diferencia en
-`Z[x]`. Los dos primeros pares dan **resto exactamente cero** en aritmética entera,
-sin un solo float; recalculada a 60 dígitos, la distancia real es `8,9·10⁻⁵⁹`. Lo
-que se medía como `1,4·10⁻¹⁴` era el error de sumar 35 cosenos.
-
-**No son choques triviales:** los `(A,B)` son distintos en los dos pares —`(9,26)`
-contra `(6,23)` y `(45,85)` contra `(40,81)`— y los rumbos finales también. No es
-el caso degenerado de "mismo `(A,B)`, misma posición".
-
-**La causa que se le atribuyó — `45 = 3² · 5` — era casi toda falsa.** Lo que se
-escribió: el retículo de relaciones enteras entre las 45 raíces tiene rango
-`45 − 24 = 21`, generado por el **triángulo** (`e_k + e_{k+15} + e_{k+30} = 0`,
-tres direcciones a 120°) y el **pentágono** (cinco a 72°); luego el cierre lo
-traería la conmensurabilidad del ángulo, no Collatz.
-
-> ### ⇢ CORREGIDO por `coralprimos.py`: el `45 = 3²·5` explicaba UN nivel de 31
->
-> La parte reticular **es cierta y quedó medida**: con `N` primo el único núcleo
-> es `(1,1,…,1)`, y en todos los primos del barrido la clave cruda y la clave
-> reducida módulo `Φ_N` dan **el mismo número, sin una excepción**. Ninguna
-> relación no trivial entre raíces ayuda nunca.
->
-> **Pero el motor de los choques no son las relaciones entre raíces.** Es el caso
-> trivial que el razonamiento se dejó fuera: **dos ramas que usan las mismas
-> aristas en otro orden.** Diferencia de vectores exactamente cero, ninguna
-> relación de por medio, y **existe para cualquier `N`**. Sale de que una tirada
-> larga de pasos pares recorre el círculo entero de direcciones y vuelve a pisar
-> las mismas que la otra rama pisó en otro orden.
->
-> **La cuenta que lo cierra:** con `N = 45` el triángulo y el pentágono adelantan
-> el choque **un solo nivel**. El 45 habría chocado casi igual siendo primo.
-> Atribuirle el choque a su factorización era **quedarse con la causa de un nivel
-> e ignorar la de treinta y uno.**
->
-> **Lo que sí gobierna el umbral es una recta en `N`, con dos ramas según
-> `N mod 4`** — `(N+19)/2` si `N ≡ 1`, `(N+11)/2` si `N ≡ 3`. No sabe nada de si
-> `N` es primo.
-
-Conclusión para la pregunta que se hizo, y **ésta sí aguanta**: **45 rumbos NO
-bastan para un árbol infinito.** El coral de Harriss sí se vuelve a juntar; lo
-que pasa es que tarda. Lo que se cayó fue el *porqué*, no el *qué*.
-
-**De dónde sale la forma, y cómo se apaga.** En el coral **63,43% de los pasos
-son pares y 36,57% impares** → **1,7345 divisiones por multiplicación**, por
-encima del equilibrio.
-
-> **CUIDADO: el `1,7345` no es una constante, es el valor de una muestra**
-> (30-07-2026). Se midió a `HASTA = 3.000`; con más semillas se mueve y se asienta
-> en **`1,7320 ± 0,0003`**: `10³`→1,7292 · `3·10³`→1,7345 · `10⁴`→1,7338 ·
-> `10⁵`→1,7321 · `10⁶`→1,7321. La cuarta cifra nunca fue estable. Y cae a 0,02% de
-> `√3 = 1,7320508`, que es **el tipo exacto de coincidencia que este repo se ha
-> propuesto no creerse**: la descomposición del valor dice que es casual. No
-> construir nada sobre esa cifra.
-
-Con `16°/−8°` eso da un **giro medio de +7,22° por paso**:
-una vuelta completa cada 50 pasos, y la rama más larga (216 pasos) da 4,3 vueltas.
-
-Y entonces —esto se **predijo antes de medirlo**— la espiral debe anularse
-exactamente cuando `impar/par = −1,7345`, o sea `par +8°, impar −13,876°`.
-Confirmado: giro medio **−0,0001°**. Y la forma se da vuelta:
-
-| | Harriss 16/−8 | Nulo 8/−13,876 |
-|---|---|---|
-| giro medio | +7,22°/paso | −0,0001°/paso |
-| radio a 25 pasos | 9,40 | 23,28 |
-| radio a 200 pasos | **12,20** | **175,69** |
-| radio / pasos | cae a 0,061 | constante en 0,93 |
-| forma | **acotada** (se enrolla) | **se expande** (lineal) |
-
-O sea: **el coral de Harriss no está en expansión, está acotado.** Una rama de 200
-pasos termina casi tan cerca del centro como una de 25, porque las profundas se
-enrollan. Lo que parece expansión es enrollamiento. La versión que sí se expande
-es la de ángulos nulos, y el número que la controla (1,7345) lo pone Collatz.
-
-*Aviso de lectura: el 50/50 de los restos y el 63/37 del coral son los dos
-ciertos y miden poblaciones distintas. Los restos reparten parejo sobre todos los
-enteros; el coral cuenta nodos del árbol, donde doblar siempre existe y `(n−1)/3`
-solo a veces. Por eso el árbol se puebla más de pares.*
-
-### El espejo: la contraparte (`mallaespejo.py`)
-
-La idea es el **complemento a diez**, el que usaban las calculadoras mecánicas
-para restar: `espejo(n)` = la potencia de 10 más chica que supera a `n`, menos
-`n`. Al 7 le faltan 3 para llegar a 10; al 99876 le faltan 124 para llegar a
-100000.
-
-**El cierre es aritmética pura, sin un solo parámetro que tocar:**
-
-```
-n + espejo(n) = 10^k     exacto, siempre
-```
-
-221+779=1000 · 47+53=100 · 1276+8724=10000 · 124+876=1000.
-
-**Y todo cierra, sin conjetura.** De 1 a 100.000: **99.969 caen en 2-ciclos y 31
-en puntos fijos.** Nada se escapa, y se demuestra en dos líneas: `espejo(n) < 10^k`
-así que la órbita está acotada, y solo puede bajar de década un número finito de
-veces. **44.450 ciclos distintos** bajo 100.000; Collatz tiene **uno**.
-
-- **Puntos fijos: exactamente `5·10^m`** — 5, 50, 500, 5000, 50000. Uno por
-  década, porque `n = 10^k − n` da `n = 10^k/2`.
-- **Clasificación exacta: "baja de década" ⟺ "empieza con 9".** Con exactamente
-  5 excepciones, y las 5 cuadran solas: 9, 90, 900, 9000, 90000 forman 2-ciclos
-  con 1, 10, 100, 1000, 10000.
-- **Involución en el 88,89%**: cada número tiene exactamente una pareja.
-- Las colas miden **≤ 4**. Todo el sistema se resuelve en ≤ 6 pasos.
-- **Regalo geométrico:** como `n + espejo(n) = 10^k`, al plotear `(n, espejo(n))`
-  cada década cae **exacta sobre la recta `x + y = 10^k`**. El pool no es una
-  nube, son segmentos rectos anidados. Y en el círculo de `mallaespejo.py` eso se
-  traduce en **cuerdas paralelas**: `n` y `10^k−n` caen en ángulos simétricos
-  respecto del mismo eje. Cero grados de libertad.
-
-**EL A/B, que es para lo que sirve de verdad.** Misma maquinaria, mismo círculo,
-mismo ángulo, misma cuerda por paso — cambiando solo la regla (N = 1.000):
-
-| | ESPEJO | COLLATZ |
-|---|---|---|
-| ciclos distintos | **448** | **1** |
-| puntos fijos | 3 (`5, 50, 500`) | 0 |
-| cola más larga | 2 | 176 |
-| cola media | 0,12 pasos | 57,55 pasos |
-| pasos que se escapan del rango | **0,1%** | **33,3%** |
-
-**La maquinaria discrimina:** lo que dibuja depende de lo que se le mete, no de
-cómo dibuja. Eso hay que tenerlo verificado antes de creerle nada a estas mallas.
-
-El contraste estructural: **el espejo es cerrado bajo su propio rango, Collatz
-no.** El espejo nunca sale de su década; Collatz se escapa hacia arriba un tercio
-de las veces (los impares con `3n+1 > N`). Por eso uno cierra en 2 pasos con
-cientos de aros y el otro tarda 57 de media hacia un solo sumidero.
-
-### El espejo en cualquier base, y por qué la base 2 es la rara (`espejobases.py`)
-
-El repo tenía dos espejos sueltos —base 10 y base 2— y los trataba como dos
-casos. Son la misma familia. Mirando las quince bases de 2 a 16 a la vez
-(200.000 números cada una) aparece la razón de que la base 2 se porte distinto.
-
-**Los puntos fijos salen de una línea.** `n` es punto fijo si `n = b^k − n`, o
-sea `n = b^k/2`, y eso es entero **si y solo si la base es par**:
-
-```
-base par    ->  puntos fijos exactamente (b/2) · b^m
-base impar  ->  NI UNO. Cero puntos fijos, en cualquier rango.
-```
-
-Comprobado en las 15 bases, **0 fallos**. La forma limpia es `(b/2)·b^m`:
-
-| base | primero | la lista |
-|---|---|---|
-| 2 | **1** | 1, 2, 4, 8, 16, 32 … (las potencias de 2) |
-| 4 | 2 | 2, 8, 32, 128, 512 … |
-| 6 | 3 | 3, 18, 108, 648, 3888 … |
-| 8 | 4 | 4, 32, 256, 2048, 16384 … |
-| **10** | **5** | **5, 50, 500, 5000, 50000** |
-| 12 | 6 | 6, 72, 864, 10368 … |
-| 14 | 7 | 7, 98, 1372, 19208 … |
-| 16 | 8 | 8, 128, 2048, 32768 … |
-
-Los `5, 50, 500, 5000, 50000` no son una peculiaridad del diez: son el caso
-`b = 10` de `(b/2)·b^m`. Y las potencias de 2 son el caso `b = 2`, donde
-`b/2 = 1`.
-
-**Y la parte que importa: la base 2 es la única en la que el espejo está
-obligado a bajar.** Si `b^(k−1) ≤ n < b^k`, entonces `b^k − n` cae en
-`(0, b^(k−1)·(b−1)]`. Con `b = 2` ese tope es `2^(k−1)`: la imagen **no cabe**
-en la década de partida, así que baja siempre. Con `b ≥ 3` el tope es al menos
-`2·b^(k−1)`, y sí cabe — de ahí los 2-ciclos.
-
-Consecuencia medida: **de las quince bases, la 2 es la única sin ni un
-2-ciclo.** Base 2: 0 números en 2-ciclos. Base 10: 199.969.
-
-> Que el espejo de base 10 diera un zoo (44.450 ciclos) y el de base 2 diera un
-> **teorema** (todo cae en potencia de 2, demostrado en una línea) no fue
-> suerte ni elección afortunada. Es la única base donde puede haber teorema.
-> Y es la base en la que vive Collatz.
->
-> *Lo que esto NO dice: nada sobre la conjetura. El espejo base 2 conmuta con
-> Collatz un paso y se rompe al segundo (correlación +0,06). Que las dos cosas
-> vivan en base 2 las hace parientes, no la misma.*
-
-### El espejo en base 2: el único puente exacto (`mallaespejo2.py`)
-
-El espejo de base 10 no hablaba con Collatz porque Collatz es base 2. Así que se
-cambia de base: `espejo2(n)` = la potencia de **2** más chica que supera a `n`,
-menos `n`. Y eso es lo mismo que **`−n` módulo `2^k`** — la misma estructura que
-ya sabíamos que gobierna el arranque de Collatz (`mallaresiduos.py`).
-
-**Dos identidades exactas. 100.000 comprobaciones, 0 fallos:**
-
-```
-n PAR  :   T(2^k − n)  =  2^(k−1) − T(n)          (50.000 casos, 0 fallos)
-n IMPAR:   T(2^k − n)  =  3·2^k + 2 − T(n)        (50.000 casos, 0 fallos)
-```
-
-**La de arriba dice algo fuerte: en los pasos pares el espejo2 CONMUTA con
-Collatz.** Espejar y después dividir entre dos da lo mismo que dividir y después
-espejar (bajando un nivel). El espejo2 **es una simetría de la mitad par de
-Collatz**. Con base 10 no pasaba nada parecido.
-
-**La de abajo dice dónde se rompe: en los impares casi conmuta, pero sobra un
-`+2`.** Y ese `+2` es el `+1` del `3n+1` arrastrado:
-`3(2^k − n) + 1 = 3·2^k + 2 − (3n+1)`. Es el mismo estorbo que ya aparecía como
-el grosor 0,23 de la lámina en `collazlamina.py`.
-
-*Honestidad sobre la profundidad: son dos líneas de álgebra. Exactas y útiles,
-pero verdaderas por construcción, igual que la identidad `(A,B)`. No tocan la
-conjetura.*
-
-**Todo cae en una potencia de 2, y está demostrado.** De 1 a 100.000:
-`largos de ciclo: {1: 100000}` — **ni un solo 2-ciclo**, todos caen en punto fijo,
-y los 17 puntos fijos son exactamente `2^m`. Se demuestra en una línea: si
-`2^(k−1) < n < 2^k` entonces `2^k − n < 2^(k−1)`, o sea que baja estrictamente.
-Es el análogo **demostrado** de "todo cae en el 1". Colas de hasta 16, media 7,48.
-
-**Y los dos sistemas mueren en el mismo conjunto:** los puntos fijos del espejo2
-son las potencias de 2, y la cola de toda trayectoria de Collatz es una tirada de
-potencias de 2 — la del 221 termina en `[16, 8, 4, 2, 1]`.
-
-**El A/B/C, misma maquinaria y solo la regla cambiada (N = 1.024):**
-
-| | espejo 10 | espejo 2 | Collatz |
-|---|---|---|---|
-| ciclos distintos | 472 | 11 | **1** |
-| puntos fijos | 3 | 11 | 0 |
-| cola más larga | 2 | 9 | **176** |
-| cola media | 0,11 | 4,00 | **57,88** |
-| se escapan del rango | 2,4% | **0,0%** | **33,3%** |
-
-Tres reglas, tres mallas distintas. El espejo2 queda en el medio: más
-Collatz-like que el de base 10 (tiene colas de verdad, un solo tipo de
-sumidero), pero cerrado y demostrado.
-
-> **CORRECCIÓN AL PROTOCOLO DEL A/B (30-07-2026): la fila "se escapan del rango"
-> NO discrimina.** Aquí parece que sí, pero es un espejismo: separa a los espejos
-> de Collatz sólo porque los espejos están **acotados por construcción**. Entre dos
-> reglas del mismo tipo no separa nada. Medido con `3n+1` contra `3n−1`, a cuatro
-> tamaños: `N=256` → 33,20% las dos · `N=1024` → 33,30% las dos · `N=4096` →
-> 33,33% las dos · `N=10.000` → 33,33% las dos. **Los mismos conteos absolutos,
-> no sólo los mismos porcentajes.** Se escapan los impares con `3n±1 > N`, y el
-> `±1` casi nunca cambia de lado del corte a un impar: **esa fila mide el rango,
-> no la regla.** Las que sí discriminan son "ciclos distintos", "cola más larga" y
-> "cola media". *Lección general: no toda fila de una tabla A/B vale como
-> discriminante, y hay que comprobar cuál vale antes de apoyarse en ella.*
 
 ### Los aros que cierran solos, y la rueda del árbol (`mallascerradas.py`)
 
@@ -993,60 +653,6 @@ Collatz sin que lo pongamos nosotros**: no es un ángulo elegido ni una esfera �
 es el aro de 2 módulo 3, engranado con el de 4 módulo 9, dentro del de 2 módulo
 27. La coincidencia de patrón entre una malla cerrada independiente y Collatz
 existe y es exacta, brote a brote — no estadística.
-
-### Las mallas guardadas (`guardarmallas.py`, carpeta `mallas/`)
-
-El paso que faltaba del plan original: **guardarlas**. Once mallas circulares,
-ninguna calculada con Collatz, escritas en `mallas/<nombre>.json` y versionadas.
-Ya no hay que recalcularlas: se abren con `json.load` y se cruzan.
-
-Cada archivo trae `orbita` (el anillo en orden), `aro`, `cola`, `visitados`, y
-**`evitados`** — los números del `0` al `módulo−1` que el anillo no pisa. Ese es
-el campo que sirve para cruzar.
-
-**El juicio se mide, no se supone.** De cada regla se recorre el espacio entero,
-no solo el arranque, y se parte en anillos y colas:
-
-```
-cierra_limpio  =  (la cola más larga de todo el espacio es 0)
-```
-
-O sea: la regla cierra limpio si y solo si es una biyección. Diez de las once lo
-son; `n → n²  (mod 100)` no, y por eso hace renacuajos (cola 2, aro 4). **Se
-guarda igual: sin ella la colección no discriminaría nada.**
-
-| malla | aro | cierra | evita |
-|---|---|---|---|
-| `n+7` mod 30 | 30 | sí | 0 de 30 |
-| `n+6` mod 30 | **5** | sí | 25 de 30 |
-| `n+1` mod 12 | 12 | sí | 0 de 12 |
-| Fibonacci mod 10 | 60 | sí | 0 de 10 |
-| Fibonacci mod 100 | 300 | sí | 0 de 100 |
-| `2n` mod 3 / 9 / 27 / 81 | 2 / 6 / 18 / 54 | sí | los múltiplos de 3 |
-| `3n` mod 10 | 4 | sí | 6 de 10 |
-| `n²` mod 100 | 4 | **no** | 96 de 100 |
-
-**10 tamaños de cierre distintos en 11 mallas** — el filtro se cumple.
-
-**Y las cuatro comprobaciones cortan con `SystemExit` antes de dar nada por
-guardado:** (1) cada aro coincide con su fórmula; (2) los cierres salen
-distintos; (3) **ida y vuelta** — los 11 archivos se releen del disco y tienen
-que salir idénticos a lo calculado, 0 fallos; (4) el cruce, **leyendo del
-archivo y no de memoria**: los `evitados` de `duplicar-mod27.json` son
-exactamente los múltiplos de 3, y usando **solo** ese archivo se predice cuáles
-de 200 rayos del árbol son mudos — **67 predichos, 0 fallos**. Una malla
-guardada predice Collatz sin volver a calcular Collatz.
-
-*Los JSON son ASCII puro a propósito* (`2*3^(j-1)`, no `2·3^(j-1)`): este repo
-ya tiene un historial de líos con cp1252, y un archivo de datos no es lugar para
-arriesgarlo.
-
-**Los dos límites honestos:** (1) es matemática conocida — la estructura
-mod 6 / mod 9 del árbol inverso es estándar; se llegó de forma independiente.
-(2) La rueda gobierna la **contabilidad del árbol hacia atrás** (dónde brota,
-qué clase de hijo). El destino hacia adelante sigue ciego a los restos — el
-negativo de `cruzarestos.py` sigue en pie. Las dos cosas son ciertas a la vez:
-**el esqueleto es periódico, el viaje no.**
 
 ### Los once hilos y el cruce por índice de paso (`guardarhilos.py`, `hilos.db`)
 
@@ -1214,129 +820,14 @@ identidad algebraica, no una medida.
 > es exactamente el mismo agujero que el `m ≥ 1` del criterio de clases — el
 > mismo agujero, encontrado por dos caminos distintos el mismo día.
 
-### La conjetura abierta de Wu Jia-Bang, medida (`densidadfusion.py`)
+### El criterio de fusion de clases (`clasesfusion.py`)
 
-De todo lo leído de la literatura, **esto es lo único que quedó abierto y al
-alcance de medir**. El resto son teoremas de 1976–2005.
+*(La medicion de la densidad de Wu vivia aqui, en `densidadfusion.py`, y se
+retiro el 01-08-2026 con el fichero: era un promedio sobre 18 puntos, su
+seccion del mecanismo estaba sesgada por muestreo, y el `120` que se apuntaba
+como propio resulto ser de Wu 1993. Lo que sigue es el criterio exacto, que es
+otra cosa y si se sostiene.)*
 
-**Cuidado con la palabra "altura".** En la literatura de Collatz, `h(n)` es el
-**número de pasos del mapa CLÁSICO** hasta llegar al 1, no el valor más alto. El
-valor más alto se llama *excursión máxima* `t(n)`. Wu habla de *"consecutive
-numbers of the same height"*, así que su magnitud es la de los pasos.
-
-> **PRECISIÓN (01-08-2026): «altura = tiempo de parada total» NO vale citando el
-> `σ_∞` de Lagarias.** Bajo la definición de Lagarias, `σ_∞` es el tiempo de
-> parada total **sobre el mapa `T` (el atajo)**, y `h` de Garner y Wu es sobre el
-> mapa clásico. **Difieren en 19.985 de 19.999 casos** — `n = 27` da `111` en el
-> clásico y `70` en el atajo. Son dos magnitudes distintas y este documento las
-> igualaba.
->
-> **El atenuante, y por eso no se cae ninguna medición:** como **relación entre
-> consecutivos** coinciden. `h(n) = h(n+1) ⟺ σ_∞(n) = σ_∞(n+1)`, comprobado de
-> `n = 2` a `29.999` con **0 discrepancias** — y es lo esperable, porque dos
-> trayectorias que se funden llegan con las mismas cuentas de pares y de
-> impares. **Todo lo que este repo mide son relaciones entre consecutivos**, así
-> que ningún número cambia. Lo que cambia es la frase.
->
-> *Es la misma clase de error que `2/ln(4/3)` contra `3/ln(4/3)`: confundir el
-> mapa del atajo con el clásico. Tercera aparición.*
-
-**La conjetura (Wu Jia-Bang, 1995):** demostró que una versión condicionada de
-la densidad de pares consecutivos con la misma altura **crece** con `N`, y
-conjeturó sin demostrarlo que la versión sin condicionar también crece.
-
-**Medido hasta 2^28 = 268.435.456.** La tabla de alturas es `int16` (los pasos
-no pasan de ~700 en este rango) y se construye **vectorizada por bloques**: se
-avanza un bloque entero un paso a la vez y, en cuanto un número cae por debajo
-del inicio del bloque, ya está resuelto. Un bucle de Python sobre 268 millones
-tardaría media hora; esto tarda un par de minutos. *(Verificado contra la
-versión lenta en los primeros 300.000: **0 discrepancias**.)*
-
-| 2^N | d(altura) | 2^N | d(altura) |
-|---|---|---|---|
-| 2^10 | 0,364614 | 2^23 | 0,495086 |
-| 2^14 | 0,423305 | **2^24** | **0,500265** |
-| 2^18 | 0,463060 | 2^26 | 0,509861 |
-| 2^21 | 0,483710 | 2^27 | 0,514313 |
-| 2^22 | 0,489504 | **2^28** | **0,518577** |
-
-**Monótona en los dieciocho escalones. Cero bajadas.** La conjetura de Wu
-aguanta en todo el rango medido.
-
-**Y hay un segundo hito.** Garner (1985) conjeturó que *"la mayoría de los
-enteros positivos tienen la misma altura que un entero adyacente"*. **Nuestra**
-densidad de pares cruza el 50% entre `2^23` y `2^24`, y en `2^26` va por
-**50,99%**.
-
-> **CORRECCIÓN (01-08-2026): ese cruce NO es el hito de Garner, y el hito de
-> Garner está diecisiete escalones más abajo.** La conjetura de Garner es sobre
-> la densidad **`K`** — la fracción de **enteros que pertenecen a alguna tupla**
-> de altura repetida— y no sobre la fracción de **pares** consecutivos que
-> coinciden. Son dos cantidades distintas: un entero puede estar en una tupla por
-> su vecino de la izquierda o de la derecha, así que `K` es sistemáticamente
-> mayor.
->
-> Recalculada como Garner la enuncia, **`K` cruza el 50% en `2^6 = 64`**
-> (`0,5079`), y en `2^10` ya va por **`0,6061`**. La frase *«la mayoría ya está
-> cruzada»* es cierta desde hace mucho más de lo que este documento decía, y
-> **el `2^23`–`2^24` mide otra cosa** — una cosa nuestra, que está bien medida y
-> hay que seguir publicando, pero con su nombre.
->
-> *Aviso de procedencia: esto es **medición única de un adversario**, no cruzada
-> por un tercero. Vale como corrección de atribución; el número concreto
-> convendría reproducirlo con código propio antes de apoyarse en él.*
-
-**El control que importa: no todas las nociones de "parecerse" se portan
-igual.** La misma medición con el **pico** en vez de la altura **NO es
-monótona**: baja de 0,1887 a 0,0671 hasta 2^20 y luego remonta. Diez bajadas de
-dieciséis. Que la de la altura suba en todos los escalones no es un artefacto
-de la maquinaria — la maquinaria discrimina.
-
-**Las tuplas crecen** (rachas de consecutivos con la misma altura):
-
-```
-2^10:   7      2^20:  40      2^25:  96
-2^13:  17      2^22:  52      2^26:  96
-2^16:  25      2^23:  65      2^27:  98   (en 98.041.684)
-2^18:  27      2^24:  77      2^28: 120   (en 136.696.632)
-```
-
-Wu (1992) reporta **176** bajo 2^30, empezando en 722.067.240.
-
-> **CORRECCIÓN (01-08-2026): el `120 en 136.696.632` no lo descubrió este repo.
-> Lo redescubrió. Es de Wu Jia-Bang 1993** (MR 1277568). La ficha de ese trabajo
-> —entrada 189 de la bibliografía de Lagarias— dice textual: *«checked all
-> positive integers up to 1.5 × 10⁸ … and found a 120-tuple, which is the
-> longest tuple among all checked numbers»*. Y **`136.696.632 < 1,5·10⁸`**: cae
-> **dentro** del rango que Wu barrió hace treinta y tres años.
->
-> O sea que la frase *«nuestro 120 es compatible con la trayectoria de
-> crecimiento de Wu pero no la confirma»* estaba mirando al sitio equivocado: no
-> es un dato nuestro que apunte hacia el de Wu, **es el dato de Wu**. Barrido
-> propio hasta `1,5·10⁸` para cerrarlo: la racha más larga es **única, 120 en
-> 136.696.632**, y la siguiente es 106 en 137.408.360.
->
-> *Lo que sí es nuestro y sigue en pie: el `98` en `98.041.684`, que es la más
-> larga bajo `2^27`. Y la medición reproduce la de Wu con otra maquinaria, que
-> tiene su valor — pero es reproducción, no descubrimiento.*
-
-*Aviso, por delante: medir que una sucesión crece en dieciséis puntos NO
-demuestra que crezca siempre. Esto no resuelve la conjetura de Wu. Lo único que
-podía hacer era darle crédito o quitárselo — y si hubiera salido no monótona,
-eso sí habría sido un resultado.*
-
-> **UN CONTROL QUE FUNCIONÓ, Y CONVIENE ANOTARLO PORQUE ES LA MITAD INVISIBLE
-> DEL TRABAJO.** En esta misma pasada estuvo a punto de entrar una corrección
-> más: *«y Wu ya había calculado `d(2^N)` hasta `N = 24`, así que la tabla de
-> densidad de arriba reproduce a Wu en vez de ampliarlo»*. **Un revisor la paró
-> antes de que se escribiera, y tenía razón: son dos cantidades distintas.** El
-> `d(2^N)` de Wu es `K/(2^N−1)` —la densidad de **enteros en tupla**— y el de
-> esta tabla es la fracción de **pares** consecutivos que coinciden. En `2^24`:
-> **`0,724756` contra `0,500265`**. La tabla de este repo mide algo suyo.
->
-> *Es exactamente el mismo error de magnitud que el hito de Garner, y por eso
-> los dos aparecieron juntos. La diferencia es que uno entró y el otro no: el
-> control existe y muerde.*
 
 #### El mecanismo, y dónde encajan las dos familias publicadas
 
@@ -1799,115 +1290,6 @@ Medido aquí: **0 diferencias en los impares hasta `2·10⁶`**.
 > `2^k > 3^{m_k}` es `B/A > log₂3`, y la diferencia entre `σ` y `χ` es
 > exactamente el `C` de la identidad, o sea el `+1`.** El puntero queda aquí
 > para que las dos mitades se encuentren.
-
-### El ajuste fino: por qué el 3 y no otro (30-07-2026)
-
-Regla generalizada `qn+1` con `q` impar. En el mapa del atajo cada paso multiplica
-por `q/2` o por `1/2` mitad y mitad, así que la media geométrica es `√q/2` y el
-sistema debería converger sólo si `q < 4`. Medido sobre 100.000 semillas por cada
-`q`, con topes de 10⁴⁰ y 10.000 pasos:
-
-| `q` | cae | se dispara | ciclos |
-|---|---|---|---|
-| 1 | 100% | 0% | 1 |
-| **3** | **100%** | **0%** | **1** |
-| 5 | 3,03% | 96,97% | 3 |
-| 7 | 0,16% | 99,84% | 1 |
-| 9, 11, 13 | **0%** | **100%** | **0** |
-
-**Como `q` tiene que ser impar, el 3 es el único valor que converge.** Robusto: con
-topes de 10²⁰, 10⁴⁰ y 10⁸⁰ los porcentajes salen idénticos a la milésima.
-
-**PERO el `4,0019` medido no es evidencia independiente, y hay que decirlo.** Se
-comprobó que `media = q^f / 2` **exactamente** (desviación máxima 0,00009), donde
-`f` es la fracción de pasos impares. Entonces "media = 1" es *idéntico* a `f = 1/2`,
-y `f = 1/2` es Terras 1976, que ya estaba anotado como demostrado. **La precisión
-del 0,048% mide con qué exactitud recuperamos una densidad conocida, no el umbral.**
-El fenómeno (el 3 es especial) es real; el número no es un descubrimiento.
-
-*Honestidad obligatoria: que `5n+1` diverja no está demostrado — es tan conjetural
-como Collatz. Lo medido es lo medido. La literatura (Kontorovich–Lagarias) predice
-para `5x+1` que sólo `≈ x^0,65` enteros bajo `x` llegan a 1.*
-
-### Collatz contra la moneda (30-07-2026)
-
-El argumento heurístico estándar de por qué Collatz debería ser cierta **es** un
-modelo de moneda, y viene de Terras/Everett vía Lagarias. Medirlo dio la
-comparación más útil de la sesión.
-
-**Fracciones de paridad, todas las trayectorias de 2 a 10⁶:**
-
-| | atajo | clásico |
-|---|---|---|
-| fracción impar medida | **0,496524** | **0,331785** |
-| predicción | 0,500000 | 0,333333 |
-
-La relación entre los dos mapas es **exacta**: los pasos impares coinciden dígito a
-dígito (43.607.946 en los dos) y los pares del clásico son pares + impares del
-atajo. El par forzado existe uno por uno, no en promedio.
-
-**Dónde Collatz ES una moneda perfecta:** la entropía de bloques de `k` paridades da
-**exactamente `k` bits** para `k = 1…12`, sin un solo bloque faltante — la biyección
-resto↔patrón medida como información. Y **sigue dando 12 bits a profundidad 128**:
-el proceso no se degrada. 300 trayectorias de semillas de 2000 bits pasan el test de
-rachas con `z` medio **+0,020**; el control con `random.Random` da **−0,077**.
-Indistinguibles.
-
-**Dónde no lo es, y es brutal:**
-
-- Con el mapa clásico `P(impar | impar) = 0` **exacto**, en 3,3 millones de
-  oportunidades. Es la prohibición que genera los Fibonacci, medida directamente.
-- La desviación **no se encoge como `1/√N`**: `|desv|·√N` va 1,45 → 1,05 → 1,76 →
-  3,62 → **13,02** de 10³ a 10⁷ pasos. Firma de sesgo fijo, no de ruido. El 0,5
-  queda a **26 sigmas**.
-- **El patrón se puede encargar:** `2^4000 − 1` da 3.999 pasos impares seguidos y
-  `2^4000 + 1` da 4.000 alternando. Una moneda produce eso con probabilidad `2⁻⁴⁰⁰⁰`.
-
-**Pero el sesgo no es del proceso, es de la muestra, y se va con el tamaño:**
-
-| bits de la semilla | 16 | 32 | 64 | 128 | 256 |
-|---|---|---|---|---|---|
-| desviación de 0,5 | −0,0044 | −0,0020 | −0,0015 | −0,0006 | −0,0007 |
-
-**Collatz converge a la moneda justa agrandando la semilla, no acumulando tiradas.**
-Ésa es la diferencia exacta con una moneda física.
-
-**Y el origen del sesgo es OTRA VEZ el `+1`**, cerrado con una identidad exacta
-(residuo `1,7·10⁻⁷`):
-
-```
-−Σ ln(n)  =  I·ln(3/2) + P·ln(1/2) + S ,    S = Σ ln(1 + 1/(3x)) sobre los impares
-```
-
-Despejando: sin el sobrante `S` la fracción impar daría 0,497877; **con** `S` da
-**0,496064**, que es exactamente lo medido.
-
-> **CORREGIDO por `elmasuno.py`: este `S` y el grosor de la lámina no son dos
-> apariciones del `+1`, son UNA.** Se creyó que el `+1` salía en tres sitios
-> distintos (grosor `0,2286`, el `+2` del espejo base 2, y este `S`). Pero
-> `ε = ln(2^B/(3^A·n))` y `S = Σ ln(1 + 1/(3x))` son **el mismo objeto, término a
-> término, idénticamente** — porque en un paso impar el factor es
-> `(3x+1)/x = 3·(1 + 1/(3x))`. Verificado con `Fraction` exacto, 20.011 casos.
-> **El `+1` aparece dos veces, no tres**, y la lámina queda *demostrada* para todo
-> `n` en vez de medida.
-
-**La grieta, formulada:** la fracción impar queda **determinada** por cuánto bajó la
-trayectoria y cuántos pasos tardó, y sólo se puede medir en trayectorias **que ya
-terminaron en 1**. O sea que el `1/2` no es una ley del proceso sino una
-consecuencia contable de haber llegado al final: **el argumento de la moneda asume
-lo que habría que demostrar.**
-
-*Contexto bibliográfico, buscado y verificado:* el estudio de la moneda es Bartoš et
-al., 350.757 lanzamientos con 48 personas, publicado en JASA 2025 — `Pr(mismo lado
-que empezó) = 0,508`, pero `Pr(cara) = 0,500` exacto. El sesgo es **condicional a la
-condición inicial** y se anula al marginalizar. Fue **predicho en 2007** por
-Diaconis–Holmes–Montgomery desde la mecánica de la precesión, que ya midieron 0,508
-con fotografía de alta velocidad. **La analogía con Collatz sale al revés de lo
-esperado:** condicionada a su lado inicial la moneda queda *sesgada* (50,8%);
-condicionado a `n mod 2^k`, Collatz queda *determinado al 100%*. **La moneda es una
-moneda cargada con multiplicadores simétricos; Collatz es una moneda justa con
-multiplicadores asimétricos.** El `√3/2` **no** es un sesgo de moneda — confundirlos
-sería el error central.
 
 ### El piso de la altitud: lo único con forma de teorema (30-07-2026)
 
