@@ -5,6 +5,53 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+## ⇢ PENDIENTE PRIORITARIO: auditar las REFUTACIONES, no sólo las afirmaciones
+
+Encargado el **01-08-2026**, para ejecutar **en cuanto terminen** los dos
+workflows en curso (la auditoría del repo y la verificación de lo ajeno).
+
+**El agujero, y es de método.** Este repo es adversarial con lo que afirma y
+crédulo con lo que refuta. Las diez correcciones de *«lo que se creyó y era
+falso»* se dieron por buenas en cuanto aparecieron, porque una corrección suena
+a rigor. **Pero una refutación es una afirmación como cualquier otra**, y puede
+tener los mismos defectos que ella denunciaba: confundir el mapa clásico con el
+del atajo, comparar unidades distintas, tomar una muestra por una constante,
+extrapolar de un rango a todos los `n`.
+
+**El riesgo concreto: si una sola de las diez está mal, tiramos un dato bueno Y
+anotamos una lección falsa.** Lo segundo es peor, porque la lección se aplica
+después a otras decisiones.
+
+**Cómo hacerlo:** un agente por corrección, aritmética exacta, y **revisor
+adversarial detrás** — el mismo esquema que se usó con lo importado. Los dos
+pools ya están en disco: los **once hilos de `hilos.db`** (el caso ordinario) y
+los **243 récords de `records.json`** (el extremo). *Los extremos confirman; los
+controles refutan.*
+
+| # | la refutación a auditar | cómo se comprueba |
+|---|---|---|
+| 49 | el `0%` de encimadas de Harriss era falso | árbol inverso, claves módulo `Φ_N`, sin floats |
+| 50 | el `1,7345` no es constante sino muestra | re-medir a `10³…10⁶` y ver si se asienta |
+| 51 | «se escapan del rango» no discrimina | `3n+1` contra `3n−1` a cuatro tamaños |
+| 52 | `2/ln(4/3)` es del atajo, no del clásico | **directo sobre los 11 hilos**: pasos / `ln(n)` en los dos mapas |
+| 53 | al piso le faltaba `n impar` | **11 hilos + 243 récords**, forma entera exacta |
+| 54 | el `45 = 3²·5` explicaba un nivel de 31 | `coralprimos.py`, primos vecinos del 45 |
+| 55 | el `+1` aparece dos veces, no tres | **11 hilos** con `Fraction`: ¿`ε ≡ S` en todos? |
+| 56 | el `0,2286` está en bits, no nats, y no es cota | **11 hilos**: `ε` de cada uno, en las dos unidades |
+| 57 | el exponente de la criba es `0,108`, no `0,05` | `descensoresto.py` por tramos |
+| 58 | la cita del `19.478.780.533` es 11× más débil | bibliográfica — **no** computacional, no forzarla |
+
+**Ocho de las diez son computables, y cinco se pueden atacar directamente contra
+los once hilos.** La 58 es bibliográfica y no hay que fingir que se verifica.
+
+**Sólo después de esta pasada se borra el bloque E del resumen.** No antes.
+
+> *Y si las diez aguantan, tampoco es tiempo perdido: pasan de «lo dijo Claude un
+> día» a «verificado contra dos pools con revisor adversarial», que es la única
+> forma en que este repo acepta algo.*
+
+---
+
 ## 2026-08-01 (tarde) — el punto 5 cerrado, y una cita que existía y aun así sobraba
 
 Mantenimiento otra vez, delegado a un agente como manda la regla de prioridad.
