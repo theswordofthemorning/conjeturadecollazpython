@@ -5,6 +5,77 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+## 2026-08-01 — el día en que la documentación se editó a ciegas
+
+Sesión corta y de mantenimiento. **El saldo es una regla nueva, y la pagó un
+error propio.**
+
+### El error, que es lo único que vale la pena contar
+
+Se pidió una revisión del `CLAUDE.md`. Se revisó y se corrigió **sin hacer
+`git fetch` antes**. El remoto tenía un commit de más (`b1b32f3`: 5.114 líneas,
+siete `.py` nuevos y dos bases), y ese commit **ya había hecho las mismas
+correcciones**. Todo el trabajo salió redundante y hubo que tirarlo y rehacerlo
+contra la versión buena.
+
+**Por qué no se vio:** `git status` a secas escribe `## main...origin/main` sin
+flechas —que se lee como «sincronizado»— porque compara contra la última copia
+*local* del remoto. El `[behind 1]` sólo aparece **después** del `fetch`.
+
+> **Regla nueva, y va como PRIMERA sección del `CLAUDE.md`, antes de
+> «Instalación»: `git fetch origin && git status -sb` antes de tocar nada.**
+> Con el caso de hoy escrito como ejemplo, y la salida si ya editaste sin
+> `fetch`: `stash` → `merge --ff-only` → mirar qué de lo tuyo sigue haciendo
+> falta. Casi siempre es menos de lo que parece.
+
+*Es el mismo tipo de trampa que las de cp1252 y la del estimador `B/A`: no es
+falta de cuidado, es una herramienta que informa algo cierto y engañoso a la vez.
+Por eso se anota, no se recuerda.*
+
+### Lo que sí quedó arreglado (commit `d8b1d73`)
+
+**Conteos.** El commit anterior decía *«conteos al día (28 .py)»* y **añadió
+siete `.py` en ese mismo commit**, dejándolos desfasados en el acto:
+
+| | decía | es |
+|---|---|---|
+| scripts | 28 | **35** |
+| `numpy` | seis | **siete** (faltaba `descensoresto.py`) |
+| `sqlite3` | dos | **cuatro** |
+| `secuencia_de` | nueve | **diez** (faltaba `elmasuno.py`) |
+| auto-verificados | 28 / 20 | **35 / 27** |
+
+Barrido cp1252 rehecho sobre los 35: **0 hallazgos**.
+
+**La Mitad C.** `guardarmallas.py` figuraba como *«el único programa cuyo
+resultado no es una imagen»*. Hoy **19 de los 35 no dibujan** y sólo 16 abren
+navegador o ventana. El caso por defecto de un script nuevo ya no es plotly, y
+el documento ahora lo dice y manda copiar `pinzaciclos.py`.
+
+**Dos correcciones del punto 5, consolidadas en la prosa** (estaban sólo en esta
+bitácora, y la prosa seguía afirmando lo refutado):
+
+- **El `45 = 3²·5` del coral**, que estaba presentado como *la candidata a nota
+  original*. Corregido en los tres sitios donde vivía, con la ley que sí gobierna
+  el umbral y la predicción fallida de los primos.
+- **El `+1` aparece dos veces, no tres.**
+
+Y **la Fase 1 del plan de la pinza** figuraba como pendiente teniendo ya
+`reimpl.py` en el repo.
+
+### Lo que NO se hizo, para que no se dé por cerrado
+
+**El punto 5 sigue abierto: se cerraron 2 de sus 6 correcciones.** Quedan la
+holgura mínima del piso (1), el exponente de la criba (4), el `0,2286` contra
+`ln(Res(993))` (5) y la errata de `RES_993` en `mapahilos.py` (6) — más las
+cuatro cosas de la lista de abajo, de las que sólo se mencionó que las dos
+discrepancias con Hercher existen, **sin escribir sus valores**.
+
+*Nota de fechas: el punto 5 habla de «la sesión del 31-07-2026» y el commit que
+la contiene está fechado el 30-07. No se tocó; queda anotado por si confunde.*
+
+---
+
 ## 2026-07-30 — el día de las correcciones
 
 Sesión larga. **El saldo real no son los hallazgos: son las siete correcciones a
@@ -167,11 +238,14 @@ comparten la cola `[16, 8, 4, 2, 1]` por obligación. 275 de los 1.258 cruces so
 eso y no significan nada. `hilos.db` marca cada cruce con `es_cola` justamente
 para esto; hay que usar esa columna y no contar la cola como coincidencia.
 
-### 5. CONSOLIDAR EL `CLAUDE.md` — pendiente, y es lo primero de la próxima sesión
+### 5. CONSOLIDAR EL `CLAUDE.md` — abierto: 2 de 6 hechas el 01-08-2026
 
 La sesión del **31-07-2026** dejó seis ficheros nuevos y **seis correcciones sin
 escribir en el documento**. El código está hecho y verificado; la documentación
 va atrasada. Es exactamente la deuda del punto 3, otra vez, sólo que al revés.
+
+**Estado: las número 2 y 3 se consolidaron el 01-08-2026 (commit `d8b1d73`).
+Quedan la 1, la 4, la 5 y la 6, y las cuatro de la lista de después.**
 
 **Las seis correcciones al `CLAUDE.md`:**
 
