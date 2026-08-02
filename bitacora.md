@@ -7,6 +7,41 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 # ⇢ CIERRE DEL 01-08-2026 (noche) — LOS DOS TRÍOS DICTARON. EMPEZAR POR AQUÍ
 
+> ## ⚠ LO PRIMERO AL VOLVER: HAY CUATRO ADVERSARIOS SIN RECOGER
+>
+> Se lanzaron al final de la sesión, sobre el repo **ya commiteado y pusheado en
+> `5f4db09`**, y la sesión se cerró antes de que dictaran. **Sus veredictos no
+> están aplicados.** Es el mismo caso del comparador que se perdió el 01-08 por
+> la tarde, así que esta vez queda escrito qué se les pidió:
+>
+> | lente | encargo |
+> |---|---|
+> | **contradicciones internas** | buscar qué de lo escrito hoy contradice algo viejo que no se tocó. El fallo tiene historial: *«cuando se corrija algo, hay que buscar dónde más se afirmaba»* |
+> | **prosa contra código** | coger afirmaciones con número del `CLAUDE.md`, ejecutar el fichero del que dicen venir, y ver si cuadran. Y listar las que **ya no son reproducibles** porque su fichero murió en la purga |
+> | **romper lo de hoy** | atacar los tres bloques nuevos: el vuelco sobre OEIS, el veredicto del tipo `ℕ`, y lo que se dio por cerrado. En particular si *«ningún invariante mod `2^k` distingue los dos mapas»* está demasiado fuerte |
+> | **ficheros sin auditar** | `espejoak.*`, `pruebaresta.lean`, `cotatramos3n1.*`, `paradacoef.py`, `franjaeverett.py`, `medidamonotona.py`, `auditarrefutaciones.py` y otra pasada a `verificar_terras.py`, que ya tuvo un bug |
+>
+> **Si no dejaron nada, hay que relanzarlos.** Y el aviso de método, que ya va
+> por la segunda vez hoy: **un veredicto que no se aplica antes de cerrar, se
+> pierde.**
+>
+> ### Lo que SÍ quedó comprobado antes de cerrar
+>
+> - **Batería mecánica sobre el repo entero: 0 fallos.** 34 `.py` parsean, 0
+>   hallazgos cp1252, los conteos cuadran, las tres bases con
+>   `integrity_check = ok`, 0 filas apuntando a ficheros inexistentes, los 4 zips
+>   abren, y los números que viven en varios sitios coinciden.
+> - **EL REPO SOBREVIVE A UN CLON LIMPIO**, y es la primera vez que se comprueba.
+>   Clonado desde GitHub a un directorio nuevo: **54 ficheros, ninguna diferencia
+>   con el local**, y **11 de 11 scripts baratos corren** más la CLI
+>   (`main.py camino 27` → 111 pasos, techo 9.232). *Es justo lo que le faltó a
+>   `lecturas/*.pdf` y al toolchain de Lean.*
+> - **La única excepción, y es por diseño:** `guardarrespuestas.py` **no puede
+>   correr desde un clon en otra ruta**. Deduce el slug del directorio actual, y
+>   las transcripciones viven donde Claude Code las escribió, indexadas por la
+>   ruta original. Falla con un mensaje claro que dice qué cambiar. **No es un
+>   bug, es una atadura a la máquina** — y por eso existe `transcripciones/`.
+
 Sesión de **corregir**, no de medir. Salió una cosa que no se buscaba: **dos de
 las correcciones eran el error**, y las dos enterraban algo bueno.
 
