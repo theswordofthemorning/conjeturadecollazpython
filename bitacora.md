@@ -43,9 +43,49 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 > | 24 | en la tabla del 30-07, *«la causa es `45 = 3²·5`»* sigue sin marca de que `coralprimos.py` la refutó |
 > | 25 | el `0,5186` de la densidad viene de `densidadfusion.py`, **retirado por ser un promedio muestreado** |
 >
-> **Y quedan TRES adversarios sin recoger** (prosa contra código, romper lo de
-> hoy, ficheros sin auditar). Dado que este primero encontró 25 cosas en un
-> fichero que se acababa de revisar, **no dar por limpio lo que ellos miran.**
+> ### ⇢ LOS CUATRO DICTARON. Y lo que hay que leer es el veredicto del cuarto
+>
+> **Los cuatro encontraron algo. Pero el que auditó prosa contra código, que era
+> el que podía tumbar el repo, dijo esto:**
+>
+> > *«**El núcleo duro aguanta.** Las cinco cosas que sostienen decisiones —la
+> > cota de ciclo con `X₀ = 2^71`, la sucesión `a(k)`, el criterio de fusión, el
+> > piso de la altitud y la cota `B(k)` de CST— las derivé desde cero y **salen
+> > clavadas**, incluida la coincidencia fina de que **16.294 es exactamente** el
+> > corte que permite `X₀ = 2·10⁷`.»*
+>
+> **Verificó 24 afirmaciones con implementación propia y 24 cuadraron.** Lo que
+> falla es de un solo tipo, y el repo ya le puso nombre: **un número publicado
+> sin su rango.**
+>
+> **Aplicado:** la razón de la fila `k=23` era la del escalón de abajo
+> (**1,9069**, no 1,8973); los vórtices del 221 son **51** aritméticos y el 50
+> venía de una decisión de dibujo de un fichero borrado; CST está verificada a
+> **2·10⁷**, no a `2·10⁶` —y de ese rango sale el corte `σ* ≤ 16.294`—; tres
+> etiquetas decían **10⁷** y eran **10⁶**; el `0,5837` del piso es el valor a
+> 200.000 y las *«once veces»* son **nueve**; el `0,5186` estaba declarado
+> retirado en un párrafo y usado como dato vivo en el siguiente. Y en código:
+> `franjaeverett.py` publicaba *«el óptimo está en M = 9»* **contra su propia
+> tabla** (contando excepciones reales, `M = 5, 9, 101, 1001, 10001` empatan a
+> cero, y el umbral baja a **1,585011**, no a 1,63763); y `verificar_terras.py`
+> titulaba *«comprobado y no supuesto»* una sección **cuya mitad es un
+> supuesto** — el fichero que ya tuvo un bug ahí.
+>
+> **PENDIENTE REAL, y es el pasivo de fondo: ONCE NÚMEROS siguen presentados
+> como medidos sin código detrás**, y sólo uno (`3,49031`) lleva la marca. Están
+> listados en el informe del adversario. *El peor no es el más grande: es
+> «correlación latitud / `log₂(valor)` = 0,12», que **no es reproducible ni en
+> principio** porque «latitud» era una coordenada de un dibujo que ya no existe.*
+>
+> Y lo que dejaron los otros dos, sin aplicar: `medidamonotona.py` cuenta 5
+> codominios bien ordenados y son 7, etiqueta como «acotadas» tres candidatas
+> que no lo están, y dice que «el precio crece con `k`» cuando su tabla baja en
+> 4 de 7 escalones; `paradacoef.py` tiene un `if` que es la misma desigualdad que
+> su `while` (dos verificaciones donde hay una) y una fila del A/B con **cero
+> instancias medidas**; `auditarrefutaciones.py` arrastra un `243` heredado
+> cuando él mismo calcula `240`, y su tabla del #54 muestra que **todo `N` primo
+> adelanta 0** sin que el veredicto lo use — que es el resto vivo de la
+> predicción del número primo de rumbos.
 >
 > ### Lo que SÍ quedó comprobado antes de cerrar
 >

@@ -539,7 +539,14 @@ print()
 print("      Se ve la pinza: con M chico la cota es mala (M=1 deja 81.441")
 print("      sin certificar); con M grande la cota es buena pero la guarda")
 print("      mata a todos los n pequenos, y a partir de M=27 el conjunto")
-print("      excepcional vuelve a crecer. EL OPTIMO ESTA EN M = 9.")
+print("      excepcional vuelve a crecer.
+      OJO: "EL OPTIMO ESTA EN M = 9" es lo que decia aqui y NO lo dice la
+      tabla (adversario, 01-08-2026). Contando solo las excepciones REALES
+      -las que no son "n < M por hipotesis"- empatan a CERO M = 5, 9, 101,
+      1001 y 10001. El mejor de los probados es M = 10001, con umbral
+      1,585011, a 4,8e-05 de log2(3). La conclusion cualitativa no cambia
+      (la franja no se cierra), pero se estrecha tres ordenes de magnitud
+      mas de lo que este fichero publicaba.")
 
 print()
 print("  3c. La otra manera de gastar el presupuesto: M = n. Antes del")
@@ -579,7 +586,9 @@ print()
 print("      RESULTADO DE (3): NO HAY NUCLEO. Cambiando 5/3 por 28/9 el")
 print("      conjunto excepcional de Everett hasta 10^7 pasa de %d numeros"
       % len(sin_cert))
-print("      a ninguno, y el umbral baja de 1,73697 a 1,63763.")
+print("      a ninguno, y el umbral baja de 1,73697 a 1,63763.
+      Y con M = 10001 baja hasta 1,585011 sin dejar una sola excepcion
+      real: la franja se estrecha, pero NO se cierra.")
 print("      Sigue sin ser log2(3): la franja se estrecha, no se cierra.")
 
 print()

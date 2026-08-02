@@ -652,7 +652,17 @@ if k_exc != 4700:
 # exactos. Los dos metodos se cubren: (c) donde 2^k cabe en memoria, (e) donde
 # no. Solo cuenta como FALLO que (e) no alcance en un X fuera del alcance de (c).
 
-print(f"\n    (e) el hueco entre jump values, comprobado y no supuesto")
+print(f"\n    (e) el hueco: los MULTIPLOS comprobados, el resto APOYADO en el")
+print(f"        teorema de las tres distancias -- que este fichero NO verifica")
+print(f"        AVISO (adversario, 01-08-2026): la mitad de (e) es un supuesto,")
+print(f"        no una comprobacion, y el titulo decia lo contrario. Peor: en")
+print(f"        X = 10^6 y 10^8 se cumple 2*Kj > Kj1, asi que el bucle de")
+print(f"        multiplos solo llega a m = 1 -- que es K_j mismo, y ya se sabia")
+print(f"        que pasa. Ahi TODO el hueco cuelga de la premisa. Comprobada a")
+print(f"        mano en los cuatro huecos que caben en memoria (401-485,")
+print(f"        1539-2593, 2593-3647, 3647-4701): se cumple en los cuatro con")
+print(f"        holgura ~2x. En 2^62 y 2^71 el hueco mide 10^11 y no es")
+print(f"        enumerable. La cota no cambia; cambia su ESTATUS.")
 print(f"        {'X':>22} {'ultimo jump que pasa':>22} {'k_falla':>16} "
       f"{'margen mult.':>13} {'resto':>7}")
 for nombre, X, cubre_c in [("X = 1.000.000 (control)", 10 ** 6, True),

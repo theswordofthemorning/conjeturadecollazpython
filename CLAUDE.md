@@ -987,7 +987,9 @@ los `+1`: con `3n` en vez de `3n+1` sería cero.
 
 **Los vórtices.** Un número tiene dos padres si y solo si deja resto 4 al
 dividirlo entre 6 (el segundo padre es `(v−1)/3`). Es la regla estándar de la
-literatura. La trayectoria del 221 tiene 50 vórtices en sus 115 números.
+literatura. La trayectoria del 221 tiene **51** vórtices aritméticos en sus 115 números.
+*(El **50** que este documento publicaba sale de excluir el 4 a mano — decisión de
+dibujo de `collazarbol.py`, que ya no existe. Aritméticamente son 51.)*
 *(En el `collazarbol.py` que se borró, el 4 se excluía a mano en `padres()` — su
 otro padre es el 1, que ya es el arranque del tronco. Era decisión de dibujo, no
 de aritmética.)*
@@ -1440,8 +1442,12 @@ corrección del `m ≥ 1` no lo toca**: son tres clases de excepción, `r = 2, 4
 > monotonía no se verifica: se demuestra. Y la razón `> 2` también es trivial.
 > Comprobado además a mano en 14 niveles: **0 fallos**.
 
-La densidad real medida es 0,5186 a 2^28. **La diferencia (unos 10 puntos) son
-los pares que se funden pero cuya clase no se funde entera** — coincidencias
+La densidad real rondaba **0,5186 a 2^28**, y la diferencia (unos 10 puntos) serían
+**los pares que se funden pero cuya clase no se funde entera**
+*(⚠ ese `0,5186` sale de `densidadfusion.py`, que este mismo documento declara
+retirado veinte líneas más arriba por ser un promedio muestreado. **Se conserva
+como orden de magnitud, no como dato**, y el hueco de 10 puntos hereda esa
+reserva.)* — coincidencias
 que dependen del `m` concreto, no solo del resto.
 
 #### Hacia dónde va la fracción: la pregunta, ya limpia
@@ -1457,7 +1463,7 @@ f(k+1) − f(k)  =  nuevas(k) / 2^{k+1}       y       f(∞) = f(k) + Σ nuevas(
 |---|---|---|---|---|
 | 17 | 103.358 | 102.210 | 1.148 | 1,8427 |
 | 20 | 850.737 | 843.286 | 7.451 | 1,8802 |
-| 23 | 6.966.495 | 6.915.582 | 50.913 | 1,8973 |
+| 23 | 6.966.495 | 6.915.582 | 50.913 | 1,9069 |
 | 25 | 28.247.507 | 28.060.738 | 186.769 | 1,9180 |
 | 26 | 56.854.178 | 56.495.014 | 359.164 | 1,9230 |
 | 27 | 114.400.435 | 113.708.356 | 692.079 | 1,9269 |
@@ -1738,9 +1744,9 @@ Salió de preguntar si existe "la constante de Collatz". **Existe, y varias.**
 | **Wagon** (tiempo de caída medio, OEIS **A122790**) | **9,477955556559274736916681012589** | 9,471872 | muestreo a 10⁷ | **−0,064%** |
 | hermana de la anterior (conteo reducido) | 3,4926518521864249123 | 3,49031 | **⚠ sin explicar** | −0,067% |
 | media geométrica por paso del atajo, `√3/2` | 0,8660254 | 0,8643758 | muestreo a 10⁷ | −0,190% |
-| pasos impares contra `ln(n)`, `1/ln(4/3)` | 3,4760595 | 3,46140 | **pendiente de regresión, 10⁷** | −0,42% |
-| pasos del **atajo** contra `ln(n)`, `2/ln(4/3)` | 6,9521189 | 6,92916 | **pendiente de regresión, 10⁷** | −0,33% |
-| pasos **clásicos** contra `ln(n)`, `3/ln(4/3)` | **10,4281785** | 10,39057 | **pendiente de regresión, 10⁷** | −0,36% |
+| pasos impares contra `ln(n)`, `1/ln(4/3)` | 3,4760595 | 3,46140 | **pendiente de regresión, 10⁶** | −0,42% |
+| pasos del **atajo** contra `ln(n)`, `2/ln(4/3)` | 6,9521189 | 6,92916 | **pendiente de regresión, 10⁶** | −0,33% |
+| pasos **clásicos** contra `ln(n)`, `3/ln(4/3)` | **10,4281785** | 10,39057 | **pendiente de regresión, 10⁶** | −0,36% |
 | divisiones por multiplicación, `B/A` | **2** | 2,014002 | **agregado `ΣB/ΣA`, 10⁶** | +0,70% |
 | lo mismo, un rango más | **2** | 2,012389 | agregado `ΣB/ΣA`, 10⁷ | +0,62% |
 | lo mismo, con el otro estimador | **2** | **2,0018** | pendiente de regresión, 10⁷ | **+0,09%** |
@@ -1894,7 +1900,9 @@ El *dropping time* `σ` (dónde baja de verdad) y el *coefficient stopping time*
 definición**. Lo demostrado es `σ ≥ χ`; que sean iguales es la **conjetura CST**,
 abierta desde 1976.
 
-Medido aquí: **0 diferencias en los impares hasta `2·10⁶`**.
+Medido aquí: **0 diferencias en los impares hasta `2·10⁷`** (`paradacoef.py`).
+*Y el rango importa: el corte demostrado `σ* ≤ 16.294` se deduce de ese `X₀ = 2·10⁷`,
+no de `2·10⁶`. Este documento infra-declaraba el barrido por un factor 10.*
 
 > **El enunciado honesto, y en la taxonomía de este repo vale MÁS que el que
 > tenía:** `E[χ]` es una **cota inferior demostrada** de `E[σ]`, no un
@@ -1915,8 +1923,16 @@ Buscando por qué unos números se disparan y otros caen de hocico, se predijo q
 `log₂(altitud/n)` crecería con la racha inicial de impares con pendiente
 `log₂(3/2) = 0,585`. **La predicción falló como se escribió y acertó donde importa:**
 la correlación es **0,59**, no la 0,8 que se exigía — la racha explica el 35% de la
-varianza, no el 80%. Pero la **pendiente** da **0,5837**, y leída sobre las medianas
-da `+0,5850` **once veces seguidas**, de `k=1` a `k=11`.
+varianza, no el 80%. Pero la **pendiente** es positiva y cercana a `log₂(3/2)`.
+
+> **⚠ LAS DOS CIFRAS QUE HABÍA AQUÍ NO CUADRAN CON SU RANGO** (adversario,
+> 01-08-2026), y es **la cuarta reincidencia** del error que este documento
+> declara corregido tres párrafos más arriba. El **`0,5837`** es el valor a
+> **200.000**, no al barrido de 100.000 con el que se cita: a `10⁵` da `0,5803`,
+> a `5·10⁵` da `0,5870`. Y **`+0,5850` once veces** son en realidad **nueve
+> deltas** (`k=1` a `k=10`); el salto `k=10→11` vale `+0,6699`.
+> **Ninguna de las dos tiene fichero detrás** — `pisoaltitud.py` no calcula
+> regresiones. *Lo que sí está verificado es la COTA, que es lo que vale.*
 
 **Y el hallazgo real no es una tendencia, es una cota:**
 
