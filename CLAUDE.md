@@ -220,10 +220,27 @@ compilan en `ℕ` sin Mathlib**:
 2^B·n_k = 3^A·n0 - C     (resta truncada de Nat)  -> compila TAMBIEN
 ```
 
-**Y la segunda cierra la inducción sola**, sin arrastrar `C ≤ 3^A·n₀` como
-segunda mitad del invariante: en la rama impar el propio invariante fuerza
-`2^B·n_k ≥ 1`, luego la resta no trunca. La forma sin resta es **más cómoda**,
-no **necesaria**.
+**Y la segunda cierra la inducción sola**, sin invariante reforzado: en la rama
+impar es **la PARIDAD** la que obliga a `n ≥ 1`, luego `2^B·n_k ≥ 1`, y sólo
+entonces el invariante dice que la resta no trunca.
+
+> **⚠ «MÁS CÓMODA, NO NECESARIA» DICE MÁS DE LO QUE COMPILA** (adversario,
+> 01-08-2026). La forma restada es **estrictamente más débil**: hay estados
+> (`n = 0`, `C > 3^A·n₀`) donde se cumple **sólo porque los dos lados truncan a
+> 0**. De ella salen gratis la **cota** y el **corolario**, pero **NO** la
+> identidad exacta ni `C_no_se_pasa` — para ésas hace falta un lema aparte
+> (`n₀ ≥ 1 ⟹ n_k ≠ 0`), que es otra inducción, no cuatro líneas.
+>
+> **La forma sin resta es más cómoda para la identidad y NECESARIA para
+> `C_no_se_pasa`** — que es, irónicamente, el teorema en cuyo docstring se
+> escribió la corrección.
+>
+> *Y la explicación de por qué cierra estaba mal en TRES ficheros a la vez
+> (`CLAUDE.md`, `pruebaresta.lean`, `cotatramos3n1.lean`): decían «el propio
+> invariante fuerza `2^B·n_k ≥ 1`», y es **la hipótesis de paridad**, no el
+> invariante — `omega` cierra ese paso sin mirarlo. Conclusión correcta, razón
+> falsa, propagada a tres sitios en el mismo movimiento. Es el mismo género de
+> frase que el trío acababa de cazar.*
 
 > **Y ESO TAMBIÉN CORRIGE AL AGENTE DE LEAN, no sólo al documento.** El
 > docstring de `C_no_se_pasa` en `cotatramos3n1.lean` justifica su hallazgo
@@ -1508,37 +1525,77 @@ verificaciones están en **`sucesiones.txt`**.
 >
 > **La biyección estaba archivada como fallida por un `±1`.** La bitácora decía
 > *«la biyección `r → 2^k−2−r` que se alegó no se pudo confirmar: los cardinales
-> coinciden, los conjuntos no»*. Con `2^k−2−r` falla en los diez niveles; con
-> `2^k−1−r` acierta en los diez, **como igualdad de conjuntos**. No era que no
+> coinciden, los conjuntos no»*. Con `2^k−2−r` falla en **todos los
+> niveles no vacíos** (`k ≥ 3`; en `k = 1, 2` «acierta» sólo porque los dos
+> conjuntos son vacíos); con `2^k−1−r` acierta siempre, **como igualdad de
+> conjuntos**. No era que no
 > hubiera biyección: era una errata de índice, y enterró un teorema.
 >
 > ### Y el resultado es MÁS ANCHO que `a(k)`
 >
 > El espejo no conserva sólo `S_k`: conserva **el vector de paridad completo**
-> (exhaustivo `k ≤ 14`, 0 fallos). Como `n ↦ −n` es un **automorfismo de
-> `Z/2^k`** que conjuga los dos mapas, y por Terras 1.2 el vector de paridad
-> determina todo lo definible módulo `2^k`:
+> —y eso no es una medición, es corolario inmediato de `paso_conj`, que
+> `espejoak.lean` demuestra: `−n` tiene la misma paridad que `n`.
 >
-> > **Ningún invariante definido sobre `Z/2^k` puede distinguir `3n+1` de
-> > `3n−1`.**
+> > **⚠ AQUÍ SE ESCRIBIÓ UNA FRASE FALSA Y DURÓ UNA HORA (01-08-2026).** Decía:
+> > *«ningún invariante definido sobre `Z/2^k` puede distinguir `3n+1` de
+> > `3n−1`»*. **Es falso**, y lo rompió un adversario con tres contraejemplos,
+> > todos definidos módulo `2^k`:
+> >
+> > | invariante mod `2^k` | `3n+1` | `3n−1` |
+> > |---|---|---|
+> > | el menor resto bueno | **2** | **3** |
+> > | cuántos restos buenos son **pares** (`k=12`) | **1.067** | **409** |
+> > | el resto con `k` impares seguidos | `2^k − 1` | **1** |
+> >
+> > El tercero duele especialmente: **el repo lo usa** para fabricar `2^4000 − 1`.
+> > Y el contraejemplo **lo imprime `espejoak.py`**, que mide que `φ` mueve el
+> > conjunto de verdad — a una línea de distancia, y nadie conectó las dos.
+> >
+> > *Y llevaba un segundo error del catálogo propio: «`n ↦ −n` es un automorfismo
+> > de `Z/2^k` **que conjuga los dos mapas**». `T` no es un endomorfismo de
+> > `Z/2^k` —manda `Z/2^k → Z/2^{k−1}`—; la conjugación vive en `Z`. Es
+> > literalmente el error de «`T^k` es una biyección sobre `Z/2^k`», repetido el
+> > mismo día en que se corregía.*
 >
-> **EL CONTROL QUE LO DECIDE, y es demoledor: `A076227` — que SÍ está en OEIS
-> desde 2002 — también sale idéntica en los dos mapas.** Comprobado aquí,
-> `k = 1…14`, contra los términos oficiales: `1, 1, 1, 2, 3, 4, 8, 13, 19, 38,
-> 64, 128, 226, 367, 734`. **Un criterio que descalifica a `a(k)` descalifica a
-> una sucesión ya catalogada, y con ella a toda la literatura de vectores de
-> paridad.**
+> **LO QUE SÍ ES CIERTO, y es lo que hay que escribir:**
+>
+> > Como `v₋(r) = v₊(−r)`, **el CARDINAL de cualquier conjunto de restos definido
+> > por una condición sobre el vector de paridad sale igual en los dos mapas.**
+> > Lo que NO sale igual es **el conjunto**: los buenos de `3n+1` mod 32 son
+> > `{2,4,5,12,18,20,22,28}` y los de `3n−1` su reflejo `{3,9,11,13,19,26,27,29}`.
+> > Cualquier magnitud sensible a la reflexión **sí** discrimina.
+>
+> **Y el «control» de `A076227` es CIRCULAR, hay que decirlo.** Sale idéntica en
+> los dos mapas (comprobado, `n = 0…14`), **pero su criterio también es función
+> del vector de paridad**: coincide por el mismo teorema, no por un mecanismo
+> independiente. *Y `medidamonotona.py` ya lo había medido unas horas antes en
+> esta misma sesión.* **Vale como precedente de qué cataloga OEIS; no vale como
+> control matemático.**
 >
 > ### Qué queda en pie y qué no
 >
 > - **SIGUE EN PIE, y reforzado:** `a(k)` **no** es evidencia sobre convergencia.
 >   Antes era una medición (*«salió igual hasta `k=13`»*); ahora es un teorema.
-> - **SE CAE:** que ésa sea razón para no catalogarla. **El A/B contra `3n−1` no
->   es un control para nada que se cuente sobre restos**, porque los dos mapas no
->   son reglas distintas — son la misma escrita al revés. Es el segundo filtro
->   del repo mordiéndose la cola: *«antes de apoyarse en una fila hay que meterle
->   dos reglas parecidas»* — aquí se metieron dos reglas **conjugadas**, que es
->   peor que parecidas.
+> - **SE CAE:** que ésa sea razón para no catalogarla — **y hay que decir que se
+>   cae SOLA, sin el teorema**: OEIS cataloga definiciones, no evidencias. Ese
+>   *non sequitur* no necesitaba `espejoak.lean` para verse.
+> - **El A/B contra `3n−1` no puede distinguir nada invariante bajo la reflexión
+>   `r ↦ −r`** — o sea, ningún *cardinal total* de un conjunto definido por el
+>   vector de paridad. *(No vale decir «nada que se cuente sobre restos»:
+>   «cuántos buenos son pares» se cuenta sobre restos y sí los separa, 1.067
+>   contra 409.)* Es el segundo filtro del repo mordiéndose la cola: *«antes de
+>   apoyarse en una fila hay que meterle dos reglas parecidas»* — aquí se
+>   metieron dos reglas **conjugadas**, que es peor que parecidas.
+>
+> > **⚠ Y EL AVISO DE MÉTODO, que es lo más incómodo de todo el bloque.** El A/B
+> > disparó, y la respuesta fue **demostrar por qué el A/B no podía distinguir y
+> > archivar el control como inválido**. Eso tiene la forma exacta de un
+> > *argumento de rescate*. La explicación es correcta, pero **lo que el A/B
+> > decía —«esta sucesión es ciega al `±1`»— sigue siendo verdad, ahora con
+> > demostración**. Lo que se declaró inválido fue el control; lo que se rescató
+> > fue la publicabilidad. **Son dos cosas distintas y conviene no mezclarlas en
+> > el mismo párrafo.**
 > - **La cota inferior demostrada del 43,5658% no dependía del control** y no se
 >   mueve. Y OEIS cataloga sucesiones bien definidas, no evidencias sobre
 >   conjeturas.

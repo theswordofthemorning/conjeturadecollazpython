@@ -45,9 +45,17 @@
        error del CLAUDE.md no era ninguna de las dos mitades: era el "luego"
        que las unia. Un no sequitur, no un desacuerdo empirico.
 
-  POR QUE CIERRA SOLA, en una linea: en la rama impar el propio invariante ya
-  fuerza 2^B*n_k >= 1, y de ahi sale que la resta no trunca. Es el MISMO hecho
-  que `impar_no_trunca` de cotatramos3n1.lean necesitaba de todas formas.
+  POR QUE CIERRA SOLA, en una linea: en la rama impar es LA PARIDAD la que
+  obliga a n >= 1 (la hipotesis hp, no el invariante), y de ahi sale que la
+  resta no trunca. Es el MISMO hecho que `impar_no_trunca` de cotatramos3n1.lean
+  necesitaba de todas formas.
+
+  AVISO ANADIDO POR UN ADVERSARIO (01-08-2026): este fichero se anuncia como
+  probando sobre estado ARBITRARIO, y eso corta en las dos direcciones. `invR`
+  es ESTRICTAMENTE MAS DEBIL que la forma sin resta: hay estados no alcanzables
+  (n = 0 con C > 3^A*n0) donde se cumple solo porque los dos lados truncan a 0.
+  Sobre los estados alcanzables no hay truncamiento y todo es genuino, pero la
+  implicacion va en un solo sentido: inv => invR, y no al reves.
 
   ---------------------------------------------------------------------------
   LO QUE ESTE FICHERO NO ES

@@ -192,8 +192,8 @@ theorem identidad_con_resta (n0 k : Nat) :
     `Nat`, y que habria que arrastrar este `C <= 3^A*n0` como segunda mitad del
     invariante. ESO ES FALSO, y no se discutio: el comparador escribio el
     `paso_conserva` de la forma restada sobre estado arbitrario, SIN invariante
-    reforzado, y COMPILA (`#print axioms` limpio). En la rama impar el propio
-    invariante ya fuerza `2^B*n_k >= 1`, y de ahi sale la no-truncacion — que es
+    reforzado, y COMPILA (`#print axioms` limpio). En la rama impar es LA
+    PARIDAD la que obliga a `n >= 1`, y de ahi sale la no-truncacion — que es
     el mismo hecho que `impar_no_trunca` necesitaba de todas formas. Cuesta
     cuatro lineas mas.
 
