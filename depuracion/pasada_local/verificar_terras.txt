@@ -1,0 +1,176 @@
+==============================================================================
+VERIFICAR TERRAS 1976 -- re-derivacion con aritmetica exacta
+==============================================================================
+
+[1] T1.1  T^k(n) = lambda_k*n + rho_k,  lambda_k = 3^{S_k}/2^k   (ATAJO)
+               n  k (atajo)    S_k  bits de rho_k
+              27         70     41             68
+             221         73     41             71
+            1276         39     18             34
+             871        113     65            111
+            6171        165     96            163
+           77031        221    129            219
+          100009        196    113            194
+        63728127        592    357            590
+    pasos comprobados uno a uno: 1469   fallos: 0
+
+[2] La forma del repo   2^B*seq[j] = 3^A*seq[i] + C   (CLASICO)
+               n   numeros  pares i<j
+              27       112       6216
+             221       115       6555
+            1276        58       1653
+            6171       262      34191
+          100009       310      47895
+    pares comprobados: 96510   fallos: 0
+    el 221 solo: 115 numeros -> 6555 pares   (el CLAUDE.md dice 6.555)
+
+    puente Terras <-> repo:  C == 2^k * rho_k ?
+    igualdades comprobadas: 1469   fallos: 0
+
+[3] T1.2  lambda_k y rho_k dependen SOLO de n mod 2^k   (ATAJO)
+    exhaustivo sobre los 4096 restos de k = 12, con m en [0, 1, 2, 3, 7, 100, 12345]
+    casos: 28672, cada uno con 3 igualdades (S_k, rho_k y la recta)
+    la recta verificada es  T^k(2^k*m + r) = 3^(S(r))*m + T^k(r)
+    -- es el motor exacto de clasesfusion.py y de pinzaciclos.py --
+    fallos: 0
+
+[4] C1.4  paridades independientes, P = 1/2 exacta   (ATAJO)
+      k    restos  vectores  biyeccion  unos en los primeros bits
+      1         2         2       True  1
+      2         4         4       True  2 2
+      3         8         8       True  4 4 4
+      4        16        16       True  8 8 8 8
+      5        32        32       True  16 16 16 16 16
+      6        64        64       True  32 32 32 32 32 32
+     16     65536     65536       True  32768 32768 32768 32768 32768 32768 32768 32768
+    parejas de bits (k=10): las 180 casillas conjuntas valen
+    256 cada una -> independencia EXACTA, no aproximada
+    fallos: 0
+
+    CONTROL con el mapa CLASICO (debe salir F(k+2), no 2^k):
+    k=11: 233 = F(13)   k=12: 377 = F(14)   k=13: 610 = F(15)   k=14: 987 = F(16)
+    fallos: 0  -> los dos mapas dan cosas distintas:
+    la biyeccion (y con ella el P=1/2 exacto) es SOLO del atajo.
+
+[5] Tabla C -- jump values recalculados con enteros exactos, k <= 3000
+    calculado  k = [1, 2, 5, 8, 27, 46, 65, 149, 233, 317, 401, 485, 1539, 2593]
+    el repo    k = [1, 2, 5, 8, 27, 46, 65, 149, 233, 317, 401, 485, 1539, 2593]
+    calculado  b = [0, 1, 3, 5, 17, 29, 41, 94, 147, 200, 253, 306, 971, 1636]
+    el repo    b = [0, 1, 3, 5, 17, 29, 41, 94, 147, 200, 253, 306, 971, 1636]
+    coinciden los 14 primeros: True
+    jump values hasta 3000: 14.  Los que el repo NO lista:
+    k = []   b = []
+
+    fraccion continua EXACTA de log2(3): [1, 1, 1, 2, 2, 3, 1, 5, 2, 23, 2]
+    semiconvergentes de log2(3) con k/b > log2(3), k <= 3000:
+    k = [1, 2, 5, 8, 27, 46, 65, 149, 233, 317, 401, 485, 1539, 2593]
+    identicas a los jump values: True
+    fallos: 0
+
+[6] PERIODO -- 'Terras excluyo los bucles de periodo <= 2592'
+    (a) la identidad de ciclo, en los ciclos que EXISTEN sobre Z:
+        ciclo de    1:  k=  2  S=  1  2^k/3^S = 4/3   producto = 4/3   iguales: True
+        ciclo de   -1:  k=  1  S=  1  2^k/3^S = 2/3   producto = 2/3   iguales: True
+        ciclo de   -5:  k=  3  S=  2  2^k/3^S = 8/9   producto = 8/9   iguales: True
+        ciclo de  -17:  k= 11  S=  7  2^k/3^S = 2048/2187   producto = 2048/2187   iguales: True
+    fallos: 0
+
+    (b) fuerza bruta: todo n < 1,000,000 baja por debajo de si
+        mismo, luego ningun ciclo tiene su minimo ahi abajo...
+        hecho: 0 excepciones en 999,998 numeros
+        (el descenso mas lento tardo 287 pasos del mapa clasico)
+
+    (c) exclusion de periodos, aritmetica entera exacta.
+        periodo k excluido  <=>  2^k * (3X)^S > (3*(3X+1))^S
+        con S = mayor S con 3^S < 2^k, y X = cota inferior del minimo.
+
+          X (minimo garantizado)   mayor periodo k excluido  cubre 2592?
+                           1,000                         64        False
+                          10,000                        316        False
+                         100,000                      1,538        False
+                       1,000,000                      4,700         True
+
+    (d) el mismo argumento con logaritmos (decimal, precision 200)
+        CONTROL contra (c): con X = 1.000.000 el metodo decimal senala
+        k = 4701 como el primer periodo que ya no se excluye, y el
+        metodo entero exacto de (c) fallo justo en k = 4.701. Es el mismo
+        numero, o sea que el paso a logaritmos no ha roto nada.
+        Y la frontera que devuelve, 4,700, coincide EXACTAMENTE con el
+        4.700 que da (c) por fuerza bruta entera. Ese es el control que
+        antes faltaba: hasta el 01-08-2026 esta funcion devolvia 3.647.
+
+    (e) el hueco: los MULTIPLOS comprobados, el resto APOYADO en el
+        teorema de las tres distancias -- que este fichero NO verifica
+        AVISO (adversario, 01-08-2026): la mitad de (e) es un supuesto,
+        no una comprobacion, y el titulo decia lo contrario. Peor: en
+        X = 10^6 y 10^8 se cumple 2*Kj > Kj1, asi que el bucle de
+        multiplos solo llega a m = 1 -- que es K_j mismo, y ya se sabia
+        que pasa. Ahi TODO el hueco cuelga de la premisa. Comprobada a
+        mano en los cuatro huecos que caben en memoria (401-485,
+        1539-2593, 2593-3647, 3647-4701): se cumple en los cuatro con
+        holgura ~2x. En 2^62 y 2^71 el hueco mide 10^11 y no es
+        enumerable. La cota no cambia; cambia su ESTATUS.
+                             X   ultimo jump que pasa          k_falla  margen mult.   resto
+        X = 1.000.000 (control)                  3,647            4,701         1.16x  False*
+            Terras 1976, ~10^8                 23,673           24,727         1.24x    True
+        Oliveira e Silva, 2^62            630,138,897   10,439,860,591         3.68x    True
+             Barina 2025, 2^71         10,439,860,591  114,208,327,604        10.89x    True
+        fallos: 0
+        (*) el argumento del hueco no alcanza ahi, pero ese X lo cubre
+            (c) recorriendo TODOS los k con enteros exactos. Los dos
+            metodos se tapan el agujero el uno al otro.
+
+        limite verificado por fuerza bruta    k excluido (riguroso)   en pasos clasicos
+        Terras 1976, verificado ~10^8                        24,726              40,326
+        Oliveira e Silva 2008, 2^62                  10,439,860,590      17,026,679,259
+        Barina 2025, 2^71 (record de hoy)           114,208,327,603     186,265,759,593
+
+        LA COTA, ESCRITA COMO SE PUBLICA. Todo periodo k <= 114,208,327,603 esta
+        excluido, luego cualquier ciclo no trivial mide AL MENOS
+        114,208,327,604 pasos del atajo = 186,265,759,595 pasos clasicos
+        (un ciclo de k pasos de atajo con S impares mide k + S clasicos).
+
+        CONTRASTE CON LA CIFRA QUE PUBLICA BARINA 2025 (seccion 6) Y
+        QUE REPITE WIKIPEDIA: 217,976,794,617 pasos del atajo.
+        Esa cifra es 1.91 veces la que sale de aqui con
+        el MISMO X_0 = 2^71. Para alcanzarla haria falta X_0 >= 2^71,884,
+        y Barina esta en 2075*2^60 = 2^71,019. Es una fila de mas.
+        Ver verificar_ciclos.py, que lo certifica por tres caminos.
+
+        LECTURA PARA LA ESTRATEGIA DEL REPO: el barrido de restos de
+        pinzaciclos.py llega a k = 30 y cuesta 12,5 minutos. Esta
+        desigualdad, en un segundo y con la verificacion que YA existe,
+        excluye hasta k = 114,208,327,603. El 2.592 del CLAUDE.md
+        NO es la frontera de hoy: es una foto de 1976. La frontera real
+        esta 44,061,855 veces mas arriba. La conclusion no cambia
+        (el barrido sigue muerto), pero el documento subestima por cuanto
+        lo esta, y ese es exactamente el error que ya mordio dos veces.
+
+        HONESTIDAD: esto es una re-derivacion INDEPENDIENTE de la
+        exclusion, no una lectura del articulo. Queda comprobado que la
+        exclusion de periodo <= 2592 esta al alcance con una verificacion
+        por fuerza bruta modestisima, y que el argumento cierra. Lo que
+        NO se puede comprobar desde aqui es que Terras usara ESTE
+        argumento ni que su numero fuera exactamente 2592.
+
+==============================================================================
+TODAS LAS COMPROBACIONES PASAN. 0 fallos.
+==============================================================================
+
+RESUMEN, separando COTA de PROMEDIO:
+
+  [1] T1.1 forma cerrada      CONSTRUCCION (identidad algebraica exacta).
+                              Sirve para la formula: es el motor de todo.
+  [2] T1.1 == forma del repo  CONSTRUCCION. Son la misma identidad, con
+                              C = 2^k * rho_k. Verificado, no supuesto.
+  [3] T1.2 solo el resto      CONSTRUCCION + criterio FINITO sobre INFINITOS
+                              numeros. Es literalmente el cuarto camino.
+  [4] C1.4 paridades 50/50    BIYECCION exacta (construccion). Su lectura
+                              probabilistica es un PROMEDIO y no decide ningun
+                              numero concreto. Las dos cosas a la vez, y por eso
+                              la red neuronal de redhilos.py no puede ganar.
+  [5] Tabla C                 CONSTRUCCION aritmetica. Dice DONDE mirar; por si
+                              sola no excluye nada.
+  [6] periodo excluido        COTA de verdad: un "no existe ningun ciclo con".
+                              Es lo unico del bloque con forma de teorema util.
+

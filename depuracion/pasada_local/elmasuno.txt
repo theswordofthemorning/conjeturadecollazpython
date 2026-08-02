@@ -1,0 +1,123 @@
+EL «+1» DEL 3n+1, CONTADO UNA SOLA VEZ
+
+  Hipotesis:  ln( 2^B / (3^A * n) )  ==  suma de ln(1 + 1/(3*x_i))
+  o sea: el grosor de la lamina y el sobrante de la fraccion impar
+  no son parientes, son el mismo numero.
+
+COMPROBACION 1 -- la identidad es exacta, en Fraction
+  numeros probados: 20,011  (el 1 al 20,000, mas 11 grandes a mano)
+  el mayor de los grandes: 1,099,511,627,777
+  fallos: 0
+
+COMPROBACION 2 -- eps nunca es negativo, y eso es una linea de algebra
+  cada factor es (1 + 1/(3x)) con x entero positivo -> cada factor > 1
+  producto de cosas > 1 es > 1 -> su logaritmo es > 0 -> eps > 0
+  casos con eps < 0 : 0
+  casos con eps == 0: 15   y son exactamente las potencias de 2: True
+  casos con A > 0 y producto no estrictamente mayor que 1: 0
+
+COMPROBACION 3 -- las dos contabilidades son la misma, traducidas
+  I = A   y   P = B - A     (atajo contra clasico)
+  fallos de traduccion: 0
+  la ecuacion de (c),  -ln(n) = I*ln(3/2) + P*ln(1/2) + eps,
+  con el eps de (a),  eps = B*ln2 - A*ln3 - ln(n)  metido dentro
+  peor desvio de los dos lados: 2.132e-14   (es ruido de float; la identidad de la comprobacion 1 es exacta)
+
+COMPROBACION 4 -- reproduce el residuo de Roosendaal publicado
+  barrido exacto de 2 a 200,000, comparando enteros
+  el maximo de eps se alcanza en n = 993   (A=32, B=61)
+  y lo empatan 8: [993, 1986, 3972, 7944, 15888, 31776, 63552, 127104]
+  o sea el 993 y sus dobles, que es lo que dice el CLAUDE.md
+  la fraccion exacta: 2^61 / (3^32 * 993) =
+     2305843009213693952 / 1840049047529878113
+  en decimal, con veinte cifras: 1,25314214439506805016
+  eps maximo = ln(Res) = 0.225654113
+  publicado    ln(Res(993)) = 0.225654113   (CLAUDE.md: 0,225654)
+  diferencia: 0.000e+00
+
+  DE PROPINA, UNA ERRATA EN UNA CONSTANTE DEL REPO -- YA ARREGLADA.
+  mapahilos.py guardaba a mano RES_993 = 1.2531421442887503, y el
+  valor exacto es 1,2531421443950680
+  Coinciden en las nueve cifras publicadas (1,253142144) y se separan
+  en la decima: ...4428875 contra ...4439507. No cambiaba nada de lo
+  medido -el techo en logaritmos sigue siendo 0,225654 y los once eps
+  seguian por debajo- pero la constante literal estaba mal.
+  CORREGIDO EL 01-08-2026: los dos ficheros la calculan ahora desde su
+  definicion, 2^61/(3^32*993), y ninguno la escribe a mano.
+
+COMPROBACION 5 -- el reparto del grosor en el campeon, n = 993
+  pasos impares: 32   suma de sus ln(1+1/(3x)): 0.225654113
+  eps calculado como ln(2^B/(3^A n)):        0.225654113
+  diferencia (ruido de float): 4.996e-16
+  el arranque, 993, aporta 0.000335627  ->  solo el 0.15% del total
+  los que mandan son los impares MAS CHICOS, o sea el final del camino:
+     x =   5   aporta 0.064538521   el 28.60%
+     x =   7   aporta 0.046520016   el 20.62%
+     x =  11   aporta 0.029852963   el 13.23%
+     x =  13   aporta 0.025317808   el 11.22%
+     x =  17   aporta 0.019418086   el  8.61%
+  esos cinco juntos: el 82.27% del grosor entero
+
+==========================================================================
+CONCLUSIONES
+==========================================================================
+
+1. (a) Y (c) SON EL MISMO NUMERO, NO DOS PARECIDOS.
+   El grosor de la lamina eps = ln(2^B/(3^A n)) y el sobrante de la
+   fraccion impar S = suma de ln(1+1/(3x)) son identicos, termino a
+   termino, en los 20,011 casos probados en racionales exactos,
+   0 fallos. Y la razon es de dos lineas: un paso impar multiplica por
+   3*(1 + 1/(3x)), no por 3; el producto de toda la trayectoria vale
+   1/n; se despeja. El residuo 1,7e-7 que se habia medido era error de
+   coma flotante, no del enunciado.
+
+2. EL «+1» NO APARECE TRES VECES. APARECE DOS.
+   El conteo del CLAUDE.md hay que corregirlo: el grosor 0,2286 de la
+   lamina y la desviacion -0,0035 de la fraccion impar eran la misma
+   aparicion contada dos veces, en dos sistemas de coordenadas. Quedan:
+     - eps, la suma acumulada sobre la trayectoria (a == c)
+     - el «+2» del espejo en base 2 (b)
+
+3. Y (b) ES PARIENTE, PERO NO ES LO MISMO. El argumento:
+   el «+2» del espejo sale de 3(2^k - n) + 1 = 3*2^k + 2 - (3n+1), o
+   sea de aplicar el «+1» a los DOS lados de una reflexion; es exacto
+   para UN paso y no esta sumado sobre nada. eps, en cambio, es la
+   ACUMULACION del mismo estorbo a lo largo de A pasos. Uno es el «+1»
+   visto una vez y en aritmetica entera; el otro es su integral y vive
+   en los logaritmos. Meterlos en el mismo saco seria justo el tipo de
+   union por parecido que este repo se ha propuesto no hacer.
+   La prueba de que no son intercambiables ya estaba medida: el puente
+   del espejo2 se rompe al segundo paso (correlacion +0,06), mientras
+   que eps es exacto sobre la trayectoria entera.
+
+4. ESTO NO ES UN PROMEDIO NI UNA COTA: ES UNA IDENTIDAD.
+   La pregunta que se hace siempre el repo -«es un promedio o es una
+   cota?»- tiene aqui una tercera respuesta, y es la mas fuerte de las
+   tres. Un promedio no demuestra ningun caso. Una cota vale para todos
+   los casos pero solo por un lado. Una identidad vale para todos los
+   casos por los dos lados: es una IGUALDAD, cierta para cada n, no una
+   tendencia. Se demuestra en dos lineas y se ha verificado en
+   racionales exactos.
+
+5. Y LO QUE REGALA: la lamina no tiene nada por debajo del plano PORQUE
+   cada factor es mayor que 1. collazlamina.py lo habia MEDIDO en 6.555
+   pares; ahora esta DEMOSTRADO en una linea, para todos los n a la vez.
+   Eso es lo que gana el repo con esto: un negativo medido se convierte
+   en un teorema pequeño.
+
+   Y de paso corrige la intuicion de donde vive el grosor: no lo ponen
+   los numeros grandes por los que sube la trayectoria, sino los
+   impares CHICOS del final. En el 993 los cinco menores se llevan el
+   82%; el propio 993 aporta el 0,15%. El «+1» pesa donde el numero es
+   pequeño, que es justo donde la trayectoria ya esta acabando.
+
+6. HONESTIDAD SOBRE SI ESTO «UNIFICA»: unifica de verdad DOS de las
+   tres apariciones, y las unifica hacia abajo. No es que dos fenomenos
+   distintos resulten tener una causa comun: es que eran el mismo
+   fenomeno escrito en dos coordenadas, y nadie lo habia notado porque
+   uno se medio sobre pares de una trayectoria y el otro sobre millones
+   de trayectorias a la vez. Es contabilidad, no descubrimiento. Pero
+   es contabilidad que CORRIGE UN CONTEO PUBLICADO en el CLAUDE.md, y
+   convierte una medicion en una demostracion. Y no toca la conjetura:
+   que eps > 0 siempre es trivial; que eps este ACOTADO por 0,225654
+   sigue siendo la conjetura de Roosendaal, y no se ha movido un milimetro.

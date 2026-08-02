@@ -5,6 +5,62 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 02-08-2026 — LA DEPURACIÓN TOTAL DICTÓ: 100 de 100. EMPEZAR POR AQUÍ
+
+**Encargo del usuario: verificar TODO `afirmaciones.db` (80 afirmaciones + 20
+constantes) antes de publicar nada.** Los cuatro adversarios pendientes de la
+entrada de abajo quedaron recogidos por el camino: la sesión de la mañana
+(`429f4e04`) murió por límite de uso con la mega-tanda A en vuelo, y esta sesión
+rescató todo de los journals — **el trabajo pagado no se pagó dos veces**.
+
+## El marcador final
+
+> **100/100 — 75 CONFIRMADAS · 13 CORREGIDAS · 12 NO_DECIDIBLES · 0 REFUTADAS.**
+> Todo en `depuracion/veredictos.jsonl`, una fila por ítem con su evidencia.
+
+## Cómo se pagó, porque el método cambió a mitad por orden del usuario
+
+1. **Lotes 1–3 + mega-A: tríos completos** (Lean + Python a ciegas + comparador).
+   ~9M tokens. El andamio de Terras, fusión, pinza, pisos, Garner/Wu, espejos,
+   negativos — la parte donde la independencia importaba.
+2. **El resto: pasada LOCAL a coste ~cero** — los `verificar_*.py` del repo
+   (11 scripts, exit 0 todos), los 4 `.lean` recompilados (0 `sorryAx`), y un
+   consolidado propio escrito de cero (`depuracion/pasada_local/`). *«El código
+   tiene oráculo»: para mediciones, ejecutar ES verificar.*
+
+## Lo que encontró que no se sabía
+
+- **`A65`, y es un off-by-one publicado: el espejo base 10 tiene 44.451
+  dos-ciclos bajo 100.000, no 44.450.** Cerrado con combinatoria, no medido:
+  (90.000 reversibles − 1.098 palíndromos)/2 = 44.451.
+- **`A71`**: la tupla de 176 en `722.067.240` se confirma entera; su
+  **maximalidad** bajo `2^30` nadie la re-verificó — es de Wu, y así queda dicho.
+- **`A29`**: «sube k veces seguidas» es del ATAJO (el clásico lo rompe en `k=2`),
+  y `2^4000 − 1` da **4.000** impares seguidos, no 3.999.
+- **`A51` re-verificado EXACTO**: desviación **0,0** prediciendo el bit siguiente
+  sobre los 2^13 residuos completos — la biyección lo fuerza. *(El primer intento
+  propio contaminaba con la cola post-convergencia; lo cazó la capa 1.)*
+- Y las 11 corregidas de los tríos (A2/A3/A5 bordes `n=1`, A27 `k=0`, A28
+  biyección a teorema, A34 asintótico vs régimen, A11/A13/A16/A63…).
+
+## Los 12 NO_DECIDIBLES, por clase
+
+- **bibliográficas** (Tao A37, 5x+1 A39, Barina `2^71` A66, Wang A64): se citan,
+  no se re-demuestran aquí.
+- **coral** (A44, A72, A73, A74 y C20): barrido caro prohibido — pendiente de
+  una pasada CPU dedicada.
+- **irreproducibles** (A52 sin nulo registrado, A54 la esfera borrada, A43 sin
+  tendencia limpia): del pasivo «números sin código», y así quedan marcados.
+
+## LO QUE QUEDA, en orden
+
+1. **Aplicar las 13 correcciones** a `afirmaciones.db` y al `CLAUDE.md` — los
+   textos exactos están en `correccion_exacta` de cada fila. **No aplicadas aún.**
+2. La pasada CPU del coral (barata en tokens, cara en horas de máquina).
+3. `guardarrespuestas.py` + zip de transcripciones al cerrar esta sesión.
+
+---
+
 # ⇢ CIERRE DEL 01-08-2026 (noche) — LOS DOS TRÍOS DICTARON. EMPEZAR POR AQUÍ
 
 > ## ⚠ LO PRIMERO AL VOLVER: HAY CUATRO ADVERSARIOS SIN RECOGER

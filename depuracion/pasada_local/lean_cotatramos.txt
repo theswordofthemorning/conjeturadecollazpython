@@ -1,0 +1,7 @@
+'identidad' depends on axioms: [propext]
+'cota' depends on axioms: [propext]
+'corolario' depends on axioms: [propext, Classical.choice, Quot.sound]
+1
+41
+73
+'el_221_tiene_B_73' does not depend on any axioms

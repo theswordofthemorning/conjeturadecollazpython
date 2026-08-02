@@ -1,0 +1,3 @@
+cruzarecords: exit 0
+descensoresto: exit 0
+elmasuno: exit 0

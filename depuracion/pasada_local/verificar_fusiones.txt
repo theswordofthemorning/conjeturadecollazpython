@@ -1,0 +1,259 @@
+==========================================================================
+GARNER 1985 Y GAO 1993, RE-DERIVADOS CON ARITMETICA ENTERA EXACTA
+==========================================================================
+
+Vocabulario que se usa aqui:
+  altura h(n) = NUMERO DE PASOS hasta el 1 (= tiempo de parada total).
+  NO es el valor maximo. El valor maximo es la excursion t(n) y se
+  mide aparte, abajo, precisamente para que se vea que no coinciden.
+
+--------------------------------------------------------------------------
+COMPROBACION 1 -- GARNER G1: 8k+4 y 8k+5 caen en 6k+4 en 3 pasos
+--------------------------------------------------------------------------
+  k probados: 0 .. 199999  (200,000 casos)
+  C^3(8k+4) = C^3(8k+5) = 6k+4 ..... fallos: 0
+  los dos gastan 2 pares y 1 impar . fallos: 0
+  VEREDICTO G1: CONFIRMADA. Es una identidad algebraica, no una medida.
+
+--------------------------------------------------------------------------
+COMPROBACION 2 -- de la confluencia a la altura, y el caso k = 0
+--------------------------------------------------------------------------
+  k=0:  altura(4) = 2   altura(5) = 5   iguales: False
+        el 4 llega al 1 en 2 pasos, o sea ANTES del paso 3 en el que
+        se encuentran. La confluencia existe; la igualdad de altura no.
+  k de 1 a 20,000: altura(8k+4) == altura(8k+5)
+    fallos: 0   primer fallo: None
+  VEREDICTO: la version con altura vale para k >= 1, NO para k = 0.
+
+  Las otras dos magnitudes NO coinciden, y por eso hay que decir cual
+  se esta usando:
+       k       n  altura  parada   excursion t(n)
+    ---- ------- ------- ------- ----------------
+       1      12       9       1               16
+       1      13       9       3               40
+       2      20       7       1               20
+       2      21       7       3               64
+       3      28      18       1               52
+       3      29      18       3               88
+       7      60      19       1              160
+       7      61      19       3              184
+    de k=1 a k=2000: la excursion maxima DIFIERE en 1545 de 2000
+                     el tiempo de parada DIFIERE en 2000 de 2000
+  O sea: 'misma altura' es CIERTO, 'mismo pico' es FALSO, 'mismo tiempo
+  de parada' es FALSO. Solo se salva la magnitud que Garner nombra.
+
+--------------------------------------------------------------------------
+COMPROBACION 3 -- la formula afin C^i(2^r m + n) = 3^o 2^(r-e) m + C^i(n)
+--------------------------------------------------------------------------
+  casos con r = e+1 : 62,400 comprobados, 0 fallos
+  casos con r = e   : 9,954 FALLOS
+  VEREDICTO: la formula es exacta y la hipotesis r > e es NECESARIA.
+  (el enunciado suelto '2^r*k + n1' no dice cuanto vale r; con r mal
+   elegido la propagacion se rompe, y aqui esta medido cuantas veces)
+
+--------------------------------------------------------------------------
+COMPROBACION 4 -- el enunciado suelto de G2 necesita una hipotesis mas
+--------------------------------------------------------------------------
+  Contraejemplo: 7 y 8 SI se funden (sentido flojo): comparten el 8,
+    en el paso 13 del 7 contra el paso 0 del 8.
+  Confluencia propagable (mismo indice y mismas cuentas): None
+  1024m+7 contra 1024m+8, m de 0 a 39 (r = 10, de sobra grande):
+    misma altura: 6    distinta altura: 34
+  Nota: el par (4, 5) -o sea k = 0- NO tiene confluencia propagable:
+    None. La trayectoria del 4 se acaba en el
+    paso 2 y el encuentro seria en el 3. Por eso k = 0 es la excepcion.
+  Control con k = 1: 12 y 13 -> valor 10, indice 3,
+    con 2 pares y 1 impares en los dos tramos.
+  confluencia propagable = (6k+4, 3, 2, 1) para k de 1 a 2000: 0 fallos
+    8m+4 contra 8m+5, m de 1 a 2000: iguales 2000, distintas 0
+  VEREDICTO G2: CONFIRMADA PARCIAL. El mecanismo es exacto, pero el
+  enunciado tal como lo repite el CLAUDE.md ('si dos trayectorias se
+  funden...') es FALSO sin anadir 'con el mismo numero de pares y de
+  impares en los dos tramos'. Medido: 34 de 40 fallan.
+
+--------------------------------------------------------------------------
+COMPROBACION 5 -- las clases que se funden, rederivadas sin numpy
+--------------------------------------------------------------------------
+    k     a(k)    mismo T, distinto S
+  --- --------  ---------------------
+    3        1                      0
+    4        3                      0
+    5        8                      0
+    6       18                      0
+    7       39                      0
+    8       82                      0
+    9      170                      0
+   10      351                      1
+   11      721                      2
+   12    1,476                      4
+   13    3,012                      5
+   14    6,130                      5
+   15   12,450                      8
+   16   25,241                     10
+   17   51,105                     12
+   18  103,358                     13
+  los primeros 14 terminos coinciden con los del repo (sucesiones.txt): 0 discrepancias
+
+  LA TRAMPA, con nombre y apellido. r = 7 modulo 1024:
+    T^10(7) = 2 con S = 5
+    T^10(8) = 2 con S = 4
+    mismo valor, distinto S. Para m = 0 coinciden; para m >= 1 la
+    formula da 243m+2 contra 81m+2, que no se parecen en nada.
+    Es la cola comun 1-2-4 disfrazada de clase. El criterio del repo
+    la descarta bien porque exige TAMBIEN S igual - confirmado.
+
+  Las dos familias publicadas, rederivadas desde el criterio:
+    Garner  r=4, k=3:  T^3(4)=2 S=1  |  T^3(5)=2 S=1  -> True
+    (32m+5) r=5, k=5:  T^5(5)=2 S=2  |  T^5(6)=2 S=2  -> True
+
+  EL AGUJERO DEL CRITERIO: el caso m = 0, que el repo nunca mira
+    k clases buenas  fallan en m=0  cuales
+  --- ------------- --------------  --------------------
+    3             1              1  [4]
+    4             3              2  [2, 4]
+    5             8              3  [2, 4, 5]
+    6            18              3  [2, 4, 5]
+    7            39              3  [2, 4, 5]
+    8            82              3  [2, 4, 5]
+    9           170              3  [2, 4, 5]
+   10           351              3  [2, 4, 5]
+   11           721              3  [2, 4, 5]
+   12         1,476              3  [2, 4, 5]
+   13         3,012              3  [2, 4, 5]
+   14         6,130              3  [2, 4, 5]
+  fallos con m >= 1 (k de 3 a 14, m de 1 a 30): 0
+  Los tres pares que fallan son siempre los mismos, y son estos:
+    n = 2 y n+1 = 3:  altura 1 contra 7
+    n = 4 y n+1 = 5:  altura 2 contra 5
+    n = 5 y n+1 = 6:  altura 5 contra 8
+  Causa unica: esos numeros llegan al 1 ANTES del paso k donde el
+  criterio los hace coincidir. Es el mismo motivo por el que 8k+4
+  falla en k = 0 (COMPROBACION 2) y por el que 32m+5 falla en m = 0.
+  El enunciado correcto es 'para todo m >= 1', no 'para todo m'.
+  NO afecta a la cota de densidad: tres excepciones no mueven una
+  densidad asintotica. Afecta al ENUNCIADO, igual que le paso al
+  piso de la altitud, que tambien perdio una hipotesis por el camino.
+
+--------------------------------------------------------------------------
+COMPROBACION 6 -- G3: infinitos pares con la misma altura
+--------------------------------------------------------------------------
+  No es medible: es una CONSTRUCCION. La familia {8k+4, 8k+5} para
+  k >= 1 ya es infinita, y se verifico hasta k = 20,000
+  con 0 fallos. Un ordenador no puede hacer mas que eso:
+  la infinitud la da el algebra de la COMPROBACION 1, no el barrido.
+  'Mismo tiempo de parada total' es la MISMA afirmacion que 'misma
+  altura' - son sinonimos, no dos resultados.
+
+--------------------------------------------------------------------------
+COMPROBACION 7 -- GAO 1993: la tupla que arranca en 2^500 + 1
+--------------------------------------------------------------------------
+  la version memoizada contra la lenta, n de 1 a 5.000: 0 discrepancias
+  2^500 + 1 tiene 151 cifras decimales
+  altura(2^500 + 1) = 3279 pasos
+  altura(2^500)     = 500 pasos  (el de antes, o sea la racha empieza justo ahi)
+  consecutivos mirados: 40,000
+  RACHA MEDIDA: 35,654 consecutivos con altura 3279
+  se rompe en el desplazamiento 35,654, cuya altura es 3703
+  VEREDICTO GA2: CONFIRMADA EXACTA. 35.654, ni uno mas ni uno menos.
+  (comprobados los 35.654 enteros de la tupla, uno por uno, con
+   aritmetica entera exacta sobre numeros de 151 cifras)
+
+  GA1 ('si existe una, existen infinitas') NO se puede comprobar con
+  codigo: es una implicacion sobre todas las tuplas. Lo que si se
+  puede es verificar su mecanismo, que es el mismo G2 de Garner ya
+  medido arriba, aplicado a los 35.653 pares de la tupla.
+
+--------------------------------------------------------------------------
+COMPROBACION 8 -- lo que afirma guardarhilos.py, recalculado
+--------------------------------------------------------------------------
+         n  altura   excursion t(n)
+  -------- ------- ----------------
+    100000     128          100,000
+    100001      89          300,004
+    100002      53          360,448
+    100003      53          450,016
+    100004      53          427,192
+    100005      53          427,192
+    100006      53          427,192
+    100007      53          854,368
+    100008     128          100,008
+    100009     309       35,075,104
+    100010     128          150,016
+  los seis 100002..100007: alturas [53, 53, 53, 53, 53, 53]
+  AFIRMACION DEL REPO '53 pasos los seis': CONFIRMADA.
+
+  Las 15 parejas de los seis, con su desfase:
+                par   se funden en   paso   paso  desfase
+  ----------------- -------------- ------ ------ --------
+  100002+  100003        112,504      5      5        0
+  100002+  100004        106,798     18     18        0
+  100002+  100005        106,798     18     18        0
+  100002+  100006        106,798     18     18        0
+  100002+  100007         90,112     26     26        0
+  100003+  100004        106,798     18     18        0
+  100003+  100005        106,798     18     18        0
+  100003+  100006        106,798     18     18        0
+  100003+  100007         90,112     26     26        0
+  100004+  100005         75,004      3      3        0
+  100004+  100006         56,254      6      6        0
+  100004+  100007         90,112     26     26        0
+  100005+  100006         56,254      6      6        0
+  100005+  100007         90,112     26     26        0
+  100006+  100007         90,112     26     26        0
+  parejas con desfase distinto de cero: 0 de 15
+  AFIRMACION DEL REPO 'desfase cero': CONFIRMADA en las 15 parejas.
+
+  A que nivel k decide el criterio de clases cada par consecutivo:
+                par  resto mod 2^k  k minimo
+  ----------------- -------------- ---------
+  100002+  100003              2         4
+  100003+  100004           1699        12
+  100004+  100005              4         3
+  100005+  100006              5         5   <- el par 32m+5
+  100006+  100007         100006        17
+
+  La familia (32m+5, 32m+6): 100005 = 32*3125 + 5
+    m = 0 aparte, porque es el agujero de la COMPROBACION 5:
+      32*0+5 = 5 y 32*0+6 = 6 -> alturas 5 y 8. NO coinciden.
+    m en 1,2,7,100,3125,9999,40000,123456,10^7 -> alturas distintas: 0
+    CONFIRMADA para m >= 1. Y el criterio de la COMPROBACION 5 la
+    decide para los INFINITOS m de golpe, sin muestrear: eso es una
+    cota, no una media. Pero con la hipotesis m >= 1 puesta.
+
+==========================================================================
+BALANCE: cota, promedio o construccion
+==========================================================================
+
+  G1  8k+4 y 8k+5 caen en 6k+4 en 3 pasos ...... IDENTIDAD ALGEBRAICA
+      Sirve para la formula: SI. Es un criterio finito (mirar el resto
+      modulo 8) que decide sobre infinitos numeros. Cuarto camino puro.
+
+  G1' misma ALTURA ............................. IDENTIDAD, con k >= 1
+      El k = 0 es una excepcion real: altura(4)=2 y altura(5)=5.
+
+  G2  la propagacion ........................... EXACTA, pero le falta
+      una hipotesis en como la repite el CLAUDE.md. Sirve para la
+      formula SOLO con la hipotesis puesta: mismos pares y mismos
+      impares en los dos tramos.
+
+  G3  infinitos pares .......................... CONSTRUCCION
+      No es una cota ni un promedio: es una familia explicita.
+
+  GA2 la tupla de 35.654 ....................... CONSTRUCCION, exacta
+      Verificada numero a numero. No dice nada sobre los demas enteros.
+
+  GA1 'una implica infinitas' .................. NO COMPROBABLE AQUI
+      Es una implicacion sobre todas las tuplas posibles. Lo unico
+      verificable es su mecanismo, que es G2.
+
+  EXTRA, y es lo que no cuadra con el CLAUDE.md: el criterio de
+  clasesfusion.py se anuncia como valido 'para todo m' y falla en
+  m = 0 en exactamente tres clases (r = 2, 4, 5). La comprobacion
+  contra fuerza bruta de ese archivo recorre 'for m in range(1, 40)',
+  o sea que empieza en 1 y estructuralmente no puede verlo. La cota
+  de densidad NO cambia; el enunciado si.
+
+  Nada de este archivo es un promedio. Todo son criterios finitos
+  sobre clases de restos, que es exactamente lo que el cuarto camino
+  pide. Y ninguno de ellos toca la conjetura: dicen que dos numeros
+  van al MISMO sitio, no que ese sitio sea el 1.

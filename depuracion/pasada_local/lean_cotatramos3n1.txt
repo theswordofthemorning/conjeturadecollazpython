@@ -1,0 +1,15 @@
+'impar_no_trunca' depends on axioms: [propext, Quot.sound]
+'paso_conserva' depends on axioms: [propext, Quot.sound]
+'identidad' depends on axioms: [propext, Quot.sound]
+'identidad_con_resta' depends on axioms: [propext, Quot.sound]
+'C_no_se_pasa' depends on axioms: [propext, Quot.sound]
+'cota' depends on axioms: [propext, Quot.sound]
+'corolario' depends on axioms: [propext, Classical.choice, Quot.sound]
+'corolario_no_es_vacuo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'contraejemplo_27_clasico' does not depend on any axioms
+'contraejemplo_27_menos' does not depend on any axioms
+'cota_3n1_falla_en_el_mapa_clasico' does not depend on any axioms
+'cota_clasica_falla_en_el_mapa_3n1' does not depend on any axioms
+'identidad_3n1_falla_en_el_mapa_clasico' does not depend on any axioms
+'ciclo18_cuadra_la_identidad' does not depend on any axioms
+'ciclo18_cota_estricta' does not depend on any axioms

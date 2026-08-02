@@ -1,0 +1,150 @@
+========================================================================
+VERIFICAR EVERETT 1977 - casi todo n tiene un iterado menor que n
+========================================================================
+
+--- 1. La cota m_{i+1}/m_i <= 5/3 (mapa del ATAJO) ---
+  impares 3..100001: razon maxima = 5/3 en m = 3  (5/3 = 5/3)
+  la cota se ALCANZA con igualdad en m = 3, y decrece a partir de ahi
+  pares: razon exactamente 1/2 siempre - comprobado 999 casos
+  m = 1 (unico impar < 3): razon = 2 > 5/3.  LA COTA FALLA SOLO AHI.
+  version clasica (paso 3n+1 solo): razon maxima = 10/3, tambien en m = 3
+  consecuencia: con n = 1 la desigualdad global se rompe (6 > 5).
+  El conjunto que hay que excluir por este motivo es EXACTAMENTE {1}.
+
+--- 2. La constante L = log 2 / log(10/3) ---
+  L          = 0.57571664249344500482
+  1/L        = 1.73696559416620616641
+  log2(10/3) = 1.73696559416620616641   <- misma cosa
+  log2(3)    = 1.58496250072115618145
+  (1-L)/L    = 0.73696559416620616641   <- de aqui salio el 0,7369 del CLAUDE.md
+  1/L - log2(3) = 0.15200309344504998496 = log2(10/9)  <- el precio EXACTO de usar 5/3
+  equivalencia  X/N < L  <=>  5^X < 3^X * 2^(N-X):
+    comprobada en los 1.830 pares (X,N) con N <= 59, 0 fallos, sin floats
+
+--- 3. La traduccion a (A,B): que son X y N en coordenadas del repo ---
+  n de 2 a 30000: A == X y B == N en los 29998 casos, 0 fallos.
+  RAZON: cada paso IMPAR del atajo contiene un 3n+1 y UNA division.
+         Luego  X = A  y  N = B.  El total de pasos clasicos es A+B,
+         pero el N de Everett NO es A+B: es B solo.
+
+  Por tanto  X/N = A/B, y la condicion X/N < L se traduce a:
+      A/B < L    <=>    B/A > 1/L = 1,73696...
+  El CLAUDE.md dice  A/(A+B) < L  <=>  B/A > 0,7369.  ESO ES OTRO NUMERO.
+
+  Y si se insiste en usar N = A+B (pasos clasicos), la constante
+  correcta NO es 0,5757 sino 0.365368129629207740,
+  que despejada da B/A > 1.736965594166206166 - el MISMO 1,737.
+
+  COMPROBACION DE COHERENCIA LOGICA (la que delata el error):
+    una condicion SUFICIENTE de descenso tiene que ser MAS EXIGENTE
+    que el umbral exacto, nunca mas floja. 1,737 > 1,585: coherente.
+    0,7369 < 1,585: IMPOSIBLE. Prometeria descenso donde no lo hay.
+
+--- 4. La desigualdad  m_N * 3^X * 2^(N-X) <= 5^X * m_0  (forma entera) ---
+  n de 3 a 20000, TODOS los N de cada trayectoria.
+  1225964 desigualdades comprobadas en enteros exactos, 0 fallos.
+  holgura relativa minima = 0.0 (se toca la igualdad: es el caso m=3)
+
+--- 5. X/N < L  =>  m_N < n   (condicion correcta, A/B < L) ---
+  n de 3 a 20000: 754549 pares (n,N) cumplen la condicion.
+  En LOS 754549 el iterado sale por debajo de n. 0 fallos.
+  n para los que la condicion no se cumple NUNCA: 24 [27, 31, 47, 55, 2463, 2919, 3711, 5567, 6171, 6591]
+  primer N que la cumple: media 4.79, maximo 157 (en n = 18203)
+
+  5b. Los n que Everett NO certifica jamas (bajan, pero sin certificado):
+      n        A     B     B/A      log2(3)=1,58496  1/L=1,73697
+      27       41    70    1.707317
+      31       39    67    1.717949
+      47       38    66    1.736842
+      55       41    71    1.731707
+      ... (24 en total hasta 20000)
+      DE LOS 24, 24 tienen B/A ENTRE log2(3) y 1/L.
+      O sea: el conjunto excepcional de Everett es EXACTAMENTE el hueco
+      log2(10/9) que se paga por usar 5/3 en vez de 3/2.
+
+--- 6. CONTRAEJEMPLOS a la traduccion del CLAUDE.md: A/(A+B) < 0,5757 ---
+  Condicion del repo en forma entera: 5^A < 3^A * 2^B con N = A+B.
+  n de 3 a 20000: 17433 numeros la cumplen en algun N SIN haber bajado.
+  Los primeros:
+    n=3     N=2   A=1   B=1   -> m_N = 5       (m_N >= n)
+    n=3     N=4   A=2   B=2   -> m_N = 8       (m_N >= n)
+    n=3     N=5   A=2   B=3   -> m_N = 4       (m_N >= n)
+    n=5     N=2   A=1   B=1   -> m_N = 8       (m_N >= n)
+    n=6     N=2   A=1   B=1   -> m_N = 10      (m_N >= n)
+    n=6     N=4   A=2   B=2   -> m_N = 16      (m_N >= n)
+  La condicion del CLAUDE.md NO es suficiente para el descenso. REFUTADA.
+  Ejemplo mas chico: n=3 tras 2 pasos clasicos tiene B/A = 1/1 = 1.0000,
+  que pasa el 0,7369 del CLAUDE.md y no llega ni a log2(3) ni a 1,737.
+
+--- 7. Control: B/A > log2(3) tampoco garantiza el descenso ---
+  2^B > 3^A y aun asi m_N >= n. Primeros casos:
+    n=7     A=5   B=8   B/A=1.6000 -> m_N = 8
+    n=9     A=5   B=8   B/A=1.6000 -> m_N = 10
+    n=14    A=5   B=8   B/A=1.6000 -> m_N = 16
+    n=15    A=5   B=8   B/A=1.6000 -> m_N = 16
+    n=18    A=5   B=8   B/A=1.6000 -> m_N = 20
+  Motivo: la identidad del repo 2^B*m_N = 3^A*n + C tiene C > 0, luego
+  m_N > 3^A*n/2^B siempre. El +1 es justo lo que obliga al colchon 5/3.
+  O sea que el 1,585 NO es 'el umbral verdadero' de descenso garantizado:
+  es el umbral del modelo SIN el +1. El unico demostrable es el 1,737.
+
+--- 8. Densidad: cuantos cumplen, y el tamano del conjunto excepcional ---
+
+  8a. Densidad exacta a un N fijo (suma binomial, Fraction):
+      N      X minimo malo    densidad excepcional
+      10     6                0.37695312
+      20     12               0.25172234
+      50     29               0.16111816
+      100    58               0.06660531
+      200    116              0.01406270
+      400    231              0.00112410
+      800    461              0.00000911
+      1600   922              0.00000000
+      3200   1843             0.00000000
+
+  8b. Conjunto excepcional REAL: los n que no han bajado en NINGUN
+      N <= K. Conteo exacto de clases mod 2^K, por DOS metodos.
+      K = 16: fuerza bruta sobre 65536 restos = 4013 malos
+               programacion dinamica         = 4013 malos
+      LOS DOS METODOS COINCIDEN. 0 discrepancias.
+
+      K        clases excepcionales mod 2^K        densidad
+      1        1                                    0.500000000
+      2        1                                    0.250000000
+      4        3                                    0.187500000
+      8        30                                   0.117187500
+      16       4013                                 0.061233521
+      32       129322115                            0.030110151
+      64       200881564007521134                   0.010889811
+      128      -1                                   0.002459783
+      256      -1                                   0.000246445
+      500      -1                                   0.000006356
+      1000     -1                                   0.000000008
+
+      (la columna del medio se pone a -1 cuando el entero no cabe;
+       la densidad es exacta en Fraction en todos los casos)
+
+  8c. El conjunto excepcional NO es vacio y se describe:
+      n = 2^4 - 1 = 15 : 4 pasos impares seguidos, X/N = 1, excepcional a nivel K=4
+      n = 2^8 - 1 = 255 : 8 pasos impares seguidos, X/N = 1, excepcional a nivel K=8
+      n = 2^16 - 1 = 65535 : 16 pasos impares seguidos, X/N = 1, excepcional a nivel K=16
+      n = 2^32 - 1 = 4294967295 : 32 pasos impares seguidos, X/N = 1, excepcional a nivel K=32
+      Toda la clase n = 2^K - 1 (mod 2^K) esta fuera de Everett a nivel K.
+      Son 2^(-K) de los enteros: la densidad tiende a 0 pero el conjunto
+      es INFINITO para cada K, y la interseccion sobre todo K es donde
+      viviria un contraejemplo. Everett no dice nada de ella.
+
+========================================================================
+RESUMEN
+========================================================================
+  1. La cota 5/3 es correcta y ajustada (igualdad en m=3). Falla SOLO
+     en m=1, y por eso Everett pide m >= 3. Excluye exactamente {1}.
+  2. L = 0,57571... y 1/L = log2(10/3) = 1,73696...
+  3. LA TRADUCCION DEL CLAUDE.md ESTA MAL. X=A y N=B, no N=A+B.
+     Everett en coordenadas del repo es  B/A > 1,73696, NO 0,7369.
+  4. La desigualdad de Everett: 0 fallos en enteros exactos.
+  5. La condicion correcta garantiza el descenso: 0 fallos.
+  6. La condicion del CLAUDE.md NO lo garantiza: contraejemplos.
+  7. B/A > log2(3) TAMPOCO lo garantiza. El +1 lo impide.
+  8. Es COTA por trayectoria y PROMEDIO en la densidad. Solo la cota
+     sirve para la formula.
