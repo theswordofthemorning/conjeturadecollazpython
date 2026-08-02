@@ -25,6 +25,28 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 > por la segunda vez hoy: **un veredicto que no se aplica antes de cerrar, se
 > pierde.**
 >
+> ### ⇢ EL PRIMERO SÍ DICTÓ, y trajo 25 hallazgos
+>
+> **El de contradicciones internas entregó: 7 graves, 10 medianos, 8 erratas.**
+> Aplicados los 7 graves y 9 más. **Su hallazgo estructural explica casi todos:
+> la sección «Lo que queda pendiente» de este fichero era un FÓSIL anterior al
+> 30-07** — sin fecha, así que se leía como viva, y sobrevivió a la purga, a las
+> dos auditorías y a los dos tríos sin que nadie la tocara. Siete de sus puntos
+> mandaban trabajo ya hecho, ya refutado, o sobre ficheros borrados.
+>
+> **Lo que dejó sin aplicar, para mañana** (nada de esto cambia una decisión):
+>
+> | # | qué |
+> |---|---|
+> | 13 | `CLAUDE.md` cita *«la tabla de ángulos de arriba»* y sus cifras `0,003% vs 97%`: **esa tabla se borró con `coralcollaz.py`** |
+> | 18 | esta bitácora dice *«80 · 22 · 20»* en la entrada de la tarde — era cierto entonces, hoy son **32** correcciones; conviene marcarlo, no reescribirlo |
+> | 24 | en la tabla del 30-07, *«la causa es `45 = 3²·5`»* sigue sin marca de que `coralprimos.py` la refutó |
+> | 25 | el `0,5186` de la densidad viene de `densidadfusion.py`, **retirado por ser un promedio muestreado** |
+>
+> **Y quedan TRES adversarios sin recoger** (prosa contra código, romper lo de
+> hoy, ficheros sin auditar). Dado que este primero encontró 25 cosas en un
+> fichero que se acababa de revisar, **no dar por limpio lo que ellos miran.**
+>
 > ### Lo que SÍ quedó comprobado antes de cerrar
 >
 > - **Batería mecánica sobre el repo entero: 0 fallos.** 34 `.py` parsean, 0
@@ -78,7 +100,7 @@ las correcciones eran el error**, y las dos enterraban algo bueno.
 - **`afirmaciones.db` iba una auditoría por detrás**: siete afirmaciones que el
   documento ya había refutado, y **20 filas** apuntando a ficheros borrados (yo
   había contado 9). Base regenerada: **80 · 32 · 20**.
-- **`respuestas.db`**: 668 mensajes, 7 sesiones. **355 mensajes ya sólo viven
+- **`respuestas.db`**: 701 mensajes, 7 sesiones. **355 mensajes ya sólo viven
   ahí** — tres transcripciones desaparecieron del disco en menos de tres días.
   Nuevo: **`transcripciones/`**, un `.zip` por sesión, dentro del repo.
 
@@ -117,7 +139,7 @@ mide: la identidad de Terras, la cota `3^A·n₀ ≤ 2^B·n_k` y el corolario, *
 todo `n₀` y todo `k`**, sin Mathlib, comprobado en 1,8 s. `#print axioms` sale
 limpio (**no hay `sorryAx`**), y el 221 está verificado por el **núcleo** —
 `A = 41, B = 73`, cruzado además contra Python sin compartir una línea.
-*Es el primer fichero del repo que demuestra en vez de verificar.*
+*Fue el primero; al cerrar el día ya son cuatro.*
 
 **Y el procedimiento que manda desde ahora, dictado por el usuario:**
 
@@ -679,10 +701,14 @@ localizó — **Laurore, *Adv. Pure Math.* 15(6) (2025), DOI
 sacarla, por tres razones acumuladas:
 
 - editorial **SCIRP**, **cero citas**;
-- el número es **once veces más débil** que el estado del arte (Barina 2025:
-  `217.976.794.617` en el atajo, `355.504.839.929` en el clásico). O sea que el
+- el número es **5,86 veces más débil** que el estado del arte. O sea que el
   repo llevaba citada como *«lo que exige la literatura»* **una cota peor que la
   que ya se conocía**;
+  > ⇢ **CORREGIDO el 01-08-2026 (noche): aquí decía «once veces», comparando
+  > contra el `217.976.794.617` de Barina §6 — que resultó ser el número
+  > equivocado** (exige `X₀ ≥ 2^71,884` y el récord es `2^71,019`). Con la cota
+  > buena, `114.208.327.604` (atajo) / `186.265.759.595` (clásico), el factor es
+  > **5,86**. La conclusión —cita válida pero débil, y en mal sitio— no cambia.
 - **no encaja en la forma cerrada de Eliahou 1993** (`301994a + 17087915b +
   85137581c`, `b ≥ 1`, `a·c = 0`). Barrido exhaustivo propio: **0 soluciones**,
   mientras que `10.439.860.591`, `114.208.327.604` y `217.976.794.617` sí
@@ -843,9 +869,20 @@ publicados** —los números que más suben y más tardan de todo lo conocido—
 - **El barrido de restos está muerto.** Terras excluyó en 1976 todos los bucles
   de periodo ≤ 2.592, y nuestro `k` *es* ese periodo. Todo su rango alcanzable ya
   es teorema. Para territorio virgen harían falta `2^2592` restos: 781 cifras.
+  > ⇢ **CORREGIDO el 01-08-2026, y la conclusión se refuerza:** el 2.592 es una
+  > **foto de 1976**, no la frontera. Con `X₀ = 2^71` el mismo argumento excluye
+  > hasta periodo **114.208.327.603**; con sólo `X = 10⁶` ya llega a 4.700. Harían
+  > falta `2^114208327603` restos, no `2^2592`.
 - **Las cribas no sirven para ciclos, y es estructural.** `T^k` es una biyección
   sobre `Z/2^k`: cada vector de paridad es una clase única. No hay nada que
   descartar. Una criba necesita que muchas clases compartan destino.
+  > ⇢ **CORREGIDO el 01-08-2026: las dos frases del medio eran falsas.** `T^k` **no**
+  > es una biyección sobre `Z/2^k` —ni está bien definida ahí (`k=1`: `T(0)=0`,
+  > `T(2)=1`, misma clase) ni `T` es inyectiva (`T(1)=T(4)=2`)—. Lo cierto es que
+  > **resto → vector de paridad** es una biyección `Z/2^k → {0,1}^k`. Y clases que
+  > descartar **las hay**: `pinzaciclos.py` descarta casi todas. Lo que no hay es
+  > descarte **en bloque**. *La conclusión se salvó porque se apoyaba en la frase
+  > de al lado, no en ésta.*
 - **Los promedios no pueden demostrar nada** sobre un caso individual. La
   pregunta que queda como filtro permanente: **¿esto es un promedio o es una cota?**
 
@@ -853,37 +890,71 @@ publicados** —los números que más suben y más tardan de todo lo conocido—
 
 ## Lo que queda pendiente
 
+> **⚠ ESTA SECCIÓN ERA UN FÓSIL, y lo cazó un adversario el 01-08-2026.** No
+> estaba fechada, así que se leía como viva, y sin embargo era anterior al
+> 30-07: sobrevivió a la purga, a las dos auditorías y a los dos tríos **sin que
+> nadie la tocara**. **Siete de sus puntos mandaban hacer cosas ya hechas, ya
+> refutadas, o sobre ficheros borrados.** Reescrita entera abajo.
+>
+> *Es exactamente el modo de fallo que el `CLAUDE.md` tiene documentado —«cuando
+> se corrija algo, hay que buscar dónde más se afirmaba»— sólo que la lista
+> estaba en el **otro** fichero, y por eso ninguna de las correcciones la
+> alcanzó. **Una sección sin fecha se lee como vigente: o se fecha, o se
+> revisa.***
+
 ### 1. El plan de la pinza, en tres fases
 
-Lo que lo hace viable: **Hercher no usa el teorema de Baker en ninguna parte** —
-toda la maquinaria diofántica entra como un número importado. Y la métrica del
-esfuerzo, medida: **60 líneas de stdlib excluyen `m ≤ 82`**; todo el aparato del
-paper (dos programas en C++, cinco semanas de cómputo) compra el tramo 82 → 91.
+Lo que lo hace viable: **Hercher no *invoca* el teorema de Baker** — toda la
+maquinaria diofántica entra como un número importado de Simons–de Weger.
+*(Matiz obligatorio: la caja negra **sí** contiene trascendencia. Su Lema 12
+sale de Rhin 1987. «No invoca Baker» es cierto de su artículo, no de la cadena.)*
+Y la métrica del esfuerzo, medida: **60 líneas de stdlib excluyen `m ≤ 82`**;
+todo el aparato del paper (dos programas en C++, cinco semanas de cómputo)
+compra el tramo 82 → 91.
 
-- **Fase 1** — traer `reimpl.py` al repo. 130 líneas, reproduce el Teorema 23
-  dígito a dígito en 5,5 s. Sería el primer programa del laboratorio que
-  reproduce matemática arbitrada.
+- **Fase 1 — ⇢ HECHA.** `reimpl.py` está en el repo: reproduce el Teorema 23
+  **7/7** en 5,5 s, sin un float en la cadena que decide, y dejó **dos
+  discrepancias contra lo publicado** (el `ε₇` y la fila `m = 276`), confirmadas
+  después por segunda vía en `verificar_ciclos.py`.
 - **Fase 2** — la escalera afín de Wang: un intervalo intersecado con una clase
   residual. *Eso es la pinza.* Media está construida en `clasesfusion.py`.
-- **Fase 3** — **verificar a Wang**, no superarlo. Su preprint (`m ≤ 95`) tiene
-  dos días, no está arbitrado y nadie lo ha comprobado. Si aguanta, se dice; si
-  se cae, eso sí es un hallazgo.
+- **Fase 3** — **verificar a Wang**, no superarlo. Su preprint (`m ≤ 95`) no está
+  arbitrado y nadie lo ha comprobado.
+  > **Recalibrado (01-08-2026):** el **corrigendum de Hercher del 14-06-2026 le
+  > acredita a este mismo Wang** el hallazgo del error del Teorema 21. Se
+  > verifica porque es interesante y verificable, **no porque se sospeche de
+  > él**: «cero citas» mide la edad del preprint y «metadatos descuidados» mide
+  > su maquetación, y ninguna de las dos mide si tiene razón.
 
 ### 2. El resto de la cola
 
-- **El número primo de rumbos.** Predicción escrita y sin medir: con un número
-  primo de rumbos el umbral de profundidad del coral debería dispararse. Barato.
-- **Colorear el árbol de `collazarbol.py` con la rueda** mod 3.
-- **El `+1` aparece ya tres veces** (grosor 0,2286 de la lámina, el `+2` del
-  espejo base 2, la desviación −0,0035 de la fracción impar). ¿Son la misma
-  cantidad? Sería lo único que **unifica** piezas en vez de acumularlas.
 - **`clasesfusion.py` a `k = 34`.** Con `clasesparalelo.py` cuesta ~4× lo de
   `k=32`. No va a decidir la conjetura de Wu — los incrementos de la razón
   (`0,0050 → 0,0039 → 0,0037 → 0,0031 → 0,0027 → 0,0026`) encogen demasiado
   despacio para distinguir "geométrico" de "1/k" — pero alarga la única serie
-  que puede.
-- **OEIS.** `oeis_borrador.txt` está redactado y listo. **No se ha enviado**, y
-  requiere una cuenta y una firma que son de una persona.
+  que puede. **Es el único pendiente de esta lista que sigue vivo tal cual.**
+- **La recta del umbral del coral**, `(N+19)/2` si `N ≡ 1 (mod 4)` y `(N+11)/2`
+  si `N ≡ 3`: está **medida y no demostrada**. Demostrarla sí tendría forma de
+  cota. Es lo que quedó en pie de esa línea.
+- **OEIS.** El borrador **ya no existe** (lo borró la purga del 01-08-2026), y
+  **el motivo que lo mató se cayó** el mismo día: era *«`a(k)` sale idéntica para
+  `3n+1` y `3n−1`»*, y con `espejoak.lean` eso pasó a ser **un teorema** — y el
+  mismo criterio descalificaría a `A076227`, que sí está catalogada desde 2002.
+  Lo único que queda es la decisión personal de abrir cuenta y firmar. **Si se
+  retoma, hay que volver a redactar el borrador.**
+
+**⇢ CERRADOS, y estaban aquí pidiendo trabajo ya hecho:**
+
+- ~~**El número primo de rumbos**~~ — **HECHO, y la predicción FALLÓ**
+  (`coralprimos.py`): el 43 y el 47 chocan *antes* que el 45. Es la única
+  refutación ejecutable de una predicción propia que tiene el laboratorio.
+- ~~**Colorear el árbol de `collazarbol.py`**~~ — **cerrado por la purga**: el
+  fichero se borró porque el cierre lo ponía la esfera elegida a mano.
+- ~~**El `+1` aparece tres veces**~~ — **aparece DOS** (`elmasuno.py`, 20.011
+  casos con `Fraction`): el `ε` de la lámina y el sobrante `S` de la fracción
+  impar son **la misma suma, término a término**. *(Y el `0,2286` que aquí se
+  citaba como «grosor de la lámina» es el `ε` del 221 en **bits**, ni siquiera
+  una cota.)*
 
 ### 3. La deuda de método
 
@@ -1015,7 +1086,7 @@ esa misma tarde.
   eran tres — faltaba **localizar y descartar igualmente**.*
 - ⇢ **HECHA. La comprobación 4 de `guardarhilos.py`.** Separadas las dos cosas
   en el `CLAUDE.md` y en el `print()`: **el hecho es cierto y es propio**
-  (`clasesfusion.py` lo rederiva desde Terras y decide los infinitos `m`), **la
+  (`clasesfusion.py` lo rederiva desde Terras y decide los infinitos `m >= 1`), **la
   atribución a Wu–Huang 2001 sigue pendiente de localizar**. Quitada la frase
   «la literatura predijo nuestro hallazgo».
 - ⇢ **HECHA. El vocabulario de `afirmaciones.db`.** `clase_mod_2k` renombrado a

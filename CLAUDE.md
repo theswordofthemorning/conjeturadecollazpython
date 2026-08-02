@@ -173,7 +173,7 @@ defecto; hace falta `set_option maxRecDepth 20000`.)*
 **Si ahí apareciera `sorryAx`, habría un agujero tapado.** Es el equivalente
 formal del `SystemExit` de los `.py`, y es lo que un «0 fallos» de Python no
 puede dar. Al 01-08-2026, `cotatramos.lean` sale limpio y **la comprobación
-entera tarda 1,8 segundos**.
+entera tarda 2,4 segundos** (medido tras reinstalar el toolchain).
 
 ### Coste real, medido
 
@@ -592,7 +592,6 @@ con el mouse, valores al pasar el cursor).
 > ```
 > clasesfusion.py    K_MAX = 32       mas de una hora
 > pinzaciclos.py     K_MAX = 30       12,5 minutos
-> densidadfusion.py  POTENCIA = 28    varios minutos y GB de RAM
 > redhilos.py        experimento 3
 > coralprimos.py
 > ```
@@ -640,7 +639,7 @@ for a in sorted(glob.glob('*.py')):
 | `main.py` | CLI: `verificar`, `records`, `camino` |
 | `collazmalla.py` | **La malla real**: cada par de puntos en coordenadas (A, B). Dibuja |
 | `cotatramos.py` | **LA COTA POR TRAMO**, rescatada de `collazlamina.py`: `2^B·seq[j] ≥ 3^A·seq[i]`, y si un tramo baja entonces `2^B > 3^A`. Verificada sobre prefijos que **nunca llegan al 1** |
-| **`cotatramos.lean`** | **La misma cota, DEMOSTRADA en Lean 4** para todo `n₀` y todo `k`, sin Mathlib. Identidad de Terras, cota y corolario; `#print axioms` limpio; el 221 comprobado por el núcleo. **El único fichero del repo que demuestra en vez de verificar** |
+| **`cotatramos.lean`** | **La misma cota, DEMOSTRADA en Lean 4** para todo `n₀` y todo `k`, sin Mathlib. Identidad de Terras, cota y corolario; `#print axioms` limpio; el 221 comprobado por el núcleo. **El primero de los cuatro `.lean` del repo** |
 | **`cotatramos3n1.lean`** | **La cota del mapa `3n−1`, demostrada.** Agente 1 del primer trío. Identidad sin resta (`2^B·n_k + C = 3^A·n₀`), cota **invertida**, corolario espejo *«sube ⟹ `2^B < 3^A`»*, y la discriminación como **teorema**: cada cota es falsa en el otro mapa, cerrado con `decide`. Los tres ciclos de `3n−1` comprobados por el núcleo |
 | `cotatramos3n1.py` | **Lo mismo, calculado por su cuenta.** Agente 2 del mismo trío, sin ver el `.lean`. Deriva la identidad en vez de copiarla; exhaustivo `n₀ = 1…400`, semillas de 200 bits, y tramos que dan **varias vueltas dentro de los tres ciclos** — el caso que en Collatz no existe |
 | **`espejoak.lean`** | **`a₊(k) = a₋(k)` DEMOSTRADO para todo `k`**, sin Mathlib y sin `sorry`. La biyección es la reflexión `2^k−1−r`; incluye Terras para `m` **negativo** y el borde demostrado en vez de supuesto. Cruza contra `sucesiones.txt` y contra las ocho clases mod 32 **con `decide`, no con `#eval`** |
@@ -727,8 +726,8 @@ sesión, literal y con marca de tiempo, en:
 Eso lee las transcripciones que haya, mete lo nuevo en `respuestas.db` y no
 toca lo viejo. Es **append-only** e **idempotente por `(sesion, orden)`**:
 correrlo mil veces no duplica ni borra nada. Al **01-08-2026 (noche)** lleva
-**701 mensajes de siete sesiones — 156 preguntas y 506 respuestas, 1.140.539
-caracteres**, desde el 29-07. *(Este conteo es una foto: crece cada vez que se
+**701 mensajes de siete sesiones — 156 preguntas, 506 respuestas y 39 mensajes
+de sistema, 1.140.539 caracteres**, desde el 29-07. *(Este conteo es una foto: crece cada vez que se
 corre. No se persiga la cifra exacta; lo que importa es el orden de magnitud y
 las sesiones que cubre.)*
 
@@ -976,9 +975,17 @@ literatura. La trayectoria del 221 tiene 50 vórtices en sus 115 números.
 otro padre es el 1, que ya es el arranque del tronco. Era decisión de dibujo, no
 de aritmética.)*
 
-**El balance decide todo.** El punto de equilibrio es `log₂(3) = 1,585`
-divisiones por multiplicación. El 221 tiene `73/41 = 1,78` → cae. Por debajo de
-1,585 subiría; justo encima giraría en círculo.
+**El balance decide todo — pero en promedio, y para ciclos.** El punto de
+equilibrio del modelo **sin el `+1`** es `log₂(3) = 1,585` divisiones por
+multiplicación. El 221 tiene `73/41 = 1,78` → cae.
+
+> **AVISO (01-08-2026): sobre el mapa real `B/A > log₂3` NO garantiza el
+> descenso.** El `n = 7` tiene `A=5, B=8`, o sea `B/A = 1,6 > 1,585`, **y sube a
+> 8**. Lo impide la propia identidad de este repo: `2^B·m_N = 3^A·n + C` con
+> `C > 0`. El único umbral **demostrable** es el `1,73697` de Everett. Donde
+> `log₂3` sí es exacto es **en los ciclos**, porque allí el signo de `C` fija el
+> lado. *Es la mitad de la frase que la sección de Everett ya corrigió, y que se
+> quedó viva aquí porque nadie buscó dónde más se afirmaba.*
 
 **El 221 falla por ocho.** Un ciclo con `A=41` necesitaría `B=65` (y `65/41` es
 una de las mejores aproximaciones fraccionarias a `log₂(3)`). El 221 tiene 73.
@@ -1448,7 +1455,7 @@ Si llega a **2**, diverge y la fracción tiende a **1** — y entonces casi todo
 par consecutivo tendría la misma altura por razón de resto.
 
 Con estos datos la razón **sube sin estabilizarse y sin dar señal de techo**
-(1,8427 → 1,9269 en diez escalones), así que **no se puede decidir**. Es el
+(1,8427 → 1,9390 en catorce escalones), así que **no se puede decidir**. Es el
 mismo muro, pero ahora formulado sobre una sucesión de enteros en vez de sobre
 un ajuste de ley de potencias, que es una forma más honesta de no saberlo.
 
@@ -2295,7 +2302,7 @@ el código sobraba.*
   por eso esas comprobaciones van *antes* del dibujo y cortan con `SystemExit`.)
 - **El `0%` de encimadas de Harriss era falso** (30-07-2026): sólo valía hasta 3.000
   semillas. Hay choques exactos desde la profundidad 31, y a la 59 son el 1–1,5% de
-  cada nivel. Ver la sección del umbral de los 45 rumbos.
+  cada nivel. Ver la sección «El coral de Harriss: el cierre lo pone el ángulo, no Collatz».
 - **El `1,7345` del coral no es una constante**, es el valor de una muestra a
   `HASTA = 3.000`. Se asienta en `1,7320 ± 0,0003`.
 - **La fila "se escapan del rango" del A/B no discrimina**: da 33,3% para `3n+1` y
@@ -2791,7 +2798,7 @@ Es el mejor enunciado de propósito que ha tenido este repo, por tres razones:
    - `mallaresiduos.py`: los primeros `k` pasos los decide `n mod 2^k`. Es una
      **regla** que da el comportamiento sin calcular la trayectoria.
    - `clasesfusion.py`: un criterio **finito** que decide, para los **infinitos**
-     `m` de una clase, si dos consecutivos se funden. Eso es literalmente
+     `m ≥ 1` de una clase, si dos consecutivos se funden. Eso es literalmente
      "generar las reglas sin generar la secuencia".
    - `mallascerradas.py`: la rueda mod 27 gobierna dónde brota el árbol inverso,
      sin recorrerlo.
@@ -2820,8 +2827,11 @@ sin que nadie pueda alcanzarlo con una máquina.
 
 **Lo que sí tendría forma de demostración son cotas, no promedios.** El único
 resultado de esta sesión con esa forma es el piso de la altitud
-(`log₂(alt/n) ≥ racha·log₂(3/2) + 1`, 0 fallos en 99.999): un "nunca por debajo
-de", demostrable en una línea. Vale más que las tres constantes juntas aunque diga
+(`log₂(alt/n) ≥ racha·log₂(3/2)` en el mapa del **atajo**, 0 fallos en 99.999):
+un "nunca por debajo de", demostrable en una línea. *(Ojo: la variante con el
+`+1` es la del mapa **clásico** y exige `n` impar — ahí son **49.999** casos, no
+99.999. Emparejar una fórmula con el conteo de la otra es la confusión de mapas
+que este documento tiene registrada tres veces.)* Vale más que las tres constantes juntas aunque diga
 mucho menos. **Cuando aparezca algo nuevo, la pregunta es: ¿es un promedio o es una
 cota?**
 
@@ -3036,8 +3046,12 @@ existir un método que la construya en general.*
 > igual y la razón acaba llegando a 2. **Seis puntos siguen sin distinguir esas
 > dos cosas.** El aviso de no extrapolar sigue en pie y ahora vale doble.
 >
-> Los términos están en `sucesiones.txt` y las consultas a OEIS se repitieron
-> con la sucesión ampliada: siguen sin estar.
+> Los términos están en `sucesiones.txt`. **Ojo con el alcance, que
+> `sucesiones.txt` lo prohíbe expresamente:** las consultas a OEIS se hicieron
+> con la sucesión hasta `k = 30`; `a(31)` y `a(32)` se calcularon **después** y
+> **no se han vuelto a consultar**. No cambia la conclusión —si un prefijo de 28
+> términos no está, alargarlo no lo mete— pero **no se puede decir «comprobado
+> hasta k = 32»**.
 >
 > **Por dónde seguiría este hilo:** `k = 34`, que con `clasesparalelo.py` cuesta
 > unas 4 veces lo de `k = 32`. No decidiría nada tampoco — pero alarga la única
