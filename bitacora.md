@@ -72,13 +72,26 @@ primera).
 jump value `k = 27` — autocontenido, sin `X₀` importado. Complementa el corte
 `σ* ≤ 16.294` de `paradacoef.py`, que sí depende del barrido a `2·10⁷`.
 
-**Y el hallazgo que deja una pregunta nueva y afilada: el tramo estuvo VACÍO
-las 27 veces** (`T^k(r) ≤ r` en toda clase caída, con las únicas igualdades en
-`r ∈ {0, 1}`). Si eso fuera teorema para todo `k`, **CST entera caería** — así
-que seguramente se rompe en algún `k` mayor, y el sitio donde buscar es el
-siguiente jump value, **`k = 46`** (`2^46/3^29 = 1,0043`), que ya no se alcanza
-por enumeración (`a(46) ~ 2^41`): hace falta enumerar sólo las clases de `S`
-alto cerca del salto. **Ésa es la continuación concreta.**
+**Y el hallazgo que deja una pregunta afilada: el tramo estuvo VACÍO las 27
+veces** (`T^k(r) ≤ r` en toda clase caída, con las únicas igualdades en
+`r ∈ {0, 1}`). Si eso fuera teorema para todo `k`, **CST entera caería**.
+
+> **⇢ CORRECCIÓN DE PUNTERÍA, la misma noche (capa 1 sobre esta bitácora).**
+> Aquí decía que la continuación era el jump value `k = 46` por enumeración
+> dirigida. **Mal apuntado, por dos motivos.** (1) «Tramo vacío en la clase de
+> `r`» es EQUIVALENTE a «CST se cumple en el representante `r`» — no es un
+> milagro aparte, es CST en los números chicos, reformulada. (2) La propia
+> palanca implica que una clase con tramo abierto exige `r ≤ B(k)`, y
+> `paradacoef.py` ya demostró `B(k) ≤ 2·10⁷` para **todo `k ≤ 16.294`** con su
+> barrido propio — así que `k = 46` (y el 65, y el 149…) **ya estaban
+> decididos**. La frontera real es **`k = 16.295`**, donde `B(k)` rebasa por
+> primera vez el barrido de `2·10⁷`.
+>
+> **La continuación buena: subir `X₀` (el barrido directo `σ = σ*`), que es
+> CPU pura y cero tokens, y dejar que el corte se corra solo por la curva
+> `B(k)`.** Barrido a `10⁸` lanzado esta noche (`atacacst2.py`); la conversión
+> `X₀ nuevo → K nuevo` con la maquinaria de `paradacoef.py` queda para la
+> sesión siguiente.
 
 ---
 

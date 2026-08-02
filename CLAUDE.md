@@ -473,7 +473,7 @@ con `#check @Nat.mul_le_mul` en un fichero suelto** — ahí se ve la firma exac
 que cambia entre versiones (`Nat.mul_lt_mul_left` es un **iff**, no una
 implicación).
 
-**De los 35 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
+**De los 36 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
 `mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos
 —`mallascerradas.py` y `mapahilos.py`— usan además `plotly.subplots`. `numpy` lo
 usan **seis**: `clasesfusion.py`, `clasesparalelo.py`, `descensoresto.py`,
@@ -496,7 +496,7 @@ pero **ése viene con Python** y no hay que instalar nada.
 nadie: la purga del 01-08-2026 se llevó sus dos clientes, pero tarde o temprano
 va a hacer falta y no vale la pena tocarlo.)*
 
-> **La proporción se dio vuelta: 31 de 35 NO dibujan.** El repo empezó siendo de
+> **La proporción se dio vuelta: 32 de 36 NO dibujan.** El repo empezó siendo de
 > visualización y hoy es de cálculo. **Al escribir un programa nuevo, el caso por
 > defecto es stdout, no plotly** — copiá la forma de `pinzaciclos.py` o de
 > `cotatramos.py`.
@@ -516,14 +516,14 @@ hook o en un script de shell, usa `python -c`.
 la purga del 01-08-2026 se llevó 16 programas de visualización. **Ya no hay dos
 mitades — hay un núcleo de cálculo con cuatro dibujos colgando.**)*
 
-**El núcleo — los que no dibujan, 31 de 35.** Su resultado es **stdout, un
+**El núcleo — los que no dibujan, 32 de 36.** Su resultado es **stdout, un
 `.txt` o un `.db`**. No abren navegador. Conservan la constante en MAYÚSCULAS
 arriba y las comprobaciones que cortan con `SystemExit` antes de afirmar nada
-— **33 de los 35 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
+— **34 de los 36 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
 es una biblioteca, no un programa) y `main.py` (que es la CLI).
 
 ```
-atacacst
+atacacst  atacacst2
 auditarrefutaciones  clasesfusion  clasesparalelo  collatz  coralprimos
 cotatramos  cotatramos3n1  cruzarecords  descensoresto  elmasuno  espejoak
 franjaeverett
@@ -659,6 +659,7 @@ for a in sorted(glob.glob('*.py')):
 | `cotatramos.py` | **LA COTA POR TRAMO**, rescatada de `collazlamina.py`: `2^B·seq[j] ≥ 3^A·seq[i]`, y si un tramo baja entonces `2^B > 3^A`. Verificada sobre prefijos que **nunca llegan al 1** |
 | **`atacacst.py`** | **EL ATAQUE A CST** (02-08-2026): en cada clase `r mod 2^k` donde el coeficiente cae, el fallo de CST sólo puede vivir en el tramo finito `m ≤ T^k(r) − r`. Revisa esos tramos y decide CST **para todo `n ≥ 2` con `σ* ≤ 27`**, autocontenido, sin `X₀` importado. Hallazgo: hasta `k = 27` — incluido el jump value — **el tramo estuvo siempre vacío** (`t ≤ r` en toda clase caída) |
 | **`atacacst.lean`** | **LA PALANCA, demostrada**: `terras_1_2` + `palanca` (coeficiente cae y `m` fuera del tramo ⟹ bajada real) + `tramo_finito` (basta `m > T^k(r)`), para **todo** `k, r, m`, sin Mathlib, `#print axioms` limpio. El quinto `.lean` del repo |
+| **`atacacst2.py`** | **La fase 2 del ataque: subir `X₀`.** Barrido directo `σ = σ*` avanzando los dos criterios JUNTOS (si uno dispara sin el otro, `SystemExit`: sería el contraejemplo). `X₀` sube de `2·10⁷` a `10⁸`; la conversión a un corte `σ* ≤ K` nuevo va por la curva `B(k)` de `paradacoef.py` |
 | **`cotatramos.lean`** | **La misma cota, DEMOSTRADA en Lean 4** para todo `n₀` y todo `k`, sin Mathlib. Identidad de Terras, cota y corolario; `#print axioms` limpio; el 221 comprobado por el núcleo. **El primero de los cinco `.lean` del repo** |
 | **`cotatramos3n1.lean`** | **La cota del mapa `3n−1`, demostrada.** Agente 1 del primer trío. Identidad sin resta (`2^B·n_k + C = 3^A·n₀`), cota **invertida**, corolario espejo *«sube ⟹ `2^B < 3^A`»*, y la discriminación como **teorema**: cada cota es falsa en el otro mapa, cerrado con `decide`. Los tres ciclos de `3n−1` comprobados por el núcleo |
 | `cotatramos3n1.py` | **Lo mismo, calculado por su cuenta.** Agente 2 del mismo trío, sin ver el `.lean`. Deriva la identidad en vez de copiarla; exhaustivo `n₀ = 1…400`, semillas de 200 bits, y tramos que dan **varias vueltas dentro de los tres ciclos** — el caso que en Collatz no existe |
@@ -2853,8 +2854,8 @@ el cierre lo pone el ángulo que elegís (tabla del coral) o el módulo que eleg
 hacia adelante, que sigue ciego a los restos.
 
 **El techo de este repo es rederivación independiente bien verificada.** Eso no
-es descubrimiento, pero tampoco es poco: hay **treinta y cinco** programas,
-**treinta y tres** de ellos con comprobaciones que cortan con `SystemExit`, **cinco
+es descubrimiento, pero tampoco es poco: hay **treinta y seis** programas,
+**treinta y cuatro** de ellos con comprobaciones que cortan con `SystemExit`, **cinco
 ficheros Lean que demuestran en vez de verificar**, un documento que separa lo
 real de lo dibujado, y un historial de negativos. La mayoría de la exploración
 amateur no llega ahí.
