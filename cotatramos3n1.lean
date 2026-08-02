@@ -63,10 +63,20 @@
   ====================== LA PREGUNTA DE TIPO: Nat o Int ======================
 
   NO HIZO FALTA IRSE A `Int`. Todo el fichero vive en `Nat`.
-  El truco es UNO y esta escrito en la identidad de arriba: se pone la C en el
-  lado del n_k en vez de restarla. La forma "2^B*n_k = 3^A*n0 - C" tendria una
-  resta de naturales (truncada) y seria un enunciado fragil; la forma
-  "2^B*n_k + C = 3^A*n0" no tiene ninguna resta y dice lo mismo.
+  Se pone la C en el lado del n_k en vez de restarla, y asi no hay ninguna
+  resta de naturales (que es truncada) en el invariante.
+
+  PERO OJO, Y ES UNA CORRECCION AL PROPIO FICHERO (comparador, 01-08-2026): eso
+  es una COMODIDAD, no una NECESIDAD. La forma restada "2^B*n_k = 3^A*n0 - C"
+  TAMBIEN compila en `Nat` y su induccion cierra sola, sin invariante reforzado.
+  Este fichero afirmaba lo contrario en el docstring de `C_no_se_pasa` y era
+  falso. Lo que sigue siendo cierto es que la forma sin resta es mas limpia.
+
+  Y LA CONSECUENCIA QUE IMPORTA, porque el CLAUDE.md llego a escribir lo
+  contrario: la discriminacion del control A/B entre 3n+1 y 3n-1 NO aparece
+  como un cambio de tipo forzoso. Aparece como el SIGNO de la C, la desigualdad
+  invertida y el corolario que cambia de sentido -- las tres cosas cerradas con
+  `decide` en la PARTE 2 de este fichero.
 
   Queda un segundo sitio donde `Nat` podria colarse: la propia definicion del
   paso impar escribe `3 * n - 1`, y en `Nat` eso es resta truncada (con n = 0
@@ -174,16 +184,23 @@ theorem identidad_con_resta (n0 k : Nat) :
 
 /-- LA C NUNCA SE PASA:  C <= 3^A * n_0.
 
-    Este es EL LEMA QUE EXPLICA LA RESPUESTA A LA PREGUNTA DE TIPO, y por eso
-    esta escrito aparte aunque sea una linea. Si uno formulara el invariante
-    con la resta —"2^B*n_k = 3^A*n0 - C"— la induccion NO SE SOSTIENE SOLA en
-    `Nat`: para que el paso impar cuadre hace falta saber, ademas, que la resta
-    no trunca, o sea exactamente este `C <= 3^A*n0`. Habria que arrastrarlo
-    como segunda mitad del invariante.
+    Poniendo la C en el lado del n_k, este hecho sale GRATIS como corolario de
+    la identidad, en una linea, en vez de haber que cargarlo.
 
-    Poniendo la C al otro lado, ese hecho SALE GRATIS como corolario en vez de
-    tener que cargarlo. Ese es todo el truco por el que este fichero no
-    necesita `Int`. -/
+    CORRECCION DEL COMPARADOR (01-08-2026). Este docstring decia que con la
+    forma restada —"2^B*n_k = 3^A*n0 - C"— la induccion NO SE SOSTIENE SOLA en
+    `Nat`, y que habria que arrastrar este `C <= 3^A*n0` como segunda mitad del
+    invariante. ESO ES FALSO, y no se discutio: el comparador escribio el
+    `paso_conserva` de la forma restada sobre estado arbitrario, SIN invariante
+    reforzado, y COMPILA (`#print axioms` limpio). En la rama impar el propio
+    invariante ya fuerza `2^B*n_k >= 1`, y de ahi sale la no-truncacion — que es
+    el mismo hecho que `impar_no_trunca` necesitaba de todas formas. Cuesta
+    cuatro lineas mas.
+
+    O sea: poner la C al otro lado es MAS COMODO, no NECESARIO. La conclusion
+    de este fichero -que no hace falta `Int`- queda reforzada; lo que estaba mal
+    era la razon que se daba. Ver `prueba_resta.lean`, que es la compilacion que
+    lo decide. -/
 theorem C_no_se_pasa (n0 k : Nat) :
     (tramo n0 k).C ≤ 3 ^ (tramo n0 k).A * n0 := by
   have h := identidad n0 k

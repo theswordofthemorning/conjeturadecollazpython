@@ -95,7 +95,10 @@
 # LO QUE ESTO NO ES
 # ---------------------------------------------------------------------------
 #
-# No es nuevo ni de lejos. Terras lo hizo en 1976 y llego a periodo 2592;
+# No es nuevo ni de lejos. Terras lo hizo en 1976 y con la fuerza bruta que
+# habia entonces llego a periodo 2592 -- y ese 2592 es una cifra HISTORICA, no
+# la frontera: la frontera se mueve con lo verificado, y con X0 = 2^71 (Barina
+# 2025) el mismo argumento elemental excluye ya hasta periodo 114.208.327.603.
 # Hercher (2023) demostro algo mucho mas fuerte (no hay m-ciclos con m <= 91).
 # Esto es rederivacion verificada. El informe del final lo dice con numeros.
 
@@ -685,17 +688,25 @@ print(f"    Y como el largo total es A + B >= B, de ahi sale sin condiciones:")
 print(f"      no hay ningun ciclo clasico de largo total <= {K_MAX}.")
 print(f"    NO se puede decir '<= {2*K_MAX} pasos clasicos': un ciclo de largo {2*K_MAX} con")
 print(f"    pocos pasos impares tendria B > {K_MAX} y se queda fuera del barrido.")
-print(f"    (Terras cuenta en las mismas unidades que k, asi que la comparacion")
-print(f"    de abajo contra su 2.592 es de manzanas con manzanas.)")
+print(f"    (Terras cuenta en las mismas unidades que k, asi que las")
+print(f"    comparaciones de abajo son de manzanas con manzanas.)")
 
 print(f"\n  LO QUE YA HABIA, y con cuanta ventaja:")
 print(f"    Terras 1976        descarto ciclos hasta periodo 2.592 (mismo tipo")
-print(f"                       de argumento, con la tabla de convergentes).")
-print(f"                       Nuestro {K_MAX} es el {100*K_MAX/2592:.1f}% de eso.")
-print(f"                       Le faltan {2592 - K_MAX} escalones, y cada escalon")
-print(f"                       cuesta el doble que el anterior: llegar a 2.592")
-print(f"                       por fuerza bruta pide 2^2592 restos, o sea nunca.")
-print(f"    Simons-de Weger    no hay m-ciclos con m <= 68 (2005).")
+print(f"                       de argumento, con la tabla de convergentes), CON")
+print(f"                       LA FUERZA BRUTA QUE HABIA EN 1976. Ese 2.592 es")
+print(f"                       cifra historica, NO la frontera: la frontera se")
+print(f"                       mueve con X0, y con el X0 = 2^71 de Barina 2025")
+print(f"                       el mismo argumento llega a 114.208.327.603")
+print(f"                       (186.265.759.593 pasos clasicos). Con X = 10^6,")
+print(f"                       un minuto de CPU, ya alcanza 4.700.")
+print(f"                       Nuestro {K_MAX} no es el 1,2% de nada: esta NUEVE")
+print(f"                       ORDENES DE MAGNITUD por debajo de la frontera de")
+print(f"                       hoy, y cada escalon cuesta el doble que el")
+print(f"                       anterior. No es cuestion de correr mas tiempo.")
+print(f"    Simons-de Weger    todo m-ciclo tiene m >= 76, o sea que descartan")
+print(f"                       m <= 75 (2005). El '68' que decia aqui es la")
+print(f"                       cifra que imprime el libro de 2010, no la suya.")
 print(f"    Hercher 2023       no hay m-ciclos con m <= 91, donde m es el numero")
 print(f"                       de minimos locales del ciclo. Eso es MUCHISIMO mas")
 print(f"                       fuerte: no acota la longitud, acota la forma, y")
@@ -711,7 +722,8 @@ print(f"  El techo del repo sigue siendo el que dice CLAUDE.md: rederivacion")
 print(f"  independiente bien verificada. Esto es exactamente eso, ni mas ni menos.")
 
 print(f"\n  Y EL LIMITE DE FONDO, que no lo arregla ningun K_MAX:")
-print(f"  este metodo cuesta 2^k y descarta longitud k. Para tocar el estado del")
-print(f"  arte habria que barrer 2^2592 casillas. La via buena no es barrer mas")
+print(f"  este metodo cuesta 2^k y descarta longitud k. Para pisar territorio")
+print(f"  virgen habria que barrer 2^114208327603 casillas -- no 2^2592, que era")
+print(f"  la cifra de 1976. La via buena no es barrer mas")
 print(f"  restos: es acotar la FORMA del ciclo (cuantos minimos locales), que es")
 print(f"  lo que hacen Simons-de Weger y Hercher, y ahi este barrido no llega.")

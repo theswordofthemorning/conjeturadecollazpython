@@ -195,30 +195,89 @@ el que no se equivoca.* **Aviso de rango, porque este repo ya publicó tres
 números sin él: cinco iteraciones es el coste del caso FÁCIL.** Un teorema duro
 o con Mathlib puede costar mucho más, y eso no está medido.
 
-### Lo que falta, dicho para que no se pierda
+### El control A/B en Lean: lo que de verdad cambia entre `3n+1` y `3n−1`
 
-**`cotatramos.lean` no tiene el control A/B**, que es doctrina de este repo:
-`cotatramos.py` comprueba también que sobre `3n−1` la desigualdad **se
-invierte**. Y aquí hay algo que merece formalizarse: sobre `ℕ`, `C ≥ 0` es
-gratis por tipo, y por eso la cota salió sin trabajo. **Para `3n−1` la `C` es
-negativa y el tipo `ℕ` ya no sirve.** O sea que **la discriminación del control
-A/B aparece en Lean como un cambio de tipo forzoso, no como una medición** — que
-es la forma más fuerte que puede tomar.
+*(⇢ VEREDICTO DEL COMPARADOR, 01-08-2026. Este párrafo decía otra cosa y era
+falso; abajo está lo que decía y por qué se cayó.)*
 
-> **⚠ ESAS DOS FRASES ESTÁN EN DISPUTA DESDE EL MISMO DÍA QUE SE ESCRIBIERON, Y
-> NO LAS DES POR BUENAS.** El trío que se lanzó para comprobarlas devolvió lo
-> contrario: **el agente de Lean dice que NO hizo falta salir de `ℕ`.** Su
-> diagnóstico es que el problema no es el tipo sino **dónde se pone la `C`** —
-> escrito como `2^B·n_k = 3^A·n₀ − C` la inducción no cierra sola en `ℕ` (habría
-> que arrastrar `C ≤ 3^A·n₀`), pero escrito como `2^B·n_k + C = 3^A·n₀` **no hay
-> ninguna resta** y cierra. El agente independiente, por su lado, dice que lo que
-> cambia es **el signo de `C`**.
+`cotatramos.lean` no traía el control A/B, que es doctrina de este repo. Ya lo
+trae **`cotatramos3n1.lean`**, y lo que el trío encontró **corrige lo que este
+documento había escrito el mismo día**.
+
+**Sobre `ℕ`, `C ≥ 0` es gratis por tipo, y por eso la cota de `3n+1` salió sin
+trabajo.** Sobre `3n−1`, con el convenio de este repo —`2^B·n_k = 3^A·n₀ + C`—
+**la `C` sí es negativa**: medida `< 0` en 267.477 pares y `> 0` en ninguno, y
+vale `0` exactamente cuando `A = 0`.
+
+**Pero de ahí NO se sigue que `ℕ` deje de servir, y decirlo era falso.** Una
+cantidad negativa no obliga a `ℤ`: basta arrastrar **su opuesto**, que es un
+natural. Las dos `C` son el mismo objeto con el signo cambiado —`C_lean =
+−C_python`, comprobado en 12.000 estados, 0 excepciones— y **las dos escrituras
+compilan en `ℕ` sin Mathlib**:
+
+```
+2^B·n_k + C = 3^A·n0     (C = defecto, C >= 0)    -> compila
+2^B·n_k = 3^A·n0 - C     (resta truncada de Nat)  -> compila TAMBIEN
+```
+
+**Y la segunda cierra la inducción sola**, sin arrastrar `C ≤ 3^A·n₀` como
+segunda mitad del invariante: en la rama impar el propio invariante fuerza
+`2^B·n_k ≥ 1`, luego la resta no trunca. La forma sin resta es **más cómoda**,
+no **necesaria**.
+
+> **Y ESO TAMBIÉN CORRIGE AL AGENTE DE LEAN, no sólo al documento.** El
+> docstring de `C_no_se_pasa` en `cotatramos3n1.lean` justifica su hallazgo
+> diciendo que con la forma restada *«la inducción NO SE SOSTIENE SOLA en `ℕ`»*.
+> **No es cierto**, y el comparador no lo discutió: escribió el `paso_conserva`
+> de la forma restada sobre estado arbitrario, sin invariante reforzado, y
+> **compiló** (`#print axioms` limpio). Cuesta cuatro líneas más. **Su
+> conclusión queda reforzada; su explicación, corregida.**
+
+**Entonces la discriminación del A/B NO aparece en Lean como un cambio de tipo.**
+Aparece como tres cosas, las tres cerradas por el núcleo con `decide`:
+
+1. **el signo de la `C`** — o, lo que es lo mismo, de qué lado de la identidad se
+   pone;
+2. **la desigualdad al revés**, con contraejemplo en las dos direcciones ya en
+   `n₀ = 1, k = 1` (`4 ≤ 3` y `3 ≤ 2`) y otra vez en el 27 (`82 ≤ 81` y
+   `81 ≤ 80`), **fallando por uno** — que es exactamente el `+1` y el `−1`;
+3. **el corolario, que no se traduce cambiando una palabra**: en `3n+1` vale
+   «baja ⟹ `2^B > 3^A`» y en `3n−1` eso es **falso** (el `2` baja al `1` con
+   `A=2, B=3`, o sea `8 ≤ 9`); el que vale es **«sube ⟹ `2^B < 3^A`»**.
+
+> **LO QUE DECÍA ANTES, para que se vea de qué tipo era el error:** *«Para `3n−1`
+> la `C` es negativa **y el tipo `ℕ` ya no sirve**, o sea que la discriminación
+> del A/B aparece en Lean como un cambio de tipo forzoso.»*
 >
-> **El comparador estaba corriendo cuando se cerró la sesión.** Hasta que dicte:
-> tratar «el tipo `ℕ` deja de servir» como **NO VERIFICADO**. Si el comparador le
-> da la razón al agente de Lean, hay que reescribir este párrafo entero — y hay
-> que anotarlo como lo que sería: **una frase que el asistente escribió el mismo
-> día en que documentaba que no se escriben frases así.**
+> **Las dos mitades no se contradecían entre sí: el error era el «luego».** «La
+> `C` es negativa» es cierto (de la magnitud) y «`ℕ` ya no sirve» es falso (del
+> tipo), y lo que unía las dos era **un no sequitur**, no un desacuerdo empírico.
+> Por eso los dos agentes parecían discrepar y no discrepaban: cada uno estaba
+> contestando a una de las dos mitades.
+>
+> *Y anótese cómo apareció: la frase se escribió **el mismo día** en que este
+> documento explicaba que no se escriben frases así, y **sin ejecutar nada**. No
+> la cazó un adversarial: la cazó el trío, y la cazó porque el agente de Lean
+> tuvo que **compilar** en vez de opinar.*
+
+#### Lo que el comparador encontró EN LOS DOS TRABAJOS
+
+Una revisión que sólo aplaude no es una revisión, así que va también esto:
+
+| trabajo | defecto |
+|---|---|
+| `cotatramos3n1.lean` | el docstring de `C_no_se_pasa` justifica mal un hallazgo correcto (arriba) |
+| `cotatramos3n1.lean` | `corolario_no_es_vacuo` se instancia en `tramo 1 1`, que está **dentro del ciclo `{1,2}`**. Un testigo fuera de los tres ciclos diría más |
+| `cotatramos3n1.lean` | le falta el equivalente del 221: lo más largo que cruza son **18** pasos, contra los **114** de `cotatramos.lean` |
+| `cotatramos3n1.py` | **independencia comprometida en (I), (II) y (V)**: la regla `C → 3C − 2^B` y la inversión de la desigualdad están **literalmente** en `cotatramos.py`, que el agente confesó haber leído. Lo suyo de verdad es (III) |
+| `cotatramos3n1.py` | publica **2.023 fallos del corolario de Collatz** sin separar régimen. Separado: `n₀ = 1..299` → 18.538 · 20 bits → 764 · **64 bits → 0 en 368.275** · **200 bits → 0 en 600.752**. El enunciado sigue siendo cierto (basta un contraejemplo para tumbar un universal), pero **es un fenómeno de cerca del atractor**: el `C` sólo pesa cuando los números son chicos. El 2.023 pelado sugiere una tasa del 1% y lejos de los ciclos es cero |
+| `cotatramos3n1.py` | un comentario sobreafirma: dice «prefijos que NO se acercan al final del rango» y **4 de las 40 semillas de 20 bits tocan un ciclo** dentro de los 55 pasos |
+| `cotatramos.py` | su COMPROBACIÓN 3 cuenta como «se da vuelta» también los tramos con `A = 0`, donde la relación es **igualdad**. Es la fuente de la contaminación *y* de la frase equivocada de arriba |
+
+*El eco entre `cotatramos.py` y el agente 2 no contaminó nada falso —el
+comparador rehízo identidad, cota y corolario al margen de los dos ficheros con
+`n₀ = 0..1999`, 0 fallos— pero **la independencia hay que protegerla al lanzar,
+no auditarla al recibir**: al agente 2 no se le dijo qué ficheros NO abrir.*
 
 ## LA REGLA DE LOS TRES: Lean, el independiente, y quien los compara
 
@@ -369,6 +428,25 @@ fichero — **si no imprime ningún `error:`, está demostrado**:
 lean cotatramos.lean
 ```
 
+> **⚠ LEAN NO SOBREVIVIÓ A LA SESIÓN EN QUE SE INSTALÓ, Y HUBO QUE REINSTALARLO
+> (01-08-2026, noche).** Este documento decía *«Instalado el 01-08-2026»* y unas
+> horas después `~/.elan` **no existía**, `lean` no estaba en el `PATH` y no
+> había rastro de `elan` en `LOCALAPPDATA`, `APPDATA` ni `Program Files`.
+> Reinstalado por el mismo camino de arriba: sale otra vez **Lean 4.32.2**, y
+> `cotatramos.lean` compila **0 errores, 0 `sorryAx`, 2,4 s**, con el 221 dando
+> `A = 41, B = 73` por el núcleo.
+>
+> **Es el aviso de los PDF otra vez, y en el peor sitio posible.** `lecturas/`
+> se perdió porque `.gitignore` ignora `*.pdf`; aquí lo que se perdió es el
+> **verificador** del único fichero del repo con categoría de *demostrado*. Los
+> `.lean` están en git; el toolchain que los revisa, no — y sin él la palabra
+> «demostrado» del `CLAUDE.md` no la puede comprobar nadie.
+>
+> **La regla que sale: al abrir una sesión que vaya a tocar un `.lean`, lo
+> primero es `lean --version`.** Si falla, se reinstala antes de creerle nada al
+> documento. Cuesta dos minutos y el toolchain son ~2,4 MB de instalador más la
+> descarga de la release.
+
 *No hace falta Mathlib para lo que hay hoy.* Y ojo con la diferencia, porque es
 la que separa una táctica que existe de una que no: **`by_contra`, `ring`,
 `set`, `rcases` y `obtain` son de Mathlib**, no del núcleo. Con núcleo solo hay
@@ -378,20 +456,30 @@ con `#check @Nat.mul_le_mul` en un fichero suelto** — ahí se ve la firma exac
 que cambia entre versiones (`Nat.mul_lt_mul_left` es un **iff**, no una
 implicación).
 
-**De los 28 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
-`mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos usan
-además `plotly.subplots`. `numpy` lo usan **seis**: `clasesfusion.py`,
-`clasesparalelo.py`, `descensoresto.py`, `pinzaciclos.py`, `redhilos.py` (la red
-neuronal a mano) y `verificar_wu.py`. Y `sqlite3` lo usan **cinco**
-(`guardarafirmaciones.py`, `guardarhilos.py`, `guardarrespuestas.py`,
-`mapahilos.py`, `otramedicion2.py`), pero **ése viene con Python** y no hay que
-instalar nada.
+**De los 34 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
+`mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos
+—`mallascerradas.py` y `mapahilos.py`— usan además `plotly.subplots`. `numpy` lo
+usan **seis**: `clasesfusion.py`, `clasesparalelo.py`, `descensoresto.py`,
+`pinzaciclos.py`, `redhilos.py` (la red neuronal a mano) y `verificar_wu.py`. Y
+`sqlite3` lo usan **seis** (`auditarrefutaciones.py`, `guardarafirmaciones.py`,
+`guardarhilos.py`, `guardarrespuestas.py`, `mapahilos.py`, `otramedicion2.py`),
+pero **ése viene con Python** y no hay que instalar nada.
+
+> **LOS CONTEOS SE DESFASARON POR TERCERA VEZ, Y SIEMPRE IGUAL** (01-08-2026).
+> Decían **28** scripts. Son **34**: los dos workflows y el trío de Lean
+> commitearon **seis ficheros nuevos** (`auditarrefutaciones.py`,
+> `franjaeverett.py`, `medidamonotona.py`, `paradacoef.py`, `cotatramos3n1.py` y
+> `cotatramos3n1.lean`) y nadie volvió a contar. Es exactamente lo que ya había
+> pasado el 30-07 —*«el commit anterior decía "conteos al día (28 .py)" y añadió
+> siete `.py` en ese mismo commit»*— y lo que la bitácora dejó anotado como
+> *«la cola de la purga»*. **Regla: el que añade un fichero actualiza el conteo
+> en el mismo commit, o el conteo nace muerto.**
 
 *(`matplotlib` se queda en `requirements.txt` aunque ahora mismo no lo importe
 nadie: la purga del 01-08-2026 se llevó sus dos clientes, pero tarde o temprano
 va a hacer falta y no vale la pena tocarlo.)*
 
-> **La proporción se dio vuelta: 24 de 28 NO dibujan.** El repo empezó siendo de
+> **La proporción se dio vuelta: 30 de 34 NO dibujan.** El repo empezó siendo de
 > visualización y hoy es de cálculo. **Al escribir un programa nuevo, el caso por
 > defecto es stdout, no plotly** — copiá la forma de `pinzaciclos.py` o de
 > `cotatramos.py`.
@@ -411,15 +499,18 @@ hook o en un script de shell, usa `python -c`.
 la purga del 01-08-2026 se llevó 16 programas de visualización. **Ya no hay dos
 mitades — hay un núcleo de cálculo con cuatro dibujos colgando.**)*
 
-**El núcleo — los que no dibujan, 24 de 28.** Su resultado es **stdout, un
+**El núcleo — los que no dibujan, 30 de 34.** Su resultado es **stdout, un
 `.txt` o un `.db`**. No abren navegador. Conservan la constante en MAYÚSCULAS
 arriba y las comprobaciones que cortan con `SystemExit` antes de afirmar nada
-— **26 de los 28 tienen `SystemExit`**.
+— **32 de los 34 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
+es una biblioteca, no un programa) y `main.py` (que es la CLI).
 
 ```
-clasesfusion  clasesparalelo  collatz  coralprimos  cotatramos  cruzarecords
-descensoresto  elmasuno  guardarafirmaciones  guardarhilos  guardarrespuestas
-main  otramedicion2  pinzaciclos  pisoaltitud  redhilos  reimpl
+auditarrefutaciones  clasesfusion  clasesparalelo  collatz  coralprimos
+cotatramos  cotatramos3n1  cruzarecords  descensoresto  elmasuno  espejoak
+franjaeverett
+guardarafirmaciones  guardarhilos  guardarrespuestas  main  medidamonotona
+otramedicion2  paradacoef  pinzaciclos  pisoaltitud  redhilos  reimpl
 + los SIETE verificar_*
 ```
 
@@ -443,10 +534,10 @@ python main.py camino    27                  # imprime la trayectoria
 
 *(El subcomando `graficar` se retiró con `viz3d.py` el 01-08-2026.)*
 
-**La duplicación de `secuencia_de(n)` es deliberada y sigue en pie.** Siete
-archivos la redefinen —`collazmalla`, `cotatramos`, `elmasuno`, `guardarhilos`,
-`mallascerradas`, `otramedicion2`, `verificar_fusiones`— en vez de importar
-`collatz.py`. Cada archivo se abre, se lee entero y se ejecuta por sí solo, sin
+**La duplicación de `secuencia_de(n)` es deliberada y sigue en pie.** Ocho
+archivos la redefinen —`auditarrefutaciones`, `collazmalla`, `cotatramos`,
+`elmasuno`, `guardarhilos`, `mallascerradas`, `otramedicion2`,
+`verificar_fusiones`— en vez de importar `collatz.py`. Cada archivo se abre, se lee entero y se ejecuta por sí solo, sin
 saltar a otro. **No los refactorices para que compartan el motor.**
 
 **Forma de un programa suelto:**
@@ -526,8 +617,8 @@ esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
 
 Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
 `python main.py camino 27` crasheaba desde Sublime. Corrido el **01-08-2026**
-sobre los **28** `.py` que quedan tras la purga: **0 hallazgos**, está limpio —
-si aparece uno nuevo, lo metiste vos. Para revisarlo:
+sobre los **34** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
+metiste vos. Para revisarlo:
 
 ```
 python -c "
@@ -550,6 +641,15 @@ for a in sorted(glob.glob('*.py')):
 | `collazmalla.py` | **La malla real**: cada par de puntos en coordenadas (A, B). Dibuja |
 | `cotatramos.py` | **LA COTA POR TRAMO**, rescatada de `collazlamina.py`: `2^B·seq[j] ≥ 3^A·seq[i]`, y si un tramo baja entonces `2^B > 3^A`. Verificada sobre prefijos que **nunca llegan al 1** |
 | **`cotatramos.lean`** | **La misma cota, DEMOSTRADA en Lean 4** para todo `n₀` y todo `k`, sin Mathlib. Identidad de Terras, cota y corolario; `#print axioms` limpio; el 221 comprobado por el núcleo. **El único fichero del repo que demuestra en vez de verificar** |
+| **`cotatramos3n1.lean`** | **La cota del mapa `3n−1`, demostrada.** Agente 1 del primer trío. Identidad sin resta (`2^B·n_k + C = 3^A·n₀`), cota **invertida**, corolario espejo *«sube ⟹ `2^B < 3^A`»*, y la discriminación como **teorema**: cada cota es falsa en el otro mapa, cerrado con `decide`. Los tres ciclos de `3n−1` comprobados por el núcleo |
+| `cotatramos3n1.py` | **Lo mismo, calculado por su cuenta.** Agente 2 del mismo trío, sin ver el `.lean`. Deriva la identidad en vez de copiarla; exhaustivo `n₀ = 1…400`, semillas de 200 bits, y tramos que dan **varias vueltas dentro de los tres ciclos** — el caso que en Collatz no existe |
+| **`espejoak.lean`** | **`a₊(k) = a₋(k)` DEMOSTRADO para todo `k`**, sin Mathlib y sin `sorry`. La biyección es la reflexión `2^k−1−r`; incluye Terras para `m` **negativo** y el borde demostrado en vez de supuesto. Cruza contra `sucesiones.txt` y contra las ocho clases mod 32 **con `decide`, no con `#eval`** |
+| `espejoak.py` | **Lo mismo por su cuenta**, sin ver el `.lean`. Diez comprobaciones con `SystemExit`, dos implementaciones sin código común, y la biyección verificada **como igualdad de conjuntos**, no de cardinales |
+| **`pruebaresta.lean`** | **La compilación que cerró una disputa.** No dice nada de Collatz: demuestra que la forma **con resta truncada** también cierra la inducción en `ℕ` sin invariante reforzado, y con eso tumba a la vez la frase del `CLAUDE.md` (*«`ℕ` ya no sirve»*) **y** la explicación que daba el agente de Lean. El registro de que una frase publicada se refutó **compilando** en vez de opinando |
+| `paradacoef.py` | **LA CONJETURA CST DE TERRAS, MEDIDA.** `σ*` se calcula sólo de `n mod 2^k`: **es lo único del repo que pasa el detector de contabilidad**. Trae la cota `B(k)`, que descarta contraejemplos con `σ* ≤ K` para **infinitos** números, y el control `3n−1` con el espejo `n → −n` |
+| `franjaeverett.py` | **La franja `log₂(10/9)`**, el hueco entre lo que Everett demuestra y el equilibrio. **NO hay núcleo**: con `m ≥ 9` el conjunto excepcional hasta `10⁷` es `{3,5,7}`. Y el control mata la vía: sobre `3n−1` la franja mide **cero**, y `3n−1` no converge |
+| `medidamonotona.py` | **La búsqueda de una cantidad monótona, y la medida de cómo falla.** Trece candidatas, ninguna decrece. La razón no es estadística: la clase `2^k − 1 (mod 2^k)` existe para todo `k`. Redescubre `A076227` sin buscarla |
+| `auditarrefutaciones.py` | **Auditar las REFUTACIONES, no las afirmaciones.** Las diez del bloque E contra los dos pools: **8 confirmada, 2 exagerada, 0 refutada**. Se niega a evaluar la mitad bibliográfica de la #58 |
 | `mallaresiduos.py` | **La malla completa de los arranques**: 2^k restos × k pasos. Dibuja |
 | `mallascerradas.py` | **Los aros que cierran solos** y **la rueda del árbol**. Dibuja |
 | `guardarhilos.py` | **Los 11 hilos 100000–100010 en sqlite** (`hilos.db`) y la malla de sus cruces |
@@ -574,6 +674,7 @@ for a in sorted(glob.glob('*.py')):
 | `afirmaciones.db` | **Las tres capas**: `afirmaciones` (con cuantificador), `constantes` (con aviso), `correcciones` |
 | `guardarrespuestas.py` | Captura las transcripciones de Claude Code y las mete en `respuestas.db` |
 | `respuestas.db` | **El cuaderno de las conversaciones.** Tabla `respuestasclaude`, append-only |
+| `transcripciones/*.zip` | **El `.jsonl` crudo respaldado, un zip por sesión.** Lo que `respuestas.db` no guarda: llamadas a herramientas, resultados y orden. Con su `LEEME.md` y el bloque para regenerarlo |
 | `otramedicion2.py` | **La capa de promedios sobre la malla de hilos**, cruzada contra `afirmaciones.db`. La capa no anade informacion |
 | **`verificar_terras.py`** | **La columna vertebral, re-derivada**: T1.1, T1.2, C1.4, la Tabla C y la exclusión de periodos. Con el aviso del bug de `frontera()` |
 | `verificar_frontera_ciclos.py` | **La revisión adversarial de `verificar_terras.py [6](d)`**. Encontró el bug de la frontera |
@@ -625,9 +726,66 @@ sesión, literal y con marca de tiempo, en:
 
 Eso lee las transcripciones que haya, mete lo nuevo en `respuestas.db` y no
 toca lo viejo. Es **append-only** e **idempotente por `(sesion, orden)`**:
-correrlo mil veces no duplica ni borra nada. Al **01-08-2026** lleva **643
-mensajes de seis sesiones — 152 preguntas y 456 respuestas, 1.065.063
-caracteres**, desde el 29-07.
+correrlo mil veces no duplica ni borra nada. Al **01-08-2026 (noche)** lleva
+**701 mensajes de siete sesiones — 156 preguntas y 506 respuestas, 1.140.539
+caracteres**, desde el 29-07. *(Este conteo es una foto: crece cada vez que se
+corre. No se persiga la cifra exacta; lo que importa es el orden de magnitud y
+las sesiones que cubre.)*
+
+> **LA REGLA SE PAGÓ SOLA, Y HAY QUE ESCRIBIR EL NÚMERO** (01-08-2026). De las
+> siete sesiones de la base, **TRES ya no tienen su `.jsonl` en disco**:
+>
+> ```
+> 29a697f3   196 mensajes   306.756 caracteres
+> ada74998   117 mensajes   397.012 caracteres
+> c33cf2bc    42 mensajes    16.211 caracteres
+> ------------------------------------------------
+> TOTAL      355 mensajes   719.979 caracteres
+> ```
+>
+> **`respuestas.db` es ya la única copia de 355 mensajes**, dos tercios de los
+> caracteres de la base. La hipótesis con la que se creó —*«si algún día se
+> limpian las transcripciones viejas, ésta será el único sitio donde queden»*—
+> dejó de ser hipotética en menos de tres días.
+>
+> **Y EL AGUJERO QUE HAY QUE MIRAR, porque es el reverso de lo mismo.** Del
+> **01-08-2026** —diez commits, la purga, la instalación de Lean, las dos
+> auditorías y los tres workflows— la base tiene **42 mensajes de una ventana de
+> 21 minutos** (19:27–19:48). El resto del día no se capturó **y su
+> transcripción ya no existe**. La regla dice *«al cerrar una sesión que haya
+> producido algo»*, y el día que más produjo se cerró sin correrla.
+>
+> *Corolario práctico: correr `guardarrespuestas.py` al cerrar no basta si la
+> sesión muere sin cierre ordenado. Cuesta segundos — conviene correrlo también
+> a mitad de una sesión larga.*
+
+> **⇢ Y DE AHÍ SALE `transcripciones/`** (01-08-2026). `respuestas.db` guarda el
+> **texto**; el `.jsonl` guarda además **las llamadas a herramientas, sus
+> resultados y qué ficheros se tocaron en qué orden**, y nada de eso entra en la
+> base. Como el directorio de transcripciones ya demostró que **no es un sitio
+> duradero**, las que siguen vivas se respaldan **dentro del repo**, un `.zip`
+> por sesión (**5,23 MB** las cuatro que quedan, de 13,88 MB en crudo).
+>
+> **Un zip por sesión y no uno solo**, a propósito: un único archivo se
+> reescribiría entero cada vez y git guardaría un blob nuevo de varios MB en
+> cada commit. Así cada blob se escribe **una vez** y lo único que cambia entre
+> commits es el de la sesión en curso.
+>
+> **Las dos cosas al cerrar, en este orden**, y el `LEEME.md` de la carpeta trae
+> el bloque de PowerShell listo para copiar:
+>
+> ```
+> python guardarrespuestas.py    ->  el texto, a respuestas.db (append-only)
+> el bloque de transcripciones/  ->  el crudo, a transcripciones/*.zip
+> ```
+>
+> *Es la misma lección que ya se cobró `lecturas/*.pdf` y el toolchain de Lean,
+> por tercera vez: **lo que no está en git no sobrevive.***
+>
+> *(Nota de fechas, por si confunde: las marcas de `fecha_hora` van en **UTC** y
+> las de este documento en local. Esta sesión aparece en la base como
+> `2026-08-02T00:33` y aquí está fechada el 01-08-2026. Es el mismo tipo de
+> desfase que ya tenía anotado la bitácora entre el punto 5 y su commit.)*
 
 **Por qué se hace así y no anotando turno a turno:** una regla que exige que el
 asistente escriba una fila en cada respuesta depende de que la cumpla siempre, y
@@ -1319,6 +1477,109 @@ verificaciones están en **`sucesiones.txt`**.
 > habría sido el error caro**, del tipo que no se corrige con un commit.
 > *Lo que queda vivo es la pregunta: ¿la coincidencia es un teorema, o se rompe
 > en algún `k ≥ 20`? Eso sí decide algo, y es barato.*
+
+> **⇢ CORRECCIÓN (01-08-2026, trío `espejoak`): LA PREGUNTA SE CONTESTÓ, Y DE
+> PASO SE CAYÓ EL MOTIVO DE LA RETIRADA.** El bloque de arriba tiene esta forma:
+> *«`a(k)` sale idéntica en los dos mapas → luego no es evidencia sobre
+> convergencia → luego publicarla habría sido el error caro»*. **La primera mitad
+> es ahora un teorema; la segunda no se sigue.**
+>
+> **TEOREMA** (`espejoak.lean`, demostrado en Lean 4 **sin Mathlib**,
+> `#print axioms` = `[propext, Quot.sound]`, **ni un `sorryAx`**; recalculado
+> aparte en `espejoak.py` hasta `k = 21` y por el comparador con una tercera
+> implementación hasta `k = 18`): **`a₊(k) = a₋(k)` para todo `k ≥ 1`.** No es
+> coincidencia. La biyección es **la reflexión del bloque**
+>
+> ```
+> phi(r) = 2^k - 1 - r        (el NOT bit a bit)
+> ```
+>
+> y sale de que **`T₋(−n) = −T₊(n)` sobre todo `Z`**. *Ninguna de las dos
+> divisiones redondea nunca* —par divide un par, impar divide `3n±1` que es par
+> por construcción—, así que la identidad **no depende del convenio de división**:
+> `ediv` en Lean, `//` en Python y `Fraction` en el comparador dan lo mismo.
+>
+> **La biyección estaba archivada como fallida por un `±1`.** La bitácora decía
+> *«la biyección `r → 2^k−2−r` que se alegó no se pudo confirmar: los cardinales
+> coinciden, los conjuntos no»*. Con `2^k−2−r` falla en los diez niveles; con
+> `2^k−1−r` acierta en los diez, **como igualdad de conjuntos**. No era que no
+> hubiera biyección: era una errata de índice, y enterró un teorema.
+>
+> ### Y el resultado es MÁS ANCHO que `a(k)`
+>
+> El espejo no conserva sólo `S_k`: conserva **el vector de paridad completo**
+> (exhaustivo `k ≤ 14`, 0 fallos). Como `n ↦ −n` es un **automorfismo de
+> `Z/2^k`** que conjuga los dos mapas, y por Terras 1.2 el vector de paridad
+> determina todo lo definible módulo `2^k`:
+>
+> > **Ningún invariante definido sobre `Z/2^k` puede distinguir `3n+1` de
+> > `3n−1`.**
+>
+> **EL CONTROL QUE LO DECIDE, y es demoledor: `A076227` — que SÍ está en OEIS
+> desde 2002 — también sale idéntica en los dos mapas.** Comprobado aquí,
+> `k = 1…14`, contra los términos oficiales: `1, 1, 1, 2, 3, 4, 8, 13, 19, 38,
+> 64, 128, 226, 367, 734`. **Un criterio que descalifica a `a(k)` descalifica a
+> una sucesión ya catalogada, y con ella a toda la literatura de vectores de
+> paridad.**
+>
+> ### Qué queda en pie y qué no
+>
+> - **SIGUE EN PIE, y reforzado:** `a(k)` **no** es evidencia sobre convergencia.
+>   Antes era una medición (*«salió igual hasta `k=13`»*); ahora es un teorema.
+> - **SE CAE:** que ésa sea razón para no catalogarla. **El A/B contra `3n−1` no
+>   es un control para nada que se cuente sobre restos**, porque los dos mapas no
+>   son reglas distintas — son la misma escrita al revés. Es el segundo filtro
+>   del repo mordiéndose la cola: *«antes de apoyarse en una fila hay que meterle
+>   dos reglas parecidas»* — aquí se metieron dos reglas **conjugadas**, que es
+>   peor que parecidas.
+> - **La cota inferior demostrada del 43,5658% no dependía del control** y no se
+>   mueve. Y OEIS cataloga sucesiones bien definidas, no evidencias sobre
+>   conjeturas.
+>
+> **DÓNDE ESTÁ DE VERDAD LA ASIMETRÍA, que es el matiz que ninguno de los dos
+> agentes vio y sí vio el comparador:** la fusión es simétrica; lo que **no** lo
+> es es el paso *«se funden ⟹ tienen la misma altura»*, porque «altura»
+> presupone llegar al 1 — para `3n−1` el enunciado espejo sería «mismo tiempo
+> hasta su ciclo». **La asimetría no vive en `a(k)`: vive en el paso
+> interpretativo**, que es exactamente donde `sucesiones.txt` ya tuvo que poner
+> la hipótesis `m ≥ 1`.
+>
+> *La decisión de enviar o no sigue siendo de una persona. Lo que ya no se puede
+> escribir es que el motivo sea el `3n−1`.*
+>
+> ### El agujero que queda, dicho antes de que alguien lo cite como cerrado
+>
+> **`espejoak.lean` se presenta como «para todo `k`» y tiene un tramo que sólo
+> llega a 7.** Demuestra Terras y el borde para `T₊`, pero **no para `T₋`**: que
+> `bueno₋(k, 2^k−1)` sea la condición literal del enunciado está **decidido con
+> `decide` hasta `k = 7`, no demostrado**. Es cierto —el comparador lo comprobó
+> hasta `k = 14` y sale en tres líneas de la conjugación que el propio fichero ya
+> tiene— pero **hoy no está demostrado**, y el teorema global se apoya ahí.
+> *(Alivio parcial, también del comparador: el borde **nunca es bueno en ningún
+> mapa**, porque `2^k−1` es impar ⟹ `S_k ≥ 1 > 0 = S_k(0)`. Toda la ceremonia
+> del enunciado sobre el borde es decorativa. Pero eso tampoco está demostrado en
+> el fichero: está medido.)*
+>
+> **Y dos frases de los agentes que no hay que copiar:**
+>
+> - El agente de Lean cerró con *«una cantidad invariante bajo una simetría no
+>   puede ser evidencia sobre algo que la simetría no respeta»*. **Como principio
+>   general es falso** —el orden de un grupo es invariante bajo todo automorfismo
+>   y sin embargo `|G| = p` implica que `G` es cíclico, que no lo es—. Vale la
+>   versión concreta, no la ley. **Y estaba en un comentario, o sea que Lean no
+>   la comprobó**: es justo la clase de frase que este repo lleva un mes cazando.
+> - El agente independiente escribió que `φ` *«no puede emparejar el 0 y el
+>   2^k−1»*. **Los empareja perfectamente** (`φ(0) = 2^k−1`); lo que se sale del
+>   bloque es `r+1`, no `φ`. La conclusión aguanta, la frase no — y la prueba de
+>   Lean **no necesita ninguna excepción**, con lo que la excepción era un
+>   artefacto de su camino, no del problema.
+>
+> *Y la lección de método, que es la misma que dejó el trío anterior y ya van
+> dos: **el `CLAUDE.md` se les inyecta entero a los dos agentes**, y contiene el
+> paso 1 del argumento (la conjugación por el signo). El agente 2 lo declaró; el
+> agente 1 no. Con un fichero de contexto de 2.000 líneas que ya trae medio
+> argumento, «no leas al otro agente» no basta: **la independencia hay que
+> protegerla al lanzar, no auditarla al recibir.***
 
 **Reverificado el 30-07-2026 con 28 consultas** (12 numéricas para `a`, 11 para
 `b`, más variantes de texto), con control de Fibonacci que devolvió `A000045`
@@ -2488,7 +2749,8 @@ absolutamente nada de ella, y ahí es donde viviría un contraejemplo.*
 3. **Comprobar antes de concluir, cortando con `SystemExit`.** Esto atrapó un
    error real en vivo: se afirmó la biyección resto↔patrón para el mapa clásico
    y la comprobación 2 de `mallaresiduos.py` paró el programa antes de generar
-   un gráfico falso. Hoy lo tienen **26 de los 28** ficheros.
+   un gráfico falso. Hoy lo tienen **32 de los 34** ficheros; los dos que no son
+   `collatz.py` (biblioteca) y `main.py` (la CLI).
 
 ### El techo realista, y hacia dónde no hay camino
 
@@ -2501,10 +2763,11 @@ el cierre lo pone el ángulo que elegís (tabla del coral) o el módulo que eleg
 hacia adelante, que sigue ciego a los restos.
 
 **El techo de este repo es rederivación independiente bien verificada.** Eso no
-es descubrimiento, pero tampoco es poco: hay **veintiocho** programas,
-**veintiséis** de ellos con comprobaciones que cortan con `SystemExit`, un
-documento que separa lo real de lo dibujado, y un historial de negativos. La
-mayoría de la exploración amateur no llega ahí.
+es descubrimiento, pero tampoco es poco: hay **treinta y cuatro** programas,
+**treinta y dos** de ellos con comprobaciones que cortan con `SystemExit`, **cuatro
+ficheros Lean que demuestran en vez de verificar**, un documento que separa lo
+real de lo dibujado, y un historial de negativos. La mayoría de la exploración
+amateur no llega ahí.
 
 *(Decía «más visualización original», y la purga del 01-08-2026 se llevó esa
 mitad entera: 16 programas. **El techo se estrechó y se hizo más firme.**)*

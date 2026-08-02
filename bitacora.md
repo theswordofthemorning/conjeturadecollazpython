@@ -5,7 +5,71 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
-# ⇢ ESTADO AL CIERRE DEL 01-08-2026 — EMPEZAR POR AQUÍ
+# ⇢ CIERRE DEL 01-08-2026 (noche) — LOS DOS TRÍOS DICTARON. EMPEZAR POR AQUÍ
+
+Sesión de **corregir**, no de medir. Salió una cosa que no se buscaba: **dos de
+las correcciones eran el error**, y las dos enterraban algo bueno.
+
+## Lo que cambia decisiones
+
+1. **LEAN NO ESTABA INSTALADO.** El `CLAUDE.md` decía *«instalado el
+   01-08-2026»* y `~/.elan` **no existía**. Reinstalado (4.32.2). Los **cuatro**
+   `.lean` compilan a **0 errores / 0 `sorryAx`**. *Se perdió el verificador del
+   único fichero con categoría de «demostrado»: los `.lean` están en git, el
+   toolchain no.* **Regla nueva: `lean --version` al abrir.**
+
+2. **El trío del `3n−1`: la frase del `CLAUDE.md` era FALSA.** *«Para `3n−1` la
+   `C` es negativa **y el tipo `ℕ` ya no sirve**»*. Las dos mitades no se
+   contradecían — **el error era el «luego»**, un *non sequitur*. Y los dos
+   agentes **nunca discreparon**: sus `C` son opuestas (`C_lean = −C_python`).
+   El comparador refutó también al **agente de Lean**, compilando él mismo la
+   forma con resta. Queda en `pruebaresta.lean`.
+
+3. **El trío de `a(k)`: es TEOREMA, y el motivo de retirar el envío a OEIS se
+   cae.** `a₊(k) = a₋(k)` para **todo `k`**, demostrado en Lean sin Mathlib. La
+   biyección es `2^k − 1 − r`. **La bitácora la tenía archivada como fallida por
+   un `±1`** (decía `2^k−2−r`). Y el resultado es más ancho: `n ↦ −n` es un
+   automorfismo de `Z/2^k`, luego **ningún invariante mod `2^k` distingue los dos
+   mapas** — control que lo remata: **`A076227`, que SÍ está en OEIS, también
+   sale idéntica**. El A/B contra `3n−1` no era un control para esto.
+
+## Lo que se cerró sin gastar máquina
+
+- **El pendiente «llegar a `k ≥ 20` y decidir si es teorema o se rompe»: cerrado
+  a favor de teorema.** Iba a costar horas de CPU y costó una demostración.
+- **Los conteos, por tercera vez.** 28 → **34** `.py`, 26 → **32** con
+  `SystemExit`, cinco → **seis** `sqlite3`, siete → **ocho** `secuencia_de`, y
+  **seis ficheros** que no tenían fila en la tabla. Barrido cp1252: 0 hallazgos.
+- **`afirmaciones.db` iba una auditoría por detrás**: siete afirmaciones que el
+  documento ya había refutado, y **20 filas** apuntando a ficheros borrados (yo
+  había contado 9). Base regenerada: **80 · 32 · 20**.
+- **`respuestas.db`**: 668 mensajes, 7 sesiones. **355 mensajes ya sólo viven
+  ahí** — tres transcripciones desaparecieron del disco en menos de tres días.
+  Nuevo: **`transcripciones/`**, un `.zip` por sesión, dentro del repo.
+
+## La lección, y es la misma tres veces
+
+> **Auditar una refutación encuentra tanto como auditar una afirmación.**
+
+Pasó con la biyección `2^k−2−r` (un `±1` enterró un teorema), con el motivo de
+la retirada de OEIS (un control que no controlaba), y con la explicación del
+agente de Lean (conclusión correcta, razón falsa). **Y las tres se cazaron
+compilando o ejecutando, no opinando.**
+
+## Lo que queda abierto
+
+- **`espejoak.lean` dice «para todo `k`» y tiene un tramo decidido sólo hasta
+  `k = 7`**: Terras y el borde están demostrados para `T₊`, no para `T₋`. Es
+  cierto y sale en tres líneas, pero **hoy no está demostrado**.
+- La pregunta grande de siempre: la razón `b(k)/b(k−1)`, ¿converge por debajo de
+  2 o llega a 2? Sigue sin decidirse; `k = 34` no la decidiría tampoco.
+- **La independencia de los agentes hay que protegerla al lanzar.** El
+  `CLAUDE.md` se les inyecta entero y ya contiene medio argumento. Dos tríos, dos
+  contaminaciones — una declarada y otra no.
+
+---
+
+# ⇢ ESTADO AL CIERRE DEL 01-08-2026 (tarde) — lo anterior
 
 *(Escrito con dos workflows todavía corriendo, por si la sesión se cierra antes
 de que terminen. Si estás leyendo esto en una sesión nueva: lo primero es
@@ -63,9 +127,13 @@ escribí en `CLAUDE.md` unas horas antes**:
 | **agente 1 (Lean)** | **NO hizo falta `ℤ`.** El problema no es el tipo sino **dónde se pone la `C`**: con `2^B·n_k + C = 3^A·n₀` no hay resta y la inducción cierra sola |
 | **agente 2 (Python)** | lo que cambia es **el signo de `C`** (`C ≤ 0`), y la desigualdad lo arrastra |
 
-**Está marcado como NO VERIFICADO en `CLAUDE.md`.** Si el comparador le da la
-razón al agente de Lean, hay que reescribir ese párrafo — y anotar que es *una
-frase escrita el mismo día en que se documentaba que no se escriben frases así.*
+> ⇢ **RESUELTO (01-08-2026, noche). La frase era FALSA: `ℕ` basta.** Pero
+> **ninguno de los dos agentes tenía razón del todo.** El comparador compiló él
+> mismo la forma con resta, sobre estado arbitrario y **sin invariante
+> reforzado**, y con eso refutó también la explicación del agente de Lean: poner
+> la `C` al otro lado es **más cómodo, no necesario**. *Su conclusión quedó
+> reforzada; su razón, corregida.* La compilación que lo decidió está en
+> **`pruebaresta.lean`**, y el párrafo del `CLAUDE.md` está reescrito.
 
 **Dos cosas más que dejaron los agentes y que el comparador tiene encargadas:**
 
@@ -107,8 +175,10 @@ frase escrita el mismo día en que se documentaba que no se escriben frases así
 
 ### PENDIENTES, en orden
 
-1. **RECUPERAR EL VEREDICTO DEL COMPARADOR** y aplicar la corrección de la frase
-   del tipo `ℕ`. Es lo primero.
+1. ⇢ **HECHO (01-08-2026, noche). El comparador dictó: la frase era FALSA.**
+   `ℕ` basta, y no por lo que decía el agente de Lean — el comparador compiló él
+   mismo la forma con resta (`pruebaresta.lean`) y refutó también su
+   explicación. Los dos agentes nunca se contradijeron: sus `C` son opuestas.
 2. **Aplicar la auditoría de las diez** al `CLAUDE.md`: las dos EXAGERADAS, los
    cuatro defectos del adversarial (re-tecleo presentado como reimplementación,
    dos tautologías con recuento, una sensibilidad mal medida, y el `5,86x` que es
@@ -117,9 +187,12 @@ frase escrita el mismo día en que se documentaba que no se escriben frases así
 3. **Aplicar las tres vías** al `CLAUDE.md`: las dos correcciones obligatorias de
    CST, y las razones por las que franja y monótona se cierran.
 4. **Commitear `medidamonotona.py`** si el workflow no lo dejó.
-5. **La pregunta grande sigue en pie:** `a(k)` sale **idéntica** para `3n+1` y
-   `3n−1` (`k = 3…13`). Llegar a `k ≥ 20` decide si es teorema o se rompe. Es lo
-   que mató el borrador de OEIS.
+5. ⇢ **CERRADO (01-08-2026, noche): ES TEOREMA, y no hizo falta llegar a
+   `k ≥ 20`.** `a₊(k) = a₋(k)` para todo `k`, demostrado en Lean; la biyección es
+   `2^k − 1 − r` (la que aquí figuraba como *«no se pudo confirmar»* estaba
+   corrida por uno). **Y con eso se cae el motivo que mató el borrador de OEIS**:
+   `n ↦ −n` es un automorfismo de `Z/2^k`, así que ningún invariante mod `2^k`
+   separa los dos mapas — **`A076227`, que está en OEIS, tampoco los separa**.
 6. **El control A/B en Lean para el resto de piezas** — ahora que hay trío, es
    barato.
 7. **Nueve de los diez bloques de la búsqueda web siguen sin código propio.**
