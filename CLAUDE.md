@@ -1943,7 +1943,8 @@ varianza, no el 80%. Pero la **pendiente** es positiva y cercana a `log₂(3/2)`
 ```
 PARA n IMPAR:   log₂(altitud(n) / n)  ≥  racha(n) · log₂(3/2) + 1
                 barrido de control 1..100.000 (pisoaltitud.py)
-                49.999 impares, 0 fallos
+                49.999 impares, 0 fallos  (y n >= 3: en n = 1 el piso
+                depende del convenio altitud(1); el conteo ya lo excluia)
 ```
 
 Se demuestra en una línea (`k` pasos impares del atajo llevan `n` a al menos
@@ -2079,7 +2080,9 @@ sale, despejando:
 m = (r − T^k(r)) / (3^{S(r)} − 2^k)
 ```
 
-**Por cada resto hay como mucho UN candidato, y se calcula en cerrado.** Si `m`
+**Por cada resto hay como mucho UN candidato, y se calcula en cerrado** (para
+`k ≥ 1`: en `k = 0` el denominador se anula y todo `n` cumple `T⁰(n) = n` —
+trío del 02-08-2026). Si `m`
 no es entero, esa clase queda descartada para los infinitos números que contiene.
 
 **Barrido de 2.147.483.646 restos (`k = 1…30`), en bloques.** Supervivientes
@@ -2526,7 +2529,7 @@ mitad del valor de la pasada, y la que nadie escribe.
 | **Terras, Corolario 1.4** (paridades 50/50) | biyección **exhaustiva** `k = 1…16` | **0 fallos** |
 | **la Tabla C de jump values** | barrido exacto a `k = 3.000` (los 14) y a `k = 20.000` (los 30) | idénticos |
 | **Gao 1993**, la tupla de `2^500 + 1` | los **35.654** verificados uno a uno sobre números de **151 cifras** | mide 35.654 exactos, **se rompe en el desplazamiento 35.654** |
-| **Wu 1995**, la tupla de 310 | recalculada entera en `6.622.073.000` | 310 exactos, maximal |
+| **Wu 1995**, la tupla de 310 | recalculada entera en `6.622.073.000` | 310 exactos *(la maximalidad es de Wu, no se re-verificó)* |
 | **A076227** | 45 términos contra el b-file oficial, más 4 lejanos (hasta 283 cifras) | **0 discrepancias** |
 | **Elia–Tucker 2015** | la familia `2^19·m + 3067` recalculada | correcta *(con el `j` mínimo en 18, no 19)* |
 | **la cota `5/3` de Everett** | 50.000 impares + 999 pares con `Fraction` | máximo **`5/3` exacto**, igualdad en `m=3` |
@@ -2593,7 +2596,7 @@ la fuente de todos. Lo único que se buscó en la web fue el coral.
 | `n mod 2^k` fija los primeros k pasos; biyección con el mapa del atajo | **Terras 1976 / Everett 1977.** Tiene nombre: el vector de paridad. Teorema clásico |
 | La rueda del árbol (período 2, hijos mod 9, maestra 18) | Consecuencia elemental de la regla mod 6, que ya estaba anotada como estándar. Aritmética modular de primer curso sobre estructura conocida |
 | Las dos identidades del espejo base 2 | Dos líneas de álgebra. Nada que publicar |
-| El espejo base 10 (44.450 ciclos, fijos en `5·10^m`) | Recreativa elemental. Se deriva en cinco minutos |
+| El espejo base 10 (44.451 dos-ciclos —el 44.450 publicado era un off-by-one, cerrado con combinatoria el 02-08-2026: `(90.000 − 1.098)/2`—, fijos en `5·10^m`) | Recreativa elemental. Se deriva en cinco minutos |
 | El coral | **De Edmund Harriss.** Publicado, con libro y Numberphile |
 | Identidad `(A,B)`, la lámina, `log₂(3)`, las convergentes | Vía clásica de las cotas de ciclos (Crandall, Steiner, Simons–de Weger). **Fechado: Shanks 1965, Atkin 1966. Guy 1983 imprime la lista `1/1, 2/1, 3/2, 8/5, 19/12, 65/41, 84/53, 485/306, 1054/665, 24727/15601, 50508/31867` y dice que hay ciclos en los denominadores 1, 2, 5, 12 y ninguno en 41, 53, 306** — es casilla por casilla nuestro barrido `(A,B)` |
 | Fundirse los consecutivos, tuplas con el mismo número de pasos | **Garner 1985, Gao 1993, Wu Jia-Bang 1992–95, Wu–Huang 2001.** El mecanismo general está en Lagarias 1985 |
@@ -3048,7 +3051,10 @@ n ≡ 0        (mod 2^k)   ->  baja  k veces seguidas, garantizado
 ```
 
 No son estadísticas: son teoremas, y se escriben como `if`. Ya se usaron hoy para
-fabricar `2^4000 − 1`, que da 3.999 pasos impares seguidos.
+fabricar `2^4000 − 1`, que da **4.000** pasos impares seguidos *(no 3.999, que
+es lo que aquí ponía — trío del 02-08-2026)*. Y las dos reglas son del mapa del
+**atajo**: en el clásico «sube `k` veces seguidas» es falso desde `k = 2`
+(`3 → 10 → 5`).
 
 **2. "Sube siempre" no existe entre los enteros positivos.** Haría falta
 `n ≡ 2^k − 1 (mod 2^k)` para **todo** `k` a la vez, y el único objeto que lo

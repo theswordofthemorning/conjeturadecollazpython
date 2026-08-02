@@ -141,16 +141,22 @@ AFIRMACIONES = [
 
     fila("log2( altitud(n)/n ) >= racha(n) * log2(3/2) + 1",
          "todo_n", "demostrado", "pisoaltitud.py", "propio",
-         "Ambito: n IMPAR. Sin esa hipotesis es FALSO. Se decide en enteros, "
-         "alt*2^r >= 2*n*3^r, sin un solo float: 99.999 casos, 0 fallos. La "
-         "racha no PREDICE la altitud, le pone un piso. Cota si, tendencia no."),
+         "Ambito: n IMPAR y n >= 3. Sin la paridad es FALSO, y el borde n = 1 "
+         "depende del convenio (con altitud(1) = 1 el piso falla; el conteo de "
+         "49.999 impares ya lo excluia sin declararlo - trio del 02-08-2026, "
+         "demostrado ademas en Lean, depuracion/lean/A2.lean). Se decide en "
+         "enteros, alt*2^r >= 2*n*3^r, sin un solo float: 49.999 impares, 0 "
+         "fallos. La racha no PREDICE la altitud, le pone un piso. Cota si, "
+         "tendencia no."),
 
     fila("log2( altitud_atajo(n)/n ) >= racha(n) * log2(3/2)",
          "todo_n", "demostrado", "pisoaltitud.py", "propio",
-         "Ambito: todo n >= 2, las dos paridades. ESTA es la version que hay "
-         "que citar: sin el +1 y sin hipotesis de paridad. El +1 del enunciado "
-         "clasico es log2(2) y aparece solo porque se mezcla la altitud de un "
-         "mapa con la racha del otro."),
+         "Ambito: todo n >= 2, las dos paridades (el n >= 2 es hipotesis, no "
+         "adorno: en n = 1 depende del convenio de altitud - trio del "
+         "02-08-2026, demostrado ademas en Lean, depuracion/lean/A3.lean). "
+         "ESTA es la version que hay que citar: sin el +1 y sin hipotesis de "
+         "paridad. El +1 del enunciado clasico es log2(2) y aparece solo "
+         "porque se mezcla la altitud de un mapa con la racha del otro."),
 
     fila("eps = ln( 2^B / (3^A * n) ) es identicamente igual a la suma de "
          "ln(1 + 1/(3x)) sobre los impares de la trayectoria",
@@ -160,9 +166,11 @@ AFIRMACIONES = [
          "en racionales exactos, 0 fallos. El residuo 1,7e-7 que se habia "
          "medido era ruido de coma flotante, no del enunciado."),
 
-    fila("eps > 0 siempre, y vale 0 exactamente en las potencias de 2",
+    fila("eps >= 0 siempre, con igualdad exactamente en las potencias de 2",
          "todo_n", "demostrado", "elmasuno.py", "propio",
-         "Ambito: todo n >= 1. Cada factor (1+1/(3x)) es > 1 con x entero "
+         "Ambito: todo n >= 1. (Decia 'eps > 0 siempre, y vale 0 en las "
+         "potencias', que leido literal se contradice; corregido por el trio "
+         "del 02-08-2026.) Cada factor (1+1/(3x)) es > 1 con x entero "
          "positivo, luego el producto es > 1. collazlamina.py -retirado en la "
          "purga del 01-08-2026- lo habia MEDIDO en 6.555 pares; ahora esta "
          "demostrado en una linea para todos los n. Cuidado con el borde: sobre "
@@ -216,12 +224,15 @@ AFIRMACIONES = [
          "fallos, con dos implementaciones que no comparten una linea. Sin "
          "fichero: se midio en scripts sueltos que no se guardaron."),
 
-    fila("si n tarda S pasos, el numero de la posicion k tarda S-k; luego el "
-         "de la posicion S/2 tarda S/2",
+    fila("si n tarda S pasos, el numero de la posicion k tarda S-k; y SI S ES "
+         "PAR, el de la posicion S/2 tarda S/2",
          "todo_n", "demostrado", None, "propio (contabilidad, no patron)",
-         "Ambito: todo n con cantidad par de pasos. 10.011 numeros del 2 al "
-         "20.000, 0 excepciones. El 221 solo tuvo la suerte de tener 114 "
-         "pasos, que es par. Esto mata el 'patron' de las notas a mano."),
+         "Ambito: todo n que llegue a 1; la clausula S/2 exige S PAR (con S "
+         "impar y division entera es falsa siempre: n = 5, S = 5, seq[2] = 8 "
+         "tarda 3, no 2 - trio del 02-08-2026, demostrado en Lean para todo n "
+         "que termine, no solo medido en 2..20.000). El 221 solo tuvo la "
+         "suerte de tener 114 pasos, que es par. Esto mata el 'patron' de las "
+         "notas a mano."),
 
     fila("n + espejo(n) = 10^k, exacto y siempre",
          "todo_n", "demostrado", None,
@@ -241,7 +252,9 @@ AFIRMACIONES = [
          "FICHERO RETIRADO: mallaespejo2.py se borro en la purga del "
          "01-08-2026 -media el circulo y el modulo elegidos a mano, no "
          "Collatz-, y el enunciado se demuestra en una linea sin el: si "
-         "2^(k-1) < n < 2^k entonces 2^k - n < 2^(k-1)."),
+         "2^(k-1) < n < 2^k entonces 2^k - n < 2^(k-1). Y desde el 02-08-2026 "
+         "esta DEMOSTRADO EN LEAN para todo n >= 1 (depuracion/lean/A13.lean, "
+         "sin Mathlib): las potencias de 2 son los puntos fijos."),
 
     fila("el espejo en base b tiene puntos fijos exactamente (b/2)*b^m si b es "
          "par, y NI UNO si b es impar",
@@ -265,8 +278,10 @@ AFIRMACIONES = [
          "sobra un +2",
          "todo_n", "demostrado", None,
          "propio (dos lineas de algebra)",
-         "Ambito: n impar, 50.000 casos, 0 fallos. Ese +2 es el +1 del 3n+1 "
-         "arrastrado. Exacto para UN paso; al segundo se rompe. FICHERO "
+         "Ambito: n IMPAR con n < 2^k (la hipotesis faltaba; sobre Z vale "
+         "para todo impar, incluso negativo - trio del 02-08-2026). 50.000 "
+         "casos, 0 fallos. Ese +2 es el +1 del 3n+1 arrastrado, la suma de "
+         "los dos +1. Exacto para UN paso; al segundo se rompe. FICHERO "
          "RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026."),
 
     fila("sigma_clasico(n) = sigma_atajo(n) + (pasos impares dentro de ellos), "
@@ -384,9 +399,11 @@ AFIRMACIONES = [
          "en cerrado: m = (r - T^k(r)) / (3^{S(r)} - 2^k)",
          "clase_residual", "demostrado", "pinzaciclos.py",
          "propio (de la identidad de Terras)",
-         "Ambito: barrido entero de k = 1..30. Si m no es entero, la clase "
-         "queda descartada para los infinitos numeros que contiene. Verificado "
-         "contra iteracion cruda y contra una implementacion en Python puro."),
+         "Ambito: k >= 1, barrido entero de k = 1..30 (en k = 0 el enunciado "
+         "no aplica: el denominador vale 0 y todo n cumple T^0(n) = n - trio "
+         "del 02-08-2026). Si m no es entero, la clase queda descartada para "
+         "los infinitos numeros que contiene. Verificado contra iteracion "
+         "cruda y contra una implementacion en Python puro."),
 
     fila("el mapa RESTO -> VECTOR DE PARIDAD es una biyeccion Z/2^k -> "
          "{0,1}^k, luego no hay descarte EN BLOQUE de clases para buscar "
@@ -408,16 +425,22 @@ AFIRMACIONES = [
          "que descartar' tambien se pasa de fuerte. Las hay, y pinzaciclos.py "
          "descarta casi todas; lo que no hay es descarte en bloque, cada clase "
          "exige su propia decision aunque sea O(1), y por eso el coste es "
-         "Theta(2^k) y no menos."),
+         "Theta(2^k) y no menos. Y DESDE EL 02-08-2026 LA BIYECCION ESTA "
+         "DEMOSTRADA EN LEAN PARA TODO k (depuracion/lean/A28.lean, nucleo "
+         "solo, sin sorryAx), no solo exhaustiva hasta k = 16; con el mapa "
+         "CLASICO es falsa ya en k = 2: los restos 1 y 3 mod 4 comparten el "
+         "vector [1,0]."),
 
-    fila("n = 2^k - 1 (mod 2^k) sube k veces seguidas; n = 0 (mod 2^k) baja k "
-         "veces seguidas",
+    fila("sobre el mapa del ATAJO: n = 2^k - 1 (mod 2^k) sube k veces "
+         "seguidas, y n = 0 (mod 2^k) con n >= 1 baja k veces seguidas",
          "clase_residual", "demostrado", "mallaresiduos.py",
          "Terras 1976; es el Lema 8 de Hercher 2023",
-         "Ambito: todo k. No son estadisticas: son teoremas, y se escriben "
-         "como un if. Con esto se fabrico 2^4000 - 1, que da 3.999 pasos "
-         "impares seguidos. El unico objeto que sube SIEMPRE es -1, que es uno "
-         "de los ciclos negativos."),
+         "Ambito: todo k, mapa del ATAJO - en el clasico 'sube k veces "
+         "seguidas' es falso desde k = 2 (3 -> 10 -> 5); trio del 02-08-2026, "
+         "demostrado en Lean para todo k. No son estadisticas: son teoremas, "
+         "y se escriben como un if. Con esto se fabrico 2^4000 - 1, que da "
+         "4.000 pasos impares seguidos, no 3.999. El unico objeto que sube "
+         "SIEMPRE es -1, que es uno de los ciclos negativos."),
 
     fila("el ritmo de brotes del arbol inverso es periodico de periodo 2 segun "
          "v mod 3, los hijos ciclan con periodo 3 mod 9, y el patron completo "
@@ -478,7 +501,12 @@ AFIRMACIONES = [
          "conjunto nunca se queda vacio. Es el mismo muro de pinzaciclos.py "
          "por otra puerta: alli el barrido de restos no podia encontrar ciclos "
          "porque cada clase es un candidato distinto; aqui no puede cerrar el "
-         "descenso porque siempre queda clase viva."),
+         "descenso porque siempre queda clase viva. REGIMEN (trio del "
+         "02-08-2026): el 0,95 = H(log_3 2) del enunciado es el ASINTOTICO, "
+         "que sube por debajo sin alcanzarse en ningun k finito (0,65 en "
+         "k=12, 0,88 en k=100, 0,94 en k=1400) - el espejo del 2^(-0,05k) ya "
+         "corregido. Y la no-vacuidad esta demostrada en Lean para todo k "
+         "(depuracion/lean/A34.lean)."),
 
     # --------------------------------------------------------- casi_todo_n
     #
@@ -804,7 +832,9 @@ AFIRMACIONES = [
          "ciclos", "demostrado", "collazmalla.py", "propio",
          "A=1, B=2, C=1. De los 95 candidatos enteros positivos que "
          "aparecieron, los 95 ciclan de verdad y son n en {1,2,4} dando 1, 2 o "
-         "3 vueltas. Cero impostores."),
+         "3 vueltas. Cero impostores. Y desde el 02-08-2026 la identidad del "
+         "ciclo la certifica el nucleo de Lean (depuracion/lean/A63.lean): "
+         "demostrado, no solo contado."),
 
     fila("no hay m-ciclos con m <= 95",
          "ciclos", "conjeturado", None, "Wang 2026 (preprint, Zenodo)",
@@ -820,15 +850,16 @@ AFIRMACIONES = [
          "Encontrar un error real en un articulo arbitrado y que el autor lo "
          "reconozca por escrito es mejor credencial que una cita."),
 
-    fila("el espejo base 10 tiene 44.450 ciclos distintos bajo 100.000, y "
-         "Collatz tiene UNO",
-         "ciclos", "medido", None, "propio",
-         "El A/B de control, y su valor es justo que salgan distintos: la "
-         "maquinaria discrimina. Lo que dibuja depende de lo que se le mete, "
-         "no de como dibuja. FICHERO RETIRADO: mallaespejo.py se borro en la "
-         "purga del 01-08-2026 -media el circulo elegido a mano-, asi que estos "
-         "conteos ya no se pueden reproducir. El principio del A/B se queda; el "
-         "ejemplo concreto, no."),
+    fila("el espejo base 10 tiene 44.451 dos-ciclos (mas 1.098 palindromos "
+         "fijos) bajo 100.000, y Collatz tiene UN ciclo positivo",
+         "ciclos", "demostrado", None, "propio",
+         "CORREGIDO EL 02-08-2026, y subio de categoria: el 44.450 publicado "
+         "era un off-by-one, y el numero bueno sale en cerrado, no contando: "
+         "bajo 100.000 hay 90.000 numeros sin cero final y 1.098 palindromos, "
+         "luego (90.000 - 1.098)/2 = 44.451 dos-ciclos. Reproducido ademas "
+         "por conteo directo (45.549 ciclos contando los fijos). El A/B de "
+         "control se queda -la maquinaria discrimina- y el ejemplo vuelve a "
+         "ser reproducible sin el fichero retirado."),
 
     # ----------------------------------------------------- verificado_hasta
     #
@@ -880,7 +911,10 @@ AFIRMACIONES = [
          "mide 176, empezando en 722.067.240",
          "verificado_hasta", "medido", None, "Wu Jia-Bang 1992",
          "Aqui se llego a 120 en 2^28: compatible con esa trayectoria de "
-         "crecimiento, pero no la confirma. No llegamos."),
+         "crecimiento, pero no la confirma. No llegamos. REVERIFICADO EL "
+         "02-08-2026 (verificar_wu.py): la tupla de 176 se confirma una a "
+         "una; la MAXIMALIDAD bajo 2^30 sigue siendo de Wu y nadie la "
+         "re-verifico - exigiria el barrido completo."),
 
     fila("el coral de Harriss (45 rumbos) choca por primera vez en la "
          "profundidad 31 del arbol inverso",
