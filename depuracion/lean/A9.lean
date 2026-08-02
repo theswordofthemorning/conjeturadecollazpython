@@ -52,7 +52,9 @@ theorem rumbo_cuenta (gi gp : Int) :
     ∀ l : List Bool, rumbo gi gp l = nImpares l * gi + nPares l * gp := by
   intro l
   induction l with
-  | nil => rfl
+  | nil =>
+    show (0 : Int) = 0 * gi + 0 * gp
+    rw [Int.zero_mul, Int.zero_mul, Int.zero_add]
   | cons b l ih =>
     cases b with
     | true =>

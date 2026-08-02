@@ -1,0 +1,11 @@
+#check @Nat.pow_succ
+#check @Nat.pow_add
+#check @Nat.pow_zero
+#check @Nat.one_mul
+#check @Nat.mul_mod
+#check @Nat.mul_assoc
+#check @Nat.mul_comm
+#check @if_pos
+#check @if_neg
+#check @absurd
+#check @iff_of_false

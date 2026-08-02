@@ -1,0 +1,13 @@
+#check @Nat.pow_succ
+#check @Nat.mul_left_comm
+#check @Nat.mul_add
+#check @Nat.mul_one
+#check @Nat.mul_comm
+#check @Nat.mul_assoc
+#check @Nat.pow_pos
+#check @Nat.two_pow_pos
+#check @Nat.pow_le_pow_right
+#check @Nat.mul_le_mul_right
+#check @Nat.lt_of_mul_lt_mul_right
+#check @Nat.lt_of_mul_lt_mul_left
+#check @Nat.eq_of_mul_eq_mul_right

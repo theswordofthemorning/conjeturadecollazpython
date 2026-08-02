@@ -77,8 +77,8 @@ for r in range(tam):
     else:
         # dos afines distintas: a lo sumo un cruce; con 5 m distintos no pueden coincidir todos
         check(not ok, "mala k=8 r=%d coincide en todas las muestras" % r)
-print("   clases buenas en k=8: %d (el agente 2 conto 170 via su sucesion)" % n_buenas)
-check(n_buenas == 170, "conteo de buenas k=8 (a(8)=170)")
+print("   clases buenas en k=8: %d (a(8)=82 en la sucesion de los agentes; 170 es a(9))" % n_buenas)
+check(n_buenas == 82, "conteo de buenas k=8 (a(8)=82)")
 
 # 4) logica de la descomposicion: buena y sin pisar el 1 => alturas iguales
 print("4) muestra: buena sin pisar 1 => alturas m=0 iguales (k=3..10 exhaustivo)")
