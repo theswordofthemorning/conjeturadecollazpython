@@ -1,0 +1,7 @@
+ITEM A64 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: no hay m-ciclos con m <= 95
+CUANTIFICADOR: ciclos
+ESTADO DECLARADO EN LA BASE: conjeturado
+FUENTE DECLARADA: Wang 2026 (preprint, Zenodo)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Sigue sin arbitrar y necesita verificacion independiente: esa es la fase 3 del plan de la pinza, y si aguanta se dice y si se cae eso si es un hallazgo. PERO LA CALIBRACION DE ESTA FILA HABIA QUE REVISARLA (01-08-2026): decia 'cero citas, metadatos descuidados' como si eso midiera algo, y no lo mide -'cero citas' mide la edad del preprint y 'metadatos descuidados' mide su maquetacion-. Y hay un dato duro en contra de tratarlo como sospechoso por defecto: el corrigendum del 14-06-2026 al articulo de Hercher agradece el hallazgo del error del Teorema 21 a XINJUN WANG, ORCID 0009-0007-5895-5984, el mismo Wang. Encontrar un error real en un articulo arbitrado y que el autor lo reconozca por escrito es mejor credencial que una cita.

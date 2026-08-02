@@ -1,0 +1,7 @@
+ITEM A42 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la fraccion de pasos impares es 1/3 con el mapa clasico y 1/2 con el atajo
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Terras 1976
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Todas las trayectorias de 2 a 10^6: 0,331785 y 0,496524. Los pasos impares coinciden digito a digito en los dos mapas (43.607.946). La relacion entre los dos mapas es exacta, uno por uno, no en promedio.

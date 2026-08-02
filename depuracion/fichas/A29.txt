@@ -1,0 +1,7 @@
+ITEM A29 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: n = 2^k - 1 (mod 2^k) sube k veces seguidas; n = 0 (mod 2^k) baja k veces seguidas
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976; es el Lema 8 de Hercher 2023
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): mallaresiduos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo k. No son estadisticas: son teoremas, y se escriben como un if. Con esto se fabrico 2^4000 - 1, que da 3.999 pasos impares seguidos. El unico objeto que sube SIEMPRE es -1, que es uno de los ciclos negativos.

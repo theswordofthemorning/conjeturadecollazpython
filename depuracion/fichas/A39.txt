@@ -1,0 +1,7 @@
+ITEM A39 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: para 5x+1 solo unos x^0,65 enteros bajo x llegan a 1
+CUANTIFICADOR: casi_todo_n
+ESTADO DECLARADO EN LA BASE: conjeturado
+FUENTE DECLARADA: Kontorovich-Lagarias
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): El mapa 5n+1, no Collatz. Que 5n+1 diverja no esta demostrado: es tan conjetural como Collatz. Medido aqui: cae el 3,03% de 100.000 semillas, y tiene 3 ciclos.

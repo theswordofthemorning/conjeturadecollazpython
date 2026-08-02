@@ -1,0 +1,7 @@
+ITEM A53 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la fila 'se escapan del rango' de la tabla A/B discrimina entre reglas
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: refutado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Roto: da 33,3% para 3n+1 y para 3n-1 por igual, con los MISMOS conteos absolutos a N = 256, 1024, 4096 y 10.000. Mide el rango, no la regla. Las que si discriminan son 'ciclos distintos', 'cola mas larga' y 'cola media'. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026, y con el la tabla A/B que lo motivo; la leccion -no toda fila de un A/B discrimina- sigue siendo doctrina.

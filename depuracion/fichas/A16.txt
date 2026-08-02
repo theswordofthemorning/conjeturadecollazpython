@@ -1,0 +1,7 @@
+ITEM A16 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: T(2^k - n) = 3*2^k + 2 - T(n): en los impares casi conmuta, pero sobra un +2
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (dos lineas de algebra)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: n impar, 50.000 casos, 0 fallos. Ese +2 es el +1 del 3n+1 arrastrado. Exacto para UN paso; al segundo se rompe. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026.

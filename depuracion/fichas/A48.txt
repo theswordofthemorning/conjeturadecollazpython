@@ -1,0 +1,7 @@
+ITEM A48 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la racha inicial de impares PREDICE la altitud
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: refutado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Roto: correlacion 0,59, explica el 35% de la varianza, y se exigia 0,8 antes de medir. Lo que la racha SI hace es ponerle un piso exacto. Cota si, tendencia no.

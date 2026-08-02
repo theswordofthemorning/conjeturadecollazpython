@@ -1,0 +1,7 @@
+ITEM A49 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el espejo base 10 y Collatz se hablan
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: refutado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Roto: la correlacion entre pasos(n) y pasos(espejo(n)) es +0,08. Segunda prueba: las 5 parejas espejo del 221 dan p = 0,28 contra un modelo nulo que preserva el reparto de decadas. Un primer calculo dio '11 contra 1,48 esperadas' y era falso. FICHERO RETIRADO: mallaespejo.py se borro en la purga del 01-08-2026. El negativo se queda: es de los que evitan repetir la busqueda.

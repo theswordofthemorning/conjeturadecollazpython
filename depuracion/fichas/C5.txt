@@ -1,0 +1,7 @@
+ITEM C5 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: constante de parada del ATAJO | valor_teorico=6.952118993564416 | valor_medido=6.92916 | error_rel=-0.33 | formula: 2/ln(4/3) | que mide: cuantos pasos del mapa del atajo por cada unidad de ln(n)
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Lagarias, Applegate-Lagarias
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): ES LA DEL ATAJO, NO LA DEL CLASICO. La del clasico es 3/ln(4/3) = 10,428. Confundirlas da un 49,5% de error, y ya paso una vez en este repo. La escalera correcta es 1:2:3 segun se cuenten los 3n+1, los pasos del atajo o los clasicos. El valor medido es PENDIENTE DE REGRESION a 10^7 (dicho desde el 01-08-2026).

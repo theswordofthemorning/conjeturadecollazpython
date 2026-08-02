@@ -1,0 +1,7 @@
+ITEM A11 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: si n tarda S pasos, el numero de la posicion k tarda S-k; luego el de la posicion S/2 tarda S/2
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (contabilidad, no patron)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n con cantidad par de pasos. 10.011 numeros del 2 al 20.000, 0 excepciones. El 221 solo tuvo la suerte de tener 114 pasos, que es par. Esto mata el 'patron' de las notas a mano.

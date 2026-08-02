@@ -1,0 +1,7 @@
+ITEM A2 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: log2( altitud(n)/n ) >= racha(n) * log2(3/2) + 1
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): pisoaltitud.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: n IMPAR. Sin esa hipotesis es FALSO. Se decide en enteros, alt*2^r >= 2*n*3^r, sin un solo float: 99.999 casos, 0 fallos. La racha no PREDICE la altitud, le pone un piso. Cota si, tendencia no.

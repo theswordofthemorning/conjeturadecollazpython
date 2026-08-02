@@ -1,0 +1,7 @@
+ITEM A26 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: si dos trayectorias se funden gastando los MISMOS pares y los MISMOS impares, entonces 2^r*k + n1 y 2^r*k + n2 se funden para todo k, siempre que r sea MAYOR que el numero de pasos pares del tramo
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Garner 1985
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): verificar_fusiones.py
+NOTAS DE LA BASE (contexto y correcciones previas): TAL COMO ESTE REPO REPETIA EL G2 -'si dos trayectorias se funden, entonces 2^r*k + n1 y 2^r*k + n2 se funden para TODO k'- ERA FALSO. Le faltaban las dos hipotesis del enunciado, y sin ellas se rompe (01-08-2026, verificar_fusiones.py). (i) Con r = e, exactamente los pares del tramo, la propagacion falla en 9.954 de 62.400 casos; con r = e+1 va perfecta, 62.400 comprobados y 0 fallos. (ii) 'Fundirse' a secas no basta: hace falta encontrarse en el mismo indice y con las mismas cuentas. El contraejemplo bueno es el par (3, 20): los dos pasan por el 10 en el indice 1, pero uno gasta 1 impar y el otro 0, y 2^r*m + 3 contra 2^r*m + 20 da la misma altura en solo 2 de 40 valores de m, para r = 8, 10 y 12. Control con (4, 5), que si cumple las dos hipotesis: 40 de 40. Con las hipotesis puestas, una sola fusion sigue generando una progresion aritmetica infinita de fusiones, que es lo que produce los bloques de consecutivos con los mismos pasos. La forma del error es la de siempre aqui: un enunciado publicado, copiado sin sus cuantificadores.

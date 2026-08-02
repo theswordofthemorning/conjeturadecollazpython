@@ -1,0 +1,7 @@
+ITEM C9 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: log2(3), el equilibrio | valor_teorico=1.584962500721156 | valor_medido=None | error_rel=None | formula: log2(3) | que mide: el B/A exacto por encima del cual una trayectoria cae y por debajo del cual sube; un ciclo lo tendria clavado
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: elemental
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): collazmalla.py
+NOTAS DE LA BASE (contexto y correcciones previas): -

@@ -1,0 +1,7 @@
+ITEM A22 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: a(32) = 1.871.137.623 clases mod 2^32 se funden: cota inferior DEMOSTRADA del 43,5658% de los pares consecutivos
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): clasesfusion.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: k <= 32. Confirmado por dos caminos independientes, el secuencial y el repartido por nucleos de clasesparalelo.py. No depende de muestreo ni de ajuste, y por eso es lo unico duro de esa seccion. La sucesion no esta en OEIS (28 consultas).

@@ -1,0 +1,7 @@
+ITEM A77 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: A076227 ('surviving Collatz residues mod 2^n') reproducida de forma independiente: 45 terminos (n = 0..44), 0 discrepancias
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: OEIS A076227
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): a(34) = 151.917.636 = 0,884%, que es el tamano de la criba clasica que cita el CLAUDE.md. Contado por programacion dinamica sobre patrones de paridad, sin tocar un solo resto, y controlado contra la criba real de los 2^k restos hasta k = 20: coinciden los 20.

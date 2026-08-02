@@ -1,0 +1,7 @@
+ITEM A20 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: T^k(2^k*m + r) = 3^{S_k(r)} * m + T^k(r): una recta en m cuya pendiente y ordenada dependen SOLO del resto
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976 (Teorema 1.2)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): clasesfusion.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo k, todo r < 2^k. De aqui salen las dos piezas mas utiles del repo: el criterio de fusion y la pinza de ciclos.

@@ -1,0 +1,7 @@
+ITEM A79 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: sigma_max(k)/k crece y NO se estabiliza: de 13,20 en k=10 a 23,58 en k=26, con dientes de sierra
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): Fuerza bruta sobre TODOS los n < 2^28. Y los records publicados van por 26,79 a 61 bits. No se observa cota uniforme en el rango medido: crece de forma compatible con acercarse a un techo, pero medir 27 escalones no dice nada de los infinitos que faltan. Es un maximo de muestra, no una cota.

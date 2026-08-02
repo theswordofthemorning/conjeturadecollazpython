@@ -1,0 +1,7 @@
+ITEM A51 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: una red neuronal con 40.000 ejemplos no pasa del 50,5% prediciendo la siguiente paridad a partir de las k anteriores
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio; Terras 1976 Corolario 1.4 lo explica
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): redhilos.py
+NOTAS DE LA BASE (contexto y correcciones previas): k = 4, 8, 12, 16: entre 49,3% y 50,5%. Y no puede mejorar: las paridades son independientes con P = 1/2 exacta. Viendo los m bits bajos en cambio: 50% clavado para m <= k y 100% para m > k. Un acantilado. Determinista y sin patron no son incompatibles.

@@ -1,0 +1,7 @@
+ITEM A62 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: las casillas (A,B) que sobreviven al barrido son (semi)convergentes de log2(3), pero solo LAS QUE LO APROXIMAN POR ENCIMA
+CUANTIFICADOR: ciclos
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976 Tabla C; Shanks 1965, Guy 1983
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): collazmalla.py
+NOTAS DE LA BASE (contexto y correcciones previas): AQUI DECIA 'exactamente las convergentes y semiconvergentes', Y ES LA MITAD (corregido el 01-08-2026): 3/2, 19/12, 84/53 y 1054/665 son convergentes de log2(3) y NO son jump values, porque lo aproximan por debajo. La lista de Terras son solo las de arriba. 480 casillas, las 10 mas cercanas sin excepcion. Guy 1983 imprime la lista entera y dice que hay ciclos en los denominadores 1, 2, 5, 12 y ninguno en 41, 53, 306: es casilla por casilla nuestro barrido. La casilla (7,11) predijo el ciclo negativo de periodo 11.

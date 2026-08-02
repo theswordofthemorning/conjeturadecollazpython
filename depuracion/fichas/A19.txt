@@ -1,0 +1,7 @@
+ITEM A19 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: biyeccion perfecta entre los 2^k restos y los 2^k patrones de paridad posibles
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976 / Everett 1977
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): mallaresiduos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: SOLO el mapa del ATAJO, k = 1..10. Con la regla CLASICA no hay biyeccion: salen los Fibonacci. Los dos mapas no se pueden mezclar, y afirmar lo contrario fue un error que atrapo un SystemExit antes de dibujar nada.

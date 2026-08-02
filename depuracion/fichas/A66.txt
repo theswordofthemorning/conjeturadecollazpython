@@ -1,0 +1,7 @@
+ITEM A66 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: todo n < 2^71 llega al 1
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Barina 2025, J. Supercomputing
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): No comprueba los 2^71 numeros: criba clases enteras. Coste: 12.395 anos-CPU + 159 anos-GPU. Su worker.c imprime MAXIMUM_CYCLE_OFFSET 0 como constante literal: el programa no busca ciclos en absoluto. EL FACTOR X ~ 363 QUEDA DEGRADADO (01-08-2026): no es un hallazgo, es una composicion aritmetica correcta de dos numeros no verificados -la densidad de su criba de produccion y el factor 5/9 de la criba mod 9-, y estaba escrito en negrita como si fuera medicion propia.

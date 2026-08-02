@@ -1,0 +1,7 @@
+ITEM A45 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la densidad de pares consecutivos con la misma altura crece con N
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: conjeturado
+FUENTE DECLARADA: Wu Jia-Bang 1995 (conjetura abierta)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Medido hasta 2^28: 0,518577, monotona en los 18 escalones, 0 bajadas. EL CONTROL QUE IMPORTA: la misma medicion con el PICO en vez de la altura NO es monotona (10 bajadas de 16). La maquinaria discrimina. FICHERO RETIRADO: densidadfusion.py se borro en la purga del 01-08-2026 -era un promedio sobre 18 puntos y su seccion del mecanismo estaba sesgada por muestreo-, asi que estos numeros ya no se pueden reproducir; lo que se queda es el criterio exacto de clasesfusion.py, que es otra cosa y si se sostiene. Y OJO CON EL HITO DE GARNER, que aqui estaba mal: su conjetura es sobre la densidad de ENTEROS EN TUPLA, no sobre la fraccion de PARES, y cruza el 50% en 2^6, diecisiete escalones mas abajo, no entre 2^23 y 2^24.

@@ -1,0 +1,7 @@
+ITEM C1 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: constante de Wagon | valor_teorico=9.477955556559275 | valor_medido=9.471872 | error_rel=-0.064 | formula: tiempo de caida medio | que mide: cuantos pasos tarda de media un numero en bajar por debajo de si mismo
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Wagon; OEIS A122790
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): EL VALOR ESTA BIEN Y LA FORMULA PUBLICADA ESTA MAL desde 1985, y OEIS lo documenta en A100982: la errata esta en Wagon Y en Chamberland, floor(1 + 2i + i*log2(3)) donde deberia ser floor(1 + i + i*log2(3)). El valor se confirmo aqui a 35 cifras contra A122790 por camino independiente. Quien lo reimplemente desde el enunciado publicado obtiene otra cosa. Y la columna medida es MUESTREO a 10^7, no la misma clase de estimador que las tres constantes de parada.

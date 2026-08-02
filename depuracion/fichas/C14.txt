@@ -1,0 +1,7 @@
+ITEM C14 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: fraccion de pasos impares, mapa del atajo | valor_teorico=0.5 | valor_medido=0.496524 | error_rel=-0.695 | formula: 1/2 | que mide: que proporcion de los pasos del atajo son impares
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Terras 1976
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): -

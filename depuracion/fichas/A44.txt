@@ -1,0 +1,7 @@
+ITEM A44 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: en el coral hay 1,7320 +/- 0,0003 divisiones por multiplicacion
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Hasta 10^6 semillas. EL 1,7345 PUBLICADO ANTES ERA EL VALOR DE UNA MUESTRA a HASTA=3.000. Cae a 0,02% de sqrt(3) y la descomposicion del valor dice que es casual: no construir nada encima. FICHERO RETIRADO: coralcollaz.py se borro en la purga del 01-08-2026 -media el angulo elegido a mano-, asi que este numero YA NO SE PUEDE REPRODUCIR con codigo del repo. Se deja porque el negativo vale: es el ejemplo de llamar constante al valor de una muestra.

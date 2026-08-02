@@ -1,0 +1,7 @@
+ITEM A73 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el umbral de choque del coral es una RECTA en N con dos ramas segun N mod 4: (N+11)/2 si N = 4k+3 y (N+19)/2 si N = 4k+1
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): coralprimos.py
+NOTAS DE LA BASE (contexto y correcciones previas): N de 20 a 70, profundidad <= 200. SUSTITUYE a la explicacion '45 = 3^2 * 5', que solo valia un nivel de treinta y uno. Ni rastro de la factorizacion: lo que manda es cuanto vale N y su resto mod 4.

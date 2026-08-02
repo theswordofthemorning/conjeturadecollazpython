@@ -1,0 +1,7 @@
+ITEM A61 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: en un ciclo de 3n+1 la C de la identidad es POSITIVA, luego B/A > log2(3); en uno de 3n-1 es negativa y B/A < log2(3)
+CUANTIFICADOR: ciclos
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (se sigue del signo de C)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): pinzaciclos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Los tres ciclos negativos y el unico positivo, 0 fallos. El 'balance decide todo' se parte en dos mitades. Y el ciclo de -1 escrito con la identidad da 2 = 3 - 1, espejo exacto del 4 = 3 + 1.

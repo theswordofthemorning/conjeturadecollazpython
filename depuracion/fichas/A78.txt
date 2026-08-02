@@ -1,0 +1,7 @@
+ITEM A78 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: los 34 records de planeo (glide) de records.json recalculados desde cero, 0 fallos. El planeo ES el tiempo de descenso sigma
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): Los records de ericr.nl estan en el mapa CLASICO; se recalculan con enteros exactos y de paso validan la conversion atajo -> clasico, porque la columna clasica se obtiene sumando los impares. El mayor es n = 2.602.714.556.700.227.743 con planeo 1.639, a 61,2 bits.

@@ -1,0 +1,7 @@
+ITEM A10 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: Collatz sobre los enteros negativos es exactamente el mapa 3m-1 sobre los positivos
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: estandar en la literatura
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo m >= 1. 8.095.665 pasos comparados de 1 a 100.000, 0 fallos, con dos implementaciones que no comparten una linea. Sin fichero: se midio en scripts sueltos que no se guardaron.

@@ -1,0 +1,7 @@
+ITEM A80 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: de los 983 cruces que no son cola comun entre los once hilos 100000..100010, 833 (el 85%) tienen desfase 0
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): guardarhilos.py
+NOTAS DE LA BASE (contexto y correcciones previas): 275 de los 1.258 cruces son la cola comun [16,8,4,2,1] y no significan nada: hilos.db los marca con es_cola. Sin esa marca, el 100001 -que no se funde de verdad con nadie- pareceria tan conectado como el resto.

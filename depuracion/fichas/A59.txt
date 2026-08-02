@@ -1,0 +1,7 @@
+ITEM A59 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: no hay bucles de periodo <= 2.592 con la fuerza bruta que habia en 1976; con X0 = 2^71 el mismo argumento elemental llega a 114.208.327.603
+CUANTIFICADOR: ciclos
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976 (Tabla C, jump values); el X0 de hoy es Barina 2025
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): verificar_frontera_ciclos.py
+NOTAS DE LA BASE (contexto y correcciones previas): EL 2.592 ES CIFRA HISTORICA, NO LA FRONTERA, y esta fila lo presentaba como si lo fuera (corregido el 01-08-2026). La frontera se mueve con X0 y X0 ha crecido cincuenta anos: con X = 10^6 -un minuto de CPU en esta maquina- el mismo argumento ya alcanza periodo 4.700, casi el doble del 2.592; con el ~10^8 de Terras, 24.726; con el 2^62 de Oliveira e Silva, 10.439.860.590; y con el 2^71 de Barina, 114.208.327.603 pasos del atajo (186.265.759.593 clasicos). Recalculado en verificar_terras.py [6] y verificar_frontera_ciclos.py. LA CONCLUSION NO CAMBIA, CAMBIA POR CUANTO: el barrido de restos sigue muerto, pero no porque su rango sea teorema desde 1976 -lo es desde hoy y por mucho mas-, y para territorio virgen ya no bastaria k > 2592 sino k > 114.208.327.603, o sea 2^114208327603 restos. El barrido esta a nueve ordenes de magnitud del frente.

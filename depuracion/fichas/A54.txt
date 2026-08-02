@@ -1,0 +1,7 @@
+ITEM A54 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la altura de un punto sobre la esfera codifica el tamano del numero
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: refutado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Roto: correlacion latitud / log2(valor) = 0,12 en los 5.674 numeros de las ramas. La altura es la distancia real al 1, que es otra cosa. La esfera es envase, no resultado. FICHERO RETIRADO: collazarbol.py se borro en la purga del 01-08-2026, y este negativo es justamente la razon por la que se borro: la esfera la elegimos nosotros.

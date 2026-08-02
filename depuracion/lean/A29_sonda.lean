@@ -1,0 +1,19 @@
+-- sondas de nombres de lemas del nucleo (sin Mathlib)
+#check @Nat.pow_succ
+#check @Nat.pow_zero
+#check @Nat.mul_assoc
+#check @Nat.mul_comm
+#check @Nat.mul_left_comm
+#check @Nat.zero_add
+#check @Nat.add_comm
+#check @Nat.one_mul
+#check @Nat.mul_one
+#check @Nat.mul_add
+#check @Nat.mul_succ
+#check @Nat.succ_mul
+#check @Nat.div_add_mod
+#check @Nat.mul_pos
+#check @Nat.succ_add
+#check @Nat.mul_zero
+#check @Nat.lt_of_lt_of_le
+#check @Nat.le_add_left

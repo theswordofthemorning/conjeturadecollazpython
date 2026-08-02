@@ -1,0 +1,7 @@
+ITEM A15 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: T(2^k - n) = 2^(k-1) - T(n): en los pasos pares el espejo base 2 CONMUTA con Collatz
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (dos lineas de algebra)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: n par. 50.000 casos, 0 fallos. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026; la identidad es algebra de dos lineas y sobrevive sin el.

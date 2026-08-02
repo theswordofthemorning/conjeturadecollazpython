@@ -1,0 +1,7 @@
+ITEM A24 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: (8k+4, 8k+5) CONFLUYEN siempre en 3 pasos para todo k >= 0, y tienen la MISMA ALTURA para todo k >= 1
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Garner 1985
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): verificar_fusiones.py
+NOTAS DE LA BASE (contexto y correcciones previas): SON DOS ENUNCIADOS Y HAY QUE SEPARARLOS (01-08-2026). La CONFLUENCIA vale para todo k >= 0: los dos caen en 6k+4 en 3 pasos, gastando 2 pares y 1 impar cada uno; 200.000 casos, 0 fallos, y es una identidad algebraica, no una medida. EL COROLARIO DE MISMA ALTURA FALLA EN k = 0: altura(4) = 2 y altura(5) = 5, porque el 4 llega al 1 ANTES del paso 3 en el que se encontrarian. De k = 1 a k = 20.000, 0 fallos, asi que el enunciado de altura lleva k >= 1. Es exactamente el mismo agujero que el m >= 1 del criterio de clases, encontrado por dos caminos distintos el mismo dia. Rederivado desde el criterio: r = 4, k = 3 da T^3(4) = T^3(5) = 2 con S = 1 en los dos.

@@ -1,0 +1,7 @@
+ITEM A67 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el residuo de Roosendaal nunca baja de 1 ni sube de 1,253142144
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: conjeturado
+FUENTE DECLARADA: Roosendaal (el propio autor solo llego a 2^32)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): cruzarecords.py
+NOTAS DE LA BASE (contexto y correcciones previas): Los 243 records cruzados llegan a 2^71, asi que esto es EVIDENCIA NUEVA para su conjetura. Maximo hallado 1,2486 en n=9; confirmado que 4164943872 = 993*2^22 tiene el mismo residuo que el 993.

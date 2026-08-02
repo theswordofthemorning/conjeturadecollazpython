@@ -1,0 +1,7 @@
+ITEM A3 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: log2( altitud_atajo(n)/n ) >= racha(n) * log2(3/2)
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): pisoaltitud.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n >= 2, las dos paridades. ESTA es la version que hay que citar: sin el +1 y sin hipotesis de paridad. El +1 del enunciado clasico es log2(2) y aparece solo porque se mezcla la altitud de un mapa con la racha del otro.

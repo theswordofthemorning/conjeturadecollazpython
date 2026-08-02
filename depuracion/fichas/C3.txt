@@ -1,0 +1,7 @@
+ITEM C3 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: media geometrica por paso del atajo | valor_teorico=0.8660254037844386 | valor_medido=0.8643758 | error_rel=-0.19 | formula: sqrt(3)/2 | que mide: por cuanto multiplica de media cada paso del mapa del atajo
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio; es el modelo estandar
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Que sea menor que 1 dice 'en promedio bajan', y NO impide que exista una orbita que suba para siempre: seria un conjunto de medida cero. Prueba: 5n+1 tiene media 1,118 > 1 y aun asi tiene el ciclo del 13.

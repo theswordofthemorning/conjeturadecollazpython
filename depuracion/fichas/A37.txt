@@ -1,0 +1,7 @@
+ITEM A37 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: casi todas las orbitas de Collatz alcanzan valores casi acotados
+CUANTIFICADOR: casi_todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Tao 2019
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Casi todo n en densidad logaritmica. El resultado general mas fuerte que existe sobre la conjetura, y sigue sin tocarla.

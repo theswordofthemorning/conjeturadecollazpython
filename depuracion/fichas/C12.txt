@@ -1,0 +1,7 @@
+ITEM C12 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: grosor de la lamina del 221 | valor_teorico=0.228634911 | valor_medido=None | error_rel=None | formula: max sobre los 6.555 pares i<j de log2( 2^B * seq[j] / (3^A * seq[i]) ) | que mide: cuanto sobresalen del plano de equilibrio los pares de UNA trayectoria concreta, la del 221, medido en BITS
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): FICHERO RETIRADO: collazlamina.py se borro en la purga del 01-08-2026 porque la lamina media la geometria elegida a mano. Lo que se rescato antes de borrarlo es cotatramos.py, que se queda con la parte que si es teorema -C >= 0, o sea 2^B*seq[j] >= 3^A*seq[i] para todo par, y si el tramo baja entonces 2^B > 3^A-, pero NO recalcula este maximo. NO ES UNA COTA NI UNA CONSTANTE DEL PROBLEMA: mide el 221 y nada mas. El maximo se alcanza en el par (221 -> 16), que es la trayectoria entera del 221, asi que este numero es su propio eps en bits: 0,2286 bits = 0,158478 nats, o sea Res(221) = 2^73/(3^41*221) = 1,17173. Lo que si es cierto es la desigualdad: para cualquier par, h <= log2(Res(seq[i])), porque un producto parcial de factores (3x+1)/(3x) es menor que el total. Con la conjetura de Roosendaal eso acota todos los pares de todas las trayectorias por 0,325550 BITS.

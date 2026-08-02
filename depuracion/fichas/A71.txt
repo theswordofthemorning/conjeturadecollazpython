@@ -1,0 +1,7 @@
+ITEM A71 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la tupla mas larga de consecutivos con la misma altura bajo 2^30 mide 176, empezando en 722.067.240
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Wu Jia-Bang 1992
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Aqui se llego a 120 en 2^28: compatible con esa trayectoria de crecimiento, pero no la confirma. No llegamos.

@@ -1,0 +1,7 @@
+ITEM A30 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el ritmo de brotes del arbol inverso es periodico de periodo 2 segun v mod 3, los hijos ciclan con periodo 3 mod 9, y el patron completo se repite cada 18 duplicaciones (orden de 2 mod 27)
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio; la estructura mod 6 / mod 9 es estandar
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): mallascerradas.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: 200 rayos hasta k=44, 2.926 brotes, 0 fallos. EL MODULO AQUI ES 3^j, NO 2^k: mod 3 el ritmo de brotes, mod 9 la clase del hijo, mod 27 la rueda maestra. Es el mismo TIPO de objeto que las filas de Terras -una clase de resto que decide el comportamiento sin recorrer nada- y por eso la casilla se llama clase_residual desde el 01-08-2026 y no clase_mod_2k, que la nombraba mal. Y el limite de la rueda sigue en pie: gobierna la contabilidad del arbol HACIA ATRAS, no el destino hacia adelante, que sigue ciego a los restos.

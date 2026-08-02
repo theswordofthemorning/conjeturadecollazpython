@@ -1,0 +1,12 @@
+#check @Nat.mul_le_mul_left
+#check @Nat.mul_le_mul
+#check @Nat.le_max_left
+#check @Nat.le_max_right
+#check @Nat.pow_succ
+#check @Nat.mul_assoc
+#check @Nat.mul_comm
+#check @Nat.le_of_succ_le_succ
+#check @Nat.succ_lt_succ
+#check @Nat.le_trans
+#check @Nat.le_succ
+#check @Nat.le_zero

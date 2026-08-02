@@ -1,0 +1,7 @@
+ITEM A69 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: barrido de 2.147.483.646 restos (k = 1..30): los unicos supervivientes positivos son n = 1 y n = 2
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): pinzaciclos.py
+NOTAS DE LA BASE (contexto y correcciones previas): La prediccion estaba escrita antes de medir y se cumplio. Y NO SUBIR K_MAX: el rango alcanzable ya es teorema desde 1976.

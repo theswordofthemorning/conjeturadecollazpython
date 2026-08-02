@@ -1,0 +1,7 @@
+ITEM A70 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la densidad de pares con la misma altura, medida hasta 2^28 = 268.435.456
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Tabla int16 vectorizada por bloques, verificada contra la version lenta en los primeros 300.000: 0 discrepancias. FICHERO RETIRADO: densidadfusion.py se borro en la purga del 01-08-2026, asi que esto ya no se puede reproducir aqui. Y LA RACHA DE 120 EN 136.696.632 NO ES NUESTRA: es de Wu 1993 (MR 1277568), que barrio hasta 1,5e8 y la publico -136.696.632 < 1,5e8-. La redescubrimos, que no es lo mismo que descubrirla.

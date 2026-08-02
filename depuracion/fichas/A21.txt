@@ -1,0 +1,7 @@
+ITEM A21 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: dos consecutivos se funden para todos los infinitos m >= 1 de la clase exactamente cuando S_k(r) == S_k(r+1) y T^k(r) == T^k(r+1)
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio; Wu-Huang 2001 y Elia-Tucker 2015 lo enuncian casi textual
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): clasesfusion.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo k, todo r, y m >= 1. Comprobacion finita que vale para infinitos numeros. Verificado contra fuerza bruta en 9.672 pares, 0 fallos. Y es la regla R3 de la criba industrial de Barina, que le ahorra 18%. EL m >= 1 NO ES ADORNO (01-08-2026): en m = 0 el criterio es falso -(5,6) da alturas 5 y 8, y (4,5) da 2 y 5- y fallan exactamente 3 clases, r = 2, 4 y 5, estables de k=5 a k=22. Nadie lo vio porque la fuerza bruta de clasesfusion.py empieza en range(1, 40), o sea que por construccion no podia ver el unico m que rompe. La cota del 43,57% no se mueve.

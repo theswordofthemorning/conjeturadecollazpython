@@ -1,0 +1,7 @@
+ITEM C19 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: techo heuristico del tiempo de descenso | valor_teorico=32.5896 | valor_medido=26.79 | error_rel=None | formula: (1 + log_3 2) / (1 - H) para el mapa clasico; 1/(1-H) = 19,98 para el atajo | que mide: a cuanto tenderia sigma_max(k)/k, o sea la C de una hipotetica cota sigma(n) <= C*log2(n)
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): SALE DE UN MODELO DE DENSIDAD, o sea de un promedio: no demuestra que la cota exista. El valor medido de la columna es el cociente de los records publicados a 61 bits (1639/61,2), que sube despacio hacia ese techo sin llegar. Si la cota existiera y se demostrara, la conjetura saldria por induccion fuerte en tres lineas: por eso es el numero mas sugerente del laboratorio y el mas peligroso.

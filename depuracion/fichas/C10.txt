@@ -1,0 +1,7 @@
+ITEM C10 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: residuo de Roosendaal Res(993) | valor_teorico=1.253142144395068 | valor_medido=None | error_rel=None | formula: 2^61 / (3^32 * 993) | que mide: el maximo conocido de 2^B/(3^A*n), o sea el techo del grosor de la lamina
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Roosendaal (conjeturado)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): elmasuno.py
+NOTAS DE LA BASE (contexto y correcciones previas): ES CONJETURA, NO TEOREMA: Roosendaal lo verifico hasta 2^32, y cruzarecords.py lo comprobo hasta 2^71 sobre los 243 records. Y OJO CON LA CONSTANTE LITERAL: mapahilos.py guarda 1.2531421442887503, que esta mal desde la decima cifra. El exacto es 2^61/(3^32*993).

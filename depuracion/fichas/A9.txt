@@ -1,0 +1,7 @@
+ITEM A9 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el rumbo de una rama del coral solo depende de (A,B): rumbo = A*giro_impar + B*giro_par
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (los giros conmutan)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: las 730 parejas (A,B) medidas, 0 con rumbo ambiguo. Los rumbos del coral SON la malla (A,B) pasada a angulos. FICHERO RETIRADO: coralcollaz.py se borro en la purga del 01-08-2026 porque media el angulo elegido a mano y no Collatz -el cierre lo pone el angulo-. El enunciado es trivialmente cierto (los giros conmutan) y no depende del dibujo. Del coral solo sobrevive coralprimos.py, que mide el umbral de choque contra N.

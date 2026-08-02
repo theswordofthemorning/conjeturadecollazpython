@@ -1,0 +1,7 @@
+ITEM A43 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la desviacion de la fraccion impar NO se encoge como 1/sqrt(N): es sesgo de la muestra y se va agrandando la SEMILLA
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): |desv|*sqrt(N) va 1,45 -> 1,05 -> 1,76 -> 3,62 -> 13,02 de 10^3 a 10^7 pasos: firma de sesgo fijo. Pero con la semilla: -0,0044 a 16 bits y -0,0007 a 256. Collatz converge a la moneda justa agrandando la semilla, no acumulando tiradas.

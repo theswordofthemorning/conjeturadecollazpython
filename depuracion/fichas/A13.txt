@@ -1,0 +1,7 @@
+ITEM A13 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el espejo en base 2 baja estrictamente, luego toda orbita cae en una potencia de 2
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (una linea de algebra)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n >= 1. Es el analogo DEMOSTRADO de 'todo cae en el 1'. De 1 a 100.000: largos de ciclo {1: 100000}, ni un solo 2-ciclo. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026 -media el circulo y el modulo elegidos a mano, no Collatz-, y el enunciado se demuestra en una linea sin el: si 2^(k-1) < n < 2^k entonces 2^k - n < 2^(k-1).

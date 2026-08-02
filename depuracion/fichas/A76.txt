@@ -1,0 +1,7 @@
+ITEM A76 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la identidad de Terras aguanta en los 6.555 pares de la trayectoria del 221, 0 fallos
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): collazmalla.py
+NOTAS DE LA BASE (contexto y correcciones previas): El 221 tiene 73/41 = 1,78 divisiones por multiplicacion, o sea que cae. Un ciclo con A=41 necesitaria B=65: le sobran 8 divisiones, que son el mismo +8,02 de desviacion medido.

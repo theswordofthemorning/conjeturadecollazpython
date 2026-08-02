@@ -1,0 +1,7 @@
+ITEM A41 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: B/A converge a 2, no a log2(3): la valuacion 2-adica media de 3n+1 vale 2
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): 4.041.132 saltos, medido 1,99048. El log2(3) = 1,585 es el punto de EQUILIBRIO, no el valor tipico. Y el estimador correcto es el agregado suma(B)/suma(A): la media de razones da 2,174 por Jensen.

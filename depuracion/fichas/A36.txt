@@ -1,0 +1,7 @@
+ITEM A36 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la condicion X/N < L, con L = log(2)/log(10/3) = 0,57571664249344500 y N = pasos del ATAJO, garantiza la bajada
+CUANTIFICADOR: casi_todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Everett 1977
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): verificar_everett.py
+NOTAS DE LA BASE (contexto y correcciones previas): LA TRADUCCION QUE ESTABA AQUI ERA FALSA, corregida el 01-08-2026. La N de Everett son pasos del ATAJO, y en el atajo cada paso impar contiene un 3n+1 y una division, luego X = A y N = B (comprobado en los 29.998 casos de n = 2..30.000). La condicion es B/A > 1/L = log2(10/3) = 1,73696559416620616641, que es MAS FUERTE que log2(3), no mas floja. El B/A > 0,7369 que decia antes es falso: 17.433 numeros de 3 a 20.000 lo cumplen en algun N sin haber bajado, y el mas chico es el 3. Y OJO, porque log2(3) TAMPOCO garantiza el descenso: n = 7 con A=5, B=8 da B/A = 1,6 > 1,585 y llega a 8, que es mayor que 7; lo impide C > 0 en la identidad del propio repo. La desigualdad de fondo, en forma entera y sin un float: 1.225.964 comprobaciones, 0 fallos, holgura minima 0 (igualdad en m = 3).

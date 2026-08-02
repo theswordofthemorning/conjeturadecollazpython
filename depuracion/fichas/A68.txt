@@ -1,0 +1,7 @@
+ITEM A68 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el maximo de eps hasta 200.000 esta en 993 y sus dobles
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): elmasuno.py
+NOTAS DE LA BASE (contexto y correcciones previas): Barrido de 2 a 200.000 comparando enteros en cruz, sin floats. Vale ln(1,253142144) = 0,225654. El 0,23 de grosor de la lamina no salio de nuestro dibujo: es una constante con conjetura propia.

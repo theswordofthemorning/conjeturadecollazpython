@@ -1,0 +1,7 @@
+ITEM A23 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: N(k+1) >= 2*N(k) siempre, luego la fraccion f(k) es monotona
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): clasesfusion.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo k >= 3. La monotonia NO se verifica: se demuestra en tres lineas. Si r es buena mod 2^k, r y r+2^k son las dos buenas mod 2^(k+1). Presentarla como hallazgo empirico fue un error, corregido.

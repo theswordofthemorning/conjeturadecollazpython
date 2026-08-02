@@ -1,0 +1,7 @@
+ITEM A50 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el puente del espejo base 2 llega mas alla de un paso
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: refutado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Roto: correlacion +0,06, todavia menos que el +0,08 de base 10. Un paso: identidad exacta. Dos pasos: ruido. El +2 se acumula al iterar y borra la relacion. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026.

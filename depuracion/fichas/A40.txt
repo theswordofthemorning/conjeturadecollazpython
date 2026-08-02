@@ -1,0 +1,7 @@
+ITEM A40 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: las constantes de parada existen y se recuperan: Wagon 9,4779, la escalera 1:2:3 de k/ln(4/3), y la media geometrica sqrt(3)/2
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Wagon (OEIS A122790); Lagarias, Applegate-Lagarias
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Trayectorias hasta 10^7, errores del 0,06% al 0,42%. Los valores estan en la tabla constantes, y desde el 01-08-2026 cada uno con SU estimador: las tres de parada son pendiente de regresion, la de Wagon es muestreo, y el B/A de al lado es agregado a 10^6. Mezclarlos en una columna 'medido' fue el error. Ninguna demuestra nada: son promedios. Y las tres de parada no son tres: son gamma(rho) = 1/(ln2 - rho*ln3) evaluada en rho = 1/2, en proporcion rho : 1 : 1+rho.

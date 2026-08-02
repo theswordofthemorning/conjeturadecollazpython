@@ -1,0 +1,7 @@
+ITEM A7 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: con la regla clasica dos pasos impares nunca van seguidos: P(impar | impar) = 0 exacto
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (elemental: 3n+1 es par)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): mallaresiduos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n, mapa clasico. Medido en 3,3 millones de oportunidades. Es la prohibicion que genera los Fibonacci, y no se metio a mano.

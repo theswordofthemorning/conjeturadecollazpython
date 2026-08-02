@@ -1,0 +1,7 @@
+ITEM A52 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: alguna constante de Collatz coincide con alguna constante fundamental
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: refutado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Roto con modelo nulo: 9 constantes x 8 transformaciones contra 16 constantes adimensionales dan 1 coincidencia contra 0,394 esperadas, p = 0,317. Al corregir los tres defectos del nulo el p sube a 0,40-0,45: los errores empujaban A FAVOR de la senal. Control definitivo: el metodo no distingue Collatz de reglas qn+1 (p=0,264).

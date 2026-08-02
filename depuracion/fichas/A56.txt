@@ -1,0 +1,7 @@
+ITEM A56 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: no hay m-ciclos de Collatz con m <= 91, donde m = numero de minimos locales del ciclo
+CUANTIFICADOR: ciclos
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Hercher 2023, J. Integer Sequences 26, art. 23.3.5
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): reimpl.py
+NOTAS DE LA BASE (contexto y correcciones previas): Reproducido aqui desde cero: los siete m_2 y las siete cotas de K salen identicos a los publicados, en 5,5 segundos y sin un solo float en las decisiones. Mejora el m >= 76 de Simons-de Weger. Dos discrepancias de impresion, que el programa mide y no oculta.

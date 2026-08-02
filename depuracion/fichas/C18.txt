@@ -1,0 +1,7 @@
+ITEM C18 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: exponente de la criba industrial | valor_teorico=0.9499555271883305 | valor_medido=0.9477 | error_rel=-0.237 | formula: H(log_3 2), la entropia binaria de log_3(2) | que mide: como escala la densidad de supervivientes de la criba: 2^(-(1-H)*k)
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Barina 2025
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): ES EL LIMITE ASINTOTICO, NO EL VALOR LOCAL. El valor medido de la columna es la pendiente en k = 640..1280; en el rango real de la criba (k = 34) la pendiente es 0,892 y el decaimiento 0,108, o sea que la densidad cae al DOBLE de velocidad que el 2^(-0,05k) que cita el CLAUDE.md. Y aparte: reduccion no es aceleracion, un factor 138x de criba produjo solo 5,94x de velocidad porque los supervivientes son justamente los caros.

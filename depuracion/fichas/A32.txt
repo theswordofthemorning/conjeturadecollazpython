@@ -1,0 +1,7 @@
+ITEM A32 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la malla de restos acierta el arranque de los 173 numeros del 221 y del 1276, 0 fallos
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): 64 restos contra 173 numeros. Calculada sin mirar el 221 ni una vez: cada resto usa un representante ajeno a las trayectorias. FICHERO RETIRADO: cruzarestos.py se borro en la purga del 01-08-2026 porque lo que dibujaba era la malla circular elegida a mano. La regla de fondo -los primeros k pasos los decide n mod 2^k- sigue viva y comprobada en mallaresiduos.py; lo que ya no se puede reproducir es el cruce concreto contra el 221 y el 1276.

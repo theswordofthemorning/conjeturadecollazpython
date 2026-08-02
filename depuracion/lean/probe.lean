@@ -1,0 +1,14 @@
+#check @Nat.pow_succ
+#check @Nat.pow_zero
+#check @Nat.add_mul
+#check @Nat.add_left_cancel
+#check @Nat.add_right_cancel
+#check @Nat.eq_of_mul_eq_mul_left
+#check @Nat.mul_div_cancel_left
+#check @Nat.sub_mul
+#check @Nat.div_add_mod
+#check @if_pos
+#check @if_neg
+#check @Nat.mul_comm
+#check @Nat.mul_assoc
+#check @Nat.add_assoc

@@ -1,0 +1,7 @@
+ITEM A31 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: los evitados de la malla 2n mod 27 son exactamente los multiplos de 3, y predicen que rayos del arbol son mudos
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): mallascerradas.py
+NOTAS DE LA BASE (contexto y correcciones previas): 200 rayos impares, 67 predichos mudos, 0 fallos. Una malla calculada sin mirar Collatz ni una vez predice Collatz sin volver a calcular Collatz. El modulo es 27 = 3^3, no 2^k: la otra fila de la base que obligo a renombrar la casilla. FICHERO CAMBIADO: esto lo citaba guardarmallas.py, que persistia las once mallas en mallas/*.json y se borro en la purga del 01-08-2026 junto con los JSON -la coleccion media el modulo elegido a mano-. La medicion sobrevive entera en mallascerradas.py, que calcula el aro de 2 mod 27, comprueba que evita exactamente los multiplos de 3 y cruza eso contra los rayos mudos del arbol; lo unico que se perdio es la capa de disco.

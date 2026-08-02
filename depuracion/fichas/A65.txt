@@ -1,0 +1,7 @@
+ITEM A65 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el espejo base 10 tiene 44.450 ciclos distintos bajo 100.000, y Collatz tiene UNO
+CUANTIFICADOR: ciclos
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): El A/B de control, y su valor es justo que salgan distintos: la maquinaria discrimina. Lo que dibuja depende de lo que se le mete, no de como dibuja. FICHERO RETIRADO: mallaespejo.py se borro en la purga del 01-08-2026 -media el circulo elegido a mano-, asi que estos conteos ya no se pueden reproducir. El principio del A/B se queda; el ejemplo concreto, no.

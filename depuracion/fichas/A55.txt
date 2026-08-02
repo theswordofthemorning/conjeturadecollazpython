@@ -1,0 +1,7 @@
+ITEM A55 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el 221 prefiere ciertos restos mod 64
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: refutado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Roto: pisa 55 de 64 y el puro azar daria 53,5. Diferencia +1,5. Los 9 restos que nunca pisa no tienen nada en comun. El destino hacia adelante es ciego a los restos. FICHERO RETIRADO: cruzarestos.py se borro en la purga del 01-08-2026; el negativo se queda porque es uno de los que mas ahorra -impide volver a buscar estructura ahi-.

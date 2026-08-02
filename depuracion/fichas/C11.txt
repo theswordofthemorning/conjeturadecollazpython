@@ -1,0 +1,7 @@
+ITEM C11 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: techo del grosor, ln(Res(993)) | valor_teorico=0.2256541127319812 | valor_medido=None | error_rel=None | formula: ln( 2^61 / (3^32 * 993) ) | que mide: cuanto se separa como maximo un punto de la lamina del plano de equilibrio, medido en NATS sobre trayectorias enteras
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Roosendaal (conjeturado)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): elmasuno.py
+NOTAS DE LA BASE (contexto y correcciones previas): OJO CON LAS UNIDADES, QUE AQUI HUBO UN ERROR HASTA EL 01-08-2026. Este numero esta en NATS. El 0,2286 de collazlamina.py, que estaba puesto en la columna 'medido' de esta misma fila como si fuera lo mismo, esta en BITS y ademas se mide sobre PARES de la trayectoria del 221, no sobre trayectorias enteras. En las mismas unidades: 0,2286 bits = 0,158478 nats contra 0,225654 nats. No se parecen: difieren en un factor 1,42. Que eps sea > 0 esta demostrado (elmasuno.py); que este ACOTADO por este numero sigue siendo la conjetura de Roosendaal.

@@ -1,0 +1,7 @@
+ITEM C16 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: cota inferior demostrada de la densidad de fusion | valor_teorico=0.4356581771280617 | valor_medido=None | error_rel=None | formula: a(32) / 2^32 = 1871137623 / 2^32 | que mide: que fraccion de los pares consecutivos tienen la misma altura POR RAZON DE RESTO, decidido mirando solo n mod 2^32
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): clasesfusion.py
+NOTAS DE LA BASE (contexto y correcciones previas): Este NO es un promedio: es una cota inferior exacta, sin muestreo ni ajuste. La densidad real medida a 2^28 es 0,5186, y la diferencia de unos diez puntos son los pares que se funden pero cuya clase no se funde entera.

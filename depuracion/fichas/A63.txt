@@ -1,0 +1,7 @@
+ITEM A63 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el unico ciclo positivo, escrito con la identidad del repo, es 2^2 = 3^1 + 1, o sea 4 = 3 + 1
+CUANTIFICADOR: ciclos
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): collazmalla.py
+NOTAS DE LA BASE (contexto y correcciones previas): A=1, B=2, C=1. De los 95 candidatos enteros positivos que aparecieron, los 95 ciclan de verdad y son n en {1,2,4} dando 1, 2 o 3 vueltas. Cero impostores.

@@ -1,0 +1,7 @@
+ITEM A33 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: a(k) >= 1 para todo k: el resto 2^k - 1 sobrevive siempre a la criba de Brown/Terras, luego la criba NUNCA se vacia
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): Demostracion de una linea: el resto que en binario son todos unos da S_j = j en todos los pasos, y 3^j > 2^j siempre. ES EL MURO ESTRUCTURAL DE CRIBAR POR RESTOS: se puede llegar a 'casi todos' con la densidad que se quiera, nunca a 'todos', para ningun k. Detalle que cierra el circulo: 2^k - 1 es justo el numero que sube k veces seguidas, y el unico objeto que lo hace para TODO k es -1, que es uno de los ciclos negativos.

@@ -1,0 +1,7 @@
+ITEM A28 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el mapa RESTO -> VECTOR DE PARIDAD es una biyeccion Z/2^k -> {0,1}^k, luego no hay descarte EN BLOQUE de clases para buscar ciclos
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): verificar_constantes.py
+NOTAS DE LA BASE (contexto y correcciones previas): AQUI PONIA 'T^k es una BIYECCION sobre Z/2^k' Y ESO ES FALSO AL PIE DE LA LETRA (corregido el 01-08-2026). T^k ni siquiera esta bien definida modulo 2^k: con k = 1 los restos 0 y 2 son la misma clase y T(0) = 0 mientras T(2) = 1. Y T tampoco es inyectiva sobre Z: T(1) = T(4) = 2. Lo verdadero es la biyeccion resto <-> vector de paridad, comprobada exhaustiva de k = 1 a k = 16 en verificar_constantes.py [6]: el vector depende solo del resto (0 fallos) y el mapa es biyectivo (0 fallos, 2^16 vectores distintos). LA CONCLUSION ESTRATEGICA SE SALVA ENTERA porque solo usaba esa version -hay 2^k clases y una por vector, luego ninguna comparte destino con otra-, y eso fue suerte: las dos frases estaban juntas y la que trabajaba era la buena. SEGUNDO MATIZ: decir 'no hay clases que descartar' tambien se pasa de fuerte. Las hay, y pinzaciclos.py descarta casi todas; lo que no hay es descarte en bloque, cada clase exige su propia decision aunque sea O(1), y por eso el coste es Theta(2^k) y no menos.

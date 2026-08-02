@@ -1,0 +1,7 @@
+ITEM A75 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: las 98 altitudes y los 148 retrasos publicados se recalculan desde cero con enteros exactos: 0 discrepancias
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): cruzarecords.py
+NOTAS DE LA BASE (contexto y correcciones previas): Los 243 records de Roosendaal y Barina. La lista de n de los records de altitud, Barina contra OEIS: 98/98 identicos. Trampa que costo tiempo: Barina publica la altitud en el mapa del ATAJO, y la clasica es exactamente el doble.

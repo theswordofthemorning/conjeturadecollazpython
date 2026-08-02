@@ -1,0 +1,7 @@
+ITEM A4 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: eps = ln( 2^B / (3^A * n) ) es identicamente igual a la suma de ln(1 + 1/(3x)) sobre los impares de la trayectoria
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): elmasuno.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n >= 1. El grosor de la lamina y el sobrante de la fraccion impar son el MISMO numero en dos coordenadas. 20.011 casos en racionales exactos, 0 fallos. El residuo 1,7e-7 que se habia medido era ruido de coma flotante, no del enunciado.

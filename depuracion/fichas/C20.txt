@@ -1,0 +1,7 @@
+ITEM C20 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: coral: divisiones por multiplicacion | valor_teorico=1.7320508075688772 | valor_medido=1.732 | error_rel=-0.003 | formula: ninguna: es una medicion sobre el arbol, no una formula | que mide: cuantos pasos pares por cada impar hay en el arbol inverso dibujado por el coral
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): FICHERO RETIRADO: coralcollaz.py se borro en la purga del 01-08-2026 (media el angulo elegido a mano), asi que este numero ya no tiene codigo detras en el repo. NO ES UNA CONSTANTE. El 1,7345 que se publico era el valor de una MUESTRA a HASTA = 3.000; se asienta en 1,7320 +/- 0,0003 y la cuarta cifra nunca fue estable. Que caiga a 0,02% de sqrt(3) es CASUAL: la descomposicion del valor lo dice. El valor teorico de esta fila es sqrt(3) puesto solo para poder comparar, no porque lo sea.

@@ -1,0 +1,7 @@
+ITEM A5 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: eps > 0 siempre, y vale 0 exactamente en las potencias de 2
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): elmasuno.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n >= 1. Cada factor (1+1/(3x)) es > 1 con x entero positivo, luego el producto es > 1. collazlamina.py -retirado en la purga del 01-08-2026- lo habia MEDIDO en 6.555 pares; ahora esta demostrado en una linea para todos los n. Cuidado con el borde: sobre trayectorias enteras Res(n) = 2^B/(3^A*n) >= 1 NO es estricta, vale 1 clavado en las potencias de 2 -que no tienen ni un paso impar- y solo en ellas.

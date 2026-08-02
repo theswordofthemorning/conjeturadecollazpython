@@ -1,0 +1,7 @@
+ITEM C6 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: constante de parada CLASICA | valor_teorico=10.428178490346623 | valor_medido=10.39057 | error_rel=-0.36 | formula: 3/ln(4/3) | que mide: cuantos pasos del mapa clasico 3n+1 por cada unidad de ln(n)
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Lagarias, Applegate-Lagarias
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): MEDIDA COMO PENDIENTE DE REGRESION a 10^7. Con el otro estimador NO sale: el agregado no converge a 10,428 en ningun rango alcanzable, porque la recta tiene intercepto -1,73 pasos que solo se diluye como 1/ln(n) -a 10^6 el agregado da 10,25588 y sigue subiendo lentisimo-. Con termino aditivo el estimador correcto es la pendiente, no el cociente de sumas.

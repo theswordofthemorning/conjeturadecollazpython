@@ -1,0 +1,7 @@
+ITEM A34 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: los supervivientes de la criba tienen densidad -> 0 pero cardinal -> infinito, del orden de 2^(0,95k). La criba compra densidad, no compra cobertura
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): Medida cero, cardinal infinito. Un contraejemplo de la conjetura tendria que vivir justo en el conjunto que la criba no ve, y ese conjunto nunca se queda vacio. Es el mismo muro de pinzaciclos.py por otra puerta: alli el barrido de restos no podia encontrar ciclos porque cada clase es un candidato distinto; aqui no puede cerrar el descenso porque siempre queda clase viva.

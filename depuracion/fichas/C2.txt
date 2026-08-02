@@ -1,0 +1,7 @@
+ITEM C2 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: hermana de Wagon (conteo reducido) | valor_teorico=3.492651852186425 | valor_medido=3.49031 | error_rel=-0.067 | formula: el mismo tiempo de caida contando solo los pasos impares | que mide: la version del tiempo de caida con el conteo reducido
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Wagon
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): DOS AVISOS (01-08-2026). (1) NO ES UNA CONSTANTE INDEPENDIENTE: E[unos] = E[sigma]/2 por el teorema del paro opcional de Doob sobre la biyeccion de Terras -los bits de paridad son monedas justas y sigma es un tiempo de paro-, o sea que esta fila y la de Wagon son la misma medicion dividida por dos. Media de pasos del atajo 3,492651852186424912, media de pasos impares 1,746325926093212456. (2) EL 3,49031 DE LA COLUMNA 'medido' ES UN NUMERO SIN EXPLICAR: ninguna definicion probada lo reproduce -la natural da 3,490781, solo impares 5,981561, contando unos 1,745155, clasico sobre todos 5,235936-. Viene de la sesion del 30-07-2026, que no dejo ficheros. No se borra: se marca.

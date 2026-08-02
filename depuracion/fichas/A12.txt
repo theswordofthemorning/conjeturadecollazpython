@@ -1,0 +1,7 @@
+ITEM A12 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: n + espejo(n) = 10^k, exacto y siempre
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (recreativa elemental)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n >= 1, base 10. Cero grados de libertad: al plotear (n, espejo(n)) cada decada cae exacta sobre la recta x + y = 10^k. FICHERO RETIRADO: mallaespejo.py se borro en la purga del 01-08-2026. Lo que dibujaba era el circulo y el modulo elegidos a mano; la identidad es de definicion y no necesita fichero.

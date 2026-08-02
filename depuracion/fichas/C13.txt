@@ -1,0 +1,7 @@
+ITEM C13 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: L de Everett | valor_teorico=0.5757166424934449 | valor_medido=None | error_rel=None | formula: log(2) / log(10/3) | que mide: la fraccion de pasos impares del ATAJO por debajo de la cual Everett garantiza la bajada
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Everett 1977
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): verificar_everett.py
+NOTAS DE LA BASE (contexto y correcciones previas): TRADUCCION CORREGIDA EL 01-08-2026, y la de antes era falsa. Aqui decia 'B/A > 0,7369', y el bueno es B/A > 1/L = log2(10/3) = 1,73696559416620616641: MAS FUERTE que log2(3), no mas flojo. El 0,7369 es literalmente 1/L - 1, que es la marca algebraica de haber sumado un paso de mas al denominador (poner N = A+B en vez de N = B). Y log2(3) no es 'el umbral verdadero': no garantiza el descenso (n = 7 sube a 8). El hueco entre los dos tiene forma cerrada, log2(10/9) = 0,15200309, y es el precio exacto de usar 5/3 en vez de 3/2.

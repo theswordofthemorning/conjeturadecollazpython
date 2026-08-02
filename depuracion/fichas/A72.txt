@@ -1,0 +1,7 @@
+ITEM A72 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el coral de Harriss (45 rumbos) choca por primera vez en la profundidad 31 del arbol inverso
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): coralprimos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Profundidad <= 200, aritmetica entera exacta contra Phi_45. EL 0% DE ENCIMADAS ERA FALSO: solo valia hasta 3.000 semillas. Por semillas el primer choque esta en HASTA = 10.452; por arbol inverso completo, en la profundidad 31. Los dos umbrales son distintos y los dos ciertos.

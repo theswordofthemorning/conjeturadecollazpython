@@ -1,0 +1,7 @@
+ITEM A74 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: con N primo la clave del reticulo y la clave cruda dan el mismo umbral, sin una sola excepcion
+CUANTIFICADOR: verificado_hasta
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): coralprimos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Los primos entre 20 y 70. Es la unica mitad de la prediccion que se confirmo: con N primo el reticulo es solo (1,1,...,1) y ninguna relacion no trivial ayuda nunca. La otra mitad -que el umbral se disparara- fallo.

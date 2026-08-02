@@ -1,0 +1,7 @@
+ITEM A6 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: un numero tiene dos padres en el arbol si y solo si deja resto 4 al dividirlo entre 6; el segundo padre es (v-1)/3
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: regla estandar de la literatura
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo v >= 1. La trayectoria del 221 tiene 50 vortices en sus 115 numeros. FICHERO RETIRADO: collazarbol.py se borro en la purga del 01-08-2026 porque lo que dibujaba era la esfera elegida a mano, no Collatz -el 4 se excluia ahi por decision de dibujo, no de aritmetica: su otro padre es el 1, que ya es el arranque del tronco-. La regla en si no depende del dibujo y sigue en pie; quien sigue trabajando con el arbol inverso es mallascerradas.py.

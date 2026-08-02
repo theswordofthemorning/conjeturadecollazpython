@@ -1,0 +1,7 @@
+ITEM A47 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: desde la densidad sola, sin mirar ningun numero, el modelo predice planeo 1613 a 60 bits; el record publicado es 1614
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): Es la validacion que le da credito al modelo del techo 32,59: la prediccion viene de contar clases supervivientes y el dato es un maximo sobre numeros de verdad, asi que no tenian por que cuadrar. Cuadran mejor de lo que merecen. Sigue siendo un promedio prediciendo un extremo: coincidir una vez no lo convierte en cota.

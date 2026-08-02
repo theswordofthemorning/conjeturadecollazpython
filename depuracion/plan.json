@@ -1,0 +1,1156 @@
+{
+ "items": {
+  "A1": {
+   "id": "A1",
+   "tabla": "afirmaciones",
+   "enunciado": "2^B * seq[j] = 3^A * seq[i] + C para cualquier par de posiciones i < j de una trayectoria, con C -> 3C + 2^B en los pasos impares",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "collazmalla.py",
+   "fuente": "Terras 1976 (Teorema 1.1)",
+   "notas": "Ambito: cualquier par i<j de cualquier trayectoria. Es la identidad madre del repo. Terras la publica como T^k n = lambda_k*n + rho_k; multiplicando por 2^k queda esta. 6.555 pares del 221, 0 fallos."
+  },
+  "A2": {
+   "id": "A2",
+   "tabla": "afirmaciones",
+   "enunciado": "log2( altitud(n)/n ) >= racha(n) * log2(3/2) + 1",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "pisoaltitud.py",
+   "fuente": "propio",
+   "notas": "Ambito: n IMPAR. Sin esa hipotesis es FALSO. Se decide en enteros, alt*2^r >= 2*n*3^r, sin un solo float: 99.999 casos, 0 fallos. La racha no PREDICE la altitud, le pone un piso. Cota si, tendencia no."
+  },
+  "A3": {
+   "id": "A3",
+   "tabla": "afirmaciones",
+   "enunciado": "log2( altitud_atajo(n)/n ) >= racha(n) * log2(3/2)",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "pisoaltitud.py",
+   "fuente": "propio",
+   "notas": "Ambito: todo n >= 2, las dos paridades. ESTA es la version que hay que citar: sin el +1 y sin hipotesis de paridad. El +1 del enunciado clasico es log2(2) y aparece solo porque se mezcla la altitud de un mapa con la racha del otro."
+  },
+  "A4": {
+   "id": "A4",
+   "tabla": "afirmaciones",
+   "enunciado": "eps = ln( 2^B / (3^A * n) ) es identicamente igual a la suma de ln(1 + 1/(3x)) sobre los impares de la trayectoria",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "elmasuno.py",
+   "fuente": "propio",
+   "notas": "Ambito: todo n >= 1. El grosor de la lamina y el sobrante de la fraccion impar son el MISMO numero en dos coordenadas. 20.011 casos en racionales exactos, 0 fallos. El residuo 1,7e-7 que se habia medido era ruido de coma flotante, no del enunciado."
+  },
+  "A5": {
+   "id": "A5",
+   "tabla": "afirmaciones",
+   "enunciado": "eps > 0 siempre, y vale 0 exactamente en las potencias de 2",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "elmasuno.py",
+   "fuente": "propio",
+   "notas": "Ambito: todo n >= 1. Cada factor (1+1/(3x)) es > 1 con x entero positivo, luego el producto es > 1. collazlamina.py -retirado en la purga del 01-08-2026- lo habia MEDIDO en 6.555 pares; ahora esta demostrado en una linea para todos los n. Cuidado con el borde: sobre trayectorias enteras Res(n) = 2^B/(3^A*n) >= 1 NO es estricta, vale 1 clavado en las potencias de 2 -que no tienen ni un paso impar- y solo en ellas."
+  },
+  "A6": {
+   "id": "A6",
+   "tabla": "afirmaciones",
+   "enunciado": "un numero tiene dos padres en el arbol si y solo si deja resto 4 al dividirlo entre 6; el segundo padre es (v-1)/3",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "regla estandar de la literatura",
+   "notas": "Ambito: todo v >= 1. La trayectoria del 221 tiene 50 vortices en sus 115 numeros. FICHERO RETIRADO: collazarbol.py se borro en la purga del 01-08-2026 porque lo que dibujaba era la esfera elegida a mano, no Collatz -el 4 se excluia ahi por decision de dibujo, no de aritmetica: su otro padre es el 1, que ya es el arranque del tronco-. La regla en si no depende del dibujo y sigue en pie; quien sigue trabajando con el arbol inverso es mallascerradas.py."
+  },
+  "A7": {
+   "id": "A7",
+   "tabla": "afirmaciones",
+   "enunciado": "con la regla clasica dos pasos impares nunca van seguidos: P(impar | impar) = 0 exacto",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "mallaresiduos.py",
+   "fuente": "propio (elemental: 3n+1 es par)",
+   "notas": "Ambito: todo n, mapa clasico. Medido en 3,3 millones de oportunidades. Es la prohibicion que genera los Fibonacci, y no se metio a mano."
+  },
+  "A8": {
+   "id": "A8",
+   "tabla": "afirmaciones",
+   "enunciado": "los patrones de paridad alcanzables en k pasos del mapa clasico son F(k+2), los Fibonacci",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "mallaresiduos.py",
+   "fuente": "folklore: conteo de cadenas sin dos adyacentes",
+   "notas": "Ambito: k = 1..10, comprobado en los diez. k=4 -> 8 = F(6), k=6 -> 21 = F(8), k=8 -> 55 = F(10), k=10 -> 144 = F(12)."
+  },
+  "A9": {
+   "id": "A9",
+   "tabla": "afirmaciones",
+   "enunciado": "el rumbo de una rama del coral solo depende de (A,B): rumbo = A*giro_impar + B*giro_par",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "propio (los giros conmutan)",
+   "notas": "Ambito: las 730 parejas (A,B) medidas, 0 con rumbo ambiguo. Los rumbos del coral SON la malla (A,B) pasada a angulos. FICHERO RETIRADO: coralcollaz.py se borro en la purga del 01-08-2026 porque media el angulo elegido a mano y no Collatz -el cierre lo pone el angulo-. El enunciado es trivialmente cierto (los giros conmutan) y no depende del dibujo. Del coral solo sobrevive coralprimos.py, que mide el umbral de choque contra N."
+  },
+  "A10": {
+   "id": "A10",
+   "tabla": "afirmaciones",
+   "enunciado": "Collatz sobre los enteros negativos es exactamente el mapa 3m-1 sobre los positivos",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "estandar en la literatura",
+   "notas": "Ambito: todo m >= 1. 8.095.665 pasos comparados de 1 a 100.000, 0 fallos, con dos implementaciones que no comparten una linea. Sin fichero: se midio en scripts sueltos que no se guardaron."
+  },
+  "A11": {
+   "id": "A11",
+   "tabla": "afirmaciones",
+   "enunciado": "si n tarda S pasos, el numero de la posicion k tarda S-k; luego el de la posicion S/2 tarda S/2",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "propio (contabilidad, no patron)",
+   "notas": "Ambito: todo n con cantidad par de pasos. 10.011 numeros del 2 al 20.000, 0 excepciones. El 221 solo tuvo la suerte de tener 114 pasos, que es par. Esto mata el 'patron' de las notas a mano."
+  },
+  "A12": {
+   "id": "A12",
+   "tabla": "afirmaciones",
+   "enunciado": "n + espejo(n) = 10^k, exacto y siempre",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "propio (recreativa elemental)",
+   "notas": "Ambito: todo n >= 1, base 10. Cero grados de libertad: al plotear (n, espejo(n)) cada decada cae exacta sobre la recta x + y = 10^k. FICHERO RETIRADO: mallaespejo.py se borro en la purga del 01-08-2026. Lo que dibujaba era el circulo y el modulo elegidos a mano; la identidad es de definicion y no necesita fichero."
+  },
+  "A13": {
+   "id": "A13",
+   "tabla": "afirmaciones",
+   "enunciado": "el espejo en base 2 baja estrictamente, luego toda orbita cae en una potencia de 2",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "propio (una linea de algebra)",
+   "notas": "Ambito: todo n >= 1. Es el analogo DEMOSTRADO de 'todo cae en el 1'. De 1 a 100.000: largos de ciclo {1: 100000}, ni un solo 2-ciclo. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026 -media el circulo y el modulo elegidos a mano, no Collatz-, y el enunciado se demuestra en una linea sin el: si 2^(k-1) < n < 2^k entonces 2^k - n < 2^(k-1)."
+  },
+  "A14": {
+   "id": "A14",
+   "tabla": "afirmaciones",
+   "enunciado": "el espejo en base b tiene puntos fijos exactamente (b/2)*b^m si b es par, y NI UNO si b es impar",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Ambito: las 15 bases de 2 a 16, 200.000 numeros cada una, 0 fallos. Los 5, 50, 500 del base 10 no son peculiaridad del diez: son el caso b = 10. Y la base 2 es la unica donde puede haber teorema. FICHERO RETIRADO: espejobases.py se borro en la purga del 01-08-2026 con el resto de la familia del espejo. El enunciado sale de n = b^k/2, que es entero si y solo si b es par, y no depende de ningun dibujo."
+  },
+  "A15": {
+   "id": "A15",
+   "tabla": "afirmaciones",
+   "enunciado": "T(2^k - n) = 2^(k-1) - T(n): en los pasos pares el espejo base 2 CONMUTA con Collatz",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "propio (dos lineas de algebra)",
+   "notas": "Ambito: n par. 50.000 casos, 0 fallos. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026; la identidad es algebra de dos lineas y sobrevive sin el."
+  },
+  "A16": {
+   "id": "A16",
+   "tabla": "afirmaciones",
+   "enunciado": "T(2^k - n) = 3*2^k + 2 - T(n): en los impares casi conmuta, pero sobra un +2",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "propio (dos lineas de algebra)",
+   "notas": "Ambito: n impar, 50.000 casos, 0 fallos. Ese +2 es el +1 del 3n+1 arrastrado. Exacto para UN paso; al segundo se rompe. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026."
+  },
+  "A17": {
+   "id": "A17",
+   "tabla": "afirmaciones",
+   "enunciado": "sigma_clasico(n) = sigma_atajo(n) + (pasos impares dentro de ellos), exacto",
+   "cuantificador": "todo_n",
+   "estado": "demostrado",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "Ambito: todo n >= 2. Cada paso impar del atajo son dos pasos clasicos, y el valor intermedio 3n+1 es siempre MAYOR que n, asi que nunca puede ser el que dispara el descenso. Verificado en 5.012 numeros y en los 34 records de planeo publicados, 0 fallos. Es lo que permite cruzar el mapa del atajo (donde Terras es exacto) con los records de ericr.nl (que estan en el clasico)."
+  },
+  "A18": {
+   "id": "A18",
+   "tabla": "afirmaciones",
+   "enunciado": "los primeros k pasos de cualquier numero los decide n mod 2^k",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "mallaresiduos.py",
+   "fuente": "Terras 1976 / Everett 1977",
+   "notas": "Ambito: todo k >= 1. Tiene nombre: el vector de paridad. 64 restos x 12 representantes = 768 numeros, 0 discrepancias."
+  },
+  "A19": {
+   "id": "A19",
+   "tabla": "afirmaciones",
+   "enunciado": "biyeccion perfecta entre los 2^k restos y los 2^k patrones de paridad posibles",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "mallaresiduos.py",
+   "fuente": "Terras 1976 / Everett 1977",
+   "notas": "Ambito: SOLO el mapa del ATAJO, k = 1..10. Con la regla CLASICA no hay biyeccion: salen los Fibonacci. Los dos mapas no se pueden mezclar, y afirmar lo contrario fue un error que atrapo un SystemExit antes de dibujar nada."
+  },
+  "A20": {
+   "id": "A20",
+   "tabla": "afirmaciones",
+   "enunciado": "T^k(2^k*m + r) = 3^{S_k(r)} * m + T^k(r): una recta en m cuya pendiente y ordenada dependen SOLO del resto",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "clasesfusion.py",
+   "fuente": "Terras 1976 (Teorema 1.2)",
+   "notas": "Ambito: todo k, todo r < 2^k. De aqui salen las dos piezas mas utiles del repo: el criterio de fusion y la pinza de ciclos."
+  },
+  "A21": {
+   "id": "A21",
+   "tabla": "afirmaciones",
+   "enunciado": "dos consecutivos se funden para todos los infinitos m >= 1 de la clase exactamente cuando S_k(r) == S_k(r+1) y T^k(r) == T^k(r+1)",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "clasesfusion.py",
+   "fuente": "propio; Wu-Huang 2001 y Elia-Tucker 2015 lo enuncian casi textual",
+   "notas": "Ambito: todo k, todo r, y m >= 1. Comprobacion finita que vale para infinitos numeros. Verificado contra fuerza bruta en 9.672 pares, 0 fallos. Y es la regla R3 de la criba industrial de Barina, que le ahorra 18%. EL m >= 1 NO ES ADORNO (01-08-2026): en m = 0 el criterio es falso -(5,6) da alturas 5 y 8, y (4,5) da 2 y 5- y fallan exactamente 3 clases, r = 2, 4 y 5, estables de k=5 a k=22. Nadie lo vio porque la fuerza bruta de clasesfusion.py empieza en range(1, 40), o sea que por construccion no podia ver el unico m que rompe. La cota del 43,57% no se mueve."
+  },
+  "A22": {
+   "id": "A22",
+   "tabla": "afirmaciones",
+   "enunciado": "a(32) = 1.871.137.623 clases mod 2^32 se funden: cota inferior DEMOSTRADA del 43,5658% de los pares consecutivos",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "clasesfusion.py",
+   "fuente": "propio",
+   "notas": "Ambito: k <= 32. Confirmado por dos caminos independientes, el secuencial y el repartido por nucleos de clasesparalelo.py. No depende de muestreo ni de ajuste, y por eso es lo unico duro de esa seccion. La sucesion no esta en OEIS (28 consultas)."
+  },
+  "A23": {
+   "id": "A23",
+   "tabla": "afirmaciones",
+   "enunciado": "N(k+1) >= 2*N(k) siempre, luego la fraccion f(k) es monotona",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "clasesfusion.py",
+   "fuente": "propio",
+   "notas": "Ambito: todo k >= 3. La monotonia NO se verifica: se demuestra en tres lineas. Si r es buena mod 2^k, r y r+2^k son las dos buenas mod 2^(k+1). Presentarla como hallazgo empirico fue un error, corregido."
+  },
+  "A24": {
+   "id": "A24",
+   "tabla": "afirmaciones",
+   "enunciado": "(8k+4, 8k+5) CONFLUYEN siempre en 3 pasos para todo k >= 0, y tienen la MISMA ALTURA para todo k >= 1",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "verificar_fusiones.py",
+   "fuente": "Garner 1985",
+   "notas": "SON DOS ENUNCIADOS Y HAY QUE SEPARARLOS (01-08-2026). La CONFLUENCIA vale para todo k >= 0: los dos caen en 6k+4 en 3 pasos, gastando 2 pares y 1 impar cada uno; 200.000 casos, 0 fallos, y es una identidad algebraica, no una medida. EL COROLARIO DE MISMA ALTURA FALLA EN k = 0: altura(4) = 2 y altura(5) = 5, porque el 4 llega al 1 ANTES del paso 3 en el que se encontrarian. De k = 1 a k = 20.000, 0 fallos, asi que el enunciado de altura lleva k >= 1. Es exactamente el mismo agujero que el m >= 1 del criterio de clases, encontrado por dos caminos distintos el mismo dia. Rederivado desde el criterio: r = 4, k = 3 da T^3(4) = T^3(5) = 2 con S = 1 en los dos."
+  },
+  "A25": {
+   "id": "A25",
+   "tabla": "afirmaciones",
+   "enunciado": "(32m+5, 32m+6) se funden para todo m >= 1",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "guardarhilos.py",
+   "fuente": "Wu-Huang 2001, Mathematica Applicata (Wuhan) 14, supl., 21-25, MR 1885838 (LOCALIZADA el 01-08-2026)",
+   "notas": "Ambito: todo m >= 1; probado en m = 1,2,7,100,3125,9999,40000, todos con desfase 0. Nuestro par (100005, 100006) es el caso m = 3125. En m = 0 es FALSO: altura(5) = 5 y altura(6) = 8."
+  },
+  "A26": {
+   "id": "A26",
+   "tabla": "afirmaciones",
+   "enunciado": "si dos trayectorias se funden gastando los MISMOS pares y los MISMOS impares, entonces 2^r*k + n1 y 2^r*k + n2 se funden para todo k, siempre que r sea MAYOR que el numero de pasos pares del tramo",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "verificar_fusiones.py",
+   "fuente": "Garner 1985",
+   "notas": "TAL COMO ESTE REPO REPETIA EL G2 -'si dos trayectorias se funden, entonces 2^r*k + n1 y 2^r*k + n2 se funden para TODO k'- ERA FALSO. Le faltaban las dos hipotesis del enunciado, y sin ellas se rompe (01-08-2026, verificar_fusiones.py). (i) Con r = e, exactamente los pares del tramo, la propagacion falla en 9.954 de 62.400 casos; con r = e+1 va perfecta, 62.400 comprobados y 0 fallos. (ii) 'Fundirse' a secas no basta: hace falta encontrarse en el mismo indice y con las mismas cuentas. El contraejemplo bueno es el par (3, 20): los dos pasan por el 10 en el indice 1, pero uno gasta 1 impar y el otro 0, y 2^r*m + 3 contra 2^r*m + 20 da la misma altura en solo 2 de 40 valores de m, para r = 8, 10 y 12. Control con (4, 5), que si cumple las dos hipotesis: 40 de 40. Con las hipotesis puestas, una sola fusion sigue generando una progresion aritmetica infinita de fusiones, que es lo que produce los bloques de consecutivos con los mismos pasos. La forma del error es la de siempre aqui: un enunciado publicado, copiado sin sus cuantificadores."
+  },
+  "A27": {
+   "id": "A27",
+   "tabla": "afirmaciones",
+   "enunciado": "por cada resto mod 2^k hay COMO MUCHO UN candidato de ciclo, y sale en cerrado: m = (r - T^k(r)) / (3^{S(r)} - 2^k)",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "pinzaciclos.py",
+   "fuente": "propio (de la identidad de Terras)",
+   "notas": "Ambito: barrido entero de k = 1..30. Si m no es entero, la clase queda descartada para los infinitos numeros que contiene. Verificado contra iteracion cruda y contra una implementacion en Python puro."
+  },
+  "A28": {
+   "id": "A28",
+   "tabla": "afirmaciones",
+   "enunciado": "el mapa RESTO -> VECTOR DE PARIDAD es una biyeccion Z/2^k -> {0,1}^k, luego no hay descarte EN BLOQUE de clases para buscar ciclos",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "verificar_constantes.py",
+   "fuente": "Terras 1976",
+   "notas": "AQUI PONIA 'T^k es una BIYECCION sobre Z/2^k' Y ESO ES FALSO AL PIE DE LA LETRA (corregido el 01-08-2026). T^k ni siquiera esta bien definida modulo 2^k: con k = 1 los restos 0 y 2 son la misma clase y T(0) = 0 mientras T(2) = 1. Y T tampoco es inyectiva sobre Z: T(1) = T(4) = 2. Lo verdadero es la biyeccion resto <-> vector de paridad, comprobada exhaustiva de k = 1 a k = 16 en verificar_constantes.py [6]: el vector depende solo del resto (0 fallos) y el mapa es biyectivo (0 fallos, 2^16 vectores distintos). LA CONCLUSION ESTRATEGICA SE SALVA ENTERA porque solo usaba esa version -hay 2^k clases y una por vector, luego ninguna comparte destino con otra-, y eso fue suerte: las dos frases estaban juntas y la que trabajaba era la buena. SEGUNDO MATIZ: decir 'no hay clases que descartar' tambien se pasa de fuerte. Las hay, y pinzaciclos.py descarta casi todas; lo que no hay es descarte en bloque, cada clase exige su propia decision aunque sea O(1), y por eso el coste es Theta(2^k) y no menos."
+  },
+  "A29": {
+   "id": "A29",
+   "tabla": "afirmaciones",
+   "enunciado": "n = 2^k - 1 (mod 2^k) sube k veces seguidas; n = 0 (mod 2^k) baja k veces seguidas",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "mallaresiduos.py",
+   "fuente": "Terras 1976; es el Lema 8 de Hercher 2023",
+   "notas": "Ambito: todo k. No son estadisticas: son teoremas, y se escriben como un if. Con esto se fabrico 2^4000 - 1, que da 3.999 pasos impares seguidos. El unico objeto que sube SIEMPRE es -1, que es uno de los ciclos negativos."
+  },
+  "A30": {
+   "id": "A30",
+   "tabla": "afirmaciones",
+   "enunciado": "el ritmo de brotes del arbol inverso es periodico de periodo 2 segun v mod 3, los hijos ciclan con periodo 3 mod 9, y el patron completo se repite cada 18 duplicaciones (orden de 2 mod 27)",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "mallascerradas.py",
+   "fuente": "propio; la estructura mod 6 / mod 9 es estandar",
+   "notas": "Ambito: 200 rayos hasta k=44, 2.926 brotes, 0 fallos. EL MODULO AQUI ES 3^j, NO 2^k: mod 3 el ritmo de brotes, mod 9 la clase del hijo, mod 27 la rueda maestra. Es el mismo TIPO de objeto que las filas de Terras -una clase de resto que decide el comportamiento sin recorrer nada- y por eso la casilla se llama clase_residual desde el 01-08-2026 y no clase_mod_2k, que la nombraba mal. Y el limite de la rueda sigue en pie: gobierna la contabilidad del arbol HACIA ATRAS, no el destino hacia adelante, que sigue ciego a los restos."
+  },
+  "A31": {
+   "id": "A31",
+   "tabla": "afirmaciones",
+   "enunciado": "los evitados de la malla 2n mod 27 son exactamente los multiplos de 3, y predicen que rayos del arbol son mudos",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "mallascerradas.py",
+   "fuente": "propio",
+   "notas": "200 rayos impares, 67 predichos mudos, 0 fallos. Una malla calculada sin mirar Collatz ni una vez predice Collatz sin volver a calcular Collatz. El modulo es 27 = 3^3, no 2^k: la otra fila de la base que obligo a renombrar la casilla. FICHERO CAMBIADO: esto lo citaba guardarmallas.py, que persistia las once mallas en mallas/*.json y se borro en la purga del 01-08-2026 junto con los JSON -la coleccion media el modulo elegido a mano-. La medicion sobrevive entera en mallascerradas.py, que calcula el aro de 2 mod 27, comprueba que evita exactamente los multiplos de 3 y cruza eso contra los rayos mudos del arbol; lo unico que se perdio es la capa de disco."
+  },
+  "A32": {
+   "id": "A32",
+   "tabla": "afirmaciones",
+   "enunciado": "la malla de restos acierta el arranque de los 173 numeros del 221 y del 1276, 0 fallos",
+   "cuantificador": "clase_residual",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "64 restos contra 173 numeros. Calculada sin mirar el 221 ni una vez: cada resto usa un representante ajeno a las trayectorias. FICHERO RETIRADO: cruzarestos.py se borro en la purga del 01-08-2026 porque lo que dibujaba era la malla circular elegida a mano. La regla de fondo -los primeros k pasos los decide n mod 2^k- sigue viva y comprobada en mallaresiduos.py; lo que ya no se puede reproducir es el cruce concreto contra el 221 y el 1276."
+  },
+  "A33": {
+   "id": "A33",
+   "tabla": "afirmaciones",
+   "enunciado": "a(k) >= 1 para todo k: el resto 2^k - 1 sobrevive siempre a la criba de Brown/Terras, luego la criba NUNCA se vacia",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "Demostracion de una linea: el resto que en binario son todos unos da S_j = j en todos los pasos, y 3^j > 2^j siempre. ES EL MURO ESTRUCTURAL DE CRIBAR POR RESTOS: se puede llegar a 'casi todos' con la densidad que se quiera, nunca a 'todos', para ningun k. Detalle que cierra el circulo: 2^k - 1 es justo el numero que sube k veces seguidas, y el unico objeto que lo hace para TODO k es -1, que es uno de los ciclos negativos."
+  },
+  "A34": {
+   "id": "A34",
+   "tabla": "afirmaciones",
+   "enunciado": "los supervivientes de la criba tienen densidad -> 0 pero cardinal -> infinito, del orden de 2^(0,95k). La criba compra densidad, no compra cobertura",
+   "cuantificador": "clase_residual",
+   "estado": "demostrado",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "Medida cero, cardinal infinito. Un contraejemplo de la conjetura tendria que vivir justo en el conjunto que la criba no ve, y ese conjunto nunca se queda vacio. Es el mismo muro de pinzaciclos.py por otra puerta: alli el barrido de restos no podia encontrar ciclos porque cada clase es un candidato distinto; aqui no puede cerrar el descenso porque siempre queda clase viva."
+  },
+  "A35": {
+   "id": "A35",
+   "tabla": "afirmaciones",
+   "enunciado": "casi todo n tiene un iterado menor que n",
+   "cuantificador": "casi_todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "Everett 1977 / Terras 1976",
+   "notas": "Densidad 1 en los enteros positivos. Tres paginas. El truco es usar la cota pesimista 5/3 en vez del factor exacto 3/2, y asi prescindir del +1."
+  },
+  "A36": {
+   "id": "A36",
+   "tabla": "afirmaciones",
+   "enunciado": "la condicion X/N < L, con L = log(2)/log(10/3) = 0,57571664249344500 y N = pasos del ATAJO, garantiza la bajada",
+   "cuantificador": "casi_todo_n",
+   "estado": "demostrado",
+   "fichero": "verificar_everett.py",
+   "fuente": "Everett 1977",
+   "notas": "LA TRADUCCION QUE ESTABA AQUI ERA FALSA, corregida el 01-08-2026. La N de Everett son pasos del ATAJO, y en el atajo cada paso impar contiene un 3n+1 y una division, luego X = A y N = B (comprobado en los 29.998 casos de n = 2..30.000). La condicion es B/A > 1/L = log2(10/3) = 1,73696559416620616641, que es MAS FUERTE que log2(3), no mas floja. El B/A > 0,7369 que decia antes es falso: 17.433 numeros de 3 a 20.000 lo cumplen en algun N sin haber bajado, y el mas chico es el 3. Y OJO, porque log2(3) TAMPOCO garantiza el descenso: n = 7 con A=5, B=8 da B/A = 1,6 > 1,585 y llega a 8, que es mayor que 7; lo impide C > 0 en la identidad del propio repo. La desigualdad de fondo, en forma entera y sin un float: 1.225.964 comprobaciones, 0 fallos, holgura minima 0 (igualdad en m = 3)."
+  },
+  "A37": {
+   "id": "A37",
+   "tabla": "afirmaciones",
+   "enunciado": "casi todas las orbitas de Collatz alcanzan valores casi acotados",
+   "cuantificador": "casi_todo_n",
+   "estado": "demostrado",
+   "fichero": null,
+   "fuente": "Tao 2019",
+   "notas": "Casi todo n en densidad logaritmica. El resultado general mas fuerte que existe sobre la conjetura, y sigue sin tocarla."
+  },
+  "A38": {
+   "id": "A38",
+   "tabla": "afirmaciones",
+   "enunciado": "la paridad de la trayectoria se comporta como lanzamientos independientes de moneda",
+   "cuantificador": "casi_todo_n",
+   "estado": "conjeturado",
+   "fichero": null,
+   "fuente": "Lagarias-Weiss 1992 / Kontorovich-Lagarias",
+   "notas": "Modelo heuristico, no teorema. LA GRIETA: la fraccion impar queda DETERMINADA por cuanto bajo la trayectoria y cuantos pasos tardo, y solo se puede medir en trayectorias que YA terminaron en 1. El argumento de la moneda asume lo que habria que demostrar."
+  },
+  "A39": {
+   "id": "A39",
+   "tabla": "afirmaciones",
+   "enunciado": "para 5x+1 solo unos x^0,65 enteros bajo x llegan a 1",
+   "cuantificador": "casi_todo_n",
+   "estado": "conjeturado",
+   "fichero": null,
+   "fuente": "Kontorovich-Lagarias",
+   "notas": "El mapa 5n+1, no Collatz. Que 5n+1 diverja no esta demostrado: es tan conjetural como Collatz. Medido aqui: cae el 3,03% de 100.000 semillas, y tiene 3 ciclos."
+  },
+  "A40": {
+   "id": "A40",
+   "tabla": "afirmaciones",
+   "enunciado": "las constantes de parada existen y se recuperan: Wagon 9,4779, la escalera 1:2:3 de k/ln(4/3), y la media geometrica sqrt(3)/2",
+   "cuantificador": "promedio",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Wagon (OEIS A122790); Lagarias, Applegate-Lagarias",
+   "notas": "Trayectorias hasta 10^7, errores del 0,06% al 0,42%. Los valores estan en la tabla constantes, y desde el 01-08-2026 cada uno con SU estimador: las tres de parada son pendiente de regresion, la de Wagon es muestreo, y el B/A de al lado es agregado a 10^6. Mezclarlos en una columna 'medido' fue el error. Ninguna demuestra nada: son promedios. Y las tres de parada no son tres: son gamma(rho) = 1/(ln2 - rho*ln3) evaluada en rho = 1/2, en proporcion rho : 1 : 1+rho."
+  },
+  "A41": {
+   "id": "A41",
+   "tabla": "afirmaciones",
+   "enunciado": "B/A converge a 2, no a log2(3): la valuacion 2-adica media de 3n+1 vale 2",
+   "cuantificador": "promedio",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "4.041.132 saltos, medido 1,99048. El log2(3) = 1,585 es el punto de EQUILIBRIO, no el valor tipico. Y el estimador correcto es el agregado suma(B)/suma(A): la media de razones da 2,174 por Jensen."
+  },
+  "A42": {
+   "id": "A42",
+   "tabla": "afirmaciones",
+   "enunciado": "la fraccion de pasos impares es 1/3 con el mapa clasico y 1/2 con el atajo",
+   "cuantificador": "promedio",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Terras 1976",
+   "notas": "Todas las trayectorias de 2 a 10^6: 0,331785 y 0,496524. Los pasos impares coinciden digito a digito en los dos mapas (43.607.946). La relacion entre los dos mapas es exacta, uno por uno, no en promedio."
+  },
+  "A43": {
+   "id": "A43",
+   "tabla": "afirmaciones",
+   "enunciado": "la desviacion de la fraccion impar NO se encoge como 1/sqrt(N): es sesgo de la muestra y se va agrandando la SEMILLA",
+   "cuantificador": "promedio",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "|desv|*sqrt(N) va 1,45 -> 1,05 -> 1,76 -> 3,62 -> 13,02 de 10^3 a 10^7 pasos: firma de sesgo fijo. Pero con la semilla: -0,0044 a 16 bits y -0,0007 a 256. Collatz converge a la moneda justa agrandando la semilla, no acumulando tiradas."
+  },
+  "A44": {
+   "id": "A44",
+   "tabla": "afirmaciones",
+   "enunciado": "en el coral hay 1,7320 +/- 0,0003 divisiones por multiplicacion",
+   "cuantificador": "promedio",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Hasta 10^6 semillas. EL 1,7345 PUBLICADO ANTES ERA EL VALOR DE UNA MUESTRA a HASTA=3.000. Cae a 0,02% de sqrt(3) y la descomposicion del valor dice que es casual: no construir nada encima. FICHERO RETIRADO: coralcollaz.py se borro en la purga del 01-08-2026 -media el angulo elegido a mano-, asi que este numero YA NO SE PUEDE REPRODUCIR con codigo del repo. Se deja porque el negativo vale: es el ejemplo de llamar constante al valor de una muestra."
+  },
+  "A45": {
+   "id": "A45",
+   "tabla": "afirmaciones",
+   "enunciado": "la densidad de pares consecutivos con la misma altura crece con N",
+   "cuantificador": "promedio",
+   "estado": "conjeturado",
+   "fichero": null,
+   "fuente": "Wu Jia-Bang 1995 (conjetura abierta)",
+   "notas": "Medido hasta 2^28: 0,518577, monotona en los 18 escalones, 0 bajadas. EL CONTROL QUE IMPORTA: la misma medicion con el PICO en vez de la altura NO es monotona (10 bajadas de 16). La maquinaria discrimina. FICHERO RETIRADO: densidadfusion.py se borro en la purga del 01-08-2026 -era un promedio sobre 18 puntos y su seccion del mecanismo estaba sesgada por muestreo-, asi que estos numeros ya no se pueden reproducir; lo que se queda es el criterio exacto de clasesfusion.py, que es otra cosa y si se sostiene. Y OJO CON EL HITO DE GARNER, que aqui estaba mal: su conjetura es sobre la densidad de ENTEROS EN TUPLA, no sobre la fraccion de PARES, y cruza el 50% en 2^6, diecisiete escalones mas abajo, no entre 2^23 y 2^24."
+  },
+  "A46": {
+   "id": "A46",
+   "tabla": "afirmaciones",
+   "enunciado": "el tiempo de descenso tiene techo heuristico: sigma_C/k -> (1 + log_3 2)/(1 - H) = 32,59 para el mapa clasico, y 1/(1-H) = 19,98 para el atajo",
+   "cuantificador": "promedio",
+   "estado": "conjeturado",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "AVISO: SALE DE UN MODELO DE DENSIDAD, o sea de un promedio, y los promedios no demuestran nada sobre casos individuales. Es el numero mas sugerente del dia y por eso el mas peligroso. Si esa cota existiera y se demostrara -sigma(n) <= C*log2(n) para todo n- la conjetura saldria por induccion fuerte sobre el minimo contraejemplo, en tres lineas. Nadie ha demostrado que esa C exista."
+  },
+  "A47": {
+   "id": "A47",
+   "tabla": "afirmaciones",
+   "enunciado": "desde la densidad sola, sin mirar ningun numero, el modelo predice planeo 1613 a 60 bits; el record publicado es 1614",
+   "cuantificador": "promedio",
+   "estado": "medido",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "Es la validacion que le da credito al modelo del techo 32,59: la prediccion viene de contar clases supervivientes y el dato es un maximo sobre numeros de verdad, asi que no tenian por que cuadrar. Cuadran mejor de lo que merecen. Sigue siendo un promedio prediciendo un extremo: coincidir una vez no lo convierte en cota."
+  },
+  "A48": {
+   "id": "A48",
+   "tabla": "afirmaciones",
+   "enunciado": "la racha inicial de impares PREDICE la altitud",
+   "cuantificador": "promedio",
+   "estado": "refutado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Roto: correlacion 0,59, explica el 35% de la varianza, y se exigia 0,8 antes de medir. Lo que la racha SI hace es ponerle un piso exacto. Cota si, tendencia no."
+  },
+  "A49": {
+   "id": "A49",
+   "tabla": "afirmaciones",
+   "enunciado": "el espejo base 10 y Collatz se hablan",
+   "cuantificador": "promedio",
+   "estado": "refutado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Roto: la correlacion entre pasos(n) y pasos(espejo(n)) es +0,08. Segunda prueba: las 5 parejas espejo del 221 dan p = 0,28 contra un modelo nulo que preserva el reparto de decadas. Un primer calculo dio '11 contra 1,48 esperadas' y era falso. FICHERO RETIRADO: mallaespejo.py se borro en la purga del 01-08-2026. El negativo se queda: es de los que evitan repetir la busqueda."
+  },
+  "A50": {
+   "id": "A50",
+   "tabla": "afirmaciones",
+   "enunciado": "el puente del espejo base 2 llega mas alla de un paso",
+   "cuantificador": "promedio",
+   "estado": "refutado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Roto: correlacion +0,06, todavia menos que el +0,08 de base 10. Un paso: identidad exacta. Dos pasos: ruido. El +2 se acumula al iterar y borra la relacion. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026."
+  },
+  "A51": {
+   "id": "A51",
+   "tabla": "afirmaciones",
+   "enunciado": "una red neuronal con 40.000 ejemplos no pasa del 50,5% prediciendo la siguiente paridad a partir de las k anteriores",
+   "cuantificador": "promedio",
+   "estado": "medido",
+   "fichero": "redhilos.py",
+   "fuente": "propio; Terras 1976 Corolario 1.4 lo explica",
+   "notas": "k = 4, 8, 12, 16: entre 49,3% y 50,5%. Y no puede mejorar: las paridades son independientes con P = 1/2 exacta. Viendo los m bits bajos en cambio: 50% clavado para m <= k y 100% para m > k. Un acantilado. Determinista y sin patron no son incompatibles."
+  },
+  "A52": {
+   "id": "A52",
+   "tabla": "afirmaciones",
+   "enunciado": "alguna constante de Collatz coincide con alguna constante fundamental",
+   "cuantificador": "promedio",
+   "estado": "refutado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Roto con modelo nulo: 9 constantes x 8 transformaciones contra 16 constantes adimensionales dan 1 coincidencia contra 0,394 esperadas, p = 0,317. Al corregir los tres defectos del nulo el p sube a 0,40-0,45: los errores empujaban A FAVOR de la senal. Control definitivo: el metodo no distingue Collatz de reglas qn+1 (p=0,264)."
+  },
+  "A53": {
+   "id": "A53",
+   "tabla": "afirmaciones",
+   "enunciado": "la fila 'se escapan del rango' de la tabla A/B discrimina entre reglas",
+   "cuantificador": "promedio",
+   "estado": "refutado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Roto: da 33,3% para 3n+1 y para 3n-1 por igual, con los MISMOS conteos absolutos a N = 256, 1024, 4096 y 10.000. Mide el rango, no la regla. Las que si discriminan son 'ciclos distintos', 'cola mas larga' y 'cola media'. FICHERO RETIRADO: mallaespejo2.py se borro en la purga del 01-08-2026, y con el la tabla A/B que lo motivo; la leccion -no toda fila de un A/B discrimina- sigue siendo doctrina."
+  },
+  "A54": {
+   "id": "A54",
+   "tabla": "afirmaciones",
+   "enunciado": "la altura de un punto sobre la esfera codifica el tamano del numero",
+   "cuantificador": "promedio",
+   "estado": "refutado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Roto: correlacion latitud / log2(valor) = 0,12 en los 5.674 numeros de las ramas. La altura es la distancia real al 1, que es otra cosa. La esfera es envase, no resultado. FICHERO RETIRADO: collazarbol.py se borro en la purga del 01-08-2026, y este negativo es justamente la razon por la que se borro: la esfera la elegimos nosotros."
+  },
+  "A55": {
+   "id": "A55",
+   "tabla": "afirmaciones",
+   "enunciado": "el 221 prefiere ciertos restos mod 64",
+   "cuantificador": "promedio",
+   "estado": "refutado",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Roto: pisa 55 de 64 y el puro azar daria 53,5. Diferencia +1,5. Los 9 restos que nunca pisa no tienen nada en comun. El destino hacia adelante es ciego a los restos. FICHERO RETIRADO: cruzarestos.py se borro en la purga del 01-08-2026; el negativo se queda porque es uno de los que mas ahorra -impide volver a buscar estructura ahi-."
+  },
+  "A56": {
+   "id": "A56",
+   "tabla": "afirmaciones",
+   "enunciado": "no hay m-ciclos de Collatz con m <= 91, donde m = numero de minimos locales del ciclo",
+   "cuantificador": "ciclos",
+   "estado": "demostrado",
+   "fichero": "reimpl.py",
+   "fuente": "Hercher 2023, J. Integer Sequences 26, art. 23.3.5",
+   "notas": "Reproducido aqui desde cero: los siete m_2 y las siete cotas de K salen identicos a los publicados, en 5,5 segundos y sin un solo float en las decisiones. Mejora el m >= 76 de Simons-de Weger. Dos discrepancias de impresion, que el programa mide y no oculta."
+  },
+  "A57": {
+   "id": "A57",
+   "tabla": "afirmaciones",
+   "enunciado": "K < 1,4784 * m * delta^m",
+   "cuantificador": "ciclos",
+   "estado": "demostrado",
+   "fichero": "reimpl.py",
+   "fuente": "Simons-de Weger, Acta Arith. 117 (2005)",
+   "notas": "Ambito: m <= 91. Es el unico sitio por donde entra la aproximacion diofantica dura. LA REDACCION DE ANTES SE PASABA DE FUERTE (01-08-2026): decia 'Hercher NO usa el teorema de Baker en ninguna parte', y eso vale PARA SU ARTICULO pero no PARA LA CADENA. Comprobado sobre el fuente hercher5.tex que la revista sirve junto al PDF: 'Baker' 0 veces, 'Matveev' 0, 'Rhin' 0, 'linear form' 0. Pero un escalon mas abajo si hay trascendencia: Simons-de Weger tienen una seccion 'Application of Transcendence Theory' cuyo Lema 12 -Lambda > e^(-13,3*(0,46057 + log K))- sale de RHIN (1987), una medida efectiva de irracionalidad para log3/log2 por aproximantes de Pade, y ese lema entra en K_1(m), que entra en el Lema 16, que es de donde sale el 1,4784. La redaccion correcta: 'Hercher no invoca Baker; la caja negra que importa si contiene trascendencia'. Y LA CAJA NEGRA NO ES TAN NEGRA: el 1,4784 SE RE-DERIVA en diez lineas desde la definicion de Simons-de Weger, resolviendo su ecuacion de K_2(m) por biseccion con decimal a 200 cifras -b = 0,64576012, c_m = 0,3057636284, A(91) = 55, K_2(91) = 2,140701e20, k_2(91) = 1,478381-, o sea que el 1,4784 es k_2(91) redondeado hacia arriba (verificar_ciclos.py, comprobacion 4), y su tabla de campeones sale 4/4. AVISO APARTE: hay CORRIGENDUM del 14-06-2026, en la misma revista, sobre el Teorema 21 de Hercher, que es justo la pieza que reimpl.py marca como importada sin verificar; el enunciado no cambia y su ultimo paso -(2^v - 1)^delta < 2^(delta*v) - 1- se comprueba aqui en 12 valores de v con 0 fallos, pero el argumento de convexidad sobre el politopo se lee, no se verifica."
+  },
+  "A58": {
+   "id": "A58",
+   "tabla": "afirmaciones",
+   "enunciado": "cualquier ciclo distinto del trivial mide al menos 114.208.327.604 pasos del ATAJO (186.265.759.595 del mapa clasico)",
+   "cuantificador": "ciclos",
+   "estado": "demostrado",
+   "fichero": "verificar_ciclos.py",
+   "fuente": "forma de Eliahou, Discrete Math. 118 (1993), con X0 = 2^71 de Barina 2025, J. Supercomputing 81(7) art. 810",
+   "notas": "Ambito: todo ciclo no trivial sobre los enteros positivos. La cota sale de meter el limite de verificacion por fuerza bruta en la forma de Eliahou: la longitud es 301994a + 17087915b + 85137581c con b >= 1 y a*c = 0, y 114.208.327.604 = (a=0, b=361, c=1269), comprobado aqui. AQUI HUBO DOS NUMEROS MALOS SEGUIDOS, los dos corregidos el 01-08-2026. (1) El 19.478.780.533 que el repo citaba como 'literatura de 2025' sin nombrar a nadie existe -Laurore 2025, Adv. Pure Math. 15(6), DOI 10.4236/apm.2025.156018- pero es de SCIRP, tiene cero citas, no encaja en la forma de Eliahou (0 soluciones) y es 5,86 veces mas debil que el estado del arte, no once: el once salia de compararlo contra el 217.976.794.617, que resulto ser el numero equivocado. (2) Ese 217.976.794.617 lo publica Barina 2025 en su seccion 6 y lo repite Wikipedia, pero exige X0 >= 4,358487e21 = 2^71,884 y el record esta en 2075*2^60 = 2,392312e21 = 2^71,019: es una fila de mas en la tabla de convergentes. O sea que copiamos bien una fuente arbitrada equivocada, y el error nos favorecia, que es la direccion en la que nadie mira. Certificado por TRES caminos independientes en verificar_ciclos.py -Stern-Brocot sobre intervalo ensanchado, certificado en las dos direcciones sobre n*log2 - k*log3, y la via elemental de verificar_terras.py [6]-, con la maquinaria validada antes reproduciendo Eliahou 1993 (17.087.915) y Sinisalo 2003 (1.027.712.276) clavados. Y la conclusion no se mueve: el tramo mas largo del repo mide 114 pasos, nueve ordenes de magnitud por debajo, asi que buscar ciclos en los 6.555 pares del 221 no podia encontrar nada."
+  },
+  "A59": {
+   "id": "A59",
+   "tabla": "afirmaciones",
+   "enunciado": "no hay bucles de periodo <= 2.592 con la fuerza bruta que habia en 1976; con X0 = 2^71 el mismo argumento elemental llega a 114.208.327.603",
+   "cuantificador": "ciclos",
+   "estado": "demostrado",
+   "fichero": "verificar_frontera_ciclos.py",
+   "fuente": "Terras 1976 (Tabla C, jump values); el X0 de hoy es Barina 2025",
+   "notas": "EL 2.592 ES CIFRA HISTORICA, NO LA FRONTERA, y esta fila lo presentaba como si lo fuera (corregido el 01-08-2026). La frontera se mueve con X0 y X0 ha crecido cincuenta anos: con X = 10^6 -un minuto de CPU en esta maquina- el mismo argumento ya alcanza periodo 4.700, casi el doble del 2.592; con el ~10^8 de Terras, 24.726; con el 2^62 de Oliveira e Silva, 10.439.860.590; y con el 2^71 de Barina, 114.208.327.603 pasos del atajo (186.265.759.593 clasicos). Recalculado en verificar_terras.py [6] y verificar_frontera_ciclos.py. LA CONCLUSION NO CAMBIA, CAMBIA POR CUANTO: el barrido de restos sigue muerto, pero no porque su rango sea teorema desde 1976 -lo es desde hoy y por mucho mas-, y para territorio virgen ya no bastaria k > 2592 sino k > 114.208.327.603, o sea 2^114208327603 restos. El barrido esta a nueve ordenes de magnitud del frente."
+  },
+  "A60": {
+   "id": "A60",
+   "tabla": "afirmaciones",
+   "enunciado": "sobre todo Z los unicos ciclos son {1,2,4}, {-1,-2}, {-5,-7,-10,-14,-20} y el de 18 terminos desde -17",
+   "cuantificador": "ciclos",
+   "estado": "medido",
+   "fichero": "pinzaciclos.py",
+   "fuente": "estandar en la literatura",
+   "notas": "Supervivientes de k = 1..30 (2.147.483.646 restos) y barrido hasta 10^6 con 0 sin clasificar. La ecuacion no mira el signo de m, asi que el barrido resolvio el problema sobre Z sin proponerselo: dividen(k) = 2 + 2*[2|k] + 3*[3|k] + 11*[11|k], 0 desacuerdos."
+  },
+  "A61": {
+   "id": "A61",
+   "tabla": "afirmaciones",
+   "enunciado": "en un ciclo de 3n+1 la C de la identidad es POSITIVA, luego B/A > log2(3); en uno de 3n-1 es negativa y B/A < log2(3)",
+   "cuantificador": "ciclos",
+   "estado": "demostrado",
+   "fichero": "pinzaciclos.py",
+   "fuente": "propio (se sigue del signo de C)",
+   "notas": "Los tres ciclos negativos y el unico positivo, 0 fallos. El 'balance decide todo' se parte en dos mitades. Y el ciclo de -1 escrito con la identidad da 2 = 3 - 1, espejo exacto del 4 = 3 + 1."
+  },
+  "A62": {
+   "id": "A62",
+   "tabla": "afirmaciones",
+   "enunciado": "las casillas (A,B) que sobreviven al barrido son (semi)convergentes de log2(3), pero solo LAS QUE LO APROXIMAN POR ENCIMA",
+   "cuantificador": "ciclos",
+   "estado": "demostrado",
+   "fichero": "collazmalla.py",
+   "fuente": "Terras 1976 Tabla C; Shanks 1965, Guy 1983",
+   "notas": "AQUI DECIA 'exactamente las convergentes y semiconvergentes', Y ES LA MITAD (corregido el 01-08-2026): 3/2, 19/12, 84/53 y 1054/665 son convergentes de log2(3) y NO son jump values, porque lo aproximan por debajo. La lista de Terras son solo las de arriba. 480 casillas, las 10 mas cercanas sin excepcion. Guy 1983 imprime la lista entera y dice que hay ciclos en los denominadores 1, 2, 5, 12 y ninguno en 41, 53, 306: es casilla por casilla nuestro barrido. La casilla (7,11) predijo el ciclo negativo de periodo 11."
+  },
+  "A63": {
+   "id": "A63",
+   "tabla": "afirmaciones",
+   "enunciado": "el unico ciclo positivo, escrito con la identidad del repo, es 2^2 = 3^1 + 1, o sea 4 = 3 + 1",
+   "cuantificador": "ciclos",
+   "estado": "demostrado",
+   "fichero": "collazmalla.py",
+   "fuente": "propio",
+   "notas": "A=1, B=2, C=1. De los 95 candidatos enteros positivos que aparecieron, los 95 ciclan de verdad y son n en {1,2,4} dando 1, 2 o 3 vueltas. Cero impostores."
+  },
+  "A64": {
+   "id": "A64",
+   "tabla": "afirmaciones",
+   "enunciado": "no hay m-ciclos con m <= 95",
+   "cuantificador": "ciclos",
+   "estado": "conjeturado",
+   "fichero": null,
+   "fuente": "Wang 2026 (preprint, Zenodo)",
+   "notas": "Sigue sin arbitrar y necesita verificacion independiente: esa es la fase 3 del plan de la pinza, y si aguanta se dice y si se cae eso si es un hallazgo. PERO LA CALIBRACION DE ESTA FILA HABIA QUE REVISARLA (01-08-2026): decia 'cero citas, metadatos descuidados' como si eso midiera algo, y no lo mide -'cero citas' mide la edad del preprint y 'metadatos descuidados' mide su maquetacion-. Y hay un dato duro en contra de tratarlo como sospechoso por defecto: el corrigendum del 14-06-2026 al articulo de Hercher agradece el hallazgo del error del Teorema 21 a XINJUN WANG, ORCID 0009-0007-5895-5984, el mismo Wang. Encontrar un error real en un articulo arbitrado y que el autor lo reconozca por escrito es mejor credencial que una cita."
+  },
+  "A65": {
+   "id": "A65",
+   "tabla": "afirmaciones",
+   "enunciado": "el espejo base 10 tiene 44.450 ciclos distintos bajo 100.000, y Collatz tiene UNO",
+   "cuantificador": "ciclos",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "El A/B de control, y su valor es justo que salgan distintos: la maquinaria discrimina. Lo que dibuja depende de lo que se le mete, no de como dibuja. FICHERO RETIRADO: mallaespejo.py se borro en la purga del 01-08-2026 -media el circulo elegido a mano-, asi que estos conteos ya no se pueden reproducir. El principio del A/B se queda; el ejemplo concreto, no."
+  },
+  "A66": {
+   "id": "A66",
+   "tabla": "afirmaciones",
+   "enunciado": "todo n < 2^71 llega al 1",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Barina 2025, J. Supercomputing",
+   "notas": "No comprueba los 2^71 numeros: criba clases enteras. Coste: 12.395 anos-CPU + 159 anos-GPU. Su worker.c imprime MAXIMUM_CYCLE_OFFSET 0 como constante literal: el programa no busca ciclos en absoluto. EL FACTOR X ~ 363 QUEDA DEGRADADO (01-08-2026): no es un hallazgo, es una composicion aritmetica correcta de dos numeros no verificados -la densidad de su criba de produccion y el factor 5/9 de la criba mod 9-, y estaba escrito en negrita como si fuera medicion propia."
+  },
+  "A67": {
+   "id": "A67",
+   "tabla": "afirmaciones",
+   "enunciado": "el residuo de Roosendaal nunca baja de 1 ni sube de 1,253142144",
+   "cuantificador": "verificado_hasta",
+   "estado": "conjeturado",
+   "fichero": "cruzarecords.py",
+   "fuente": "Roosendaal (el propio autor solo llego a 2^32)",
+   "notas": "Los 243 records cruzados llegan a 2^71, asi que esto es EVIDENCIA NUEVA para su conjetura. Maximo hallado 1,2486 en n=9; confirmado que 4164943872 = 993*2^22 tiene el mismo residuo que el 993."
+  },
+  "A68": {
+   "id": "A68",
+   "tabla": "afirmaciones",
+   "enunciado": "el maximo de eps hasta 200.000 esta en 993 y sus dobles",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "elmasuno.py",
+   "fuente": "propio",
+   "notas": "Barrido de 2 a 200.000 comparando enteros en cruz, sin floats. Vale ln(1,253142144) = 0,225654. El 0,23 de grosor de la lamina no salio de nuestro dibujo: es una constante con conjetura propia."
+  },
+  "A69": {
+   "id": "A69",
+   "tabla": "afirmaciones",
+   "enunciado": "barrido de 2.147.483.646 restos (k = 1..30): los unicos supervivientes positivos son n = 1 y n = 2",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "pinzaciclos.py",
+   "fuente": "propio",
+   "notas": "La prediccion estaba escrita antes de medir y se cumplio. Y NO SUBIR K_MAX: el rango alcanzable ya es teorema desde 1976."
+  },
+  "A70": {
+   "id": "A70",
+   "tabla": "afirmaciones",
+   "enunciado": "la densidad de pares con la misma altura, medida hasta 2^28 = 268.435.456",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "Tabla int16 vectorizada por bloques, verificada contra la version lenta en los primeros 300.000: 0 discrepancias. FICHERO RETIRADO: densidadfusion.py se borro en la purga del 01-08-2026, asi que esto ya no se puede reproducir aqui. Y LA RACHA DE 120 EN 136.696.632 NO ES NUESTRA: es de Wu 1993 (MR 1277568), que barrio hasta 1,5e8 y la publico -136.696.632 < 1,5e8-. La redescubrimos, que no es lo mismo que descubrirla."
+  },
+  "A71": {
+   "id": "A71",
+   "tabla": "afirmaciones",
+   "enunciado": "la tupla mas larga de consecutivos con la misma altura bajo 2^30 mide 176, empezando en 722.067.240",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Wu Jia-Bang 1992",
+   "notas": "Aqui se llego a 120 en 2^28: compatible con esa trayectoria de crecimiento, pero no la confirma. No llegamos."
+  },
+  "A72": {
+   "id": "A72",
+   "tabla": "afirmaciones",
+   "enunciado": "el coral de Harriss (45 rumbos) choca por primera vez en la profundidad 31 del arbol inverso",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "coralprimos.py",
+   "fuente": "propio",
+   "notas": "Profundidad <= 200, aritmetica entera exacta contra Phi_45. EL 0% DE ENCIMADAS ERA FALSO: solo valia hasta 3.000 semillas. Por semillas el primer choque esta en HASTA = 10.452; por arbol inverso completo, en la profundidad 31. Los dos umbrales son distintos y los dos ciertos."
+  },
+  "A73": {
+   "id": "A73",
+   "tabla": "afirmaciones",
+   "enunciado": "el umbral de choque del coral es una RECTA en N con dos ramas segun N mod 4: (N+11)/2 si N = 4k+3 y (N+19)/2 si N = 4k+1",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "coralprimos.py",
+   "fuente": "propio",
+   "notas": "N de 20 a 70, profundidad <= 200. SUSTITUYE a la explicacion '45 = 3^2 * 5', que solo valia un nivel de treinta y uno. Ni rastro de la factorizacion: lo que manda es cuanto vale N y su resto mod 4."
+  },
+  "A74": {
+   "id": "A74",
+   "tabla": "afirmaciones",
+   "enunciado": "con N primo la clave del reticulo y la clave cruda dan el mismo umbral, sin una sola excepcion",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "coralprimos.py",
+   "fuente": "propio",
+   "notas": "Los primos entre 20 y 70. Es la unica mitad de la prediccion que se confirmo: con N primo el reticulo es solo (1,1,...,1) y ninguna relacion no trivial ayuda nunca. La otra mitad -que el umbral se disparara- fallo."
+  },
+  "A75": {
+   "id": "A75",
+   "tabla": "afirmaciones",
+   "enunciado": "las 98 altitudes y los 148 retrasos publicados se recalculan desde cero con enteros exactos: 0 discrepancias",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "cruzarecords.py",
+   "fuente": "propio",
+   "notas": "Los 243 records de Roosendaal y Barina. La lista de n de los records de altitud, Barina contra OEIS: 98/98 identicos. Trampa que costo tiempo: Barina publica la altitud en el mapa del ATAJO, y la clasica es exactamente el doble."
+  },
+  "A76": {
+   "id": "A76",
+   "tabla": "afirmaciones",
+   "enunciado": "la identidad de Terras aguanta en los 6.555 pares de la trayectoria del 221, 0 fallos",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "collazmalla.py",
+   "fuente": "propio",
+   "notas": "El 221 tiene 73/41 = 1,78 divisiones por multiplicacion, o sea que cae. Un ciclo con A=41 necesitaria B=65: le sobran 8 divisiones, que son el mismo +8,02 de desviacion medido."
+  },
+  "A77": {
+   "id": "A77",
+   "tabla": "afirmaciones",
+   "enunciado": "A076227 ('surviving Collatz residues mod 2^n') reproducida de forma independiente: 45 terminos (n = 0..44), 0 discrepancias",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "descensoresto.py",
+   "fuente": "OEIS A076227",
+   "notas": "a(34) = 151.917.636 = 0,884%, que es el tamano de la criba clasica que cita el CLAUDE.md. Contado por programacion dinamica sobre patrones de paridad, sin tocar un solo resto, y controlado contra la criba real de los 2^k restos hasta k = 20: coinciden los 20."
+  },
+  "A78": {
+   "id": "A78",
+   "tabla": "afirmaciones",
+   "enunciado": "los 34 records de planeo (glide) de records.json recalculados desde cero, 0 fallos. El planeo ES el tiempo de descenso sigma",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "Los records de ericr.nl estan en el mapa CLASICO; se recalculan con enteros exactos y de paso validan la conversion atajo -> clasico, porque la columna clasica se obtiene sumando los impares. El mayor es n = 2.602.714.556.700.227.743 con planeo 1.639, a 61,2 bits."
+  },
+  "A79": {
+   "id": "A79",
+   "tabla": "afirmaciones",
+   "enunciado": "sigma_max(k)/k crece y NO se estabiliza: de 13,20 en k=10 a 23,58 en k=26, con dientes de sierra",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "Fuerza bruta sobre TODOS los n < 2^28. Y los records publicados van por 26,79 a 61 bits. No se observa cota uniforme en el rango medido: crece de forma compatible con acercarse a un techo, pero medir 27 escalones no dice nada de los infinitos que faltan. Es un maximo de muestra, no una cota."
+  },
+  "A80": {
+   "id": "A80",
+   "tabla": "afirmaciones",
+   "enunciado": "de los 983 cruces que no son cola comun entre los once hilos 100000..100010, 833 (el 85%) tienen desfase 0",
+   "cuantificador": "verificado_hasta",
+   "estado": "medido",
+   "fichero": "guardarhilos.py",
+   "fuente": "propio",
+   "notas": "275 de los 1.258 cruces son la cola comun [16,8,4,2,1] y no significan nada: hilos.db los marca con es_cola. Sin esa marca, el 100001 -que no se funde de verdad con nadie- pareceria tan conectado como el resto."
+  },
+  "C1": {
+   "id": "C1",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: constante de Wagon | valor_teorico=9.477955556559275 | valor_medido=9.471872 | error_rel=-0.064 | formula: tiempo de caida medio | que mide: cuantos pasos tarda de media un numero en bajar por debajo de si mismo",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Wagon; OEIS A122790",
+   "notas": "EL VALOR ESTA BIEN Y LA FORMULA PUBLICADA ESTA MAL desde 1985, y OEIS lo documenta en A100982: la errata esta en Wagon Y en Chamberland, floor(1 + 2i + i*log2(3)) donde deberia ser floor(1 + i + i*log2(3)). El valor se confirmo aqui a 35 cifras contra A122790 por camino independiente. Quien lo reimplemente desde el enunciado publicado obtiene otra cosa. Y la columna medida es MUESTREO a 10^7, no la misma clase de estimador que las tres constantes de parada."
+  },
+  "C2": {
+   "id": "C2",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: hermana de Wagon (conteo reducido) | valor_teorico=3.492651852186425 | valor_medido=3.49031 | error_rel=-0.067 | formula: el mismo tiempo de caida contando solo los pasos impares | que mide: la version del tiempo de caida con el conteo reducido",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Wagon",
+   "notas": "DOS AVISOS (01-08-2026). (1) NO ES UNA CONSTANTE INDEPENDIENTE: E[unos] = E[sigma]/2 por el teorema del paro opcional de Doob sobre la biyeccion de Terras -los bits de paridad son monedas justas y sigma es un tiempo de paro-, o sea que esta fila y la de Wagon son la misma medicion dividida por dos. Media de pasos del atajo 3,492651852186424912, media de pasos impares 1,746325926093212456. (2) EL 3,49031 DE LA COLUMNA 'medido' ES UN NUMERO SIN EXPLICAR: ninguna definicion probada lo reproduce -la natural da 3,490781, solo impares 5,981561, contando unos 1,745155, clasico sobre todos 5,235936-. Viene de la sesion del 30-07-2026, que no dejo ficheros. No se borra: se marca."
+  },
+  "C3": {
+   "id": "C3",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: media geometrica por paso del atajo | valor_teorico=0.8660254037844386 | valor_medido=0.8643758 | error_rel=-0.19 | formula: sqrt(3)/2 | que mide: por cuanto multiplica de media cada paso del mapa del atajo",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio; es el modelo estandar",
+   "notas": "Que sea menor que 1 dice 'en promedio bajan', y NO impide que exista una orbita que suba para siempre: seria un conjunto de medida cero. Prueba: 5n+1 tiene media 1,118 > 1 y aun asi tiene el ciclo del 13."
+  },
+  "C4": {
+   "id": "C4",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: pasos impares contra ln(n) | valor_teorico=3.476059496782208 | valor_medido=3.4614 | error_rel=-0.42 | formula: 1/ln(4/3) | que mide: cuantos 3n+1 se aplican por cada unidad de ln(n)",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Lagarias, Applegate-Lagarias",
+   "notas": "ESTIMADOR Y RANGO, que hasta el 01-08-2026 no estaban dichos: es PENDIENTE DE REGRESION a 10^7, no muestreo ni agregado. Ponerla en la misma columna 'medido' que las de muestreo sugiere que son comparables y no lo son. Y es gamma(1/2) con gamma(rho) = 1/(ln2 - rho*ln3): las tres constantes de parada son una sola funcion evaluada en un punto, en la proporcion rho : 1 : 1+rho."
+  },
+  "C5": {
+   "id": "C5",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: constante de parada del ATAJO | valor_teorico=6.952118993564416 | valor_medido=6.92916 | error_rel=-0.33 | formula: 2/ln(4/3) | que mide: cuantos pasos del mapa del atajo por cada unidad de ln(n)",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Lagarias, Applegate-Lagarias",
+   "notas": "ES LA DEL ATAJO, NO LA DEL CLASICO. La del clasico es 3/ln(4/3) = 10,428. Confundirlas da un 49,5% de error, y ya paso una vez en este repo. La escalera correcta es 1:2:3 segun se cuenten los 3n+1, los pasos del atajo o los clasicos. El valor medido es PENDIENTE DE REGRESION a 10^7 (dicho desde el 01-08-2026)."
+  },
+  "C6": {
+   "id": "C6",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: constante de parada CLASICA | valor_teorico=10.428178490346623 | valor_medido=10.39057 | error_rel=-0.36 | formula: 3/ln(4/3) | que mide: cuantos pasos del mapa clasico 3n+1 por cada unidad de ln(n)",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Lagarias, Applegate-Lagarias",
+   "notas": "MEDIDA COMO PENDIENTE DE REGRESION a 10^7. Con el otro estimador NO sale: el agregado no converge a 10,428 en ningun rango alcanzable, porque la recta tiene intercepto -1,73 pasos que solo se diluye como 1/ln(n) -a 10^6 el agregado da 10,25588 y sigue subiendo lentisimo-. Con termino aditivo el estimador correcto es la pendiente, no el cociente de sumas."
+  },
+  "C7": {
+   "id": "C7",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: divisiones por multiplicacion B/A | valor_teorico=2.0 | valor_medido=2.014002 | error_rel=0.7 | formula: la valuacion 2-adica media de 3n+1, que vale 2 porque P(v=k) = 2^-k | que mide: cuantas divisiones entre dos hay por cada 3n+1",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "CONVERGE A 2, NO A log2(3). El log2(3) = 1,585 es el punto de EQUILIBRIO, no el valor tipico: son dos numeros distintos y no se contradicen. La media de razones trayectoria a trayectoria da 2,174 por Jensen y NO vale. Y EL RANGO Y EL ESTIMADOR, que faltaban hasta el 01-08-2026: este 2,014002 es el AGREGADO suma(B)/suma(A) a 10^6; a 10^7 el agregado da 2,012389, y con pendiente de regresion a 10^7 sale 2,0018, o sea +0,09% en vez de +0,70%. Las tres constantes de parada de esta misma tabla son pendiente de regresion: ponerlas en la misma columna que este agregado sugiere que son comparables y no lo son."
+  },
+  "C8": {
+   "id": "C8",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: valuacion 2-adica media de 3n+1 | valor_teorico=2.0 | valor_medido=1.99048 | error_rel=-0.48 | formula: suma de k*2^-k = 2 | que mide: cuantas veces seguidas se puede dividir entre dos despues de un 3n+1",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": null
+  },
+  "C9": {
+   "id": "C9",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: log2(3), el equilibrio | valor_teorico=1.584962500721156 | valor_medido=None | error_rel=None | formula: log2(3) | que mide: el B/A exacto por encima del cual una trayectoria cae y por debajo del cual sube; un ciclo lo tendria clavado",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": "collazmalla.py",
+   "fuente": "elemental",
+   "notas": null
+  },
+  "C10": {
+   "id": "C10",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: residuo de Roosendaal Res(993) | valor_teorico=1.253142144395068 | valor_medido=None | error_rel=None | formula: 2^61 / (3^32 * 993) | que mide: el maximo conocido de 2^B/(3^A*n), o sea el techo del grosor de la lamina",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": "elmasuno.py",
+   "fuente": "Roosendaal (conjeturado)",
+   "notas": "ES CONJETURA, NO TEOREMA: Roosendaal lo verifico hasta 2^32, y cruzarecords.py lo comprobo hasta 2^71 sobre los 243 records. Y OJO CON LA CONSTANTE LITERAL: mapahilos.py guarda 1.2531421442887503, que esta mal desde la decima cifra. El exacto es 2^61/(3^32*993)."
+  },
+  "C11": {
+   "id": "C11",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: techo del grosor, ln(Res(993)) | valor_teorico=0.2256541127319812 | valor_medido=None | error_rel=None | formula: ln( 2^61 / (3^32 * 993) ) | que mide: cuanto se separa como maximo un punto de la lamina del plano de equilibrio, medido en NATS sobre trayectorias enteras",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": "elmasuno.py",
+   "fuente": "Roosendaal (conjeturado)",
+   "notas": "OJO CON LAS UNIDADES, QUE AQUI HUBO UN ERROR HASTA EL 01-08-2026. Este numero esta en NATS. El 0,2286 de collazlamina.py, que estaba puesto en la columna 'medido' de esta misma fila como si fuera lo mismo, esta en BITS y ademas se mide sobre PARES de la trayectoria del 221, no sobre trayectorias enteras. En las mismas unidades: 0,2286 bits = 0,158478 nats contra 0,225654 nats. No se parecen: difieren en un factor 1,42. Que eps sea > 0 esta demostrado (elmasuno.py); que este ACOTADO por este numero sigue siendo la conjetura de Roosendaal."
+  },
+  "C12": {
+   "id": "C12",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: grosor de la lamina del 221 | valor_teorico=0.228634911 | valor_medido=None | error_rel=None | formula: max sobre los 6.555 pares i<j de log2( 2^B * seq[j] / (3^A * seq[i]) ) | que mide: cuanto sobresalen del plano de equilibrio los pares de UNA trayectoria concreta, la del 221, medido en BITS",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "FICHERO RETIRADO: collazlamina.py se borro en la purga del 01-08-2026 porque la lamina media la geometria elegida a mano. Lo que se rescato antes de borrarlo es cotatramos.py, que se queda con la parte que si es teorema -C >= 0, o sea 2^B*seq[j] >= 3^A*seq[i] para todo par, y si el tramo baja entonces 2^B > 3^A-, pero NO recalcula este maximo. NO ES UNA COTA NI UNA CONSTANTE DEL PROBLEMA: mide el 221 y nada mas. El maximo se alcanza en el par (221 -> 16), que es la trayectoria entera del 221, asi que este numero es su propio eps en bits: 0,2286 bits = 0,158478 nats, o sea Res(221) = 2^73/(3^41*221) = 1,17173. Lo que si es cierto es la desigualdad: para cualquier par, h <= log2(Res(seq[i])), porque un producto parcial de factores (3x+1)/(3x) es menor que el total. Con la conjetura de Roosendaal eso acota todos los pares de todas las trayectorias por 0,325550 BITS."
+  },
+  "C13": {
+   "id": "C13",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: L de Everett | valor_teorico=0.5757166424934449 | valor_medido=None | error_rel=None | formula: log(2) / log(10/3) | que mide: la fraccion de pasos impares del ATAJO por debajo de la cual Everett garantiza la bajada",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": "verificar_everett.py",
+   "fuente": "Everett 1977",
+   "notas": "TRADUCCION CORREGIDA EL 01-08-2026, y la de antes era falsa. Aqui decia 'B/A > 0,7369', y el bueno es B/A > 1/L = log2(10/3) = 1,73696559416620616641: MAS FUERTE que log2(3), no mas flojo. El 0,7369 es literalmente 1/L - 1, que es la marca algebraica de haber sumado un paso de mas al denominador (poner N = A+B en vez de N = B). Y log2(3) no es 'el umbral verdadero': no garantiza el descenso (n = 7 sube a 8). El hueco entre los dos tiene forma cerrada, log2(10/9) = 0,15200309, y es el precio exacto de usar 5/3 en vez de 3/2."
+  },
+  "C14": {
+   "id": "C14",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: fraccion de pasos impares, mapa del atajo | valor_teorico=0.5 | valor_medido=0.496524 | error_rel=-0.695 | formula: 1/2 | que mide: que proporcion de los pasos del atajo son impares",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Terras 1976",
+   "notas": null
+  },
+  "C15": {
+   "id": "C15",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: fraccion de pasos impares, mapa clasico | valor_teorico=0.3333333333333333 | valor_medido=0.331785 | error_rel=-0.465 | formula: 1/3 | que mide: que proporcion de los pasos del mapa clasico son impares",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "Terras 1976",
+   "notas": null
+  },
+  "C16": {
+   "id": "C16",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: cota inferior demostrada de la densidad de fusion | valor_teorico=0.4356581771280617 | valor_medido=None | error_rel=None | formula: a(32) / 2^32 = 1871137623 / 2^32 | que mide: que fraccion de los pares consecutivos tienen la misma altura POR RAZON DE RESTO, decidido mirando solo n mod 2^32",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": "clasesfusion.py",
+   "fuente": "propio",
+   "notas": "Este NO es un promedio: es una cota inferior exacta, sin muestreo ni ajuste. La densidad real medida a 2^28 es 0,5186, y la diferencia de unos diez puntos son los pares que se funden pero cuya clase no se funde entera."
+  },
+  "C17": {
+   "id": "C17",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: umbral q < 4 del qn+1 | valor_teorico=4.0 | valor_medido=4.0019 | error_rel=0.048 | formula: q^f / 2 = 1 con f = 1/2 | que mide: el q maximo para el que el mapa qn+1 deberia converger; como q tiene que ser impar, el 3 es el unico valor que converge",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "NO ES EVIDENCIA INDEPENDIENTE. Se comprobo que media = q^f/2 exactamente, luego 'media = 1' es IDENTICO a f = 1/2, que es Terras 1976. La precision del 0,048% mide con que exactitud recuperamos una densidad ya conocida, no el umbral. El fenomeno es real; el numero no es un descubrimiento."
+  },
+  "C18": {
+   "id": "C18",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: exponente de la criba industrial | valor_teorico=0.9499555271883305 | valor_medido=0.9477 | error_rel=-0.237 | formula: H(log_3 2), la entropia binaria de log_3(2) | que mide: como escala la densidad de supervivientes de la criba: 2^(-(1-H)*k)",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": "descensoresto.py",
+   "fuente": "Barina 2025",
+   "notas": "ES EL LIMITE ASINTOTICO, NO EL VALOR LOCAL. El valor medido de la columna es la pendiente en k = 640..1280; en el rango real de la criba (k = 34) la pendiente es 0,892 y el decaimiento 0,108, o sea que la densidad cae al DOBLE de velocidad que el 2^(-0,05k) que cita el CLAUDE.md. Y aparte: reduccion no es aceleracion, un factor 138x de criba produjo solo 5,94x de velocidad porque los supervivientes son justamente los caros."
+  },
+  "C19": {
+   "id": "C19",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: techo heuristico del tiempo de descenso | valor_teorico=32.5896 | valor_medido=26.79 | error_rel=None | formula: (1 + log_3 2) / (1 - H) para el mapa clasico; 1/(1-H) = 19,98 para el atajo | que mide: a cuanto tenderia sigma_max(k)/k, o sea la C de una hipotetica cota sigma(n) <= C*log2(n)",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": "descensoresto.py",
+   "fuente": "propio",
+   "notas": "SALE DE UN MODELO DE DENSIDAD, o sea de un promedio: no demuestra que la cota exista. El valor medido de la columna es el cociente de los records publicados a 61 bits (1639/61,2), que sube despacio hacia ese techo sin llegar. Si la cota existiera y se demostrara, la conjetura saldria por induccion fuerte en tres lineas: por eso es el numero mas sugerente del laboratorio y el mas peligroso."
+  },
+  "C20": {
+   "id": "C20",
+   "tabla": "constantes",
+   "enunciado": "CONSTANTE: coral: divisiones por multiplicacion | valor_teorico=1.7320508075688772 | valor_medido=1.732 | error_rel=-0.003 | formula: ninguna: es una medicion sobre el arbol, no una formula | que mide: cuantos pasos pares por cada impar hay en el arbol inverso dibujado por el coral",
+   "cuantificador": "constante",
+   "estado": "medido",
+   "fichero": null,
+   "fuente": "propio",
+   "notas": "FICHERO RETIRADO: coralcollaz.py se borro en la purga del 01-08-2026 (media el angulo elegido a mano), asi que este numero ya no tiene codigo detras en el repo. NO ES UNA CONSTANTE. El 1,7345 que se publico era el valor de una MUESTRA a HASTA = 3.000; se asienta en 1,7320 +/- 0,0003 y la cuarta cifra nunca fue estable. Que caiga a 0,02% de sqrt(3) es CASUAL: la descomposicion del valor lo dice. El valor teorico de esta fila es sqrt(3) puesto solo para poder comparar, no porque lo sea."
+  }
+ },
+ "lotes": [
+  [
+   "A1",
+   "A18",
+   "A19",
+   "A20"
+  ],
+  [
+   "A21",
+   "A22",
+   "A23",
+   "A27"
+  ],
+  [
+   "A2",
+   "A3",
+   "A4",
+   "A5"
+  ],
+  [
+   "A24",
+   "A25",
+   "A26",
+   "A29"
+  ],
+  [
+   "A28",
+   "A33",
+   "A34",
+   "A17"
+  ],
+  [
+   "A6",
+   "A7",
+   "A8",
+   "A30"
+  ],
+  [
+   "A31",
+   "A9",
+   "A11",
+   "A13"
+  ],
+  [
+   "A12",
+   "A14",
+   "A15",
+   "A16"
+  ],
+  [
+   "A10",
+   "A61",
+   "A62",
+   "A63"
+  ],
+  [
+   "A56",
+   "A57",
+   "A58",
+   "A59"
+  ],
+  [
+   "A60",
+   "A64",
+   "A65",
+   "A69"
+  ],
+  [
+   "A35",
+   "A36",
+   "A37",
+   "A38"
+  ],
+  [
+   "A39",
+   "A40",
+   "A41",
+   "A42"
+  ],
+  [
+   "A43",
+   "A44",
+   "A45",
+   "A46"
+  ],
+  [
+   "A47",
+   "A48",
+   "A49",
+   "A50"
+  ],
+  [
+   "A51",
+   "A52",
+   "A53",
+   "A54"
+  ],
+  [
+   "A55",
+   "A66",
+   "A67",
+   "A68"
+  ],
+  [
+   "A70",
+   "A71",
+   "A72",
+   "A73"
+  ],
+  [
+   "A74",
+   "A75",
+   "A76",
+   "A77"
+  ],
+  [
+   "A78",
+   "A79",
+   "A80",
+   "A32"
+  ],
+  [
+   "C1",
+   "C2",
+   "C3",
+   "C4"
+  ],
+  [
+   "C5",
+   "C6",
+   "C7",
+   "C8"
+  ],
+  [
+   "C9",
+   "C10",
+   "C11",
+   "C12"
+  ],
+  [
+   "C13",
+   "C14",
+   "C15",
+   "C16"
+  ],
+  [
+   "C17",
+   "C18",
+   "C19",
+   "C20"
+  ]
+ ]
+}

@@ -1,0 +1,7 @@
+ITEM A38 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: la paridad de la trayectoria se comporta como lanzamientos independientes de moneda
+CUANTIFICADOR: casi_todo_n
+ESTADO DECLARADO EN LA BASE: conjeturado
+FUENTE DECLARADA: Lagarias-Weiss 1992 / Kontorovich-Lagarias
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Modelo heuristico, no teorema. LA GRIETA: la fraccion impar queda DETERMINADA por cuanto bajo la trayectoria y cuantos pasos tardo, y solo se puede medir en trayectorias que YA terminaron en 1. El argumento de la moneda asume lo que habria que demostrar.

@@ -1,0 +1,7 @@
+ITEM C4 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: pasos impares contra ln(n) | valor_teorico=3.476059496782208 | valor_medido=3.4614 | error_rel=-0.42 | formula: 1/ln(4/3) | que mide: cuantos 3n+1 se aplican por cada unidad de ln(n)
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: Lagarias, Applegate-Lagarias
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): ESTIMADOR Y RANGO, que hasta el 01-08-2026 no estaban dichos: es PENDIENTE DE REGRESION a 10^7, no muestreo ni agregado. Ponerla en la misma columna 'medido' que las de muestreo sugiere que son comparables y no lo son. Y es gamma(1/2) con gamma(rho) = 1/(ln2 - rho*ln3): las tres constantes de parada son una sola funcion evaluada en un punto, en la proporcion rho : 1 : 1+rho.

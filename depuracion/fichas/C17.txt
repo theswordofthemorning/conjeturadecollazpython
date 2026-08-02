@@ -1,0 +1,7 @@
+ITEM C17 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: umbral q < 4 del qn+1 | valor_teorico=4.0 | valor_medido=4.0019 | error_rel=0.048 | formula: q^f / 2 = 1 con f = 1/2 | que mide: el q maximo para el que el mapa qn+1 deberia converger; como q tiene que ser impar, el 3 es el unico valor que converge
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): NO ES EVIDENCIA INDEPENDIENTE. Se comprobo que media = q^f/2 exactamente, luego 'media = 1' es IDENTICO a f = 1/2, que es Terras 1976. La precision del 0,048% mide con que exactitud recuperamos una densidad ya conocida, no el umbral. El fenomeno es real; el numero no es un descubrimiento.

@@ -1,0 +1,7 @@
+ITEM C7 (tabla constantes de afirmaciones.db)
+ENUNCIADO LITERAL: CONSTANTE: divisiones por multiplicacion B/A | valor_teorico=2.0 | valor_medido=2.014002 | error_rel=0.7 | formula: la valuacion 2-adica media de 3n+1, que vale 2 porque P(v=k) = 2^-k | que mide: cuantas divisiones entre dos hay por cada 3n+1
+CUANTIFICADOR: constante
+ESTADO DECLARADO EN LA BASE: medido
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): CONVERGE A 2, NO A log2(3). El log2(3) = 1,585 es el punto de EQUILIBRIO, no el valor tipico: son dos numeros distintos y no se contradicen. La media de razones trayectoria a trayectoria da 2,174 por Jensen y NO vale. Y EL RANGO Y EL ESTIMADOR, que faltaban hasta el 01-08-2026: este 2,014002 es el AGREGADO suma(B)/suma(A) a 10^6; a 10^7 el agregado da 2,012389, y con pendiente de regresion a 10^7 sale 2,0018, o sea +0,09% en vez de +0,70%. Las tres constantes de parada de esta misma tabla son pendiente de regresion: ponerlas en la misma columna que este agregado sugiere que son comparables y no lo son.

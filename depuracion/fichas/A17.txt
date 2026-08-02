@@ -1,0 +1,7 @@
+ITEM A17 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: sigma_clasico(n) = sigma_atajo(n) + (pasos impares dentro de ellos), exacto
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo n >= 2. Cada paso impar del atajo son dos pasos clasicos, y el valor intermedio 3n+1 es siempre MAYOR que n, asi que nunca puede ser el que dispara el descenso. Verificado en 5.012 numeros y en los 34 records de planeo publicados, 0 fallos. Es lo que permite cruzar el mapa del atajo (donde Terras es exacto) con los records de ericr.nl (que estan en el clasico).

@@ -1,0 +1,7 @@
+ITEM A35 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: casi todo n tiene un iterado menor que n
+CUANTIFICADOR: casi_todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Everett 1977 / Terras 1976
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Densidad 1 en los enteros positivos. Tres paginas. El truco es usar la cota pesimista 5/3 en vez del factor exacto 3/2, y asi prescindir del +1.

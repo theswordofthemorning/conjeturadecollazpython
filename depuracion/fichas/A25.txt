@@ -1,0 +1,7 @@
+ITEM A25 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: (32m+5, 32m+6) se funden para todo m >= 1
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Wu-Huang 2001, Mathematica Applicata (Wuhan) 14, supl., 21-25, MR 1885838 (LOCALIZADA el 01-08-2026)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): guardarhilos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo m >= 1; probado en m = 1,2,7,100,3125,9999,40000, todos con desfase 0. Nuestro par (100005, 100006) es el caso m = 3125. En m = 0 es FALSO: altura(5) = 5 y altura(6) = 8.

@@ -1,0 +1,7 @@
+ITEM A18 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: los primeros k pasos de cualquier numero los decide n mod 2^k
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976 / Everett 1977
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): mallaresiduos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: todo k >= 1. Tiene nombre: el vector de paridad. 64 restos x 12 representantes = 768 numeros, 0 discrepancias.

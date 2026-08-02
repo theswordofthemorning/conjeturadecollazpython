@@ -1,0 +1,7 @@
+ITEM A27 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: por cada resto mod 2^k hay COMO MUCHO UN candidato de ciclo, y sale en cerrado: m = (r - T^k(r)) / (3^{S(r)} - 2^k)
+CUANTIFICADOR: clase_residual
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio (de la identidad de Terras)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): pinzaciclos.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: barrido entero de k = 1..30. Si m no es entero, la clase queda descartada para los infinitos numeros que contiene. Verificado contra iteracion cruda y contra una implementacion en Python puro.

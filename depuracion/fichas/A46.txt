@@ -1,0 +1,7 @@
+ITEM A46 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el tiempo de descenso tiene techo heuristico: sigma_C/k -> (1 + log_3 2)/(1 - H) = 32,59 para el mapa clasico, y 1/(1-H) = 19,98 para el atajo
+CUANTIFICADOR: promedio
+ESTADO DECLARADO EN LA BASE: conjeturado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): descensoresto.py
+NOTAS DE LA BASE (contexto y correcciones previas): AVISO: SALE DE UN MODELO DE DENSIDAD, o sea de un promedio, y los promedios no demuestran nada sobre casos individuales. Es el numero mas sugerente del dia y por eso el mas peligroso. Si esa cota existiera y se demostrara -sigma(n) <= C*log2(n) para todo n- la conjetura saldria por induccion fuerte sobre el minimo contraejemplo, en tres lineas. Nadie ha demostrado que esa C exista.

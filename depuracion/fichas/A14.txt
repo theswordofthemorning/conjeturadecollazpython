@@ -1,0 +1,7 @@
+ITEM A14 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: el espejo en base b tiene puntos fijos exactamente (b/2)*b^m si b es par, y NI UNO si b es impar
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: propio
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): -
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: las 15 bases de 2 a 16, 200.000 numeros cada una, 0 fallos. Los 5, 50, 500 del base 10 no son peculiaridad del diez: son el caso b = 10. Y la base 2 es la unica donde puede haber teorema. FICHERO RETIRADO: espejobases.py se borro en la purga del 01-08-2026 con el resto de la familia del espejo. El enunciado sale de n = b^k/2, que es entero si y solo si b es par, y no depende de ningun dibujo.

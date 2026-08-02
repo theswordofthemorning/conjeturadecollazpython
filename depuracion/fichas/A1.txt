@@ -1,0 +1,7 @@
+ITEM A1 (tabla afirmaciones de afirmaciones.db)
+ENUNCIADO LITERAL: 2^B * seq[j] = 3^A * seq[i] + C para cualquier par de posiciones i < j de una trayectoria, con C -> 3C + 2^B en los pasos impares
+CUANTIFICADOR: todo_n
+ESTADO DECLARADO EN LA BASE: demostrado
+FUENTE DECLARADA: Terras 1976 (Teorema 1.1)
+FICHERO DECLARADO EN LA BASE (NO LO ABRAS; solo para saber que existe): collazmalla.py
+NOTAS DE LA BASE (contexto y correcciones previas): Ambito: cualquier par i<j de cualquier trayectoria. Es la identidad madre del repo. Terras la publica como T^k n = lambda_k*n + rho_k; multiplicando por 2^k queda esta. 6.555 pares del 221, 0 fallos.
