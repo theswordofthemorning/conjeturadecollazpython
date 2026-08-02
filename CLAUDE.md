@@ -701,7 +701,11 @@ for a in sorted(glob.glob('*.py')):
 | `verificar_constantes.py` | Wagon contra A122790, las constantes de parada con **dos estimadores**, `Res ≥ 1`, y la biyección de Terras al pie de la letra |
 | `.claude/settings.local.json` | Permisos ya concedidos: `python *`, `py *`, `git fetch *` |
 
-**Todo lo de la tabla está trackeado.** Para comprobarlo: `git ls-files`.
+**Todo lo de la tabla está trackeado, con UNA excepción:
+`.claude/settings.local.json` no está en git** (verificado con `git ls-files`
+el 02-08-2026 — son permisos locales de esta máquina, y ni siquiera está en
+`.gitignore`: simplemente nunca se añadió). Si esta máquina se pierde, los
+permisos se vuelven a conceder a mano; no hay nada más que sobreviva sólo ahí.
 
 > **EL AVISO DE LOS PDF SE CUMPLIÓ, y por eso ya no hay fila para ellos.**
 > `.gitignore` ignora `*.pdf`, así que la bibliografía leída (Terras 1976, Tao
