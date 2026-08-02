@@ -14,10 +14,10 @@
 #   Si aparece UN solo n con sigma != sigma*, ES un contraejemplo de CST y
 #   este programa para en el acto: seria el hallazgo del siglo, no un bug.
 
-LIMITE = 10 ** 8    # barrer impares 3 .. LIMITE
-TRAMO = 10 ** 7     # imprimir progreso cada tanto
-
 import sys
+
+LIMITE = int(sys.argv[1]) if len(sys.argv) > 1 else 10 ** 8   # impares 3 .. LIMITE
+TRAMO = 10 ** 7     # imprimir progreso cada tanto
 
 def verificar_tramo(desde, hasta):
     # sigma(n): primer k con T^k(n) < n.  sigma*(n): primer k con 2^k > 3^S.
@@ -57,5 +57,5 @@ for ini in range(0, LIMITE, TRAMO):
 
 print()
 print("RESULTADO: sigma(n) = sigma*(n) para TODO n hasta %d." % LIMITE)
-print("X0 sube de 2*10^7 a 10^8: la conversion a un corte sigma* <= K nuevo")
+print("X0 sube de 2*10^7 a %d: la conversion a un corte sigma* <= K nuevo" % LIMITE)
 print("va por la curva B(k) de paradacoef.py (siguiente sesion).")

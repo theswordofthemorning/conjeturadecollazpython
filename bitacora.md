@@ -89,9 +89,12 @@ veces** (`T^k(r) ≤ r` en toda clase caída, con las únicas igualdades en
 >
 > **La continuación buena: subir `X₀` (el barrido directo `σ = σ*`), que es
 > CPU pura y cero tokens, y dejar que el corte se corra solo por la curva
-> `B(k)`.** Barrido a `10⁸` lanzado esta noche (`atacacst2.py`); la conversión
-> `X₀ nuevo → K nuevo` con la maquinaria de `paradacoef.py` queda para la
-> sesión siguiente.
+> `B(k)`.** La misma noche: **`10⁸` en 2 minutos y `10⁹` en ~18 — 0
+> diferencias en los dos** (`atacacst2.py`, resultados en
+> `atacacst2_progreso*.txt`). `X₀` queda **50×** por encima del `2·10⁷` de
+> `paradacoef.py`. La conversión `X₀ → K nuevo` con la maquinaria `B(k)`
+> queda para la sesión siguiente; a este ritmo, `10¹⁰` sería una noche de
+> CPU si hiciera falta.
 
 ---
 
