@@ -54,10 +54,31 @@ rescató todo de los journals — **el trabajo pagado no se pagó dos veces**.
 
 ## LO QUE QUEDA, en orden
 
-1. **Aplicar las 13 correcciones** a `afirmaciones.db` y al `CLAUDE.md` — los
-   textos exactos están en `correccion_exacta` de cada fila. **No aplicadas aún.**
+1. ⇢ **HECHO la misma noche: las 13 correcciones aplicadas** al generador, la
+   base regenerada y el `CLAUDE.md` (commit `96ee1fc`).
 2. La pasada CPU del coral (barata en tokens, cara en horas de máquina).
 3. `guardarrespuestas.py` + zip de transcripciones al cerrar esta sesión.
+
+## ⇢ Y EL ATAQUE A CST ARRANCÓ, la misma noche, todo local
+
+**`atacacst.py` + `atacacst.lean`** (encargo del usuario: atacar con Lean y
+Python, sin agentes). La palanca: en cada clase `r mod 2^k` donde el
+coeficiente cae, el fallo de CST sólo puede vivir en `m ≤ T^k(r) − r` — **un
+tramo finito por clase, y eso está DEMOSTRADO en Lean para todo `k, r, m`**
+(`palanca`, `tramo_finito`; núcleo, sin Mathlib, sin `sorryAx`, compiló a la
+primera).
+
+**Resultado:** CST decidida **para todo `n ≥ 2` con `σ* ≤ 27`** — incluido el
+jump value `k = 27` — autocontenido, sin `X₀` importado. Complementa el corte
+`σ* ≤ 16.294` de `paradacoef.py`, que sí depende del barrido a `2·10⁷`.
+
+**Y el hallazgo que deja una pregunta nueva y afilada: el tramo estuvo VACÍO
+las 27 veces** (`T^k(r) ≤ r` en toda clase caída, con las únicas igualdades en
+`r ∈ {0, 1}`). Si eso fuera teorema para todo `k`, **CST entera caería** — así
+que seguramente se rompe en algún `k` mayor, y el sitio donde buscar es el
+siguiente jump value, **`k = 46`** (`2^46/3^29 = 1,0043`), que ya no se alcanza
+por enumeración (`a(46) ~ 2^41`): hace falta enumerar sólo las clases de `S`
+alto cerca del salto. **Ésa es la continuación concreta.**
 
 ---
 
