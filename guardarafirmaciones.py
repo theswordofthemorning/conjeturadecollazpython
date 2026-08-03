@@ -831,6 +831,23 @@ AFIRMACIONES = [
          "forma ajustada exacta en 8 niveles NO es demostracion - por "
          "eso queda en medido."),
 
+    fila("c4 ES A079583: la sucesion del estrato minimo del piso h "
+         "coincide termino a termino con la entrada catalogada "
+         "3*2^n - n - 2 (con n = m - 6), lo que CONFIRMA la forma "
+         "cerrada por via independiente; b4 (la hermana con 7 en vez "
+         "de 6) NO esta catalogada. Y LA LEY DEL GERMEN UNICO, medida "
+         "en los TRES pisos: cada estrato nuevo entra cada dos niveles "
+         "con EXACTAMENTE una clase",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada. A079583 esta catalogada como forma "
+         "pura sin contexto Collatz: la coincidencia no es prioridad "
+         "ajena sino confirmacion del ajuste (la misma formula, "
+         "verificada por otro camino). La ley del germen unico: piso a "
+         "(estratos 2, 4 entran con 1 - teoremas), pisos b y c "
+         "(estratos 6@8, 8@10, 10@12, 12@14 entran con 1 en ambos - "
+         "medido). Sugiere una recursion universal del triangulo: "
+         "germen unico + ley de crecimiento por estrato."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
