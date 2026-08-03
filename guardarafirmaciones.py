@@ -1223,6 +1223,27 @@ AFIRMACIONES = [
          "NO contiene 11 ni 33 - la pieza pendiente es el inventario "
          "de entradas de los estratos altos."),
 
+    fila("LA LEY MOD 3 DE LOS TRAMOS: en los tramos compartidos del "
+         "programa, D nunca es 2 (mod 3) - equivalentemente, EL LADO "
+         "MAYOR NUNCA ES MULTIPLO DE 3 (D = 2 mod 3 <=> 3 | lado "
+         "mayor, una linea). Verificado masivo: los impares presentes "
+         "son exactamente los no-2 mod 3, y los ausentes (5, 11, 17, "
+         "23, -7, -13...) todos 2 mod 3. CONSECUENCIA: D = 11 muere "
+         "por la ley (es 2 mod 3) - la mitad de la supresion del j = 3 "
+         "queda explicada; D = 33 (0 mod 3) SI aparece (23.715 veces) "
+         "y su no-aterrizaje en +16 es la otra mitad, pendiente",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "04-08-2026. EL MECANISMO (esbozo de induccion): 3 | l se "
+         "conserva al partir por 2 y solo se destruye cuando ese lado "
+         "recibe 3x+1 (que da residuo 2 mod 3); las entradas del "
+         "programa (9w+2, 9w-1, y el lado impar tras todo mixto) "
+         "tienen lado mayor = 2 (mod 3): la propiedad se propaga. ES "
+         "LA ESTRUCTURA MOD 3 DEL ARBOL (los rayos mudos multiplos de "
+         "3, medida el primer dia del repo en mallascerradas.py) "
+         "REAPARECIENDO EN LA DINAMICA DE PARES: las dos mitades del "
+         "laboratorio se tocan. La supresion queda partida en dos "
+         "lemas: la ley mod 3 (D = 11) y la rama de salida del 33."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
