@@ -883,6 +883,22 @@ AFIRMACIONES = [
          "h), y la forma g es puerta de entrada pero no de recursion. "
          "El sistema de phi podria ser mas chico de lo que parecia."),
 
+    fila("LA ANATOMIA UNIVERSAL DEL ESTRATO 4 REDUCIDO: las 686 clases "
+         "de |M| = 4 de los dos pisos (m = 10..12) son TODAS 'preludio "
+         "hasta par consecutivo con delta saldado (+2 acumulado) + "
+         "ventana de Perras exacta (r par, primer 0 seguido de 1)'. "
+         "686 de 686, cero excepciones",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; goal de investigacion abierta. Reduce "
+         "la demostracion pendiente de las formas cerradas b4 = "
+         "7*2^(m-7)-m+4 y c4 = 6*2^(m-7)-m+4 a CONTAR PRELUDIOS por "
+         "clase residual - contabilidad sobre maquinaria ya demostrada "
+         "(Perras + Terras). Es la misma anatomia del |M| = 4 del piso "
+         "de arriba (contraccion + lema general), un piso mas abajo: "
+         "tercera aparicion del patron preludio+ventana. Primera tarea "
+         "de la continuacion: el conteo de preludios que produce el "
+         "7 y el 6 de las dos formas."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
