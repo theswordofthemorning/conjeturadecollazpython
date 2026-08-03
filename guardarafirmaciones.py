@@ -1203,6 +1203,26 @@ AFIRMACIONES = [
          "D-dinamica conocida; lo que decide es la alcanzabilidad "
          "conjunta (D, E), el mismo objeto del lema general pendiente."),
 
+    fila("EL MAPA DE t ES EL MAPA DE D (t = D + 1, verificado en 80 "
+         "transiciones deterministas): t par comparte (s par: t/2; s "
+         "impar: (3t-2)/2) y t impar es mixto. COROLARIO AFILADO: "
+         "aterrizar en +16 = llegar a la forma t = 17 exige pasar el "
+         "tramo por D = 33 (via f0) o D = 11 (via f1); el +4 observado "
+         "viene de D = 3 (f1: (3*3-1)/2 = 4). LA SUPRESION DEL j = 3 "
+         "EQUIVALE A: los valores de tramo D = 11 y D = 33 son "
+         "inalcanzables desde las entradas del programa",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "04-08-2026. La reduccion final de la conjetura: una pregunta "
+         "de alcanzabilidad sobre DOS enteros concretos en la dinamica "
+         "de tramo (f0 = (D-1)/2, f1 = (3D-1)/2 sobre impares). El "
+         "contraste que la hace jugosa: D = 3 SI es alcanzable (produce "
+         "los +4) y D = 11 no - que separa al 3 del 11 es exactamente "
+         "lo que hay que demostrar. Nota: las entradas conocidas del "
+         "tramo son -3 (el grafo), 1 (pares consecutivos) y las "
+         "puertas de la torre; el grafo desde -3 y desde 1 es finito y "
+         "NO contiene 11 ni 33 - la pieza pendiente es el inventario "
+         "de entradas de los estratos altos."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
