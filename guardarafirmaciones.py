@@ -1559,6 +1559,19 @@ AFIRMACIONES = [
          "sesion del 30-07) y desemboca en otra razon subiendo a 2 - "
          "pero esta vez la serie TIENE gramatica demostrada detras."),
 
+    fila("LA ECUACION DE BETA, RECONSTRUIDA INDEPENDIENTE (tarea 1 del "
+         "pendiente comprometido): implementacion nueva (detector por "
+         "acumuladores, testigo 777777, otro camino de codigo), las dos "
+         "identidades confirmadas 5/5 incluido el nivel NUEVO m = 13: "
+         "b_impar(13) = c(12) = 300 y b_2mod4(13) = a(10) + c(10) = "
+         "409. El 6/6 corregido de anoche es ahora un 11/11 por dos "
+         "implementaciones",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026. De regalo: el canal torre DESPIERTA en los "
+         "niveles nuevos (b_0mod4 = 0, 0, 0, 1, 5 en m = 9..13) - "
+         "coherente con que epsilon_torre > 0 y el teorema negativo "
+         "barato muerto. La ecuacion de beta ya puede cargar peso."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
