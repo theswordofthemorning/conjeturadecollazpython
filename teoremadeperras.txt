@@ -228,3 +228,23 @@ R7. VERIFICACION NUEVA, LA MAS FUERTE: la ventana de Perras vale como
     |M| = 2 mod 2^(k+2) son EXACTAMENTE 2^k - 1, clavado para k = 3..14
     (identidadexacta.py). Sin simulacion, sin topes.
 ================================================================================
+
+================================================================================
+10. DOS ASCENSOS (03-08-2026, noche; puntos 3 y 4 de la tercera revision)
+--------------------------------------------------------------------------------
+PROPOSICION (el conteo de la ventana, antes "verificacion"). Las clases
+de r par mod 2^(k+2) que funden con |M| = 2 en <= k+2 pasos son
+EXACTAMENTE 2^k - 1. Demostracion: el prefijo 1^j 0 1 de s1 fija j+2
+bits de s1 mod 2^(k+1); la fusion cae en el paso j+3 <= k+2, o sea
+j <= k-1; quedan (k+1)-(j+2) = k-1-j bits libres:
+    suma_{j=0}^{k-1} 2^(k-1-j) = 2^k - 1.   QED
+(Los dos residuos de borde de la seccion 4 quedan FUERA de toda ventana
+finita - su j crece con m - asi que aqui no dejan correccion.)
+
+TEOREMA DE FAMILIA (R6 cerrado). El par (3067, 3068) funde en el paso
+t = 18 <= 19. Por Terras (el prefijo de paridad de 18 pasos es constante
+en la clase mod 2^19), TODA la familia (2^19 m + 3067, 2^19 m + 3068)
+funde en el paso 18 con |M| = 8, para todo m >= 0. Los contraejemplos de
+Elia-Tucker a la conjetura de Garner viven, como familia entera y por
+teorema, en el estrato 8.
+================================================================================

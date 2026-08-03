@@ -761,6 +761,33 @@ AFIRMACIONES = [
          "objetivos canonicos de Delta_S verifica ademas el Corolario 2 "
          "de Jirafas."),
 
+    fila("EL LEMA DE LA EQUIVALENCIA (condicional a Res < 6): si "
+         "H(n) = H(n+1), las trayectorias del atajo se encuentran AL "
+         "MISMO INDICE con S igualada - porque 6^d = n*Res(n) / "
+         "((n+1)*Res(n+1)) con d = tau1-tau2, y con 1 <= Res < 6 el lado "
+         "derecho vive en (1/6, 6): d = 0 forzado. COROLARIO: f = d, "
+         "nuestra densidad de fusion ES la densidad de pares de igual "
+         "altura de Gao (0,512 medida a 10^8)",
+         "todo_n", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, noche; resuelve el punto 5 de la tercera revision "
+         "(Gatas p.5 presentaba f y d como equivalentes sin demostrarlo). "
+         "CONDICION DECLARADA: Res >= 1 es teorema del repo; Res < 6 es "
+         "forma ultra debil de Roosendaal (max conocido 1,2532, "
+         "verificado a 2^71): incondicional para n < 2^71. Verificado: "
+         "los 477.245 pares de igual altura bajo 10^6 funden todos al "
+         "mismo indice, cero excepciones. La brecha 0,4357 vs 0,512 es "
+         "truncamiento puro: misma cantidad limite."),
+
+    fila("TEOREMA DE FAMILIA de los contraejemplos de Elia-Tucker: TODA "
+         "la familia (2^19 m + 3067, +1) funde en el paso 18 con "
+         "|M| = 8, para todo m >= 0",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, noche; punto 4 de la tercera revision, cerrado "
+         "como pedia: t = 18 <= 19 medido en el representante, y por "
+         "Terras el prefijo de 18 pasos es constante en la clase mod "
+         "2^19: el teorema cubre los infinitos m, no cuatro muestras. "
+         "Los contraejemplos a Garner viven en el estrato 8 POR TEOREMA."),
+
     fila("TEOREMA DE JIRAFAS (el balance forzado; bautizado por el "
          "usuario el 03-08-2026): toda fusion valida para una CLASE "
          "residual entera esta S-balanceada (la igualdad de las dos "

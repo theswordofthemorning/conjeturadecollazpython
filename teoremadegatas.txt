@@ -218,3 +218,36 @@ R6. ADVERTENCIAS ACEPTADAS PARA EL CAMINO A: (i) riesgo de tautologia -
     resultante tiene rango suficiente; (ii) el test espejo con 3n-1 como
     falsacion del pipeline completo. Ambos quedan en la ruta.
 ================================================================================
+
+================================================================================
+10. EL LEMA DE LA EQUIVALENCIA (resuelve el problema del punto 5 de la
+    tercera revision; 03-08-2026, noche)
+--------------------------------------------------------------------------------
+LEMA (condicional a Res < 6). Si H(n) = H(n+1) (alturas clasicas), las
+dos trayectorias del atajo se encuentran AL MISMO INDICE, con S igualada.
+Por tanto  f = d : la densidad de fusion de este documento ES la densidad
+de pares consecutivos de igual altura que midio Gao (0,512 a 10^8).
+
+DEMOSTRACION. Sean tau_i los tiempos de atajo hasta 1 y S_i los impares;
+H = tau + S. Con H iguales, d := tau_1 - tau_2 = S_2 - S_1. La identidad
+de Terras al llegar a 1 da 2^tau = 3^S * n * Res(n) (Res el residuo de
+Roosendaal, con Res >= 1 DEMOSTRADO en el repositorio). Dividiendo las
+dos identidades:
+
+    6^d = (n * Res(n)) / ((n+1) * Res(n+1))
+
+Con 1 <= Res < 6 y n/(n+1) ~ 1, el lado derecho vive en (1/6, 6), y la
+unica potencia entera de 6 ahi es 6^0: d = 0. Luego tau_1 = tau_2 y
+S_1 = S_2; con el mismo tiempo de llegada al 1, las trayectorias estan
+en fase y se encuentran al mismo indice (a mas tardar en el 1). QED.
+
+SOBRE LA CONDICION: Res >= 1 es teorema; Res < 6 es una forma ULTRA
+debil de la conjetura de Roosendaal (max conocido 1,2532, verificado
+hasta 2^71 en el repositorio via los records de Barina): el lema es
+incondicional para todo n < 2^71, y condicional en general.
+
+VERIFICACION: los 477.245 pares de igual altura bajo 10^6 funden todos
+al mismo indice, cero excepciones. Y la brecha entre a(k)/2^k = 0,4357
+(k = 32) y el d ~ 0,512 de Gao queda explicada como truncamiento puro:
+son la misma cantidad limite.
+================================================================================

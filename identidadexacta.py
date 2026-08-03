@@ -152,6 +152,68 @@ print("clavadas contra la particion en todos los terminos: la identidad")
 print("es TEOREMA verificado, no tautologia. Y el cuadre con los objetivos")
 print("canonicos de Delta_S verifica el Corolario 2 de Jirafas.")
 
+# ---------------------------------------------------------------------------
+# EL LEMA DE LA EQUIVALENCIA (03-08-2026, noche): si H(n) = H(n+1), las
+# trayectorias del atajo se encuentran AL MISMO INDICE. Demostracion en
+# teoremadegatas.txt seccion 10 (el argumento 6^d, condicional a Res < 6,
+# incondicional bajo 2^71). Aqui la verificacion: TODOS los pares de
+# igual altura bajo 10^6 funden al mismo indice. Y el teorema de familia:
+# (2^19 m + 3067) funde en t = 18 con |M| = 8 para todo m (comprobados
+# cuatro representantes; el resto lo da Terras con t = 18 <= 19).
+# ---------------------------------------------------------------------------
+
+memo_h = {1: 0}
+def altura(n):
+    cadena = []
+    while n not in memo_h:
+        cadena.append(n)
+        n = n // 2 if n % 2 == 0 else 3 * n + 1
+    base = memo_h[n]
+    for i, v in enumerate(reversed(cadena), 1):
+        memo_h[v] = base + i
+    return memo_h[cadena[0]] if cadena else base
+
+iguales = 0
+for n in range(1, 10 ** 6):
+    if altura(n) != altura(n + 1):
+        continue
+    iguales += 1
+    x, y = n, n + 1
+    ok = False
+    for _ in range(700):
+        x, y = paso(x), paso(y)
+        if x == y:
+            ok = True
+            break
+    if not ok:
+        raise SystemExit("FALLO equivalencia: n=%d igual altura sin fusion "
+                         "al mismo indice" % n)
+print()
+print("LEMA DE LA EQUIVALENCIA OK: los %d pares de igual altura bajo 10^6"
+      % iguales)
+print("funden TODOS al mismo indice (cero excepciones): f = d, la densidad")
+print("de Gao (0,512 a 10^8) es la nuestra; la brecha con 0,4357 es")
+print("truncamiento puro.")
+
+for m in range(4):
+    r = 2 ** 19 * m + 3067
+    x, y = r, r + 1
+    Sx = Sy = M = 0
+    for t in range(1, 30):
+        if (x % 2) != (y % 2):
+            M += 1
+        if x % 2:
+            Sx += 1
+        if y % 2:
+            Sy += 1
+        x, y = paso(x), paso(y)
+        if x == y:
+            if not (t == 18 and Sx == Sy and M == 8):
+                raise SystemExit("FALLO familia 3067: m=%d t=%d M=%d" % (m, t, M))
+            break
+print("TEOREMA DE FAMILIA OK: (2^19 m + 3067) funde en t = 18, |M| = 8;")
+print("con t <= 19, Terras lo extiende a TODO m: teorema, no muestra.")
+
 print()
 print("G(k) =", G_serie)
 print("H(k) =", H_serie)

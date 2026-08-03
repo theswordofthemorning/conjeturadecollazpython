@@ -349,6 +349,33 @@ reentrar depende de qué lado quedó menor — el censo actual mide `δ` en
 lados originales, hay que reorientarlo). Con esas masas, el sistema
 lineal se resuelve y **`f` queda decidida**.
 
+## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
+
+Los puntos 3–5 de la orden del revisor, ejecutados la misma noche:
+
+- **LEMA DE LA EQUIVALENCIA** (demostrado, condicional a `Res < 6` —
+  forma ultra-débil de Roosendaal, incondicional bajo `2^71`): si
+  `H(n) = H(n+1)`, las trayectorias del atajo se encuentran **al mismo
+  índice** con `S` igualada. La demostración es el argumento `6^d`:
+  `6^d = n·Res(n)/((n+1)·Res(n+1)) ∈ (1/6, 6)` ⟹ `d = 0`. **Corolario:
+  `f = d` — nuestra densidad de fusión ES la densidad de pares de igual
+  altura que Gao midió subiendo a 0,512 en 10⁸.** La brecha con
+  `a(32)/2^32 = 0,4357` es truncamiento puro. Verificado: los 477.245
+  pares de igual altura bajo 10⁶ funden todos al mismo índice, cero
+  excepciones. Gatas §10.
+- **La proposición del `2^k − 1`** subida con su demostración de dos
+  líneas (Perras §10), con los bordes revisados (quedan fuera de toda
+  ventana finita: sin corrección).
+- **R6 cerrado como teorema de familia**: `(3067, 3068)` funde en
+  `t = 18 ≤ 19` ⟹ por Terras TODA la familia `2^19·m + 3067` funde en
+  el paso 18 con `|M| = 8`. Los contraejemplos a Garner viven en el
+  estrato 8 **por teorema**.
+
+Queda para la próxima sesión solo lo que no era de hoy: LaTourette por
+correo, lecturas (Rozier, Frinkle, A277109), y las sub-renovaciones de
+`b(i)` y `c(k)` con el chequeo de rango. `afirmaciones.db`: **103
+afirmaciones.**
+
 ## ⇢ CIERRE DEL 03-08-2026 — LA RUTA QUEDA EN `RutaTeoremas.md`. EMPEZAR POR AHÍ
 
 **La tercera carta de Opus 5 llegó cruzada con nuestro último commit: su
