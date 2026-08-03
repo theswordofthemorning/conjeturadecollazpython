@@ -1032,6 +1032,26 @@ AFIRMACIONES = [
          "+1 y un -1 de los cuatro mixtos, con la paridad de j "
          "decidiendo el lado par del consec)."),
 
+    fila("EL LEMA GENERAL DEL PRELUDIO DEL PISO h, DEMOSTRADO - y con "
+         "el, c4(m) = 3*2^(m-6) - m + 4 ES TEOREMA PARA TODO m: (1) "
+         "D1 = -3 SIEMPRE tras el primer mixto (calculo de una linea, "
+         "con w par excluido porque D1 = 12w-2 fuerza tercer mixto); "
+         "(2) la dinamica de D desde -3 vive en el grafo finito "
+         "{-3, -5} con aterrizajes exactos {-2, -8}; (3) hay UN camino "
+         "por largo (la alternancia fuerza la palabra) y el hueco "
+         "L = 4 es imposible (-2 aterriza en largos impares, -8 en "
+         "pares mas 2 divisiones); (4) Terras da UNA clase por palabra",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; la corona de la rafaga: el eslabon "
+         "que faltaba, encontrado al escribir el argumento del reparto "
+         "de mixtos. El esqueleto completo cabe en diez lineas sobre "
+         "el grafo {-3, -5}; el detalle fino (palabra de paridades <-> "
+         "clase, via E) queda para la formalizacion. Explica ademas "
+         "por que los aterrizajes +4 y -32 solo aparecen en estratos "
+         ">= 6 (entran por otros D iniciales, no desde -3). El piso g "
+         "(D0 = 6w+1 impar, mixed0 es aterrizaje tambien) es el "
+         "analogo pendiente - mismo metodo, otro grafo."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
