@@ -214,6 +214,51 @@ for m in range(4):
 print("TEOREMA DE FAMILIA OK: (2^19 m + 3067) funde en t = 18, |M| = 8;")
 print("con t <= 19, Terras lo extiende a TODO m: teorema, no muestra.")
 
+# ---------------------------------------------------------------------------
+# LOS GERMENES DE LAS SUB-RENOVACIONES (03-08-2026, madrugada). Las
+# series reducidas b(m) (de {w,9w+2}) y c(m) (de {w,9w-1}) arrancan en
+# m = 6 con UN SOLO germen cada una, y son explicitos:
+#   b: w = 46 mod 2^6 -> funde en el paso 6 via el vortice (40, 13)
+#      [40 = 3*13+1], compensacion S = 3 - 1 = +2 exacta;
+#   c: w = 25 mod 2^6 -> funde en el paso 6 via el vortice (22, 7)
+#      [22 = 3*7+1], compensacion +2 exacta.
+# Por Terras, cada germen decide su clase entera: lemas de germen.
+# Y NINGUNA de las dos series (b: 1,4,11,28,66,149; c: 1,3,9,24,58,134,
+# 300,659,1426) esta en OEIS (consultadas 03-08-2026, control previo
+# Fibonacci OK en esta misma sesion). Sus razones bajan hacia 2 DESDE
+# ARRIBA (2,26 / 2,16 en los ultimos terminos): las densidades
+# reducidas siguen subiendo -- la misma pregunta de la razon 2, ahora
+# en tres pisos (a, b, c).
+# ---------------------------------------------------------------------------
+
+for forma, esperado in (('g', [46]), ('h', [25])):
+    encontrados = []
+    for c0 in range(2 ** 6):
+        vals = []
+        for w in ((c0 if c0 else 2 ** 6 * 2 * KSEP), c0 + 2 ** 6 * KSEP):
+            x, y = (w, 9 * w + 2) if forma == 'g' else (w, 9 * w - 1)
+            Sx = Sy = 0
+            f = False
+            for _ in range(6):
+                if x % 2:
+                    Sx += 1
+                if y % 2:
+                    Sy += 1
+                x, y = paso(x), paso(y)
+                if x == y:
+                    f = (Sx - Sy == 2)
+                    break
+            vals.append(f)
+        if vals[0] != vals[1]:
+            raise SystemExit("FALLO germen testigos: %s c=%d" % (forma, c0))
+        if vals[0]:
+            encontrados.append(c0)
+    if encontrados != esperado:
+        raise SystemExit("FALLO germen %s: %s" % (forma, encontrados))
+print()
+print("GERMENES OK: b(6) = 1 con w = 46 (vortice (40,13)) y c(6) = 1 con")
+print("w = 25 (vortice (22,7)), unicos en sus niveles, decididos por clase.")
+
 print()
 print("G(k) =", G_serie)
 print("H(k) =", H_serie)

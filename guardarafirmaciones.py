@@ -781,6 +781,22 @@ AFIRMACIONES = [
          "densidad natural = medida 2-adica). Verificado: 477.245 "
          "pares bajo 10^6, cero excepciones."),
 
+    fila("LOS LEMAS DE GERMEN de las sub-renovaciones: b(6) = 1 con "
+         "germen w = 46 mod 2^6 (funde en el paso 6 via el vortice "
+         "(40, 13), compensacion S = +2 exacta) y c(6) = 1 con germen "
+         "w = 25 mod 2^6 (vortice (22, 7)); cada germen decide su clase "
+         "entera por Terras. Y las dos series reducidas -b: 1,4,11,28,"
+         "66,149; c: 1,3,9,24,58,134,300,659,1426- NO estan en OEIS",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; goal de investigacion abierta. Los "
+         "germenes son unicos en m = 6 (barrido exhaustivo de las 64 "
+         "clases con dos testigos). OEIS consultada con control "
+         "Fibonacci OK en la misma sesion: no results para ambas. Las "
+         "razones de b y c bajan hacia 2 DESDE ARRIBA (2,26 / 2,16): "
+         "las densidades reducidas siguen subiendo - la pregunta de la "
+         "razon 2 ahora tiene tres pisos (a, b, c) y las mismas "
+         "herramientas valen en cada piso."),
+
     fila("EL RECIPROCO DE JIRAFAS, y con el LA CARACTERIZACION: una "
          "fusion en el indice t esta S-balanceada SI Y SOLO SI es un "
          "evento de clase mod 2^t",
