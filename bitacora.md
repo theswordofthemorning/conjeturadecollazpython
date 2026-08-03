@@ -5,6 +5,35 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ EL GRAN CIERRE DE LA MADRUGADA DEL 04-08: LOS TRES ÁTOMOS Y LAS DOS FÓRMULAS
+
+La ráfaga de investigación abierta terminó con la estructura completa:
+
+- **Los tres átomos del programa, los tres universales y demostrados**:
+  el grafo `{−3, −5}` (todo `w` impar), la ventana de Perras (todo `k`),
+  y el lema general de la torre 3-ádica (todo `k`, `T1`/`T2`).
+- **Las dos fórmulas cerradas, TEOREMAS COMPLETOS**:
+  `c₄(m) = 3·2^{m−6} − m + 4` (vía el grafo, `D₁ = −3` constante) y
+  `b₄(m) = 7·2^{m−7} − m + 4` (vía la puerta: `g` entra a `h` en un
+  paso, el hueco en 5 es la imagen del hueco en 4, la torre gasta
+  mixtos y no toca el estrato 4, y la suma de ventanas cierra el
+  álgebra). **Las masas exactas del estrato mínimo de las
+  sub-renovaciones están completas.**
+- **Los dos pisos son EL MISMO piso con puertas distintas** — toda la
+  asimetría `g`/`h` es la aritmética de la puerta.
+- Leyes con masa: aterrizajes en potencias de `(−2)` (~66.000 casos,
+  cero prohibidos), supresión del `j = 3` (conjetura aplastante),
+  reentrada total (107/107).
+- Y ~10 correcciones propias cazadas por los instrumentos en la misma
+  ráfaga, todas registradas.
+
+**`afirmaciones.db`: 122 afirmaciones.** Los hilos que siguen: la
+formalización fina (palabra ↔ clase vía Terras) de los dos teoremas; la
+demostración de la supresión del `j = 3`; los estratos superiores con
+la gramática de tres átomos; y las masas al sistema de `φ`.
+
+---
+
 # ⇢ 03-08-2026 — LA ECUACIÓN DE LAS NUEVAS, y dos agujeros cerrados
 
 Sesión de lectura completa del repo + visita a OEIS, y después tres entregas
