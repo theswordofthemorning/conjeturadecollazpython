@@ -1354,16 +1354,21 @@ AFIRMACIONES = [
          "lo era). Nucleo puro, sin Mathlib, #print axioms = [propext, "
          "Quot.sound] en los cinco, cero sorryAx",
          "todo_n", "demostrado", "teoremadekomodo3.lean", "propio",
-         "04-08-2026; la sugerencia de la revision externa ('una "
-         "demostracion verificada por maquina es la respuesta a por "
-         "que deberia leerte alguien que no te conoce'), ejecutada la "
-         "misma noche: el primer teorema del programa de fusion con "
-         "verificacion de maquina. Dos omega sobrantes cazados por el "
-         "compilador en la primera pasada (simp ya cerraba). Candidato "
-         "siguiente para formalizar: el conteo 2^(m-1) de Perras, que "
-         "es mas largo (biyeccion de Terras + borde) pero del mismo "
-         "genero. La regla del repo aplicada: decide en los casos "
-         "concretos, no #eval."),
+         "04-08-2026; y CORREGIDO la misma noche por la cuarta revision "
+         "externa, que encontro tres cosas: (1) el encabezado "
+         "sobreafirmaba 'siempre = 2 mod 3' - falso en el 28% de los "
+         "estados (el residuo alterna 2 <-> 1 al partir por 2); son "
+         "DOS frases: base (= 2 tras el paso 0) e invariante (nunca "
+         "= 0 despues); (2) FALTABA LA INDUCCION - el teorema komodo "
+         "que compone la invariancia sobre iterados (Titer propio, "
+         "nucleo sin Mathlib) es ahora el enunciado 'para siempre' "
+         "verificado, axiomas [propext, Quot.sound]; (3) la trampa de "
+         "resta de Nat en 9w-1 (reescrito 9w+8) y una hipotesis "
+         "sobrante. Mas la seccion bibliografica: 'multiplos de 3 sin "
+         "preimagen' es clasico - el aporte es la traduccion a la "
+         "coordenada D y el cierre por maquina. En palabras del "
+         "revisor: 'este si es un teorema tuyo del programa de "
+         "fusion'."),
 
     fila("LOS LEMAS DE PERRAS, FORMALIZADOS EN LEAN 4 "
          "(lemasdeperras.lean, el SEPTIMO .lean): el LEMA DEL VORTICE "
