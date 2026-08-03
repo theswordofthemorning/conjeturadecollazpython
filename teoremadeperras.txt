@@ -179,3 +179,52 @@ Para cada m cumple EXACTAMENTE UNO de los dos. Total: 2^{m-1} - 1 + 1 =
       estratificada en la literatura (Wu Jia-Bang 1992-95, LaTourette 2007,
       trabajos posteriores a 2015), decirlo con la referencia.
 ================================================================================
+
+================================================================================
+9. CORRECCIONES TRAS LA PRIMERA REVISION EXTERNA (Opus 5, 03-08-2026)
+--------------------------------------------------------------------------------
+El revisor no rompio el teorema (A1-A5 aguantan) y encontro tres agujeros
+de redaccion, que se cierran aqui:
+
+R1. EL LEMA QUE FALTABA (r impar => |M| >= 3, con su demostracion, del
+    revisor): si r es impar, tras el paso 0 el estado es {s, 3s-1} con
+    s = (r+1)/2 (el menor es ahora el lado de r+1). El gap 2s-1 es impar:
+    el paso 1 tambien es mixto. Y D = (2s-1) - 2s - 1 = -2 != 0, asi que
+    por el Lema 1 no hay fusion en el paso 2: |M| >= 3 para todo r impar.
+    CON ESTO el teorema cubre el estrato completo: |M| = 2 => r par, y la
+    afirmacion global "|M| = 2 <=> stems de Garner" queda cerrada.
+
+R2. INDEXACION: donde decia "el paso j+3 suma un impar al lado de r"
+    debe leerse "el paso j+2 (el vortice) suma un impar al lado de r; la
+    fusion es el ESTADO j+3". El indice nombra pasos; los estados van
+    corridos en uno.
+
+R3. LA COSTURA N / Z_2, declarada: todas las cantidades de este documento
+    se definen sobre representantes enteros POSITIVOS; el Lema 1 usa
+    positividad ("imposible en positivos") y NO vale sobre Z_2. El paso a
+    medidas 2-adicas (documentos hermanos) se hace via clases residuales
+    definidas por prefijos finitos de representantes en N.
+
+R4. MEJORA DE A2 (del revisor): desde D = 1 el conjunto alcanzable por
+    la dinamica compartida es LITERALMENTE {1, 0} ((3*1-1)/2 = 1 y
+    (1-1)/2 = 0). No es "no encontramos otra llegada": no hay otra.
+    (Desde D = 3 si se alcanzaria D = 4 par sin fusion: el argumento
+    depende de arrancar exactamente en D = 1.)
+
+R5. BIBLIOGRAFIA QUE FALTABA: Gao Guo-Gang, "On consecutive numbers of
+    the same height in the Collatz problem", Discrete Mathematics 112
+    (1993) 261-267: su Lema 2 es el levantamiento 2^k r + n que este
+    documento usa via Terras, y debe citarse. Y LaTourette 2007 sigue
+    SIN CONSEGUIRSE: la afirmacion de novedad (1) queda condicionada a
+    revisarla.
+
+R6. LA ASERCION SOBRE ELIA-TUCKER, AHORA MEDIDA: los contraejemplos
+    2^19 m + 3067 (m = 0, 1, 2, 3) funden todos con |M| = 8 (verificado
+    en identidadexacta.py, con SystemExit). La afirmacion "los
+    contraejemplos viven en |M| >= 4" pasa de asercion a tabla.
+
+R7. VERIFICACION NUEVA, LA MAS FUERTE: la ventana de Perras vale como
+    IGUALDAD DE ENTEROS en cada nivel: las clases buenas pares con
+    |M| = 2 mod 2^(k+2) son EXACTAMENTE 2^k - 1, clavado para k = 3..14
+    (identidadexacta.py). Sin simulacion, sin topes.
+================================================================================

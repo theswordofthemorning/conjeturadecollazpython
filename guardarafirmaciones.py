@@ -739,6 +739,21 @@ AFIRMACIONES = [
          "reentrar deberian tener su propia estructura). f sigue mejor "
          "acotada por a(32)/2^32 = 0,4357."),
 
+    fila("LA IDENTIDAD EXACTA DE LA RENOVACION: a(k+2) = a(k) + "
+         "(2^k - 1) + G(k) + H(k) como IGUALDAD DE ENTEROS, con la rama "
+         "de la contraccion dando a(k) clavado y la ventana de Perras "
+         "dando 2^k - 1 clavado; G y H nacen como sucesiones exactas",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "k = 3..14, doce niveles, cero desviaciones (03-08-2026, "
+         "noche; el test lo propuso la revision externa como sustituto "
+         "de toda simulacion: sin topes, sin Monte Carlo, sin sesgo). "
+         "G: 0,0,0,0,1,5,16,44,110,259,588,1302; H: 0,0,0,1,3,9,24,58,"
+         "134,300,659,1426. Ademas: la rama h se reduce a {w, 9w-1} "
+         "(regalo del revisor, verificado t < 3000) y los "
+         "contraejemplos de Elia-Tucker viven todos en |M| = 8. Es la "
+         "verificacion mas fuerte que tienen Perras y Gatas: la "
+         "autosimilitud vale como aritmetica entera nivel a nivel."),
+
     fila("TEOREMA DE JIRAFAS (el balance forzado; bautizado por el "
          "usuario el 03-08-2026): toda fusion valida para una CLASE "
          "residual entera esta S-balanceada (la igualdad de las dos "
@@ -1714,6 +1729,23 @@ CORRECCIONES = [
      "canonicas se verifican CONTRA EL OBJETO REAL antes de razonar "
      "sobre ellas - el fantasma paso tres comprobaciones que solo lo "
      "miraban a el"),
+
+    ("el lema de levantamiento de las fusiones (si n y n+1 coalescen en "
+     "k pasos, 2^k r + n y 2^k r + n+1 tambien) y la existencia del "
+     "limite f por monotonia son 'elementales, demostrados en este repo'",
+     "SON DE GAO GUO-GANG 1993 (Discrete Mathematics 112, 261-267): su "
+     "Lema 2 es el levantamiento literal y su Corolario 2 la monotonia "
+     "acotada, hasta con la misma letra d_k. Lo encontro la primera "
+     "revision externa (Opus 5, 03-08-2026); nuestra busqueda no lo vio. "
+     "Y de paso: la 'validacion' de la ecuacion de renovacion por cierre "
+     "numerico (0,4504 vs 0,4453) comparaba dos estimaciones sesgadas "
+     "por el mismo truncamiento (Gao midio la densidad subiendo de "
+     "0,310 a 0,512 entre 10^2 y 10^8: el sesgo es enorme) y SE RETIRA; "
+     "la sustituye la identidad entera exacta de identidadexacta.py",
+     "las bases 'elementales' tambien se buscan en la literatura antes "
+     "de atribuirselas al repo; y dos cotas inferiores correlacionadas "
+     "que coinciden no validan nada - la validacion buena es la que no "
+     "tiene sesgo que compartir: identidades enteras por nivel"),
 
     ("franjaeverett.py corria y publicaba sus resultados (el optimo M = 9, "
      "el umbral 1,63763)",

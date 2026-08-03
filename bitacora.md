@@ -349,6 +349,39 @@ reentrar depende de qué lado quedó menor — el censo actual mide `δ` en
 lados originales, hay que reorientarlo). Con esas masas, el sistema
 lineal se resuelve y **`f` queda decidida**.
 
+## ⇢ LA PRIMERA REVISIÓN EXTERNA DICTÓ (Opus 5) — Y LA IDENTIDAD EXACTA CIERRA
+
+**Perras: no lo rompió** (A1–A5 aguantan). Tres agujeros de redacción,
+cerrados en la sección 9 del `.txt`: el lema que faltaba (`r` impar ⟹
+`|M| ≥ 3`, con demostración del revisor), la indexación paso/estado, y la
+costura `N`/`Z₂` declarada. **Gatas: (a) aguanta; dos golpes que se
+aplicaron**: (1) **Gao Guo-Gang 1993** (Discrete Math. 112) tiene el
+levantamiento (su Lema 2) y la existencia de `f` (su Corolario 2, misma
+letra `d_k`) — corrección nº 35, la base «elemental del repo» era de
+1993; (2) **la sección 4 se retira como validación** — el «cierre»
+0,4504/0,4453 comparaba dos estimaciones con el mismo sesgo de
+truncamiento (Gao midió la densidad subiendo 0,310→0,512 entre 10² y
+10⁸). *La lección del fantasma, un nivel más arriba.*
+
+**Y LA VALIDACIÓN BUENA, PROPUESTA POR EL REVISOR, PASÓ ENTERA**
+(`identidadexacta.py`): la partición vale como **igualdad de enteros**
+en cada nivel —
+
+> `a(k+2) = a(k) + (2^k − 1) + G(k) + H(k)` — EXACTA, `k = 3…14`,
+> con la rama de la contracción dando `a(k)` clavado (12/12) y la
+> ventana de Perras dando `2^k − 1` clavado (12/12).
+
+Sin topes, sin Monte Carlo, sin sesgo. **`G` y `H` nacen como sucesiones
+exactas** (`G: 0,0,0,0,1,5,16,44,110,259,588,1302`;
+`H: 0,0,0,1,3,9,24,58,134,300,659,1426`) — las «`g` y `h` exactas» que
+pedía la pregunta del día. Regalos verificados: la rama `h` se reduce a
+`{w, 9w−1}` (casi espejo del rebote), y los contraejemplos de
+Elia–Tucker viven **todos en `|M| = 8`** (la aserción ahora es tabla).
+Pendientes del revisor que quedan: **conseguir LaTourette 2007** (riesgo
+real para la novedad de Perras), leer Rozier y Frinkle et al. 2025 /
+A277109, el test espejo `3n−1` del pipeline completo, y el chequeo de
+rango (anti-tautología) antes de las sub-renovaciones. Conteos: **40**.
+
 ## ⇢ LAS MASAS DE CLASE, Y EL MURO CON NOMBRE (`masasdeclase.py`)
 
 El paso siguiente ejecutado: la descomposición exacta de `g` y `h` en

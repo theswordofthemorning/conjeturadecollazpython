@@ -169,3 +169,52 @@ un antecedente, la referencia es bienvenida.
       coalescencia de trayectorias de Collatz (o en arboles de Terras),
       decirlo con referencia.
 ================================================================================
+
+================================================================================
+9. CORRECCIONES TRAS LA PRIMERA REVISION EXTERNA (Opus 5, 03-08-2026)
+--------------------------------------------------------------------------------
+R1. LA SECCION 4 SE RETIRA COMO VALIDACION. El revisor tiene razon: el
+    "cierre" 0,4504 contra 0,4453 compara dos estimaciones sesgadas hacia
+    abajo por el MISMO truncamiento (Gao 1993 midio la densidad de pares
+    de la misma altura subiendo 0,310 -> 0,512 entre 10^2 y 10^8: el
+    sesgo de truncamiento en este problema es enorme). Que dos cotas
+    inferiores correlacionadas coincidan a 0,005 no valida la ecuacion.
+    LA VALIDACION BUENA ES OTRA, y ya esta hecha (identidadexacta.py):
+    si (a) es literal, la particion debe valer como IGUALDAD DE ENTEROS
+    en cada nivel finito. Y VALE:
+
+        a(k+2) = a(k) + (2^k - 1) + G(k) + H(k)     EXACTO, k = 3..14
+
+    con la rama de la contraccion dando a(k) CLAVADO (12 de 12 niveles)
+    y la ventana de Perras dando 2^k - 1 CLAVADO. Las sucesiones exactas:
+      G: 0,0,0,0,1,5,16,44,110,259,588,1302
+      H: 0,0,0,1,3,9,24,58,134,300,659,1426
+    Estas son las "g" y "h" de la ecuacion EN FORMA ENTERA, sin sesgo.
+
+R2. LA BASE "ELEMENTAL DEL REPOSITORIO" ES DE GAO 1993. El levantamiento
+    (su Lema 2: si n y n+1 coalescen en k pasos, 2^k r + n y 2^k r + n+1
+    tambien) y la existencia del limite por monotonia (su Corolario 2,
+    hasta con la misma letra d_k) estan en Gao Guo-Gang, Discrete
+    Mathematics 112 (1993) 261-267. La seccion 1 debe leerse con esa
+    atribucion. La ecuacion de renovacion y la autosimilitud exacta de
+    (a) siguen sin antecedente encontrado.
+
+R3. B3 TIENE DEMOSTRACION EXACTA (del revisor): la racha impar inicial
+    de s1 mide exactamente v_2(s1 + 1) — si s1 = -1 mod 2^m entonces
+    T(s1) = -1 mod 2^(m-1), y el unico punto de Z_2 con vector todo-unos
+    es -1, punto fijo. El "porque" de B3 queda sustituido por esto.
+
+R4. B5, dicho con dureza: f >= 1/3 es consecuencia trivial de una
+    identidad de particion; el contenido real del teorema es (a) y (b).
+    No se vende la cota como resultado.
+
+R5. EL REGALO DEL REVISOR, VERIFICADO: la rama h se reduce igual que la
+    g: (4t+3, 4t+4) va en dos pasos a {w, 9w-1} con w = t+1 (verificado
+    t < 3000, con SystemExit). Casi espejo del rebote {w, 9w+2}, con la
+    asimetria informativa: gap par (compartido) contra gap impar (mixto).
+
+R6. ADVERTENCIAS ACEPTADAS PARA EL CAMINO A: (i) riesgo de tautologia -
+    antes de invertir en sub-renovaciones, comprobar que el sistema
+    resultante tiene rango suficiente; (ii) el test espejo con 3n-1 como
+    falsacion del pipeline completo. Ambos quedan en la ruta.
+================================================================================

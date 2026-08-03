@@ -473,7 +473,7 @@ con `#check @Nat.mul_le_mul` en un fichero suelto** — ahí se ve la firma exac
 que cambia entre versiones (`Nat.mul_lt_mul_left` es un **iff**, no una
 implicación).
 
-**De los 39 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
+**De los 40 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
 `mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos
 —`mallascerradas.py` y `mapahilos.py`— usan además `plotly.subplots`. `numpy` lo
 usan **seis**: `clasesfusion.py`, `clasesparalelo.py`, `descensoresto.py`,
@@ -496,7 +496,7 @@ pero **ése viene con Python** y no hay que instalar nada.
 nadie: la purga del 01-08-2026 se llevó sus dos clientes, pero tarde o temprano
 va a hacer falta y no vale la pena tocarlo.)*
 
-> **La proporción se dio vuelta: 35 de 39 NO dibujan.** El repo empezó siendo de
+> **La proporción se dio vuelta: 36 de 40 NO dibujan.** El repo empezó siendo de
 > visualización y hoy es de cálculo. **Al escribir un programa nuevo, el caso por
 > defecto es stdout, no plotly** — copiá la forma de `pinzaciclos.py` o de
 > `cotatramos.py`.
@@ -516,17 +516,17 @@ hook o en un script de shell, usa `python -c`.
 la purga del 01-08-2026 se llevó 16 programas de visualización. **Ya no hay dos
 mitades — hay un núcleo de cálculo con cuatro dibujos colgando.**)*
 
-**El núcleo — los que no dibujan, 35 de 39.** Su resultado es **stdout, un
+**El núcleo — los que no dibujan, 36 de 40.** Su resultado es **stdout, un
 `.txt` o un `.db`**. No abren navegador. Conservan la constante en MAYÚSCULAS
 arriba y las comprobaciones que cortan con `SystemExit` antes de afirmar nada
-— **37 de los 39 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
+— **38 de los 40 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
 es una biblioteca, no un programa) y `main.py` (que es la CLI).
 
 ```
 atacacst  atacacst2
 auditarrefutaciones  clasesfusion  clasesparalelo  collatz  coralprimos
 cotatramos  cotatramos3n1  cruzarecords  descensoresto  elmasuno  espejoak
-franjaeverett  itinerarios
+franjaeverett  identidadexacta  itinerarios
 guardarafirmaciones  guardarhilos  guardarrespuestas  main  masasdeclase
 medidamonotona
 nuevasfusion  otramedicion2  paradacoef  pinzaciclos  pisoaltitud  redhilos
@@ -680,6 +680,7 @@ for a in sorted(glob.glob('*.py')):
 | `redhilos.py` | **Una red neuronal a mano** (solo numpy) puesta a buscar dónde muere la predicción |
 | `clasesfusion.py` | **El criterio demostrado**: qué clases mod 2^k se funden para todo `m ≥ 1` |
 | **`itinerarios.py`** | **El paso 1 de la clasificación de rutas** (03-08-2026): el itinerario de cada nueva como palabra de familias del mapa de `E`. Positivo: el último tramo de todo `|M|=4` vive en `{−5, −77, −4163}` — las familias de `|M|=2`: **la contracción, visible en las etiquetas**. Negativo registrado: la familia asintótica es invariante **ruidoso** para contar; el refinamiento pendiente es etiquetar por datos finitos del tramo |
+| **`identidadexacta.py`** | **LA IDENTIDAD ENTERA DE LA RENOVACIÓN** (03-08-2026, propuesta por la revisión externa): `a(k+2) = a(k) + (2^k−1) + G(k) + H(k)` **clavada como igualdad de enteros** `k = 3…14` — la autosimilitud de Gatas y la ventana de Perras valen sin simulación ni sesgo. `G` y `H` nacen como sucesiones exactas; la rama `h` se reduce a `{w, 9w−1}`; los contraejemplos de Elia–Tucker viven todos en `|M| = 8` |
 | **`masasdeclase.py`** | **Las masas de clase del sistema de renovación** (03-08-2026): la descomposición exacta de `g` y `h` por eventos de clase, con horquilla rigurosa para `f` por nivel. **Y el muro, con nombre**: la masa indecisa decae ~2% por nivel — el mismo muro de convergencia lenta que la razón de `b(k)`, porque es la misma pregunta. La vía que queda: renovación de la cola, no subir `p` |
 | **`nuevasfusion.py`** | **LA ECUACIÓN DE LAS CLASES NUEVAS** (03-08-2026): una clase se estrena en el nivel `k+1` exactamente cuando `T^k(r)` y `T^k(r+1)` se encuentran **por primera vez en un vórtice** (`a = 3b+1`, paridades opuestas, `S` compensada en 1 — la regla del segundo padre). Caracterización con recíproco, `k = 3…15`, 0 fallos y 0 falsos positivos; reproduce `b(k)` término a término. **La pregunta de la razón 2 pasa de conteo ciego a congruencia.** Y trae la **familia extremal demostrada**: para todo `j` par, `(2^j−2, 2^j−1)` se funde por primera vez en el paso `j+2` con vórtice en el **repunit ternario** `(3^{j−1}−1)/2` ⟹ `b(j+2) ≥ 1` siempre. Los **estratos por pasos mixtos** (`|M|` par siempre; nuevos estratos entran cada dos niveles — el candidato a mecanismo de la razón → 2), y el **teorema de unicidad de `|M| = 2`**: exactamente una clase por nivel, `2^{k−1}−2` o `3·2^{k−1}−2` alternando — la primera fila del triángulo es `1, 1, 1, …` demostrada. *(Patrón refutado antes de publicarse: «todo `b` es `1 mod 3`» se rompe en `k+1=15` con `b = 2255`.)* |
 | `sucesiones.txt` | Las dos sucesiones que **no están en OEIS**, con definición y verificaciones |
@@ -2853,7 +2854,7 @@ absolutamente nada de ella, y ahí es donde viviría un contraejemplo.*
 3. **Comprobar antes de concluir, cortando con `SystemExit`.** Esto atrapó un
    error real en vivo: se afirmó la biyección resto↔patrón para el mapa clásico
    y la comprobación 2 de `mallaresiduos.py` paró el programa antes de generar
-   un gráfico falso. Hoy lo tienen **37 de los 39** ficheros; los dos que no son
+   un gráfico falso. Hoy lo tienen **38 de los 40** ficheros; los dos que no son
    `collatz.py` (biblioteca) y `main.py` (la CLI).
 
 ### El techo realista, y hacia dónde no hay camino
@@ -2867,8 +2868,8 @@ el cierre lo pone el ángulo que elegís (tabla del coral) o el módulo que eleg
 hacia adelante, que sigue ciego a los restos.
 
 **El techo de este repo es rederivación independiente bien verificada.** Eso no
-es descubrimiento, pero tampoco es poco: hay **treinta y nueve** programas,
-**treinta y siete** de ellos con comprobaciones que cortan con `SystemExit`, **cinco
+es descubrimiento, pero tampoco es poco: hay **cuarenta** programas,
+**treinta y ocho** de ellos con comprobaciones que cortan con `SystemExit`, **cinco
 ficheros Lean que demuestran en vez de verificar**, un documento que separa lo
 real de lo dibujado, y un historial de negativos. La mayoría de la exploración
 amateur no llega ahí.

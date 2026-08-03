@@ -122,3 +122,16 @@ el techo exacto de esa densidad. Cualquiera de las dos es un resultado.
       que calcularlas por clases. Este documento no las calcula aun:
       es el siguiente paso del programa, no un resultado de este teorema.
 ================================================================================
+
+================================================================================
+7. NOTA TRAS LA PRIMERA REVISION EXTERNA (Opus 5, 03-08-2026)
+--------------------------------------------------------------------------------
+La revision de los documentos hermanos obliga a dos precisiones aqui:
+(1) el punto C2 (la costura N / Z_2) es real: todas las cantidades se
+definen sobre representantes enteros positivos y la medida 2-adica entra
+solo via clases de prefijos finitos - declarado ahora en los tres
+documentos; (2) el "siguiente paso" del punto C5 ya esta dado y la
+identidad VALE EXACTA: a(k+2) = a(k) + (2^k - 1) + G(k) + H(k), clavada
+como igualdad de enteros para k = 3..14 (identidadexacta.py), que es la
+forma sin sesgo de las masas de clase que este documento anunciaba.
+================================================================================
