@@ -1594,6 +1594,30 @@ AFIRMACIONES = [
          "presupuesto exponencial - el genero de pregunta que la "
          "maquinaria del repo sabe atacar."),
 
+    fila("EL PASEO DE LA DEUDA (movimiento 1 del cierre): dentro de "
+         "la torre, las formas +2 son SIEMPRE compartidas (gap par) y "
+         "las +1 SIEMPRE mixtas (gap impar) - tres leyes exactas, 7 k "
+         "x 2000 v -; en cada mixta la paridad de v decide: par = "
+         "asciende (deuda +1, T2), IMPAR = COMPENSA (deuda -1) y "
+         "DESCIENDE A LA TORRE NEGATIVA {s, 3^(k-1) s - (3^(k-1)-1)/2} "
+         "- la h-forma generalizada (9v-1 es el caso k=2). Como las "
+         "paridades son monedas de Terras exactas, LA DEUDA ES UN "
+         "PASEO ALEATORIO +-1 SIMETRICO - y el paseo simetrico es "
+         "RECURRENTE: heuristicamente la compensacion es gratis en el "
+         "limite y eps_torre = 1/4, o sea GAO-WU CIERTA",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026, el mecanismo final. HONESTIDAD DE ESTATUS: las "
+         "tres leyes son exactas (demostrables, algebra de una linea "
+         "cada una); el paso 'recurrente => eps = 1/4' es HEURISTICO "
+         "(exige formalizar el paseo sobre la medida 2-adica y que la "
+         "fusion llegue al tocar deuda 0 - el analogo del argumento de "
+         "moneda de Terras para sigma). El programa desemboca en: la "
+         "conjetura de Gao-Wu es cierta SI el paseo de la deuda es "
+         "genuinamente recurrente sobre las clases - la misma "
+         "estructura moneda-recurrencia que sostiene la conjetura "
+         "madre. Dos torres gemelas (+c y -c) conectadas por las "
+         "compensaciones: el mapa completo del problema."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
