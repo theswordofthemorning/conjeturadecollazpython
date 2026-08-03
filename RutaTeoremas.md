@@ -93,7 +93,67 @@ por datos finitos.
 
 ---
 
-## LA RUTA TRAZADA para la próxima sesión
+## ⇢ ACTUALIZACIÓN AL CIERRE DEL 03-08-2026 (tres revisiones externas después)
+
+**Estado tras las tres revisiones de Opus 5** (actas completas en las
+secciones finales de los tres `.txt` y en `bitacora.md`):
+
+- **Perras**: sólido. R1–R7 aplicadas. El conteo `2^k − 1` tiene ya
+  demostración de dos líneas (del revisor) — falta subirlo de
+  verificación a proposición en el `.txt`.
+- **Gatas (a)** y la ecuación de partición: intactas. Gao 1993 citado
+  (el levantamiento y la existencia de `f` son suyos).
+- **Jirafas**: el teorema aguanta; **C1 retirado** (corrección nº 36);
+  **C2 demostrado por coeficientes**. El revisor confirmó: Jirafas era
+  un atajo, no un cimiento — nada de lo demás lo usaba.
+- **LA IDENTIDAD ES TEOREMA, NO TAUTOLOGÍA** — la pregunta decisiva del
+  revisor, contestada con enteros ANTES de que llegara su carta:
+
+      a(k+2) = a(k) + (2^k − 1) + Σ_{i=0}^{k−1} b(i) + c(k)
+
+  con `b(i)` = clases de `{w, 9w+2}` que funden de clase en ≤ i pasos y
+  `c(k)` = ídem de `{w, 9w−1}` — **computadas desde sus propias
+  definiciones, sin mirar el `r` original**, clavadas `k = 3…14`
+  (`identidadexacta.py`, comprobación final). Los bits libres igualan el
+  presupuesto en la rama g: «la estructura del problema asomando».
+- **El 10,3% instrumentado**: las 13.137 fusiones desbalanceadas chocan
+  TODAS en el valor 2; densidad ~0,39 decayendo lentísimo. Masa real,
+  fuera del sistema legítimamente (no aporta a `g`).
+- **Test espejo `3n−1`**: 12/12 con las etiquetas volteadas (`r` par ↔
+  `v` impar), tras cazar un off-by-one propio en el mapeo del espejo.
+
+## LA RUTA PARA LA PRÓXIMA SESIÓN (la orden del revisor, puntos 3–6)
+
+1. **Subir `2^k − 1` a proposición** en `teoremadeperras.txt` — la
+   demostración ya está escrita (bits libres del prefijo `1^j 0 1`);
+   revisar los dos residuos de borde por si dejan corrección en `G`.
+2. **Cerrar R6 como teorema de familia**: medir `t` de fusión de
+   `(3067, 3068)`; si `t ≤ 19`, por Terras TODA la familia
+   `2^19·m + 3067` tiene `|M| = 8` — teorema, no muestra.
+3. **EL PROBLEMA NUEVO DE GATAS §5** (el más importante): «fusión al
+   mismo índice» ⟹ igual altura, pero el recíproco NO está demostrado —
+   dos trayectorias pueden encontrarse en índices distintos `k₁ ≠ k₂`
+   con `k₁ + S_{k₁} = k₂ + S_{k₂}` e igual altura sin fundir. Luego
+   `f ≤ d(igual altura)` y podría ser estricta. **Contar bajo 10⁶
+   cuántos pares de igual altura funden al mismo índice y cuántos no.**
+   Si todos: lema y equivalencia real. Si no: hay una TERCERA cantidad
+   y el §5 de Gatas se reescribe. (Contexto: Gao midió `d → 0,512` a
+   `10⁸`; nuestro `a(12)/2^12 = 0,36` — separar cuánto es truncamiento
+   y cuánto es esta brecha.)
+4. **Pedir LaTourette 2007** (acción del usuario: correo a la
+   biblioteca de Moravian College) — sigue condicionando la novedad de
+   Perras. Y leer: Rozier (paridad 2-ádica), Frinkle et al. 2025,
+   OEIS A277109.
+5. Después de eso: las sub-renovaciones de `b(i)` y `c(i)` (con el
+   chequeo de rango anti-tautología ANTES de invertir), que es el
+   camino a decidir `f`.
+
+**Nota de empaque**: los nombres (Perras, Gatas, Jirafas) son internos,
+estilo versiones de macOS; para cualquier texto que salga del repo se
+cambian por nombres serios (p. ej. «lema de la mitad exacta», «teorema
+del reinicio uniforme», «lema del balance de clase»).
+
+## LA RUTA TRAZADA para la próxima sesión (la original, superada por lo de arriba)
 
 **El pez gordo tiene nombre y ecuación: decidir `f`.** Si `f = 1`, la razón de
 `b(k)` llega a 2 y *casi todo par consecutivo tiene la misma altura* — *la

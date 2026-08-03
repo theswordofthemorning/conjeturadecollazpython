@@ -7,6 +7,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Repo de exploración de la conjetura de Collatz (`n/2` si es par, `3n+1` si es
 impar; se conjetura que todo `n ≥ 1` termina en 1).
 
+> ## ⇢ LA INVESTIGACIÓN ACTIVA (03-08-2026): LEER `RutaTeoremas.md` PRIMERO
+>
+> La línea viva del repo es el programa de fusión de pares consecutivos:
+> los teoremas de **Perras** (mitad exacta del estrato 2), **Gatas**
+> (reinicio uniforme + ecuación de renovación) y **Jirafas** (balance de
+> clase), la identidad entera `a(k+2) = a(k) + (2^k−1) + Σb(i) + c(k)`
+> demostrada como teorema (no tautología), y la pregunta abierta: ¿`f = 1`?
+> (la conjetura de Wu en densidad). **Tres revisiones adversariales
+> externas aplicadas** (actas en los `teoremade*.txt` y `bitacora.md`).
+> **`RutaTeoremas.md` tiene el estado exacto y los pasos siguientes en
+> orden** — es el contexto de arranque; este documento es la doctrina de
+> trabajo y el archivo histórico.
+
 No es una biblioteca ni un paquete. Son programas sueltos, cada uno con su
 número configurable arriba del archivo, pensados para ejecutarse y mirar el
 resultado. **El código se escribe simple a propósito**: nombres en castellano,

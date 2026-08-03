@@ -349,6 +349,28 @@ reentrar depende de qué lado quedó menor — el censo actual mide `δ` en
 lados originales, hay que reorientarlo). Con esas masas, el sistema
 lineal se resuelve y **`f` queda decidida**.
 
+## ⇢ CIERRE DEL 03-08-2026 — LA RUTA QUEDA EN `RutaTeoremas.md`. EMPEZAR POR AHÍ
+
+**La tercera carta de Opus 5 llegó cruzada con nuestro último commit: su
+pregunta decisiva («¿tu `G(k)` es acumulativa?») YA ESTABA CONTESTADA** —
+la reconstrucción desde estados reducidos es exactamente la forma
+`G(k) = Σ b(i)`, `H(k) = c(k)` que él exige como firma de teorema, y
+está clavada hasta `k = 14`. Su identidad
+`a(k+2) = a(k) + (2^k−1) + Σ_{i<k} b(i) + c(k)` es la nuestra. Confirmó
+además: **Jirafas era atajo, no cimiento — el zoológico no se cae** (sus
+palabras: Perras intacto, Gatas (a) intacto, partición intacta,
+identidad intacta).
+
+**Para la próxima sesión** (todo en `RutaTeoremas.md`, sección «LA RUTA
+PARA LA PRÓXIMA SESIÓN»): (1) subir `2^k − 1` a proposición (la
+demostración de dos líneas ya está); (2) cerrar R6 como teorema de
+familia midiendo `t` de `(3067, 3068)`; (3) **el problema nuevo de Gatas
+§5** — separar «igual altura» de «fusión al mismo índice» (`f ≤ d`,
+recíproco sin demostrar: contar bajo 10⁶); (4) LaTourette por correo +
+lecturas (Rozier, Frinkle, A277109); (5) recién después, las
+sub-renovaciones de `b` y `c` con chequeo de rango. El `CLAUDE.md` lleva
+ahora un puntero de arranque a `RutaTeoremas.md` al principio.
+
 ## ⇢ LA SEGUNDA REVISIÓN ROMPIÓ EL COROLARIO 1 DE JIRAFAS — Y EL SISTEMA SOBREVIVIÓ SIN ÉL
 
 **Opus 5 rompió C1 y tenía razón** («numerable ⟹ medida cero» es vacuo
