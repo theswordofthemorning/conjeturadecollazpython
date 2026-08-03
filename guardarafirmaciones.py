@@ -1513,6 +1513,29 @@ AFIRMACIONES = [
          "ademas demostrables por las puertas ya formalizadas: P1 es "
          "lean, y el canal w = 2 mod 4 es P2 + P3 + contraccion."),
 
+    fila("LA TERCERA ECUACION Y EL SISTEMA CERRADO DE PHI: la "
+         "deconvolucion c(m) = suma_j R(j) a(m-j) es EXACTA en los 8 "
+         "niveles (R = 1,0,1,3,2,4,9,14 en j = 3..10), y el test "
+         "independiente de germenes de reentrada reproduce el centro "
+         "(j = 5,6,7 clavados) con flecos +-1 en los bordes - la "
+         "contabilidad de orientacion bajo vuelcos es el pendiente. "
+         "CON LAS TRES ECUACIONES el sistema cierra en formula: "
+         "gamma = rho phi (rho = suma R(j) 2^-j), beta = gamma/2 + "
+         "(phi+gamma)/8, phi = (1+beta+gamma)/3 => PHI = 8/(23-13rho). "
+         "LA CONJETURA DE GAO-WU EN UNA LINEA: phi = 1 <=> rho = 15/13",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026, el desemboque de la jornada entera: la pregunta "
+         "de los 51% de Gao es ahora si una serie concreta de enteros "
+         "positivos (los germenes de reentrada del grafo {-3,-5}) suma "
+         "exactamente 15/13 al pesarla con 2^-j. rho truncada a j=10: "
+         "0.28 - la cola manda, como siempre en este problema, pero "
+         "por primera vez ES una serie con estructura (germenes del "
+         "grafo) y no un barrido ciego. CONDICIONAL a: convolucion "
+         "exacta mas alla del rango (deconvolucion la respalda) y "
+         "resolucion de los flecos de orientacion. El programa "
+         "completo - de los vortices del 221 a esta linea - cabe en: "
+         "phi = 8/(23 - 13 rho)."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
