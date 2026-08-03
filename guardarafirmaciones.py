@@ -724,7 +724,8 @@ AFIRMACIONES = [
          "densidad. LaTourette 2007 (tesis no accesible) definio los "
          "objetos; el conteo no consta alli tampoco."),
 
-    fila("LEMA DEL BALANCE FORZADO: toda fusion valida para una CLASE "
+    fila("TEOREMA DE JIRAFAS (el balance forzado; bautizado por el "
+         "usuario el 03-08-2026): toda fusion valida para una CLASE "
          "residual entera esta S-balanceada (la igualdad de las dos "
          "formas afines de Terras fuerza 3^Sx = 3^Sy). Corolarios: la "
          "fusion desbalanceada tiene MEDIDA 2-adica CERO (a lo sumo una "

@@ -1,0 +1,124 @@
+================================================================================
+EL TEOREMA DE JIRAFAS (el balance forzado)
+Documento autocontenido para revision externa. 03-08-2026.
+Se pide al revisor: intentar ROMPERLO, no aplaudirlo. Hermano de
+teoremadeperras.txt y teoremadegatas.txt; se repiten las definiciones
+esenciales para que sea autocontenido.
+================================================================================
+
+1. DEFINICIONES
+--------------------------------------------------------------------------------
+T(n) = n/2 (n par), (3n+1)/2 (n impar). S_t(n) = pasos impares entre los
+t primeros. Par consecutivo (r, r+1) con las dos trayectorias a la vez.
+FUSION DE CLASE en el paso t: T^t(r) = T^t(r+1) con S_t(r) = S_t(r+1)
+(la igualdad de S es lo que garantiza misma altura clasica).
+
+FORMA AFIN DE TERRAS (1976, teorema 1.2; caja demostrada): para r en una
+clase residual fija mod 2^p y t <= p,
+
+    2^t * T^t(r) = 3^(S_t) * r + C_t
+
+donde S_t y C_t son CONSTANTES de la clase (dependen solo del residuo).
+Es la herramienta unica de este documento.
+
+MEDIDA 2-ADICA: la clase r = c mod 2^p tiene medida 2^(-p). "Evento de
+clase" = un evento que ocurre para TODOS los r de alguna clase (y por
+tanto tiene medida positiva). "Evento esporadico" = ocurre para valores
+aislados de r.
+
+2. EL TEOREMA
+--------------------------------------------------------------------------------
+TEOREMA (Jirafas). Sea t <= p. Si T^t(r) = T^t(r+1) para TODOS los r de
+una clase residual mod 2^p, entonces S_t(r) = S_t(r+1) en esa clase.
+En palabras: TODA FUSION DE CLASE ENTERA ESTA S-BALANCEADA.
+
+DEMOSTRACION (tres lineas). Sobre la clase, las dos trayectorias son
+afines en r:
+
+    2^t T^t(r)   = 3^(Sx) * r + Cx
+    2^t T^t(r+1) = 3^(Sy) * (r+1) + Cy = 3^(Sy) * r + (3^(Sy) + Cy)
+
+con Sx, Sy, Cx, Cy constantes. La igualdad para los infinitos r de la
+clase obliga a igualar los coeficientes de r: 3^(Sx) = 3^(Sy), o sea
+Sx = Sy. QED.
+
+3. LOS COROLARIOS (que son el motivo del teorema)
+--------------------------------------------------------------------------------
+COROLARIO 1 (la fusion desbalanceada tiene medida cero). Un encuentro
+T^t(r) = T^t(r+1) con S_t(r) != S_t(r+1) iguala dos formas afines con
+coeficientes DISTINTOS (3^Sx != 3^Sy): a lo sumo UNA solucion r por
+clase y por t. Union numerable de puntos: medida 2-adica CERO.
+  Interpretacion: en simulaciones desde el estado "rebote" del teorema
+  de Gatas se observa un 10,3% de encuentros con S desbalanceada. Este
+  corolario dice que ese 10,3% es un artefacto de los numeros chicos
+  (pares que descienden cerca del ciclo 1-2 y chocan alli): son
+  soluciones esporadicas, no masa estructural. Al crecer la ventana de
+  medicion esa fraccion debe tender a 0.
+
+COROLARIO 2 (solo el delta canonico sobrevive). En la ecuacion de
+renovacion de Gatas (f = 1/4 + f/4 + g/4 + h/4), los estados reentrantes
+arrastran un marcador delta = S_(lado mayor) - S_(lado menor). Para que
+un estado reentrante funda DE CLASE, el segmento futuro debe compensar
+delta exactamente, y la compensacion es tambien un evento de clase: el
+teorema fuerza su valor. En particular (mismo argumento de coeficientes):
+  - una reentrada a par consecutivo {v, v+1} solo puede fundir de clase
+    si llega con delta = 0 (y entonces vale f, la incognita original);
+  - una reentrada a la forma rebote {v, 9v+2} solo puede fundir de clase
+    si llega con el delta canonico +2 del lado mayor (y entonces vale g).
+CONSECUENCIA: el sistema de renovacion COLAPSA a dos incognitas (f y g)
+mas "masas de clase" -- las probabilidades de cada tipo de reentrada --
+que son calculables nivel a nivel por enumeracion finita de clases.
+
+4. VERIFICACION COMPUTACIONAL (nuevasfusion.py, COMPROBACION 17)
+--------------------------------------------------------------------------------
+  - Exhaustivo sobre las 4096 clases mod 2^12: las que funden en t <= 12
+    pasos PARA TODA LA CLASE (comprobado con dos representantes lejanos,
+    r0 y r0 + 2^12 * 12345) son 1476, y las 1476 tienen S igualadas.
+    Cero excepciones.
+  - CRUCE INDEPENDIENTE GRATIS: 1476 es EXACTAMENTE a(12), el numero de
+    clases fundidas mod 2^12 que el programa clasesfusion.py del
+    repositorio calculo hace dias por el criterio de Terras (pendiente y
+    ordenada iguales). Dos caminos distintos, el mismo entero.
+  - El censo del estado rebote {w, 9w+2} (w < 2^15, tope 600 pasos):
+    cobertura 100% en cuatro salidas -- consec 45,4% (el 96% con
+    delta 0), rebote 43,8%, fusion desbalanceada 10,3%, fusion limpia
+    0,6% -- consistente con los corolarios.
+
+5. POR QUE IMPORTA
+--------------------------------------------------------------------------------
+Sin Jirafas, la ecuacion de renovacion de Gatas tendria infinitas
+incognitas (una f_d y una g_d por cada delta arrastrado d). Con Jirafas,
+todo delta no canonico aporta 0 (salvo medida cero) y el sistema queda:
+
+    f = 1/4 + f/4 + g/4 + h/4
+    g = m_F + m_C * f + m_B * g        (m_F, m_C, m_B masas de clase)
+    h = (descomposicion analoga, pendiente)
+
+con las masas calculables por enumeracion finita. Resolver el sistema
+decide f -- y f = 1 seria la version en densidad de la conjetura de Wu
+sobre pares consecutivos de la misma altura, mientras que f < 1 seria
+el techo exacto de esa densidad. Cualquiera de las dos es un resultado.
+
+6. DONDE ATACAR (lista para el revisor)
+--------------------------------------------------------------------------------
+  C1. El paso "igualdad para infinitos r obliga a igualar coeficientes":
+      es algebra de polinomios de grado 1, pero verificar que la clase
+      contiene infinitos r (si: es una progresion aritmetica infinita).
+  C2. El Corolario 1 pasa de "numerable" a "medida cero": correcto en
+      medida 2-adica de Haar? (Los puntos tienen medida cero y la union
+      numerable tambien; verificar que el espacio de medida esta bien
+      planteado: Z_2 con su medida de Haar, restringida a enteros via
+      densidad natural -- este es el punto mas fino del documento.)
+  C3. El Corolario 2 usa que "compensar delta" es evento de clase con
+      valor forzado: escribir el argumento de coeficientes para el caso
+      {v, 9v+2} explicitamente (aqui esta esbozado, no desplegado).
+  C4. La verificacion usa DOS representantes por clase para decidir
+      "funde para toda la clase": es suficiente? (Si: la fusion en t <= p
+      pasos es un evento determinado por el residuo mod 2^p via Terras;
+      un solo representante bastaria; el segundo es cinturon. Verificar
+      esta justificacion.)
+  C5. El salto del censo (valores individuales, tope 600) a las masas de
+      clase (eventos de clase): el censo NO es la medida; las masas hay
+      que calcularlas por clases. Este documento no las calcula aun:
+      es el siguiente paso del programa, no un resultado de este teorema.
+================================================================================
