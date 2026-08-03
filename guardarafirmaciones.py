@@ -1106,6 +1106,26 @@ AFIRMACIONES = [
          "Los tres objetos - grafo, ventana, torre - son los atomos de "
          "toda la estructura medida esta noche."),
 
+    fila("EL LEMA GENERAL DE LA TORRE (para TODO k, la familia "
+         "infinita cuantificada en un teorema): T1: {v, 3^k v + 2} con "
+         "v par baja a {v/2, 3^k (v/2) + 1}; T2: {v, 3^k v + 1} con v "
+         "par SUBE la potencia: a {v/2, 3^(k+1) (v/2) + 2}. "
+         "Demostracion de dos lineas (T1: ambos se parten; T2: beta da "
+         "(3(3^k v + 1)+1)/2 = 3^(k+1)(v/2) + 2). La torre entera de "
+         "formas {v, 3^k v + c} queda gobernada por dos identidades "
+         "universales",
+         "todo_n", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; y la nota de metodo que responde a la "
+         "clausula 'encontrar todos': una familia INFINITA de lemas "
+         "(uno por nivel de la torre, uno por largo de preludio, uno "
+         "por germen) solo se completa de una manera legitima en "
+         "matematica: CUANTIFICANDO - reemplazando los infinitos "
+         "enunciados por un teorema con para-todo. Los tres atomos del "
+         "programa quedan ahora cada uno como enunciado universal: el "
+         "grafo {-3,-5} (teorema, todo w impar), la ventana de Perras "
+         "(proposicion, todo k), y la torre (este lema, todo k). "
+         "Verificado en 40.000 instancias (k = 2..11, v par < 4000)."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
