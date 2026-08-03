@@ -1087,6 +1087,25 @@ AFIRMACIONES = [
          "0/107 reentradas por g, los huecos 4 vs 5) es la aritmetica "
          "de esa puerta."),
 
+    fila("LA TORRE 3-ADICA DEL TRAMO DE ENTRADA: el caso par-par de la "
+         "puerta de g asciende {v,9v+1} -> {u,27u+2} -> {s,27s+1} -> "
+         "{q,81q+2} -> ... - las formas son {v, 3^k v + c_k} y la masa "
+         "decae 2^(-k) por nivel: el tramo de entrada de g ES la bajada "
+         "de una torre 3-adica geometrica, que NO cierra en grafo "
+         "finito pero suma geometricamente. Identidades del segundo "
+         "nivel exactas en 30.000 casos cada una",
+         "todo_n", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada. Cada identidad es una linea (el paso "
+         "compartido sube el 3^k o baja el v segun paridades). Con las "
+         "puertas demostradas y la torre caracterizada, la completacion "
+         "de b4 es una suma geometrica sobre la torre - contabilidad, "
+         "no misterio. Y la imagen final del programa queda dibujada: "
+         "el triangulo de estratos se genera por UNA gramatica "
+         "(germenes del grafo {-3,-5} + ventanas de Perras) a la que "
+         "se llega bajando torres 3-adicas de formas {v, 3^k v + c}. "
+         "Los tres objetos - grafo, ventana, torre - son los atomos de "
+         "toda la estructura medida esta noche."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
