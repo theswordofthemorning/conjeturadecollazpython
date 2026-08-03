@@ -868,6 +868,21 @@ AFIRMACIONES = [
          "preludios contados sobre los germenes inferiores - la misma "
          "forma que la cuadratica de |M|=6 conjeturada arriba."),
 
+    fila("LA LEY DE LA REENTRADA TOTAL (estrato 6 de los pisos "
+         "reducidos): las 107 clases de |M| = 6 de los dos pisos en "
+         "m = 10, 11 REENTRAN TODAS antes de fundir - 64 por par "
+         "consecutivo y 43 por la forma {v, 9v-1} -, y la forma "
+         "{v, 9v+2} NO aparece NUNCA como reentrada (0 de 107)",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; goal de investigacion abierta. 107 de "
+         "107: la torre recursa exclusivamente por DOS formas canonicas "
+         "(consec y h), no tres - la asimetria g/h ya asomaba en los "
+         "conteos (H > G) y aqui se vuelve estructural. Consecuencia "
+         "para la demostracion de b4/c4: las sub-renovaciones de los "
+         "pisos reducidos se escriben SOLO sobre f y gamma (la forma "
+         "h), y la forma g es puerta de entrada pero no de recursion. "
+         "El sistema de phi podria ser mas chico de lo que parecia."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
