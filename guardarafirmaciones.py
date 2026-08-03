@@ -812,6 +812,25 @@ AFIRMACIONES = [
          "limites reducidos existiendo por derecho propio - el analisis "
          "asintotico de los tres pisos es ahora un objeto bien definido."),
 
+    fila("EL PERRAS DE LOS PISOS REDUCIDOS, medido con forma cerrada "
+         "exacta: el estrato minimo de las fusiones reducidas es "
+         "|M| = 4 en los dos pisos, y sus conteos son b4(m) = "
+         "7*2^(m-7) - m + 4 y c4(m) = 6*2^(m-7) - m + 4 (m >= 7), "
+         "clavados en los 8 niveles m = 7..14; densidades limite 7/128 "
+         "y 3/64. El triangulo reducido replica al de arriba: cada "
+         "estrato nuevo entra cada dos niveles y con exactamente 1 clase",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; goal de investigacion abierta. Las "
+         "diferencias siguen 7*2^j - 1 y 6*2^j - 1 exactas (8 niveles); "
+         "el termino -m sugiere UNA clase excluida por nivel, los "
+         "indecisos de Perras reapareciendo. CANDIDATAS A PROPOSICION: "
+         "la demostracion (pendiente) seria el analogo del argumento de "
+         "la ventana de Perras sobre el estado rebote; con ella, el "
+         "primer termino de las sub-renovaciones queda cerrado y el "
+         "sistema de phi gana dos masas exactas mas. AVISO de la casa: "
+         "forma ajustada exacta en 8 niveles NO es demostracion - por "
+         "eso queda en medido."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
