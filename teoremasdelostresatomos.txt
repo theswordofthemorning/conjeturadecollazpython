@@ -1,0 +1,165 @@
+================================================================================
+LOS TRES ATOMOS Y LAS DOS FORMULAS CERRADAS
+(el lema del grafo {-3,-5}, la puerta de g, la torre 3-adica, y los
+teoremas b4 y c4)
+Documento autocontenido para revision externa. 03/04-08-2026.
+Se pide al revisor: intentar ROMPERLO, no aplaudirlo. Hermano de
+teoremadeperras.txt, teoremadegatas.txt, teoremadejirafas.txt y
+lemadepandas.txt; se repiten las definiciones esenciales.
+================================================================================
+
+1. DEFINICIONES Y CONTEXTO MINIMO
+--------------------------------------------------------------------------------
+T(n) = n/2 (par), (3n+1)/2 (impar). S_t = impares en t pasos. Para un par
+de trayectorias {s, s+g} (s el menor, g el gap): paso MIXTO <=> g impar;
+D = g - 2s - 1 (el vortice de fusion es D = 0 con s impar; documento de
+Perras); en pasos compartidos D evoluciona (D-1)/2 (ambos pares) o
+(3D-1)/2 (ambos impares), y es impar durante el tramo.
+
+LOS OBJETOS: las "sub-renovaciones" de la ecuacion de Gatas reducen las
+ramas no resueltas a dos familias de pares:
+
+    forma g:  { w, 9w + 2 }     (el rebote de los pares consecutivos)
+    forma h:  { w, 9w - 1 }     (la rama r = 3 mod 4, reducida)
+
+FUSION DE CLASE de una forma: primer t con valores iguales y el saldo
+S_x - S_y = +2 (el arrastre canonico; documentos de Gatas y Jirafas).
+ESTRATO 4: fusiones con exactamente 4 pasos mixtos (el minimo; el
+documento de Perras cubre el estrato 2 de los pares consecutivos).
+
+ANATOMIA (medida 686/686, luego demostrada): toda fusion de estrato 4 de
+las formas es PRELUDIO (2 mixtos, hasta un par consecutivo con el saldo
+ya compensado) + VENTANA DE PERRAS (2 mixtos: el conteo 2^k - 1).
+
+LAS DOS SUCESIONES OBJETIVO (medidas primero, con prediccion confirmada
+en niveles no vistos):
+
+    b4(m) = 7*2^(m-7) - m + 4      (estrato 4 de la forma g, clases mod 2^m)
+    c4(m) = 6*2^(m-7) - m + 4      (idem de la forma h; = 3*2^(m-6) - m + 4)
+
+c4 coincide termino a termino con OEIS A079583 (3*2^n - n - 2, n = m-6),
+una entrada catalogada como forma pura sin contexto Collatz: confirmacion
+independiente de la formula, no prioridad ajena. b4 NO esta en OEIS.
+
+2. EL LEMA DEL GRAFO (piso h) - el corazon
+--------------------------------------------------------------------------------
+LEMA. Para w IMPAR, el par {w, 9w-1} tiene, tras su primer paso (mixto):
+
+    D1 = -3,   SIEMPRE.
+
+  Demostracion (una linea): el estado inicial tiene D0 = (8w-1)-2w-1 =
+  6w-2, par; el paso es mixto alfa sin vuelco (w impar es el menor, D0>0)
+  y D1 = D0/2 - 3w - 2 = (3w-1) - 3w - 2 = -3. QED.
+  (w PAR queda excluido del estrato 4: su primer paso es beta y
+  D1 = 3*D0/2 + 3w + 1 = 12w - 2, par, que fuerza un TERCER mixto.)
+
+LEMA (el grafo). Desde D = -3, la dinamica compartida de D vive en el
+grafo finito {-3, -5} hasta aterrizar en un D par, y los unicos
+aterrizajes son:
+
+    -3 --f0--> -2 (aterrizaje)        -3 --f1--> -5
+    -5 --f0--> -3 (vuelve)            -5 --f1--> -8 (aterrizaje)
+
+  (f0 = (D-1)/2, f1 = (3D-1)/2; inspeccion directa de los cuatro casos.)
+
+COROLARIOS. (a) Los unicos aterrizajes de preludios 2-mixtos son -2 y
+-8. (b) HAY EXACTAMENTE UN CAMINO POR LARGO: el grafo alterna -3/-5, asi
+que el camino de largo dado es unico. (c) EL HUECO: -2 aterriza tras
+tramos impares (largos totales L = 3, 5, 7, ...) y -8 tras pares mas sus
+DOS divisiones (gap |−8|/2 = 4 -> 2 -> 1: L = 6, 8, 10, ...): la union
+es TODO largo salvo L = 4. (d) Con Terras (una palabra de paridades =
+una clase residual), un camino = UNA clase: unicidad del preludio.
+
+TEOREMA (c4). c4(m) = 3*2^(m-6) - m + 4 para todo m >= 7.
+  Demostracion: un preludio unico por largo permitido (corolarios b, d),
+  ventana de Perras 2^(m-L-2) - 1 tras cada uno (proposicion demostrada
+  en el documento de Perras), y la suma geometrica sobre
+  L en {3} U {5, 6, 7, ...}:
+      (2^(m-5)-1) + suma_{L=5}^{m-3} (2^(m-L-2)-1) = 3*2^(m-6) - m + 4.
+
+3. LA PUERTA DE g - los dos pisos son EL MISMO piso
+--------------------------------------------------------------------------------
+TRES IDENTIDADES (una linea cada una; exactas en 30.000 casos cada una):
+
+  P1. {w, 9w+2}, w IMPAR  -->  {v, 9v-1} con v = (3w+1)/2.
+      (El paso compartido-impar: T(9w+2)... = 9v-1. LA FORMA g ENTRA A
+      LA FORMA h EN UN PASO.)
+  P2. {w, 9w+2}, w PAR    -->  {u, 9u+1} con u = w/2.
+  P3. {v, 9v+1}, v IMPAR: su paso mixto aterriza DIRECTO en D = -2
+      (gap 3v tras el paso; D = 3v - 2*T(v)... = -2, calculo directo).
+
+CONSECUENCIA (la asimetria localizada): toda la asimetria g/h medida en
+el programa (conteos H > G, cero reentradas por la forma g, huecos 4
+contra 5) es la aritmetica de la puerta, no del corazon: ambos pisos
+comparten el grafo {-3, -5}.
+
+4. LA TORRE 3-ADICA - el tramo de entrada
+--------------------------------------------------------------------------------
+LEMA GENERAL DE LA TORRE (para TODO k; dos lineas):
+
+  T1. {v, 3^k v + 2}, v par  -->  {v/2, 3^k (v/2) + 1}   (ambos se parten)
+  T2. {v, 3^k v + 1}, v par  -->  {v/2, 3^(k+1)(v/2) + 2}
+      (beta: (3(3^k v + 1)+1)/2 = 3^(k+1)(v/2) + 2: LA POTENCIA SUBE.)
+
+La rama par-par de la puerta asciende {9v+1} -> {27u+2} -> {27s+1} ->
+{81q+2} -> ...: formas {v, 3^k v + c} con masa 2^(-k) por nivel. La
+torre NO cierra en grafo finito pero suma geometricamente. Y para el
+estrato 4 NI HACE FALTA sumarla:
+
+LEMA DEL GASTO. Toda forma de gap impar de la torre ({v, 3^k v + 1} y
+sus parientes) es un estado MIXTO: cada piso de bajada por la torre
+gasta un paso mixto. Un preludio de estrato 4 solo tiene 2 mixtos:
+las rutas de la torre (w = 0 mod 4) NUNCA alcanzan el estrato 4.
+
+TEOREMA (b4). b4(m) = 7*2^(m-7) - m + 4 para todo m >= 7.
+  Demostracion: los preludios 2-mixtos de la forma g son EXACTAMENTE
+  (i) la ruta w = 2 (mod 4) con w/2 impar: P2 + P3: largo 3, germen
+  unico mod 8; (ii) la ruta w impar: P1 + los preludios de h: largos
+  1 + L_h = {4} U {6, 7, 8, ...} con unicidad HEREDADA del lema del
+  grafo - y el hueco de g en L = 5 es la imagen del hueco de h en
+  L = 4; (iii) nada mas (lema del gasto). Suma de ventanas:
+      (2^(m-5)-1) + (2^(m-6)-1) + suma_{L=6}^{m-3} (2^(m-L-2)-1)
+      = 7*2^(m-7) - m + 4.
+  (Verificado algebraicamente m = 7..19 y contra los conteos m <= 16.)
+
+5. VERIFICACION COMPUTACIONAL (identidadexacta.py, con SystemExit)
+--------------------------------------------------------------------------------
+  - D1 = -3 y el grafo {-3,-5} con aterrizajes {-2,-8}: exhaustivo en
+    los 16.384 w impares < 2^15, cero excepciones.
+  - Las identidades P1-P3 y T1-T2: 30.000 y 40.000 instancias.
+  - Unicidad del preludio por largo (modulo natural, 2 mixtos):
+    L = 3..12 en ambas formas, exactamente 1 germen por largo permitido
+    y 0 en los huecos.
+  - b4 y c4: conteos exactos m <= 14, prediccion confirmada en 15 y 16.
+
+6. ESTADO BIBLIOGRAFICO
+--------------------------------------------------------------------------------
+No se encontro literatura sobre la estructura de coalescencia por
+estratos de formas reducidas ni sobre estos objetos (el grafo, la
+torre de formas). c4 = A079583 es coincidencia de forma pura (la
+entrada no tiene contexto Collatz). Todo el marco se apoya en Terras
+1976 (biyeccion residuo-paridad) y Gao 1993 (levantamiento). "No
+encontrado" no es "no existe": la revision bibliografica fina esta
+pendiente (LaTourette 2007 sigue sin conseguirse).
+
+7. DONDE ATACAR (lista para el revisor)
+--------------------------------------------------------------------------------
+  Q1. EL PUNTO MAS FINO: "un camino del grafo = una clase residual" usa
+      que la palabra de paridades del tramo determina la clase (Terras).
+      El tramo es de la PAREJA, no de un solo numero: verificar que la
+      palabra de paridades conjunta (que es la del menor, porque el
+      tramo es compartido) basta para fijar la clase de w. Es el detalle
+      pendiente de formalizacion declarado.
+  Q2. El lema del gasto: "toda forma de gap impar de la torre es un
+      mixto" - enumerar las formas alcanzables (9v+1, 27u+2, 27s+1,
+      81q+2, ...) y comprobar que el patron de gaps impares/pares es el
+      alegado en TODOS los niveles (aqui esta demostrado T1/T2, pero el
+      inventario de que formas aparecen merece su propia induccion).
+  Q3. Los saldos de S en la puerta: P1 conserva el arrastre +2? (La
+      cuenta esta implicita en la herencia de h; escribirla explicita.)
+  Q4. El caso base de c4 (m = 6, el germen 25) y de b4 (m = 6, el
+      germen 46): las formulas valen desde m = 7; verificar el empalme.
+  Q5. La prediccion confirmada (m = 15, 16) se hizo ANTES de la
+      demostracion: cronologia en el repositorio, verificable en los
+      commits - un test de que no se ajusto la demostracion a los datos.
+================================================================================
