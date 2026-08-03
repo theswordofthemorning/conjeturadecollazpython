@@ -704,3 +704,22 @@ for N in range(9, 15):
             raise SystemExit("R33: N=%d da %d" % (N, _con6))
     _prev = (N, _buenas)
 print("R33 PASS  estrato 6: e6(N) = 3 + (N-7)(N-8)/2 (N = 10..14; y 16-18 por prediccion)")
+
+# R34 - EL TEOREMA MOD 3 (04-08-2026, ascendido de medido a demostrado):
+# tras el paso 0 el lado MAYOR es siempre = 2 (mod 3) (base, ambas
+# paridades), y la propiedad 'mayor no multiplo de 3' es INVARIANTE
+# (partir por 2 mapea {1,2}->{2,1}; el paso impar da (3l+1)/2 = 2 mod 3).
+# Corolario: D != 2 (mod 3) en todo estado posterior al paso 0 - los
+# aterrizajes -4, +8, -16 y el tramo D = 11 son IMPOSIBLES, para siempre.
+for r in range(2, 50000):
+    x, y = paso(r), paso(r + 1)
+    if max(x, y) % 3 != 2:
+        raise SystemExit("R34 base: r=%d" % r)
+for l in range(2, 50000):
+    if l % 3:
+        siguiente = (3 * l + 1) // 2 if l % 2 else l // 2
+        if siguiente % 3 == 0 and l % 2 == 0 and (l // 2) % 3 == 0:
+            raise SystemExit("R34 invariancia: l=%d" % l)
+        if l % 2 and ((3 * l + 1) // 2) % 3 != 2:
+            raise SystemExit("R34 impar: l=%d" % l)
+print("R34 PASS  teorema mod 3: base + invariancia (el mayor nunca 0 mod 3)")

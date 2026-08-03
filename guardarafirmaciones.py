@@ -1325,6 +1325,27 @@ AFIRMACIONES = [
          "anterior' vale como MECANISMO demostrable, no como formula "
          "que se adivina - los empalmes mandan en los niveles bajos."),
 
+    fila("EL TEOREMA MOD 3 (ascendido de medido a DEMOSTRADO): tras el "
+         "paso 0 de cualquier par consecutivo, el lado MAYOR es "
+         "siempre = 2 (mod 3) - r par da 3s+2, r impar da (3r+1)/2 = 2 "
+         "mod 3 -, y la propiedad 'mayor no multiplo de 3' es "
+         "INVARIANTE: partir por 2 mapea {1,2} -> {2,1} sin tocar el 0, "
+         "y el paso impar da (3l+1)/2 = 2 mod 3 siempre. COROLARIO: "
+         "D != 2 (mod 3) en todo estado posterior al paso 0 - los "
+         "aterrizajes -4, +8, -16 y los tramos D = 5, 11, 17, -7 son "
+         "IMPOSIBLES para siempre, en todos los pisos",
+         "todo_n", "demostrado", "auditoria_rigor.py", "propio",
+         "04-08-2026; test R34, demostracion de tres piezas de una "
+         "linea (base par, base impar, invariancia de dos ramas). Es "
+         "el unico contenido real que sobrevivio de la 'ley (-2)^j' "
+         "(correccion 39) y ahora es teorema: el signo de los "
+         "aterrizajes queda demostrado, y el |D| = 2^j era "
+         "definicional - el fenomeno completo de los aterrizajes esta "
+         "CERRADO. Es ademas el teorema que conecta las dos mitades "
+         "del laboratorio: los rayos mudos multiplos de 3 del arbol "
+         "inverso (mallascerradas.py, primer dia) son exactamente lo "
+         "que la dinamica de pares no puede pisar del lado mayor."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
