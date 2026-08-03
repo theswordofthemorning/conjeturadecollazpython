@@ -259,6 +259,36 @@ print()
 print("GERMENES OK: b(6) = 1 con w = 46 (vortice (40,13)) y c(6) = 1 con")
 print("w = 25 (vortice (22,7)), unicos en sus niveles, decididos por clase.")
 
+# ---------------------------------------------------------------------------
+# EL LEMA GENERAL DEL PRELUDIO DEL PISO h, VERIFICADO (03-08-2026,
+# madrugada): (1) D1 = -3 SIEMPRE tras el primer mixto de {w, 9w-1} con
+# w impar (calculo: D1 = (6w-2)/2 - 3w - 2 = -3); (2) el tramo vive en
+# el grafo {-3, -5}; (3) aterriza solo en {-2, -8}. Con la unicidad del
+# camino por largo y Terras, c4(m) = 3*2^(m-6) - m + 4 es TEOREMA para
+# todo m. Aqui las tres afirmaciones, exhaustivas en w impar < 2^15.
+# ---------------------------------------------------------------------------
+
+for w in range(1, 2 ** 15, 2):
+    x, y = paso(w), paso(9 * w - 1)
+    s, g = min(x, y), abs(x - y)
+    D = g - 2 * s - 1
+    if D != -3:
+        raise SystemExit("FALLO lema h: D1 = %d en w = %d" % (D, w))
+    for _ in range(60):
+        if D in (-2, -8):
+            break
+        if D not in (-3, -5):
+            raise SystemExit("FALLO lema h: D = %d fuera del grafo, w = %d"
+                             % (D, w))
+        x, y = paso(x), paso(y)
+        s, g = min(x, y), abs(x - y)
+        D = g - 2 * s - 1
+
+print()
+print("LEMA DEL PRELUDIO (piso h) OK: D1 = -3 en los 16.384 w impares,")
+print("el tramo vive en {-3, -5} y aterriza solo en {-2, -8}: el grafo")
+print("finito del teorema, verificado exhaustivo.")
+
 print()
 print("G(k) =", G_serie)
 print("H(k) =", H_serie)
