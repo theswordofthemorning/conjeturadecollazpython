@@ -1007,7 +1007,18 @@ AFIRMACIONES = [
          "dominan a las pares - el +16 podria estar estructuralmente "
          "suprimido o ser solo mas raro que -32: pregunta abierta "
          "registrada. Prediccion de orden fallada y anotada: el repo "
-         "registra sus predicciones falladas."),
+         "registra sus predicciones falladas. Y LA AMPLIACION AL PISO "
+         "DE ARRIBA (m = 14..16, ~8.500 aterrizajes post-rebote de "
+         "pares consecutivos): misma ley, cero prohibidos, y TAMPOCO "
+         "hay +16 - la muestra total (~20.000 en tres pisos) tiene "
+         "j en {0,1,2,4} divisiones con el j = 3 especificamente "
+         "ausente mientras j = 4 si aparecio. SE REGISTRA COMO "
+         "CONJETURA: el aterrizaje (-2)^4 = +16 esta estructuralmente "
+         "prohibido (no es rareza: es el unico j saltado). Y una "
+         "ANOMALIA nueva para investigar: 3 casos del piso de arriba "
+         "con ultimo mixto en D = 0 (el rebote como aterrizaje "
+         "inmediato de una reentrada consec) que no encajan en la "
+         "taxonomia - senalados, no explicados."),
 
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
