@@ -1,5 +1,6 @@
-/- teoremamod3.lean
-   EL TEOREMA MOD 3 DEL PROGRAMA DE FUSION, demostrado en Lean 4.
+/- teoremadekomodo3.lean
+   EL TEOREMA DE KOMODO 3 (el teorema mod 3 del programa de fusion),
+   demostrado en Lean 4.
    (04-08-2026; el sexto .lean del repo. Nucleo puro, sin Mathlib.)
 
    ENUNCIADO (la version de auditoria_rigor.py R34): tras el paso 0 de

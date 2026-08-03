@@ -1325,7 +1325,7 @@ AFIRMACIONES = [
          "anterior' vale como MECANISMO demostrable, no como formula "
          "que se adivina - los empalmes mandan en los niveles bajos."),
 
-    fila("EL TEOREMA MOD 3 (ascendido de medido a DEMOSTRADO): tras el "
+    fila("EL TEOREMA DE KOMODO 3 (el mod 3; ascendido de medido a DEMOSTRADO): tras el "
          "paso 0 de cualquier par consecutivo, el lado MAYOR es "
          "siempre = 2 (mod 3) - r par da 3s+2, r impar da (3r+1)/2 = 2 "
          "mod 3 -, y la propiedad 'mayor no multiplo de 3' es "
@@ -1346,14 +1346,14 @@ AFIRMACIONES = [
          "inverso (mallascerradas.py, primer dia) son exactamente lo "
          "que la dinamica de pares no puede pisar del lado mayor."),
 
-    fila("EL TEOREMA MOD 3, FORMALIZADO EN LEAN 4 (teoremamod3.lean, "
+    fila("EL TEOREMA DE KOMODO 3, FORMALIZADO EN LEAN 4 (teoremadekomodo3.lean, "
          "el SEXTO .lean del repo): base_par_T y base_impar_T (tras el "
          "paso 0 el mayor es 3s+2 / 3k+2, con las identidades de T "
          "demostradas), inv_par e inv_impar (la invariancia por rama) "
          "y el empaquetado invariancia (T l no multiplo de 3 si l no "
          "lo era). Nucleo puro, sin Mathlib, #print axioms = [propext, "
          "Quot.sound] en los cinco, cero sorryAx",
-         "todo_n", "demostrado", "teoremamod3.lean", "propio",
+         "todo_n", "demostrado", "teoremadekomodo3.lean", "propio",
          "04-08-2026; la sugerencia de la revision externa ('una "
          "demostracion verificada por maquina es la respuesta a por "
          "que deberia leerte alguien que no te conoce'), ejecutada la "

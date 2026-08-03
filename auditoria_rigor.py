@@ -705,7 +705,7 @@ for N in range(9, 15):
     _prev = (N, _buenas)
 print("R33 PASS  estrato 6: e6(N) = 3 + (N-7)(N-8)/2 (N = 10..14; y 16-18 por prediccion)")
 
-# R34 - EL TEOREMA MOD 3 (04-08-2026, ascendido de medido a demostrado):
+# R34 - EL TEOREMA DE KOMODO 3 (el mod 3) (04-08-2026, ascendido de medido a demostrado):
 # tras el paso 0 el lado MAYOR es siempre = 2 (mod 3) (base, ambas
 # paridades), y la propiedad 'mayor no multiplo de 3' es INVARIANTE
 # (partir por 2 mapea {1,2}->{2,1}; el paso impar da (3l+1)/2 = 2 mod 3).
@@ -722,4 +722,4 @@ for l in range(2, 50000):
             raise SystemExit("R34 invariancia: l=%d" % l)
         if l % 2 and ((3 * l + 1) // 2) % 3 != 2:
             raise SystemExit("R34 impar: l=%d" % l)
-print("R34 PASS  teorema mod 3: base + invariancia (el mayor nunca 0 mod 3)")
+print("R34 PASS  teorema de Komodo 3: base + invariancia (el mayor nunca 0 mod 3)")
