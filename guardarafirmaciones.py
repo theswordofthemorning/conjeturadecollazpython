@@ -852,6 +852,22 @@ AFIRMACIONES = [
          "medido). Sugiere una recursion universal del triangulo: "
          "germen unico + ley de crecimiento por estrato."),
 
+    fila("LOS GERMENES DEL ESTRATO 6 REENTRAN EN LOS DEL 4: en el piso "
+         "h, el germen w = 33 mod 2^8 cae desde su paso 4 EXACTAMENTE "
+         "en la cola del germen w = 25 ((19,56)->(29,28)->(44,14)->"
+         "(22,7)->fusion en 11); en el piso g, el germen w = 118 mod "
+         "2^8 pasa por DOS pares consecutivos en ruta ((134,133) y "
+         "(101,100)). La renovacion es visible germen a germen",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada. Trayectorias explicitas, verificables "
+         "a mano en segundos (por eso demostrado: son identidades "
+         "concretas de enteros). Es el patron del piso de arriba "
+         "(|M|=4 = preludio + |M|=2 desplazado) repitiendose en los "
+         "pisos reducidos: LA TORRE ES AUTOSIMILAR AL NIVEL DE LOS "
+         "GERMENES. Sugiere que la demostracion de b4/c4 ira por "
+         "preludios contados sobre los germenes inferiores - la misma "
+         "forma que la cuadratica de |M|=6 conjeturada arriba."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
