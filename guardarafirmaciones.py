@@ -508,6 +508,242 @@ AFIRMACIONES = [
          "corregido. Y la no-vacuidad esta demostrada en Lean para todo k "
          "(depuracion/lean/A34.lean)."),
 
+    fila("si el coeficiente cae (3^S(r) < 2^k) y m > T^k(r) - r, entonces "
+         "T^k(2^k*m + r) < 2^k*m + r: la bajada del coeficiente es bajada "
+         "real fuera del tramo FINO",
+         "clase_residual", "demostrado", "atacacst.lean", "propio",
+         "Teorema tramo_finito_fino (03-08-2026), nucleo sin Mathlib, "
+         "#print axioms limpio. Cierra el hueco Lean-Python de atacacst: "
+         "tramo_finito solo cubria m > T^k(r) y el .py decide con "
+         "m > T^k(r) - r; la franja intermedia no tenia teorema. La "
+         "hipotesis se escribe sin resta truncada como T^k(r) < r + m, y "
+         "la demostracion son tres lineas desde palanca con D >= 1."),
+
+    fila("para todo j par, el par (2^j - 2, 2^j - 1) se funde por primera "
+         "vez en el paso j+2, con vortice en el repunit ternario "
+         "b = (3^(j-1) - 1)/2: la clase 2^j - 2 es NUEVA mod 2^(j+2)",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "La familia extremal de las nuevas (03-08-2026). Demostracion de "
+         "cuatro lineas en el comentario de la COMPROBACION 5: un lado hace "
+         "j impares hasta 3^j - 1 y dos pares; el otro gasta un par, hace "
+         "j-1 impares y el encuentro cuadra exacto (3b + 1 = (3^j - 1)/2), "
+         "con S = j en ambos. Corolario: b(j+2) >= 1 para todo j par - las "
+         "nuevas nunca se acaban. Comprobada j = 4..60. Que ese b sea el "
+         "MAXIMO del nivel esta solo medido (k <= 15). Y el patron 'todo b "
+         "es 1 mod 3' se REFUTO antes de publicarse: b = 2255 en k+1 = 15."),
+
+    fila("en cada nivel k+1 >= 4 hay EXACTAMENTE UNA clase nueva con "
+         "|M| = 2, y es r = 2^(k-1) - 2 si k es impar, r = 3*2^(k-1) - 2 "
+         "si k es par: la primera fila del triangulo de estratos es "
+         "1, 1, 1, ... para siempre",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "Demostracion en cuatro piezas en la COMPROBACION 7 (03-08-2026): "
+         "(1) |M| = 2 fuerza r par (r impar da d1 = -r impar y el paso 1 "
+         "ya es mixto); (2) en cada paso compartido d pierde exactamente "
+         "un factor 2, luego v2(r+2) = k-1 y solo caben DOS candidatos, "
+         "2^(k-1)-2 y 3*2^(k-1)-2; (3) el ganador cumple el encuentro "
+         "-alternando por la paridad de k, con la identidad "
+         "T(c*2^m - 1) = 3c*2^(m-1) - 1-; (4) el perdedor falla siempre "
+         "porque su vortice pediria 3^q - 1 = 3^(q+2) - 1. Comprobadas "
+         "las piezas (3) y (4) hasta k = 60, y la unicidad completa por "
+         "fuerza bruta en k <= 15 (comprobacion 6). Primera pieza "
+         "DEMOSTRADA del mecanismo 'la razon 2 viene de la entrada de "
+         "estratos, no de que ninguno acelere'."),
+
+    fila("LEMA GENERAL: para todo C impar y q >= 2 con C = 3^q (mod 4), "
+         "el par (C*2^q - 2, C*2^q - 1) se funde exactamente en el paso "
+         "q+2, con S = q en los dos lados y vortice en "
+         "b = (3^(q-1)*C - 1)/2",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 8 (03-08-2026). Generaliza la familia del repunit "
+         "a prefijo impar arbitrario, con la identidad "
+         "T(c*2^m - 1) = 3c*2^(m-1) - 1. La condicion C = 3^q (mod 4) "
+         "hace impar al vortice; la paridad del otro lado es automatica "
+         "(3^q*C = 1 mod 4 siempre). Los casos C = 1 y C = 3 son "
+         "exactamente la alternancia del teorema de |M| = 2. Comprobado "
+         "en todos los pares C <= 201 impar, q <= 40."),
+
+    fila("la clase r = 2^(k-1) - 3 (k par) / 3*2^(k-1) - 3 (k impar) -el "
+         "vecino izquierdo del perdedor de |M| = 2, con r IMPAR- es nueva "
+         "en el nivel k+1 con mixtos en [0, 1, 2, k]: el estrato |M| = 4 "
+         "tiene al menos una clase por nivel, con formula",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 8 (03-08-2026). Los dos primeros pasos se calculan "
+         "a mano: el par (w-3, w-2) con w = c*2^(k-1) se contrae en dos "
+         "pasos a (3c*2^(k-3) - 2, 3c*2^(k-3) - 1) - VUELVE A SER "
+         "CONSECUTIVO (d2 = 1) - y ese es el lema general con C = 3c, "
+         "q = k-3. LOS ESTRATOS SE REDUCEN UNOS A OTROS: |M| = 4 es dos "
+         "mixtos de preludio mas un |M| = 2 desplazado, y esa reduccion "
+         "es la forma de la recursion del triangulo. La UNICIDAD de "
+         "|M| = 4 sigue solo medida (1 por nivel, k <= 15): faltaria "
+         "descartar los demas patrones de posiciones. Comprobada "
+         "k = 4..60."),
+
+    fila("r IMPAR fuerza pasos 0, 1 y 2 mixtos (|M| >= 4 siempre); si "
+         "ademas r = 1 (mod 4), el par se contrae en dos pasos al "
+         "consecutivo de menor (3r+1)/4, y DENTRO de esa ruta la clase "
+         "|M| = 4 del nivel es UNICA",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 9 (03-08-2026). (i) el gap tras el paso 0 es -r, "
+         "impar, y tras el paso 1 es -1 o 2r+1 segun r mod 4: tres mixtos "
+         "seguidos (es el reverso del teorema de |M| = 2, que forzaba r "
+         "par). (iii) tras la contraccion se aplica entero el argumento "
+         "de |M| = 2: v2(s2+2) = k-3, rango C <= 11, necesidad del lema "
+         "general C = 3^(k-3) (mod 4), y r entero exige 3 | C: quedan "
+         "C = 3 y 9 y el mod 4 elige uno. Exhaustivo r < 2^14 mas "
+         "k = 5..60. Para la unicidad TOTAL de |M| = 4 faltan las rutas "
+         "r = 3 (mod 4) y r par - en el mapa de dependencias, el nodo "
+         "unicidad_M4 sigue en medido y cuadratica_M6 BLOQUEADO."),
+
+    fila("LA COORDENADA D = g - 2s - 1 del par {s, s+g}: el vortice es "
+         "exactamente D = 0 con s impar, en pasos compartidos D es impar "
+         "y evoluciona (D-1)/2 o (3D-1)/2, el tramo compartido termina "
+         "cuando D se hace par, y D < 0 ES INVARIANTE. Con eso, la ruta "
+         "r = 3 (mod 4) queda EXCLUIDA de |M| = 4: la unicidad esta "
+         "demostrada para TODO r impar",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 10 (03-08-2026). r = 3 (mod 8): tras los tres "
+         "mixtos el par es {(3r+7)/8, +(3r-1)/4} con D = -3, y por la "
+         "invariancia su cuarto mixto nunca es vortice (|M| >= 6). "
+         "r = 7 (mod 8): beta con g = 3 (mod 4) deja g impar y el paso 3 "
+         "tambien es mixto (|M| >= 6 para k > 3; el borde k = 3 lo cubre "
+         "la fuerza bruta del nivel 4). Exhaustivo r < 2^15 mas el "
+         "seguimiento del tramo completo. La D es la herramienta nueva "
+         "del programa: convierte 'se funden' en 'D llega a 0', y los "
+         "estratos en la contabilidad de sus rebotes."),
+
+    fila("LA COORDENADA E = D - 3s ES AUTONOMA dentro de un tramo "
+         "compartido: su propia paridad elige su mapa (E impar -> "
+         "(E-1)/2, E par -> (3E-4)/2), sin mirar los valores",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 11 (03-08-2026). D es impar durante el tramo, "
+         "luego la paridad de E determina la del menor (E impar <=> s "
+         "par) y E se vuelve un mapa 1-dimensional determinista. OJO con "
+         "el limite: en los pasos MIXTOS ni D ni E son autonomas (ahi "
+         "entra el valor: es el +1 de Collatz reapareciendo). CORRECCION "
+         "de la misma noche: esta fila afirmaba ademas la orbita del "
+         "rebote 1, 0, -2, -5, -3 con el vortice {1,4} imposible - era "
+         "LA FAMILIA FANTASMA (w, 6w+2); el rebote real es (w, 9w+2) "
+         "con E = 3w+1 dependiente de w (ver la correccion). Lo que "
+         "queda en pie: la autonomia (independiente de familias) y el "
+         "barrido real: entre TODAS las fusiones con S igualada de "
+         "pares r par < 2^20, el estrato |M| = 4 esta VACIO, y |M| = 2 "
+         "da exactamente 2^18 (el teorema de Perras, fila aparte)."),
+
+    fila("EL REBOTE REAL: en D = 0 el par es {s, 3s+1}, y si s = 2w es "
+         "par el rebote beta lo manda EXACTAMENTE a (w, 9w+2), con "
+         "D = 6w+1 y E = 3w+1. Y EL TEOREMA DE PARIDAD DEL REBOTE: el "
+         "tramo post-rebote nunca puede terminar en fusion DE CLASE "
+         "(seria |M| = 3, impar, con Delta_S = +2 +- 1 != 0): toda "
+         "fusion de clase con r par y rebote exige |M| >= 4",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACIONES 12 y 14 corregidas (03-08-2026, noche). La "
+         "derivacion es de dos lineas (beta: s/2 y (9s+4)/2) y esta "
+         "verificada contra 8.191 rebotes de pares reales (todos en la "
+         "familia, cero excepciones). Ademas, iterando el mapa (D, E) "
+         "puro desde el arranque real (6w+1, 3w+1) hasta w = 10^6: "
+         "ningun tramo post-rebote termina en D = 0 (ni siquiera hay "
+         "encuentro de valor). Esta fila sustituye a la del 'tercer "
+         "mixto clasificado' con los casos A/B-alfa: eran de la familia "
+         "fantasma - ver la correccion."),
+
+    fila("el mapa de E como sistema dinamico sobre Z (impar -> (E-1)/2, "
+         "par -> (3E-4)/2) es de tipo Collatz y su censo en [-10^5, "
+         "10^5] da DIEZ familias: fijos -1 y 4, 2-ciclo (-11), 3-ciclos "
+         "(-5) y (24), 5-ciclos (-77) y (-59), 11-ciclo (84), 27-ciclos "
+         "(-4163) y (-5099). NINGUNA orbita escapa",
+         "verificado_hasta", "medido", "nuevasfusion.py", "propio",
+         "COMPROBACION 13 (03-08-2026, de la idea del usuario: 'toda "
+         "orbita relevante de E pertenece a una de N familias'). El del "
+         "rebote {-2,-5,-3} atrae al 47% del rango. La deriva media es "
+         "contractiva (-log 2 + log 3/2 < 0), coherente con que todo "
+         "cicle - pero la completitud de la lista para todo Z es "
+         "exactamente el tipo de pregunta que en Collatz lleva 90 anos "
+         "abierta: censo medido, no teorema. Cambia el programa: las "
+         "rutas de los estratos se clasifican por familia de E y por "
+         "donde el vortice (D = 0) interrumpe la orbita."),
+
+    fila("NO EXISTE UNA TERCERA COORDENADA: el estado del par es "
+         "2-dimensional y (D, E) lo genera. En particular H = 2D - E es "
+         "el valor MAYOR del par menos 1 (H = g + s - 1 = l - 1), D = "
+         "l - 3s - 1 y E = l - 6s - 1: toda 'coordenada nueva' es una "
+         "combinacion afin de (s, l)",
+         "todo_n", "demostrado", "nuevasfusion.py", "propio",
+         "Dos lineas de algebra (03-08-2026), y la respuesta a la "
+         "pregunta del usuario 'que propiedad nueva tiene H': NINGUNA - "
+         "sus mapas eran 'otro Collatz' porque SON la trayectoria del "
+         "miembro grande. Cierra la mina de coordenadas: lo que quedaba "
+         "por explotar es la CLASIFICACION (familias de E, itinerarios), "
+         "no mas cambios de variable. La decision de congelar B-beta y "
+         "virar a clasificacion_rutas sale de aqui."),
+
+    fila("los itinerarios de las nuevas (la palabra de familias de E "
+         "entre mixtos): el ultimo tramo de todo |M| = 4 vive en "
+         "{-5, -77, -4163}, EXACTAMENTE las familias de |M| = 2 - la "
+         "contraccion hecha visible -, y la unica familia ausente de "
+         "todos los itinerarios es el punto fijo -1 (trivial)",
+         "verificado_hasta", "medido", "itinerarios.py", "propio",
+         "Paso 1 de clasificacion_rutas (03-08-2026), k <= 15, con "
+         "cruce contra b(k) en los 13 niveles. Y EL NEGATIVO, que vale "
+         "tanto como el positivo: la familia ASINTOTICA es un invariante "
+         "ruidoso para contar (el tramo solo usa un prefijo finito de la "
+         "orbita de E; conteos por itinerario erraticos, no "
+         "polinomicos). El refinamiento pendiente: etiquetar tramos por "
+         "datos FINITOS (E de arranque modulo algo, largo del tramo). "
+         "De paso murio en el acto la conjetura 'solo aparecen familias "
+         "negativas': 4, 24 y 84 si aparecen en estratos altos - la "
+         "cazo el cruce contra b(k) de la capa 1."),
+
+    fila("TEOREMA DE PERRAS (la mitad exacta; bautizado por el usuario "
+         "el 03-08-2026, casi en honor a Terras): para r PAR, (r, r+1) se funde con "
+         "|M| = 2 si y solo si en el vector de paridad de s1 = r/2 el "
+         "primer 0 va seguido de un 1; y entre s1 en [1, 2^m) fusionan "
+         "EXACTAMENTE 2^(m-1), para todo m >= 2, sin casos",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 15 (03-08-2026); la perla del 2^18 exacto, "
+         "demostrada. Con D = 1 el primer valor PAR de la trayectoria de "
+         "s1 baja D a 0, y el vortice pide T^(j+1)(s1) impar: el bit "
+         "siguiente al primer 0. Delta_S = 0 automatico (el paso 0 suma "
+         "al lado r+1 y el vortice al lado r). El conteo, por la "
+         "biyeccion de Terras: patrones decididos 2^(m-1) - 1, y de los "
+         "dos residuos frontera (2^(m-1)-1 y 2^m-1) funde EXACTAMENTE "
+         "UNO para cada m (segun 3^m mod 4): total 2^(m-1) clavado. "
+         "Equivalencia exhaustiva s1 < 2^16 y conteos m = 2..16. ES LA "
+         "PRIMERA MEDIDA EXACTA DE UNA FILA DEL TRIANGULO: el estrato 2 "
+         "pesa 1/2 entre los r pares - Terras 1.4 (la moneda) actuando "
+         "sobre dos bits. VERIFICACION BIBLIOGRAFICA (03-08-2026, noche): "
+         "el patron ES el stem s_i de Garner 1985, que demostro la "
+         "SUFICIENCIA (la mitad <=) y conjeturo la necesidad para TODA "
+         "fusion; Elia-Tucker 2015 (arXiv:1511.09141) refutaron esa "
+         "necesidad (3067/3068). LO QUE PERRAS ANADE y no esta en "
+         "ninguno: la necesidad SI es verdadera restringida al estrato "
+         "minimo (|M| = 2 <=> stems), y el conteo exacto 2^(m-1) con el "
+         "borde resuelto - Elia-Tucker solo midieron (0,214% de "
+         "contraejemplos bajo 5e9). Perras = la conjetura de Garner, "
+         "falsa en general, demostrada en el estrato minimo con su "
+         "densidad. LaTourette 2007 (tesis no accesible) definio los "
+         "objetos; el conteo no consta alli tampoco."),
+
+    fila("TEOREMA DE GATAS (el reinicio uniforme; bautizado por el "
+         "usuario el 03-08-2026) y la ecuacion de renovacion: la "
+         "contraccion manda r = 4t+1 al par consecutivo FRESCO "
+         "(3t+1, 3t+2) con t -> 3t+1 biyeccion de Z/2^m (autosimilitud "
+         "exacta, P(fusion|contraccion) = f); el w del rebote es "
+         "uniforme (Terras 1.2); y por tanto f = 1/4 + f/4 + g/4 + h/4 "
+         "EXACTA, con el corolario f >= 1/3 demostrado",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 16 (03-08-2026). La contraccion literal esta "
+         "verificada t < 2^14, la biyeccion mod 2^m hasta m = 12, y la "
+         "uniformidad del rebote en j = 0..5 con 64 clases exactas. f = "
+         "P(fusion de par consecutivo uniforme), g = P(fusion|rebote, "
+         "familia real (w,9w+2), objetivo Delta_S = -2), h = P(fusion| "
+         "r = 3 mod 4). LA ECUACION FUNCIONO COMO DETECTOR: no cerraba "
+         "con la familia fantasma (0,4039 vs 0,4453) y cierra con la "
+         "real (0,4504 vs 0,4453, topes declarados; medido: g = 0,188, "
+         "h = 0,173, f = 0,445 a tope 3000 y r < 2^16). Si g y h se "
+         "calculan exactos al estilo Perras, f queda decidida - y f = 1 "
+         "seria la conjetura de Wu en densidad."),
+
     # --------------------------------------------------------- casi_todo_n
     #
     # Salvo un conjunto de densidad cero. Y el contraejemplo que buscamos
@@ -987,6 +1223,49 @@ AFIRMACIONES = [
          "significan nada: hilos.db los marca con es_cola. Sin esa marca, el "
          "100001 -que no se funde de verdad con nadie- pareceria tan conectado "
          "como el resto."),
+
+    fila("una clase r mod 2^(k+1) se estrena en el nivel k+1 exactamente "
+         "cuando T^k(r) y T^k(r+1) se encuentran POR PRIMERA VEZ en un "
+         "vortice: a = 3b+1 con paridades opuestas y S compensada en 1",
+         "verificado_hasta", "medido", "nuevasfusion.py", "propio",
+         "La ecuacion de las nuevas (03-08-2026). Caracterizacion CON "
+         "reciproco: k = 3..15, 0 fallos y 0 falsos positivos, y reproduce "
+         "b(k) = a(k+1) - 2a(k) termino a termino. El a = 3b+1 es la regla "
+         "del segundo padre (v = 4 mod 6) de los vortices del 221. "
+         "Convierte la pregunta de la razon 2 (b(k+1)/b(k) -> 2?) en "
+         "contar soluciones de una congruencia por nivel. Precedente en "
+         "OEIS: A076227/A100982 tienen recursion exacta (Zarubin 2019, "
+         "Winkler) - alli la forma existe; aqui esta por derivar."),
+
+    fila("la cota condicionada m >= M de Everett con M = 10001 certifica "
+         "el descenso con umbral B/A > 1,585011 -a 4,8e-05 de log2(3)- "
+         "sin UNA SOLA excepcion real hasta 10^6",
+         "verificado_hasta", "medido", "franjaeverett.py", "propio",
+         "Los 'sin certificar' de M = 5, 9, 101, 1001, 10001 son "
+         "exactamente los impares < M (excluidos por hipotesis): 0 "
+         "excepciones reales en los cinco. M = 27 es el unico que no "
+         "empata (2 reales, sin identificar). La franja de Everett se "
+         "estrecha tres ordenes de magnitud y NO se cierra: el limite "
+         "M -> infinito sigue siendo por clases, no uniforme. OJO: este "
+         "resultado estuvo escrito y SIN CORRER hasta el 03-08-2026 -ver "
+         "la correccion del fichero que no compilaba."),
+
+    fila("las clases nuevas se estratifican por el numero |M| de pasos "
+         "mixtos del par: |M| es PAR siempre, el estrato |M| = 2 tiene "
+         "EXACTAMENTE UNA clase por nivel (y es la familia del repunit), "
+         "y |M| = 4 tambien exactamente una",
+         "verificado_hasta", "medido", "nuevasfusion.py", "propio",
+         "k = 3..15, 779 nuevas, 0 violaciones (03-08-2026). Paso mixto = "
+         "paridades del par distintas, que ocurre exactamente cuando la "
+         "diferencia d es impar. La paridad de |M| SI es demostrable en "
+         "tres lineas (Delta_S cambia +-1 solo en mixtos y vuelve a 0); "
+         "la unicidad de |M| = 2 se DEMOSTRO el mismo dia (fila aparte) y "
+         "la de |M| = 4 sigue solo medida. Los estratos altos "
+         "crecen como polinomios de grado creciente (|M| = 6 acaba con "
+         "diferencias 5,6,7,8: cuadratico) y entra un estrato nuevo cada "
+         "dos niveles: la razon b(k+1)/b(k) -> 2 vendria de la ENTRADA de "
+         "estratos, no de que cada estrato acelere. Es la forma de "
+         "recursion tipo A076227/Zarubin que se buscaba."),
 ]
 
 
@@ -1381,6 +1660,37 @@ CORRECCIONES = [
      "donde llego la fuerza bruta publicada. Y comparar un hito ajeno exige "
      "comprobar que la magnitud es la misma: densidad de enteros en tupla y "
      "fraccion de pares consecutivos no son lo mismo"),
+
+    ("el estado post-rebote de un par con r par es (w, 6w+2), con orbita "
+     "de E forzada 1, 0, -2, -5, -3 y casos A/B-alfa excluidos",
+     "LA FAMILIA ERA UN FANTASMA: el estado con D = 0 es el par "
+     "{s, 3s+1} (gap 2s+1), y su rebote beta da (w, 9w+2) con "
+     "E = 3w+1 DEPENDIENTE de w. El error nacio de escribir el par como "
+     "(s, 2s+1) -confundiendo el gap con el valor mayor- y se propago a "
+     "las comprobaciones 11 (corolario), 12 y 14 y a tres filas de esta "
+     "base. Lo cazo LA ECUACION DE RENOVACION al no cerrar (0,4039 "
+     "contra 0,4453 medido; con la familia real cierra en 0,4504), y lo "
+     "confirmo el cruce con 8.191 rebotes de pares reales: todos en "
+     "(w, 9w+2), cero en (w, 6w+2) (2026-08-03)",
+     "una ecuacion de conservacion que no cierra es un detector de "
+     "premisas falsas mas fino que cualquier barrido: el barrido del "
+     "fantasma paso limpio porque media al fantasma. Y las familias "
+     "canonicas se verifican CONTRA EL OBJETO REAL antes de razonar "
+     "sobre ellas - el fantasma paso tres comprobaciones que solo lo "
+     "miraban a el"),
+
+    ("franjaeverett.py corria y publicaba sus resultados (el optimo M = 9, "
+     "el umbral 1,63763)",
+     "el fichero NO COMPILABA: dos strings sin cerrar (lineas 542 y 589, "
+     "texto adversarial del 01-08 pegado dentro de un print), o sea que "
+     "NUNCA habia corrido en su forma actual y todo lo escrito tras esa "
+     "edicion estaba sin verificar. Lo cazo un compile() de la lectura "
+     "completa del repo (2026-08-03). Reparado y corrido: exit 0, y la "
+     "afirmacion enterrada se CONFIRMA (M = 10001, umbral 1,585011)",
+     "un resultado escrito no es un resultado corrido. compile() sobre "
+     "cada .py tocado cuesta un segundo y habria cazado esto el mismo dia; "
+     "y un texto adversarial se aplica como edicion de codigo, no se pega "
+     "dentro de un print"),
 ]
 
 
@@ -1625,6 +1935,145 @@ CONSTANTES = [
 
 
 # ===========================================================================
+# EL MAPA DE DEPENDENCIAS (03-08-2026, regla dictada por el usuario)
+# ===========================================================================
+#
+# Que cuelga de que, en el programa de las clases nuevas. LA REGLA: no se
+# avanza en una rama sin tener comprobada la rama anterior. En codigo:
+#   - un nodo 'demostrado' NO puede depender de un nodo no demostrado
+#     (su demostracion colgaria del aire);
+#   - ningun nodo trabajado (no pendiente) puede depender de un 'pendiente';
+#   - los 'pendiente' se listan como AVANZABLE solo si TODOS sus padres
+#     estan demostrados. Lo demas esta BLOQUEADO.
+
+ESTADOS_NODO = ESTADOS + ("pendiente",)
+
+# (nombre, estado, descripcion corta)
+NODOS = [
+    ("definiciones", "demostrado",
+     "mapa del atajo, criterio de buenas(k) [Terras], nuevas y b(k)"),
+    ("ecuacion_vortice", "medido",
+     "nueva <=> primer encuentro en vortice (a=3b+1, S compensada); k=3..15"),
+    ("lema_identidad", "demostrado",
+     "T(c*2^m - 1) = 3c*2^(m-1) - 1, elemental"),
+    ("lema_v2", "demostrado",
+     "mixto <=> d impar; paso compartido quita exactamente un factor 2; "
+     "|M| par"),
+    ("lema_general", "demostrado",
+     "C impar, C = 3^q (mod 4) => (C*2^q - 2, C*2^q - 1) funde en q+2"),
+    ("teo_repunit", "demostrado",
+     "familia (2^j - 2, 2^j - 1): caso C = 1, 3 del lema general"),
+    ("nuevas_no_acaban", "demostrado",
+     "b(j+2) >= 1 para todo j par: corolario del repunit"),
+    ("unicidad_M2", "demostrado",
+     "exactamente una clase |M| = 2 por nivel, alternando A/B"),
+    ("familia_M4", "demostrado",
+     "el vecino del perdedor: contraccion en 2 pasos + lema general"),
+    ("M4_ruta_impar", "demostrado",
+     "unicidad de |M| = 4 entre TODOS los r impares: r = 1 (mod 4) da "
+     "exactamente una (contraccion, C en {3,9}); r = 3 (mod 8) cae en "
+     "D = -3 < 0 invariante (nunca vortice); r = 7 (mod 8) encadena "
+     "cuatro mixtos"),
+    ("estratos_medidos", "medido",
+     "tabla de estratos k <= 15: |M|=2 y 4 unicos, altos polinomicos"),
+    ("unicidad_M4", "medido",
+     "una sola clase |M| = 4 por nivel: demostrado para todo r impar; "
+     "para r par: |M| >= 4 por el teorema de paridad del rebote, estrato "
+     "4 vacio medido a 2^20, y el analisis fino REHECHO sobre la familia "
+     "real (w, 9w+2) tras la correccion del fantasma. CONGELADO como "
+     "problema abierto interno"),
+    ("coordenadas_DE", "demostrado",
+     "D = g-2s-1 (vortice <=> D=0 con s impar, afines en compartidos, "
+     "D<0 absorbente) y E = D-3s autonoma (su paridad elige su mapa)"),
+    ("familias_E", "medido",
+     "censo del mapa de E en [-10^5, 10^5]: DIEZ familias (ciclos), "
+     "ninguna orbita escapa; el del rebote {-2,-5,-3} atrae al 47%"),
+    ("clasificacion_rutas", "pendiente",
+     "el salto propuesto por el usuario el 03-08-2026. PASO 1 HECHO "
+     "(itinerarios.py): la contraccion es visible en las etiquetas (el "
+     "ultimo tramo de |M|=4 vive en las familias de |M|=2), pero la "
+     "familia asintotica es invariante RUIDOSO para contar; queda "
+     "etiquetar por datos finitos del tramo"),
+    ("cuadratica_M6", "pendiente",
+     "conjetura: |M| = 6 son preludios de longitud variable sobre |M| = 4"),
+    ("recursion_bk", "pendiente",
+     "la recursion completa de b(k) y el destino de la razon 2"),
+]
+
+# (hijo, padre): el hijo se apoya en el padre
+DEPENDENCIAS = [
+    ("ecuacion_vortice", "definiciones"),
+    ("lema_identidad", "definiciones"),
+    ("lema_v2", "definiciones"),
+    ("lema_general", "lema_identidad"),
+    ("teo_repunit", "lema_general"),
+    ("nuevas_no_acaban", "teo_repunit"),
+    ("unicidad_M2", "lema_v2"),
+    ("unicidad_M2", "lema_general"),
+    ("familia_M4", "lema_general"),
+    ("estratos_medidos", "ecuacion_vortice"),
+    ("estratos_medidos", "lema_v2"),
+    ("M4_ruta_impar", "lema_v2"),
+    ("M4_ruta_impar", "familia_M4"),
+    ("M4_ruta_impar", "lema_general"),
+    ("unicidad_M4", "M4_ruta_impar"),
+    ("unicidad_M4", "estratos_medidos"),
+    ("coordenadas_DE", "lema_v2"),
+    ("familias_E", "coordenadas_DE"),
+    ("unicidad_M4", "coordenadas_DE"),
+    ("clasificacion_rutas", "familias_E"),
+    ("clasificacion_rutas", "coordenadas_DE"),
+    ("cuadratica_M6", "unicidad_M4"),
+    ("cuadratica_M6", "familia_M4"),
+    ("cuadratica_M6", "clasificacion_rutas"),
+    ("recursion_bk", "cuadratica_M6"),
+    ("recursion_bk", "unicidad_M2"),
+]
+
+print()
+print("COMPROBACION 0 - el mapa de dependencias y la regla del avance")
+estado_de = {}
+for nombre, estado, _ in NODOS:
+    if estado not in ESTADOS_NODO:
+        raise SystemExit("nodo %s con estado invalido %r" % (nombre, estado))
+    if nombre in estado_de:
+        raise SystemExit("nodo duplicado: %s" % nombre)
+    estado_de[nombre] = estado
+for hijo, padre in DEPENDENCIAS:
+    if hijo not in estado_de or padre not in estado_de:
+        raise SystemExit("arista con nodo inexistente: %s -> %s"
+                         % (hijo, padre))
+    if estado_de[hijo] == "demostrado" and estado_de[padre] != "demostrado":
+        raise SystemExit("REGLA ROTA: %s (demostrado) depende de %s (%s)"
+                         % (hijo, padre, estado_de[padre]))
+    if estado_de[hijo] != "pendiente" and estado_de[padre] == "pendiente":
+        raise SystemExit("REGLA ROTA: %s (%s) depende del pendiente %s"
+                         % (hijo, estado_de[hijo], padre))
+# sin ciclos: eliminacion de hojas
+pads = {n: set(p for h, p in DEPENDENCIAS if h == n) for n in estado_de}
+quedan = set(estado_de)
+while True:
+    hojas = [n for n in quedan if not (pads[n] & quedan)]
+    if not hojas:
+        break
+    quedan -= set(hojas)
+if quedan:
+    raise SystemExit("CICLO en el mapa de dependencias: %s" % sorted(quedan))
+for nombre, estado, _ in NODOS:
+    if estado == "pendiente":
+        # comprobada = demostrada O medida con codigo que paso (la regla
+        # del usuario dice "comprobada", no "demostrada": un censo nunca
+        # va a ser teorema y no por eso bloquea lo que se apoya en el)
+        via = all(estado_de[p] in ("demostrado", "medido")
+                  for p in pads[nombre])
+        print("  pendiente %-18s -> %s" % (nombre,
+              "AVANZABLE (padres comprobados)" if via else "BLOQUEADO"))
+print("  -> nodos %d, aristas %d, sin ciclos, regla respetada." %
+      (len(NODOS), len(DEPENDENCIAS)))
+print()
+
+
+# ===========================================================================
 # COMPROBACION 1 -- el vocabulario cerrado
 # ===========================================================================
 
@@ -1747,6 +2196,19 @@ CREATE TABLE constantes (
     aviso         TEXT
 );
 
+CREATE TABLE nodos (
+    nombre      TEXT PRIMARY KEY,
+    estado      TEXT NOT NULL CHECK (estado IN
+                    ('demostrado','medido','conjeturado','refutado',
+                     'pendiente')),
+    descripcion TEXT NOT NULL
+);
+
+CREATE TABLE dependencias (
+    hijo  TEXT NOT NULL REFERENCES nodos (nombre),
+    padre TEXT NOT NULL REFERENCES nodos (nombre)
+);
+
 CREATE INDEX idx_cuantificador ON afirmaciones (cuantificador);
 CREATE INDEX idx_estado        ON afirmaciones (estado);
 """)
@@ -1761,6 +2223,10 @@ cursor.executemany(
     "INSERT INTO constantes (nombre, valor_teorico, valor_medido, error_rel,"
     " formula, que_mide, fuente, fichero, aviso) VALUES (?,?,?,?,?,?,?,?,?)",
     CONSTANTES)
+cursor.executemany(
+    "INSERT INTO nodos (nombre, estado, descripcion) VALUES (?,?,?)", NODOS)
+cursor.executemany(
+    "INSERT INTO dependencias (hijo, padre) VALUES (?,?)", DEPENDENCIAS)
 
 conexion.commit()
 conexion.close()

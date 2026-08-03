@@ -473,7 +473,7 @@ con `#check @Nat.mul_le_mul` en un fichero suelto** — ahí se ve la firma exac
 que cambia entre versiones (`Nat.mul_lt_mul_left` es un **iff**, no una
 implicación).
 
-**De los 36 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
+**De los 38 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
 `mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos
 —`mallascerradas.py` y `mapahilos.py`— usan además `plotly.subplots`. `numpy` lo
 usan **seis**: `clasesfusion.py`, `clasesparalelo.py`, `descensoresto.py`,
@@ -496,7 +496,7 @@ pero **ése viene con Python** y no hay que instalar nada.
 nadie: la purga del 01-08-2026 se llevó sus dos clientes, pero tarde o temprano
 va a hacer falta y no vale la pena tocarlo.)*
 
-> **La proporción se dio vuelta: 32 de 36 NO dibujan.** El repo empezó siendo de
+> **La proporción se dio vuelta: 34 de 38 NO dibujan.** El repo empezó siendo de
 > visualización y hoy es de cálculo. **Al escribir un programa nuevo, el caso por
 > defecto es stdout, no plotly** — copiá la forma de `pinzaciclos.py` o de
 > `cotatramos.py`.
@@ -516,19 +516,20 @@ hook o en un script de shell, usa `python -c`.
 la purga del 01-08-2026 se llevó 16 programas de visualización. **Ya no hay dos
 mitades — hay un núcleo de cálculo con cuatro dibujos colgando.**)*
 
-**El núcleo — los que no dibujan, 32 de 36.** Su resultado es **stdout, un
+**El núcleo — los que no dibujan, 34 de 38.** Su resultado es **stdout, un
 `.txt` o un `.db`**. No abren navegador. Conservan la constante en MAYÚSCULAS
 arriba y las comprobaciones que cortan con `SystemExit` antes de afirmar nada
-— **34 de los 36 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
+— **36 de los 38 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
 es una biblioteca, no un programa) y `main.py` (que es la CLI).
 
 ```
 atacacst  atacacst2
 auditarrefutaciones  clasesfusion  clasesparalelo  collatz  coralprimos
 cotatramos  cotatramos3n1  cruzarecords  descensoresto  elmasuno  espejoak
-franjaeverett
+franjaeverett  itinerarios
 guardarafirmaciones  guardarhilos  guardarrespuestas  main  medidamonotona
-otramedicion2  paradacoef  pinzaciclos  pisoaltitud  redhilos  reimpl
+nuevasfusion  otramedicion2  paradacoef  pinzaciclos  pisoaltitud  redhilos
+reimpl
 + los SIETE verificar_*
 ```
 
@@ -658,8 +659,8 @@ for a in sorted(glob.glob('*.py')):
 | `collazmalla.py` | **La malla real**: cada par de puntos en coordenadas (A, B). Dibuja |
 | `cotatramos.py` | **LA COTA POR TRAMO**, rescatada de `collazlamina.py`: `2^B·seq[j] ≥ 3^A·seq[i]`, y si un tramo baja entonces `2^B > 3^A`. Verificada sobre prefijos que **nunca llegan al 1** |
 | **`atacacst.py`** | **EL ATAQUE A CST** (02-08-2026): en cada clase `r mod 2^k` donde el coeficiente cae, el fallo de CST sólo puede vivir en el tramo finito `m ≤ T^k(r) − r`. Revisa esos tramos y decide CST **para todo `n ≥ 2` con `σ* ≤ 27`**, autocontenido, sin `X₀` importado. Hallazgo: hasta `k = 27` — incluido el jump value — **el tramo estuvo siempre vacío** (`t ≤ r` en toda clase caída) |
-| **`atacacst.lean`** | **LA PALANCA, demostrada**: `terras_1_2` + `palanca` (coeficiente cae y `m` fuera del tramo ⟹ bajada real) + `tramo_finito` (basta `m > T^k(r)`), para **todo** `k, r, m`, sin Mathlib, `#print axioms` limpio. El quinto `.lean` del repo |
-| **`atacacst2.py`** | **La fase 2 del ataque: subir `X₀`.** Barrido directo `σ = σ*` avanzando los dos criterios JUNTOS (si uno dispara sin el otro, `SystemExit`: sería el contraejemplo). `X₀` sube de `2·10⁷` a `10⁸`; la conversión a un corte `σ* ≤ K` nuevo va por la curva `B(k)` de `paradacoef.py` |
+| **`atacacst.lean`** | **LA PALANCA, demostrada**: `terras_1_2` + `palanca` (coeficiente cae y `m` fuera del tramo ⟹ bajada real) + `tramo_finito` (basta `m > T^k(r)`) + **`tramo_finito_fino`** (basta `m > T^k(r) − r`, que es **el criterio exacto que usa el `.py`** — hueco Lean↔Python cerrado el 03-08-2026), para **todo** `k, r, m`, sin Mathlib, `#print axioms` limpio. El quinto `.lean` del repo |
+| **`atacacst2.py`** | **La fase 2 del ataque: subir `X₀`.** Barrido directo `σ = σ*` avanzando los dos criterios JUNTOS (si uno dispara sin el otro, `SystemExit`: sería el contraejemplo). `X₀` subió de `2·10⁷` a `10⁸` y después a **`10⁹`** (02-08-2026, ~18 min de CPU): **0 diferencias en los dos barridos**, resultados en `atacacst2_progreso*.txt`. La conversión a un corte `σ* ≤ K` nuevo va por la curva `B(k)` de `paradacoef.py` y **sigue pendiente** |
 | **`cotatramos.lean`** | **La misma cota, DEMOSTRADA en Lean 4** para todo `n₀` y todo `k`, sin Mathlib. Identidad de Terras, cota y corolario; `#print axioms` limpio; el 221 comprobado por el núcleo. **El primero de los cinco `.lean` del repo** |
 | **`cotatramos3n1.lean`** | **La cota del mapa `3n−1`, demostrada.** Agente 1 del primer trío. Identidad sin resta (`2^B·n_k + C = 3^A·n₀`), cota **invertida**, corolario espejo *«sube ⟹ `2^B < 3^A`»*, y la discriminación como **teorema**: cada cota es falsa en el otro mapa, cerrado con `decide`. Los tres ciclos de `3n−1` comprobados por el núcleo |
 | `cotatramos3n1.py` | **Lo mismo, calculado por su cuenta.** Agente 2 del mismo trío, sin ver el `.lean`. Deriva la identidad en vez de copiarla; exhaustivo `n₀ = 1…400`, semillas de 200 bits, y tramos que dan **varias vueltas dentro de los tres ciclos** — el caso que en Collatz no existe |
@@ -667,7 +668,7 @@ for a in sorted(glob.glob('*.py')):
 | `espejoak.py` | **Lo mismo por su cuenta**, sin ver el `.lean`. Diez comprobaciones con `SystemExit`, dos implementaciones sin código común, y la biyección verificada **como igualdad de conjuntos**, no de cardinales |
 | **`pruebaresta.lean`** | **La compilación que cerró una disputa.** No dice nada de Collatz: demuestra que la forma **con resta truncada** también cierra la inducción en `ℕ` sin invariante reforzado, y con eso tumba a la vez la frase del `CLAUDE.md` (*«`ℕ` ya no sirve»*) **y** la explicación que daba el agente de Lean. El registro de que una frase publicada se refutó **compilando** en vez de opinando |
 | `paradacoef.py` | **LA CONJETURA CST DE TERRAS, MEDIDA.** `σ*` se calcula sólo de `n mod 2^k`: **es lo único del repo que pasa el detector de contabilidad**. Trae la cota `B(k)`, que descarta contraejemplos con `σ* ≤ K` para **infinitos** números, y el control `3n−1` con el espejo `n → −n` |
-| `franjaeverett.py` | **La franja `log₂(10/9)`**, el hueco entre lo que Everett demuestra y el equilibrio. **NO hay núcleo**: con `m ≥ 9` el conjunto excepcional hasta `10⁷` es `{3,5,7}`. Y el control mata la vía: sobre `3n−1` la franja mide **cero**, y `3n−1` no converge |
+| `franjaeverett.py` | **La franja `log₂(10/9)`**, el hueco entre lo que Everett demuestra y el equilibrio. **NO hay núcleo**: con `m ≥ 9` el conjunto excepcional hasta `10⁷` es `{3,5,7}`. Y el control mata la vía: sobre `3n−1` la franja mide **cero**, y `3n−1` no converge. **Reparado el 03-08-2026** — dos strings sin cerrar (texto adversarial pegado dentro de un `print`): **el fichero nunca había corrido entero**. Al correrlo, la afirmación enterrada se confirma: `M = 5, 9, 101, 1001, 10001` empatan a **0 excepciones reales** (hasta `10⁶`) y con `M = 10001` el umbral baja a **1,585011**, a `4,8·10⁻⁵` de `log₂3` (`M = 27` es el único con excepciones reales: 2). Salida en `franjaeverett_salida.txt` |
 | `medidamonotona.py` | **La búsqueda de una cantidad monótona, y la medida de cómo falla.** Trece candidatas, ninguna decrece. La razón no es estadística: la clase `2^k − 1 (mod 2^k)` existe para todo `k`. Redescubre `A076227` sin buscarla |
 | `auditarrefutaciones.py` | **Auditar las REFUTACIONES, no las afirmaciones.** Las diez del bloque E contra los dos pools: **8 confirmada, 2 exagerada, 0 refutada**. Se niega a evaluar la mitad bibliográfica de la #58 |
 | `mallaresiduos.py` | **La malla completa de los arranques**: 2^k restos × k pasos. Dibuja |
@@ -677,9 +678,12 @@ for a in sorted(glob.glob('*.py')):
 | `mapahilos.py` | **Los once a la vez**, cuatro paneles. La razón de unos lo explica todo. Dibuja |
 | `redhilos.py` | **Una red neuronal a mano** (solo numpy) puesta a buscar dónde muere la predicción |
 | `clasesfusion.py` | **El criterio demostrado**: qué clases mod 2^k se funden para todo `m ≥ 1` |
+| **`itinerarios.py`** | **El paso 1 de la clasificación de rutas** (03-08-2026): el itinerario de cada nueva como palabra de familias del mapa de `E`. Positivo: el último tramo de todo `|M|=4` vive en `{−5, −77, −4163}` — las familias de `|M|=2`: **la contracción, visible en las etiquetas**. Negativo registrado: la familia asintótica es invariante **ruidoso** para contar; el refinamiento pendiente es etiquetar por datos finitos del tramo |
+| **`nuevasfusion.py`** | **LA ECUACIÓN DE LAS CLASES NUEVAS** (03-08-2026): una clase se estrena en el nivel `k+1` exactamente cuando `T^k(r)` y `T^k(r+1)` se encuentran **por primera vez en un vórtice** (`a = 3b+1`, paridades opuestas, `S` compensada en 1 — la regla del segundo padre). Caracterización con recíproco, `k = 3…15`, 0 fallos y 0 falsos positivos; reproduce `b(k)` término a término. **La pregunta de la razón 2 pasa de conteo ciego a congruencia.** Y trae la **familia extremal demostrada**: para todo `j` par, `(2^j−2, 2^j−1)` se funde por primera vez en el paso `j+2` con vórtice en el **repunit ternario** `(3^{j−1}−1)/2` ⟹ `b(j+2) ≥ 1` siempre. Los **estratos por pasos mixtos** (`|M|` par siempre; nuevos estratos entran cada dos niveles — el candidato a mecanismo de la razón → 2), y el **teorema de unicidad de `|M| = 2`**: exactamente una clase por nivel, `2^{k−1}−2` o `3·2^{k−1}−2` alternando — la primera fila del triángulo es `1, 1, 1, …` demostrada. *(Patrón refutado antes de publicarse: «todo `b` es `1 mod 3`» se rompe en `k+1=15` con `b = 2255`.)* |
 | `sucesiones.txt` | Las dos sucesiones que **no están en OEIS**, con definición y verificaciones |
 | `teoriacollaz.txt` | El planteamiento filosófico del que salió la idea de la esfera |
 | `bitacora.md` | **Resumen por sesion y lo que queda pendiente.** Empezar por aqui |
+| **`RutaTeoremas.md`** | **El camino a los teoremas de Perras y Gatas** (03-08-2026) por el mapa de dependencias, su estado bibliográfico verificado (Garner 1985, Elia–Tucker 2015), y **la ruta trazada para decidir `f`** — la ecuación de renovación cuya solución sería la conjetura de Wu en densidad. Contexto de arranque de la próxima sesión |
 | `clasesparalelo.py` | El barrido de clases repartido entre nucleos. Se verifica solo contra a(30) |
 | `pinzaciclos.py` | **La pinza de descarte de ciclos**: un candidato por resto, en cerrado. Barrido de 2^30 restos |
 | `records.json` | **Los récords publicados** de Roosendaal y Barina: retraso, altitud, clase, planeo, residuo |
@@ -1912,6 +1916,13 @@ Medido aquí: **0 diferencias en los impares hasta `2·10⁷`** (`paradacoef.py`
 *Y el rango importa: el corte demostrado `σ* ≤ 16.294` se deduce de ese `X₀ = 2·10⁷`,
 no de `2·10⁶`. Este documento infra-declaraba el barrido por un factor 10.*
 
+> **⇢ Y LA FASE 2 SUBIÓ `X₀` A `10⁹`** (02-08-2026, `atacacst2.py`): **0
+> diferencias hasta mil millones**, 50× por encima del barrido de
+> `paradacoef.py`. **Ojo con lo que eso decide y lo que no:** el corte
+> `σ* ≤ 16.294` sigue siendo el demostrado, porque la conversión del `X₀`
+> nuevo a un `K` nuevo va por la curva `B(k)` y **no se ha hecho todavía**.
+> El barrido está; el corte nuevo, no.
+
 > **El enunciado honesto, y en la taxonomía de este repo vale MÁS que el que
 > tenía:** `E[χ]` es una **cota inferior demostrada** de `E[σ]`, no un
 > «promedio». La constante de Wagon se etiquetaba como promedio; la mitad de lo
@@ -2840,7 +2851,7 @@ absolutamente nada de ella, y ahí es donde viviría un contraejemplo.*
 3. **Comprobar antes de concluir, cortando con `SystemExit`.** Esto atrapó un
    error real en vivo: se afirmó la biyección resto↔patrón para el mapa clásico
    y la comprobación 2 de `mallaresiduos.py` paró el programa antes de generar
-   un gráfico falso. Hoy lo tienen **32 de los 34** ficheros; los dos que no son
+   un gráfico falso. Hoy lo tienen **36 de los 38** ficheros; los dos que no son
    `collatz.py` (biblioteca) y `main.py` (la CLI).
 
 ### El techo realista, y hacia dónde no hay camino
@@ -2854,8 +2865,8 @@ el cierre lo pone el ángulo que elegís (tabla del coral) o el módulo que eleg
 hacia adelante, que sigue ciego a los restos.
 
 **El techo de este repo es rederivación independiente bien verificada.** Eso no
-es descubrimiento, pero tampoco es poco: hay **treinta y seis** programas,
-**treinta y cuatro** de ellos con comprobaciones que cortan con `SystemExit`, **cinco
+es descubrimiento, pero tampoco es poco: hay **treinta y ocho** programas,
+**treinta y seis** de ellos con comprobaciones que cortan con `SystemExit`, **cinco
 ficheros Lean que demuestran en vez de verificar**, un documento que separa lo
 real de lo dibujado, y un historial de negativos. La mayoría de la exploración
 amateur no llega ahí.
@@ -2970,10 +2981,14 @@ que las matemáticas no apuntan al infinito sino que dan la vuelta y se conectan
 **El filtro:** un modelo que devuelve la misma malla para cualquier entrada no
 está midiendo la entrada, está midiendo el modelo. El poder de demostrar algo
 viene de que la malla **salga distinta** según lo que se inyecte. La tabla de
-ángulos de arriba es un ejemplo de hacerlo bien: mide una diferencia (0,003% vs
-97%) y dice qué perilla la causa. *(Era "0% vs 97%" hasta que se midió el umbral:
+ángulos del coral era un ejemplo de hacerlo bien: medía una diferencia (0,003% vs
+97%) y decía qué perilla la causa. *(Era "0% vs 97%" hasta que se midió el umbral:
 a 65.145 ramas hay 2 choques, no cero. La conclusión no cambia — cambia tres
-órdenes de magnitud, no el signo.)*
+órdenes de magnitud, no el signo.)* **La tabla misma se borró con
+`coralcollaz.py` en la purga del 01-08-2026** — decía «de arriba» y ya no hay
+arriba; las cifras se conservan aquí como registro, no como dato reproducible.
+*(Era el pendiente #13 del adversario de contradicciones internas; aplicado el
+03-08-2026.)*
 
 **Y el segundo filtro, aprendido el 30-07-2026: no toda fila de una tabla A/B
 discrimina.** La fila "se escapan del rango" da el mismo número para `3n+1` y

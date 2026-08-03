@@ -5,6 +5,381 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 03-08-2026 — LA ECUACIÓN DE LAS NUEVAS, y dos agujeros cerrados
+
+Sesión de lectura completa del repo + visita a OEIS, y después tres entregas
+**todo local** (Lean + Python, sin agentes — orden del usuario por presupuesto):
+
+1. **`nuevasfusion.py` (fichero nuevo): las clases nuevas de `b(k)` tienen
+   ECUACIÓN.** Una clase se estrena en el nivel `k+1` exactamente cuando
+   `T^k(r)` y `T^k(r+1)` se encuentran **por primera vez en un vórtice**
+   (`a = 3b+1`, paridades opuestas, `S` compensada en 1 — la regla del
+   segundo padre del 221). Caracterización **con recíproco**, `k = 3…15`,
+   0 fallos y 0 falsos positivos; reproduce `b(k)` término a término.
+   **La pregunta de la razón 2 deja de ser un conteo ciego.** Precedente
+   encontrado en OEIS: `A076227`/`A100982` tienen recursión exacta
+   (Zarubin 2019, Winkler) vía los saltos de `Smin` — la continuación es
+   derivar la recursión de `b(k)` contra esos saltos, que son las
+   semiconvergentes de `log₂3` ya certificadas en `verificar_ciclos.py`.
+
+2. **`franjaeverett.py` NO COMPILABA** (dos strings sin cerrar en las líneas
+   542 y 589: texto adversarial del 01-08 pegado dentro de un `print`). **El
+   fichero nunca había corrido en su forma actual.** Reparado y corrido
+   entero, exit 0: la afirmación enterrada **se confirma contra su propia
+   tabla** — `M = 5, 9, 101, 1001, 10001` empatan a 0 excepciones reales
+   (hasta `10⁶`; los «sin certificar» son exactamente los impares `< M`), y
+   con `M = 10001` el umbral baja a **1,585011**, a `4,8e-05` de `log₂3`.
+   Detalle nuevo que la tabla regala: **`M = 27` tiene 2 excepciones
+   reales** (14 sin certificar contra 12 impares `< 27`) — el único de la
+   lista que no empata, y nadie sabe cuáles son ni por qué. Salida completa
+   en `franjaeverett_salida.txt`.
+
+3. **El hueco Lean↔Python de `atacacst` está cerrado.** `tramo_finito` sólo
+   cubría `m > T^k(r)` y el `.py` decide con `m > T^k(r) − r`: la franja
+   intermedia no tenía teorema. Nuevo **`tramo_finito_fino`** en
+   `atacacst.lean` (tres líneas desde `palanca`, hipótesis sin resta
+   truncada: `T^k(r) < r + m`), compilado, `#print axioms` limpio.
+
+De OEIS: **`a(k)` y `b(k)` siguen sin estar** (consultadas hoy con los
+términos correctos — la primera consulta usó colas mal recordadas y la cazó
+la capa 1 — y control Fibonacci que devuelve `A000045`). El rincón está
+vivo: comentario de jul-2026 en `A076227` (Hikawa: palabras binarias con
+`2^m < 3^(suma parcial)`) y tres preprints 2026 sobre vectores de paridad.
+
+## ⇢ Y EL PASO SIGUIENTE SE DIO LA MISMA SESIÓN: los vórtices, tabulados
+
+Midiendo QUÉ vórtices producen las nuevas (`k = 3…15`) salieron dos cosas,
+y la capa 1 las separó en el acto:
+
+- **DEMOSTRADO — la familia extremal.** El `b` máximo de cada nivel es un
+  **repunit ternario** (`13, 121, 1093, 9841, 88573, 797161 = (3^m−1)/2`,
+  `m` impar) y el resto extremal es el par «casi todo unos»: **para todo
+  `j` par, `(2^j−2, 2^j−1)` se funde por primera vez en el paso `j+2` con
+  vórtice en `b = (3^{j−1}−1)/2`**. Demostración de cuatro líneas (está en
+  la COMPROBACIÓN 5 de `nuevasfusion.py`), comprobada `j = 4…60`.
+  **Corolario: `b(j+2) ≥ 1` para todo `j` par — las nuevas nunca se
+  acaban.** Que ese `b` sea el máximo del nivel queda medido, no demostrado.
+- **REFUTADO ANTES DE PUBLICARSE — «todo `b` es `1 mod 3`».** Vale hasta
+  `k+1 = 14` y se rompe en `k+1 = 15` con `b = 2255 ≡ 2 (mod 3)`
+  (`r = 16891`). Era muestra chica. Quedó anotado en el fichero para no
+  rederivarlo.
+
+`afirmaciones.db` regenerada: **84 afirmaciones** (las 4 de hoy: ecuación
+de las nuevas, familia extremal, `tramo_finito_fino`, franja `M = 10001`)
+y **33 correcciones** (la del fichero que no compilaba).
+
+## ⇢ Y LA SEGUNDA VUELTA ENCONTRÓ LA FORMA DE LA RECURSIÓN: los estratos
+
+Estratificando las nuevas por el número `|M|` de **pasos mixtos** (paridades
+del par distintas ⟺ diferencia impar), comprobación 6 de `nuevasfusion.py`:
+
+- **`|M|` es PAR siempre** (779 de 779; demostrable en tres líneas — `ΔS`
+  cambia ±1 sólo en mixtos y vuelve a 0).
+- **El estrato `|M| = 2` tiene EXACTAMENTE UNA clase por nivel, y es la
+  familia del repunit** (verificado a mano en `(14,15)` y `(22,23)`).
+  `|M| = 4` también exactamente una. Las dos unicidades: medidas, no
+  demostradas.
+- **Los estratos altos crecen como polinomios de grado creciente** (`|M|=6`
+  termina con diferencias 5,6,7,8: cuadrático) y **entra un estrato nuevo
+  cada dos niveles**. O sea: la razón `b(k+1)/b(k) → 2` vendría de la
+  ENTRADA de estratos, no de que ninguno acelere — **el triángulo tipo
+  Pascal que Zarubin encontró para `A076227`, ahora con candidato propio.**
+
+## ⇢ Y LA PRIMERA FILA DEL TRIÁNGULO QUEDÓ DEMOSTRADA la misma noche
+
+**TEOREMA (comprobación 7 de `nuevasfusion.py`): en cada nivel `k+1 ≥ 4`
+hay EXACTAMENTE UNA clase nueva con `|M| = 2`** — `r = 2^{k−1}−2` si `k`
+impar, `r = 3·2^{k−1}−2` si `k` par, alternando. Demostración en cuatro
+piezas (está entera en el comentario): `|M| = 2` fuerza `r` par; la
+diferencia pierde exactamente un factor 2 por paso compartido, luego
+`v₂(r+2) = k−1` deja **solo dos candidatos**; el ganador cumple el
+encuentro con la identidad `T(c·2^m − 1) = 3c·2^{m−1} − 1`; y el perdedor
+falla siempre (su vórtice pediría `3^q − 1 = 3^{q+2} − 1`). Comprobado
+hasta `k = 60`, más la unicidad completa por fuerza bruta en `k ≤ 15`.
+**La primera fila del triángulo de estratos es `1, 1, 1, …` para siempre —
+la primera pieza demostrada del mecanismo «la razón 2 viene de la entrada
+de estratos».** `afirmaciones.db`: **86 afirmaciones, 47 demostradas.**
+
+## ⇢ Y LA REDUCCIÓN ENTRE ESTRATOS, DEMOSTRADA: |M|=4 es un |M|=2 con preludio
+
+La hipótesis «el estrato `|M| = 4` es el perdedor prolongado» **falló**
+(capa 1, 12 de 12 en contra) — y lo que salió es mejor. El ganador de
+`|M| = 4` es **el vecino izquierdo del perdedor** (`2^{k−1}−3` / 
+`3·2^{k−1}−3`, con `r` IMPAR — justo el caso que `|M| = 2` excluía), con
+mixtos siempre en `[0, 1, 2, k]`. Y al derivarlo salieron dos teoremas
+(comprobación 8 de `nuevasfusion.py`, exit 0):
+
+- **LEMA GENERAL**: para `C` impar con `C ≡ 3^q (mod 4)`, el par
+  `(C·2^q−2, C·2^q−1)` se funde exactamente en el paso `q+2`, `S = q`,
+  vórtice en `(3^{q−1}C−1)/2`. Los casos `C = 1, 3` son la alternancia
+  del teorema de `|M| = 2`. Comprobado en ~2.000 pares (`C ≤ 201`,
+  `q ≤ 40`).
+- **FAMILIA `|M| = 4`**: los dos primeros pasos **contraen el par a
+  consecutivo otra vez** (`d₂ = 1`), dejándolo en el lema con `C = 3c`,
+  `q = k−3`. **Los estratos se reducen unos a otros** — `|M| = 4` es dos
+  mixtos de preludio más un `|M| = 2` desplazado. *Esa reducción es la
+  forma de la recursión del triángulo.* Comprobada `k = 4…60`. La
+  unicidad de `|M| = 4` sigue **medida** (1 por nivel, `k ≤ 15`).
+
+`afirmaciones.db`: **88 afirmaciones, 49 demostradas.**
+
+## ⇢ EL MAPA DE DEPENDENCIAS ENTRA A LA BASE, con su regla (orden del usuario)
+
+`afirmaciones.db` tiene ahora **dos tablas nuevas: `nodos` (14) y
+`dependencias` (20 aristas)** — el árbol del programa de las nuevas, de
+`definiciones` hasta `recursion_bk`. Y la **REGLA DEL AVANCE**, en código
+(`COMPROBACION 0` del generador, corta con `SystemExit`): un nodo
+`demostrado` no puede depender de un nodo no demostrado; nada trabajado
+puede depender de un `pendiente`; y los pendientes se listan `AVANZABLE`
+sólo con todos los padres demostrados. Hoy: `cuadratica_M6` y
+`recursion_bk` están **BLOQUEADOS** — porque `unicidad_M4` sigue en
+`medido`. La regla se aplicó a sí misma en el acto: el nodo
+`M4_ruta_impar` no se registró como demostrado hasta que la comprobación 9
+compiló y pasó.
+
+## ⇢ Y LA RUTA IMPAR DE |M| = 4, DEMOSTRADA (comprobación 9)
+
+- **`r` impar ⟹ pasos 0, 1, 2 mixtos** (`|M| ≥ 4` siempre) — el reverso
+  exacto del teorema de `|M| = 2`. Exhaustivo `r < 2^14`.
+- **La contracción es exacta**: con `r ≡ 1 (mod 4)`, el par vuelve a ser
+  consecutivo en el paso 2, con menor `(3r+1)/4`.
+- **Unicidad dentro de la ruta**: tras la contracción se aplica entero el
+  argumento de `|M| = 2` — `v₂(s₂+2) = k−3`, rango `C ≤ 11`, necesidad
+  `C ≡ 3^{k−3} (mod 4)`, y `r` entero exige `3 | C`: quedan `C ∈ {3, 9}`
+  y el mod 4 elige **uno**. `k = 5…60`.
+- *Capa 1 se cobró dos descuidos míos en el chequeo (no en la matemática):
+  comparaba la contracción tras 3 pasos en vez de 2, y medía el exit del
+  `grep` en vez del de python.*
+
+`afirmaciones.db`: **89 afirmaciones, 50 demostradas, 14 nodos, 20
+aristas.**
+
+## ⇢ LA COORDENADA D — la herramienta nueva — y la ruta `r ≡ 3 (mod 4)` excluida
+
+Al atacar la exclusión salió **la coordenada del programa entero**:
+`D = g − 2s − 1` (gap menos dos veces el menor, menos uno). Tres hechos,
+demostrados en el comentario de la comprobación 10:
+
+- **el vórtice es exactamente `D = 0` con `s` impar** (con `s` par el
+  mixto es β, que agranda el gap y no fusiona nunca);
+- **en compartidos `D` es impar y evoluciona afín**: `(D−1)/2` o
+  `(3D−1)/2`; el tramo termina cuando `D` se hace par, y el mixto que
+  sigue es vórtice si y sólo si ese `D` es 0;
+- **`D < 0` es invariante** — quien entra en negativo no vuelve.
+
+Con eso: `r ≡ 3 (mod 8)` cae en `D₃ = −3` (par tras tres mixtos:
+`{(3r+7)/8, +(3r−1)/4}`) y su cuarto mixto **nunca** es vórtice;
+`r ≡ 7 (mod 8)` encadena cuatro mixtos seguidos. **EXCLUIDAS de
+`|M| = 4`** (exhaustivo `r < 2^15` + seguimiento del tramo completo).
+Junto con la comprobación 9: **la unicidad de `|M| = 4` está demostrada
+para TODO `r` impar.** Falta sólo la ruta `r` par (medida, `k ≤ 15`) —
+`unicidad_M4` sigue en `medido` y el mapa mantiene `cuadratica_M6`
+BLOQUEADO. *La D convierte «se funden» en «D llega a 0», y los estratos
+en la contabilidad de sus rebotes — ésa es la reformulación con la que
+seguir.*
+
+`afirmaciones.db`: **90 afirmaciones, 51 demostradas.**
+
+## ⇢ LA COORDENADA E — autónoma de verdad — y la ruta par acorralada
+
+Mejorando la D salió **`E = D − 3s`, que dentro de un tramo compartido
+es un mapa 1-dimensional determinista**: su propia paridad elige su
+regla (`E` impar → `(E−1)/2`, `E` par → `(3E−4)/2`), sin mirar los
+valores. Con eso (comprobación 11, exit 0):
+
+- **La órbita del rebote es forzada**: un par con `r` par arranca en
+  `D = 1`, su primer mixto llega exactamente en `D = 0`, y si rebota
+  (`s` par) entra en `E = 1` → `1, 0, −2, −5, −3` y el ciclo
+  `(−2, −5, −3)` para siempre.
+- **El vórtice directo del rebote es IMPOSIBLE**: exigiría
+  `(E, s) = (−3, 1)` — el par `{1, 4}` — y la cadena hacia atrás,
+  forzada por las paridades de la órbita, pide `(2·4−1)/3 = 7/3`. No es
+  entero. *(Consistente con `|M|` par; la E lo re-demuestra por vía
+  independiente.)*
+- **El límite honesto, que es el `+1` reapareciendo**: en los pasos
+  MIXTOS ni `D` ni `E` son autónomas — ahí entra el valor. Por eso el
+  patrón `[0, rebote, m₃, vórtice]` de `r` par queda ABIERTO en general.
+- **Acorralado con barrido dirigido** (pares sueltos, sin construir
+  `buenas(k)`): entre las más de 300.000 fusiones con `S` igualada de
+  pares `r` par `< 2^20`, **el estrato `|M| = 4` está VACÍO** — el
+  diccionario salta de `|M|=2` a `|M|=6`. Y una perla medida: los
+  `|M|=2` son exactamente `2^18` — la mitad exacta — huele a biyección
+  de Terras, anotado sin demostrar.
+
+`afirmaciones.db`: **91 afirmaciones, 52 demostradas.** `unicidad_M4`
+sigue `medido` (solo falta el patrón de 4 mixtos con `r` par);
+`cuadratica_M6` sigue BLOQUEADO.
+
+## ⇢ EL TERCER MIXTO CLASIFICADO, Y EL CENSO DE LAS DIEZ FAMILIAS DE E
+
+**Comprobación 12** — el tercer mixto de `r` par, clasificado entero con
+`(D, E)` (dentro de un tramo el par es determinista y `s = (D−E)/3` se
+recupera): **caso A** (`w` impar: mixto inmediato) cae en
+`D' = −(3w+1)/2 − 1 < 0 → excluido, DEMOSTRADO`; **caso B-α** (tramo
+rebotado terminando en `E ∈ {1, −5, −3}`) cae en `D' = D/2 − 3s − 2 < 0
+→ excluido, DEMOSTRADO`. **La única puerta que le queda a un `|M| = 4`
+con `r` par es la rama B-β** (`E ∈ {0, −2}`), abierta en general (árbol
+2-ádico) y acorralada doble: ningún `(w, 6w+2)` con `w < 2^16` funde en
+su segundo mixto, más el barrido real a `2^20`.
+
+**Comprobación 13 — el censo, de la idea del usuario** (*«toda órbita
+relevante de E pertenece a una de N familias»*): el mapa de `E` como
+sistema propio sobre `Z` (`impar → (E−1)/2`, `par → (3E−4)/2`) **es de
+tipo Collatz**, y su censo en `[−10⁵, 10⁵]` da **DIEZ familias** — fijos
+`−1` y `4`, 2-ciclo `(−11)`, 3-ciclos `(−5)` (el del rebote, 47% de la
+cuenca) y `(24)`, 5-ciclos `(−77)` y `(−59)`, 11-ciclo `(84)`, 27-ciclos
+`(−4163)` y `(−5099)`. **Ninguna órbita escapa.** Aviso de alcance: censo
+medido, no teorema — la completitud para todo `Z` es exactamente la
+pregunta que en Collatz lleva 90 años abierta. El nodo nuevo
+`clasificacion_rutas` (el salto propuesto) queda en el mapa, BLOQUEADO
+hasta cerrar `unicidad_M4`.
+
+`afirmaciones.db`: **93 afirmaciones, 53 demostradas, 17 nodos, 26
+aristas.**
+
+## ⇢ Y LA RAMA B-β, ITERADA EN EL MAPA (D, E) PURO HASTA u = 10⁷
+
+El cuarto tramo es determinista en `(D, E)`, así que no hace falta
+simular pares: comprobación 14 itera el mapa desde las dos familias de
+arranque (`(15u+1, 12u+1)` y `(15u−2, 12u−2)`) para `u ≤ 10⁷` — **ninguna
+de las 2·10⁷ órbitas termina en `D = 0`**. El acorralado pasa de `2^16`
+estados a ~300× más lejos. En papel además: `E < 0` también es
+absorbente (mismos mapas que `D`), y el vórtice exigiría pasar por
+`(D, E) = (1, 1−3s)` con `s` par — el pre-vórtice tiene forma fija.
+La rama sigue **abierta en general** (el árbol 2-ádico de paridades);
+`unicidad_M4` continúa en `medido`.
+
+## ⇢ EL VIRAJE (03-08-2026, decisión del usuario, con criterio propio validado)
+
+El usuario preguntó: *«¿qué propiedad nueva tiene `H` que `D` y `E` no
+tenían?»* — y la respuesta cerró la vía: **NINGUNA. `H = 2D − E = l − 1`,
+el valor MAYOR del par menos 1** (dos líneas de álgebra; por eso sus
+mapas eran «otro Collatz»: SON la trayectoria del grande). Corolario:
+`D = l − 3s − 1`, `E = l − 6s − 1` — **el estado es 2-dimensional,
+`(D, E)` lo genera, no existe tercera coordenada.** Registrado como
+afirmación demostrada.
+
+**Decisión:** B-β queda **CONGELADA como problema abierto interno** (era
+otro Collatz dentro de Collatz; triple acorralado la respalda). El
+programa vira a `clasificacion_rutas`. Dos arreglos honestos al mapa:
+la arista `clasificacion_rutas ← unicidad_M4` sobraba (la clasificación
+no la necesita), y la regla del avance decía «padres demostrados» donde
+el usuario dictó «comprobada» — un censo nunca va a ser teorema y no por
+eso bloquea lo que se apoya en él. Ahora: **`clasificacion_rutas` →
+AVANZABLE**; `cuadratica_M6` y `recursion_bk` siguen en cola.
+
+## ⇢ EL PASO 1 DE LA CLASIFICACIÓN, HECHO EN AUTONOMÍA (`itinerarios.py`)
+
+*(Sesión con el usuario ausente — «elige las rutas tú misma». Ruta
+elegida: el único nodo AVANZABLE del mapa.)* Fichero nuevo con tres
+comprobaciones (cruce contra `b(k)` en los 13 niveles incluido), y el
+resultado es una de cal y una de arena:
+
+- **POSITIVO — la contracción, visible en las etiquetas**: el último
+  tramo de todo `|M| = 4` vive en `{−5, −77, −4163}`, exactamente las
+  familias que aparecen en `|M| = 2`. El teorema de la reducción entre
+  estratos dejó huella medible.
+- **NEGATIVO, y vale tanto como el positivo**: la familia ASINTÓTICA es
+  un invariante ruidoso para contar — el tramo solo usa un prefijo
+  finito de la órbita de `E`, y la familia mezcla información que el
+  tramo nunca ve (conteos por itinerario erráticos, no polinómicos).
+  Itinerarios distintos por estrato: 3, 9, 90, 243, 224, 76, 7.
+- *Dos conjeturas de un minuto de vida, muertas por la capa 1: «solo
+  aparecen familias negativas» (las positivas sí aparecen en estratos
+  altos; solo falta el punto fijo `−1`, por cuenca trivial) — y el
+  primer tanteo contaba TODAS las fundidas por un `ant = B1` que
+  faltaba; lo cazó el cruce contra `b(k)`.*
+
+`afirmaciones.db`: **95 afirmaciones.** Conteos del `CLAUDE.md`: **38**.
+
+## ⇢ EL REINICIO UNIFORME, LA ECUACIÓN DE RENOVACIÓN — Y EL FANTASMA QUE CAZÓ
+
+**TEOREMA DEL REINICIO UNIFORME (comprobación 16):** la contracción manda
+`r = 4t+1` al par consecutivo **fresco** `(3t+1, 3t+2)`, y `t ↦ 3t+1` es
+biyección de `Z/2^m` — **la autosimilitud del problema de fusión es
+exacta**, `P(fusión | contracción) = f`. Y el `w` del rebote es uniforme
+(Terras 1.2). Corolario: la **ecuación de renovación exacta**
+`f = 1/4 + f/4 + g/4 + h/4`, con `f ≥ 1/3` demostrado en tres líneas.
+Si `g` y `h` se calculan exactos al estilo Perras, **`f` queda decidida —
+y `f = 1` sería la conjetura de Wu en densidad**: el pez gordo tiene
+nombre y ecuación.
+
+**Y LA ECUACIÓN TRABAJÓ DE DETECTOR EN SU PRIMER USO.** No cerraba
+(`0,4039` contra `0,4453` medido), y perseguir la discrepancia destapó
+**una familia fantasma**: el estado con `D = 0` es el par `{s, 3s+1}` y
+su rebote real es **`(w, 9w+2)`** con `E = 3w+1` — no el `(w, 6w+2)` con
+órbita `E = 1` de las comprobaciones 11 (corolario), 12 y 14. El error
+nació de confundir el gap con el valor mayor, pasó tres comprobaciones
+*porque solo miraban al fantasma*, y cayó cuando la ecuación no cerró
+(con la familia real cierra: `0,4504`, y 8.191 rebotes de pares reales
+caen todos en `(w, 9w+2)`). **Corregido todo**: comprobaciones 12 y 14
+reescritas sobre la familia real (con el **teorema de paridad del
+rebote**: `|M| = 3` no balancea `ΔS` ⟹ `r` par exige `|M| ≥ 4`), filas
+de la base enmendadas, corrección nº 34 registrada con su lección:
+*una ecuación de conservación que no cierra es un detector de premisas
+falsas más fino que cualquier barrido — el barrido del fantasma pasaba
+limpio porque medía al fantasma.*
+
+`afirmaciones.db`: **97 afirmaciones, 56 demostradas, 34 correcciones.**
+Medido con topes declarados: `f ≈ 0,445`, `g ≈ 0,188`, `h ≈ 0,173`.
+
+## ⇢ LA VERIFICACIÓN BIBLIOGRÁFICA DE LOS DOS TEOREMAS (orden del usuario)
+
+Leído entero **Elia–Tucker 2015** (arXiv:1511.09141, el PDF completo) y
+barrida la web. Veredicto:
+
+- **Perras cambia de etiqueta y GANA valor**: el patrón «primer 0
+  seguido de 1» **es el stem `s_i` de Garner 1985**, que demostró la
+  suficiencia (la mitad ⟸) y conjeturó la necesidad para TODA fusión —
+  y Elia–Tucker la refutaron (3067/3068, el par que el repo ya conocía).
+  **Lo que Perras añade y no está en ninguno de los dos**: la necesidad
+  restringida al estrato mínimo (`|M| = 2 ⟺ stems`) es VERDADERA, y el
+  conteo exacto `2^{m−1}` con el borde resuelto (Elia–Tucker solo
+  midieron: «0,214% de contraejemplos bajo 5·10⁹»). **Perras = la
+  conjetura de Garner, falsa en general, demostrada en el estrato mínimo
+  con su densidad exacta.** Los contraejemplos de Elia–Tucker viven en
+  estratos ≥ 4 — la estratificación es exactamente lo que reconcilia a
+  Garner con sus contraejemplos.
+- **El Reinicio Uniforme queda bautizado TEOREMA DE GATAS** (orden del
+  usuario): no se encontró ecuación de renovación para coalescencia de
+  consecutivos en la literatura; el único paper de distribución de
+  coalescencia (arXiv:2005.09456) estudia pares `(n, 3n+2)`, es
+  empírico y **está retirado por su autor**. Aviso de la casa: «no
+  encontrado» no es «no existe».
+
+## ⇢ EL TEOREMA DE LA MITAD EXACTA (comprobación 15) — el objetivo del /goal
+
+La perla del `2^18` exacto **dejó de ser perla**:
+
+> **TEOREMA.** Para `r` PAR, `(r, r+1)` se funde con `|M| = 2` si y sólo
+> si en el vector de paridad de `s₁ = r/2` **el primer 0 va seguido de un
+> 1**; y entre `s₁ ∈ [1, 2^m)` fusionan **exactamente `2^{m−1}`**, para
+> todo `m ≥ 2`, sin casos.
+
+Demostración entera en el comentario: con `D = 1`, el primer valor par
+de la trayectoria de `s₁` baja `D` a 0; el vórtice pide `T^{j+1}(s₁)`
+impar (el bit siguiente al primer 0); `ΔS = 0` es automático; y el
+conteo cierra **incluido el borde** — de los dos residuos frontera funde
+exactamente uno para cada `m`, según `3^m mod 4`. Equivalencia
+exhaustiva `s₁ < 2^16`, conteos clavados `m = 2…16`. **Es la primera
+MEDIDA exacta de una fila del triángulo** (el estrato 2 pesa 1/2 entre
+los `r` pares — Terras 1.4, la moneda, actuando sobre dos bits), y el
+caso `j = 0` es Garner 1985. `afirmaciones.db`: **96 afirmaciones, 55
+demostradas.**
+
+**Pendiente, en orden (el mapa manda):** (0) **el refinamiento del paso
+1**: etiquetar los tramos por datos FINITOS (el `E` de arranque módulo
+algo, el largo del tramo), no por el destino al infinito — ahí se decide
+si el conteo por etiqueta es polinómico;
+(2) `clasificacion_rutas`: qué familia de E toca cada ruta y dónde el
+vórtice (`D = 0`) interrumpe la órbita — ahí los estratos dejan de
+analizarse uno a uno; (3) `cuadratica_M6` vía esa clasificación; (4) las
+2 excepciones de `M = 27`; (5) cobrar el `X₀ = 10⁹` con la `B(k)`.
+Conteos del `CLAUDE.md` en 37. **Sin commit aún — todo junto cuando el
+usuario diga.**
+
+---
+
 # ⇢ 02-08-2026 — LA DEPURACIÓN TOTAL DICTÓ: 100 de 100. EMPEZAR POR AQUÍ
 
 **Encargo del usuario: verificar TODO `afirmaciones.db` (80 afirmaciones + 20

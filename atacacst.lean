@@ -107,6 +107,23 @@ theorem tramo_finito (k m r : Nat)
   have hmm : 1 * m ≤ (2 ^ k - 3 ^ S k r) * m := Nat.mul_le_mul_right m hd
   omega
 
+/- ── COROLARIO FINO: el tramo que revisa atacacst.py, certificado.
+     El .py decide con m <= T^k(r) - r (su bucle es `while m <= tramo` con
+     tramo = t - r), no con la cota gruesa m <= T^k(r) de tramo_finito.
+     La franja intermedia T^k(r) - r < m <= T^k(r) quedaba sin teorema.
+     Basta m > T^k(r) - r, escrito sin resta truncada como T^k(r) < r + m:
+     con D = 2^k - 3^S >= 1 sale r + m = r + 1*m <= r + D*m y palanca
+     cierra. Hasta aqui el .lean no demostraba lo que el .py decidia. ── -/
+
+theorem tramo_finito_fino (k m r : Nat)
+    (hcoef : 3 ^ S k r < 2 ^ k)
+    (hm : Titer k r < r + m) :
+    Titer k (2 ^ k * m + r) < 2 ^ k * m + r := by
+  apply palanca k m r hcoef
+  have hd : 1 ≤ 2 ^ k - 3 ^ S k r := by omega
+  have hmm : 1 * m ≤ (2 ^ k - 3 ^ S k r) * m := Nat.mul_le_mul_right m hd
+  omega
+
 /- ── CASOS CONOCIDOS, por el nucleo con decide (no #eval) ── -/
 
 -- El objeto es el atajo: T 7 = 11 (el clasico daria 22).
@@ -133,4 +150,5 @@ theorem caso_27_sube : 2 ^ 5 < 3 ^ S 5 27 := by decide
 #print axioms terras_1_2
 #print axioms palanca
 #print axioms tramo_finito
+#print axioms tramo_finito_fino
 #print axioms clase_1_mod_4_baja

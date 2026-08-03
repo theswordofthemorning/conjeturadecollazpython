@@ -1,0 +1,294 @@
+==========================================================================
+LA FRANJA log2(10/9) - el hueco entre Everett y la verdad
+==========================================================================
+
+--- 1. La cota (3m+1)/(2m) en Fraction exacto ---
+  impares 3..100001: maximo = 5/3, alcanzado en m = 3.
+  m = 1 da razon 2 > 5/3. SIN CONDICIONAR el supremo es 2, y entonces
+  el umbral seria log2(4) = 2 en vez de 1,737: mucho peor.
+  RESPUESTA A LA PREGUNTA (5): la cota 5/3 NO se puede afinar sin
+  condicionar. Es exacta, con igualdad en m = 3, y el unico impar que
+  la rompe es el 1. Afinarla exige condicionar a m >= M, y eso es
+  justo lo que crea el problema del prefijo que se mide mas abajo.
+  Y para 3n-1: (3m-1)/(2m) < 3/2 para TODO impar m >= 1, sin excluir
+  ninguno. Maximo medido = 1.4999949999. El supremo 3/2 no se alcanza.
+
+--- 2. La traduccion entera del certificado ---
+  ((3M+1)/(2M))^X * (1/2)^(N-X) < 1   <=>   (3M+1)^X < M^X * 2^N
+  Verificado en Fraction contra enteros contra la tabla x0, para
+  M = 3, 5, 27 y los 1.488 pares (X,N) con N <= 30: 0 desacuerdos.
+
+--- 3. La anchura de la franja en forma cerrada ---
+  umbral(M) - log2(3) = log2(1 + 1/(3M)), verificado a 40 digitos
+  para M = 1, 3, 5, 9, 27, 101, 1001, 10001, 10^9: 0 fallos.
+
+--- 4. El certificado implica descenso DE VERDAD ---
+  Cada vez que el certificado dispara, el iterado esta por debajo.
+  M = 3 y M = 9, n hasta 20000, TODOS los N de cada trayectoria:
+  1657518 disparos comprobados, 0 fallos.
+
+--- 5. Necesidad: descender obliga a 3^X < 2^N, y el reciproco es falso ---
+  n de 3 a 3999: ningun descenso con 3^X >= 2^N. La necesidad sale de
+  la identidad 2^N m_N = 3^X n + C con C > 0, y se cumple sin fallos.
+  Y NO es suficiente. Primeros contraejemplos (3^X < 2^N y sin bajar):
+    n=7     X=5   N=8   -> m_N = 8  (m_N >= n)
+    n=9     X=5   N=8   -> m_N = 10  (m_N >= n)
+    n=18    X=5   N=8   -> m_N = 20  (m_N >= n)
+    n=19    X=5   N=8   -> m_N = 20  (m_N >= n)
+  Esto refuta, otra vez, la frase del CLAUDE.md 'nuestro 1,585 es el
+  umbral verdadero': log2(3) es NECESARIO, no es umbral de descenso
+  garantizado. verificar_everett.py ya lo habia atrapado; aqui vuelve
+  a salir solo, desde la familia de cotas.
+
+--- 6. La identidad exacta por clases: C depende solo del resto ---
+  2^K * m_K = 3^X * n + C_r, con X y C_r dependiendo SOLO de r mod 2^K.
+  Verificado en las 1.360 clases de K = 4, 6, 8, 10 contra 4
+  representantes cada una: 0 fallos. (Es el Teorema 1.2 de Terras.)
+
+--- 7. Estar en la franja es FORZOSO, no es un hallazgo ---
+  n de 3 a 20000: 24 sin certificado, y los 24 estan en la franja.
+  Pero eso NO mide nada: es forzoso. Sin certificado -> falla tambien
+  en la trayectoria entera -> B/A <= log2(10/3). Llega a 1 -> C > 0 ->
+  2^B > 3^A -> B/A > log2(3). Las dos cosas juntas SON la franja.
+  Y el reciproco es falso: 42 numeros en la franja, solo 24 sin
+  certificado. La franja NO caracteriza el conjunto excepcional.
+
+  (comprobaciones superadas en 2.9 s)
+
+==========================================================================
+R1. EL BARRIDO: hasta donde se llega y quien queda sin certificar
+==========================================================================
+  n impar de 3 a 10000000 (los pares se certifican en el paso 1).
+  Sin certificado de Everett: 2578 numeros.  (20.5 s)
+
+       hasta      cuantos    densidad
+       10^2        4         4.000e-02
+       10^3        4         4.000e-03
+       10^4        13        1.300e-03
+       10^5        73        7.300e-04
+       10^6        388       3.880e-04
+       10^7        2578      2.578e-04
+
+  Los 24 primeros (los de hasta 20.000, que es donde llegaba el dato
+  previo del repo):
+    [27, 31, 47, 55, 2463, 2919, 3711, 5567, 6171, 6591, 6943, 7963, 8959, 10415, 10971, 12135, 12343, 12399, 12583, 13255, 13887, 14695, 15039, 17647]
+  El mas chico es el 27. El mas grande hallado: 9992475
+  La densidad cae despacio pero cae. NO ES CERO en ningun tramo.
+
+==========================================================================
+R2. CARACTERIZACION: es describible por restos?
+==========================================================================
+
+  2a. Los restos que ocupa (hasta 1000000):
+     mod 2^2: ocupa  1 restos de   4  ->  [3]
+     mod 2^3: ocupa  2 restos de   8  ->  [3, 7]
+     mod 2^4: ocupa  3 restos de  16  ->  [7, 11, 15]
+     mod 2^5: ocupa  6 restos de  32  ->  [7, 11, 15, 23, 27, 31]
+     mod 2^6: ocupa 10 restos de  64  ->  [7, 15, 27, 31, 39, 43, 47, 55, 59, 63]
+     Todos son 3 mod 4, y eso es forzoso: n = 1 mod 4 se certifica en
+     el paso 2 (el atajo da par) y n par en el paso 1.
+
+  2b. NO CONTIENE NINGUNA CLASE COMPLETA. Prueba directa: para cada
+      no certificado n, con L = su numero de pasos del atajo, el
+      numero n + 2^L esta en la MISMA clase mod 2^L y si se certifica.
+      388 numeros probados, 0 fallos. Ni una clase entera dentro.
+      Razon: certificarse es una condicion ABIERTA (basta un prefijo)
+      y no certificarse es CERRADA, interseccion de infinitos niveles.
+      El conjunto certificado es una union de clases; el excepcional
+      es su complemento, un conjunto de Cantor 2-adico de medida cero.
+      RESPUESTA A (2): NO es un blanco finito de clases. Es una nube.
+
+  2c. Lo que si es exacto: cuantas CLASES mod 2^K siguen sin
+      certificarse a nivel K. Programacion dinamica sobre (N,X),
+      valida porque el certificado depende solo de (N,X).
+
+       K       M=3 (Everett)             M=5            M=27   ideal 3^X<2^N
+      8        1.171875e-01    1.171875e-01    1.015625e-01    7.421875e-02
+      16       6.123352e-02    5.821228e-02    4.229736e-02    3.225708e-02
+      32       3.011015e-02    2.078755e-02    1.266389e-02    9.626961e-03
+      64       1.088981e-02    5.744401e-03    2.112283e-03    1.493065e-03
+      96       4.812916e-03    1.991612e-03    4.699623e-04    3.076173e-04
+      128      2.459783e-03    8.007235e-04    1.218906e-04    6.977800e-05
+      200      6.300859e-04    1.206213e-04    7.198118e-06    3.060424e-06
+      300      1.228900e-04    1.144034e-05    1.803464e-07    5.466708e-08
+      400      2.659162e-05    1.208605e-06    5.626128e-09    1.158670e-09
+
+      La columna 'ideal' es el suelo: ningun afinado de la cota puede
+      bajar de ahi, porque 3^X < 2^N es NECESARIO para descender.
+      Y NO ES CERO A NINGUN NIVEL. Cerrar la franja no vacia el
+      conjunto excepcional: lo encoge de 4,8e-03 a 3,1e-04 en K=96.
+      La cota de clases es valida pero floja: a K=96 predice como
+      mucho 4,8e-03 y lo medido hasta 10^6 es 3,9e-04 (12 veces menos).
+
+==========================================================================
+R3. LA COTA AFINADA (3M+1)/(2M), Y EL OBSTACULO DEL PREFIJO
+==========================================================================
+
+  3a. Los umbrales, exactos a 50 digitos:
+
+        M          cota       umbral B/A           franja = log2(1+1/(3M))
+        1          2.0000000  2.000000000000000000 4.15037499E-1
+        3          1.6666667  1.736965594166206166 1.52003093E-1
+        5          1.6000000  1.678071905112637652 9.31094044E-2
+        9          1.5555556  1.637429920615291745 5.24674199E-2
+        27         1.5185185  1.602664502454615149 1.77020017E-2
+        101        1.5049505  1.589716030691790757 4.75352997E-3
+        1001       1.5004995  1.585442838678278251 4.80337957E-4
+        10^6       1.5000005  1.584962981619422995 4.80898267E-7
+        10^12      1.5000000  1.584962500721637080 4.80898347E-13
+        infinito   1.5000000  1.584962500721156181  0
+
+      La franja se cierra en el limite. Confirmado el punto (3).
+
+      COINCIDENCIA ANOTADA PARA DESCONFIAR DE ELLA: el umbral sin
+      condicionar nada (M = 1, cota 2) es log2(4) = 2 EXACTO, y el
+      CLAUDE.md tiene medido que el B/A tipico converge a 2 (1,99048)
+      por la valuacion 2-adica media de 3n+1. Son dos doses de origen
+      distinto - log2(4) contra suma k*2^-k - y no hay razon para
+      creer que se hablen. Se anota, no se construye nada encima.
+
+  3b. Y AHORA EL OBSTACULO. La cota m >= M solo vale mientras la
+      trayectoria no baje de M, y todas bajan. Barrido completo de
+      n impar hasta 1000000 con cada M:
+
+        M        sin certificar   los primeros
+        1        81441            [27, 31, 41, 47, 55, 63]
+        3        388              [27, 31, 47, 55, 2463, 2919]
+        5        1                [3]
+        9        3                [3, 5, 7]
+        27       14               [3, 5, 7, 9, 11, 13]
+        101      49               [3, 5, 7, 9, 11, 13]
+        1001     499              [3, 5, 7, 9, 11, 13]
+        10001    4999             [3, 5, 7, 9, 11, 13]
+
+      Se ve la pinza: con M chico la cota es mala (M=1 deja 81.441
+      sin certificar); con M grande la cota es buena pero la guarda
+      mata a todos los n pequenos, y a partir de M=27 el conjunto
+      excepcional vuelve a crecer.
+
+      OJO: 'EL OPTIMO ESTA EN M = 9' es lo que decia aqui y NO lo dice
+      la tabla (adversario, 01-08-2026). Contando solo las excepciones
+      REALES -las que no son 'n < M por hipotesis'- empatan a CERO
+      M = 5, 9, 101, 1001 y 10001. El mejor de los probados es
+      M = 10001, con umbral 1,585011, a 4,8e-05 de log2(3). La
+      conclusion cualitativa no cambia (la franja no se cierra), pero
+      se estrecha tres ordenes de magnitud mas de lo que este fichero
+      publicaba.
+
+  3c. La otra manera de gastar el presupuesto: M = n. Antes del
+      primer descenso todos los valores son >= n, asi que la cota
+      auto-referente (3n+1)/(2n) es legitima - pero solo hasta ahi.
+      De los 2578 sin certificado de Everett hasta 10000000, la cota M = n
+      certifica 2575 y resisten 3: [27, 31, 47]
+      Los que resisten cumplen 3^X < 2^N en el primer descenso (la
+      condicion necesaria) pero no la suficiente: viven en la rendija
+      que queda entre las dos, y esa rendija se cierra como 1/n.
+
+  3d. EL NUCLEO: quien resiste a TODAS las cotas de la familia?
+      Interseccion de M = n con M = (1, 3, 5, 9, 27, 101, 1001, 10001) sobre los 2578 excepcionales:
+      NUCLEO = VACIO
+
+      Y el resultado limpio, barrido completo hasta 10000000 con M = 9:
+      sin certificar: [3, 5, 7]   (8.1 s)
+      O sea: los tres impares menores que 9, que la hipotesis m >= 9
+      excluye por definicion. NADIE MAS.
+
+      RESULTADO DE (3): NO HAY NUCLEO. Cambiando 5/3 por 28/9 el
+      conjunto excepcional de Everett hasta 10^7 pasa de 2578 numeros
+      a ninguno, y el umbral baja de 1,73697 a 1,63763.
+      Y con M = 10001 baja hasta 1,585011 sin dejar una sola excepcion
+      real: la franja se estrecha, pero NO se cierra.
+      Sigue sin ser log2(3): la franja se estrecha, no se cierra.
+
+==========================================================================
+R4. EL LIMITE M -> INFINITO EXISTE DE VERDAD, Y ES POR CLASES
+==========================================================================
+
+  No hace falta acotar nada. De 2^N m_N = 3^X n + C_r sale el
+  criterio EXACTO, y es un criterio finito sobre infinitos numeros:
+
+      si 3^X < 2^N :  m_N < n  <=>  n > C_r / (2^N - 3^X)
+      si 3^X >= 2^N:  no desciende NUNCA en el paso N, para ningun n
+
+  O sea: cada clase r mod 2^N con 3^X < 2^N hace bajar a TODOS sus
+  infinitos elementos salvo a los que no pasan de un n0 explicito.
+  Esa es exactamente la version M -> infinito, sin cotas y sin franja.
+
+       N     n0 maximo   resto que lo alcanza   X    2^N - 3^X
+       11    16          2016                   6    1319
+       12    34          4064                   7    1909
+       13    123         8160                   8    1631
+       14    41          16320                  8    9823
+       15    93          32704                  9    13085
+       16    572         65472                  10   6487
+       17    103         130944                 10   72023
+       18    263         262016                 11   84997
+
+  Hasta el nivel 18 el n0 mas grande de todas las clases es 572.
+  Traducido: TODO n > 572 cuya clase mod 2^18 sea buena a algun nivel
+  N <= 18 desciende, y se decide mirando el resto. Es una COTA, no un
+  promedio, y decide infinitos numeros con una comprobacion finita.
+
+  Y hay un enganche con la otra mitad del laboratorio: el n0 se
+  dispara cuando 2^N - 3^X es chico, o sea en las convergentes de
+  log2(3). Los niveles donde (2^N - 3^X)/2^N bate record son:
+    N=1 X=0, N=2 X=1, N=5 X=3, N=8 X=5, N=27 X=17, N=46 X=29, N=65 X=41
+  Son EXACTAMENTE los jump values de la Tabla C de Terras que ya
+  estan en el CLAUDE.md (1, 2, 5, 8, 27, 46, 65). Las mismas
+  convergentes que gobiernan los ciclos gobiernan el conjunto
+  excepcional del descenso. HONESTIDAD: el n0 maximo NO cae siempre
+  en esos niveles (N=13 y N=16 pican sin ser jump values), asi que la
+  relacion es de tendencia, no de identidad.
+
+==========================================================================
+R5. CONTROL A/B OBLIGATORIO: la misma franja sobre 3n-1
+==========================================================================
+
+  La cota del mapa 3n-1 es (3m-1)/(2m) = 3/2 - 1/(2m) < 3/2, y vale
+  para TODO impar m >= 1: no hay nada que condicionar, y el supremo
+  3/2 es justo el equilibrio. Luego:
+
+      franja(3n+1) = log2(10/9) = 0.152003093445049984
+      franja(3n-1) = 0 EXACTO, para cualquier M
+
+  LA CANTIDAD DISCRIMINA. Y la razon es el signo del +1: en 3n+1 la
+  razon se acerca a 3/2 POR ARRIBA y hay que dejar colchon; en 3n-1
+  se acerca POR ABAJO y el colchon sobra. La franja no es un defecto
+  de Everett: es el +1 medido en su propio idioma.
+
+  Barrido de 3n-1 hasta 1000000 con el criterio 3^X < 2^N (que aqui es la
+  cota cruda de Everett, no una version afinada):
+     sin certificar: [5, 17]   (1.5 s)
+     Son los minimos de los dos ciclos no triviales de 3n-1. No se
+     certifican porque NO DESCIENDEN: no es un fallo del criterio.
+
+  Y la inversion es exacta, mirando el signo de C:
+     3n+1 : C > 0  ->  3^X < 2^N es NECESARIO y no suficiente
+     3n-1 : C < 0  ->  3^X < 2^N es SUFICIENTE y no necesario
+
+  CONSECUENCIA QUE HAY QUE TRAGARSE: la version mas afilada posible
+  del teorema de descenso vale PERFECTA para 3n-1, un mapa con TRES
+  ciclos que no converge a 1. Cerrar la franja no puede ser evidencia
+  sobre la convergencia, porque el caso donde ya esta cerrada no
+  converge.
+
+==========================================================================
+RESUMEN
+==========================================================================
+  1. La franja mide log2(10/9) y su anchura general es log2(1+1/(3M)),
+     que tiende a 0. Es el +1 otra vez, ahora en el umbral de Everett.
+  2. Estar en la franja es forzoso para los no certificados (teorema)
+     y el reciproco es falso: la franja no los caracteriza.
+  3. Sin certificar hasta 10^7: 2578 numeros, densidad 2,6e-04 y bajando.
+  4. El conjunto excepcional NO es una union de clases: no contiene
+     ninguna clase completa. Es cerrado, de medida cero, una nube.
+  5. NO HAY NUCLEO que resista al afinado: con m >= 9 (cota 28/9) el
+     conjunto excepcional hasta 10^7 es exactamente {3,5,7}.
+  6. El limite M -> infinito no es un limite: es el criterio exacto
+     por clases n > C_r/(2^N - 3^X). COTA, no promedio.
+  7. Control A/B: la franja de 3n-1 mide CERO. La cantidad discrimina
+     y lo que discrimina es el signo del +1.
+  8. LIMITE HONESTO: todo esto certifica UN descenso. Iterarlo exige
+     una cantidad monotona que nadie conoce. No es la conjetura.
+
+  (total 46.7 s)
