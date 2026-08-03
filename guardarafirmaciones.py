@@ -1500,7 +1500,7 @@ AFIRMACIONES = [
          "mod 4 aterriza en el problema CONSECUTIVO tres niveles abajo "
          "mas un eco c seis niveles abajo, 6/6 exacta; (3) b_0mod4 ~ 0 "
          "(la torre, suprimida: 0,0,0,0,0,1). EN FORMA LIMITE: "
-         "beta = gamma/2 + phi/8 + gamma/64 + epsilon_torre - la "
+         "beta = gamma/2 + (phi + gamma)/8 + epsilon_torre - la "
          "segunda ecuacion del sistema de phi",
          "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
          "04-08-2026; el sistema se cierra: con phi = (1+beta+gamma)/3 "
