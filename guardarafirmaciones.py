@@ -1286,6 +1286,25 @@ AFIRMACIONES = [
          "pregunta proporcion de unos EN bloques (1/3 <= n/k <= 7/11), "
          "no densidad de clases: EL CONTEO DE PERRAS ES NUEVO."),
 
+    fila("LA DERIVACION DE e6, con la hipotesis muerta que la revelo: "
+         "la anatomia medida da UNA reentrada a consecutivo (40 de 42; "
+         "el 'preludio doble' conjeturado ERA FALSO), o sea la fusion "
+         "|M|=6 es rebote -> piso reducido -> fusion de estrato 4 alli. "
+         "Por tanto e6 = suma de las NUEVAS de estrato 4 reducidas, y "
+         "esas son LINEALES EXACTAS: b4(m)-2b4(m-1) = c4(m)-2c4(m-1) = "
+         "m-6 (verificado algebraico m = 9..19). Suma de lineales = "
+         "cuadratica: el termino cuadratico de e6 = 3 + T(N-8) VIENE "
+         "DEL -m de los chanchitos",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026. La escalera de la torre de formulas queda "
+         "ENGRANADA: Perras (2^k-1) alimenta a b4/c4 (geometrico - "
+         "lineal), cuyas nuevas (lineales) alimentan a e6 (cuadratica). "
+         "CONJETURA DE LA ESCALERA, registrada con prediccion: e8 sera "
+         "cubica en su cola (suma de las nuevas cuadraticas de los "
+         "estratos 6 reducidos) - falsable midiendo estratos 8. La "
+         "contabilidad fina (constantes y empalmes) es el pendiente "
+         "para el ascenso a teorema; la estructura ya esta."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
