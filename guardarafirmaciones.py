@@ -1437,6 +1437,24 @@ AFIRMACIONES = [
          "pendiente - exige induccion en m que omega no come). Cuatro "
          ".lean del programa de fusion en una noche."),
 
+    fila("LA CONTABILIDAD DE CANALES DE e8, CERRADA: e8(N) = "
+         "e6(N-2) [canal vertical, teorema-candidato] + P8(N) [canal "
+         "par: 1 + suma acumulada de las nuevas de estrato 6 del piso "
+         "g] + H8(N) [canal r=3: las nuevas de estrato 6 del piso h en "
+         "N-2, DIRECTO]. Exacta en los cuatro niveles medibles: "
+         "15 = 6+4+5, 27 = 9+9+9, 45 = 13+17+15, 73 = 18+31+24. La "
+         "MISMA estructura que la identidad de renovacion (canal g "
+         "acumulado, canal h directo), un estrato mas arriba",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026, paso 2 de los tres del cierre. La "
+         "no-polinomialidad de e8 queda EXPLICADA: sus insumos "
+         "(g6news: 3,5,8,14,22; h6news: 3,5,9,15,24) son los estratos "
+         "6 reducidos, que aun no entran en regimen - la recursion "
+         "sigue hacia abajo y el cuarto peldano es SUMA de terceros "
+         "peldanos reducidos. El patron de dos canales (acumulado / "
+         "directo) aparece por SEGUNDA vez: es estructural, candidato "
+         "a teorema por la misma reduccion que cerro e6."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
