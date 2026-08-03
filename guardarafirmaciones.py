@@ -1382,6 +1382,21 @@ AFIRMACIONES = [
          "by_cases), estandar; los otros tres solo propext y "
          "Quot.sound. Siguiente candidato: el conteo 2^(m-1) entero."),
 
+    fila("LA CONTRACCION DE GATAS, FORMALIZADA EN LEAN 4 "
+         "(contracciondegatas.lean, el OCTAVO .lean): las cuatro "
+         "identidades de paso y el empaquetado - T(T(4t+1)) = 3t+1 y "
+         "T(T(4t+2)) = 3t+2 para todo t: la autosimilitud exacta del "
+         "problema de fusion, verificada por el nucleo. Compilado a la "
+         "primera, cero sorryAx, axiomas [propext, Quot.sound]",
+         "todo_n", "demostrado", "contracciondegatas.lean", "propio",
+         "04-08-2026, el cierre de la jornada: TRES resultados con "
+         "nombre bajo verificacion de maquina en una noche (Komodo 3, "
+         "los lemas de Perras, la contraccion de Gatas). Ocho .lean en "
+         "el repo, seis del programa historico y ahora tres del "
+         "programa de fusion. El corazon (a) de Gatas - la pieza que "
+         "la revision externa llamo 'el contenido real del documento' "
+         "- es ahora matematica verificada por maquina."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
