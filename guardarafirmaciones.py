@@ -1365,6 +1365,23 @@ AFIRMACIONES = [
          "genero. La regla del repo aplicada: decide en los casos "
          "concretos, no #eval."),
 
+    fila("LOS LEMAS DE PERRAS, FORMALIZADOS EN LEAN 4 "
+         "(lemasdeperras.lean, el SEPTIMO .lean): el LEMA DEL VORTICE "
+         "como doble implicacion - T(s) = T(s+g) con g impar y s >= 1 "
+         "SI Y SOLO SI g = 2s+1 y s impar - mas el arranque D1 = 1 "
+         "(con las identidades de T demostradas) y los dos pasos del "
+         "tramo D = 1. Nucleo puro, sin Mathlib, cero sorryAx, "
+         "compilado a la primera",
+         "todo_n", "demostrado", "lemasdeperras.lean", "propio",
+         "04-08-2026, la misma noche que Komodo 3. El vortice es el "
+         "atomo del que cuelga TODO el programa (Perras, aterrizajes, "
+         "unicidades): tenerlo verificado por maquina como iff - "
+         "incluida la mitad 'imposible en positivos' que la costura "
+         "N/Z2 exigia declarar - es el cimiento que la revision "
+         "externa pedia. Nota: vortice usa Classical.choice (del "
+         "by_cases), estandar; los otros tres solo propext y "
+         "Quot.sound. Siguiente candidato: el conteo 2^(m-1) entero."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
