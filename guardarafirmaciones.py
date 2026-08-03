@@ -1018,7 +1018,12 @@ AFIRMACIONES = [
          "ANOMALIA nueva para investigar: 3 casos del piso de arriba "
          "con ultimo mixto en D = 0 (el rebote como aterrizaje "
          "inmediato de una reentrada consec) que no encajan en la "
-         "taxonomia - senalados, no explicados."),
+         "taxonomia - RESUELTA EN EL ACTO: los 3 casos son r = 0 (uno "
+         "por m), el par degenerado (0, 1) con T(0) = 0 bailando "
+         "(0,1)-(0,2): EL BORDE DE SIEMPRE, quinto miembro del catalogo "
+         "de bordes del repo (m=0, k=0, n=1, n=2^k-1, y ahora r=0 en "
+         "los aterrizajes). La ley de potencias de -2 queda sin "
+         "excepciones reales."),
 
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
