@@ -390,6 +390,19 @@ estado rebote — que cerraría el primer término de las sub-renovaciones
 y daría al sistema de `φ` dos masas exactas más. `afirmaciones.db`:
 **108 afirmaciones.**
 
+**Y los dos últimos registros de la ráfaga:** (1) **la autosimilitud
+germen a germen** — el germen `|M|=6` del piso `h` (`w ≡ 33`) reentra
+literalmente en la cola del germen `|M|=4` (`w ≡ 25`), y el del piso
+`g` pasa por dos pares consecutivos en ruta; (2) **LA LEY DE LA
+REENTRADA TOTAL**: las 107 clases de estrato 6 de ambos pisos
+(`m = 10, 11`) reentran TODAS antes de fundir — 64 por consecutivo, 43
+por la forma `{v, 9v−1}` — **y la forma `{v, 9v+2}` no aparece NUNCA
+como reentrada (0/107)**: la torre recursa por DOS formas canónicas, no
+tres; la asimetría `g`/`h` es estructural y el sistema de `φ` podría
+ser más chico de lo que parecía. `afirmaciones.db`: **110
+afirmaciones.** La demostración de `b₄`/`c₄` por preludios sobre
+gérmenes inferiores es la primera tarea de la continuación.
+
 ## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
 
 Los puntos 3–5 de la orden del revisor, ejecutados la misma noche:
