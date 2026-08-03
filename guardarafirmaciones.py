@@ -1165,6 +1165,44 @@ AFIRMACIONES = [
          "alguna produce +16). El metodo: las identidades de una linea "
          "por forma, como toda la cadena de esta noche."),
 
+    fila("EL ACTA DE LOS 3 CHANCHITOS (segunda revision externa): la "
+         "arquitectura VALIDADA entera por el revisor, y su unica "
+         "correccion (-2 en vez de -1 por ventana) RESULTO SER UN MAPA "
+         "DE CONVENCION: su(m) = 2*nuestro(m-1), confirmado 10 de 10 "
+         "terminos, con su formula corregida algebraicamente identica "
+         "a la nuestra bajo el mapa. Los teoremas b4 y c4 quedan en "
+         "pie tal cual",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "04-08-2026. DOS DOCTRINAS NUEVAS del episodio: (1) una "
+         "coincidencia de forma con OEIS sin contexto del dominio NO "
+         "es evidencia (A079583 pasa a curiosidad, no confirmacion - "
+         "regla del revisor, adoptada); (2) una correccion externa "
+         "tambien puede ser artefacto de convencion: la herramienta "
+         "que decide es el mapa explicito entre convenciones, termino "
+         "a termino, ANTES de tocar nada - esta vez el mapa salvo dos "
+         "teoremas correctos de una 'correccion' que los habria "
+         "estropeado. El propio revisor habia advertido su riesgo de "
+         "convencion: la advertencia era la buena."),
+
+    fila("LA IDENTIDAD UNIVERSAL DE FORMAS: {s, 3s + t} tiene D = t - 1 "
+         "IDENTICAMENTE para todo s (gap 2s + t => D = t - 1, una "
+         "linea). Los estados de aterrizaje son las formas con "
+         "t = (-2)^j + 1: {s,3s-1} (D=-2), {s,3s+5} (D=+4, 5 casos "
+         "medidos), {s,3s-7} (D=-8, 273 casos), {s,3s-31} (D=-32). LA "
+         "SUPRESION DEL j = 3 EN SU FORMA FINAL: la dinamica jamas "
+         "alcanza la forma {s, 3s + 17}",
+         "todo_n", "demostrado", "identidadexacta.py", "propio",
+         "04-08-2026; el inventario de formas del siguiente paso. La "
+         "identidad unifica P3, la taxonomia de llegadas y los "
+         "aterrizajes en una linea; la parte 'demostrado' es la "
+         "identidad misma; el inventario de cuales t-formas se "
+         "alcanzan es medido (los conteos citados). La pregunta de la "
+         "supresion queda reducida a la inalcanzabilidad de UNA forma "
+         "afin concreta - el enunciado mas limpio que ha tenido - y "
+         "nota tecnica: t = D + 1, asi que la t-dinamica es la "
+         "D-dinamica conocida; lo que decide es la alcanzabilidad "
+         "conjunta (D, E), el mismo objeto del lema general pendiente."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
