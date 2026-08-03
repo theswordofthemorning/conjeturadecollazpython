@@ -997,7 +997,17 @@ AFIRMACIONES = [
          "mas - CERO prohibidos en 2.146 acumulados - y el +16 aun no "
          "aparece (esperable: +4 es el 2,6 por ciento y (-2)^4 deberia "
          "ser un orden mas raro): la prediccion sigue viva y sin "
-         "falsar."),
+         "falsar. Y EL VEREDICTO en m = 15, 16 (~9.700 aterrizajes "
+         "mas): LA LEY SE REFUERZA Y LA PREDICCION DE ORDEN SE REFUTA "
+         "- aparecio -32 = (-2)^5 (1 caso) ANTES que el +16 = (-2)^4 "
+         "predicho, que sigue en cero; los prohibidos siguen en cero "
+         "absoluto sobre ~11.800 acumulados. La ley queda: SOLO "
+         "potencias de (-2), con el patron fino nuevo de que las "
+         "potencias IMPARES (aterrizajes negativos, con vuelco) "
+         "dominan a las pares - el +16 podria estar estructuralmente "
+         "suprimido o ser solo mas raro que -32: pregunta abierta "
+         "registrada. Prediccion de orden fallada y anotada: el repo "
+         "registra sus predicciones falladas."),
 
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
