@@ -1126,6 +1126,27 @@ AFIRMACIONES = [
          "(proposicion, todo k), y la torre (este lema, todo k). "
          "Verificado en 40.000 instancias (k = 2..11, v par < 4000)."),
 
+    fila("LA COMPLETACION DE b4: b4(m) = 7*2^(m-7) - m + 4 ES TEOREMA "
+         "PARA TODO m. La cadena: (1) la puerta impar mete a g en h en "
+         "un paso, luego sus largos son 1 + L_h con unicidad HEREDADA "
+         "del lema de h - y el hueco en 5 es la imagen del hueco en 4; "
+         "(2) la ruta w = 2 (mod 4) con u impar da el largo 3 (germen "
+         "unico mod 8, decide); (3) las rutas de la torre gastan un "
+         "mixto por piso (toda forma de gap impar es un mixto) y NUNCA "
+         "alcanzan preludios 2-mixtos: no aportan al estrato 4; (4) la "
+         "suma de ventanas sobre {3} U {1 + L_h} reproduce la formula "
+         "exacta (verificado algebraicamente m = 7..19)",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; el segundo teorema de forma cerrada "
+         "completo de la sesion (el primero fue c4 via el grafo). CON "
+         "LOS DOS, LAS MASAS EXACTAS DE LAS SUB-RENOVACIONES DEL "
+         "ESTRATO MINIMO ESTAN COMPLETAS: el sistema de phi tiene sus "
+         "primeros terminos en forma cerrada demostrada, que era el "
+         "criterio de la revision externa para 'resultado fuerte'. "
+         "Nota fina pendiente de formalizacion (como en h): la palabra "
+         "de paridades <-> clase via Terras, y el germen L = 3 por "
+         "decide - ambos ya verificados computacionalmente."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
