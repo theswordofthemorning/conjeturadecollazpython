@@ -797,6 +797,21 @@ AFIRMACIONES = [
          "razon 2 ahora tiene tres pisos (a, b, c) y las mismas "
          "herramientas valen en cada piso."),
 
+    fila("EL DOBLADO EN LOS PISOS REDUCIDOS: b(m+1) >= 2 b(m) y "
+         "c(m+1) >= 2 c(m) - el levantamiento de Gao aplica igual a "
+         "{w, 9w+2} y {w, 9w-1} -, luego las densidades reducidas son "
+         "monotonas y sus limites beta y gamma EXISTEN. Las nuevas de "
+         "cada piso (b: 2,3,6,10,17; c: 1,3,6,10,18,32,59,108) son "
+         "otras dos sucesiones, y la de c tampoco esta en OEIS",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada. La demostracion es el Lema 2 de Gao "
+         "1993 aplicado a los pares reducidos (una clase fundida en <= m "
+         "pasos se alza en dos fundidas mod 2^(m+1)); verificado en "
+         "todos los terminos de las dos series. Con Gatas, el sistema "
+         "completo queda: phi = 1/4 + phi/4 + beta' + gamma' con los "
+         "limites reducidos existiendo por derecho propio - el analisis "
+         "asintotico de los tres pisos es ahora un objeto bien definido."),
+
     fila("EL RECIPROCO DE JIRAFAS, y con el LA CARACTERIZACION: una "
          "fusion en el indice t esta S-balanceada SI Y SOLO SI es un "
          "evento de clase mod 2^t",
