@@ -1473,6 +1473,27 @@ AFIRMACIONES = [
          "cerrada, y el espejo verificado - la recursion vertical "
          "queda blindada por las tres caras."),
 
+    fila("LA ECUACION DE PHI: dividiendo la identidad demostrada "
+         "a(k+2) = a(k) + (2^k - 1) + G(k) + H(k) entre 2^(k+2) y "
+         "pasando al limite (existe por el doblado de Gao en los tres "
+         "pisos), phi = (1 + beta + gamma) / 3, con beta y gamma las "
+         "densidades limite de los pisos reducidos {w,9w+2} y "
+         "{w,9w-1}. COROLARIO (el cierre del circulo): como beta, "
+         "gamma <= 1, phi = 1 SI Y SOLO SI beta = gamma = 1 - la "
+         "conjetura de densidad de Gao-Wu es EQUIVALENTE a si misma "
+         "en los pisos reducidos: la autosimilitud es la conjetura "
+         "reproduciendose piso a piso",
+         "todo_n", "demostrado", "auditoria_rigor.py", "propio",
+         "04-08-2026; la sintesis de la jornada entera, salida de "
+         "releer la identidad con ojos de limite. La recurrencia del "
+         "deficit (delta(k+2) = 1/2 + delta(k)/4 + (1-G-H)/2^(k+2)) "
+         "es la identidad reordenada, verificada EXACTA en enteros "
+         "k = 3..14; el paso al limite usa G = suma b(i) y H = c(k) "
+         "(la reconstruccion demostrada) mas convergencia geometrica. "
+         "TODO el aparato del programa - Perras, Gatas, la diagonal, "
+         "los canales - queda resumido en una ecuacion de tres "
+         "terminos. La pregunta del laboratorio es ahora: beta = 1?"),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
