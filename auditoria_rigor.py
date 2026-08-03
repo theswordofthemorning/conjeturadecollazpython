@@ -618,3 +618,54 @@ passed("doble correccion: 33->f0 y +16->consec en crudo",
 print()
 print("AUDITORIA RIGOR MORTIS: %d de 30 tests EXACTOS pasados." % ok)
 print("Toda afirmacion del 03/04-08 tiene ahora test de enteros en fichero.")
+
+# R31 - LAS CINCO SEMILLAS DE LA REVISION EXTERNA (04-08-2026): fusiones
+# balanceadas profundas (|M| = 18..34), estres permanente de las leyes.
+SEMILLAS = {126150: (42, 20), 126151: (42, 22), 141920: (39, 18),
+            153723: (64, 34), 168200: (44, 22)}
+for r, (t_esp, M_esp) in SEMILLAS.items():
+    x, y = r, r + 1
+    Sx = Sy = M = 0
+    for t in range(1, 400):
+        if (x % 2) != (y % 2):
+            M += 1
+        if x % 2:
+            Sx += 1
+        if y % 2:
+            Sy += 1
+        x, y = paso(x), paso(y)
+        if x == y:
+            if not (t == t_esp and M == M_esp and Sx == Sy):
+                raise SystemExit("R31: r=%d t=%d M=%d" % (r, t, M))
+            break
+print("R31 PASS  las cinco semillas (fusiones balanceadas profundas)")
+
+# R32 - LA DESCOMPOSICION DE LA 'LEY (-2)^j' (correccion 39): en TODOS los
+# mixtos aparecen no-potencias (0, 6, 10, 22); en los landings |D| = 2^j es
+# DEFINICIONAL (la cascada no quita factores 3) y el signo es la ley mod 3.
+vistos = set()
+land = set()
+for r in range(2, 2 ** 13):
+    x, y = r, r + 1
+    for _ in range(120):
+        s, g = min(x, y), abs(x - y)
+        D = g - 2 * s - 1
+        if g % 2 == 1 and abs(D) <= 40:
+            vistos.add(D)
+            a, b = paso(x), paso(y)
+            for _ in range(20):
+                if abs(a - b) == 1:
+                    land.add(D)
+                    break
+                if (a % 2) != (b % 2):
+                    break
+                a, b = paso(a), paso(b)
+        x, y = paso(x), paso(y)
+        if x == y:
+            break
+if not {0, 6, 10, 22} <= vistos:
+    raise SystemExit("R32 mixtos: faltan no-potencias %s" % (vistos,))
+for D in land:
+    if D == 0 or (abs(D) & (abs(D) - 1)) or D % 3 == 2:
+        raise SystemExit("R32 landing ilegal: D=%d" % D)
+print("R32 PASS  descomposicion: mixtos libres, landings = 2^j sin 2 mod 3")

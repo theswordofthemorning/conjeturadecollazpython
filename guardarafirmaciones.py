@@ -2280,6 +2280,25 @@ CORRECCIONES = [
      "sobre ellas - el fantasma paso tres comprobaciones que solo lo "
      "miraban a el"),
 
+    ("la ley del aterrizaje en potencias de (-2) es una ley nueva "
+     "independiente",
+     "SE DESCOMPONE Y NO ES INDEPENDIENTE (correccion de la revision "
+     "externa + medicion propia sin restriccion, 04-08-2026): en TODOS "
+     "los pasos mixtos aparecen todos los D pares (0, 6, 10, 22, 28: la "
+     "'ley' no rige ahi); en los LANDINGS (ultimo mixto que cascadea "
+     "directo a consec), |D| = 2^j es DEFINICIONAL - la cascada de "
+     "divisiones no puede quitar factores 3, asi que el gap post-mixto "
+     "|D|/2 debe ser potencia de 2 - y el SIGNO es exactamente la ley "
+     "mod 3 ((-2)^j = 1 mod 3 siempre; los gemelos -4, +8, -16 son "
+     "todos 2 mod 3). 'La ley' = definicion del rincon + ley mod 3. El "
+     "contenido real que queda: LA LEY MOD 3, sola, con su induccion "
+     "pendiente",
+     "sexta correccion de la familia del filtro: antes de anunciar una "
+     "ley hay que medir el objeto SIN el filtro y descomponerla contra "
+     "lo ya conocido. La regla del rango entra como doctrina: todo "
+     "conteo chico se re-corre a 4x y 16x, y si crece, el rango es el "
+     "resultado"),
+
     ("la supresion del j = 3 (version final): 'un aterrizaje +16 no "
      "puede saldar Delta_S' / 'los +16 son esporadicos de valor'",
      "REFUTADA DEL TODO por el rigor mortis (04-08-2026): los 7 "
