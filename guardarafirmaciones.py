@@ -1070,6 +1070,23 @@ AFIRMACIONES = [
          "exactas completas. La asimetria g/h queda LOCALIZADA: no es "
          "del grafo, es de la puerta."),
 
+    fila("LA PUERTA DE g, DEMOSTRADA (tres identidades de una linea): "
+         "(1) {w, 9w+2} con w IMPAR pasa en un paso a {v, 9v-1} con "
+         "v = (3w+1)/2 - LA FORMA h -, y desde ahi el lema de h aplica "
+         "entero; (2) con w PAR baja a la forma nueva {u, 9u+1}; (3) el "
+         "mixto de {v, 9v+1} con v impar aterriza DIRECTO en D = -2 "
+         "(gap 3v). Las tres exactas en 30.000 casos cada una",
+         "todo_n", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada. Con esto el lema de b4 esta a UNA "
+         "pieza: el caso w par con u par baja a una forma 27u + c - la "
+         "TORRE 3-ADICA de formas 9v+c, 27u+c, ... asomando: el hilo "
+         "nombrado que sigue. La unificacion es ahora EXACTA y "
+         "demostrada para la mitad impar: los dos pisos no son "
+         "hermanos, son EL MISMO piso con puertas distintas - g entra "
+         "a h en un paso. La asimetria entera del programa (H > G, "
+         "0/107 reentradas por g, los huecos 4 vs 5) es la aritmetica "
+         "de esa puerta."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
