@@ -2280,6 +2280,26 @@ CORRECCIONES = [
      "sobre ellas - el fantasma paso tres comprobaciones que solo lo "
      "miraban a el"),
 
+    ("la supresion del j = 3 (version final): 'un aterrizaje +16 no "
+     "puede saldar Delta_S' / 'los +16 son esporadicos de valor'",
+     "REFUTADA DEL TODO por el rigor mortis (04-08-2026): los 7 "
+     "aterrizajes +16 crudos traen saldo 0 (identico a los -8 que si "
+     "funden), y el test de Jirafas los declara EVENTOS DE CLASE los "
+     "7 de 7 (levantados a r + 2^(t+8)*K aterrizan en el mismo t): "
+     "densidad positiva, no esporadicos. La 'supresion' era un "
+     "artefacto DOBLE: del filtro de fusion de clase primero, y de "
+     "medir en las formas reducidas a niveles m <= 18 despues - en la "
+     "dinamica de pares consecutivos el +16 aparece en 7 clases bajo "
+     "2^16. LO QUE SOBREVIVE, MAS LIMPIO QUE ANTES: la ley de "
+     "aterrizajes es potencias de (-2) SIN excepcion - todos los j "
+     "aparecen - y los no-potencia (-4, +8, -16) siguen en cero "
+     "absoluto (2026-08-04)",
+     "tres capas de filtro producen tres conjeturas falsas de la misma "
+     "medicion; la ley verdadera aparecio al quitar la ultima. Una "
+     "conjetura que muere por los propios instrumentos y deja una ley "
+     "mas limpia es ganancia neta - y el test de clase de Jirafas es "
+     "el arbitro correcto entre 'estructura' y 'esporadico'"),
+
     ("la supresion del j = 3: 'la dinamica jamas alcanza la forma "
      "{s, 3s+17}' y 'la pendiente es la rama de salida del 33'",
      "LAS DOS MITADES ERAN FALSAS, y las rompio la instrumentacion "
