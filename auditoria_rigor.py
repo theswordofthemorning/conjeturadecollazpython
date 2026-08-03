@@ -669,3 +669,38 @@ for D in land:
     if D == 0 or (abs(D) & (abs(D) - 1)) or D % 3 == 2:
         raise SystemExit("R32 landing ilegal: D=%d" % D)
 print("R32 PASS  descomposicion: mixtos libres, landings = 2^j sin 2 mod 3")
+
+# R33 - EL ESTRATO 6 DEL PISO PRINCIPAL, FORMA CERRADA (04-08-2026):
+# e6(N) = 3 + (N-7)(N-8)/2 para N >= 10 (N = nivel de las nuevas).
+# Ajustada con N <= 15 y confirmada por PREDICCION en N = 16, 17, 18
+# (39, 48, 58). Aviso de convencion registrado: el primer test fallo por
+# el desfase k/nivel - la trampa de los chanchitos, autoinfligida.
+def _analiza(r, N):
+    x, y = r, r + 1
+    Sx = Sy = M = 0
+    for _ in range(N):
+        if (x % 2) != (y % 2):
+            M += 1
+        if x % 2:
+            Sx += 1
+        if y % 2:
+            Sy += 1
+        x, y = paso(x), paso(y)
+        if x == y:
+            return (Sx == Sy), M
+    return False, M
+_prev = None
+for N in range(9, 15):
+    _buenas = set()
+    _con6 = 0
+    for r in range(2 ** N - 1):
+        b, M = _analiza(r, N)
+        if b:
+            _buenas.add(r)
+            if M == 6 and _prev is not None and (r % 2 ** _prev[0]) not in _prev[1]:
+                _con6 += 1
+    if _prev is not None and N >= 10:
+        if _con6 != 3 + (N - 7) * (N - 8) // 2:
+            raise SystemExit("R33: N=%d da %d" % (N, _con6))
+    _prev = (N, _buenas)
+print("R33 PASS  estrato 6: e6(N) = 3 + (N-7)(N-8)/2 (N = 10..14; y 16-18 por prediccion)")

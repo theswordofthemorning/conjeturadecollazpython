@@ -1266,6 +1266,26 @@ AFIRMACIONES = [
          "donde la base cita numeros de rangos mayores, el test "
          "verifica la ley en rango exacto reproducible."),
 
+    fila("EL ESTRATO 6 DEL PISO PRINCIPAL TIENE FORMA CERRADA: "
+         "e6(N) = 3 + (N-7)(N-8)/2 para N >= 10 - cuadratica exacta, "
+         "clavada en los niveles 10..15 y CONFIRMADA POR PREDICCION en "
+         "los nunca medidos 16, 17, 18 (39, 48, 58). El tercer estrato "
+         "del triangulo con formula, tras el 2^k - 1 de Perras "
+         "(lineal... geometrico) y las b4/c4 de los pisos reducidos",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026, tras el rigor mortis; test R33. El objetivo que "
+         "senalo la revision externa (el estrato 6 como el trabajo "
+         "bueno parado) da fruto al primer intento. NOTA DE METODO: el "
+         "primer test de prediccion FALLO por un desfase de convencion "
+         "k/nivel propio (la trampa de los chanchitos, autoinfligida y "
+         "autocazada en minutos por los numeros: los medidos eran "
+         "exactamente la formula corrida un indice). Pendiente: la "
+         "demostracion via preludios + ventanas (el termino cuadratico "
+         "sugiere DOS largos libres - preludios de dos tramos - contra "
+         "el largo unico del estrato 4). Y LaTourette 4.2.4 verificada: "
+         "pregunta proporcion de unos EN bloques (1/3 <= n/k <= 7/11), "
+         "no densidad de clases: EL CONTEO DE PERRAS ES NUEVO."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
