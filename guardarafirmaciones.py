@@ -1244,6 +1244,28 @@ AFIRMACIONES = [
          "laboratorio se tocan. La supresion queda partida en dos "
          "lemas: la ley mod 3 (D = 11) y la rama de salida del 33."),
 
+    fila("LA AUDITORIA RIGOR MORTIS (04-08-2026, orden del usuario): "
+         "TODA afirmacion del programa de fusion del 03/04-08 tiene "
+         "test exacto de enteros en fichero del repo - "
+         "auditoria_rigor.py, 30 tests numerados R01-R30 con "
+         "SystemExit, 30 de 30 PASS, mas la re-certificacion de "
+         "nuevasfusion.py, identidadexacta.py y masasdeclase.py (exit "
+         "0 los tres). Cubre: vortice general, Perras, unicidad M2, "
+         "lema C=3^q, ruta impar, D y E, rebote real, censo de E, "
+         "Gatas, Jirafas ida+reciproco, identidad y reconstruccion, "
+         "Pandas, familia 3067, germenes, series b/c, formulas b4/c4, "
+         "germen unico, preludio+huecos, aterrizajes, grafo h, puerta "
+         "g, torre, gasto, contabilidad b4, formas y mapa t, ley mod "
+         "3, y la doble correccion (reproducida: f0 10.372, +16 7)",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "La auditoria hacia atras que pedia el objetivo: las "
+         "afirmaciones que solo tenian mediciones ad-hoc (formulas "
+         "b4/c4, germen unico, preludios, aterrizajes, puerta, torre, "
+         "gasto, mod 3, doble correccion) tienen ahora su test "
+         "permanente y reproducible. Rangos declarados en cada test; "
+         "donde la base cita numeros de rangos mayores, el test "
+         "verifica la ley en rango exacto reproducible."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "

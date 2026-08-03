@@ -5,6 +5,27 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ LA AUDITORÍA RIGOR MORTIS (04-08): 30/30, TODA AFIRMACIÓN CON SU TEST
+
+Orden del usuario: auditar HACIA ATRÁS — ninguna afirmación del día sin
+test exacto de enteros en fichero del repo. Hecho, local, sin agentes:
+**`auditoria_rigor.py`** — 30 tests numerados (R01–R30) con `SystemExit`,
+**30 de 30 PASS**, más la re-certificación de `nuevasfusion.py`,
+`identidadexacta.py` y `masasdeclase.py` (exit 0 los tres). Las
+afirmaciones que solo tenían mediciones ad-hoc (fórmulas `b₄`/`c₄`,
+germen único, preludios y huecos, aterrizajes, grafo `h`, puerta `g`,
+torre, gasto, ley mod 3, la doble corrección) tienen ahora test
+permanente y reproducible, con rangos declarados. La R30 reproduce la
+doble corrección con números frescos (`f₀` del 33: 10.372; `+16`→consec:
+7 en `r < 2^16`). **El día queda auditado entero.**
+
+Sobre la supresión del `j = 3`, el estado FINAL tras las correcciones:
+la ley mod 3 (cruda, R29) mata `D = 11`; el `+16` SÍ ocurre en crudo y
+la supresión real es de contabilidad de `S` bajo el filtro de fusión de
+clase — conjetura puntual: «un aterrizaje `+16` no puede saldar
+`ΔS = +2`». Corrección nº 37 con su lección: medir sin el filtro antes
+de conjeturar inalcanzabilidad.
+
 # ⇢ EL GRAN CIERRE DE LA MADRUGADA DEL 04-08: LOS TRES ÁTOMOS Y LAS DOS FÓRMULAS
 
 La ráfaga de investigación abierta terminó con la estructura completa:
