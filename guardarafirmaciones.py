@@ -812,6 +812,22 @@ AFIRMACIONES = [
          "limites reducidos existiendo por derecho propio - el analisis "
          "asintotico de los tres pisos es ahora un objeto bien definido."),
 
+    fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
+         "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
+         "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
+         "con a = 3b + 1 (b impar)",
+         "todo_n", "demostrado", "nuevasfusion.py", "propio",
+         "03-08-2026, madrugada. Dos lineas: si a y b tuvieran la misma "
+         "paridad, T seria inyectivo en ellos (n/2 y (3n+1)/2 son "
+         "inyectivas por separado); con paridades opuestas, "
+         "(3b+1)/2 = a/2 da a = 3b+1. Es la version SIN restriccion de "
+         "consecutividad del Lema 1 de Perras, y la base implicita de "
+         "toda la maquinaria: la ecuacion de los vortices, los germenes "
+         "de b y c (vortices (40,13) y (22,7)), y el hecho de que toda "
+         "fusion - en cualquier piso - pasa por un segundo padre del "
+         "arbol. Los vortices del 221 del primer dia del repo y el "
+         "programa de fusion entero son el mismo objeto."),
+
     fila("EL RECIPROCO DE JIRAFAS, y con el LA CARACTERIZACION: una "
          "fusion en el indice t esta S-balanceada SI Y SOLO SI es un "
          "evento de clase mod 2^t",
