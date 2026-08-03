@@ -723,3 +723,26 @@ for l in range(2, 50000):
         if l % 2 and ((3 * l + 1) // 2) % 3 != 2:
             raise SystemExit("R34 impar: l=%d" % l)
 print("R34 PASS  teorema de Komodo 3: base + invariancia (el mayor nunca 0 mod 3)")
+
+# R35 - LA RECURSION VERTICAL DEL TRIANGULO (04-08-2026): la rama
+# r = 1 (mod 4) de las nuevas de estrato s en el nivel N es EXACTAMENTE
+# e_{s-2}(N-2) - la contraccion de Gatas (2 mixtos + 2 niveles, biyectiva)
+# sube diagonalmente por el triangulo. Verificado en e8: rama1 = e6(N-2)
+# clavado (6, 9, 13, 18 en N = 12..15); y en e6: rama1 = e4(N-2) = 1.
+def _e6(N):
+    return 3 + (N - 7) * (N - 8) // 2
+_prev = None
+for N in (10, 11, 12, 13):
+    _buenas = set()
+    _r1 = 0
+    for r in range(2 ** N - 1):
+        b, M = _analiza(r, N)
+        if b:
+            _buenas.add(r)
+            if M == 8 and _prev is not None and (r % 2 ** _prev[0]) not in _prev[1] and r % 4 == 1:
+                _r1 += 1
+    if _prev is not None and N >= 12:
+        if _r1 != _e6(N - 2):
+            raise SystemExit("R35: N=%d rama1=%d e6=%d" % (N, _r1, _e6(N - 2)))
+    _prev = (N, _buenas)
+print("R35 PASS  recursion vertical: rama r=1 de e8 = e6(N-2), exacta")

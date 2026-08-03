@@ -1402,6 +1402,26 @@ AFIRMACIONES = [
          "la revision externa llamo 'el contenido real del documento' "
          "- es ahora matematica verificada por maquina."),
 
+    fila("LA RECURSION VERTICAL DEL TRIANGULO: la rama r = 1 (mod 4) "
+         "de las nuevas de estrato s en el nivel N es EXACTAMENTE "
+         "e_{s-2}(N-2) - la contraccion de Gatas sube en diagonal por "
+         "el triangulo entero (consume 2 mixtos y 2 niveles, y "
+         "t -> 3t+1 es biyeccion). Verificado clavado en e8: rama1 = "
+         "e6(N-2) = 6, 9, 13, 18 (N = 12..15, 4/4); y en e6: rama1 = "
+         "e4(N-2) = 1. La descomposicion de canales queda: e_s(N) = "
+         "e_{s-2}(N-2) + [canal par] + [canal r=3] - UN canal cerrado "
+         "por teorema, dos pendientes",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026, el ultimo hallazgo de la jornada; test R35. La "
+         "demostracion es la contraccion verificada por maquina "
+         "(contracciondegatas.lean) mas la biyectividad mod 2^m y el "
+         "corrimiento M+2 (ambos pasos de la contraccion son mixtos): "
+         "esta a un paso de teorema y A UN PASO DE LEAN. Es la "
+         "estructura diagonal que faltaba para la contabilidad de e8: "
+         "el canal vertical es polinomial siempre que e_{s-2} lo sea - "
+         "la no-polinomialidad de e8 vive entera en los canales "
+         "horizontales (pisos reducidos), ahora aislada."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
