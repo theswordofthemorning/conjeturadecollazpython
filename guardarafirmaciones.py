@@ -1572,6 +1572,28 @@ AFIRMACIONES = [
          "coherente con que epsilon_torre > 0 y el teorema negativo "
          "barato muerto. La ecuacion de beta ya puede cargar peso."),
 
+    fila("EPSILON_TORRE, MEDIDO Y CON SU MECANISMO (tarea 2 del "
+         "pendiente): la masa del canal torre b_0mod4/2^m crece "
+         "0.00116 -> 0.00177 -> 0.00241 (m = 14..16, razones > 2: "
+         "fase de despertar) - LA MEDICION NO PUEDE DECIDIR el 1/4 "
+         "que phi = 1 exige (truncamiento, la leccion de Gao). PERO "
+         "LA ESTRUCTURA ES EXACTA Y NUEVA: cada ascenso de torre es "
+         "un beta con el impar en el lado grande (verificado 10.000 "
+         "casos), asi que el saldo S_chico - S_grande BAJA 1 por "
+         "ascenso: una ruta con k ascensos necesita compensacion "
+         "+2+k - LA DEUDA CRECE LINEALMENTE CON LA PROFUNDIDAD",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026. El blanco definitivo queda armado con mecanismo: "
+         "si la deuda lineal mata una fraccion fija de la masa de la "
+         "torre (cada compensacion cuesta ventanas, y las ventanas "
+         "cuestan medida), entonces eps_torre < 1/4 estricto y "
+         "phi < 1 ES TEOREMA con valor 8(1+eps)/(23-13rho). Si en "
+         "cambio las compensaciones son gratis en el limite, la "
+         "conjetura de Gao-Wu vive. Es la pregunta del programa, "
+         "ahora con forma de carrera entre una deuda lineal y un "
+         "presupuesto exponencial - el genero de pregunta que la "
+         "maquinaria del repo sabe atacar."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
