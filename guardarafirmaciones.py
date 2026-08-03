@@ -955,6 +955,26 @@ AFIRMACIONES = [
          "de |M| = 2). En una noche: conjetura -> prediccion "
          "confirmada -> derivacion -> teorema en rango."),
 
+    fila("EL MECANISMO DE LOS PRELUDIOS: los 18 germenes de preludio "
+         "terminan en un mixto con D en {-2, -8} - 18 de 18 -, los dos "
+         "valores cuyo |D|/2 es potencia de 2 (1 y 4), que el vuelco "
+         "alfa convierte en gap que las divisiones llevan exactamente "
+         "a 1 (el par consecutivo). Los preludios son el 'Perras de "
+         "D negativo': la misma dinamica de D, aterrizando en -2 o -8 "
+         "en vez de 0",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada. CORRECCION EN VIVO incluida: la "
+         "hipotesis inicial era 'todos en D = -2' y los datos la "
+         "rompieron en el tercer germen probado (95 aterriza en -8): "
+         "la ley es el par {-2, -8}. PREGUNTA AFILADA que queda: por "
+         "que NUNCA -4 ni -16, que tambien darian potencias de 2 - la "
+         "respuesta debe vivir en el saldo de S (+2) que el preludio "
+         "arrastra, y es el corazon del lema general pendiente. Con "
+         "el aterrizaje caracterizado, la unicidad general del "
+         "preludio se ataca con la dinamica de D restringida a "
+         "acabar en {-2, -8}: el metodo de la unicidad de |M| = 2, "
+         "con dos dianas en vez de una."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
