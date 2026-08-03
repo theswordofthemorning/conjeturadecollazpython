@@ -2592,6 +2592,27 @@ CORRECCIONES = [
      "conteo chico se re-corre a 4x y 16x, y si crece, el rango es el "
      "resultado"),
 
+    ("phi = 8/(23 - 13 rho) y 'phi = 1 <=> rho = 15/13'",
+     "INCOMPLETA: se tiro epsilon_torre sin declararlo (quinta revision "
+     "externa, 04-08-2026). La formula honesta es phi = 8(1 + eps) / "
+     "(23 - 13 rho), o en la parametrizacion del revisor 23 phi = 8 + "
+     "13 gamma + 8 eps_torre. NO hay error de transcripcion entre las "
+     "dos formas (gamma = rho phi las hace identicas; el contraste del "
+     "revisor metio gamma en el hueco de rho), pero SU GOLPE ES REAL: "
+     "el 15/13 era condicional a eps = 0 sin decirlo, y con gamma <= 1 "
+     "y eps = 0 saldria phi <= 21/23 - un teorema negativo FALSO por "
+     "artefacto de la cola tirada. LA RESOLUCION, y es la joya: "
+     "phi = 1 <=> eps_torre = 1/4 EXACTO <=> P(fusion | torre) = 1 - "
+     "la conjetura reproduciendose en la torre, tercera aparicion de "
+     "la autosimilitud. EL BLANCO DEFINITIVO: si la torre pierde masa "
+     "(eps < 1/4 estricto), phi < 1 es TEOREMA con valor computable",
+     "las colas no se tiran: se declaran con su simbolo y su cota. Y "
+     "un 'teorema negativo enorme de una tarde de algebra' es la "
+     "senal de revisar que cola se tiro - la imposibilidad no era del "
+     "sistema, era del cero implicito. Pendiente commitado: "
+     "reconstruir la ecuacion de beta independiente y MEDIR/ACOTAR "
+     "eps_torre - el numero que decide el programa"),
+
     ("la supresion del j = 3 (version final): 'un aterrizaje +16 no "
      "puede saldar Delta_S' / 'los +16 son esporadicos de valor'",
      "REFUTADA DEL TODO por el rigor mortis (04-08-2026): los 7 "
