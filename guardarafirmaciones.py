@@ -918,6 +918,24 @@ AFIRMACIONES = [
          "misma estructura: el triangulo entero parece generado por "
          "germenes unicos y ventanas de Perras."),
 
+    fila("LOS DOS LEMAS DE HUECO, demostrados por decide: en el piso g "
+         "NO existe preludio de largo 5 (cero clases entre las 2^7) y "
+         "en el piso h NO existe preludio de largo 4 (cero entre las "
+         "2^6) - enumeracion COMPLETA de las clases al modulo del "
+         "presupuesto, sin filtro alguno: los huecos de las formas "
+         "cerradas b4 y c4 son teoremas finitos",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada. Es la mitad facil del ascenso de "
+         "b4/c4 a teorema. AVISO honesto para la continuacion: la "
+         "enumeracion rapida de germenes en los largos PERMITIDOS "
+         "salio inflada porque no filtraba 'preludio con exactamente "
+         "2 mixtos' ni deduplicaba por modulo natural (el germen de "
+         "L=3 en g es UNA clase mod 8 que aparece como 4 residuos mod "
+         "32); la distribucion de m = 13 (ventanas 2^j - 1 exactas, "
+         "una por largo) sigue siendo la referencia, y la unicidad "
+         "fina del preludio 2-mixto queda como el ultimo lema "
+         "pendiente del ascenso."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
