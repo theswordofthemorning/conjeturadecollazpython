@@ -163,3 +163,50 @@ pendiente (LaTourette 2007 sigue sin conseguirse).
       demostracion: cronologia en el repositorio, verificable en los
       commits - un test de que no se ajusto la demostracion a los datos.
 ================================================================================
+
+================================================================================
+8. ACTA DE LA SEGUNDA REVISION EXTERNA (Opus 5, 04-08-2026) - LA TEJA
+   QUE NO FALTABA
+--------------------------------------------------------------------------------
+El revisor VALIDO la arquitectura entera (sus palabras: "la arquitectura
+es correcta. Toda"): D1 = -3, el grafo {-3,-5}, la unicidad por largo,
+los huecos 4/5 como imagen uno del otro, la puerta P1-P3 y el lema del
+gasto. Y reporto UN error: que la ventana tras preludio aporta
+2^(m-L-2) - 2 (no -1), con formulas corregidas
+c4 = 3*2^(m-6) - 2m + 10 y b4 = 7*2^(m-7) - 2m + 10.
+
+RESOLUCION (verificada numero a numero): NO HAY ERROR - HAY DOS
+CONVENCIONES. Sus conteos satisfacen exactamente
+
+    su(m) = 2 * nuestro(m - 1)      (10 de 10 terminos comparables)
+
+su "-2" por ventana es nuestro "-1" doblado (2*(2^k - 1) = 2^(k+1) - 2),
+y su formula corregida es ALGEBRAICAMENTE IDENTICA a la nuestra bajo el
+mapa: 2*(3*2^(m-7) - (m-1) + 4) = 3*2^(m-6) - 2m + 10. El propio
+revisor lo advirtio: "implemente desde tu documento, no desde tu
+codigo... una diferencia de convencion podria mover cosas". Movio:
+factor 2 (su enumeracion dobla las clases) y un nivel de indice.
+LOS TEOREMAS b4 Y c4 QUEDAN EN PIE TAL CUAL, y la coincidencia
+c4 = A079583 TAMBIEN (en nuestra convencion, que es la del codigo).
+
+LA DOCTRINA QUE SI SE ADOPTA (la leccion del revisor vale aunque el
+error no existiera): una coincidencia de forma con una sucesion de OEIS
+SIN contexto del dominio no es evidencia de correccion - con dos
+parametros libres y diez terminos, calzar es facil. A079583 se cita
+como curiosidad, no como confirmacion. Y la leccion nueva de este
+episodio, en la otra direccion: UNA CORRECCION EXTERNA TAMBIEN PUEDE
+SER UN ARTEFACTO DE CONVENCION - la herramienta que decide es el mapa
+explicito entre convenciones, termino a termino, antes de tocar nada.
+
+9. NOTA DOCTRINAL: POR QUE LOS NOMBRES DE ANIMALES
+--------------------------------------------------------------------------------
+Los nombres (Perras, Gatas, Jirafas, Pandas, los 3 Chanchitos) son
+etiquetas internas de agrupacion, como las versiones de un sistema
+operativo. La razon es practica: hay millones de teoremas publicados, y
+"teorema de la densidad de..." colisiona con decenas; un nombre de
+animal agrupa los resultados de ESTE programa sin ambiguedad y se
+recuerda. Para cualquier texto que salga del repositorio, la regla ya
+registrada: numeracion seria (Teorema 3.1, Lema 2.4) con el descriptivo
+entre parentesis - los nombres propios se los ponen los demas, si el
+resultado sobrevive.
+================================================================================
