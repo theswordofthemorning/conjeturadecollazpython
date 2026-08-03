@@ -1618,6 +1618,28 @@ AFIRMACIONES = [
          "madre. Dos torres gemelas (+c y -c) conectadas por las "
          "compensaciones: el mapa completo del problema."),
 
+    fila("LOS MOVIMIENTOS 2 Y 3 DEL CIERRE: (2) la medicion dirigida "
+         "del paseo - la masa condicional de la torre multiplica x4.75 "
+         "y x2.08 por par de niveles (0.00098 -> 0.00464 -> 0.00964) "
+         "sin techo geometrico, y el sub-canal k=1 despierta en m=14: "
+         "CONSISTENTE con recurrencia, inconsistente con una matanza "
+         "geometrica rapida - la medicion no decide el 1/4 pero "
+         "favorece el paseo; (3) torredeladeuda.lean, el DECIMO .lean: "
+         "pow3_impar por induccion, y las leyes de compensacion de los "
+         "pisos k = 2 y 3 exactas (el chico gana el impar - deuda -1 - "
+         "y desciende a la torre negativa 3s'-1 / 9s'-4), nucleo puro, "
+         "cero sorryAx, a la primera",
+         "verificado_hasta", "medido", "torredeladeuda.lean", "propio",
+         "04-08-2026, el cierre de la jornada de jornadas. EL ESTADO "
+         "FINAL DEL PROGRAMA: phi = 8(1+eps)/(23-13rho); phi = 1 <=> "
+         "eps_torre = 1/4 <=> el paseo de la deuda (monedas de Terras, "
+         "+-1 simetrico entre las dos torres gemelas) es recurrente "
+         "sobre las clases. Tres leyes exactas, dos pisos en Lean, "
+         "mecanismo completo, y UNA pregunta final que es la misma "
+         "moneda de Terras que sostiene la conjetura madre. El k "
+         "general del Lean queda declarado (producto de atomos: exige "
+         "mas que omega)."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
