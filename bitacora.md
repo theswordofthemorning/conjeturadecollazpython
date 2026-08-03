@@ -349,6 +349,31 @@ reentrar depende de qué lado quedó menor — el censo actual mide `δ` en
 lados originales, hay que reorientarlo). Con esas masas, el sistema
 lineal se resuelve y **`f` queda decidida**.
 
+## ⇢ LA RÁFAGA DE LA MADRUGADA (goal: investigación abierta) — CINCO REGISTROS MÁS
+
+1. **Pandas afinado**: la condición `Res < 6` era insuficiente para
+   `d* = −1`; la limpia es **`Res < 3`** — corrección en vivo registrada
+   dentro de `lemadepandas.txt` (ataque P1 señalado al revisor). Letras
+   corregidas: `φ` (2-ádica) vs `d` (Gao).
+2. **El recíproco de Jirafas**: fusión balanceada ⟺ evento de clase —
+   LA CARACTERIZACIÓN; Jirafas baja a lema en numeración externa y sube
+   de contenido. Cierra el puente `φ = d` con rigor.
+3. **Los lemas de germen**: `b(6) = 1` con `w ≡ 46` (vórtice `(40,13)`)
+   y `c(6) = 1` con `w ≡ 25` (vórtice `(22,7)`), únicos, decididos por
+   clase. Las series `b` y `c` **no están en OEIS** (ni las nuevas de
+   `c`).
+4. **El doblado reducido**: `b(m+1) ≥ 2b(m)`, `c(m+1) ≥ 2c(m)` (Gao en
+   los pares reducidos) ⟹ **los límites `β` y `γ` existen** — el
+   sistema asintótico de los tres pisos es objeto bien definido.
+5. **El lema general del vórtice**: toda primera coincidencia de dos
+   trayectorias cualesquiera es un vórtice (`a = 3b+1`) — la base
+   implícita de todo, ahora explícita.
+
+`afirmaciones.db`: **106 afirmaciones.** La veta siguiente: el «Perras
+del piso b» — caracterizar el estrato mínimo de las fusiones de
+`{w, 9w+2}` como se hizo con los pares consecutivos, y de ahí la
+sub-ventana exacta análoga al `2^k − 1`.
+
 ## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
 
 Los puntos 3–5 de la orden del revisor, ejecutados la misma noche:
