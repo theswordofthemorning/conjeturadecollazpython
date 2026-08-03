@@ -1455,6 +1455,24 @@ AFIRMACIONES = [
          "directo) aparece por SEGUNDA vez: es estructural, candidato "
          "a teorema por la misma reduccion que cerro e6."),
 
+    fila("EL TEST ESPEJO DE LA RECURSION VERTICAL, PASADO: en 3n-1 la "
+         "contraccion vive en v = 2 (mod 4) - etiquetas volteadas, "
+         "como manda el espejo - y da el par fresco (3u+1, 3u+2) "
+         "(30.000 casos); y la diagonal espejo clava identica: rama "
+         "v=2mod4 de e8- = e6-(N-2) = 6, 9, 13, 18 (4/4, los MISMOS "
+         "numeros que el mapa 3n+1). El pipeline de la recursion "
+         "vertical es invariante al espejo",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026, paso 3 de los tres del cierre; la falsacion "
+         "barata que pedia la doctrina del repo (un pipeline que no "
+         "fuera invariante al espejo tendria un error de derivacion "
+         "escondido). Que los numeros sean IDENTICOS es ademas "
+         "coherente con el teorema del espejo de espejoak.lean: la "
+         "diagonal es funcion del vector de paridad. Con los tres "
+         "pasos: el motor en Lean (9no .lean), la contabilidad de e8 "
+         "cerrada, y el espejo verificado - la recursion vertical "
+         "queda blindada por las tres caras."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
