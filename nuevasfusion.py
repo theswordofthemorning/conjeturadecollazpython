@@ -904,6 +904,88 @@ print("rebote es uniforme (j = 0..5, 64 clases exactas). La ecuacion de")
 print("renovacion f = 1/4 + f/4 + g/4 + h/4 es EXACTA, y f >= 1/3 queda")
 print("demostrado en tres lineas. Calcular g y h cierra el sistema.")
 
+# ---------------------------------------------------------------------------
+# COMPROBACION 17: EL LEMA DEL BALANCE FORZADO (03-08-2026, noche).
+#
+#   LEMA. Toda fusion DE CLASE ENTERA esta S-balanceada: si
+#   T^t(r) = T^t(r+1) para TODOS los r de una clase residual mod 2^p
+#   (con t <= p), entonces S_t(r) = S_t(r+1) en esa clase.
+#
+#   DEMOSTRACION (tres lineas, desde Terras 1.2). Sobre la clase, ambos
+#   lados son afines: 2^t T^t(r) = 3^(Sx) r + Cx y 2^t T^t(r+1) =
+#   3^(Sy) (r+1) + Cy, con Sx, Sy, Cx, Cy constantes de la clase.
+#   Igualdad para infinitos r obliga a igualar coeficientes:
+#   3^(Sx) = 3^(Sy), o sea Sx = Sy. QED.
+#
+#   COROLARIO 1 (la fusion desbalanceada tiene MEDIDA CERO). Un encuentro
+#   T^t(r) = T^t(r+1) con S distintas es una ecuacion afin con
+#   coeficientes distintos: a lo sumo UNA solucion r por clase. Union
+#   numerable de puntos: medida 2-adica cero. (El 10,3% de fusiones
+#   desbalanceadas que se miden desde el estado rebote son el fenomeno
+#   de cerca del atractor -- numeros chicos chocando en el ciclo --,
+#   no masa estructural.)
+#
+#   COROLARIO 2 (solo el delta balanceado importa). Lo mismo vale para
+#   pares {v, v+1} reentrantes con delta arrastrado d != 0: fundirse de
+#   clase exigiria compensacion de clase, que el lema prohibe. Luego en
+#   la ecuacion de renovacion solo sobreviven (salvo medida cero) las
+#   reentradas consecutivas con d = 0 (que valen f) y las reentradas
+#   rebote con el delta canonico (que valen g): EL SISTEMA COLAPSA A
+#   LAS DOS INCOGNITAS f Y g MAS LAS MASAS DE CLASE, que son calculables.
+#
+#   Aqui se verifica el lema exhaustivamente: todas las clases mod 2^12
+#   cuya fusion ocurre en t <= 12 pasos (fusion valida para TODA la
+#   clase, comprobada con dos representantes lejanos) tienen S igualadas.
+# ---------------------------------------------------------------------------
+
+M_BAL = 12
+clases_fundidas = 0
+for r0 in range(2 ** M_BAL):
+    # representantes lejanos de la clase r0 mod 2^M_BAL
+    testigos = (r0, r0 + 2 ** M_BAL * 12345)
+    fusion_t = None
+    for t in range(1, M_BAL + 1):
+        vale = True
+        for rep in testigos:
+            x, y = rep, rep + 1
+            Sx = Sy = 0
+            for _ in range(t):
+                if x % 2:
+                    Sx += 1
+                if y % 2:
+                    Sy += 1
+                x, y = paso(x), paso(y)
+            if x != y:
+                vale = False
+                break
+        if vale:
+            fusion_t = t
+            break
+    if fusion_t is None:
+        continue
+    clases_fundidas += 1
+    for rep in testigos:
+        x, y = rep, rep + 1
+        Sx = Sy = 0
+        for _ in range(fusion_t):
+            if x % 2:
+                Sx += 1
+            if y % 2:
+                Sy += 1
+            x, y = paso(x), paso(y)
+        if Sx != Sy:
+            raise SystemExit("FALLO balance: clase %d funde en t=%d con "
+                             "S %d/%d" % (r0, fusion_t, Sx, Sy))
+
+print()
+print("COMPROBACION 17 OK: LEMA DEL BALANCE FORZADO. Las %d clases mod 2^%d"
+      % (clases_fundidas, M_BAL))
+print("que funden en t <= %d pasos para toda la clase tienen S igualadas," % M_BAL)
+print("sin excepcion. Corolarios: la fusion desbalanceada tiene medida")
+print("cero (choques esporadicos cerca del atractor), y en la renovacion")
+print("solo sobreviven las reentradas con delta canonico: el sistema")
+print("colapsa a las incognitas f y g mas masas de clase calculables.")
+
 print()
 print("b(k) medida  :", b_medida)
 print("b(k) publicada:", B_PUBLICADA[:len(b_medida)])

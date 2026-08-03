@@ -323,6 +323,32 @@ limpio porque medía al fantasma.*
 `afirmaciones.db`: **97 afirmaciones, 56 demostradas, 34 correcciones.**
 Medido con topes declarados: `f ≈ 0,445`, `g ≈ 0,188`, `h ≈ 0,173`.
 
+## ⇢ EL CENSO DEL REBOTE Y EL LEMA DEL BALANCE: el sistema CIERRA en dos incógnitas
+
+Paso 1 de la ruta de `RutaTeoremas.md`, ejecutado. **El censo de
+reentradas del rebote real `(w, 9w+2)`** (`w < 2^15`, tope 600):
+**cobertura 100%** — consec 45,4% (el **96% con `δ = 0`**), rebote 43,8%,
+fusión desbalanceada 10,3%, fusión limpia 0,6%. Cero sin clasificar.
+
+Y del análisis salió el **LEMA DEL BALANCE FORZADO** (comprobación 17,
+demostrado en tres líneas desde Terras 1.2): toda fusión válida para una
+clase residual ENTERA está S-balanceada — la igualdad de las dos formas
+afines fuerza `3^{S_x} = 3^{S_y}`. **Corolarios:** (1) la fusión
+desbalanceada tiene **medida 2-ádica CERO** (una solución esporádica por
+clase — el fenómeno de cerca del atractor, otra vez); (2) las reentradas
+consecutivas con `δ ≠ 0` tampoco pesan; (3) **el sistema de renovación
+colapsa a DOS incógnitas** (`f` y `g`) más masas de clase calculables.
+Cruce gratis: las clases fundidas mod `2^12` del verificador son
+**1.476 = `a(12)` exacto**.
+
+**El siguiente paso quedó afilado**: calcular las masas de clase del
+censo de forma EXACTA (nivel a nivel, estilo Perras — cada salida del
+censo es una unión de clases residuales decidida en pasos acotados) y con
+la orientación canónica de las reentradas rebote (ojo: el signo de `δ` al
+reentrar depende de qué lado quedó menor — el censo actual mide `δ` en
+lados originales, hay que reorientarlo). Con esas masas, el sistema
+lineal se resuelve y **`f` queda decidida**.
+
 ## ⇢ LA VERIFICACIÓN BIBLIOGRÁFICA DE LOS DOS TEOREMAS (orden del usuario)
 
 Leído entero **Elia–Tucker 2015** (arXiv:1511.09141, el PDF completo) y

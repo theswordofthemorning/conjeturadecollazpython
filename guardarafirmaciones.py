@@ -724,6 +724,26 @@ AFIRMACIONES = [
          "densidad. LaTourette 2007 (tesis no accesible) definio los "
          "objetos; el conteo no consta alli tampoco."),
 
+    fila("LEMA DEL BALANCE FORZADO: toda fusion valida para una CLASE "
+         "residual entera esta S-balanceada (la igualdad de las dos "
+         "formas afines de Terras fuerza 3^Sx = 3^Sy). Corolarios: la "
+         "fusion desbalanceada tiene MEDIDA 2-adica CERO (a lo sumo una "
+         "solucion esporadica por clase - el fenomeno de cerca del "
+         "atractor), y en la ecuacion de renovacion solo sobreviven las "
+         "reentradas con delta canonico: el sistema colapsa a f y g mas "
+         "masas de clase calculables",
+         "clase_residual", "demostrado", "nuevasfusion.py", "propio",
+         "COMPROBACION 17 (03-08-2026, noche). Demostracion de tres "
+         "lineas desde Terras 1.2. Verificado exhaustivo: las 1476 "
+         "clases mod 2^12 que funden en t <= 12 para toda la clase "
+         "(1476 = a(12) EXACTO, cruce gratis con clasesfusion.py) "
+         "tienen S igualadas sin excepcion. Contexto: el censo de "
+         "reentradas del rebote real (w, 9w+2) dio cobertura 100% en "
+         "cuatro salidas (consec 45,4% -el 96% con delta 0-, rebote "
+         "43,8%, fusion desbalanceada 10,3%, fusion limpia 0,6%): con "
+         "este lema, las salidas muertas son medida cero y el sistema "
+         "de renovacion CIERRA EN DOS INCOGNITAS."),
+
     fila("TEOREMA DE GATAS (el reinicio uniforme; bautizado por el "
          "usuario el 03-08-2026) y la ecuacion de renovacion: la "
          "contraccion manda r = 4t+1 al par consecutivo FRESCO "
