@@ -1147,6 +1147,24 @@ AFIRMACIONES = [
          "de paridades <-> clase via Terras, y el germen L = 3 por "
          "decide - ambos ya verificados computacionalmente."),
 
+    fila("LA TAXONOMIA DE LLEGADAS AL CONSECUTIVO, cerrada en formas: "
+         "(a) la forma {s, 3s-1} ES identicamente el estado D = -2 "
+         "(gap 2s-1 => D = -2, una linea; 1.630 casos medidos como "
+         "ruta dominante), y (b) la otra ruta son los estados de gap 2 "
+         "({s, s+2}, D = 1-2s) que llegan por division - la cola de "
+         "los aterrizajes -8/+4/-32. Ademas: en estratos >= 6 los "
+         "aterrizajes llegan por transiciones mixto->mixto entre "
+         "FORMAS (la D enorme se cancela por estructura, como en la "
+         "puerta P3), no por tramos compartidos largos",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "04-08-2026, madrugada. Consecuencia para la supresion del "
+         "j = 3: la pregunta queda reformulada como INVENTARIO DE "
+         "FORMAS - que formas {s, c*s + d} son alcanzables y cual es "
+         "la constante de aterrizaje de cada una (P3 dio {v,9v+1} -> "
+         "-2; el inventario completo con sus constantes decidira si "
+         "alguna produce +16). El metodo: las identidades de una linea "
+         "por forma, como toda la cadena de esta noche."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
