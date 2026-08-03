@@ -1536,6 +1536,29 @@ AFIRMACIONES = [
          "completo - de los vortices del 221 a esta linea - cabe en: "
          "phi = 8/(23 - 13 rho)."),
 
+    fila("LA SERIE R, EL NUCLEO FINAL DEL PROGRAMA: extendida por "
+         "deconvolucion exacta a j = 13 (R = 1,0,1,3,2,4,9,14,25,47,"
+         "89, con c(15) = 3053 y c(16) = 6487 medidos exactos), sus "
+         "razones SUBEN HACIA 2 (1.556, 1.786, 1.88, 1.894) - EL "
+         "MISMO fenomeno que la razon de b(k) que abrio el programa, "
+         "ahora en su forma nuclear. Y rho CONVERGE por el propio "
+         "sistema (c(m)/2^m <= 1 fuerza rho <= 1/phi): rho truncada "
+         "0.3002, phi truncada por la formula 0.4189 - coherente con "
+         "el 0.4357 de a(32) y el 0.51 de Gao",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026, el punto final de la jornada. LA PREGUNTA MAS "
+         "VIEJA DEL LABORATORIO EN SU FORMA DEFINITIVA: la razon de "
+         "R(j) sube hacia 2 - si R(j)/2^j decae lo bastante lento, "
+         "rho alcanza 15/13 y phi = 1 (Gao-Wu cierto); si decae "
+         "rapido, phi < 1 con valor exacto 8/(23-13rho). Todo el "
+         "problema - los 51% de Gao, los estratos, los pisos, el "
+         "grafo - es ahora UNA serie de enteros con estructura "
+         "conocida (germenes de reentrada del grafo {-3,-5}) y una "
+         "unica pregunta asintotica. El circulo perfecto: el programa "
+         "empezo con una razon subiendo a 2 sin decidirse (b(k), "
+         "sesion del 30-07) y desemboca en otra razon subiendo a 2 - "
+         "pero esta vez la serie TIENE gramatica demostrada detras."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
