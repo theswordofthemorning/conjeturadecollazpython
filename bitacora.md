@@ -369,10 +369,26 @@ lineal se resuelve y **`f` queda decidida**.
    trayectorias cualesquiera es un vórtice (`a = 3b+1`) — la base
    implícita de todo, ahora explícita.
 
-`afirmaciones.db`: **106 afirmaciones.** La veta siguiente: el «Perras
-del piso b» — caracterizar el estrato mínimo de las fusiones de
-`{w, 9w+2}` como se hizo con los pares consecutivos, y de ahí la
-sub-ventana exacta análoga al `2^k − 1`.
+`afirmaciones.db`: **106 afirmaciones.**
+
+## ⇢ Y EL PERRAS DE LOS PISOS REDUCIDOS, MEDIDO CON FORMA CERRADA
+
+La veta se abrió y dio de inmediato: **el estrato mínimo de los dos
+pisos reducidos es `|M| = 4`**, con formas cerradas
+
+> `b₄(m) = 7·2^{m−7} − m + 4`  y  `c₄(m) = 6·2^{m−7} − m + 4`
+
+clavadas en `m = 7…14`, **y confirmadas por PREDICCIÓN en `m = 15, 16`
+(los cuatro valores exactos: 1781, 1525, 3572, 3060)**. Además: `c₄` ES
+`A079583` (`3·2^n − n − 2`) — confirmación independiente de la forma —
+y `b₄` no está catalogada. **La ley del germen único** rige en los tres
+pisos: cada estrato nuevo entra cada dos niveles con exactamente una
+clase. El término `−m` (una clase excluida por nivel) es el candidato a
+«indeciso de Perras» del piso reducido. **Pendiente: la demostración de
+las dos fórmulas** — el análogo del argumento de la ventana sobre el
+estado rebote — que cerraría el primer término de las sub-renovaciones
+y daría al sistema de `φ` dos masas exactas más. `afirmaciones.db`:
+**108 afirmaciones.**
 
 ## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
 

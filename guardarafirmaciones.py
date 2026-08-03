@@ -829,7 +829,11 @@ AFIRMACIONES = [
          "primer termino de las sub-renovaciones queda cerrado y el "
          "sistema de phi gana dos masas exactas mas. AVISO de la casa: "
          "forma ajustada exacta en 8 niveles NO es demostracion - por "
-         "eso queda en medido."),
+         "eso queda en medido. Y EL TEST DE PREDICCION (la vara del "
+         "repo): las formulas, ajustadas con m <= 14, PREDIJERON los "
+         "cuatro valores de m = 15 y 16 (1781, 1525, 3572, 3060) y los "
+         "cuatro salieron CLAVADOS - el estatus empirico mas fuerte "
+         "antes de la demostracion."),
 
     fila("c4 ES A079583: la sucesion del estrato minimo del piso h "
          "coincide termino a termino con la entrada catalogada "
