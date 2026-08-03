@@ -2258,6 +2258,26 @@ CORRECCIONES = [
      "sobre ellas - el fantasma paso tres comprobaciones que solo lo "
      "miraban a el"),
 
+    ("la supresion del j = 3: 'la dinamica jamas alcanza la forma "
+     "{s, 3s+17}' y 'la pendiente es la rama de salida del 33'",
+     "LAS DOS MITADES ERAN FALSAS, y las rompio la instrumentacion "
+     "propia (04-08-2026): (1) el 33 SI sale por f0 - 19.651 veces - y "
+     "el estado mixto D = +16 se alcanza de sobra; (2) el +16 SI "
+     "aterriza en par consecutivo: 23 veces en la dinamica cruda "
+     "(contra 38.464 del +4 y 7.274 del -8). La supresion REAL es "
+     "condicional: entre las fusiones DE CLASE con el saldo Delta_S "
+     "canonico, los aterrizajes +16 no aparecen - no es "
+     "inalcanzabilidad dinamica, es CONTABILIDAD DE S: los 23 llegan "
+     "pero nunca cierran el balance. La conjetura muta a su forma "
+     "final: 'un aterrizaje +16 no puede saldar Delta_S = +2' - que "
+     "es exactamente el argumento del reparto de mixtos esbozado, "
+     "ahora con el objetivo puntual correcto",
+     "un fenomeno medido bajo condicionamiento no es un fenomeno de la "
+     "dinamica: antes de conjeturar inalcanzabilidad hay que medir el "
+     "objeto SIN el filtro. La ley mod 3 (D = 11) sobrevive a esta "
+     "correccion - esa si es dinamica cruda; la mitad del 33/+16 era "
+     "del filtro"),
+
     ("el Corolario 1 de Jirafas: 'la fusion desbalanceada tiene medida "
      "cero porque es union numerable de soluciones esporadicas'",
      "ROTO por la segunda revision externa (Opus 5, 03-08-2026): "
