@@ -1023,7 +1023,14 @@ AFIRMACIONES = [
          "(0,1)-(0,2): EL BORDE DE SIEMPRE, quinto miembro del catalogo "
          "de bordes del repo (m=0, k=0, n=1, n=2^k-1, y ahora r=0 en "
          "los aterrizajes). La ley de potencias de -2 queda sin "
-         "excepciones reales."),
+         "excepciones reales. Y LA CAZA DECISIVA (m = 17, 18, ~46.500 "
+         "aterrizajes mas): el -32 = (-2)^5 salto a 21 casos y el "
+         "+16 = (-2)^4 sigue en CERO sobre ~66.000 acumulados - la "
+         "quinta potencia 21 veces, la cuarta jamas. La conjetura de "
+         "la supresion del j = 3 pasa de plausible a aplastante. El "
+         "proximo paso del hilo es la DEMOSTRACION (el reparto tres "
+         "+1 y un -1 de los cuatro mixtos, con la paridad de j "
+         "decidiendo el lado par del consec)."),
 
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
