@@ -424,6 +424,18 @@ general pende de UN lema (unicidad del preludio para todo `L`, método
 `v₂`). En una noche: conjetura → predicción confirmada → derivación →
 teorema en rango. `afirmaciones.db`: **114 afirmaciones.**
 
+**Y LOS DOS CIERRES DE LA MADRUGADA**: (1) el mecanismo de los
+preludios — aterrizan en `D ∈ {−2, −8}` (18/18, con la corrección en
+vivo: no era solo `−2`); (2) **LA LEY DEL ATERRIZAJE EN POTENCIAS DE
+`−2`**: en el estrato 6 aparece además `+4 = (−2)²` — los aterrizajes
+son exactamente `(−2)^j`, y los valores hermanos que no lo son (`−4`,
+`+8`, `−16`) no aparecen jamás (278 casos, cero excepciones). El signo
+alterna con las divisiones por el saldo de `S`. **Predicción falsable
+registrada: el próximo aterrizaje será `+16 = (−2)⁴`.** El lema general
+del preludio queda enunciado como: la dinámica de `D` con dianas en las
+potencias de `(−2)` — el método de la unicidad de `|M|=2`, con diana
+móvil. `afirmaciones.db`: **116 afirmaciones.**
+
 ## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
 
 Los puntos 3–5 de la orden del revisor, ejecutados la misma noche:

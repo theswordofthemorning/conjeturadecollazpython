@@ -975,6 +975,25 @@ AFIRMACIONES = [
          "acabar en {-2, -8}: el metodo de la unicidad de |M| = 2, "
          "con dos dianas en vez de una."),
 
+    fila("LA LEY DEL ATERRIZAJE EN POTENCIAS DE -2: el D del ultimo "
+         "mixto antes de toda reentrada consecutiva es una POTENCIA DE "
+         "(-2): observados -2 = (-2)^1 (236+18 casos), +4 = (-2)^2 (2) "
+         "y -8 = (-2)^3 (22+); los valores con |D|/2 potencia de 2 que "
+         "NO son potencias de (-2) (-4, +8, -16) NO aparecen NUNCA. "
+         "PREDICCION FALSABLE: el proximo aterrizaje en niveles "
+         "profundos sera +16 = (-2)^4, y -4/+8/-16 jamas",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; el ultimo hallazgo de la rafaga. El "
+         "mecanismo esbozado: el vuelco alfa da gap |D|/2, que necesita "
+         "ser potencia de 2 para que las divisiones lleguen al par "
+         "consecutivo exacto; y el SIGNO alterna con el numero de "
+         "divisiones porque el saldo +2 de S fuerza que el lado impar "
+         "del vortice final caiga del lado correcto - sign(D) = "
+         "(-1)^(divisiones+1). Demostrarlo es el corazon del lema "
+         "general del preludio: la dinamica de D con dianas en las "
+         "potencias de (-2). Los estratos 4 (18/18 en {-2,-8}) y 6 "
+         "(260/260 en {-2,+4,-8}) lo cumplen sin excepcion."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
