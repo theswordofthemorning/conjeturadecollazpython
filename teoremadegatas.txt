@@ -251,3 +251,10 @@ al mismo indice, cero excepciones. Y la brecha entre a(k)/2^k = 0,4357
 (k = 32) y el d ~ 0,512 de Gao queda explicada como truncamiento puro:
 son la misma cantidad limite.
 ================================================================================
+
+--- CORRECCION A LA SECCION 10 (misma noche): la condicion "Res < 6" era
+INSUFICIENTE para descartar d = -1 (el factor n/(n+1) baja el piso del
+intervalo a 1/12). La condicion correcta y suficiente es Res < 3 (para
+n >= 2; el caso n = 1 es vacuo). Sigue siendo ultra debil (max conocido
+1,2532) e incondicional bajo 2^71. Detalle completo y demostracion
+afinada en lemadepandas.txt, seccion 2. ---

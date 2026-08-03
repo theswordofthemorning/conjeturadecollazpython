@@ -761,22 +761,37 @@ AFIRMACIONES = [
          "objetivos canonicos de Delta_S verifica ademas el Corolario 2 "
          "de Jirafas."),
 
-    fila("EL LEMA DE LA EQUIVALENCIA (condicional a Res < 6): si "
-         "H(n) = H(n+1), las trayectorias del atajo se encuentran AL "
-         "MISMO INDICE con S igualada - porque 6^d = n*Res(n) / "
-         "((n+1)*Res(n+1)) con d = tau1-tau2, y con 1 <= Res < 6 el lado "
-         "derecho vive en (1/6, 6): d = 0 forzado. COROLARIO: f = d, "
-         "nuestra densidad de fusion ES la densidad de pares de igual "
-         "altura de Gao (0,512 medida a 10^8)",
+    fila("LEMA DE LA EQUIVALENCIA DE PANDAS (condicional a Res < 3): si "
+         "H(n) = H(n+1), tau y S coinciden y las trayectorias del atajo "
+         "se encuentran AL MISMO INDICE - porque 6^d = (n/(n+1)) * "
+         "(Res(n)/Res(n+1)) y con 1 <= Res < 3 el lado derecho no "
+         "alcanza ninguna potencia entera de 6 salvo 6^0. COROLARIO "
+         "(con el reciproco de Jirafas): phi = d - la medida 2-adica de "
+         "fusion ES la densidad natural de Gao (0,512 medida a 10^8)",
          "todo_n", "demostrado", "identidadexacta.py", "propio",
-         "03-08-2026, noche; resuelve el punto 5 de la tercera revision "
-         "(Gatas p.5 presentaba f y d como equivalentes sin demostrarlo). "
-         "CONDICION DECLARADA: Res >= 1 es teorema del repo; Res < 6 es "
-         "forma ultra debil de Roosendaal (max conocido 1,2532, "
-         "verificado a 2^71): incondicional para n < 2^71. Verificado: "
-         "los 477.245 pares de igual altura bajo 10^6 funden todos al "
-         "mismo indice, cero excepciones. La brecha 0,4357 vs 0,512 es "
-         "truncamiento puro: misma cantidad limite."),
+         "03-08-2026, noche; lemadepandas.txt. CORRECCION EN VIVO, "
+         "registrada en el propio documento: la primera version decia "
+         "Res < 6 y era INSUFICIENTE para d = -1 (el factor n/(n+1) "
+         "baja el piso a 1/12); la condicion limpia es Res < 3 (n >= 2; "
+         "n = 1 vacuo). Ultra debil igual (max conocido 1,2532; "
+         "incondicional bajo 2^71). LETRAS (orden del revisor): phi = "
+         "lim a(k)/2^k (2-adica), d = densidad natural de Gao - eran "
+         "objetos distintos y el puente es el reciproco de Jirafas: "
+         "fusion balanceada <=> evento de clase (union monotona => "
+         "densidad natural = medida 2-adica). Verificado: 477.245 "
+         "pares bajo 10^6, cero excepciones."),
+
+    fila("EL RECIPROCO DE JIRAFAS, y con el LA CARACTERIZACION: una "
+         "fusion en el indice t esta S-balanceada SI Y SOLO SI es un "
+         "evento de clase mod 2^t",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, noche; teoremadejirafas.txt seccion 9. La ida es "
+         "Jirafas (igualar coeficientes); el reciproco es nuevo: con "
+         "Sx = Sy las pendientes son iguales y la diferencia es "
+         "CONSTANTE en la clase - cero para un r, cero para todos. "
+         "VEREDICTO DE RANGO ACEPTADO: Jirafas baja a LEMA "
+         "(caracterizacion) en toda numeracion externa; el zoologico es "
+         "interno. Es la pieza que cierra el puente phi = d de Pandas."),
 
     fila("TEOREMA DE FAMILIA de los contraejemplos de Elia-Tucker: TODA "
          "la familia (2^19 m + 3067, +1) funde en el paso 18 con "

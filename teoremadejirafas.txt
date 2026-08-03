@@ -185,3 +185,26 @@ R6. LA IDENTIDAD EXACTA ES TEOREMA, NO TAUTOLOGIA (la pregunta del
     Que cuadren con los objetivos canonicos de Delta_S es, ademas, la
     verificacion numerica de R4.
 ================================================================================
+
+================================================================================
+9. VEREDICTO FINAL: BAJA A LEMA, SUBE DE CONTENIDO (03-08-2026, noche)
+--------------------------------------------------------------------------------
+El revisor pidio bajarlo de teorema a lema ("tres lineas sobre una caja
+demostrada, funcion auxiliar"). SE ACEPTA para toda numeracion externa:
+sera un Lema (caracterizacion). Y la defensa se hizo como manda la casa,
+con una demostracion nueva: EL RECIPROCO.
+
+RECIPROCO (nuevo): una fusion S-BALANCEADA en el indice t es SIEMPRE un
+evento de clase mod 2^t -- pendientes iguales (Sx = Sy) hacen la
+diferencia CONSTANTE en la clase: cero para un r, cero para todos.
+
+Con la ida (este documento) y el reciproco queda la CARACTERIZACION:
+
+    una fusion en el indice t esta S-balanceada
+    <=>  es un evento de clase mod 2^t.
+
+Eso es mas que lo que el documento original afirmaba, y es la pieza que
+cierra el puente phi = d del lema de Pandas (lemadepandas.txt): el
+conjunto de fusiones balanceadas es union monotona de eventos de clase,
+luego su densidad natural coincide con la medida 2-adica lim a(k)/2^k.
+================================================================================
