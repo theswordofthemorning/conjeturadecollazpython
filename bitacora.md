@@ -51,6 +51,31 @@ clase — conjetura puntual: «un aterrizaje `+16` no puede saldar
 `ΔS = +2`». Corrección nº 37 con su lección: medir sin el filtro antes
 de conjeturar inalcanzabilidad.
 
+# ⇢ LA TABLA FINAL DE LA JORNADA 03/04-08 (para empezar mañana por aquí)
+
+| # | resultado | estatus |
+|---|---|---|
+| 1 | **Perras** — `\|M\|=2 ⟺ stems de Garner` + conteo `2^{m−1}` con borde | teorema; novedad verificada (Garner/E-T/LaTourette) |
+| 2 | **Gatas** — contracción literal + reinicio uniforme + ecuación de renovación | teorema; (a) en Lean |
+| 3 | **Jirafas** — fusión balanceada ⟺ evento de clase (ida + recíproco) | lema-caracterización; C1 retirado, C2 demostrado |
+| 4 | **Pandas** — igual altura ⟹ mismo índice; `φ = d` (puente a Gao) | lema condicional (`Res < 3`; incond. < 2^71) |
+| 5 | **3 Chanchitos** — `b₄ = 7·2^{m−7}−m+4`, `c₄ = 6·2^{m−7}−m+4` | teoremas ∀m (grafo + puertas + torre + gasto) |
+| 6 | **Komodo 3** — mod 3: base + invariancia + inducción `komodo` | teorema EN LEAN (núcleo, 0 sorry) |
+| 7 | `e₆ = 3 + T(N−8)` | confirmada por predicción (N=16–18) |
+| 8 | Identidad entera `a(k+2) = a(k)+(2^k−1)+G+H`; `G=Σb`, `H=c` | teorema verificado (anti-tautología) |
+| 9 | Recursión vertical `e_s\|_{r≡1} = e_{s−2}(N−2)` | 4/4 + motor en Lean + espejo 4/4 |
+| 10 | Contabilidad de `e₈` = vertical + par (acum.) + r≡3 (directo) | exacta 4 niveles |
+| 11 | Sistema de φ: `φ=(1+β+γ)/3`, `β=γ/2+(φ+γ)/8+ε`, `γ=ρφ` | 1ª demostrada; 2ª 11/11 dos implementaciones; 3ª deconv. exacta |
+| 12 | **`φ = 8(1+ε)/(23−13ρ)`; `φ=1 ⟺ ε_torre=1/4 ⟺ paseo recurrente`** | la reducción final del programa |
+| 13 | Serie `R` = gérmenes de reentrada (1,0,1,3,2,4,9,14,25,47,89) | deconv. exacta; razones → 2 |
+| 14 | Paseo de la deuda: 3 leyes de torre; torres gemelas ±; monedas de Terras | leyes exactas; recurrencia = heurística |
+| 15 | Lemas menores: vórtice-iff, arranque D₁=1, C≡3^q, repunit, unicidades, huecos, gasto, P1–P3, T1/T2, aterrizajes | demostrados (varios en Lean) |
+
+**Lean nuevos hoy (5)**: `teoremadekomodo3`, `lemasdeperras`, `contracciondegatas`, `recursionvertical`, `torredeladeuda` — 10 en total, todos núcleo puro.
+**Muertas por los instrumentos (~12)**: familia fantasma, C1 de Jirafas, cierre 0.4504, supresión j=3 (×3), ley (−2)^j independiente, escalera e₈ cúbica, `Res<6`, `c(m−6)`, ε omitido, preludio doble, orden del +16.
+**Infra**: `auditoria_rigor.py` (35 tests R01–R35), 6 docs de revisión externa, 147 afirmaciones, 41 correcciones.
+**MAÑANA**: el paseo de la deuda — ¿recurrente sobre las clases? (= Gao–Wu). Y la retaguardia: k general del Lean de torre, flecos de R, Perras-conteo en Lean.
+
 # ⇢ EL GRAN CIERRE DE LA MADRUGADA DEL 04-08: LOS TRES ÁTOMOS Y LAS DOS FÓRMULAS
 
 La ráfaga de investigación abierta terminó con la estructura completa:
