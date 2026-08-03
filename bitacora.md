@@ -5,6 +5,32 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ EL CIERRE DEL 04-08: EL TEOREMA MOD 3 — DEMOSTRADO, FORMALIZADO, Y EL 6º .LEAN
+
+La jornada post-rigor-mortis cerró con la pieza redonda: **el teorema
+mod 3** — tras el paso 0 el lado mayor es siempre `≡ 2 (mod 3)` (base
+en ambas paridades) y «mayor no múltiplo de 3» es invariante para
+siempre. Con él, **el fenómeno de los aterrizajes queda CERRADO** (el
+módulo `|D| = 2^j` era definicional — corrección 39 —, el signo es este
+teorema), y las dos mitades del laboratorio (los rayos mudos del árbol
+inverso y la dinámica de pares) se tocan en un teorema común.
+**Y está FORMALIZADO: `teoremamod3.lean`**, el sexto `.lean`, núcleo
+puro, 0 `sorryAx` — el primer teorema del programa de fusión con
+verificación de máquina (sugerencia de la revisión externa, ejecutada
+la misma noche). Test R34 en `auditoria_rigor.py` (34/34).
+
+La foto honesta del día, en palabras del revisor: *«cuatro teoremas
+nuevos, seis conjeturas muertas, 39 correcciones y una frontera
+dibujada donde se sabe qué está demostrado y qué está solo medido»* —
+más `e₆` cuadrática confirmada en tres niveles vírgenes, la escalera
+fallada en `e₈` y registrada, LaTourette verificada (Perras ES nuevo),
+y el mod 3 rematado en Lean.
+
+**Pendientes con método, para sesión fresca**: (1) la contabilidad de
+canales de `e₈` (Lipmaa–Moriai 2001 como herramienta sugerida);
+(2) formalizar el conteo `2^{m−1}` de Perras (el 7º `.lean`);
+(3) el cruce LaTourette (21+27 pares) ↔ nuestros gérmenes.
+
 # ⇢ LA AUDITORÍA RIGOR MORTIS (04-08): 30/30, TODA AFIRMACIÓN CON SU TEST
 
 Orden del usuario: auditar HACIA ATRÁS — ninguna afirmación del día sin
