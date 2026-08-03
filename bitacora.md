@@ -349,6 +349,22 @@ reentrar depende de qué lado quedó menor — el censo actual mide `δ` en
 lados originales, hay que reorientarlo). Con esas masas, el sistema
 lineal se resuelve y **`f` queda decidida**.
 
+## ⇢ LAS MASAS DE CLASE, Y EL MURO CON NOMBRE (`masasdeclase.py`)
+
+El paso siguiente ejecutado: la descomposición exacta de `g` y `h` en
+masas de clase (enumeración mod `2^p`, `p = 8…16`, eventos de clase
+F/C/B con dos testigos). **El sistema es exacto y las horquillas
+rigurosas** — `f ∈ [0,4263, 1]` en `p = 16`, cota inferior subiendo,
+horquilla conteniendo siempre el `f` medido (0,4453). **Y el muro,
+honesto**: la masa indecisa decae ~2% por nivel — **el mismo muro de
+convergencia lenta que la razón de `b(k)`, porque es la misma pregunta
+escrita como sistema.** `a(32)/2^32 = 0,4357` sigue siendo la mejor cota
+inferior. La vía que queda (anotada en el fichero): NO subir `p` — la
+cola indecisa son «tramos largos antes de reentrar» y debería tener su
+propia renovación; ésa es la conjetura de trabajo para la próxima
+sesión. Jirafas quedó bautizado y con su `.txt` de revisión
+(`teoremadejirafas.txt`). Conteos del `CLAUDE.md`: **39**.
+
 ## ⇢ LA VERIFICACIÓN BIBLIOGRÁFICA DE LOS DOS TEOREMAS (orden del usuario)
 
 Leído entero **Elia–Tucker 2015** (arXiv:1511.09141, el PDF completo) y

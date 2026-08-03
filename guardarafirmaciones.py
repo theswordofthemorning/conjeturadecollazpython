@@ -724,6 +724,21 @@ AFIRMACIONES = [
          "densidad. LaTourette 2007 (tesis no accesible) definio los "
          "objetos; el conteo no consta alli tampoco."),
 
+    fila("las masas de clase del sistema de renovacion, por nivel: la "
+         "indecisa decae ~2% por nivel (0,65 en p = 16) y la horquilla "
+         "rigurosa de f es [0,4263, 1] en p = 16 - el sistema es exacto "
+         "pero converge LENTO: es el mismo muro que la razon de b(k), "
+         "porque es la misma pregunta",
+         "verificado_hasta", "medido", "masasdeclase.py", "propio",
+         "03-08-2026, noche. Enumeracion de clases mod 2^p (p = 8..16) "
+         "con dos testigos lejanos por clase; eventos de clase F/C/B "
+         "decididos en t <= p (correcto por Terras). Cortes: monotonia "
+         "de la cota inferior y de la masa indecisa, y la horquilla "
+         "contiene el f medido (0,4453). La via que queda NO es subir "
+         "p: es la renovacion de la cola (los tramos largos antes de "
+         "reentrar deberian tener su propia estructura). f sigue mejor "
+         "acotada por a(32)/2^32 = 0,4357."),
+
     fila("TEOREMA DE JIRAFAS (el balance forzado; bautizado por el "
          "usuario el 03-08-2026): toda fusion valida para una CLASE "
          "residual entera esta S-balanceada (la igualdad de las dos "
