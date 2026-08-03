@@ -899,6 +899,25 @@ AFIRMACIONES = [
          "de la continuacion: el conteo de preludios que produce el "
          "7 y el 6 de las dos formas."),
 
+    fila("LA DERIVACION DE b4 Y c4: los conteos por largo de preludio "
+         "son potencias de 2 menos 1 PURAS (una clase de preludio por "
+         "largo permitido x su ventana de Perras 2^(m-l-2) - 1), y "
+         "sumando sobre los largos permitidos -{3,4,6,7,...} en g (sin "
+         "el 5), {3,5,6,...} en h (sin el 4)- salen ALGEBRAICAMENTE "
+         "las dos formas cerradas: 7*2^(m-7)-m+4 y 6*2^(m-7)-m+4",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; el cierre de la rafaga. Medido en "
+         "m = 13: g da 255,127,-,31,15,7,3,1 y h da 255,-,63,31,15,7,"
+         "3,1 - las sumas geometricas reproducen el 7 y el 6 de las "
+         "formulas EXACTO. Para el ascenso a teorema faltan solo DOS "
+         "lemas de preludio unico (mismo genero que la unicidad de "
+         "|M| = 2 del piso de arriba: candidatos por v2 + condicion de "
+         "valor) y la explicacion de los dos huecos (sin largo 5 en g, "
+         "sin largo 4 en h - la asimetria g/h otra vez). El patron "
+         "'un germen por ventana' es ya LA CUARTA aparicion de la "
+         "misma estructura: el triangulo entero parece generado por "
+         "germenes unicos y ventanas de Perras."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "

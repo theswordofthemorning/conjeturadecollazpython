@@ -403,6 +403,18 @@ ser más chico de lo que parecía. `afirmaciones.db`: **110
 afirmaciones.** La demostración de `b₄`/`c₄` por preludios sobre
 gérmenes inferiores es la primera tarea de la continuación.
 
+**Y LA RÁFAGA CERRÓ CON LA DERIVACIÓN**: (1) la anatomía universal del
+estrato 4 reducido — 686/686 clases son «preludio + ventana de Perras»;
+(2) los conteos por largo de preludio son potencias de 2 menos 1 PURAS
+(una clase de preludio por largo × su ventana), y la suma geométrica
+sobre los largos permitidos ({3,4,6,7,…} en `g` sin el 5; {3,5,6,…} en
+`h` sin el 4) **reproduce algebraicamente las dos formas cerradas** —
+el 7 y el 6 derivados. Para el ascenso a teorema faltan DOS lemas de
+preludio único (género de la unicidad de `|M|=2`) y los dos huecos.
+**Es la CUARTA aparición del patrón «germen único + ventana de
+Perras»: el triángulo entero parece generado por esa sola estructura.**
+`afirmaciones.db`: **112 afirmaciones.**
+
 ## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
 
 Los puntos 3–5 de la orden del revisor, ejecutados la misma noche:
