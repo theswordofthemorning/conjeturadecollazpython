@@ -936,6 +936,25 @@ AFIRMACIONES = [
          "fina del preludio 2-mixto queda como el ultimo lema "
          "pendiente del ascenso."),
 
+    fila("LA UNICIDAD DEL PRELUDIO, decide-verificada, y con ella b4 Y "
+         "c4 DEMOSTRADAS EN EL RANGO: cada largo permitido tiene "
+         "EXACTAMENTE UN preludio 2-mixto al modulo natural 2^L "
+         "(germenes explicitos: 6, 11, -, 55, 95, 7, 487, 199, 1863, "
+         "1479 en g; 1, -, 19, 15, 11, 219, 299, 747, 171, 1451 en h), "
+         "L = 3..12, y los huecos dan cero",
+         "clase_residual", "demostrado", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; el remate de la rafaga. La cadena "
+         "completa: preludio unico (decide, L <= 12) + lemas de hueco "
+         "(decide) + proposicion de la ventana de Perras (demostrada "
+         "para todo k) + suma geometrica (algebra pura) => las formas "
+         "cerradas b4(m) = 7*2^(m-7)-m+4 y c4(m) = 6*2^(m-7)-m+4 son "
+         "TEOREMAS para el rango m <= 14 (y coherentes con la "
+         "prediccion confirmada en 15 y 16). El caso 'para todo m' "
+         "pende de UN solo lema: la unicidad del preludio para todo L "
+         "(candidato al metodo v2 + condicion de valor de la unicidad "
+         "de |M| = 2). En una noche: conjetura -> prediccion "
+         "confirmada -> derivacion -> teorema en rango."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "

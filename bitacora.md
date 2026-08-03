@@ -415,6 +415,15 @@ preludio único (género de la unicidad de `|M|=2`) y los dos huecos.
 Perras»: el triángulo entero parece generado por esa sola estructura.**
 `afirmaciones.db`: **112 afirmaciones.**
 
+**Y EL REMATE**: los dos lemas de hueco (decide: sin largo 5 en `g`,
+sin largo 4 en `h`) y **la unicidad del preludio 2-mixto**
+(decide-verificada al módulo natural, `L = 3…12`, gérmenes explícitos)
+⟹ **`b₄` y `c₄` son TEOREMAS en el rango `m ≤ 14`** — la cadena
+preludio único + huecos + ventana de Perras + suma geométrica. El caso
+general pende de UN lema (unicidad del preludio para todo `L`, método
+`v₂`). En una noche: conjetura → predicción confirmada → derivación →
+teorema en rango. `afirmaciones.db`: **114 afirmaciones.**
+
 ## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
 
 Los puntos 3–5 de la orden del revisor, ejecutados la misma noche:
