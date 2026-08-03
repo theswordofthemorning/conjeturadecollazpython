@@ -1305,6 +1305,26 @@ AFIRMACIONES = [
          "contabilidad fina (constantes y empalmes) es el pendiente "
          "para el ascenso a teorema; la estructura ya esta."),
 
+    fila("LA CONJETURA DE LA ESCALERA, FALLADA EN e8 Y REGISTRADA: la "
+         "prediccion 'e8 cubica en su cola' es FALSA en los niveles "
+         "medidos - e8 = 3,7,15,27,45,73,111,166,237 (N = 10..18) con "
+         "terceras diferencias 0,2,4,0,7,-1: no constantes, no "
+         "polinomial en el rango. DIAGNOSTICO: el insumo de e8 (las "
+         "nuevas de estrato 6 reducidas: 3,5,8,14,22,34) tampoco es "
+         "polinomial aun - el argumento de composicion es correcto "
+         "pero el regimen polinomial de los pisos profundos no ha "
+         "empezado en los niveles alcanzables",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026; prediccion fallada y anotada, como las otras dos "
+         "de la sesion. LO QUE QUEDA EN PIE: e2, e4 (constantes = 1), "
+         "e6 cuadratica confirmada por prediccion, y las formas "
+         "cerradas b4/c4 - la escalera existe hasta el tercer peldano; "
+         "el cuarto exige la contabilidad de canales completa (rutas "
+         "r=3, composiciones dobles, empalmes), no una extrapolacion "
+         "de forma. La leccion: 'cada estrato es la integral del "
+         "anterior' vale como MECANISMO demostrable, no como formula "
+         "que se adivina - los empalmes mandan en los niveles bajos."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
