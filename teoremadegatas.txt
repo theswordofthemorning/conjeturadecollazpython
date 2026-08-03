@@ -1,0 +1,171 @@
+================================================================================
+EL TEOREMA DE GATAS (el reinicio uniforme y la ecuacion de renovacion)
+Documento autocontenido para revision externa. 03-08-2026.
+Se pide al revisor: intentar ROMPERLO, no aplaudirlo. Al final hay una lista
+de los puntos donde creemos que hay que atacar. Depende de las definiciones
+de la seccion 1 del documento hermano (teoremadeperras.txt); se repiten
+aqui las esenciales para que sea autocontenido.
+================================================================================
+
+1. DEFINICIONES
+--------------------------------------------------------------------------------
+T(n) = n/2 (n par), (3n+1)/2 (n impar). Par consecutivo (r, r+1), con las
+dos trayectorias seguidas a la vez. FUSION DE CLASE: primer k con
+T^k(r) = T^k(r+1) y ademas S_k(r) = S_k(r+1) (mismos pasos impares).
+
+TEOREMA DE TERRAS (1976), usado como caja demostrada: residuos mod 2^m
+<-> vectores de paridad de largo m, biyectivamente. Consecuencia estandar
+(Terras 1.2): fijado un prefijo de paridad de largo p, el iterado T^p
+recorre biyectivamente las clases modulo las potencias de 2 restantes; en
+particular, si n es uniforme en su clase, T^p(n) es uniforme.
+
+LA CANTIDAD f. Sea a(k) = numero de residuos r mod 2^k tales que el par
+(r, r+1) se funde de clase en, a lo sumo, k pasos (esta bien definido:
+depende solo de r mod 2^k por Terras). Se sabe (elemental, demostrado en
+el repositorio de origen) que a(k+1) >= 2 a(k), luego a(k)/2^k es
+no-decreciente y acotada por 1: EXISTE
+
+    f = lim a(k)/2^k     (la "probabilidad de fusion" 2-adica).
+
+Valores medidos: a(32)/2^32 = 0,4357...; con topes de simulacion mas
+largos, f =~ 0,445. La pregunta abierta que motiva todo: es f = 1?
+(Eso equivaldria a "casi todo par consecutivo se funde", la version en
+densidad de una conjetura de la escuela de Wu Jia-Bang / Garner.)
+
+2. EL TEOREMA
+--------------------------------------------------------------------------------
+TEOREMA (Gatas).
+
+  (a) LA CONTRACCION ES LITERAL Y UNIFORME. Si r = 4t + 1, entonces tras
+      exactamente dos pasos el par se convierte en el par CONSECUTIVO
+      { 3t+1, 3t+2 }, con el marcador de pasos impares equilibrado
+      (Delta_S = 0 en ese instante). Ademas t -> 3t+1 es una biyeccion de
+      Z/2^m para todo m. En consecuencia, si r es uniforme en su clase,
+      el par contraido es un par consecutivo FRESCO Y UNIFORME, y
+
+          P(fusion de clase | r = 1 mod 4)  =  f      (la misma incognita).
+
+  (b) EL PARAMETRO DEL REBOTE ES UNIFORME. Para r par que NO funde con
+      |M| = 2 (el complemento del teorema de Perras: prefijo de paridad
+      de s1 = r/2 de la forma 1^j 0 0), el par llega al estado
+      { w, 9w + 2 } con w = T^{j+2}(s1), y condicionado al prefijo, w es
+      EXACTAMENTE uniforme (Terras 1.2). El marcador arrastrado es
+      Delta_S = +2 (dos impares de ventaja del lado de r+1).
+
+  (c) LA ECUACION DE RENOVACION (corolario de (a), (b) y Perras):
+
+          f  =  1/4 * 1  +  1/4 * f  +  1/4 * g  +  1/4 * h
+
+      donde
+        g = P(fusion de clase | estado { w, 9w+2 }, w uniforme,
+              objetivo Delta_S = -2),
+        h = P(fusion de clase | r = 3 mod 4).
+      Y en particular  f >= 1/3  (tomar g, h >= 0 y despejar).
+
+3. DEMOSTRACION
+--------------------------------------------------------------------------------
+(a) r = 4t+1 impar: T(r) = (3r+1)/2 = 6t+2; T(r+1) = (r+1)/2 = 2t+1.
+    Segundo paso: 6t+2 par -> 3t+1; 2t+1 impar -> 3t+2. El par es
+    { 3t+1, 3t+2 }, consecutivo. Delta_S: el paso 0 sumo un impar al lado
+    de r (r impar), el paso 1 sumo un impar al lado de r+1 (2t+1 impar):
+    equilibrado. La biyeccion t -> 3t+1 mod 2^m: 3 es impar, luego
+    invertible modulo toda potencia de 2. La uniformidad se hereda.
+    (Notese: el sub-problema de fusion del par fresco es identico en
+    distribucion al original: eso es la AUTOSIMILITUD EXACTA.)
+
+(b) Por Perras, "no fundir con |M| = 2" para r par es exactamente el
+    prefijo 1^j 0 0 en s1. Siguiendo la dinamica de la coordenada
+    D = gap - 2*menor - 1 (documento hermano): D = 1 tras el paso 0,
+    D cae a 0 en el primer compartido-par, y el estado ahi es
+    { s*, 3s*+1 } con s* = T^{j+1}(s1) PAR (esa es la condicion de no
+    fundir). El paso mixto siguiente (el "rebote") es: s* -> s*/2 y
+    3s*+1 -> (3(3s*+1)+1)/2 = (9s*+4)/2. Con w = s*/2 queda { w, 9w+2 }.
+    Delta_S: paso 0 (+1 al lado r+1) y el rebote (3s*+1 impar esta en el
+    lado de r+1: +1 otra vez): Delta_S = +2. La uniformidad de
+    w = T^{j+2}(s1) condicionada al prefijo es Terras 1.2.
+    VERIFICACION INDEPENDIENTE: 8.191 rebotes de pares reales simulados,
+    todos aterrizan en { w, 9w+2 }, cero excepciones.
+
+(c) Particion de r uniforme en cuatro ramas de medida exacta 1/4:
+      r = 0, 2 mod 4 (par): por Perras, la MITAD exacta funde ya con
+        |M| = 2 (aporta 1/2 * 1/2 = 1/4), y la otra mitad rebota al
+        estado de (b) (aporta 1/2 * 1/2 * g = g/4);
+      r = 1 mod 4: por (a), aporta f/4;
+      r = 3 mod 4: por definicion, aporta h/4.
+    Sumando: f = 1/4 + f/4 + g/4 + h/4. QED.
+
+4. EVIDENCIA DE QUE LA ECUACION ES CORRECTA (y una historia de honestidad)
+--------------------------------------------------------------------------------
+Medido con simulacion (pares hasta 2^16, tope 3000 pasos; el estado del
+rebote hasta w < 2^15):
+
+    f =~ 0,4453    g =~ 0,1881    h =~ 0,1729
+    1/4 + f/4 + g/4 + h/4 = 0,4504  contra  f = 0,4453   (cierra; la
+    diferencia es consistente con el truncamiento por topes).
+
+LA ECUACION FUNCIONO COMO DETECTOR: en su primer uso NO cerraba (daba
+0,4039), y perseguir la discrepancia destapo un error nuestro: habiamos
+derivado el estado del rebote como { w, 6w+2 } (confundiendo el gap con el
+valor mayor). La ecuacion delato la familia fantasma; la real es
+{ w, 9w+2 }. Registrado como correccion en el repositorio de origen.
+
+5. POR QUE IMPORTA
+--------------------------------------------------------------------------------
+Si g y h se calculan EXACTOS (el metodo candidato: descomponer por los
+primeros bits de w, como en Perras, buscando sub-renovaciones), el sistema
+se cierra y f queda DECIDIDA:
+  - f = 1 seria "casi todo par consecutivo de enteros tiene la misma
+    altura de Collatz" (version en densidad de la conjetura de Wu);
+  - f < 1 tambien seria un teorema (el techo exacto de la densidad de
+    fusion), igualmente publicable.
+Aviso de alcance, para que el revisor no nos lo tenga que decir: NADA de
+esto ataca la convergencia de Collatz. El programa de fusiones es ciego al
+signo del +-1 (hay un teorema de espejo en el repositorio de origen:
+el conteo de clases fundidas es identico para 3n+1 y 3n-1). El objetivo es
+la conjetura de densidad de fusiones, no la conjetura de Collatz.
+
+6. VERIFICACION COMPUTACIONAL (nuevasfusion.py, COMPROBACION 16)
+--------------------------------------------------------------------------------
+  - Contraccion literal verificada para todo t < 2^14.
+  - Biyeccion t -> 3t+1 mod 2^m verificada m = 1..12.
+  - Uniformidad del rebote: para j = 0..5, los s1 con prefijo 1^j 0 0
+    recorren las 64 clases de w mod 64 exactamente una vez cada una.
+  - La identidad del estado del rebote: 8.191 casos reales, 0 excepciones.
+
+7. ESTADO BIBLIOGRAFICO (verificado el 03-08-2026)
+--------------------------------------------------------------------------------
+No encontramos en la literatura ni la autosimilitud exacta de la fusion de
+consecutivos ni una ecuacion de renovacion para ella. Lo mas cercano:
+arXiv:2005.09456 (distribucion del primer punto de coalescencia) estudia
+pares (n, 3n+2), es empirico, y esta RETIRADO por su autor. Garner 1985 y
+Elia-Tucker 2015 estudian que pares funden, no la estructura recursiva de
+la probabilidad. "No encontrado" no es "no existe": si el revisor conoce
+un antecedente, la referencia es bienvenida.
+
+8. DONDE ATACAR (lista para el revisor)
+--------------------------------------------------------------------------------
+  B1. LA DEFINICION DE f: existe como limite (monotonia a(k+1) >= 2a(k));
+      pero las probabilidades condicionales g y h, estan bien definidas
+      como limites analogos? Este es el punto mas delicado del documento:
+      el paso de "densidad 2-adica" a "ecuacion entre limites" usa que
+      cada rama es union de clases residuales y que los condicionamientos
+      son uniformes. Verificar que no hay un intercambio de limites sin
+      justificar.
+  B2. La contabilidad de Delta_S = +2 en el rebote: verificar con un par
+      concreto (r = 8: (8,9) -> (4,14) -> (2,7) -> rebote -> (1,11);
+      quien es el lado impar en cada mixto?).
+  B3. La particion en cuatro ramas: exhaustiva y disjunta? (r par se parte
+      por Perras en "funde ya" / "rebota"; comprobar que no hay tercera
+      opcion para r par, p. ej. trayectorias que nunca alcanzan D = 0.
+      Nuestro argumento: con D = 1, el primer compartido-par baja a 0, y
+      toda trayectoria de s1 tiene algun valor par en tiempo finito porque
+      v_2(s1 + 1) es finito. Verificar ese "porque".)
+  B4. La uniformidad condicionada (Terras 1.2): el enunciado exacto que
+      usamos es "fijado el prefijo de paridad de largo p, el mapa
+      s1 -> T^p(s1) es biyectivo entre la clase del prefijo mod 2^{p+m} y
+      Z/2^m". Verificar que es la version correcta del teorema.
+  B5. El corolario f >= 1/3: trivial si (c) vale; cae si (c) cae.
+  B6. Si el revisor conoce literatura de renovacion/autosimilitud en
+      coalescencia de trayectorias de Collatz (o en arboles de Terras),
+      decirlo con referencia.
+================================================================================

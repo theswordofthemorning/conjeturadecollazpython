@@ -1,0 +1,181 @@
+================================================================================
+EL TEOREMA DE PERRAS (la mitad exacta del estrato 2)
+Documento autocontenido para revision externa. 03-08-2026.
+Se pide al revisor: intentar ROMPERLO, no aplaudirlo. Al final hay una lista
+de los puntos donde creemos que hay que atacar.
+================================================================================
+
+1. DEFINICIONES DESDE CERO
+--------------------------------------------------------------------------------
+Mapa de Collatz acelerado (el "atajo", T en la literatura):
+
+    T(n) = n/2          si n es par
+    T(n) = (3n+1)/2     si n es impar
+
+(En el atajo cada paso impar incluye ya una division, porque 3n+1 es par.)
+
+VECTOR DE PARIDAD de n: la sucesion de paridades de n, T(n), T^2(n), ...
+(1 = impar, 0 = par). TEOREMA DE TERRAS (1976, Acta Arithmetica 30): para
+todo m, el mapa que manda cada residuo r mod 2^m a sus primeros m bits de
+paridad es una BIYECCION entre Z/2^m y {0,1}^m. Lo usamos como caja
+demostrada; es estandar.
+
+S_k(n) = numero de pasos impares entre los k primeros.
+
+PAR CONSECUTIVO: (r, r+1). Seguimos las dos trayectorias a la vez:
+x_i = T^i(r), y_i = T^i(r+1).
+
+FUSION: el primer indice k con x_k = y_k. Decimos que la fusion es DE CLASE
+(o "con S igualada") si ademas S_k(r) = S_k(r+1). En ese caso r y r+1
+tienen la misma altura en el mapa clasico de Collatz (mismo numero de pasos
+T y mismo numero de impares => mismo numero de pasos clasicos, porque
+pasos clasicos = pasos T + impares).
+
+PASO MIXTO: un indice i donde x_i, y_i tienen paridades DISTINTAS.
+Observacion elemental: paridades distintas <=> la diferencia |x_i - y_i|
+es impar. |M| = numero de pasos mixtos hasta la fusion, contando el paso
+de la fusion misma. (En el paso 0 el par (r, r+1) siempre es mixto.)
+
+LA COORDENADA D: para un estado {s, s+g} (s el menor, g > 0 el gap),
+
+    D = g - 2s - 1.
+
+2. TRES LEMAS PREVIOS
+--------------------------------------------------------------------------------
+LEMA 1 (el vortice). En un paso mixto desde {s, s+g} (g impar), la fusion
+en el paso siguiente ocurre si y solo si D = 0 y s es impar.
+  Demostracion. Si s impar (s+g par): T(s) = (3s+1)/2 y T(s+g) = (s+g)/2;
+  iguales <=> g = 2s+1 <=> D = 0. Si s par (s+g impar): T(s) = s/2 y
+  T(s+g) = (3(s+g)+1)/2; iguales daria 3s+3g+1 = s, imposible en positivos.
+
+LEMA 2 (la dinamica de D en pasos compartidos). Si el paso es compartido
+(ambos pares o ambos impares; el tipo es la paridad comun, que es la de s):
+  - ambos pares:   {s, s+g} -> {s/2, (s+g)/2}:        D' = (D-1)/2
+  - ambos impares: {s, s+g} -> {(3s+1)/2, (3(s+g)+1)/2}: D' = (3D-1)/2
+  (Cuentas directas. Notese: D es impar durante un tramo compartido, porque
+  g es par y 2s+1 impar.)
+  COROLARIO: si D = 1, los compartidos-impares dejan D = 1 y el PRIMER
+  compartido-par baja D a 0 (y entonces g = 2s+1 impar: el paso siguiente
+  es mixto).
+
+LEMA 3 (el orden no se voltea). Si en cada paso ambos lados son >= 1 y el
+paso no es la fusion, el lado menor sigue siendo el menor tras un paso
+compartido (ambas ramas son crecientes en el valor), y tras el paso mixto
+inicial del par (r, r+1) con r par (calculo del paso 3 abajo). Por tanto,
+en toda la ventana que usa el teorema, el lado de r es siempre el menor.
+
+3. EL TEOREMA
+--------------------------------------------------------------------------------
+TEOREMA (Perras). Sea r PAR, s1 = r/2, y sea j >= 0 el numero de iterados
+impares iniciales de s1 (es decir: s1, T(s1), ..., T^{j-1}(s1) impares y
+T^j(s1) par). Entonces:
+
+  (a) EQUIVALENCIA. El par (r, r+1) se funde con |M| = 2 y S igualada
+      si y solo si T^{j+1}(s1) es IMPAR
+      (en palabras: en el vector de paridad de s1, el primer 0 va seguido
+      de un 1). En ese caso la fusion ocurre exactamente en el paso j+3.
+
+  (b) CONTEO EXACTO. El numero de s1 en [1, 2^m) que cumplen la condicion
+      es EXACTAMENTE 2^{m-1}, para todo m >= 2. (Densidad exacta 1/2.)
+
+4. DEMOSTRACION
+--------------------------------------------------------------------------------
+PASO 1 (el arranque). r par, r+1 impar: paso 0 mixto. Tras el:
+  x1 = r/2 = s1,   y1 = (3(r+1)+1)/2 = 3s1 + 2.
+Gap g1 = 2s1 + 2, menor s1 (lado de r). D1 = (2s1+2) - 2s1 - 1 = 1.
+
+PASO 2 (el tramo con D = 1). Por el Lema 2, mientras los pasos sean
+compartidos D se queda en 1 en los impares y cae a 0 en el primer par.
+El tipo de cada paso compartido es la paridad del menor, y el menor es la
+trayectoria de s1 (Lema 3). Por definicion de j: hay j compartidos-impares
+y despues un compartido-par. En el indice j+2 el estado es
+
+    { s*, 3s* + 1 }   con   s* = T^{j+1}(s1),   D = 0.
+
+El gap 2s*+1 es impar: el paso j+2 es mixto (el segundo).
+
+PASO 3 (la disyuntiva del vortice, Lema 1).
+  - Si s* es IMPAR: fusion en el paso j+3. Mixtos: el 0 y el j+2. |M| = 2.
+  - Si s* es PAR: no hay fusion en ese mixto, y cualquier fusion posterior
+    necesita un tercer mixto: |M| >= 3. Luego |M| = 2 es imposible.
+Esto prueba la equivalencia de (a) — la unica llegada a D = 0 en una
+historia con |M| = 2 es la descrita, porque partiendo de D = 1 la dinamica
+del Lema 2 solo alcanza D par (condicion de paso mixto) en el valor 0.
+
+PASO 4 (S igualada, automatica). El paso 0 suma un impar al lado de r+1
+(r+1 es el impar). El paso j+3 (la fusion) suma un impar al lado de r
+(s* esta en el lado de r, que es el menor, Lema 3). Los compartidos suman
+a ambos por igual. Total: S iguales. Con S igual y mismo numero de pasos,
+misma altura clasica.
+
+PASO 5 (el conteo, con el borde resuelto). Por la biyeccion de Terras, la
+condicion "vector de s1 empieza con 1^j 0 1" para algun j <= m-2 define
+exactamente sum_{j=0}^{m-2} 2^{m-j-2} = 2^{m-1} - 1 residuos mod 2^m.
+Quedan DOS residuos cuyo patron de m bits no decide (no contienen "01"
+completo): el de vector 1^m, que es s1 = 2^m - 1, y el de vector
+1^{m-1} 0, que es s1 = 2^{m-1} - 1. Para ellos se usa la identidad
+T(2c - 1) = 3c - 1, que da T^i(2^a - 1) = 3^i 2^{a-i} - 1 y por tanto
+el primer valor par de la trayectoria de 2^a - 1 es 3^a - 1:
+  - s1 = 2^{m-1} - 1: j = m-1, y T^{j+1}(s1) = (3^{m-1}-1)/2, impar
+    <=> 3^{m-1} = 3 (mod 4) <=> m-1 impar <=> m PAR.
+  - s1 = 2^m - 1: j = m, y (3^m - 1)/2 impar <=> m IMPAR.
+Para cada m cumple EXACTAMENTE UNO de los dos. Total: 2^{m-1} - 1 + 1 =
+2^{m-1}. QED.
+
+5. EJEMPLOS
+--------------------------------------------------------------------------------
+  r = 4:  s1 = 2, j = 0 (2 es par ya), T(2) = 1 impar -> fusion en paso 3.
+          (4,5): 4->2->1->2 ; 5->8->4->2. Es la familia (8k+4, 8k+5) de
+          Garner 1985.
+  r = 2:  s1 = 1, j = 1, T^2(1) = 1 impar -> fusion en paso 4.
+          (2,3): 2->1->2->1->2 ; 3->5->8->4->2.
+  r = 6:  s1 = 3, vector de 3: 1,1,0,0,... primer 0 seguido de 0 -> NO hay
+          fusion con |M| = 2. (De hecho (6,7) tiene alturas distintas.)
+
+6. VERIFICACION COMPUTACIONAL (nuevasfusion.py, COMPROBACION 15)
+--------------------------------------------------------------------------------
+  - Equivalencia (a) verificada EXHAUSTIVAMENTE para todo s1 < 2^16
+    (65.535 pares), simulando cada par hasta su fusion real y comparando
+    con la condicion de bits. Cero discrepancias.
+  - Conteo (b) verificado exacto para m = 2..16. Cero discrepancias.
+  - Ademas: entre todas las fusiones con S igualada de pares con r par
+    hasta 2^20, las de |M| = 2 son exactamente 2^18.
+
+7. ESTADO BIBLIOGRAFICO (verificado el 03-08-2026)
+--------------------------------------------------------------------------------
+  - Garner 1985 (Discrete Math. 55, 57-64) definio los "stems"
+    s_i = <0,1,...,1,0,1> — que son EXACTAMENTE nuestro patron — y demostro
+    la SUFICIENCIA (nuestra mitad <=). Conjeturo que TODA fusion de
+    consecutivos termina en sus stems.
+  - Elia y Tucker 2015 (INTEGERS 15, #A54; arXiv:1511.09141) REFUTARON esa
+    necesidad general: contraejemplo minimo (3067, 3068), familia infinita
+    2^19 m + 3067. Solo dieron densidades empiricas (0,214% de
+    contraejemplos entre pares de la misma altura bajo 5e9).
+  - LO QUE ESTE TEOREMA ANADE y no hemos encontrado publicado:
+    (1) la necesidad restringida al estrato minimo es VERDADERA:
+        |M| = 2  <=>  stems de Garner  (los contraejemplos de Elia-Tucker
+        viven todos en |M| >= 4);
+    (2) el conteo exacto 2^{m-1} con el borde resuelto.
+  - No pudimos acceder a LaTourette 2007 (tesis de grado, Moravian College),
+    que definio "stems" y "blocks"; que el conteo este alli es posible pero
+    no consta. "No encontrado" no es "no existe".
+
+8. DONDE ATACAR (lista para el revisor)
+--------------------------------------------------------------------------------
+  A1. El Lema 3 (el orden no se voltea) esta enunciado con menos detalle
+      que el resto: verificar que en la ventana [0, j+3] el lado de r es
+      siempre el menor, incluyendo el caso s1 = 1 y los primeros indices.
+  A2. La afirmacion "partiendo de D = 1 la unica llegada a D par es 0"
+      (final del Paso 3): comprobar que no hay otra manera de tener un
+      segundo mixto con |M| = 2.
+  A3. El conteo del borde: los DOS residuos indecisos y la identidad
+      T^i(2^a - 1) = 3^i 2^{a-i} - 1; verificar los casos m par / m impar.
+  A4. La equivalencia "S igual + mismos pasos => misma altura clasica":
+      revisar la conversion atajo/clasico.
+  A5. El rango del conteo: [1, 2^m) excluye s1 = 0 (r = 0); comprobar que
+      no hay off-by-one (comparar con la tabla m = 2: s1 = 1, 2 si;
+      s1 = 3 no; total 2 = 2^1).
+  A6. Bibliografia: si el revisor conoce el conteo exacto o la version
+      estratificada en la literatura (Wu Jia-Bang 1992-95, LaTourette 2007,
+      trabajos posteriores a 2015), decirlo con la referencia.
+================================================================================
