@@ -1422,6 +1422,21 @@ AFIRMACIONES = [
          "la no-polinomialidad de e8 vive entera en los canales "
          "horizontales (pisos reducidos), ahora aislada."),
 
+    fila("EL MOTOR DE LA RECURSION VERTICAL, FORMALIZADO "
+         "(recursionvertical.lean, el NOVENO .lean): titer_shift "
+         "(Titer (k+2) (4t+1) = Titer k (3t+1), la trayectoria absorbe "
+         "los dos pasos exactos), s_shift (cada lado gana UN impar), "
+         "mixto0/mixto1 (los dos pasos son mixtos: el estrato sube 2), "
+         "y FUSION_DESPLAZA como iff: el par funde balanceado en k+2 "
+         "sii el contraido funde balanceado en k. Nucleo puro, cero "
+         "sorryAx, compilado a la primera",
+         "todo_n", "demostrado", "recursionvertical.lean", "propio",
+         "04-08-2026; el paso 1 de los tres del cierre. Lo que queda "
+         "declarado para el conteo completo e_s(N)|r=1 = e_{s-2}(N-2): "
+         "la biyectividad de t -> 3t+1 mod 2^m (el paso de clases, "
+         "pendiente - exige induccion en m que omega no come). Cuatro "
+         ".lean del programa de fusion en una noche."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
