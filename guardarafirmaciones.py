@@ -992,7 +992,12 @@ AFIRMACIONES = [
          "(-1)^(divisiones+1). Demostrarlo es el corazon del lema "
          "general del preludio: la dinamica de D con dianas en las "
          "potencias de (-2). Los estratos 4 (18/18 en {-2,-8}) y 6 "
-         "(260/260 en {-2,+4,-8}) lo cumplen sin excepcion."),
+         "(260/260 en {-2,+4,-8}) lo cumplen sin excepcion. REFUERZO "
+         "de la misma madrugada: m = 13, 14 anaden 1.868 aterrizajes "
+         "mas - CERO prohibidos en 2.146 acumulados - y el +16 aun no "
+         "aparece (esperable: +4 es el 2,6 por ciento y (-2)^4 deberia "
+         "ser un orden mas raro): la prediccion sigue viva y sin "
+         "falsar."),
 
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
