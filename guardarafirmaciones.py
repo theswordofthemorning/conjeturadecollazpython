@@ -1494,6 +1494,25 @@ AFIRMACIONES = [
          "los canales - queda resumido en una ecuacion de tres "
          "terminos. La pregunta del laboratorio es ahora: beta = 1?"),
 
+    fila("EL SISTEMA DE IDENTIDADES ENTERAS ENTRE LOS TRES PISOS: "
+         "(1) b_impar(m) = c(m-1) - la puerta P1 como conteo, 6/6 "
+         "exacta; (2) b_2mod4(m) = a(m-3) + c(m-6) - el canal w = 2 "
+         "mod 4 aterriza en el problema CONSECUTIVO tres niveles abajo "
+         "mas un eco c seis niveles abajo, 6/6 exacta; (3) b_0mod4 ~ 0 "
+         "(la torre, suprimida: 0,0,0,0,0,1). EN FORMA LIMITE: "
+         "beta = gamma/2 + phi/8 + gamma/64 + epsilon_torre - la "
+         "segunda ecuacion del sistema de phi",
+         "verificado_hasta", "medido", "auditoria_rigor.py", "propio",
+         "04-08-2026; el sistema se cierra: con phi = (1+beta+gamma)/3 "
+         "(demostrada) y esta, queda UNA ecuacion pendiente (la "
+         "descomposicion de c por el grafo: c(m) = suma de ventanas "
+         "sobre a - el analogo con los largos del grafo {-3,-5}). Con "
+         "las tres, el sistema lineal en (phi, beta, gamma) mas las "
+         "colas de torre DECIDE los limites - la pregunta beta = 1 "
+         "tendra respuesta algebraica. Las dos identidades de hoy son "
+         "ademas demostrables por las puertas ya formalizadas: P1 es "
+         "lean, y el canal w = 2 mod 4 es P2 + P3 + contraccion."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
