@@ -1052,6 +1052,24 @@ AFIRMACIONES = [
          "(D0 = 6w+1 impar, mixed0 es aterrizaje tambien) es el "
          "analogo pendiente - mismo metodo, otro grafo."),
 
+    fila("LA UNIFICACION DE LOS DOS PISOS: el piso g entra al MISMO "
+         "grafo {-3, -5} que el h - el estado tras el primer mixto de "
+         "sus germenes es D = -3 en los 8 casos con L >= 4 (y el de "
+         "L = 3 aterriza directo en -2). Los dos lemas de preludio "
+         "comparten el corazon; la diferencia entera de los pisos es "
+         "el TRAMO DE ENTRADA (g trae un compartido previo), que "
+         "explica los conjuntos de largos {3,4,6,7,...} vs {3,5,6,...}",
+         "verificado_hasta", "medido", "identidadexacta.py", "propio",
+         "03-08-2026, madrugada; medido sobre los 9 germenes de g con "
+         "testigos grandes. Reduce el lema de b4 a dos piezas de "
+         "entrada: (a) demostrar que el mixto inicial de g fuerza "
+         "D = -3 (el analogo del calculo de una linea de h), y (b) la "
+         "contabilidad del tramo de entrada que produce el hueco en "
+         "L = 5. Con ellas, b4(m) = 7*2^(m-7) - m + 4 seria teorema "
+         "para todo m y el sistema de phi tendria sus dos masas "
+         "exactas completas. La asimetria g/h queda LOCALIZADA: no es "
+         "del grafo, es de la puerta."),
+
     fila("EL LEMA GENERAL DEL VORTICE: toda PRIMERA coincidencia de dos "
          "trayectorias distintas del atajo es un vortice - T(a) = T(b) "
          "con a != b fuerza paridades opuestas y {a, b} = {3v+..., v} "
