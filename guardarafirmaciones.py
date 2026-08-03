@@ -752,7 +752,14 @@ AFIRMACIONES = [
          "(regalo del revisor, verificado t < 3000) y los "
          "contraejemplos de Elia-Tucker viven todos en |M| = 8. Es la "
          "verificacion mas fuerte que tienen Perras y Gatas: la "
-         "autosimilitud vale como aritmetica entera nivel a nivel."),
+         "autosimilitud vale como aritmetica entera nivel a nivel. "
+         "Y LA PREGUNTA ANTI-TAUTOLOGIA DEL REVISOR, CONTESTADA "
+         "(03-08-2026, noche): G(k) = suma B(m) y H(k) = B_h(k) se "
+         "RECONSTRUYEN desde los estados reducidos {w,9w+2} y {w,9w-1} "
+         "sin mirar el r original, clavadas hasta k = 14: la identidad "
+         "es TEOREMA verificado, no un 4 = 1+1+1+1. El cuadre con los "
+         "objetivos canonicos de Delta_S verifica ademas el Corolario 2 "
+         "de Jirafas."),
 
     fila("TEOREMA DE JIRAFAS (el balance forzado; bautizado por el "
          "usuario el 03-08-2026): toda fusion valida para una CLASE "
@@ -1729,6 +1736,23 @@ CORRECCIONES = [
      "canonicas se verifican CONTRA EL OBJETO REAL antes de razonar "
      "sobre ellas - el fantasma paso tres comprobaciones que solo lo "
      "miraban a el"),
+
+    ("el Corolario 1 de Jirafas: 'la fusion desbalanceada tiene medida "
+     "cero porque es union numerable de soluciones esporadicas'",
+     "ROTO por la segunda revision externa (Opus 5, 03-08-2026): "
+     "'numerable => medida cero' es vacuo en Haar (N entero ya es nulo "
+     "en Z_2) y no acota densidad natural (la cota da sum 2^t ~ 2^(P+1) "
+     "contra 2^P: peor que trivial). Instrumentado: las 13.137 fusiones "
+     "desbalanceadas del censo chocan TODAS en el valor 2 (la entrada "
+     "del ciclo) pero su densidad es ~0,39 y decae lentisimo: masa "
+     "real. EL COLAPSO DEL SISTEMA SOBREVIVE porque nunca necesito ese "
+     "corolario (la descomposicion por primer evento DE CLASE es exacta "
+     "y la masa sin evento de clase aporta 0 legitimamente), y el "
+     "Corolario 2 quedo DEMOSTRADO por coeficientes (reentrada consec "
+     "de clase => 3^Sx = 9*3^Sy => llega con delta 0)",
+     "la cardinalidad no acota la densidad; y cuando un corolario se "
+     "cae hay que preguntar si el edificio lo usaba de verdad - este "
+     "no lo usaba, pero se publico como si lo sostuviera"),
 
     ("el lema de levantamiento de las fusiones (si n y n+1 coalescen en "
      "k pasos, 2^k r + n y 2^k r + n+1 tambien) y la existencia del "

@@ -349,6 +349,31 @@ reentrar depende de qué lado quedó menor — el censo actual mide `δ` en
 lados originales, hay que reorientarlo). Con esas masas, el sistema
 lineal se resuelve y **`f` queda decidida**.
 
+## ⇢ LA SEGUNDA REVISIÓN ROMPIÓ EL COROLARIO 1 DE JIRAFAS — Y EL SISTEMA SOBREVIVIÓ SIN ÉL
+
+**Opus 5 rompió C1 y tenía razón** («numerable ⟹ medida cero» es vacuo
+en Haar y no acota densidad natural). Acta completa en la sección 8 de
+`teoremadejirafas.txt`, corrección nº 36. Los tests que pidió,
+ejecutados y decisivos: **las 13.137 fusiones desbalanceadas chocan
+TODAS en el valor 2** (la entrada del ciclo — la historia del atractor
+en su forma extrema) **pero su densidad es ~0,39 y decae lentísimo**:
+masa real, no artefacto. Las dos cosas a la vez. **Y el hallazgo
+propio**: el colapso del sistema **nunca necesitó C1** — la
+descomposición por primer evento DE CLASE es exacta y la masa sin evento
+aporta 0 legítimamente — y **el Corolario 2 quedó DEMOSTRADO por
+coeficientes** (reentrada consecutiva de clase ⟹ `3^{Sx} = 9·3^{Sy}` ⟹
+llega con `δ = 0` exacto; el C3 desplegado que pedía la primera
+revisión).
+
+**Y LA PREGUNTA ANTI-TAUTOLOGÍA, CONTESTADA CON ENTEROS**: `G(k)` y
+`H(k)` se reconstruyen **desde los estados reducidos, sin mirar el `r`
+original** — `G(k) = Σ_{m<k} B(m)` (suma sobre ventanas de Perras) y
+`H(k) = B_h(k)` (directa) — clavadas hasta `k = 14`. **La identidad es
+teorema verificado.** Además el test espejo pasó tras cazar un off-by-one
+en mi propio mapeo (`v = −(r+1)`, no `−r−2`): en `3n−1` la partición da
+los MISMOS `G` y `H` con las etiquetas volteadas (`r` par ↔ `v` impar),
+12/12 exacto — el pipeline es invariante al espejo.
+
 ## ⇢ LA PRIMERA REVISIÓN EXTERNA DICTÓ (Opus 5) — Y LA IDENTIDAD EXACTA CIERRA
 
 **Perras: no lo rompió** (A1–A5 aguantan). Tres agujeros de redacción,

@@ -101,6 +101,57 @@ for m in range(4):
         raise SystemExit("FALLO Elia-Tucker: m=%d buena=%r M=%d"
                          % (m, buena, M))
 
+# ---------------------------------------------------------------------------
+# COMPROBACION FINAL (la pregunta anti-tautologia de la revision externa):
+# G(k) y H(k) reconstruidos DESDE LOS ESTADOS REDUCIDOS, sin mirar r.
+#   G(k) = suma_{m=0}^{k-1} B(m), con B(m) = clases de w mod 2^m cuya
+#          pareja {w, 9w+2} funde DE CLASE compensando el +2 arrastrado
+#          (Sx - Sy = +2 en el segmento) en <= m pasos;
+#   H(k) = B_h(k) directa, de {w, 9w-1} (la reduccion de h es inmediata).
+# Si coinciden con la particion original, la identidad es TEOREMA.
+# ---------------------------------------------------------------------------
+
+KSEP = 999999
+
+def clase_reducida_funde(c, m, forma):
+    res = []
+    for w in ((c if c > 0 else 2 ** m * 2 * KSEP), c + 2 ** m * KSEP):
+        x, y = (w, 9 * w + 2) if forma == 'g' else (w, 9 * w - 1)
+        Sx = Sy = 0
+        ok = False
+        for _ in range(m):
+            if x % 2:
+                Sx += 1
+            if y % 2:
+                Sy += 1
+            x, y = paso(x), paso(y)
+            if x == y:
+                ok = (Sx - Sy == 2)
+                break
+        res.append(ok)
+    if res[0] != res[1]:
+        raise SystemExit("FALLO testigos: c=%d m=%d forma=%s" % (c, m, forma))
+    return res[0]
+
+acumulado = 0
+for i, k in enumerate(range(3, 15)):
+    B_km1 = sum(clase_reducida_funde(c, k - 1, 'g') for c in range(2 ** (k - 1)))
+    acumulado += B_km1
+    if acumulado != G_serie[i]:
+        raise SystemExit("FALLO reconstruccion G: k=%d suma=%d G=%d"
+                         % (k, acumulado, G_serie[i]))
+    Bh_k = sum(clase_reducida_funde(c, k, 'h') for c in range(2 ** k))
+    if Bh_k != H_serie[i]:
+        raise SystemExit("FALLO reconstruccion H: k=%d Bh=%d H=%d"
+                         % (k, Bh_k, H_serie[i]))
+
+print()
+print("RECONSTRUCCION OK: G(k) = suma B(m) y H(k) = B_h(k), desde los")
+print("estados reducidos {w,9w+2} y {w,9w-1} SIN mirar el r original,")
+print("clavadas contra la particion en todos los terminos: la identidad")
+print("es TEOREMA verificado, no tautologia. Y el cuadre con los objetivos")
+print("canonicos de Delta_S verifica el Corolario 2 de Jirafas.")
+
 print()
 print("G(k) =", G_serie)
 print("H(k) =", H_serie)

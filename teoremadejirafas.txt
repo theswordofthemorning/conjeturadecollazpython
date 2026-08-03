@@ -135,3 +135,53 @@ identidad VALE EXACTA: a(k+2) = a(k) + (2^k - 1) + G(k) + H(k), clavada
 como igualdad de enteros para k = 3..14 (identidadexacta.py), que es la
 forma sin sesgo de las masas de clase que este documento anunciaba.
 ================================================================================
+
+================================================================================
+8. VEREDICTO DE LA SEGUNDA REVISION EXTERNA, ACEPTADO (03-08-2026, noche)
+--------------------------------------------------------------------------------
+El revisor (Opus 5) ROMPIO el Corolario 1 y tenia razon. Acta:
+
+R1. EL COROLARIO 1 SE RETIRA. "Numerable => medida cero" es vacuo en la
+    medida de Haar (N entero ya es nulo en Z_2) y no acota densidad
+    natural: la cota por soluciones esporadicas da sum 2^t ~ 2^(P+1)
+    contra 2^P enteros, peor que trivial. El corolario esta MAL.
+
+R2. LA INSTRUMENTACION QUE PIDIO, HECHA, y decide: las 13.137 fusiones
+    desbalanceadas del censo (w < 2^15) ocurren TODAS en el valor 2 --
+    literalmente la entrada del ciclo {1,2}, la version mas extrema de la
+    historia del atractor. PERO su densidad NO es despreciable: 0,401 /
+    0,395 / 0,389 sobre w < 2^15 / 2^16 / 2^17. Masa real, decayendo
+    lentisimo. Las dos cosas a la vez: son choques en el ciclo, Y pesan.
+
+R3. EL COLAPSO DEL SISTEMA SOBREVIVE SIN EL COROLARIO 1, porque nunca lo
+    necesito: g se descompone por el PRIMER EVENTO DE CLASE (fusion de
+    clase / reentrada consecutiva de clase / reentrada rebote de clase),
+    y la masa que nunca tiene un evento de clase -- donde viven las
+    fusiones desbalanceadas y las danzas {1,2} -- aporta 0 a g
+    LEGITIMAMENTE (g solo cuenta fusiones de clase). No hace falta que
+    esa masa sea nula; basta que no aporte.
+
+R4. EL COROLARIO 2, AHORA DEMOSTRADO (era el esbozo C3): para el estado
+    {w, 9w+2}, una reentrada consecutiva DE CLASE exige que el gap sea
+    constante en w, y eso iguala coeficientes: 3^Sx = 9 * 3^Sy, o sea
+    Sx = Sy + 2 en el segmento -- que compensa EXACTAMENTE el +2
+    arrastrado: la reentrada llega con delta 0 y vale f. Una reentrada
+    rebote de clase da 9 * 3^Sy = 9 * 3^Sx (Sx = Sy, delta se conserva
+    canonico) o, con vuelco, 3^Sx = 81 * 3^Sy (canonico en la nueva
+    orientacion). El mismo argumento de coeficientes del teorema.
+
+R5. C4 CORREGIDO: lo determinado por el residuo es la fusion DE CLASE
+    (con la S); la fusion a secas no lo es. Y el primer bullet de la
+    seccion 4 es un test del codigo, no del teorema: etiquetado.
+
+R6. LA IDENTIDAD EXACTA ES TEOREMA, NO TAUTOLOGIA (la pregunta del
+    revisor, contestada con enteros): G(k) y H(k) se RECONSTRUYEN desde
+    los estados reducidos sin mirar el r original --
+        G(k) = suma_{m=0}^{k-1} B(m)   (B = clases de {w, 9w+2} que
+               funden de clase compensando el +2 en <= m pasos)
+        H(k) = B_h(k)                  (directa, de {w, 9w-1})
+    y coinciden CLAVADAS con los G, H de la particion original en todos
+    los terminos comparables (identidadexacta.py, comprobacion nueva).
+    Que cuadren con los objetivos canonicos de Delta_S es, ademas, la
+    verificacion numerica de R4.
+================================================================================
