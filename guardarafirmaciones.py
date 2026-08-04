@@ -2241,6 +2241,172 @@ AFIRMACIONES = [
          "dos niveles: la razon b(k+1)/b(k) -> 2 vendria de la ENTRADA de "
          "estratos, no de que cada estrato acelere. Es la forma de "
          "recursion tipo A076227/Zarubin que se buscaba."),
+
+    # ----- la jornada de la cadena (04-08-2026, segunda tanda) -----
+
+    fila("LA CADENA (k, c): todo estado de par vivo es una forma "
+         "{v, 3^k v + c} (nucleo, k >= 1) o {v, v+g} (frontera, k = 0), "
+         "y la dinamica entera del par son SEIS LEYES exactas de una "
+         "linea decididas por un solo bit fresco (la paridad del menor, "
+         "moneda de Terras). El zoologico completo -Gatas, Perras, el "
+         "vortice (1,1), el rebote (2,2), la forma h (2,-1), las puertas "
+         "P1-P3, las torres T1/T2, el grafo {-3,-5}- son estados y "
+         "transiciones de esta unica cadena",
+         "todo_n", "demostrado", "paseodeladeuda.py", "propio",
+         "04-08-2026. Las seis leyes verificadas en 181.400 instancias "
+         "(0 fallos) y DEMOSTRADAS en Lean con coeficiente impar "
+         "arbitrario p (mas general que 3^k): cadenakc.lean, nucleo "
+         "puro, 0 sorryAx. El programa de fusion entero es un sistema "
+         "simbolico con una sola absorcion: (1,1) con bit 1."),
+
+    fila("el barrido SIMBOLICO de la cadena reproduce a(k) EXACTO sin "
+         "tocar un par (contra la sucesion publicada k = 3..12, contra "
+         "recomputo directo k = 3..14, y contra b(k) entera k = 3..31 "
+         "incluida la cola del barrido a 2^32), y EXTIENDE la serie: "
+         "a(33) = 3.761.106.610 y a(34) = 7.558.807.251 (razones de b: "
+         "1,9412 y 1,9432)",
+         "verificado_hasta", "medido", "paseodeladeuda.py", "propio",
+         "04-08-2026. La renovacion coalesce estados: 7,7 millones de "
+         "estados donde el barrido de restos necesitaba 2^34. Los dos "
+         "niveles nuevos sostenidos por segundo camino "
+         "(segundocamino.py): cumplen la identidad-teorema a(k+2) = "
+         "a(k) + (2^k - 1) + G(k) + H(k) en k = 31, 32 con G y H de "
+         "barridos separados de los pisos g y h."),
+
+    fila("a(35) = 15.188.796.435, a(36) = 30.516.174.184, "
+         "b(34) = 71.181.933, b(35) = 138.581.314 - las razones de b "
+         "extendidas: 1,9432 -> 1,9452 -> 1,9469, subiendo",
+         "verificado_hasta", "medido", "empujarb.py", "propio",
+         "04-08-2026. Por la identidad-teorema con los pisos (G y H a "
+         "33/34), con control: G(31), G(32), H(31), H(32) clavan "
+         "segundocamino.py. La cota demostrada lambda >= 1,9754 exige "
+         "que las razones sigan subiendo al menos hasta ahi."),
+
+    fila("LOS FLECOS DE LA SERIE R, RESUELTOS: la identidad "
+         "c(m) = suma_j F(j)*a(m-j) + D(m) cierra como IGUALDAD DE "
+         "ENTEROS en m = 3..26, con F(j) = primeras visitas de la "
+         "cadena al estado consecutivo (0,1) desde la forma h y D(m) = "
+         "fusiones directas sin pasar por consecutivo. El R publicado "
+         "(afirmacion 88) deconvolvia SIN el termino D: los flecos +-1 "
+         "eran D repartida por el triangulo",
+         "verificado_hasta", "medido", "flecosr.py", "propio",
+         "04-08-2026. F clava el R publicado en j = 3..9; D despierta "
+         "en j = 13. La contabilidad de orientacion bajo vuelcos ya no "
+         "hace falta: la cadena la lleva dentro. Y c(m) extendida de "
+         "m = 16 a m = 26."),
+
+    fila("LA CONTABILIDAD DE CANALES ES ESTRUCTURAL: e_s(N) = "
+         "e_{s-2}(N-2) [subarbol r = 1 mod 4 = el arbol entero "
+         "desplazado] + e^h_s(N-2) [subarbol r = 3 mod 4 = piso h] + "
+         "e^par_s(N-1) [subarbol r par], como igualdad de enteros en "
+         "todos los niveles y estratos (s <= 12, N <= 29). Ademas: e6 "
+         "cuadratica confirmada hasta N = 29, e8 NO es cubica "
+         "(terceras diferencias oscilando, definitivo), y e10/e12 "
+         "medidas por primera vez",
+         "verificado_hasta", "medido", "estratoscadena.py", "propio",
+         "04-08-2026. Los canales son los subarboles de los dos "
+         "primeros bits de la cadena; la recursion vertical es la "
+         "identidad de subarbol. No hizo falta Lipmaa-Moriai."),
+
+    fila("EL TEOREMA DE INVERSION DEL GOAL DE LAMBDA: b(t+2) >= "
+         "N_t(1,2) como igualdad de enteros (el estado (1,2) fusiona "
+         "en exactamente 2 pasos y prefijos distintos dan fusiones "
+         "distintas), con s_t = N_t(1,2)/vivas >= 0,015 medido. Si "
+         "phi < 1 entonces lambda = 2; contrapositivo: lambda < 2 => "
+         "phi = 1 (Gao-Wu cierta). El autovalor NO puede separar: "
+         "demostrar lambda < 2 no daria f < 1, daria f = 1",
+         "todo_n", "medido", "retornoslambda.py", "propio",
+         "04-08-2026, el cierre del goal. La desigualdad es exacta; el "
+         "piso s_t >= 0,015 es medido (t = 8..32), por eso el estado "
+         "es medido y no demostrado. Complemento demostrado por "
+         "truncados (matriztransferencia.py): lambda >= 1,9754 (K=11, "
+         "seis truncados anidados, conteo entero de caminos) y el LEMA "
+         "DE LA LIBERTAD: la unica absorcion es (1,1)-bit1, ningun "
+         "truncado finito puede demostrar lambda < 2."),
+
+    fila("EL CRUCE LaTOURETTE (tesis Moravian 2007, bajada entera a "
+         "lecturas/latourette2007/): sus 'blocks' (Tabla 4.1) son los "
+         "primeros retornos del par a gap 1 CON ORDEN CONSERVADO y sus "
+         "'strings' (Tabla 4.2) los retornos CON VUELCO - 21/21 y "
+         "26/27 clavados contra la cadena, largo a largo. LA ENTRADA "
+         "QUE FALLA ES UN ERROR EN SU TABLA: la L11 (00011100101, "
+         "10110100010), marcada 'newly found', toca gap 1 en t = 9 (su "
+         "prefijo es su propia entrada L9) y viola su Definicion 4. El "
+         "conteo bueno de L11 es 19, no 20. La cadena extiende su "
+         "catalogo de largo 11 a largo 30",
+         "verificado_hasta", "medido", "retornoslambda.py", "LaTourette 2007",
+         "04-08-2026. Verificacion triple del error: formal (afines "
+         "exactas), realizabilidad (Terras), y fuerza bruta exhaustiva "
+         "mod 2^11. Las otras 47 entradas: 0 defectos. Serie de "
+         "retornos: 1,0,0,1,1,3,5,6,11,19,31,55,98,176,313,578,1099,..."),
+
+    fila("EL TEOREMA DEL MULTIPLICADOR: escribiendo cada transicion de "
+         "la cadena como c' = m*c + s, en el NUCLEO (k >= 1) y la "
+         "frontera par toda transicion tiene |m| = 1/2 en una rama y "
+         "|m| = 3/2 en la otra - cada paso es MONEDA JUSTA entre "
+         "contraer y expandir: E[m] = 1 EXACTO, E[log2 m] = -0,2075 < "
+         "0. La dinamica de c es una PERPETUIDAD DE KESTEN CRITICA "
+         "(kappa = 1 es la unica solucion positiva de E[m^kappa] = 1). "
+         "La unica excepcion es la frontera impar: ambas ramas "
+         "|m| = 3/2 (la bomba de reentrada)",
+         "todo_n", "demostrado", "subrenovacionc.py", "propio",
+         "04-08-2026, el mecanismo de la densidad con nombre. El mismo "
+         "balance 3/2-1/2 que hace B/A -> 2: la criticidad ES la "
+         "constante del problema. Verificado en 1.368 estados (con el "
+         "pliegue del valor absoluto tratado aparte). LECTURA (no "
+         "teorema): kappa = 1 => estacionaria tensa de cola 1/x => "
+         "piso de absorcion por visita => con el paseo recurrente, "
+         "phi = 1. Por que no es teorema: los (m, s) no son i.i.d. "
+         "(el shift crece 3^k con la torre) y el piso exige "
+         "uniformidad. El peso de los shifts SI es sumable "
+         "(2^-k * log 3^k): por ahi entra la formalizacion."),
+
+    fila("LAS LEYES MOD 3 DE LA CADENA: (a) cada puerta de entrada al "
+         "nucleo trae SU clase - directa (3g+1)/2 = 2 (mod 3), vuelco "
+         "(3g-1)/2 = 1 (mod 3); ninguna trae 0; (b) c = 0 (mod 3) es "
+         "INALCANZABLE en el nucleo (el mayor es 3^k v + c = c mod 3: "
+         "es Komodo 3 en coordenadas de la cadena; masa CERO medida "
+         "exacta en la foto de t = 34); (c) la absorcion (1,1) vive en "
+         "la clase del vuelco: LA PUERTA QUE FUNDE ES LA DEL VUELCO",
+         "todo_n", "demostrado", "subrenovacionc.py", "propio",
+         "04-08-2026. (a) algebraico (g < 4001 verificado); (b) "
+         "invariancia por las seis leyes + Komodo (teoremadekomodo3."
+         "lean); (c) 1 = 1 (mod 3). El reparto medido en k = 1 "
+         "(clase 1 : clase 2 = 1 : 2) es la huella de las dos puertas."),
+
+    fila("LA DISPERSION DE c EN EL NUCLEO BAJO, MEDIDA: E[log2|c|] en "
+         "k = 1 crece DIFUSIVO (incrementos ~0,02 por nivel y "
+         "decayendo ~5% - tipo t^0,65, no deriva lineal), las cubetas "
+         "relativas de |c| <= C caen DESACELERANDO, s_t con exponente "
+         "local beta_t ~ 0,78 a la baja, y las bandas diadicas medias "
+         "rondan cociente 1/2 (la firma kappa = 1) con la cola lejana "
+         "aun llenandose",
+         "verificado_hasta", "medido", "dispersionc.py", "propio",
+         "04-08-2026, paso 1 del norte. La lectura provisional "
+         "'dispersion => phi < 1' quedo REVERTIDA por el teorema del "
+         "multiplicador: kappa = 1 hace que la convergencia a la "
+         "estacionaria sea critica y log-lenta, y el 'escape' medido "
+         "es compatible con tension asintotica. El muro de siempre: "
+         "la medicion no decide; la estructura si tiene nombre."),
+
+    fila("TRES .LEAN NUEVOS - cadenakc (las seis leyes de la cadena "
+         "con coeficiente impar arbitrario, la ley de la moneda, el "
+         "vortice, el vuelco F4 y la escalera p -> 3p con piso_impar "
+         "por induccion), perrasconteo (suma de ventanas = 2^m - 1, "
+         "el borde alternante 3^m mod 4, y exactamente_uno: los dos "
+         "residuos frontera de Perras deciden en sentidos opuestos "
+         "para todo m), y zoologico (el nucleo de Jirafas entero: "
+         "afines iguales en dos puntos => coeficientes iguales, mas "
+         "pow3_inyectiva; las potencias de 6 de Pandas; el grafo "
+         "{-3,-5} de los chanchitos con D1 = -3 y P3; la rama h de "
+         "Gatas). Todos nucleo puro, 0 sorryAx",
+         "todo_n", "demostrado",
+         "cadenakc.lean", "propio",
+         "04-08-2026. Los otros dos: perrasconteo.lean y zoologico.lean "
+         "(un fichero por campo; los tres compilan 0 sorryAx). Van 13 "
+         ".lean. La orden del usuario ('portar los teoremas de los .txt "
+         "a Lean sin borrarlos') cumplida para los nucleos aritmeticos; "
+         "los .txt siguen siendo los documentos con las revisiones."),
 ]
 
 
@@ -2780,6 +2946,30 @@ CORRECCIONES = [
      "cada .py tocado cuesta un segundo y habria cazado esto el mismo dia; "
      "y un texto adversarial se aplica como edicion de codigo, no se pega "
      "dentro de un print"),
+
+    ("toda entrada al nucleo desde la frontera llega con c = 2 (mod 3)",
+     "solo la puerta directa: (3g+1)/2 = 2 (mod 3). La puerta con vuelco "
+     "da (3g-1)/2 = 1 (mod 3). La ley verdadera es MEJOR que la falsa: "
+     "cada puerta trae SU clase, ninguna trae 0, y la absorcion (c = 1) "
+     "vive exactamente en la clase del vuelco. Lo cazo el SystemExit del "
+     "test T3a en su primera corrida (04-08-2026)",
+     "una ley aritmetica se conjetura sobre UNA rama y se enuncia sobre "
+     "todas: hay que calcular cada rama antes de escribir el 'toda'. El "
+     "test exacto con SystemExit convirtio el error en un hallazgo en "
+     "una sola corrida"),
+
+    ("las dos tablas de LaTourette 2007 se corresponden con las puertas "
+     "de retorno de la cadena: blocks = puerta (1,-1), strings = puerta "
+     "(1,3)",
+     "la puerta (1,3) NO dispara nunca, y hay una tercera puerta ((0,2) "
+     "-> (0,1), el gap 2 partiendose) que la hipotesis ignoraba. La "
+     "correspondencia verdadera es por el SIGNO del gap final: blocks = "
+     "orden conservado, strings = vuelco. Lo cazo el SystemExit del "
+     "cruce en su primera corrida (04-08-2026)",
+     "antes de asignar una estructura propia a una clasificacion ajena, "
+     "medir la propia: las puertas se enumeran ejecutando la cadena, no "
+     "deduciendolas del papel. El error costo una corrida; publicado "
+     "habria costado la credibilidad del cruce entero"),
 ]
 
 
