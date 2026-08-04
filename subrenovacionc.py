@@ -6,7 +6,7 @@
 #   bandas diadicas con cociente acercandose a 1/2. Este fichero pone
 #   la estructura exacta debajo:
 #
-#   T1 -- EL TEOREMA DEL MULTIPLICADOR (exacto, de las seis leyes):
+#   T1 -- EL TEOREMA DEL MULTIPLICADOR - TIGRESAS (de las seis leyes):
 #      escribiendo cada transicion como c' = m*c + s (afin en c),
 #      . en el NUCLEO (k >= 1), TODA transicion tiene m = 1/2 en una
 #        rama y m = 3/2 en la otra: cada paso es una MONEDA JUSTA entre
@@ -29,7 +29,7 @@
 #      tender a 1/2 (kappa = 1) si la perpetuidad manda. Se mide por
 #      separado en k = 1 y en todo el nucleo, con la regla 4x.
 #
-#   T3 -- LAS LEYES MOD 3 (teorema, verificacion exhaustiva):
+#   T3 -- LAS LEYES MOD 3 - CABRAS (teorema, verificacion exhaustiva):
 #      (a) toda ENTRADA al nucleo desde la frontera llega con
 #          c = 2 (mod 3)  ((3g+1)/2 y (3g-1)/2 son = 2 mod 3);
 #      (b) c = 0 (mod 3) es INALCANZABLE en el nucleo (las seis leyes

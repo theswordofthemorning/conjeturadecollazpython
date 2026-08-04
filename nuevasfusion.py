@@ -1,6 +1,6 @@
 # nuevasfusion.py
 #
-# LA ECUACION DE LAS CLASES NUEVAS: b(k) cuenta encuentros en vortices.
+# LA ECUACION DE LAS CLASES NUEVAS (CIERVAS): b(k) cuenta encuentros en vortices.
 #
 #   clasesfusion.py demostro que cada clase buena mod 2^k se desdobla en dos
 #   buenas mod 2^(k+1), asi que lo unico con contenido son las NUEVAS:
@@ -145,7 +145,7 @@ if b_medida != B_PUBLICADA[:len(b_medida)]:
                      % (b_medida, B_PUBLICADA[:len(b_medida)]))
 
 # ---------------------------------------------------------------------------
-# COMPROBACION 5: LA FAMILIA EXTREMAL, demostrada y comprobada (03-08-2026).
+# COMPROBACION 5: LA FAMILIA EXTREMAL - EL TEOREMA DE CONEJAS (03-08-2026).
 #
 #   Midiendo QUE vortices producen las nuevas salio que el b maximo de cada
 #   nivel es un REPUNIT TERNARIO -- 13, 121, 1093, 9841, 88573, 797161 son
@@ -197,7 +197,7 @@ print("con vortice en el repunit (3^(j-1)-1)/2, para j = 4, 6, ..., 60.")
 print("Demostrado en el comentario; b(j+2) >= 1 para todo j par.")
 
 # ---------------------------------------------------------------------------
-# COMPROBACION 7: LA UNICIDAD DEL ESTRATO |M| = 2, DEMOSTRADA (03-08-2026).
+# COMPROBACION 7: LA UNICIDAD DE |M| = 2 - EL TEOREMA DE YEGUAS (03-08-2026).
 #
 #   TEOREMA: en cada nivel k+1 >= 4 hay EXACTAMENTE UNA clase nueva con
 #   |M| = 2, y es  r = 2^(k-1) - 2  si k es impar,  r = 3*2^(k-1) - 2  si
@@ -425,7 +425,7 @@ print("uno solo, k = 5..60. Para la unicidad total faltan las rutas")
 print("r = 3 (mod 4) y r par (descartadas por fuerza bruta en k <= 15).")
 
 # ---------------------------------------------------------------------------
-# COMPROBACION 10: LA COORDENADA D, Y LA RUTA r = 3 (mod 4) EXCLUIDA
+# COMPROBACION 10: LA COORDENADA D (COMADREJAS), Y r = 3 (mod 4) EXCLUIDA
 # (03-08-2026). Con esto la unicidad de |M| = 4 queda DEMOSTRADA para todo
 # r impar; solo falta la ruta r par.
 #
@@ -500,7 +500,7 @@ print("encadena cuatro mixtos seguidos. EXCLUIDAS de |M| = 4, r < 2^15.")
 print("La unicidad de |M| = 4 queda demostrada para TODO r impar.")
 
 # ---------------------------------------------------------------------------
-# COMPROBACION 11: LA COORDENADA E ES AUTONOMA, y la ruta r par acorralada
+# COMPROBACION 11: LA COORDENADA E (COMADREJAS) ES AUTONOMA, y r par acorralada
 # (03-08-2026).
 #
 #   TEOREMA (la herramienta): dentro de un tramo compartido, la cantidad

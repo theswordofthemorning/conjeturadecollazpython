@@ -1,6 +1,6 @@
 # matriztransferencia.py
 #
-# LA MATRIZ DE TRANSFERENCIA DE LA CADENA (k, c) Y EL AUTOVALOR LAMBDA
+# LA MATRIZ DE TRANSFERENCIA - EL ACORRALADO DE PUMAS - Y EL AUTOVALOR LAMBDA
 # (04-08-2026; el /goal del usuario: "termina cuando sepas si lambda < 2").
 #
 #   MARCO. La accion de T sobre las clases mod 2^j es el grafo de
@@ -15,7 +15,7 @@
 #
 #   EL MECANISMO QUE DECIDE ENTRE lambda < 2 Y lambda = 2, escrito:
 #
-#   (a) LEMA DE LA LIBERTAD DE LA TORRE (test exacto abajo): en todo
+#   (a) LEMA DE LA LIBERTAD DE LA TORRE, alias LOBAS (test abajo): en todo
 #       estado del nucleo con k >= 2 NINGUNA de las dos transiciones
 #       fusiona ni muere -- la unica absorcion de la cadena es (1,1)
 #       con bit 1. Un camino puede gastar t bits LIBRES en las torres

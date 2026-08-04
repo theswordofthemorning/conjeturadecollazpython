@@ -1,5 +1,5 @@
 /- recursionvertical.lean
-   EL MOTOR DE LA RECURSION VERTICAL DEL TRIANGULO, demostrado en Lean 4.
+   EL MOTOR DE LA RECURSION VERTICAL (PANTERAS), demostrado en Lean 4.
    (04-08-2026; el noveno .lean del repo. Nucleo puro, sin Mathlib.)
 
    La contraccion de Gatas sube en diagonal por el triangulo de estratos:

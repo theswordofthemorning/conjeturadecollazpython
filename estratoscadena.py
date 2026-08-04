@@ -1,6 +1,6 @@
 # estratoscadena.py
 #
-# LOS ESTRATOS POR LA CADENA (k, c): la contabilidad de canales de e8,
+# LOS ESTRATOS POR LA CADENA (k, c) - EL TEOREMA DE NUTRIAS: los canales de e8,
 # cerrada como ESTRUCTURA DE SUBARBOLES, y las series extendidas.
 # (04-08-2026; punto 3 del norte. Sin Lipmaa-Moriai: la cadena la
 # sustituye -- los canales son los prefijos de dos bits.)

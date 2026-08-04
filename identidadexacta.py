@@ -1,6 +1,6 @@
 # identidadexacta.py
 #
-# LA IDENTIDAD EXACTA DE LA RENOVACION (03-08-2026, noche; propuesta por
+# LA IDENTIDAD EXACTA DE LA RENOVACION - EL TEOREMA DE VACAS (03-08-2026, noche; propuesta por
 # la primera revision externa -Opus 5- como sustituto de toda simulacion).
 #
 #   Si el teorema de Gatas es literal, la particion de las clases buenas

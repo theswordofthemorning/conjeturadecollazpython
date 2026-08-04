@@ -1,5 +1,5 @@
 /- torredeladeuda.lean
-   EL PASEO DE LA DEUDA: el esqueleto en Lean 4.
+   EL PASEO DE LA DEUDA (alias RATAS): el esqueleto en Lean 4.
    (04-08-2026; el decimo .lean del repo. Nucleo puro, sin Mathlib.)
 
    Las leyes de compensacion de la torre, pisos k = 2 y 3 (parametrizadas

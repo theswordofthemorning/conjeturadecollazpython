@@ -1,6 +1,6 @@
 # paseodeladeuda.py
 #
-# LA CADENA (k, c): el paseo de la deuda es un sistema simbolico COMPLETO
+# LA CADENA (k, c) - EL TEOREMA DE LEONAS: el sistema simbolico COMPLETO
 # (04-08-2026; el ataque al punto 1 del norte -- "es el paseo genuinamente
 # recurrente sobre las clases?" -- y lo que salio al construir el
 # instrumento es mas grande que la pregunta).

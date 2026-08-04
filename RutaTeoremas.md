@@ -250,6 +250,38 @@ interno, rama B-β sobre la familia real). `clasificacion_rutas` tiene su paso
 
 ---
 
+## EL ZOOLÓGICO — la tabla de teoremas, lemas y hallazgos con nombre
+*(bautizo completado el 04-08-2026: los 20 nombres de la manada asignados;
+Pandas, los 3 Chanchitos y Komodo 3 quedan como nombres históricos.
+Regla vigente: para textos que salgan del repo, numeración seria con el
+descriptivo entre paréntesis.)*
+
+| nombre | tipo | qué dice, en una línea | estatus | fichero |
+|---|---|---|---|---|
+| **PERRAS** | teorema | `\|M\|=2 ⟺ stems de Garner`, y el conteo exacto `2^{m−1}` con el borde resuelto | teorema; novedad verificada (Garner/E–T/LaTourette) | `teoremadeperras.txt`, `nuevasfusion.py` C15, `perrasconteo.lean` |
+| **GATAS** | teorema | contracción literal + reinicio uniforme + ecuación de renovación `f = 1/4 + f/4 + g/4 + h/4` | teorema; (a) en Lean | `teoremadegatas.txt`, `contracciondegatas.lean` |
+| **JIRAFAS** | lema-caracterización | fusión S-balanceada ⟺ evento de clase (ida + recíproco) | demostrado; C1 retirado | `teoremadejirafas.txt`, `zoologico.lean` |
+| **PANDAS** | lema condicional | igual altura ⟹ fusión al mismo índice (`Res < 3`); corolario `φ = d` (el puente a Gao) | condicional; incond. `< 2^71` | `lemadepandas.txt`, `zoologico.lean` |
+| **3 CHANCHITOS** | teoremas | `b₄ = 7·2^{m−7}−m+4`, `c₄ = 6·2^{m−7}−m+4` (grafo `{−3,−5}` + puertas + torre + gasto) | teoremas ∀m | `teoremadelos3chanchitos.txt` |
+| **KOMODO 3** | teorema en Lean | tras el paso 0 el mayor es `≡ 2 (mod 3)` y «no múltiplo de 3» es invariante para siempre | demostrado, 0 sorry | `teoremadekomodo3.lean` |
+| **LEONAS** | teorema-marco | LA CADENA `(k,c)`: seis leyes exactas con moneda de Terras; el zoológico entero son sus estados | demostrado (leyes en Lean, `p` impar arbitrario) | `paseodeladeuda.py`, `cadenakc.lean` |
+| **TIGRESAS** | teorema | el multiplicador: cada paso del núcleo es moneda justa `×1/2 / ×3/2` — `E[m]=1` exacto: perpetuidad de Kesten CRÍTICA (κ=1) | demostrado (lectura φ=1: heurística declarada) | `subrenovacionc.py` |
+| **CABRAS** | teorema | las puertas mod 3: directa → clase 2, vuelco → clase 1, nunca 0; **la puerta que funde es la del vuelco** | demostrado | `subrenovacionc.py` |
+| **ZORRAS** | teorema condicional | la inversión: `λ < 2 ⟹ φ = 1` — el autovalor no puede separar (`b(t+2) ≥ N_t(1,2)` exacto; piso `s_t` medido) | mecanismo exacto + piso medido | `retornoslambda.py` |
+| **LOBAS** | lema | la libertad de la torre: única absorción `(1,1)`-bit1; ningún truncado finito demuestra `λ < 2` | demostrado (test exacto) | `matriztransferencia.py` |
+| **PUMAS** | cotas | el acorralado de λ: `λ ≥ 1.9754` por seis truncados anidados (conteo entero), gap ×0.5–0.75 por escalón | demostrado (cotas) | `matriztransferencia.py`, `retornoslambda.py` |
+| **ARDILLAS** | identidad | los flecos de R: `c(m) = Σ F(j)·a(m−j) + D(m)` exacta en 26 niveles — el término directo `D` era los flecos | verificado entero | `flecosr.py` |
+| **NUTRIAS** | identidad | los canales: `e_s(N) = e_{s−2}(N−2) + e^h_s(N−2) + e^par_s(N−1)` — los subárboles de los dos primeros bits | verificado entero (`s ≤ 12`, `N ≤ 29`) | `estratoscadena.py` |
+| **OVEJAS** | serie + cruce | los primeros retornos al corral: blocks/strings de LaTourette 2007 = retornos por orden/vuelco; su Tabla 4.2 tiene UN error; catálogo extendido a largo 30 | verificado (fe de erratas triple) | `retornoslambda.py` |
+| **VACAS** | teorema verificado | la identidad entera `a(k+2) = a(k) + (2^k−1) + G(k) + H(k)` — la que alimenta todo | verificado `k = 3..14` + `k = 31, 32` | `identidadexacta.py`, `segundocamino.py` |
+| **RATAS** | leyes + heurística | el paseo de la deuda por la torre: ±1 con monedas de Terras entre las torres gemelas; recurrente ⟺ Gao–Wu | leyes exactas (pisos 2–3 en Lean); recurrencia heurística | `torredeladeuda.lean` |
+| **YEGUAS** | teorema | la unicidad alternante: exactamente una clase `\|M\|=2` por nivel, trotando `2^{k−1}−2 / 3·2^{k−1}−2`; y la ruta impar de `\|M\|=4` | demostrado | `nuevasfusion.py` C7/C9 |
+| **CONEJAS** | teorema | la familia extremal del repunit: `(2^j−2, 2^j−1)` funde en `j+2` ⟹ `b(j+2) ≥ 1` — **las nuevas nunca se acaban** | demostrado | `nuevasfusion.py` C5 |
+| **COMADREJAS** | herramienta | las coordenadas `D = g−2s−1` (vórtice ⟺ `D=0`, `s` impar; `D<0` absorbente) y `E = D−3s` (autónoma) | demostrado | `nuevasfusion.py` C10/C11 |
+| **PANTERAS** | recursión | la diagonal vertical del triángulo: `e_s(N)\|_{r≡1} = e_{s−2}(N−2)` — la contracción trepando estratos | demostrado (motor en Lean) | `recursionvertical.lean` |
+| **CIERVAS** | ecuación | una clase se estrena ⟺ primer encuentro en un vórtice (`a = 3b+1`, `S` compensada) — la ecuación fundacional de las nuevas | caracterización medida (`k ≤ 15`, 0 fallos) | `nuevasfusion.py` C2/C3 |
+| **OSAS** | sistema | el sistema cerrado de φ: `φ = 8(1+ε)/(23−13ρ)`; `φ = 1 ⟺ ε_torre = 1/4 ⟺` el paseo recurrente | medido (ecuación 1 demostrada; 2 y 3 verificadas) | `auditoria_rigor.py` #86–88 |
+
 ## Dónde está cada cosa
 
 | pieza | fichero |

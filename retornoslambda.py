@@ -2,7 +2,7 @@
 #
 # EL CIERRE DEL GOAL DE LAMBDA (04-08-2026), en tres piezas:
 #
-#   1. EL CRUCE LaTOURETTE (tesis Moravian 2007, Tabla 4.1, bajada hoy a
+#   1. EL CRUCE LaTOURETTE - LOS RETORNOS DE OVEJAS (tesis Moravian 2007,
 #      lecturas/latourette2007/): sus "blocks" son pares de secuencias de
 #      paridad (q, q') con T_q(x) = T_q'(x+1) + 1 -- o sea PALABRAS QUE
 #      VUELVEN A DIFERENCIA 1: nuestras palabras de PRIMER RETORNO de la
@@ -14,7 +14,7 @@
 #      se compara. Si clava, el catalogo a mano de 2007 ES nuestra serie
 #      de retornos, y la cadena lo extiende sin limite.
 #
-#   2. EL TEOREMA DE INVERSION (el mecanismo, escrito):
+#   2. EL TEOREMA DE INVERSION - ZORRAS (el mecanismo, escrito):
 #          phi < 1  ==>  lambda = 2      (equivalente: lambda < 2 ==> phi = 1)
 #      Mecanismo: el estado (1,2) fusiona en exactamente 2 pasos con la
 #      palabra 0,1 (test C2a). Toda palabra viva de largo t que termina
@@ -196,7 +196,7 @@ print("  El atajo del goal se INVIERTE: demostrar lambda < 2 no daria")
 print("  f < 1 -- daria f = 1. El autovalor no rodea el paseo.")
 
 # ---------------------------------------------------------------------------
-# C3: dos truncados mas (regla 4x) y el gap 2 - lambda_T.
+# C3: dos truncados mas (regla 4x) y el gap 2 - lambda_T (PUMAS).
 # ---------------------------------------------------------------------------
 
 def lambda_truncado(K, C, pasos=300):

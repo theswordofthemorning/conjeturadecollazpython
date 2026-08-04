@@ -1,6 +1,6 @@
 # flecosr.py
 #
-# LOS FLECOS DE LA SERIE R, RESUELTOS CON LA CADENA (k, c) (04-08-2026;
+# LOS FLECOS DE LA SERIE R - LA IDENTIDAD DE ARDILLAS (04-08-2026;
 # punto 2 de la retaguardia del norte).
 #
 #   La afirmacion #88 dejo la deconvolucion c(m) = suma_j R(j)-a(m-j)

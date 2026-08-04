@@ -1473,7 +1473,7 @@ AFIRMACIONES = [
          "cerrada, y el espejo verificado - la recursion vertical "
          "queda blindada por las tres caras."),
 
-    fila("LA ECUACION DE PHI: dividiendo la identidad demostrada "
+    fila("EL SISTEMA DE OSAS - LA ECUACION DE PHI: dividiendo la identidad demostrada "
          "a(k+2) = a(k) + (2^k - 1) + G(k) + H(k) entre 2^(k+2) y "
          "pasando al limite (existe por el doblado de Gao en los tres "
          "pisos), phi = (1 + beta + gamma) / 3, con beta y gamma las "
@@ -1513,7 +1513,7 @@ AFIRMACIONES = [
          "ademas demostrables por las puertas ya formalizadas: P1 es "
          "lean, y el canal w = 2 mod 4 es P2 + P3 + contraccion."),
 
-    fila("LA TERCERA ECUACION Y EL SISTEMA CERRADO DE PHI: la "
+    fila("EL SISTEMA DE OSAS, CERRADO - LA TERCERA ECUACION: la "
          "deconvolucion c(m) = suma_j R(j) a(m-j) es EXACTA en los 8 "
          "niveles (R = 1,0,1,3,2,4,9,14 en j = 3..10), y el test "
          "independiente de germenes de reentrada reproduce el centro "
@@ -1594,7 +1594,7 @@ AFIRMACIONES = [
          "presupuesto exponencial - el genero de pregunta que la "
          "maquinaria del repo sabe atacar."),
 
-    fila("EL PASEO DE LA DEUDA (movimiento 1 del cierre): dentro de "
+    fila("EL PASEO DE RATAS - LA DEUDA EN LA TORRE (movimiento 1 del cierre): dentro de "
          "la torre, las formas +2 son SIEMPRE compartidas (gap par) y "
          "las +1 SIEMPRE mixtas (gap impar) - tres leyes exactas, 7 k "
          "x 2000 v -; en cada mixta la paridad de v decide: par = "
@@ -2199,7 +2199,7 @@ AFIRMACIONES = [
          "100001 -que no se funde de verdad con nadie- pareceria tan conectado "
          "como el resto."),
 
-    fila("una clase r mod 2^(k+1) se estrena en el nivel k+1 exactamente "
+    fila("LA ECUACION DE CIERVAS - una clase r mod 2^(k+1) se estrena en el nivel k+1 exactamente "
          "cuando T^k(r) y T^k(r+1) se encuentran POR PRIMERA VEZ en un "
          "vortice: a = 3b+1 con paridades opuestas y S compensada en 1",
          "verificado_hasta", "medido", "nuevasfusion.py", "propio",
@@ -2244,7 +2244,7 @@ AFIRMACIONES = [
 
     # ----- la jornada de la cadena (04-08-2026, segunda tanda) -----
 
-    fila("LA CADENA (k, c): todo estado de par vivo es una forma "
+    fila("TEOREMA DE LEONAS - LA CADENA (k, c): todo estado de par vivo es una forma "
          "{v, 3^k v + c} (nucleo, k >= 1) o {v, v+g} (frontera, k = 0), "
          "y la dinamica entera del par son SEIS LEYES exactas de una "
          "linea decididas por un solo bit fresco (la paridad del menor, "
@@ -2282,7 +2282,7 @@ AFIRMACIONES = [
          "segundocamino.py. La cota demostrada lambda >= 1,9754 exige "
          "que las razones sigan subiendo al menos hasta ahi."),
 
-    fila("LOS FLECOS DE LA SERIE R, RESUELTOS: la identidad "
+    fila("LA IDENTIDAD DE ARDILLAS - LOS FLECOS DE LA SERIE R: la identidad "
          "c(m) = suma_j F(j)*a(m-j) + D(m) cierra como IGUALDAD DE "
          "ENTEROS en m = 3..26, con F(j) = primeras visitas de la "
          "cadena al estado consecutivo (0,1) desde la forma h y D(m) = "
@@ -2295,7 +2295,7 @@ AFIRMACIONES = [
          "hace falta: la cadena la lleva dentro. Y c(m) extendida de "
          "m = 16 a m = 26."),
 
-    fila("LA CONTABILIDAD DE CANALES ES ESTRUCTURAL: e_s(N) = "
+    fila("TEOREMA DE NUTRIAS - LA CONTABILIDAD DE CANALES ES ESTRUCTURAL: e_s(N) = "
          "e_{s-2}(N-2) [subarbol r = 1 mod 4 = el arbol entero "
          "desplazado] + e^h_s(N-2) [subarbol r = 3 mod 4 = piso h] + "
          "e^par_s(N-1) [subarbol r par], como igualdad de enteros en "
@@ -2308,7 +2308,7 @@ AFIRMACIONES = [
          "primeros bits de la cadena; la recursion vertical es la "
          "identidad de subarbol. No hizo falta Lipmaa-Moriai."),
 
-    fila("EL TEOREMA DE INVERSION DEL GOAL DE LAMBDA: b(t+2) >= "
+    fila("TEOREMA DE ZORRAS - LA INVERSION DEL GOAL DE LAMBDA: b(t+2) >= "
          "N_t(1,2) como igualdad de enteros (el estado (1,2) fusiona "
          "en exactamente 2 pasos y prefijos distintos dan fusiones "
          "distintas), con s_t = N_t(1,2)/vivas >= 0,015 medido. Si "
@@ -2324,7 +2324,7 @@ AFIRMACIONES = [
          "DE LA LIBERTAD: la unica absorcion es (1,1)-bit1, ningun "
          "truncado finito puede demostrar lambda < 2."),
 
-    fila("EL CRUCE LaTOURETTE (tesis Moravian 2007, bajada entera a "
+    fila("LOS RETORNOS DE OVEJAS - EL CRUCE LaTOURETTE (tesis Moravian 2007, bajada entera a "
          "lecturas/latourette2007/): sus 'blocks' (Tabla 4.1) son los "
          "primeros retornos del par a gap 1 CON ORDEN CONSERVADO y sus "
          "'strings' (Tabla 4.2) los retornos CON VUELCO - 21/21 y "
@@ -2340,7 +2340,7 @@ AFIRMACIONES = [
          "mod 2^11. Las otras 47 entradas: 0 defectos. Serie de "
          "retornos: 1,0,0,1,1,3,5,6,11,19,31,55,98,176,313,578,1099,..."),
 
-    fila("EL TEOREMA DEL MULTIPLICADOR: escribiendo cada transicion de "
+    fila("TEOREMA DE TIGRESAS - EL MULTIPLICADOR: escribiendo cada transicion de "
          "la cadena como c' = m*c + s, en el NUCLEO (k >= 1) y la "
          "frontera par toda transicion tiene |m| = 1/2 en una rama y "
          "|m| = 3/2 en la otra - cada paso es MONEDA JUSTA entre "
@@ -2361,7 +2361,7 @@ AFIRMACIONES = [
          "uniformidad. El peso de los shifts SI es sumable "
          "(2^-k * log 3^k): por ahi entra la formalizacion."),
 
-    fila("LAS LEYES MOD 3 DE LA CADENA: (a) cada puerta de entrada al "
+    fila("TEOREMA DE CABRAS - LAS LEYES MOD 3 DE LA CADENA: (a) cada puerta de entrada al "
          "nucleo trae SU clase - directa (3g+1)/2 = 2 (mod 3), vuelco "
          "(3g-1)/2 = 1 (mod 3); ninguna trae 0; (b) c = 0 (mod 3) es "
          "INALCANZABLE en el nucleo (el mayor es 3^k v + c = c mod 3: "
@@ -2407,6 +2407,28 @@ AFIRMACIONES = [
          ".lean. La orden del usuario ('portar los teoremas de los .txt "
          "a Lean sin borrarlos') cumplida para los nucleos aritmeticos; "
          "los .txt siguen siendo los documentos con las revisiones."),
+
+    fila("EL BAUTIZO DEL ZOOLOGICO (orden del usuario, 04-08-2026): "
+         "todo teorema, lema o hallazgo propio lleva nombre de animal "
+         "femenino para distinguir referencias propias de ajenas. El "
+         "censo completo: PERRAS (mitad exacta), GATAS (renovacion), "
+         "JIRAFAS (balance), PANDAS (equivalencia), 3 CHANCHITOS "
+         "(b4/c4), KOMODO 3 (mod 3) [historicos]; LEONAS (la cadena "
+         "(k,c)), TIGRESAS (multiplicador critico), CABRAS (puertas "
+         "mod 3), ZORRAS (inversion de lambda), LOBAS (libertad de la "
+         "torre), PUMAS (acorralado de lambda), ARDILLAS (flecos de "
+         "R), NUTRIAS (canales), OVEJAS (retornos/LaTourette), VACAS "
+         "(identidad entera), RATAS (paseo de la deuda), YEGUAS "
+         "(unicidad alternante), CONEJAS (familia extremal del "
+         "repunit), COMADREJAS (coordenadas D y E), PANTERAS "
+         "(recursion vertical), CIERVAS (ecuacion del vortice), OSAS "
+         "(sistema de phi). La tabla completa con estatus y ficheros "
+         "vive en RutaTeoremas.md, seccion EL ZOOLOGICO",
+         "todo_n", "medido", "auditoria_rigor.py", "propio",
+         "Convencion referencial, no matematica: 'medido' porque es "
+         "un registro de nomenclatura. Para textos que salgan del "
+         "repo: numeracion seria con el descriptivo entre parentesis "
+         "(regla ya registrada en los .txt)."),
 ]
 
 
