@@ -2455,6 +2455,31 @@ AFIRMACIONES = [
          "masa de k=1 (el piso por visita, en coordenada limpia). "
          "Excepciones declaradas: la frontera (F2 delta = 1/2, F4 "
          "voltea signo) es la costura, ~6% de la masa."),
+
+    fila("TEOREMA DE MOSCAS - LA TENSION, TRANSFERIDA: para todo theta "
+         "en (0,1), la suma S_t = suma_{palabras vivas} 2^-t |u_t|^theta "
+         "cumple S_{t+1} <= r_theta S_t + (1/2)^theta con r_theta = "
+         "((1/2)^theta + (3/2)^theta)/2 < 1, luego S_t <= B_theta "
+         "UNIFORME EN t (theta = 1/2: B = 21,8; theta = 0,9: B = 46,2) "
+         "y la masa viva con |u| > x es <= B_theta / x^theta PARA TODO "
+         "t. La tension de la telarana de Aranas vale en la cadena "
+         "real: incondicional, con constante explicita, autocontenida "
+         "(dominacion lineal exacta |u'| <= m_b|u| + 1/2 mas "
+         "subaditividad de |.|^theta -- sin citar a Kesten)",
+         "todo_n", "demostrado", "moscas.py", "propio",
+         "04-08-2026, el paso (ii) del norte ejecutado. La dominacion "
+         "lineal verificada en 354.299 transiciones exactas con "
+         "Fraction (frontera y F4 incluidos: el vuelco que rompia el "
+         "acople de Aranas aqui es inofensivo, pendiente 1/2 <= 3/2); "
+         "la recursion de Lyapunov comprobada nivel a nivel sobre la "
+         "cadena real (t = 1..34) con S_t medida en [0,38, 1,44] -- "
+         "veinte veces bajo la cota: el teorema es holgado, el "
+         "contenido es la UNIFORMIDAD. La ventana entera de momentos "
+         "theta < 1 esta abierta EXACTAMENTE porque E[m] = 1 es la "
+         "criticidad kappa = 1 de Tigresas. LO QUE NO DA, declarado: "
+         "(1) la tension del condicional a vivo si phi = 1; (2) el "
+         "PISO de absorcion por visita -- la ultima pieza abierta del "
+         "programa de la densidad."),
 ]
 
 

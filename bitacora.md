@@ -5,6 +5,33 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 04-08 (7): EL TEOREMA DE MOSCAS — LA TENSIÓN, TRANSFERIDA: LAS MOSCAS NO ESCAPAN DE LA TELARAÑA
+
+El paso (ii) del norte, ejecutado (`moscas.py`) — y salió mejor de lo
+pedido: **no hizo falta ni citar a Kesten**. Autocontenido:
+
+- **(a) exacto**: en TODO estado vivo (frontera y F4 incluidos),
+  `|u'| ≤ m_b·|u| + 1/2` con `(m₀, m₁) = (1/2, 3/2)` — 354.299
+  transiciones con `Fraction`, 0 fallos. El vuelco F4, que rompía el
+  acople de Arañas, aquí es INOFENSIVO (pendiente 1/2 ≤ 3/2).
+- **(b) subaditividad**: para `0 < θ < 1`,
+  `S_{t+1} ≤ r_θ·S_t + (1/2)^θ` con `r_θ = ((1/2)^θ+(3/2)^θ)/2 < 1` —
+  la ventana entera de momentos fraccionarios está abierta EXACTAMENTE
+  porque `E[m] = 1` es la criticidad κ=1 de Tigresas.
+- **(c) LA TENSIÓN**: `S_t ≤ B_θ` **uniforme en t** (θ=1/2: 21,8;
+  θ=0,9: 46,2) ⟹ la masa viva con `|u| > x` es `≤ B_θ/x^θ` para TODO
+  t. Comprobado sobre la cadena real nivel a nivel (t = 1..34), con
+  `S_t` medida en [0,38, 1,44] — veinte veces bajo la cota: el teorema
+  es holgado; el contenido es la uniformidad.
+
+**Lo que queda, dicho con todas las letras:** (1) si φ = 1 el
+condicional a vivo pierde la cota (la masa viva se va a 0); (2) **el
+PISO de absorción por visita — la última pieza abierta del programa de
+la densidad**. El pre-vórtice `(1, c=1)` pesa 4,6% de la masa de k=1
+(Arañas T4): demostrar que ese piso no se desvanece cerraría φ = 1;
+demostrar que se desvanece daría φ < 1 con techo. `afirmaciones.db`:
+**161**.
+
 # ⇢ 04-08 (6): EL TEOREMA DE ARAÑAS — LA SOMBRA: LA TORRE DESAPARECE DEL OFFSET
 
 El paso (i)+(ii) del norte, ejecutado (`aranas.py`): en la coordenada
