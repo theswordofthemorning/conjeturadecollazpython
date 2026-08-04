@@ -7,18 +7,46 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Repo de exploración de la conjetura de Collatz (`n/2` si es par, `3n+1` si es
 impar; se conjetura que todo `n ≥ 1` termina en 1).
 
-> ## ⇢ LA INVESTIGACIÓN ACTIVA (03-08-2026): LEER `RutaTeoremas.md` PRIMERO
+> ## ⇢ LA INVESTIGACIÓN ACTIVA (04-08-2026): LEER `RutaTeoremas.md` PRIMERO
 >
-> La línea viva del repo es el programa de fusión de pares consecutivos:
-> los teoremas de **Perras** (mitad exacta del estrato 2), **Gatas**
-> (reinicio uniforme + ecuación de renovación) y **Jirafas** (balance de
-> clase), la identidad entera `a(k+2) = a(k) + (2^k−1) + Σb(i) + c(k)`
-> demostrada como teorema (no tautología), y la pregunta abierta: ¿`f = 1`?
-> (la conjetura de Wu en densidad). **Tres revisiones adversariales
-> externas aplicadas** (actas en los `teoremade*.txt` y `bitacora.md`).
-> **`RutaTeoremas.md` tiene el estado exacto y los pasos siguientes en
-> orden** — es el contexto de arranque; este documento es la doctrina de
-> trabajo y el archivo histórico.
+> La línea viva del repo es el programa de fusión de pares consecutivos,
+> y al cierre del 04-08 **todo él se reformuló como UN SOLO OBJETO: la
+> CADENA `(k, c)`** (teorema de **Leonas**, `paseodeladeuda.py` +
+> `cadenakc.lean`). Todo estado de par vivo es una forma
+> `{v, 3^k·v + c}`, la dinámica entera son **seis leyes exactas**
+> decididas por un bit de Terras, y el zoológico previo —Perras, Gatas,
+> Jirafas, el rebote, las puertas, las torres— son estados y
+> transiciones suyas. El barrido simbólico reproduce `a(k)` exacto y
+> extendió la serie hasta **`a(36)`**.
+>
+> **La pregunta del programa quedó reducida a UNA PIEZA.** La cadena de
+> tres teoremas del cierre — **Tigresas** (cada paso del núcleo es
+> moneda justa `×1/2 / ×3/2`: `E[m] = 1` exacto, perpetuidad crítica
+> κ=1), **Arañas** (en `u = c/3^k` la torre DESAPARECE: la dinámica es
+> el IFS `{u/2, (3u−1)/2}` más perturbación sumable) y **Moscas** (la
+> tensión transferida: masa viva con `|u| > x` acotada por `B_θ/x^θ`
+> **uniforme en t**, autocontenido) — deja abierto sólo **el PISO DE
+> ABSORCIÓN POR VISITA**: si no se desvanece, `φ = 1` (Gao–Wu en
+> densidad); si se desvanece, `φ < 1` con techo.
+>
+> **Tres revisiones adversariales externas aplicadas** (actas en los
+> `teoremade*.txt` y `bitacora.md`). **`RutaTeoremas.md` tiene el estado
+> exacto, la tabla del ZOOLÓGICO y los pasos siguientes en orden** — es
+> el contexto de arranque; este documento es la doctrina de trabajo y el
+> archivo histórico.
+>
+> ### La regla de nomenclatura (orden del usuario, 04-08-2026)
+>
+> **Todo teorema, lema o hallazgo PROPIO lleva nombre de animal en
+> femenino** — Perras, Gatas, Jirafas, Leonas, Tigresas, Arañas, Moscas,
+> Zorras, Lobas, Osas, Yeguas, Vacas, Cabras, Ovejas, Ciervas, Conejas,
+> Nutrias, Ardillas, Comadrejas, Panteras, Ratas, Pumas. **No es
+> decoración: es referencial** — al leer «Jirafas» se sabe al instante
+> que es nuestro y no de la literatura. *(Históricos con otro género, ya
+> citados en actas externas y por eso intocables: los 3 Chanchitos,
+> Komodo 3, Pandas.)* **La tabla completa con estatus y fichero vive en
+> `RutaTeoremas.md`, sección EL ZOOLÓGICO.** Para textos que salgan del
+> repo: numeración seria con el descriptivo entre paréntesis.
 
 No es una biblioteca ni un paquete. Son programas sueltos, cada uno con su
 número configurable arriba del archivo, pensados para ejecutarse y mirar el
@@ -486,7 +514,7 @@ con `#check @Nat.mul_le_mul` en un fichero suelto** — ahí se ve la firma exac
 que cambia entre versiones (`Nat.mul_lt_mul_left` es un **iff**, no una
 implicación).
 
-**De los 40 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
+**De los 52 scripts, sólo CUATRO dibujan** (`collazmalla.py`,
 `mallaresiduos.py`, `mallascerradas.py`, `mapahilos.py`) y dos de ellos
 —`mallascerradas.py` y `mapahilos.py`— usan además `plotly.subplots`. `numpy` lo
 usan **seis**: `clasesfusion.py`, `clasesparalelo.py`, `descensoresto.py`,
@@ -509,7 +537,7 @@ pero **ése viene con Python** y no hay que instalar nada.
 nadie: la purga del 01-08-2026 se llevó sus dos clientes, pero tarde o temprano
 va a hacer falta y no vale la pena tocarlo.)*
 
-> **La proporción se dio vuelta: 36 de 40 NO dibujan.** El repo empezó siendo de
+> **La proporción se dio vuelta: 48 de 52 NO dibujan.** El repo empezó siendo de
 > visualización y hoy es de cálculo. **Al escribir un programa nuevo, el caso por
 > defecto es stdout, no plotly** — copiá la forma de `pinzaciclos.py` o de
 > `cotatramos.py`.
@@ -529,10 +557,10 @@ hook o en un script de shell, usa `python -c`.
 la purga del 01-08-2026 se llevó 16 programas de visualización. **Ya no hay dos
 mitades — hay un núcleo de cálculo con cuatro dibujos colgando.**)*
 
-**El núcleo — los que no dibujan, 36 de 40.** Su resultado es **stdout, un
+**El núcleo — los que no dibujan, 48 de 52.** Su resultado es **stdout, un
 `.txt` o un `.db`**. No abren navegador. Conservan la constante en MAYÚSCULAS
 arriba y las comprobaciones que cortan con `SystemExit` antes de afirmar nada
-— **38 de los 40 tienen `SystemExit`**, y los dos que no son `collatz.py` (que
+— **49 de los 52 tienen `SystemExit`**, y los que no son `collatz.py` (que
 es una biblioteca, no un programa) y `main.py` (que es la CLI).
 
 ```
@@ -649,7 +677,7 @@ esos no pasan por `stdout`. **La regla es solo para lo que está dentro de un
 
 Esto ya rompió código de verdad: `main.py` tenía `→` en tres `print()` y
 `python main.py camino 27` crasheaba desde Sublime. Corrido el **01-08-2026**
-sobre los **34** `.py`: **0 hallazgos**, está limpio — si aparece uno nuevo, lo
+sobre los `.py` (última pasada 04-08-2026, los 52): **0 hallazgos**, está limpio — si aparece uno nuevo, lo
 metiste vos. Para revisarlo:
 
 ```
@@ -2867,7 +2895,7 @@ absolutamente nada de ella, y ahí es donde viviría un contraejemplo.*
 3. **Comprobar antes de concluir, cortando con `SystemExit`.** Esto atrapó un
    error real en vivo: se afirmó la biyección resto↔patrón para el mapa clásico
    y la comprobación 2 de `mallaresiduos.py` paró el programa antes de generar
-   un gráfico falso. Hoy lo tienen **38 de los 40** ficheros; los dos que no son
+   un gráfico falso. Hoy lo tienen **49 de los 52** ficheros; los que no son
    `collatz.py` (biblioteca) y `main.py` (la CLI).
 
 ### El techo realista, y hacia dónde no hay camino
@@ -2881,11 +2909,22 @@ el cierre lo pone el ángulo que elegís (tabla del coral) o el módulo que eleg
 hacia adelante, que sigue ciego a los restos.
 
 **El techo de este repo es rederivación independiente bien verificada.** Eso no
-es descubrimiento, pero tampoco es poco: hay **cuarenta** programas,
-**treinta y ocho** de ellos con comprobaciones que cortan con `SystemExit`, **cinco
-ficheros Lean que demuestran en vez de verificar**, un documento que separa lo
-real de lo dibujado, y un historial de negativos. La mayoría de la exploración
-amateur no llega ahí.
+es descubrimiento, pero tampoco es poco: hay **cincuenta y dos** programas,
+**cuarenta y nueve** de ellos con comprobaciones que cortan con `SystemExit`,
+**trece ficheros Lean que demuestran en vez de verificar**, un documento que
+separa lo real de lo dibujado, y un historial de negativos. La mayoría de la
+exploración amateur no llega ahí.
+
+> **⇢ Y AL 04-08-2026 EL TECHO SE MOVIÓ, por primera vez desde que se
+> escribió esta sección.** El programa de fusión dejó de ser rederivación:
+> la cadena `(k, c)` (Leonas) es una reformulación propia que **no está en
+> la literatura leída**, produce niveles nunca calculados (`a(33)`…`a(36)`),
+> cazó un error en una tesis publicada (LaTourette 2007, Tabla 4.2, vía
+> Ovejas), y la terna Tigresas → Arañas → Moscas reduce la conjetura de
+> densidad de Gao–Wu a **una sola pieza aislada**. Sigue sin ser una
+> demostración de nada grande — pero ya no es sólo repetir a otros con
+> cuidado. *El aviso de la casa vale igual: «no encontrado» no es «no
+> existe», y la revisión bibliográfica fina de la cadena está pendiente.*
 
 *(Decía «más visualización original», y la purga del 01-08-2026 se llevó esa
 mitad entera: 16 programas. **El techo se estrechó y se hizo más firme.**)*

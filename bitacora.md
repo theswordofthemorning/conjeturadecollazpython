@@ -5,6 +5,40 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ CIERRE DEL 04-08-2026 — EMPEZAR POR `RutaTeoremas.md`, SECCIÓN «EL ESTADO Y LOS PRÓXIMOS PASOS»
+
+**La jornada más larga del repo.** Lo que entró, en una línea cada cosa:
+
+| # | resultado | estatus |
+|---|---|---|
+| 1 | **Leonas** — la cadena `(k,c)`: seis leyes exactas, el programa entero como sistema simbólico | teorema (leyes en Lean, `p` impar arbitrario) |
+| 2 | `a(33)`…`a(36)`, `b(34)`, `b(35)` — la serie más vieja del repo, cinco niveles nuevos | verificado (identidad-teorema, dos caminos) |
+| 3 | **Zorras / Lobas / Pumas** — el goal de λ: `λ ≥ 1.9754` y `λ < 2 ⟹ φ = 1` | el autovalor NO separa |
+| 4 | **Ovejas** — LaTourette 2007 = nuestros retornos; **un error en su Tabla 4.2** | fe de erratas triple; catálogo a largo 30 |
+| 5 | **Ardillas / Nutrias** — los flecos de R muertos; los canales, estructurales | igualdades de enteros |
+| 6 | **Tigresas** — la moneda `×1/2 / ×3/2`: perpetuidad crítica κ=1 | demostrado |
+| 7 | **Arañas** — la sombra `u = c/3^k`: la torre desaparece | demostrado (354.293 identidades) |
+| 8 | **Moscas** — la tensión transferida, uniforme en `t`, autocontenida | demostrado |
+| 9 | El **bautizo del zoológico**: 20 nombres asignados, tabla en `RutaTeoremas.md` | convención registrada |
+
+**6 `.lean` nuevos** (cadenakc, perrasconteo, zoologico + los tres de la
+madrugada) → **13 en total**, todos núcleo puro, 0 `sorryAx`.
+**9 `.py` nuevos** → 52, con 49 cortando con `SystemExit`.
+**`afirmaciones.db`: 161 afirmaciones, 42 correcciones** (dos propias de
+hoy, las dos cazadas por `SystemExit` en su primera corrida).
+
+**EL PROGRAMA DE LA DENSIDAD QUEDA REDUCIDO A UNA PIEZA: el piso de
+absorción por visita** (`p_34 = 0,0457`). Si no se desvanece, `φ = 1`
+(Gao–Wu en densidad); si se desvanece, `φ < 1` con techo. **Los tres
+ataques, la retaguardia y los peligros anotados están en
+`RutaTeoremas.md` — sección «EL ESTADO Y LOS PRÓXIMOS PASOS».**
+
+*Y la lección de método del día, que es una vieja con ropa nueva: el
+paso 1 midió «dispersión ⟹ φ < 1» y el paso 2 lo revirtió en una hora
+al encontrar el mecanismo. **La medición orienta; el mecanismo decide.**
+Por eso ninguna de las tres lecturas heurísticas de hoy entró a la base
+sin su etiqueta.*
+
 # ⇢ 04-08 (7): EL TEOREMA DE MOSCAS — LA TENSIÓN, TRANSFERIDA: LAS MOSCAS NO ESCAPAN DE LA TELARAÑA
 
 El paso (ii) del norte, ejecutado (`moscas.py`) — y salió mejor de lo

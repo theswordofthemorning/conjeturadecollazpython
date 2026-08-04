@@ -2480,6 +2480,32 @@ AFIRMACIONES = [
          "(1) la tension del condicional a vivo si phi = 1; (2) el "
          "PISO de absorcion por visita -- la ultima pieza abierta del "
          "programa de la densidad."),
+
+    fila("EL PISO DE ABSORCION POR VISITA, LA ULTIMA PIEZA DEL PROGRAMA "
+         "DE LA DENSIDAD (enunciado preciso al cierre del 04-08-2026): "
+         "sea p_t = masa de palabras vivas en el pre-vortice (1, c=1) "
+         "sobre la masa viva en k = 1, al nivel t. Medido p_34 = "
+         "0,0457. LA PREGUNTA: liminf p_t > 0 o p_t -> 0? Si NO se "
+         "desvanece (mas uniformidad sobre las visitas), la absorcion "
+         "es casi segura y phi = 1: la conjetura de Gao-Wu en densidad "
+         "es CIERTA. Si se desvanece, phi < 1 con techo calculable: el "
+         "techo exacto de la densidad de fusion. Con Leonas (la "
+         "cadena), Tigresas (kappa = 1), Aranas (la sombra) y Moscas "
+         "(la tension uniforme) demostrados, TODO el problema de los "
+         "51% de Gao vive en este unico numero",
+         "verificado_hasta", "medido", "aranas.py", "propio",
+         "04-08-2026, el cierre. La via candidata a teorema esta "
+         "escrita en RutaTeoremas.md (ataque 2): Moscas da masa "
+         "acotada lejos del origen, luego hay masa que vuelve a |u| "
+         "chico, donde los estados con k = 1 forman una rejilla "
+         "FINITA; si se demuestra visita con frecuencia acotada abajo "
+         "mas alcance de (1,1) desde ahi con probabilidad acotada "
+         "abajo (bloque de bits explicito), el piso es teorema. El "
+         "nombre tecnico a buscar: minorizacion de Doeblin sobre un "
+         "conjunto pequenio. AVISO REGISTRADO: la lectura 'kappa = 1 "
+         "=> tensa => phi = 1' es HEURISTICA; Moscas demostro la "
+         "tension INCONDICIONAL, y el condicional a vivo pierde la "
+         "cota si phi = 1. No escribir phi = 1 sin ese paso."),
 ]
 
 

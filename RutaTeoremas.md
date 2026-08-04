@@ -152,7 +152,87 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
    (`segundocamino.py`). El cruce LaTourette sigue **bloqueado**
    (falta el PDF: yumpu págs. 28–31 o correo a Fraboni/Moravian).
 
-**EL NORTE NUEVO — la pregunta única que queda, en coordenadas de la
+---
+
+# ⇢ EL ESTADO Y LOS PRÓXIMOS PASOS (cierre del 04-08-2026)
+
+**EMPEZAR POR AQUÍ.** Todo lo de abajo es historia; esto es el frente.
+
+## Dónde está el programa, en cinco líneas
+
+La cadena `(k, c)` (**Leonas**) es el programa entero. Sobre ella:
+**Tigresas** (moneda justa `×1/2 / ×3/2`, `E[m] = 1` exacto: perpetuidad
+crítica κ=1) → **Arañas** (en `u = c/3^k` la torre desaparece: IFS
+`{u/2, (3u−1)/2}` + perturbación sumable) → **Moscas** (la tensión
+transferida: masa viva con `|u| > x` ≤ `B_θ/x^θ`, **uniforme en t**,
+autocontenido). **Queda UNA pieza: el piso de absorción por visita.**
+
+## LA ÚLTIMA PIEZA, enunciada con precisión
+
+> Sea `p_t` = (masa de palabras vivas en el pre-vórtice `(1, c=1)` al
+> nivel `t`) / (masa viva en `k = 1` al nivel `t`). Medido: `p_34 =
+> 0,0457`. **¿`liminf p_t > 0` o `p_t → 0`?**
+>
+> - Si **no se desvanece** (más uniformidad sobre las visitas): la
+>   absorción es casi segura ⟹ **`φ = 1` — la conjetura de Gao–Wu en
+>   densidad, CIERTA**.
+> - Si **se desvanece**: `φ < 1` con techo calculable ⟹ **el techo
+>   exacto de la densidad de fusión**, igualmente publicable.
+
+## Los tres ataques, en orden de valor (con su porqué)
+
+1. **MEDIR `p_t` COMO SERIE, no como foto** (barato, decide el rumbo).
+   `p_t` para `t = 10…34` ya se puede extraer de `aranas.py` T4: falta
+   la serie completa y su ajuste (¿constante, `t^{−a}`, `1/log t`?).
+   **Cuidado con la lección de la casa**: una serie que baja despacio no
+   distingue «tiende a constante positiva» de «tiende a 0» — hay que
+   mirar el MECANISMO, no extrapolar (el muro de `b(k)`, tres veces).
+2. **EL PISO POR ESTRUCTURA, que es donde está el teorema.** La vía:
+   Moscas da masa acotada lejos del origen, así que hay masa que vuelve
+   a `|u|` chico; en `u` chico el estado `(1,1)` es un punto de una
+   rejilla FINITA (`c` acotado ⟹ pocos estados con `k = 1`). Si se
+   demuestra que la cadena visita esa rejilla con frecuencia acotada
+   abajo y que desde ella `(1,1)` se alcanza con probabilidad acotada
+   abajo (bloque de bits explícito), el piso es teorema. **Es el
+   argumento de Doeblin/minorización sobre un conjunto pequeño** — el
+   nombre técnico a buscar en la literatura.
+3. **LA COSTURA DE LA FRONTERA** (~6% de la masa; `k = 0`, donde la
+   sombra de Arañas no es exacta: F2 lleva `δ = 1/2` y F4 voltea el
+   signo). Si la tensión o el piso fallan, fallan ahí. Vale medir
+   aparte la contribución de la frontera al piso.
+
+## La retaguardia (barata, cierra flancos)
+
+- **Formalizar Moscas en Lean**: la dominación `|u'| ≤ m_b|u| + 1/2` es
+  aritmética pura — sería el 14º `.lean` y blindaría la única cadena de
+  teoremas nuevos del cierre.
+- **`e₁₀` y `e₁₂`**: medidas por primera vez (`estratoscadena.py`),
+  esperan su forma cerrada — el siguiente peldaño tras `e₆`/`e₈`.
+- **La revisión bibliográfica de la cadena**: nadie ha buscado si
+  `{v, 3^k v + c}` como sistema simbólico está publicado. *«No
+  encontrado» no es «no existe»* — y aquí ni siquiera se buscó.
+- **Cortesía a Moravian**: el error de la Tabla 4.2 de LaTourette 2007
+  es publicable como nota a Michael Fraboni (decisión del usuario).
+- **Revisión externa adversarial** de la terna Tigresas/Arañas/Moscas:
+  las tres anteriores rompieron algo cada vez.
+
+## Los peligros anotados de esta línea (leer antes de seguir)
+
+1. **La lectura «κ = 1 ⟹ tensa ⟹ φ = 1» es HEURÍSTICA**, y en la base
+   está etiquetada así. Moscas demostró la tensión *incondicional*; el
+   salto que falta es el condicional a vivo — y si `φ = 1`, la masa viva
+   tiende a 0 y el cociente pierde la cota. **No escribir «φ = 1» sin
+   ese paso.**
+2. **El paso 1 (`dispersionc.py`) leyó «dispersión ⟹ φ < 1» y el paso 2
+   lo revirtió.** La medición sola cambió de signo la conclusión en una
+   hora. Es el precedente: aquí manda el mecanismo.
+3. Lo que NO está: la cola lejana de `u` sigue en tránsito a `t = 34`;
+   la distancia CDF cadena–IFS (0,222) es una comparación cruda con
+   condicionamientos distintos, no una medida de error.
+
+---
+
+**EL NORTE ANTERIOR — la pregunta única que queda, en coordenadas de la
 cadena:** el paseo en `k` vuelve (medido: 93% de la masa viva en
 `k ≤ 8`, decae geométrico), así que `φ = 1` ⟺ **la órbita de `c` en
 las visitas al núcleo bajo se concentra lo bastante para que la cadena
