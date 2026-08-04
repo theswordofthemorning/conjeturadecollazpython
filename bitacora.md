@@ -5,6 +5,32 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 04-08 (6): EL TEOREMA DE ARAÑAS — LA SOMBRA: LA TORRE DESAPARECE DEL OFFSET
+
+El paso (i)+(ii) del norte, ejecutado (`aranas.py`): en la coordenada
+re-escalada **`u = c/3^k`**, las cuatro leyes del núcleo colapsan a UNA
+pareja — **bit 0: `u' = u/2 + δ`, bit 1: `u' = (3u−1)/2 + δ`** — con
+`δ` EXACTA de la tabla `{0, 3^{−k}/2, 3^{−(k+1)}/2, 0}` y la salida a
+frontera con `δ = 0`. **354.293 identidades con `Fraction`, 0 fallos.**
+El nivel de la torre desaparece de la dinámica del offset: la cadena
+es el **IFS de moneda justa `{u/2, (3u−1)/2}` más una perturbación
+dominada** (`|δ| ≤ 3^{−k}/2`, masa `2^{−k}` por piso: total sumable,
+`Σ 2^{−k}3^{−k}/2 = 1/10`).
+
+**Lo que compra:** el IFS puro cumple TODAS las hipótesis de
+Goldie–Kesten i.i.d. (`E[log m] < 0`, `E[m] = 1 → κ = 1`, shifts
+`{0, −1/2}`, no-lattice) — **estacionaria única TENSA con cola `1/x`
+es teorema estándar citable**. El «no es Kesten» de Tigresas queda
+reducido a «Kesten más perturbación sumable»: el blanco técnico de la
+próxima sesión es *perturbed random iterated function systems* —
+transferir la tensión del IFS a la cadena perturbada, más el piso por
+visita (medido en coordenada limpia: el pre-vórtice `(1, c=1)` pesa
+4,6% de la masa de `k=1`). Mediciones con etiqueta: distancia CDF
+cadena–IFS 0,222 a t=34 (comparación cruda — la cadena condiciona a
+no-absorción), cola en `u` con meseta κ=1 en `x = 1..8` y la lejana
+en tránsito. Excepción declarada: la frontera (F2 `δ=1/2`, F4 voltea
+signo) es la costura, ~6% de la masa. `afirmaciones.db`: **160**.
+
 # ⇢ 04-08 (5): LA PERPETUIDAD CRÍTICA — EL MECANISMO DE LA DENSIDAD, CON NOMBRE — Y b HASTA 35
 
 Los pasos 1–3 del norte, ejecutados en orden (`dispersionc.py`,

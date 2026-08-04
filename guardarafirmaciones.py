@@ -2429,6 +2429,32 @@ AFIRMACIONES = [
          "un registro de nomenclatura. Para textos que salgan del "
          "repo: numeracion seria con el descriptivo entre parentesis "
          "(regla ya registrada en los .txt)."),
+
+    fila("TEOREMA DE ARANAS - LA SOMBRA DE LA CADENA: en la coordenada "
+         "re-escalada u = c/3^k, las cuatro leyes del nucleo colapsan a "
+         "UNA pareja - bit 0: u' = u/2 + delta, bit 1: u' = (3u-1)/2 + "
+         "delta - con delta EXACTA de la tabla {0, 3^-k/2, 3^-(k+1)/2, "
+         "0} y la salida a frontera con delta = 0. El nivel de la torre "
+         "DESAPARECE de la dinamica del offset: la cadena es el IFS de "
+         "moneda justa {u/2, (3u-1)/2} MAS una perturbacion dominada "
+         "(|delta| <= 3^-k/2; con masa 2^-k por piso, la total es "
+         "sumable: suma 2^-k 3^-k / 2 = 1/10)",
+         "todo_n", "demostrado", "aranas.py", "propio",
+         "04-08-2026, el paso (i) del norte. 354.293 identidades con "
+         "Fraction, 0 fallos. LO QUE COMPRA: el IFS puro cumple TODAS "
+         "las hipotesis de Goldie-Kesten i.i.d. (E[log m] < 0, E[m] = "
+         "1 -> kappa = 1, shifts {0,-1/2} no degenerados, no-lattice): "
+         "estacionaria unica TENSA con cola 1/x es TEOREMA ESTANDAR "
+         "CITABLE. El 'no es Kesten' de Tigresas queda reducido a "
+         "'Kesten mas perturbacion sumable' (perturbed random IFS, el "
+         "blanco tecnico siguiente). MEDIDO con etiqueta: la distancia "
+         "CDF cadena-IFS a t=34 es 0,222 (comparacion cruda: la cadena "
+         "condiciona a no-absorcion y el IFS no absorbe), la cola en u "
+         "muestra meseta kappa=1 en x = 1..8 con la cola lejana en "
+         "transito, y el pre-vortice exacto (1, c=1) pesa 4,6% de la "
+         "masa de k=1 (el piso por visita, en coordenada limpia). "
+         "Excepciones declaradas: la frontera (F2 delta = 1/2, F4 "
+         "voltea signo) es la costura, ~6% de la masa."),
 ]
 
 
