@@ -5,6 +5,194 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 04-08 (5): LA PERPETUIDAD CRÍTICA — EL MECANISMO DE LA DENSIDAD, CON NOMBRE — Y b HASTA 35
+
+Los pasos 1–3 del norte, ejecutados en orden (`dispersionc.py`,
+`subrenovacionc.py`, `empujarb.py`):
+
+- **Paso 1 — la dispersión de c, medida** (`dispersionc.py`): en las
+  visitas a `k = 1`, `E[log₂|c|]` crece DIFUSIVO (incrementos ~0.02 y
+  decayendo — tipo `t^0.65`, no deriva lineal), las cubetas relativas
+  caen DESACELERANDO, `s_t = masa(1,2)/viva` con exponente local
+  `β_t ~ 0.78` a la baja, y — exacto — **c ≡ 0 (mod 3) tiene masa CERO
+  en el núcleo**: Komodo 3 en coordenadas de la cadena.
+- **Paso 2 — LA ESTRUCTURA DEBAJO** (`subrenovacionc.py`), el hallazgo
+  de la jornada: **el TEOREMA DEL MULTIPLICADOR** — en el núcleo y la
+  frontera par, cada paso de la cadena es MONEDA JUSTA entre `c → c/2 + s`
+  y `c → 3c/2 + s'`: `E[m] = 1` EXACTO, `E[log₂ m] = −0.2075 < 0`.
+  **La dinámica de c es una perpetuidad de Kesten CRÍTICA (κ = 1)** —
+  el mismo balance 3/2–1/2 que hace `B/A → 2`: la criticidad ES la
+  constante del problema. Única excepción: la frontera impar (ambas
+  ramas |m| = 3/2, una con vuelco de signo) — la bomba de reentrada.
+  Y **las leyes mod 3**: cada puerta de entrada al núcleo trae su clase
+  (directa → `c ≡ 2`, vuelco → `c ≡ 1`; nunca 0), y la absorción
+  `(1,1)` vive en la clase del vuelco — **la puerta que funde es la del
+  vuelco**. El reparto 1:2 medido en `k = 1` es la huella de las dos
+  puertas. LECTURA (etiquetada, no teorema): κ = 1 ⟹ estacionaria
+  tensa de cola `1/x` ⟹ piso de absorción por visita ⟹ con el paseo
+  recurrente, φ = 1 (Gao–Wu) — el «escape» del paso 1 sería
+  convergencia crítica lenta. Por qué no es teorema: los `(m, s)` no
+  son i.i.d. (el shift crece `3^k` con la torre) y el piso exige
+  uniformidad. La cola medida (bandas diádicas) aún está en formación
+  a t = 34: bandas medias ~0.5, cola lejana llenándose.
+- **Paso 3 — b empujada dos niveles** (`empujarb.py`): por la
+  identidad-teorema con los pisos (control: G/H de 31 y 32 clavan
+  `segundocamino.py`): **`a(35) = 15.188.796.435`,
+  `a(36) = 30.516.174.184`, `b(34) = 71.181.933`,
+  `b(35) = 138.581.314`** — razones 1.9432 → 1.9452 → 1.9469, subiendo
+  como exige la cota demostrada λ ≥ 1.9754. Densidad:
+  `a(36)/2^36 = 0.4441`.
+
+**El estado del programa tras la jornada completa: la pregunta de la
+densidad tiene MECANISMO CON NOMBRE** — una perpetuidad de Kesten
+crítica con dos puertas mod 3 — y el blanco con forma de teorema que
+queda: (i) formalizar la perpetuidad sobre la medida de las palabras
+(los shifts de torre pesan `2^{−k}·log 3^k`, sumable); (ii) demostrar
+la tensión (o refutarla) — eso decide φ = 1 contra φ < 1; (iii) el
+piso de absorción por visita, uniforme. Todo lo demás — λ, ρ, ε_torre,
+la razón 2 — quedó reducido a esto.
+
+# ⇢ 04-08 (4): EL GOAL DE LAMBDA — RESPONDIDO CON INVERSIÓN — Y EL ERROR EN LA TABLA DE 2007
+
+El /goal («termina cuando sepas si λ < 2») cerró en dos ficheros
+(`matriztransferencia.py`, `retornoslambda.py`), y la respuesta tiene
+más filo que la pregunta:
+
+- **VEREDICTO: λ NO es estrictamente menor que 2.** Tres piezas:
+  (1) **cotas inferiores demostradas por truncados** (los caminos del
+  truncado son caminos reales): λ ≥ 1.7400 → 1.8667 → 1.9336 → 1.9556
+  → 1.9675 → **1.9754** (K=11), gap hacia 2 achicándose ×0.5–0.75 por
+  escalón; la b-razón medida (1.9432 en t=33) está DEBAJO de la cota
+  demostrada — las razones deben seguir subiendo al menos hasta 1.9754;
+  (2) **el lema de la libertad** (test exacto): la única absorción de
+  la cadena es (1,1)-bit1 — ningún truncado finito puede demostrar
+  λ < 2; (3) **EL TEOREMA DE INVERSIÓN**, que es el hallazgo:
+  `b(t+2) >= N_t(1,2)` (enteros, verificado: el estado (1,2) fusiona
+  en 2 pasos exactos) y la fracción viva en (1,2) está acotada
+  (s_t ≥ 0.015 medido) ⟹ **si φ < 1 entonces λ = 2**. Contrapositivo:
+  **λ < 2 ⟹ φ = 1 (Gao–Wu CIERTA)**. El atajo del goal se INVIERTE:
+  demostrar λ < 2 no daría f < 1 — daría f = 1. En ambos mundos λ no
+  separa; el autovalor no rodea el paseo, desemboca en él.
+- **EL CRUCE LaTOURETTE, CERRADO — y con hallazgo bibliográfico.** La
+  tesis entera bajada a `lecturas/latourette2007/` (51 págs. del visor
+  de Yumpu). Sus «blocks» (Tabla 4.1) son los PRIMEROS RETORNOS del
+  par a gap 1 con orden conservado, y sus «strings» (4.2) los retornos
+  con vuelco: 21/21 y 26/27 clavados contra la cadena, largo a largo.
+  **La entrada que falla es un ERROR EN SU TABLA de 2007**: la L11
+  (00011100101, 10110100010) — marcada * «newly found» — toca gap 1 en
+  t = 9 (su prefijo ES su propia entrada L9) y viola su Definición 4.
+  Verificado triple: formal, realizable, fuerza bruta mod 2^11. El
+  conteo bueno de L11 es 19, no 20. La cadena extiende su catálogo a
+  largo 30 (eran 48 entradas a mano; ahora la serie completa:
+  1,0,0,1,1,3,5,6,11,19,31,55,98,176,313,578,1099,2047,3847,...).
+- Los `.lean` VIEJOS compilados (regla del goal): `cotatramos` (el 221
+  por el núcleo, sin axiomas), `cotatramos3n1`, `espejoak`,
+  `pruebaresta`, `atacacst` — todos limpios, 0 `sorryAx`.
+- Los PDF del usuario, identificados: `LaTourretteMiWasho.pdf` es
+  **Elia–Tucker 2015** (ya leído por el programa); `SinAsunto.pdf` es
+  IJNRD 2023 (Bhat) que afirma «la conjetura se demostró en 2021» —
+  falso, no es fuente. La tesis real vino del visor.
+- **γ en forma cerrada / ε_torre por álgebra**: NO alcanzables por esta
+  vía — eran el premio condicional a λ < 2, y λ = 2 (salvo Gao–Wu
+  cierta, que responde el programa entero). La cota honesta que queda:
+  bajo la cola de balota del paseo (α = 3/2), φ ≤ ~0.585 (impresa en
+  `matriztransferencia.py` C4, heurística declarada).
+
+# ⇢ 04-08 (3): LA RETAGUARDIA Y LOS CANALES — TRES .LEAN NUEVOS, LOS FLECOS MUERTOS, e6 A 29 NIVELES
+
+La continuación de la sesión de la cadena ejecutó los puntos 2 y 3 del
+norte, todo local (Python + Lean, sin agentes):
+
+- **`cadenakc.lean` (11º)**: LAS SEIS LEYES DE LA CADENA con
+  coeficiente impar ARBITRARIO `p` (más general que `3^k`) — N1–N4,
+  la ley de la moneda, el vórtice `(1,1)`, el vuelco F4 y la escalera
+  `p → 3p` con `piso_impar` por inducción. Núcleo puro, 0 `sorryAx`.
+  **Cierra «el k general del Lean de torre» en su forma fuerte.**
+- **`flecosr.py`**: los flecos ±1 de la serie `R`, RESUELTOS. `F(j)` =
+  primeras visitas de la cadena a `(0,1)` desde la forma h `(2,−1)`
+  clava el R publicado en `j = 3…9`, y la identidad
+  `c(m) = Σ F(j)·a(m−j) + D(m)` cierra como igualdad de enteros en 26
+  niveles — el R publicado deconvolvía SIN el término directo `D`
+  (fusiones al vórtice sin pasar por consecutivo; despierta en j = 13):
+  eso eran los flecos. La contabilidad de orientación bajo vuelcos ya
+  no hace falta. Y `c(m)` extendida a `m = 26` (era 16).
+- **`perrasconteo.lean` (12º)**: el esqueleto aritmético del conteo de
+  Perras — suma de ventanas `= 2^m − 1`, el borde alternante
+  `3^m mod 4`, y `exactamente_uno` (los dos residuos frontera deciden
+  en sentidos opuestos para todo m). 0 `sorryAx`.
+- **`zoologico.lean` (13º, orden del usuario: portar lo que vivía solo
+  en .txt)**: el núcleo de JIRAFAS entero (`jirafas_coeficientes` —
+  igualar afines en dos puntos — más `pow3_inyectiva`, compuestos en
+  `jirafas_nucleo`), las potencias de 6 de PANDAS, el grafo `{−3,−5}`
+  de los CHANCHITOS completo con `D1 = −3` y P3, y la rama h de GATAS
+  (`(4t+3,4t+4) → {t+1, 9(t+1)−1}`). 0 `sorryAx`. Los `.txt` quedan
+  como documentos; esto es su esqueleto de máquina.
+- **`estratoscadena.py`**: LA CONTABILIDAD DE CANALES, ESTRUCTURAL —
+  los canales de `e₈` (afirmación 84) son los subárboles de los dos
+  primeros bits de la cadena, y la identidad
+  `e_s(N) = e_{s−2}(N−2) + e^h_s(N−2) + e^par_s(N−1)` cierra como
+  igualdad de enteros en TODOS los niveles y estratos (`s ≤ 12`,
+  `N ≤ 29`). No hizo falta Lipmaa–Moriai. Además: **`e₆` cuadrática
+  confirmada hasta N = 29** (once niveles más allá de lo medido),
+  `e₈` extendida a N = 29 (terceras diferencias oscilando: NO cúbica,
+  definitivo), y `e₁₀`/`e₁₂` medidas por primera vez.
+- **`segundocamino.py`**: `a(33)` y `a(34)` SOSTENIDOS — cumplen la
+  identidad-teorema `a(k+2) = a(k) + (2^k−1) + G(k) + H(k)` en
+  `k = 31, 32` con `G` y `H` de barridos separados de los pisos g y h
+  (`G(32) = 691.256.829`, `H(32) = 701.445.504`).
+
+**Bloqueado en local**: el cruce LaTourette (21+27 pares) — sus tablas
+4.1/4.2 nunca se descargaron; hace falta el PDF (yumpu pags. 28–31 o
+el correo a Fraboni/Moravian).
+
+**Deuda de conteos**: +4 `.py` (paseodeladeuda, flecosr,
+estratoscadena, segundocamino) y +3 `.lean` (cadenakc, perrasconteo,
+zoologico → 13 en total). El `CLAUDE.md` ya venía desfasado de la
+jornada anterior (dice «cinco .lean»); pendiente una pasada de
+conteos completa.
+
+# ⇢ 04-08 (2): LA CADENA (k, c) — EL PROGRAMA ENTERO ES UN SISTEMA SIMBÓLICO, Y a(k) SE EXTIENDE A 34
+
+El ataque al punto 1 del norte («¿el paseo de la deuda es recurrente
+sobre las clases?») produjo algo más grande que la pregunta:
+**`paseodeladeuda.py` — LA CADENA (k, c)**. Todo estado de par vivo es
+una forma `{v, 3^k·v + c}` (núcleo `k >= 1`) o `{v, v+g}` (frontera
+`k = 0`), y la dinámica entera son SEIS LEYES exactas de una línea,
+decididas por un solo bit fresco (la paridad del menor — la moneda de
+Terras). Verificadas en 181.400 instancias, 0 fallos. El zoológico
+COMPLETO son estados de esta cadena: la contracción de Gatas es el lazo
+`(0,1) -1-> (1,-1) -1-> (0,1)`, la ventana de Perras es
+`(0,1)->(1,2)->lazo->(1,1)`, el vórtice es `(1,1)` (D = 0 es c = 1), el
+rebote `{w,9w+2}` es `(2,2)`, la forma h es `(2,-1)`, las puertas P1-P3
+y la torre T1/T2 son transiciones, y el grafo `{-3,-5}` de los
+chanchitos es el par de estados `(1,-2)/(1,-4)` (D = c-1).
+
+**La consecuencia dura: el barrido SIMBÓLICO de la cadena reproduce
+a(k) EXACTO sin tocar un solo par** — contra la sucesión publicada y el
+recomputo directo (k = 3..14), y contra b(k) entera (k = 3..31,
+incluida la cola del barrido a 2^32: b(31) = 9.701.007, clavada). Y
+como la renovación coalesce estados (7,7 millones de estados donde el
+barrido de restos necesitaba 2^34 = 17 mil millones), **la serie se
+extiende DOS NIVELES nunca calculados:**
+
+```
+a(33) = 3.761.106.610    b(32) = 18.831.364    razon 1,9412
+a(34) = 7.558.807.251    b(33) = 36.594.031    razon 1,9432
+```
+
+*(estado: el cruce k <= 32 es exacto, y los dos niveles nuevos quedaron
+SOSTENIDOS la misma sesión por `segundocamino.py` — la identidad-teorema
+con G y H de barridos separados; ver la entrada 04-08 (3).)*
+
+**Y la respuesta a la pregunta del norte, hasta donde la medición
+llega (comprobación 5):** a profundidad 34, la masa viva por nivel de
+torre decae geométricamente — 93% en `k <= 8`, menos de 0,07% en
+`k >= 15`. **La torre NO retiene masa: el paseo en k vuelve, también
+sobre las clases.** La obstrucción a `phi = 1` queda localizada en la
+DISPERSIÓN DE c sobre la frontera y el núcleo bajo — la pregunta del
+programa cambia de forma: ya no es «¿vuelve el paseo?» (vuelve), sino
+«¿la órbita de c en las visitas a k = 1 se concentra o se dispersa?».
+
 # ⇢ EL CIERRE DEL 04-08: EL TEOREMA MOD 3 — DEMOSTRADO, FORMALIZADO, Y EL 6º .LEAN
 
 La jornada post-rigor-mortis cerró con la pieza redonda: **el TEOREMA DE KOMODO 3** (el mod 3) — tras el paso 0 el lado mayor es siempre `≡ 2 (mod 3)` (base

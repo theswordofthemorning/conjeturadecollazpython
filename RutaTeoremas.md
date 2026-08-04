@@ -122,6 +122,71 @@ secciones finales de los tres `.txt` y en `bitacora.md`):
 - **Test espejo `3n−1`**: 12/12 con las etiquetas volteadas (`r` par ↔
   `v` impar), tras cazar un off-by-one propio en el mapeo del espejo.
 
+## ⇢ ACTUALIZACIÓN 04-08 (LA JORNADA DE JORNADAS + LA CADENA)
+
+**Esta sección deja obsoleta la ruta de abajo** (que era la del cierre
+del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
+
+1. **El sistema de φ quedó cerrado en fórmula**:
+   `φ = (1+β+γ)/3` (demostrada), `β = γ/2 + (φ+γ)/8 + ε_torre`,
+   `γ = ρφ` con `ρ = Σ R(j)·2⁻ʲ` ⟹ **`φ = 8(1+ε)/(23−13ρ)`**, y
+   **`φ = 1 ⟺ ε_torre = 1/4 ⟺ el paseo de la deuda es recurrente`**
+   (= Gao–Wu en densidad). Afirmaciones #86–93.
+2. **Komodo 3** (mod 3) demostrado y en Lean; **auditoría rigor mortis**
+   35/35 (`auditoria_rigor.py`); 10 `.lean`, todos núcleo puro.
+3. **LA CADENA (k, c)** (`paseodeladeuda.py`, 04-08 tarde): el programa
+   entero es un sistema simbólico de SEIS leyes con moneda de Terras;
+   reproduce `a(k)` exacto (k ≤ 32) y **extiende a(33), a(34)**
+   (razones de b: 1,9412 → 1,9432); la torre no retiene masa — la
+   obstrucción a φ = 1 es la dispersión de `c`, no el paseo en `k`.
+
+**LA RUTA VIGENTE (actualizada al cierre del 04-08 (3)):**
+
+1. ~~el paseo de la deuda~~ **HECHO** (`paseodeladeuda.py` + `cadenakc.lean`).
+2. ~~retaguardia~~ **HECHA**: seis leyes en Lean con `k` general
+   (`cadenakc.lean`), flecos de `R` resueltos (`flecosr.py`), conteo de
+   Perras en Lean (`perrasconteo.lean`), y de regalo `zoologico.lean`
+   (los núcleos de los .txt portados, orden del usuario).
+3. ~~contabilidad de canales de e₈~~ **HECHA y estructural**
+   (`estratoscadena.py`); ~~segundo camino a(33)/a(34)~~ **HECHO**
+   (`segundocamino.py`). El cruce LaTourette sigue **bloqueado**
+   (falta el PDF: yumpu págs. 28–31 o correo a Fraboni/Moravian).
+
+**EL NORTE NUEVO — la pregunta única que queda, en coordenadas de la
+cadena:** el paseo en `k` vuelve (medido: 93% de la masa viva en
+`k ≤ 8`, decae geométrico), así que `φ = 1` ⟺ **la órbita de `c` en
+las visitas al núcleo bajo se concentra lo bastante para que la cadena
+toque `(1,1)` con probabilidad plena**. Candidatos de ataque:
+(a) medir la dispersión de `c` condicionada a `k = 1` por profundidad
+(¿masa de `|c|` acotado → constante o → 0?); (b) la sub-renovación de
+los estados `(1, c)` con `c` chico (el grafo de los chanchitos
+generalizado); (c) formalizar «paseo recurrente ⟹ masa no se pierde
+en la torre» como teorema sobre la cadena (el análogo del argumento
+de moneda de Terras). Y la retaguardia menor: los estratos `e₁₀`/`e₁₂`
+recién medidos esperan sus formas; los conteos del `CLAUDE.md`
+esperan su pasada.
+
+**⇢ EL GOAL DE LAMBDA (04-08 (4)) LO AFINÓ:** el autovalor NO separa —
+`λ < 2 ⟹ φ = 1` (teorema de inversión, `retornoslambda.py`) y los
+truncados demuestran `λ ≥ 1.9754` subiendo. La vía del autovalor
+desemboca en el paseo; el norte de arriba (la dispersión de `c`) sigue
+siendo el único frente. Regalo del goal: el catálogo de LaTourette
+2007 = los primeros retornos de la cadena (con UN error en su Tabla
+4.2, cazado y documentado), extendido de largo 11 a largo 30 — la
+serie de retornos es ahora un instrumento con precedente bibliográfico
+y fe de erratas propia.
+
+**⇢ Y LOS PASOS 1–3 (04-08 (5)) LE PUSIERON NOMBRE AL MECANISMO:**
+la dinámica de `c` es una **perpetuidad de Kesten crítica** (cada paso
+del núcleo es moneda justa entre `×1/2` y `×3/2`: `E[m] = 1` exacto,
+κ = 1), con dos puertas mod 3 (directa → clase 2, vuelco → clase 1) y
+la absorción en la clase del vuelco. La serie `b` llegó a `b(35)`
+(razones 1.9469 subiendo). **EL BLANCO FINAL con forma de teorema:**
+(i) la perpetuidad sobre la medida de las palabras (shifts de torre
+sumables: `2^{−k}·log 3^k`); (ii) tensión de la estacionaria — decide
+φ = 1 contra φ < 1; (iii) el piso de absorción uniforme por visita.
+Ficheros: `dispersionc.py`, `subrenovacionc.py`, `empujarb.py`.
+
 ## LA RUTA PARA LA PRÓXIMA SESIÓN (la orden del revisor, puntos 3–6)
 
 1. **Subir `2^k − 1` a proposición** en `teoremadeperras.txt` — la
