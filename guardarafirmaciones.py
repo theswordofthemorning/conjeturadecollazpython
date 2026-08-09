@@ -3069,6 +3069,63 @@ CORRECCIONES = [
      "medir la propia: las puertas se enumeran ejecutando la cadena, no "
      "deduciendolas del papel. El error costo una corrida; publicado "
      "habria costado la credibilidad del cruce entero"),
+
+    ("el lema de Abejas reduce phi = 1 a UNA desigualdad: que M_G(t) no "
+     "sea sumable (que no decaiga mas rapido que c/t)",
+     "LA DESIGUALDAD DE BLOQUES ES INCONDICIONAL -- es Kraft: las "
+     "continuaciones fusionantes son palabras absorbidas, conjunto libre "
+     "de prefijos, masa total <= phi <= 1 SIEMPRE. Luego Sigma M_G(t) <= "
+     "T_G*2^T_G pase lo que pase con phi: el contrapositivo era VACUO y "
+     "el blanco M_G >= c/t era DEMOSTRABLEMENTE FALSO. La frase 'RATAS "
+     "predice ~1/sqrt(t)' confundia la cadena real (con absorcion) con "
+     "la modificada. Lo cazo la cuarta revision externa adversarial "
+     "(09-08-2026, actarevision0908.txt)",
+     "una desigualdad que vale incondicionalmente no puede discriminar "
+     "la hipotesis que la condiciona: antes de anunciar 'reducido a X' "
+     "hay que comprobar que X es alcanzable en ALGUN mundo. El blanco "
+     "no-vacuo es M_G/L (condicionado a vivo) o la cadena modificada -- "
+     "y la salvacion fue que la misma jornada produjo la formulacion "
+     "buena (retorno11.py), que aguanto la revision"),
+
+    ("el largo del constructor de Hormigas es <= 2,5*(k + log2|c| + 1)",
+     "el 2,5 era el maximo de una MUESTRA de 2.000 estados aleatorios "
+     "(el error n.5 de la casa: muestra tomada por constante). El sup "
+     "exhaustivo por bandas diadicas 2^10..2^24 es ~2,729 (g = 163841: "
+     "50 pasos contra 45,8) y la candidata demostrable del peor caso es "
+     "2/log2(4/3) ~ 4,8. El propio fichero se contradecia: el "
+     "comentario de C3 decia 'la constante ronda 5-8'. El teorema "
+     "(terminacion, O(k + log|c|)) queda intacto. Cuarta revision "
+     "externa (09-08-2026)",
+     "el exponente -5/2 del piso por visita nacia de esa constante y "
+     "se propago a tres ficheros: cuando una cota alimenta un "
+     "instrumento, su rango de validez viaja con ella. Remedir con "
+     "margen antes de volver a leer el piso"),
+
+    ("L2 se demuestra porque toda ventana de A+1 ceros fuerza un mixto; "
+     "y Golondrinas porque por L2 hay infinitos incrementos +-1 de M",
+     "las dos frases eran falsas al pie de la letra: c = 0 y v2(c) > "
+     "2A+1 rompen la ventana de ceros (la palabra correcta DEPENDE del "
+     "estado: bit 1 aterriza exacto en A-1 si v2 > A o c = 0); y los "
+     "mixtos de BORDE alimentan A, no M (el caso partido cierra: "
+     "infinitos mixtos de nucleo => M oscila => A -> inf; infinitos de "
+     "borde => visitas directas). LAS CONCLUSIONES SOBREVIVEN con las "
+     "pruebas corregidas. Cuarta revision externa (09-08-2026)",
+     "un teorema puede aguantar con una demostracion impresa rota: la "
+     "revision no solo busca teoremas falsos, busca pasos falsos en "
+     "teoremas verdaderos -- y esos tambien se corrigen y se registran"),
+
+    ("para q >= 5 la perpetuidad supercritica hace que la densidad de "
+     "fusion muera / la fusion por clases se apaga",
+     "REFUTADA POR LA PROPIA TABLA del fichero: la densidad es monotona "
+     "no decreciente (doblado en las seis series), phi(5x+1) >= 0,0044 "
+     "y phi(7x+1) >= 0,107 y subiendo -- y 7x+1 esta MENOS apagada que "
+     "5x+1, al reves de la historia supercritica. Lo defendible: las "
+     "razones de b quedan bajo 2 para q >= 5 (phi_q < 1 plausible), "
+     "como diferencia de grado medida. Cuarta revision externa "
+     "(09-08-2026)",
+     "una lectura dinamica se contrasta contra la tabla del propio "
+     "fichero antes de imprimirse: los datos que uno mismo publica son "
+     "el primer adversario, y aqui ya la refutaban"),
 ]
 
 
@@ -3396,11 +3453,15 @@ NODOS = [
      "HORMIGAS: desde todo estado hay palabra finita a la fusion; largo "
      "<= 2.5(k + log2|c| + 1) (accesibilidad.py)"),
     ("abejas_bloques", "demostrado",
-     "ABEJAS: phi < 1 acota la ocupacion de toda rejilla finita por "
-     "bloques; M_G(t) no sumable => phi = 1 (minorizacion.py)"),
+     "ABEJAS: la ocupacion de toda rejilla finita, sumada por bloques, "
+     "es <= 2^T_G -- INCONDICIONAL (es Kraft; correccion de la 4a "
+     "revision: el contrapositivo 'M_G no sumable => phi=1' era vacuo; "
+     "el blanco no-vacuo es M_G/L o la cadena modificada)"),
     ("halconas_bandas", "demostrado",
-     "HALCONAS: phi < 1 => la masa viva de toda banda finita k <= K "
-     "tiende a 0 (Abejas + Hormigas + Moscas)"),
+     "HALCONAS: la masa viva ABSOLUTA de toda banda finita k <= K "
+     "tiende a 0 -- incondicional (4a revision: no discrimina phi; la "
+     "version que discriminaria seria sobre la masa condicionada a "
+     "vivo)"),
     ("criterio_recurrencia", "demostrado",
      "phi = 1 <=> (1,1) recurrente en la cadena MODIFICADA (vortice "
      "rebotado): cada visita sobrevive con moneda 1/2"),

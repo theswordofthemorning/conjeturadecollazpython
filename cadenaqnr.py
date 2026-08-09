@@ -28,11 +28,18 @@
 #   E[m] = 1  <=>  q = 3   (la criticidad kappa = 1 de TIGRESAS)
 #   E[log2 m] < 0  <=>  q < 4  (contraccion en log: SOLO q = 1, 3)
 #
-#   Para q >= 5 la perpetuidad es SUPERCRITICA EN LOG (E[log m] > 0):
-#   el offset c se dispersa exponencialmente, no hay ventana de
-#   momentos para Moscas, y la densidad de fusion debe morir. La
-#   maquinaria de fusion de consecutivos DISTINGUE q = 3 dentro de la
-#   familia -- y las densidades de abajo lo miden por primera vez.
+#   Para q >= 5 la perpetuidad es SUPERCRITICA EN LOG (E[log m] > 0)
+#   y no hay ventana de momentos para Moscas.
+#   ⇢ CORRECCION (REVISION EXTERNA, 09-08-2026): la lectura dinamica
+#   que aqui decia "la densidad de fusion debe morir" esta REFUTADA
+#   POR LA PROPIA TABLA: la densidad es monotona no decreciente (el
+#   doblado vale en las seis series), phi(5x+1) >= 0,0044 y
+#   phi(7x+1) >= 0,107, ambas subiendo -- y 7x+1 esta MENOS apagada
+#   que 5x+1, al reves de lo que la historia supercritica predeciria.
+#   LO DEFENDIBLE con los datos: las razones de b quedan por DEBAJO
+#   de 2 para q >= 5 (1,65 en 7x+1 contra 1,89 en 3x+1 al mismo k) --
+#   plausible phi_q < 1, como diferencia de grado MEDIDA, sin
+#   mecanismo demostrado.
 #
 #   Control A/B doble: (1) barrido DIRECTO con pares de enteros contra
 #   barrido SIMBOLICO de la cadena, por cada mapa; (2) el espejo
@@ -213,7 +220,11 @@ for (q, r) in MAPAS:
 # ---------------------------------------------------------------------------
 # COMPROBACION 4 -- EL TEOREMA DE LECHUZAS (rapaz: ve en la oscuridad
 # que no hay nada; bautizado el 09-08-2026): si 3 | r, los pares
-# consecutivos NO funden JAMAS bajo (qx+r)/2.
+# consecutivos NO funden JAMAS **con S igualada** bajo (qx+r)/2
+# (la fusion de la cadena; calificador exigido por la revision
+# externa: el encuentro DESBALANCEADO cerca de los ciclos no queda
+# excluido por esta prueba -- buscado hasta 20.000 sin hallazgos,
+# pero no demostrado).
 #   Demostracion de una linea: la fusion exige c = r, o sea c = 0
 #   (mod 3); pero en las seis leyes el termino aditivo es multiplo de
 #   r (luego de 3) y el multiplicativo es una unidad mod 3 (2 o su
@@ -238,7 +249,8 @@ print("fusion de consecutivos corre igual para todo (q, r) impar -- las")
 print("seis leyes son las mismas con 3 -> q --, el espejo sale de la")
 print("cadena, y las densidades de 5x+1 y 7x+1 quedan medidas por")
 print("primera vez. La linea dura -- AGUILAS --: E[m] = (1+q)/4, o sea")
-print("kappa = 1 (Tigresas) es EXCLUSIVO de q = 3; para q >= 5 la perpetuidad es")
-print("supercritica en log y la fusion por clases se apaga -- el mismo")
-print("fenomeno que separa la convergencia de 3x+1 de la divergencia")
-print("de 5x+1, visto desde la densidad de altura igual.")
+print("kappa = 1 (Tigresas) es EXCLUSIVO de q = 3. CORREGIDO POR LA")
+print("REVISION EXTERNA: las densidades de q >= 5 NO mueren (son")
+print("monotonas y positivas: 0,107 el 7x+1); lo que los datos orientan")
+print("es que sus razones de b quedan bajo 2 (phi_q < 1 plausible), como")
+print("diferencia de grado medida, sin mecanismo demostrado.")

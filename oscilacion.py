@@ -21,19 +21,29 @@
 #     (c) la unica subida posible es bit 1 exactamente en v2 = A.
 #   En la frontera (g par): F1 y F2 restan 1 a v2(g) los dos --
 #   determinista puro, mixto en v2(g) pasos.
-#   Entonces toda ventana de A + 1 bits 0 consecutivos fuerza un mixto
-#   (desde v2 <= A el descenso es forzado; desde arriba se entra a
-#   v2 <= A en tiempo determinista): P(sin mixtos para siempre) <=
-#   lim (1 - 2^-(A+1))^m = 0.  QED L2.
+#   ⇢ CORRECCION (REVISION EXTERNA, 09-08-2026): la frase original
+#   "toda ventana de A+1 ceros fuerza un mixto" era FALSA al pie de la
+#   letra (contraejemplos: c = 0, donde los ceros dejan 0 en 0; y
+#   v2(c) > 2A+1). LA PRUEBA CORREGIDA usa la palabra DEPENDIENTE DEL
+#   ESTADO, de largo <= A: si v2(c) > A o c = 0, el bit 1 (N2)
+#   aterriza EXACTO en v2 = A - 1 (verificado en C1a) y siguen <= A-1
+#   ceros; si v2(c) <= A, bastan v2 ceros. En cada epoca de largo A la
+#   probabilidad condicional de mixto es >= 2^-A, y Borel-Cantelli
+#   condicional (Levy) da infinitos mixtos c.s.  QED L2 (corregido).
 #
 #   PIEZA 2 -- LA OSCILACION (la tabla de derivas de lamperti.py C1,
 #   exacta): k_t = M_t + A_t con M martingala de incrementos acotados
 #   y A_t = numero de visitas al borde (frontera impar, vortice
 #   rebotado) antes de t -- creciente, y SOLO crece en el fondo.
-#   Por L2 hay infinitos incrementos +-1 de M: M no puede converger,
-#   luego (teorema de oscilacion de martingalas de incrementos
-#   acotados) liminf M = -infinito c.s.; como k >= 0, A_t >= -M_t ->
-#   infinito: INFINITAS VISITAS AL FONDO.  QED.
+#   ⇢ CORRECCION (REVISION EXTERNA, 09-08-2026): "por L2 hay infinitos
+#   incrementos +-1 de M" no se seguia directo -- los mixtos de BORDE
+#   (frontera impar, vortice) alimentan A, no M. EL CASO PARTIDO
+#   cierra: por L2 hay infinitos mixtos; si infinitos son de NUCLEO,
+#   M tiene infinitos incrementos +-1, no converge, liminf M = -inf
+#   (oscilacion de martingalas de incrementos acotados) y k >= 0
+#   fuerza A -> inf = infinitas visitas al borde; si infinitos son de
+#   BORDE, las visitas al fondo son directas. Ambas ramas dan el
+#   teorema.  QED (corregido).
 #
 #   LO QUE ESTO REDUCE: con phi = 1 <=> (1,1) recurrente (criterio del
 #   09-08), queda UNA pieza: el EMPALME POR VISITA -- de las infinitas
@@ -111,8 +121,9 @@ print("COMPROBACION 1 OK -- el lema del descenso de v2, exacto en %d"
       % probadas)
 print("instancias (k = 1..10, |c| <= 6000 par): con v2 != A los DOS bits")
 print("bajan v2 (y bajo A el descenso es determinista); la unica subida")
-print("es bit 1 exactamente en v2 = A = v2(3^k - 1). L2 queda demostrado:")
-print("toda ventana de A+1 ceros fuerza un mixto.")
+print("es bit 1 exactamente en v2 = A = v2(3^k - 1). L2 demostrado con")
+print("la palabra DEPENDIENTE DEL ESTADO de largo <= A (ver la")
+print("correccion de la revision externa en el encabezado).")
 
 # ---------------------------------------------------------------------------
 # COMPROBACION 2: LA FRONTERA ES DETERMINISTA: F1 y F2 restan 1 a v2(g).

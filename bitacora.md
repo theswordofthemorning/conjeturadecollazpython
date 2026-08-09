@@ -5,6 +5,37 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (4) — LA CUARTA REVISIÓN EXTERNA DICTÓ Y ROMPIÓ; APLICADA ENTERA. Y EL CORREO A FRABONI, ENVIADO
+
+**El acta completa está en `actarevision0908.txt`; las correcciones
+43–46 en la base.** En una línea por pieza: **el criterio de retorno
+(`retorno11.py`) y Palomas AGUANTARON todos los ataques** — el
+revisor validó el criterio como «la formulación buena del programa»;
+**Abejas es cierta pero INCONDICIONAL (es Kraft)** — su contrapositivo
+era VACUO y el «programa reducido a una desigualdad» apuntaba a una
+diana demostrablemente inalcanzable (la salvación: la misma jornada
+produjo retorno11); **Hormigas aguanta como teorema** con la constante
+2,5 FALSA (muestra tomada por constante — el error nº 5 de la casa,
+otra vez; sup exhaustivo ~2,73, demostrable candidata ~4,8; el −5/2
+del piso hereda y hay que remedir); **L2 y Golondrinas aguantan** con
+dos frases impresas falsas remendadas (palabra dependiente del estado;
+caso partido núcleo/borde); **Águilas**: la línea exacta bien, la
+lectura «la fusión se apaga» refutada por su propia tabla (φ₇ ≥ 0,107
+subiendo — lo defendible es razón de b < 2 ⟹ φ_q < 1 plausible);
+**Lechuzas**: correcta con el calificador «con S igualada». Cuarta
+revisión externa, cuarta vez que rompe algo — la doctrina no falla.
+
+**Y EL CORREO A FRABONI, ENVIADO** (orden del usuario, desde su
+Gmail): la errata de la Tabla 4.2 de LaTourette 2007, con el email
+verificado en el directorio oficial de Moravian
+(`frabonim@moravian.edu`), el hallazgo exacto (L11 viola su
+Definición 4; el conteo bueno es 19), la triple verificación, el tono
+humilde de la casa y el link al repo. «Mensaje enviado» confirmado.
+*Nota: se mantuvo la cita de Wu–Huang en OEIS contra una sugerencia de
+quitarla — la corrección #8 la respalda (MR 1885838, entrada 125 de
+Lagarias byte a byte); la «Elongate iteration» que Lagarias no vio es
+OTRO paper de Wu.*
+
 # ⇢ 09-08-2026 (3) — LA REFORMULACIÓN, LAMPERTI Y GOLONDRINAS: EL FONDO SE VISITA SIEMPRE
 
 Mientras esperamos a los editores de OEIS, el ataque de Lamperti — y

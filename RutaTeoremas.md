@@ -181,18 +181,27 @@ vivo: el problema de Bessel desaparece.** Equivale a `Σ retornos(L)·2^{−L}
    **⟹ TEOREMA DE GOLONDRINAS: la cadena modificada visita el fondo
    (k ≤ 1) infinitas veces c.s.** (L2 + tabla de derivas + oscilación
    de martingalas: `k = M + A`, `M` no converge, `A → ∞`).
-3. **(B) EL MURO FINAL — el empalme por visita**: desde el fondo,
-   Hormigas da `P(tocar (1,1)) ≥ ~|c|^{−2,5}` por visita; falta que el
-   `|c|` de las visitas no se disperse del todo (medido:
-   `E[(1+|c|)^{−5/2}|fondo]` ≈ 5% decayendo lento — κ=1 otra vez).
-   La serie del criterio, `E[visitas a (1,1)]`, va en 0,99 subiendo
-   con incrementos `~t^{−0,8}`: si el exponente queda < 1, diverge y
-   `φ = 1`.
+3. **(B) EL MURO FINAL — el empalme por visita**, en la formulación
+   que la 4ª revisión validó como LA buena (`retorno11.py`):
+   **`φ = 1 ⟺ p = P₍₁,₁₎(retorno) = 1 ⟺ Σ_t P(X_t = (1,1)) = ∞`**
+   (dicotomía de Markov + comunicación `(0,1)↔(1,1)` verificada).
+   Medido: las dos supervivencias bajan con exponente local SUBIENDO
+   (`S(35) = 0,437`, α 0,22→0,24; `1−p₃₄ = 0,685`, α 0,17→0,20) —
+   la transitoriedad exigiría lo contrario. El exponente del piso por
+   visita debe remedirse (la constante 2,5 de Hormigas era muestra;
+   sup exhaustivo ~2,73, demostrable candidata ~4,8).
 
-**Con Abejas/Hormigas/Halconas (minorizacion.py, accesibilidad.py) y
-esto, el programa entero es: L2 (demostrable) + B (el corazón).**
-Retaguardia: Hormigas/Abejas en Lean; revisión adversarial de toda la
-cadena del 09-08 (nada de ella pasó revisión externa aún).
+**⇢ ACTA DE LA 4ª REVISIÓN EXTERNA (09-08, `actarevision0908.txt`),
+APLICADA**: Abejas es INCONDICIONAL (Kraft) y su contrapositivo era
+VACUO — el «programa en una desigualdad `M_G ≥ c/t`» apuntaba a una
+diana demostrablemente inalcanzable; el blanco no-vacuo es `M_G/L` o
+la cadena modificada (retorno11, que AGUANTÓ). Hormigas: teorema
+intacto, constante 2,5 falsa (muestra). L2 y Golondrinas: conclusiones
+en pie con las pruebas remendadas (palabra dependiente del estado;
+caso partido núcleo/borde). Águilas: la lectura «la fusión se apaga»
+refutada por su propia tabla. Lechuzas: exige el calificador «con S
+igualada». Palomas y el criterio: aguantaron todos los ataques.
+Retaguardia: Hormigas/Golondrinas en Lean; remedir el piso.
 
 ## Dónde está el programa, en cinco líneas
 
@@ -399,12 +408,12 @@ descriptivo entre paréntesis.)*
 | **OSAS** | sistema | el sistema cerrado de φ: `φ = 8(1+ε)/(23−13ρ)`; `φ = 1 ⟺ ε_torre = 1/4 ⟺` el paseo recurrente | medido (ecuación 1 demostrada; 2 y 3 verificadas) | `auditoria_rigor.py` #86–88 |
 | **ARAÑAS** | teorema | la sombra: en `u = c/3^k` las leyes colapsan al IFS `{u/2, (3u−1)/2}` con perturbación exacta `≤ 3^{−k}/2` — la torre desaparece; Goldie–Kesten aplica al IFS puro | demostrado (354.293 identidades exactas) | `aranas.py` |
 | **MOSCAS** | teorema | la tensión transferida: `S_t(θ) ≤ B_θ` uniforme en `t` (Lyapunov con `r_θ < 1` para todo `θ < 1`) — la masa viva con `\|u\| > x` es `≤ B_θ/x^θ` siempre; las moscas no escapan de la telaraña | demostrado (dominación exacta + subaditividad, autocontenido) | `moscas.py`, `notamoscas.txt` |
-| **HORMIGAS** | teorema | la accesibilidad: desde TODO estado `(k, c)` hay una palabra finita que fusiona — política explícita de bits, terminación demostrada (torre ↓, gap `g → ~3g/4` estricto por viaje), largo `≤ 2,5·(k + log₂\|c\|+1)` — siempre hay camino a casa | demostrado + exhaustivo rejilla + 2.000 aleatorios a 10^30 | `accesibilidad.py` |
-| **ABEJAS** | lema | el lema de bloques: si `φ < 1`, la ocupación viva de toda rejilla finita sumada por bloques es `≤ 2^{T_G}` (continuaciones disjuntas). **Contrapositivo: `M_G(t)` no sumable ⟹ `φ = 1`** — cada visita a la colmena paga miel | elemental dado Hormigas; el programa queda en UNA desigualdad | `minorizacion.py` |
+| **HORMIGAS** | teorema | la accesibilidad: desde TODO estado `(k, c)` hay una palabra finita que fusiona — política explícita, terminación demostrada (redemostrada por la 4ª revisión), largo `O(k + log₂\|c\|)` — siempre hay camino a casa. *(4ª revisión: la constante 2,5 era muestra; sup exhaustivo ~2,73, demostrable candidata ~4,8 — constante fina ABIERTA)* | demostrado + exhaustivo rejilla + aleatorios a 10^30 | `accesibilidad.py` |
+| **ABEJAS** | lema | el lema de bloques: la ocupación de toda rejilla finita sumada por bloques es `≤ 2^{T_G}` — **INCONDICIONAL (es Kraft)**. *(4ª revisión: el contrapositivo «`M_G` no sumable ⟹ φ=1» era VACUO — `M_G` es sumable siempre; el blanco no-vacuo es `M_G/L` o la cadena modificada = el criterio de retorno)* | demostrado (más fuerte de lo anunciado; lectura corregida) | `minorizacion.py`, `actarevision0908.txt` |
 | **PALOMAS** | identidad | `b(t) = N_t(1,1)` EXACTO: las clases nuevas del nivel `t+1` SON las palabras en el pre-vórtice al nivel `t` — las nuevas vuelven del pre-vórtice, mensajeras; afila a Zorras y da `p_t = b(t)/m_{k1}` | exacto (t = 3..15 vs publicada) | `minorizacion.py` C0, `pisoporvisita.py` |
 | **ÁGUILAS** | teorema (rapaz) | `E[m] = (1+q)/4` para la familia `(qx+r)/2`: la criticidad κ=1 de Tigresas CARACTERIZA a `q = 3`; para `q ≥ 5`, `E[log m] > 0` y Jensen cierra la ventana de Moscas — corta la familia entera en el 3 | exacto, una línea; densidades de `5x+1`/`7x+1` medidas por primera vez | `cadenaqnr.py` |
 | **LECHUZAS** | teorema (rapaz) | si `3 \| r`, los consecutivos NO funden JAMÁS bajo `(qx+r)/2`: la fusión exige `c ≡ 0 (mod 3)` y las seis leyes sólo multiplican `c` por unidades mod 3 — ve en la oscuridad que no hay nada | demostrado (una línea) + barrido `a(k) = 0` clavado k ≤ 22 | `cadenaqnr.py` C4 |
-| **HALCONAS** | corolario (rapaz) | `φ < 1 ⟹` la masa viva de TODA banda finita `k ≤ K` tiende a 0 (Abejas da sumable ⟹ `M_G → 0`; Moscas es uniforme en `x`, y `x` es arbitrario) — la rapaz que obliga a la presa a subir. Contrapositivo: una banda que conserva masa da `φ = 1`; hoy el 93% vive en `k ≤ 8` | demostrado desde Abejas + Hormigas + Moscas | `minorizacion.py` (encabezado) |
+| **HALCONAS** | corolario (rapaz) | la masa viva ABSOLUTA de toda banda finita `k ≤ K` tiende a 0 — **incondicional** *(4ª revisión: no discrimina φ; la versión que discriminaría es sobre masa condicionada a vivo)* | demostrado (lectura corregida) | `minorizacion.py`, `actarevision0908.txt` |
 | **GOLONDRINAS** | teorema | en la CADENA MODIFICADA (vórtice rebotado; `φ = 1 ⟺ (1,1)` recurrente), la masa visita el fondo `k ≤ 1` INFINITAS veces c.s.: `k` es martingala exacta con empuje sólo en el borde (tabla de derivas, 28.436 estados), L2 (infinitos mixtos) sale del descenso determinista de `v₂` con `A = v₂(3^k−1)`, y la oscilación de martingalas fuerza `A → ∞` — siempre vuelven | demostrado (L2 con 60.010 instancias exactas + frontera determinista); queda el empalme por visita | `lamperti.py`, `oscilacion.py` |
 
 ## Dónde está cada cosa

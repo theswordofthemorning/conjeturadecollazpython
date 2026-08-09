@@ -47,6 +47,22 @@
 #   "la ocupacion de la rejilla decae a lo sumo polinomialmente con
 #   exponente <= 1" -- y la serie M_G(t) se mide abajo.
 #
+#   ⇢⇢ CORRECCION (REVISION EXTERNA ADVERSARIAL, 09-08-2026, acta en
+#   actarevision0908.txt): LA DESIGUALDAD DE ARRIBA ES CIERTA PERO
+#   INCONDICIONAL -- no necesita phi < 1. Es Kraft: las continuaciones
+#   fusionantes son palabras ABSORBIDAS, conjunto libre de prefijos,
+#   masa total <= phi <= 1 SIEMPRE. Luego Sigma_t M_G(t) <= T_G*2^T_G
+#   pase lo que pase con phi: EL CONTRAPOSITIVO ERA VACUO (antecedente
+#   insatisfacible) y el blanco "M_G >= c/t" era DEMOSTRABLEMENTE
+#   FALSO. La frase "RATAS predice ~1/sqrt(t)" confundia la cadena
+#   REAL (con absorcion: su M_G es sumable por fuerza) con la
+#   MODIFICADA (sin absorcion). EL BLANCO NO-VACUO es la ocupacion
+#   CONDICIONADA A VIVO, M_G(t)/L(t) -- o directamente la cadena
+#   modificada, que es el criterio de retorno11.py (la formulacion
+#   buena, que AGUANTO la revision). Halconas tambien es incondicional
+#   y no discrimina phi. Las series de este fichero siguen siendo
+#   medidas exactas correctas; lo corregido es SU LECTURA.
+#
 #   ⇢ Y EL COROLARIO DE HALCONAS (bautizado el 09-08-2026; la rapaz
 #   que obliga a la presa a subir), que sale SOLO de piezas ya
 #   demostradas (Abejas + Hormigas + Moscas):
@@ -404,12 +420,9 @@ print("  MEDIDO: el frente difusivo avanza por la torre (los sup de")
 print("  m(k,t)*2^k con k >= 6 se alcanzan en el ultimo nivel): la")
 print("  version UNIFORME de (ii) es dudosa y el lema de bloques la")
 print("  esquiva -- lo que decide es la SUMABILIDAD de M_G(t).")
-print("  LO QUE FALTA PARA phi = 1: (A) accesibilidad para TODO estado")
-print("  -- HECHA: es el teorema de HORMIGAS (accesibilidad.py) -- y")
-print("  (B) que M_G(t) no decaiga mas rapido que c/t: la recurrencia")
-print("  de RATAS predice ~ 1/sqrt(t). (B) es el muro -- pero ahora es")
-print("  UNA desigualdad sobre UNA serie.")
-print("  Y EL COROLARIO DE HALCONAS (demostrado, encabezado): phi < 1")
-print("  exige que la masa viva de TODA banda finita k <= K tienda a 0")
-print("  -- toda la masa debe subir la torre y no volver. El 93% vive")
-print("  hoy en k <= 8: para phi < 1, ese 93% tiene que evaporarse.")
+print("  CORREGIDO POR LA REVISION EXTERNA (09-08, acta en el repo): la")
+print("  desigualdad de Abejas es INCONDICIONAL (Kraft) y su")
+print("  contrapositivo era VACUO -- M_G es sumable pase lo que pase.")
+print("  El blanco no-vacuo es M_G(t)/L(t) (condicionado a vivo) o la")
+print("  cadena MODIFICADA: el criterio de retorno11.py, que es la")
+print("  formulacion buena del programa y aguanto la revision.")

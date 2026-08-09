@@ -1,0 +1,81 @@
+ACTA DE LA REVISION ADVERSARIAL EXTERNA -- la cadena del 09-08-2026
+====================================================================
+(Cuarta revision externa del programa; dictada el 09-08-2026 por un
+revisor adversarial con el encargo de romper. Rehizo cada demostracion
+a mano, ejecuto los seis ficheros y ataco con busquedas exhaustivas
+propias donde el repo uso muestreo. Como las tres anteriores: ROMPIO.
+Las correcciones estan APLICADAS -- ver bitacora 09-08 (4) y las notas
+"CORRECCION (revision externa 09-08)" en cada fichero tocado.)
+
+VEREDICTOS, RESULTADO POR RESULTADO
+------------------------------------
+1. LEMA DE ABEJAS + HALCONAS -- SOBREAFIRMADO; LA REDUCCION ERA VACIA.
+   La desigualdad de bloques es cierta Y MAS FUERTE de lo dicho: NO
+   necesita phi < 1. Es Kraft: las continuaciones fusionantes son
+   palabras absorbidas, conjunto libre de prefijos, masa total <= phi
+   <= 1 INCONDICIONALMENTE. Luego Sigma_t M_G(t) <= T_G * 2^T_G pase
+   lo que pase: el contrapositivo "M_G no sumable => phi = 1" tiene
+   antecedente INSATISFACIBLE, y el blanco declarado ("M_G >= c/t")
+   era DEMOSTRABLEMENTE FALSO. La frase "RATAS predice ~1/sqrt(t), no
+   sumable" confundia la cadena real (con absorcion, cuya M_G es
+   sumable por fuerza) con la modificada (sin absorcion, donde la
+   ocupacion ~1/sqrt(t) si aplica). Halconas: verdadera pero tambien
+   incondicional -- no discrimina phi. LA REPARACION: el blanco
+   no-vacuo es la ocupacion CONDICIONADA A VIVO M_G(t)/L(t), o
+   directamente la cadena modificada -- que es exactamente el criterio
+   de retorno11.py, la formulacion buena.
+2. TEOREMA DE HORMIGAS -- AGUANTA el teorema (terminacion redemostrada
+   entera por el revisor, sin fisura). AGUJERO en la cota: el 2,5 era
+   una MUESTRA tomada por constante (error n.5 de la casa): sup
+   exhaustivo por bandas diadicas 2^10..2^24: ~2,729 (g = 163841 da
+   50 pasos contra la cota 45,8). Candidata demostrable del peor caso:
+   2/log2(4/3) ~ 4,8. El fichero se contradecia entre encabezado (2,5)
+   y comentario (5-8). El exponente -5/2 del "piso por visita" en
+   lamperti/oscilacion/empalme hereda la sobrestimacion: remedir.
+3. CRITERIO DE RECURRENCIA (retorno11.py) -- AGUANTA. Atacado en las
+   monedas por visita (legitimas: transicion_mod(1,1,bit) ignora el
+   bit, luego los bits de visita son iid condicionados a la
+   trayectoria), el puente real/modificada (correcto), p=1 => hit=1
+   (correcto via clase cerrada), p<1 => phi<1 (correcto). Reparo
+   menor: declarar el estado inicial de la Sigma. ES LA FORMULACION
+   BUENA DEL PROGRAMA.
+4. DERIVAS + L2 + GOLONDRINAS -- LAS CONCLUSIONES AGUANTAN; dos
+   enunciados impresos eran falsos: (a) "toda ventana de A+1 ceros
+   fuerza un mixto" -- contraejemplos c = 0 y v2(c) > 2A+1; la prueba
+   corregida usa la palabra DEPENDIENTE DEL ESTADO (bit 1 si v2 > A o
+   c = 0 -- N2 aterriza EXACTO en A-1 --, ceros si v2 <= A), prob
+   condicional >= 2^-A por epoca, Borel-Cantelli condicional. (b) "por
+   L2 hay infinitos incrementos +-1 de M" no se sigue (los mixtos de
+   borde alimentan A, no M); el caso partido cierra: infinitos mixtos
+   de nucleo => M oscila => A -> inf; infinitos mixtos de borde =>
+   visitas directas. Ambas ramas dan el teorema.
+5. AGUILAS + LECHUZAS -- SOBREAFIRMADOS. Aguilas: la linea E[m] =
+   (1+q)/4 es exacta; la capa dinamica ("la fusion se apaga") esta
+   REFUTADA por la propia tabla: la densidad es monotona no
+   decreciente, phi(5x+1) >= 0,0044 y phi(7x+1) >= 0,107, ambas
+   subiendo; y 7x+1 esta MENOS muerta que 5x+1 (invierte la historia
+   supercritica). Lo defendible: razones de b < 2 para q >= 5 =>
+   plausible phi_q < 1 -- diferencia de grado medida, sin mecanismo.
+   Lechuzas: la prueba mod p es correcta (frontera incluida); el
+   "JAMAS" exige el calificador "con S igualada" (la fusion de la
+   cadena); el encuentro desbalanceado no esta excluido (buscado
+   empiricamente hasta 20.000: 0 hallazgos).
+6. IDENTIDAD DE PALOMAS -- AGUANTA (unica ley absorbente verificada,
+   indice bien apareado, cruzada con la b publicada).
+
+LOS TRES ATAQUES QUE MAS DANO HARIAN
+-------------------------------------
+1. Construir sobre la "unica desigualdad" de Abejas (es una diana
+   inalcanzable). Mover todo a retorno11 o a M_G/L. -> APLICADO.
+2. El exponente -5/2 del piso por visita nace de la constante falsa
+   2,5: remedir el empalme con exponente valido. -> PENDIENTE DE
+   REMEDICION (anotado en los ficheros).
+3. La lectura dinamica de Aguilas la tumba su propia tabla: enunciar
+   sobre la razon de nuevas, no sobre la densidad. -> APLICADO.
+
+BALANCE: 3 y 6 aguantaron ataques serios. 2 y 4 aguantan como
+teoremas con frases impresas falsas (corregidas). 1 era la pieza
+grave: desigualdad cierta, programa anunciado vacio -- y la salvacion
+es que la MISMA jornada produjo la formulacion buena (retorno11).
+5 tiene la linea exacta bien y la interpretacion refutada por sus
+propios datos. Cuarta revision externa: cuarta vez que rompe algo.

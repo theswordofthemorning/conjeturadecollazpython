@@ -52,6 +52,17 @@
 #   largo crece como O(k + log|c|), que es lo que la minorizacion
 #   necesita para degradarse solo polinomialmente.
 #
+#   ⇢ CORRECCION (REVISION EXTERNA, 09-08-2026): LA CONSTANTE 2,5 QUE
+#   ESTE FICHERO PUBLICABA ERA UNA MUESTRA TOMADA POR CONSTANTE (el
+#   error n.5 de la casa, otra vez): salia del maximo sobre 2.000
+#   estados aleatorios. El sup EXHAUSTIVO por bandas diadicas
+#   2^10..2^24 es ~2,729 (g = 163841: 50 pasos contra la cota 45,8) y
+#   la candidata DEMOSTRABLE del peor caso es 2/log2(4/3) ~ 4,8. El
+#   TEOREMA (terminacion, largo O(k + log|c|)) queda intacto -- el
+#   revisor lo redemostro entero --; la constante fina queda ABIERTA
+#   y todo exponente derivado del 2,5 (el -5/2 del piso por visita en
+#   lamperti/oscilacion/empalme) debe remedirse con margen.
+#
 #   Mapa del ATAJO, enteros exactos, SystemExit antes de concluir.
 
 import math
@@ -175,10 +186,11 @@ if peor_cota >= 12:
     raise SystemExit("C3: el largo crecio mas que 12*(k + log2|c|): %.2f"
                      % peor_cota)
 print()
-print("COMPROBACION 3 OK: largo <= %.2f * (k + log2|c| + 1) en todo lo"
+print("COMPROBACION 3 OK: largo <= %.2f * (k + log2|c| + 1) en esta"
       % peor_cota)
-print("probado: el constructor es O(k + log|c|), como pide la")
-print("minorizacion (la cota 2^-T se degrada solo polinomialmente).")
+print("MUESTRA (aviso de la revision externa: el sup exhaustivo por")
+print("bandas es ~2,73 y la constante demostrable candidata ~4,8; el")
+print("O(k + log|c|) es lo demostrado, la constante fina esta abierta).")
 
 print()
 print("VEREDICTO -- HORMIGAS: la pieza (A) de la reduccion es TEOREMA: la politica")
