@@ -3376,6 +3376,56 @@ NODOS = [
      "conjetura: |M| = 6 son preludios de longitud variable sobre |M| = 4"),
     ("recursion_bk", "pendiente",
      "la recursion completa de b(k) y el destino de la razon 2"),
+    # --- LA RAMA DE LA CADENA (04..09-08-2026): de Leonas a phi = 1 ---
+    ("cadena_kc", "demostrado",
+     "LEONAS: todo par vivo es {v, 3^k v + c} / {v, v+g} y la dinamica "
+     "son seis leyes exactas con la moneda de Terras (paseodeladeuda.py, "
+     "cadenakc.lean)"),
+    ("tigresas_multiplicador", "demostrado",
+     "TIGRESAS: cada paso del nucleo es moneda justa x1/2 / x3/2 - "
+     "E[m] = 1 exacto, perpetuidad critica kappa = 1"),
+    ("aranas_sombra", "demostrado",
+     "ARANAS: en u = c/3^k la torre desaparece - IFS {u/2, (3u-1)/2} "
+     "mas perturbacion sumable"),
+    ("moscas_tension", "demostrado",
+     "MOSCAS: momentos fraccionarios uniformes en t - masa con |u| > x "
+     "acotada por B/x^theta siempre"),
+    ("palomas_identidad", "demostrado",
+     "PALOMAS: b(t) = N_t(1,1) exacto - las nuevas SON el pre-vortice"),
+    ("hormigas_accesibilidad", "demostrado",
+     "HORMIGAS: desde todo estado hay palabra finita a la fusion; largo "
+     "<= 2.5(k + log2|c| + 1) (accesibilidad.py)"),
+    ("abejas_bloques", "demostrado",
+     "ABEJAS: phi < 1 acota la ocupacion de toda rejilla finita por "
+     "bloques; M_G(t) no sumable => phi = 1 (minorizacion.py)"),
+    ("halconas_bandas", "demostrado",
+     "HALCONAS: phi < 1 => la masa viva de toda banda finita k <= K "
+     "tiende a 0 (Abejas + Hormigas + Moscas)"),
+    ("criterio_recurrencia", "demostrado",
+     "phi = 1 <=> (1,1) recurrente en la cadena MODIFICADA (vortice "
+     "rebotado): cada visita sobrevive con moneda 1/2"),
+    ("derivas_k", "demostrado",
+     "la tabla de derivas de k en la cadena modificada: martingala en "
+     "el nucleo, +1 solo en el borde (lamperti.py C1, 28.436 estados)"),
+    ("lema_mixtos", "demostrado",
+     "L2: infinitos mixtos c.s. - descenso de v2 con A = v2(3^k - 1), "
+     "determinista bajo A; frontera determinista pura (oscilacion.py)"),
+    ("golondrinas_fondo", "demostrado",
+     "GOLONDRINAS: la cadena modificada visita el fondo k <= 1 "
+     "infinitas veces c.s. (derivas + L2 + oscilacion de martingalas)"),
+    ("aguilas_criticidad", "demostrado",
+     "AGUILAS: E[m] = (1+q)/4 - kappa = 1 caracteriza q = 3 en la "
+     "familia (qx+r)/2 (cadenaqnr.py)"),
+    ("lechuzas_obstruccion", "demostrado",
+     "LECHUZAS: p primo impar, p | r, p sin dividir 2q => los "
+     "consecutivos no funden jamas (unidades mod p + balance de S)"),
+    ("empalme_por_visita", "pendiente",
+     "LA ULTIMA PIEZA: de las infinitas visitas al fondo a tocar (1,1) "
+     "i.o. - E[toques] diverge t^0.35 (empalme.py); falta estacionaria "
+     "condicionada del perturbed IFS o segundo momento"),
+    ("phi_uno", "pendiente",
+     "phi = 1 (Gao-Wu en densidad): criterio + Golondrinas + Hormigas "
+     "+ el empalme. Si el empalme cae, cae entera"),
 ]
 
 # (hijo, padre): el hijo se apoya en el padre
@@ -3406,6 +3456,30 @@ DEPENDENCIAS = [
     ("cuadratica_M6", "clasificacion_rutas"),
     ("recursion_bk", "cuadratica_M6"),
     ("recursion_bk", "unicidad_M2"),
+    # --- la rama de la cadena ---
+    ("cadena_kc", "definiciones"),
+    ("tigresas_multiplicador", "cadena_kc"),
+    ("aranas_sombra", "cadena_kc"),
+    ("aranas_sombra", "tigresas_multiplicador"),
+    ("moscas_tension", "aranas_sombra"),
+    ("palomas_identidad", "cadena_kc"),
+    ("hormigas_accesibilidad", "cadena_kc"),
+    ("abejas_bloques", "hormigas_accesibilidad"),
+    ("halconas_bandas", "abejas_bloques"),
+    ("halconas_bandas", "moscas_tension"),
+    ("criterio_recurrencia", "cadena_kc"),
+    ("derivas_k", "cadena_kc"),
+    ("lema_mixtos", "cadena_kc"),
+    ("golondrinas_fondo", "derivas_k"),
+    ("golondrinas_fondo", "lema_mixtos"),
+    ("aguilas_criticidad", "cadena_kc"),
+    ("lechuzas_obstruccion", "cadena_kc"),
+    ("empalme_por_visita", "golondrinas_fondo"),
+    ("empalme_por_visita", "moscas_tension"),
+    ("empalme_por_visita", "hormigas_accesibilidad"),
+    ("phi_uno", "criterio_recurrencia"),
+    ("phi_uno", "golondrinas_fondo"),
+    ("phi_uno", "empalme_por_visita"),
 ]
 
 print()
