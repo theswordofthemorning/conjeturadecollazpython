@@ -86,7 +86,15 @@ Fraboni en el hilo ya abierto. No las borro yo: decisión del usuario.
 ## Qué se hizo hoy y qué queda a tu decisión
 
 - HECHO: `__pycache__` fuera; este inventario al repo.
-- TU DECISIÓN (1): sacar `lecturas/latourette2007/` del repo público.
-- TU DECISIÓN (2): la partición de `CLAUDE.md` (la ganancia real de
-  contexto para todas las sesiones futuras).
-- TU DECISIÓN (3): respaldo privado de `lecturas/*.pdf` fuera del repo.
+- ⇢ APLICADO (1), misma tarde: `lecturas/latourette2007/` fuera del
+  árbol público (copia local intacta; `lecturas/` entera al gitignore).
+  *Nota: las páginas siguen en el HISTORIAL de git — purgarlas del
+  historial exige `git filter-repo`; decisión aparte del usuario.*
+- ⇢ APLICADO (2), misma tarde, con el diseño del usuario (SISTEMA DE
+  DERIVADOS): `CLAUDE.md` pasó de **3.466 a ~390 líneas** (tronco:
+  doctrina viva + resúmenes `[D-nn]`) y `derivados.md` guarda las 10
+  ramas ÍNTEGRAS (3.172 líneas movidas, no borradas). El costo fijo de
+  cada sesión futura baja ~89%.
+- ⇢ APLICADO (3), misma tarde: respaldo local
+  `Desktop\lecturas_respaldo_2026-08-09.zip` (26,6 MB: lecturas + los
+  3 PDF de la raíz). El destino final (nube/disco) es del usuario.
