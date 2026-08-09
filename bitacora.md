@@ -5,6 +5,57 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (6) — LA SUB-TEORÍA DE LA MADRIGUERA: LIEBRES Y CEBRAS REVISADAS Y ADOPTADAS, Y URRACAS (TEOREMA + EL 15º .LEAN)
+
+**Procedencia y revisión.** `liebres.py` apareció sin trackear, escrito a las
+19:02 por una sesión de Opus 5 que el usuario frenó a tiempo (no tocó nada
+más: cero diffs, cero commits). En vez de borrarlo, **revisión adversarial
+completa** (guion en el scratchpad de la sesión): (A1) su `transicion`
+validada contra **pares reales** `{v, 3^k·v + c}` del mapa del atajo —
+30.600 transiciones, semillas de 60 bits, la fusión real `T(v) = T(3v+1)`
+sólo en `(1,1)`-bit1; (A2) la constante de Doeblin **recomputada por camino
+independiente** (probabilidades exactas con `Fraction`, no conteo de
+palabras): `eps = 17887/131072` clavado; (A3) el caso `k = 0` de CEBRAS que
+su C3 no cubría, verificado exacto; (A4, hallazgo anotado: el rebote
+`(1,1)→(2,2)` tiene multiplicador `|u'|/|u| = 2/3` — ni 1/2 ni 3/2 — y C4 lo
+cuenta como expansivo: dirección CONSERVADORA). **No se pudo romper:
+adoptado, con bautizo confirmado LIEBRES y CEBRAS.**
+
+**Y la pieza nueva de la casa — TEOREMA DE URRACAS** (`urracas.py` +
+`urracas.lean`, el 15º, núcleo puro, 0 `sorryAx`, compilado en dos
+iteraciones): en la cadena modificada, para TODA palabra,
+
+    exp − contr = 2·V + (Ee − E0) + k0 − k_t     (igualdad de ENTEROS)
+
+(`V` = rebotes en el vórtice, `Ee − E0` = desbalance de bits en pasos con
+`c` par). Demostración por libro mayor (los NUEVE tipos de paso conservan
+`exp − contr − 2V − (Ee−E0) + k`), formalizada en Lean (once constructores
+con testigos sin división, invariancia + inducción sobre caminos);
+exhaustividad de los nueve tipos contra la cadena verificada en la C0 del
+`.py` (76.000 transiciones — el hueco Lean↔Python cerrado); la identidad
+clavada palabra a palabra (2^15 exhaustivo + cuatro arranques con `k0 ≠ 0`)
+y estado a estado (todos los estados de los 30 niveles, 1,2 M en el último).
+
+**El corolario que reduce el último paso de CEBRAS:** la deriva del fondo es
+negativa ⟺ `a_V + a_D − a_K < 2(log₂/log₃ − 1/2) = 0,26186`, y SIN
+condicionar `Σ(Ee−E0) = 0` EXACTO en cada nivel (la moneda justa) — el
+sesgo del h-transform queda aislado en UNA esperanza condicionada de
+incrementos centrados. Medido (orienta, no decide): sesgo total ~0,019
+plano, margen ×13,8; el término mayor es `a_V` (bajando), compensado por
+`a_K`; la moneda `a_D ≈ 0,008` y baja. Regalo de Lean: los dos bits del
+vórtice aterrizan en `(2,2)` (`vortice_bit0/1`, sin calculadora).
+
+**LA SUB-TEORÍA DE LA MADRIGUERA, en una línea por pieza:** LIEBRES — basta
+mirar cualquier ventana finita (`φ = 1 ⟺ Σ P(X_t ∈ C) = ∞`, Doeblin exacto
+sobre conjunto finito, sin la constante fina de Hormigas); CEBRAS — el
+mecanismo es la deriva de `log|u|` con umbral `log 2/log 3` (la constante
+clásica, otra vez); URRACAS — el sesgo de esa deriva es una identidad
+entera con tres términos medibles, y el último paso queda con nombre:
+acotar la moneda condicionada bajo 0,26186 por paso (el h-transform del
+paseo crítico sesga `O(1/k)`, no exponencialmente).
+
+Conteos nuevos: **64 `.py` · 15 `.lean` · 3 `.db`**.
+
 # ⇢ 09-08-2026 (5) — LA RETAGUARDIA SALDADA: EL PISO SOBREVIVE AL EXPONENTE HONESTO Y EL 14º .LEAN COMPILA A LA PRIMERA
 
 Los tres frentes de la lista, ejecutados tras aplicar el acta:

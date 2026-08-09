@@ -158,6 +158,30 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 
 **EMPEZAR POR AQUÍ.** Todo lo de abajo es historia; esto es el frente.
 
+## ⇢ LA SUB-TEORÍA DE LA MADRIGUERA (09-08 (6), manda sobre lo de abajo)
+
+Tres piezas nuevas encajadas (bitácora 09-08 (6); LIEBRES/CEBRAS
+adoptadas tras revisión adversarial, URRACAS propia con el 15º `.lean`):
+
+1. **LIEBRES**: `φ = 1 ⟺ Σ_t P(X_t ∈ C) = ∞` para TODA ventana finita —
+   el criterio de retorno11 sobre `{(1,1)}` se ensancha a cualquier
+   madriguera; la serie de la ventana grande decae con exponente ~0,40
+   contra el umbral 1 (antes: ~0,76 en el estado solo — margen nuevo).
+2. **CEBRAS**: el mecanismo — deriva de `log|u|` negativa ⟺ frecuencia
+   expansiva `q1 < log 2/log 3`. Medido en el fondo: `q1 ≈ 0,5095`
+   estable, a 0,12 del umbral.
+3. **URRACAS**: `q1 − 1/2 = (2V + (Ee−E0) − Δk)/(2t)` EXACTO — el sesgo
+   entero del condicionamiento en tres términos medibles; sin
+   condicionar la moneda es justa (`Σ(Ee−E0) = 0` exacto). Sesgo total
+   medido ~0,019 contra 0,26186: margen ×13,8.
+
+**EL ÚLTIMO PASO, con nombre nuevo:** acotar la esperanza condicionada
+del desbalance de la moneda justa (más la ocupación del vórtice, que
+decae) por debajo de `2(log₂/log₃ − 1/2) = 0,26186` por paso. El
+h-transform del paseo crítico de `k` sesga `O(1/k)`, no
+exponencialmente — ésa es la vía. Pendiente además: revisión externa
+adversarial de la terna nueva (las cuatro anteriores rompieron algo).
+
 ## ⇢ LA REFORMULACIÓN DEL 09-08 (manda sobre lo de abajo)
 
 **`φ = 1 ⟺ (1,1) es RECURRENTE en la cadena MODIFICADA`** (la de
@@ -420,6 +444,9 @@ descriptivo entre paréntesis.)*
 | **LECHUZAS** | teorema (rapaz) | si `3 \| r`, los consecutivos NO funden JAMÁS bajo `(qx+r)/2`: la fusión exige `c ≡ 0 (mod 3)` y las seis leyes sólo multiplican `c` por unidades mod 3 — ve en la oscuridad que no hay nada | demostrado (una línea) + barrido `a(k) = 0` clavado k ≤ 22 | `cadenaqnr.py` C4 |
 | **HALCONAS** | corolario (rapaz) | la masa viva ABSOLUTA de toda banda finita `k ≤ K` tiende a 0 — **incondicional** *(4ª revisión: no discrimina φ; la versión que discriminaría es sobre masa condicionada a vivo)* | demostrado (lectura corregida) | `minorizacion.py`, `actarevision0908.txt` |
 | **GOLONDRINAS** | teorema | en la CADENA MODIFICADA (vórtice rebotado; `φ = 1 ⟺ (1,1)` recurrente), la masa visita el fondo `k ≤ 1` INFINITAS veces c.s.: `k` es martingala exacta con empuje sólo en el borde (tabla de derivas, 28.436 estados), L2 (infinitos mixtos) sale del descenso determinista de `v₂` con `A = v₂(3^k−1)`, y la oscilación de martingalas fuerza `A → ∞` — siempre vuelven | demostrado (L2 con 60.010 instancias exactas + frontera determinista); queda el empalme por visita | `lamperti.py`, `oscilacion.py` |
+| **LIEBRES** | teorema | basta con volver a la madriguera: `φ = 1 ⟺ Σ_t P(X_t ∈ C) = ∞` para TODA ventana finita `C` con `(1,1)` dentro — Green + clase recurrente cerrada + Doeblin EXACTO sobre conjunto finito (`ε ≥ 17887/131072`, sin la constante fina de Hormigas) | demostrado; revisado en casa (Doeblin recomputado independiente, `transicion` validada contra pares reales); pendiente revisión externa | `liebres.py` |
+| **CEBRAS** | lema | el sesgo se lee en las rayas: la deriva de `log\|u\|` es negativa ⟺ frecuencia expansiva `q1 < log 2/log 3 = 0,6309` (la constante clásica); la rama expansiva clasificada exacta, frontera incluida | demostrado (álgebra + clasificación verificada, `k = 0` cerrado en la revisión); el rebote (mult. 2/3) queda fuera y contado conservador | `liebres.py` |
+| **URRACAS** | teorema | la contabilidad del sesgo: `exp − contr = 2V + (Ee−E0) + k0 − k_t` EXACTO por palabra (libro mayor de nueve tipos); corolario: deriva del fondo negativa ⟺ `a_V + a_D − a_K < 0,26186`, y sin condicionar `Σ(Ee−E0) = 0` — el h-transform aislado en UNA moneda condicionada | demostrado (Lean: invariancia + inducción, 0 sorry; enteros clavados por palabra/estado/global) | `urracas.py`, `urracas.lean` |
 
 ## Dónde está cada cosa
 

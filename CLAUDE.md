@@ -214,7 +214,7 @@ parece.
 
 ## Instalación [historia y avisos: D-03]
 
-`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 09-08-2026: **62 `.py` · 14 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
+`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 09-08-2026 (noche): **64 `.py` · 15 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
 
 ## Cómo está repartido el repo [detalle: D-04]
 
@@ -349,6 +349,9 @@ for a in sorted(glob.glob('*.py')):
 | **`diferenciales.py`** | El perfil diferencial exacto `a_Δ(k)`, `Δ ≤ 16` (la «DDT 2-ádica») |
 | `pisoporvisita.py` / `empalme.py` / `pisoremedido.py` | Las series del piso por visita (la última con el exponente honesto post-revisión) |
 | **`hormigas.lean`** | El 14º: descenso del gap y de frontera, núcleo puro |
+| **`liebres.py`** | **LIEBRES + CEBRAS** (adoptado tras revisión adversarial; procedencia: sesión Opus 5 del 09-08): `φ = 1 ⟺ Σ P(X_t ∈ C) = ∞` para toda ventana finita C (Doeblin exacto `ε ≥ 17887/131072`), y el umbral de deriva `log 2/log 3` |
+| **`urracas.py`** | **TEOREMA DE URRACAS**: `exp − contr = 2V + (Ee−E0) + k0 − k_t` exacto por palabra; el sesgo del fondo descompuesto en tres términos medibles contra el umbral 0,26186 |
+| **`urracas.lean`** | El 15º: el libro mayor demostrado — once constructores con testigos, invariancia por paso e inducción sobre caminos, 0 `sorryAx` |
 | `actarevision0908.txt` | El acta de la 4ª revisión externa (la que rompió Abejas-como-programa y validó el criterio) |
 | `maquinaria.txt` / `notamoscas.txt` | Los cinco objetivos sin Collatz y la nota autocontenida de Moscas |
 | `inventario.md` / `derivados.md` | El catálogo del repo, y las ramas del tronco (sistema de derivados `[D-nn]`) |
