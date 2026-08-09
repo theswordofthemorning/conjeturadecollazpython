@@ -5,6 +5,32 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (5) — LA RETAGUARDIA SALDADA: EL PISO SOBREVIVE AL EXPONENTE HONESTO Y EL 14º .LEAN COMPILA A LA PRIMERA
+
+Los tres frentes de la lista, ejecutados tras aplicar el acta:
+
+1. **`pisoremedido.py` — el piso REMEDIDO** con tres exponentes (el
+   viejo 2,5; el sup exhaustivo 2,75; el demostrable-con-margen 5):
+   **con `e = 5`, α local = 0,675 < 1 y BAJANDO** (0,845 → 0,675) —
+   «E[toques a (1,1)] diverge» SOBREVIVE al exponente honesto, con
+   margen. La corrección #44 queda cobrada, no sólo anotada.
+2. **La estacionaria condicionada, sondada por RENOVACIÓN** (Medida
+   2): la ley de `|c|` del flujo de entrada al fondo (`k=2 → k=1`) se
+   desliza con decrementos geométricos decrecientes (mismo patrón que
+   la u-CDF de `empalme.py`) — extrapola a límite positivo. El paso
+   teórico que decidiría (perturbed IFS condicionado) sigue ABIERTO y
+   así queda dicho: esto lo sondea, no lo demuestra.
+3. **`hormigas.lean` — EL 14º `.lean`, compilado A LA PRIMERA**: el
+   esqueleto aritmético de Hormigas y del descenso de frontera de
+   Golondrinas — `hormigas_viaje_j0` y `_j_ge1` (el descenso estricto
+   del gap, los dos regímenes), `frontera_desciende_F1/_F2` (los dos
+   bits quitan exactamente un factor 2: la pieza determinista de L2),
+   `impar_por_tres` (v₂ baja EXACTO 1), estilo testigos sin división,
+   núcleo puro, `#print axioms` limpio en los cinco, y los dos casos
+   conocidos (g = 5 y g = 3) cerrados por `decide`. **Pendiente
+   declarado: el aterrizaje de N2 en `v₂ = A−1` (2-ádica con signo)
+   es el candidato al 15º.**
+
 # ⇢ 09-08-2026 (4) — LA CUARTA REVISIÓN EXTERNA DICTÓ Y ROMPIÓ; APLICADA ENTERA. Y EL CORREO A FRABONI, ENVIADO
 
 **El acta completa está en `actarevision0908.txt`; las correcciones
