@@ -234,3 +234,29 @@ M. Elia y A. Tucker, Consecutive Integers and the Collatz Conjecture,
     arXiv:1511.09141 (2015).   [contraejemplos a la conjetura de Garner]
 K. Frinkle et al., Computing streaks of consecutive numbers with the same
     Collatz height, J. Supercomputing 81 (2025).
+
+
+==============================================================================
+ACTUALIZACION 09-08-2026 -- LA SERIE LLEGA A 36 Y LAS DOS ESTAN EN OEIS
+COMO PROPUESTAS
+==============================================================================
+
+a(k) extendida (k = 33..36, cada termino por DOS caminos independientes:
+el barrido simbolico de la cadena + la identidad-teorema con G y H de
+barridos separados; ver paseodeladeuda.py, segundocamino.py, empujarb.py):
+
+    a(33) = 3.761.106.610      a(34) = 7.558.807.251
+    a(35) = 15.188.796.435     a(36) = 30.516.174.184
+
+b(k) extendida (k = 32..35): 18.831.364, 36.594.031, 71.181.933,
+138.581.314 -- razones 1,9412 / 1,9432 / 1,9452 / 1,9469, subiendo.
+
+ESTADO OEIS (09-08-2026): las dos sucesiones estan PROPUESTAS con la
+cuenta del usuario -- a(n) como A398792 (36 terminos, offset 1 con dos
+ceros iniciales) y b(n) como A398793 (35 terminos) -- junto con los
+analogos de la familia: A398794 (5x+1, propuesta) y A398795 (7x+1,
+reservada, pendiente de slot). El repo publico de respaldo para la
+revision es github.com/theswordofthemorning/zootheorem (verificadores
+por fuerza bruta sin codigo compartido con este laboratorio, b-files,
+y el teorema del espejo en Lean). El intercambio con los editores va
+en la bitacora (09-08 (2) y (4)).

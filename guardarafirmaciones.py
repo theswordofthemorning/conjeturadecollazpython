@@ -2506,6 +2506,118 @@ AFIRMACIONES = [
          "=> tensa => phi = 1' es HEURISTICA; Moscas demostro la "
          "tension INCONDICIONAL, y el condicional a vivo pierde la "
          "cota si phi = 1. No escribir phi = 1 sin ese paso."),
+
+    # ------------------------------------ la jornada del 09-08-2026
+    fila("EL CRITERIO DE RETORNO (la formulacion final del programa, "
+         "validada por la 4a revision externa): phi = 1 <=> p = "
+         "P_(1,1)(retornar a (1,1)) = 1 <=> Sigma_t P(X_t = (1,1)) = "
+         "infinito, sobre la CADENA MODIFICADA (vortice rebotado a "
+         "(2,2)). Cada visita de la cadena real sobrevive con moneda "
+         "1/2 fresca, P(no fundir) = E[2^-N]; dicotomia de Markov; y "
+         "(0,1) <-> (1,1) SE COMUNICAN (vuelta explicita "
+         "(1,1)->(2,2)->(2,-1)->(1,-2)->(1,-1)->(0,1), verificada)",
+         "todo_n", "demostrado", "retorno11.py", "propio",
+         "09-08-2026. AGUANTO la revision adversarial completa (acta "
+         "en actarevision0908.txt): monedas por visita legitimas "
+         "(transicion_mod(1,1,bit) ignora el bit), puente "
+         "real/modificada correcto, clase cerrada correcta. Medido: "
+         "S(35) = 0,437 y 1-p_34 = 0,685, ambas bajando con exponente "
+         "local SUBIENDO -- orienta a recurrente; no decide."),
+
+    fila("TEOREMA DE HORMIGAS (accesibilidad): desde TODO estado (k,c) "
+         "de la cadena hay una palabra finita de bits que fusiona -- "
+         "politica explicita, terminacion demostrada (la torre "
+         "desciende; el gap decrece estricto por viaje: 4g' = 3g+1 < "
+         "4g si j = 0, 8g' <= 3g+3 < 8g si j >= 1; la ventana de "
+         "Perras cierra en g = 1), largo O(k + log2|c|)",
+         "todo_n", "demostrado", "accesibilidad.py", "propio",
+         "09-08-2026. El revisor externo redemostro la terminacion "
+         "entera. LA CONSTANTE FINA ESTA ABIERTA: el 2,5 publicado era "
+         "una muestra (correccion 44; sup exhaustivo ~2,73, candidata "
+         "demostrable 2/log2(4/3) ~ 4,8). Las piezas aritmeticas del "
+         "descenso estan en Lean (hormigas.lean, el 14o, nucleo puro)."),
+
+    fila("EL LEMA DE ABEJAS (bloques): la ocupacion viva de toda "
+         "rejilla finita G, sumada sobre bloques disjuntos de largo "
+         "T_G, es <= 2^T_G -- INCONDICIONAL (es Kraft: las "
+         "continuaciones fusionantes son palabras absorbidas, conjunto "
+         "libre de prefijos, masa <= phi <= 1 siempre)",
+         "todo_n", "demostrado", "minorizacion.py", "propio",
+         "09-08-2026, con la correccion 43 de la 4a revision: el "
+         "contrapositivo 'M_G no sumable => phi = 1' era VACUO (M_G es "
+         "sumable pase lo que pase). El blanco no-vacuo es M_G/L "
+         "(condicionado a vivo) o la cadena modificada (el criterio "
+         "de retorno). Halconas (la masa absoluta de toda banda "
+         "finita tiende a 0) es igual de incondicional."),
+
+    fila("IDENTIDAD DE PALOMAS: b(t) = N_t(1,1) EXACTO -- las clases "
+         "nuevas del nivel t+1 SON las palabras sentadas en el "
+         "pre-vortice (1,1) al nivel t (la unica ley absorbente es N4 "
+         "en (1,1) con bit 1). Afila a Zorras: p_t = b(t)/m_k1",
+         "clase_residual", "demostrado", "minorizacion.py", "propio",
+         "09-08-2026, C0: t = 3..15 contra la b publicada, y "
+         "nuevas_abs(t+1) = N_t(1,1) en los 16 niveles. Aguanto la "
+         "revision (indice bien apareado, sin absorcion alternativa)."),
+
+    fila("TEOREMA DE GOLONDRINAS: la cadena MODIFICADA visita el fondo "
+         "k <= 1 infinitas veces, casi seguramente, desde todo estado. "
+         "Piezas: (i) la tabla de derivas exacta -- k es martingala en "
+         "el nucleo, +1 solo en frontera impar y vortice rebotado "
+         "(28.436 estados enumerados); (ii) L2: infinitos mixtos c.s. "
+         "-- con k congelado y A = v2(3^k - 1), ambos bits bajan v2(c) "
+         "salvo bit 1 exactamente en v2 = A, bajo A el descenso es "
+         "determinista, y la frontera es determinista pura; (iii) "
+         "oscilacion de martingalas: k = M + A_t, M no converge, "
+         "A_t -> infinito",
+         "todo_n", "demostrado", "oscilacion.py", "propio",
+         "09-08-2026. La 4a revision REMENDO dos pasos impresos "
+         "(correccion 45: la palabra de L2 depende del estado -- c = 0 "
+         "y v2 > 2A+1 rompian la version 'A+1 ceros' --; y el caso "
+         "partido nucleo/borde en la oscilacion) y las conclusiones "
+         "AGUANTAN. L2 verificado en 60.010 instancias exactas."),
+
+    fila("TEOREMA DE AGUILAS: para la familia (qx+r)/2 con q, r "
+         "impares, el multiplicador de los pasos compartidos es moneda "
+         "justa entre 1/2 y q/2, luego E[m] = (1+q)/4 -- y E[m] = 1 "
+         "EXACTAMENTE cuando q = 3: la criticidad kappa = 1 de "
+         "Tigresas CARACTERIZA al mapa de Collatz dentro de la familia",
+         "todo_n", "demostrado", "cadenaqnr.py", "propio",
+         "09-08-2026. La linea es exacta; la LECTURA dinamica ('la "
+         "fusion se apaga para q >= 5') fue REFUTADA por la propia "
+         "tabla (correccion 46): las densidades son monotonas y "
+         "positivas (phi_7 >= 0,107 subiendo). Lo defendible: razones "
+         "de b < 2 para q >= 5 => phi_q < 1 PLAUSIBLE, medido sin "
+         "mecanismo. Series a_5 y a_7 medidas por primera vez; no "
+         "estan en OEIS (consultado con control 09-08); propuestas "
+         "como A398794 y (pendiente) A398795."),
+
+    fila("TEOREMA DE LECHUZAS: si un primo impar p divide r pero no "
+         "divide 2q, los pares consecutivos NO funden JAMAS con S "
+         "igualada bajo (qx+r)/2 -- mod p el mapa es multiplicacion "
+         "por unidades (2^-1 o 2^-1 q), y fusion al mismo indice con "
+         "S igual iguala los factores acumulados, forzando x0 = y0 "
+         "(mod p): imposible para consecutivos",
+         "todo_n", "demostrado", "cadenaqnr.py", "propio",
+         "09-08-2026. Verificado: a(k) = 0 clavado k <= 22 en 5x+3 y "
+         "7x+3, y la prediccion falsable en (3x+5)/2 tambien dio 0. "
+         "El calificador 'con S igualada' lo exigio la 4a revision: "
+         "el encuentro DESBALANCEADO no queda excluido (buscado hasta "
+         "20.000 sin hallazgos, no demostrado)."),
+
+    fila("EL PERFIL DIFERENCIAL EXACTO: la cadena arrancada en (0, "
+         "DELTA) es la dinamica del par {v, v + DELTA}, y a_DELTA(k) "
+         "cuenta sus clases fundidas -- la 'DDT 2-adica' del mapa del "
+         "atajo, con la identidad de reduccion a_2m(k) = a_m(k-1) + "
+         "a_3m(k-1) como igualdad de enteros (el primer bit parte la "
+         "clase). DELTA = 1 es la diferencia mas fusible (0,402 contra "
+         "0,280 de DELTA = 2 y 0,107 de DELTA = 16, a k = 20)",
+         "clase_residual", "medido", "diferenciales.py", "propio",
+         "09-08-2026. Simbolico = directo k = 3..12 para los 13 "
+         "DELTA. La lectura cripto (probabilidad de colision "
+         "diferencial exacta) y la relacional (indistinguibilidad de "
+         "timing) estan en maquinaria.txt con la literatura localizada "
+         "(Lipmaa-Moriai 2001, ADP de ARX 2011; localizado no es "
+         "leido)."),
 ]
 
 
