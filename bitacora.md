@@ -34,6 +34,14 @@ la ruta ni el método) y las sucesiones a OEIS desde su cuenta.
   pages los edita el staff. Para completar el redireccionamiento:
   pedir el cambio a los editores de OEIS, o decisión del usuario sobre
   el repo viejo. **Ninguna de las 4 submissions enlaza el repo viejo.**
+  > ⇢ **RESUELTO por decisión del usuario, la misma tarde**: puso
+  > `conjeturadecollazpython` en PÚBLICO en GitHub — *«aunque nos roben
+  > el alma, la humanidad está primero»*. El pendiente de la wiki queda
+  > sin urgencia: el enlace apunta a un repo abierto a propósito. La
+  > separación se mantiene igual: a OEIS sólo se envía lo de
+  > `zootheorem`; A398795 quedó documentada entera para el envío
+  > (`zootheorem/drafts/PENDING_A398795.md`, con testigo verificado
+  > `a(4) = 1` en `r = 8`).
 
 # ⇢ 09-08-2026 — EL LEMA DE BLOQUES: EL PISO QUEDA EN UNA SOLA DESIGUALDAD. Y LA FAMILIA q
 
