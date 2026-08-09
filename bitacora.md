@@ -36,6 +36,19 @@ salió mejor que Lamperti:
    que lo decidiría: la estacionaria del IFS de Arañas condicionada al
    fondo (perturbed IFS — el blanco técnico ya nombrado).
 
+**⇢ EL CRITERIO EN SU FORMA FINAL** (`retorno11.py`, la noche): el
+segundo momento resultó INNECESARIO — la dicotomía de Markov lo hace
+todo: **`φ = 1 ⟺ p = P_{(1,1)}(retorno) = 1 ⟺ Σ_t P(X_t = (1,1)) =
+∞`**, porque `(0,1)` y `(1,1)` SE COMUNICAN (vuelta explícita:
+`(1,1)→(2,2)→(2,−1)→(1,−2)→(1,−1)→(0,1)`, verificada) y la
+recurrencia es de clase. La conjetura ES la divergencia de una serie
+computable / el retorno con probabilidad 1. Medido: primeros retornos
+a `(0,1)` con la serie prima de Ovejas (el vórtice rebotado cambia los
+conteos, como debe); `S(35) = 0,437` y `1 − p_34 = 0,685`, **ambas
+bajando con exponente local SUBIENDO** (0,22→0,24 y 0,17→0,20) — la
+transitoriedad exigiría α → 0 con S estancada, y pasa lo contrario.
+Orienta fuerte a recurrente; no decide.
+
 **⇢ Y EL EMPALME, ACORRALADO** (`empalme.py`, la misma tarde): (1) la
 u-CDF condicionada al fondo se desliza con DECREMENTOS GEOMÉTRICOS
 (−0,023 → −0,016 → −0,012 por cuatrienio: extrapola a límite positivo
