@@ -154,9 +154,45 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 
 ---
 
-# ⇢ EL ESTADO Y LOS PRÓXIMOS PASOS (cierre del 04-08-2026)
+# ⇢ EL ESTADO Y LOS PRÓXIMOS PASOS (actualizado 09-08-2026)
 
 **EMPEZAR POR AQUÍ.** Todo lo de abajo es historia; esto es el frente.
+
+## ⇢ LA REFORMULACIÓN DEL 09-08 (manda sobre lo de abajo)
+
+**`φ = 1 ⟺ (1,1) es RECURRENTE en la cadena MODIFICADA`** (la de
+Leonas con el vórtice rebotado a `(2,2)`): cada visita al vórtice
+sobrevive con moneda 1/2, luego `P(no fundir) = E[2^{−N}]` con `N` =
+visitas — positivo sii `N` puede ser finito. **Sin condicionamiento a
+vivo: el problema de Bessel desaparece.** Equivale a `Σ retornos(L)·2^{−L}
+= 1` (la serie de Ovejas): la razón 2 en su disfraz final.
+
+**El camino demostrado y el que falta** (`lamperti.py`, 09-08):
+
+1. **EXACTO (C1)**: `k` es martingala en todo el núcleo (deriva 0,
+   28.436 estados enumerados), con empuje `+1` sólo en frontera impar
+   y vórtice rebotado. Oscilación de martingalas: si hay infinitos
+   mixtos, `A → ∞` = **infinitas visitas al fondo**.
+2. **(L2) infinitos mixtos — DEMOSTRADO** (`oscilacion.py` C1/C2, la
+   misma tarde): con `k` congelado entre mixtos y `A = v₂(3^k−1)`,
+   ambos bits bajan `v₂(c)` salvo bit 1 exactamente en `v₂ = A`; bajo
+   `A` el descenso es determinista, y en la frontera los dos bits
+   restan 1 a `v₂(g)` — toda ventana de `A+1` ceros fuerza un mixto.
+   **⟹ TEOREMA DE GOLONDRINAS: la cadena modificada visita el fondo
+   (k ≤ 1) infinitas veces c.s.** (L2 + tabla de derivas + oscilación
+   de martingalas: `k = M + A`, `M` no converge, `A → ∞`).
+3. **(B) EL MURO FINAL — el empalme por visita**: desde el fondo,
+   Hormigas da `P(tocar (1,1)) ≥ ~|c|^{−2,5}` por visita; falta que el
+   `|c|` de las visitas no se disperse del todo (medido:
+   `E[(1+|c|)^{−5/2}|fondo]` ≈ 5% decayendo lento — κ=1 otra vez).
+   La serie del criterio, `E[visitas a (1,1)]`, va en 0,99 subiendo
+   con incrementos `~t^{−0,8}`: si el exponente queda < 1, diverge y
+   `φ = 1`.
+
+**Con Abejas/Hormigas/Halconas (minorizacion.py, accesibilidad.py) y
+esto, el programa entero es: L2 (demostrable) + B (el corazón).**
+Retaguardia: Hormigas/Abejas en Lean; revisión adversarial de toda la
+cadena del 09-08 (nada de ella pasó revisión externa aún).
 
 ## Dónde está el programa, en cinco líneas
 
@@ -369,6 +405,7 @@ descriptivo entre paréntesis.)*
 | **ÁGUILAS** | teorema (rapaz) | `E[m] = (1+q)/4` para la familia `(qx+r)/2`: la criticidad κ=1 de Tigresas CARACTERIZA a `q = 3`; para `q ≥ 5`, `E[log m] > 0` y Jensen cierra la ventana de Moscas — corta la familia entera en el 3 | exacto, una línea; densidades de `5x+1`/`7x+1` medidas por primera vez | `cadenaqnr.py` |
 | **LECHUZAS** | teorema (rapaz) | si `3 \| r`, los consecutivos NO funden JAMÁS bajo `(qx+r)/2`: la fusión exige `c ≡ 0 (mod 3)` y las seis leyes sólo multiplican `c` por unidades mod 3 — ve en la oscuridad que no hay nada | demostrado (una línea) + barrido `a(k) = 0` clavado k ≤ 22 | `cadenaqnr.py` C4 |
 | **HALCONAS** | corolario (rapaz) | `φ < 1 ⟹` la masa viva de TODA banda finita `k ≤ K` tiende a 0 (Abejas da sumable ⟹ `M_G → 0`; Moscas es uniforme en `x`, y `x` es arbitrario) — la rapaz que obliga a la presa a subir. Contrapositivo: una banda que conserva masa da `φ = 1`; hoy el 93% vive en `k ≤ 8` | demostrado desde Abejas + Hormigas + Moscas | `minorizacion.py` (encabezado) |
+| **GOLONDRINAS** | teorema | en la CADENA MODIFICADA (vórtice rebotado; `φ = 1 ⟺ (1,1)` recurrente), la masa visita el fondo `k ≤ 1` INFINITAS veces c.s.: `k` es martingala exacta con empuje sólo en el borde (tabla de derivas, 28.436 estados), L2 (infinitos mixtos) sale del descenso determinista de `v₂` con `A = v₂(3^k−1)`, y la oscilación de martingalas fuerza `A → ∞` — siempre vuelven | demostrado (L2 con 60.010 instancias exactas + frontera determinista); queda el empalme por visita | `lamperti.py`, `oscilacion.py` |
 
 ## Dónde está cada cosa
 

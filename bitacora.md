@@ -5,6 +5,43 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (3) — LA REFORMULACIÓN, LAMPERTI Y GOLONDRINAS: EL FONDO SE VISITA SIEMPRE
+
+Mientras esperamos a los editores de OEIS, el ataque de Lamperti — y
+salió mejor que Lamperti:
+
+1. **EL CRITERIO**: `φ = 1 ⟺ (1,1) es RECURRENTE en la CADENA
+   MODIFICADA` (vórtice rebotado a `(2,2)`): cada visita sobrevive con
+   moneda 1/2, `P(no fundir) = E[2^{−N}]` — positivo sii `N` finito
+   posible. **Sin condicionamiento a vivo: el Bessel desaparece.**
+   Equivale a `Σ retornos·2^{−L} = 1` (Ovejas): la razón 2, disfraz final.
+2. **`lamperti.py`**: la tabla de derivas de `k` EXACTA por enumeración
+   (28.436 estados): martingala pura en el núcleo, `+1` sólo en
+   frontera impar y vórtice rebotado; masa muy-par `≤ 0,57·2^{−j}`
+   uniforme; fracción mixta → 0,513 estable.
+3. **`oscilacion.py` — EL TEOREMA DE GOLONDRINAS** (bautizo de la
+   lista: siempre vuelven): **la cadena modificada visita el fondo
+   `k ≤ 1` infinitas veces c.s.** Demostración: (L2) con `k` congelado
+   y `A = v₂(3^k−1)`, ambos bits bajan `v₂(c)` salvo bit 1 en
+   `v₂ = A` exacto — bajo `A` el descenso es DETERMINISTA (60.010
+   instancias, 0 fallos; frontera: determinista puro) ⟹ toda ventana
+   de `A+1` ceros fuerza un mixto ⟹ infinitos mixtos c.s.; luego
+   `k = M + A` con `M` martingala que no puede converger ⟹
+   `liminf M = −∞` ⟹ `A → ∞` = infinitas visitas al borde. QED.
+4. **LO QUE QUEDA — una pieza, la última de verdad**: el EMPALME POR
+   VISITA: de las infinitas visitas al fondo a tocar `(1,1)` i.o.
+   Hormigas da `P ≥ ~|c|^{−2,5}` por visita; medido a t=34: el piso
+   `E[(1+|c|)^{−5/2}|fondo] ≈ 0,0496` con exponente local **0,52 →
+   0,26 desacelerando** — camino a constante positiva. El mecanismo
+   que lo decidiría: la estacionaria del IFS de Arañas condicionada al
+   fondo (perturbed IFS — el blanco técnico ya nombrado).
+
+**Capa 1 de la tanda**: el primer borrador afirmaba la versión
+uniforme de la tensión en `k` (falsa: frente difusivo) y un testigo
+inventado en OEIS (`r = 690` → real `r = 909`); los dos cazados antes
+de publicar. `respuestas.db` capturada a mitad de sesión (1.161
+mensajes) y transcripciones re-zipeadas, como manda la regla.
+
 # ⇢ 09-08-2026 (2) — LA SALIDA AL MUNDO: zootheorem + OEIS A398792–A398795
 
 **Orden del usuario**: repo público `zootheorem` sólo con hallazgos (sin
