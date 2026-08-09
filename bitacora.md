@@ -5,6 +5,111 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (2) — LA SALIDA AL MUNDO: zootheorem + OEIS A398792–A398795
+
+**Orden del usuario**: repo público `zootheorem` sólo con hallazgos (sin
+la ruta ni el método) y las sucesiones a OEIS desde su cuenta.
+
+- **`github.com/theswordofthemorning/zootheorem` PUBLICADO**: 3 papers
+  en inglés (merging classes con procedencia de los 36 términos;
+  familia `(qx+r)/2` con Águilas y Lechuzas como Theorems 1 y 2 —
+  incluida la generalización de Lechuzas a todo primo `p | r, p ∤ 2q`,
+  con predicción confirmada en `(3x+5)/2`; y Moscas standalone),
+  4 b-files, 2 verificadores por fuerza bruta (corren limpios, sin
+  código compartido con el laboratorio), `mirror_theorem.lean`
+  (= espejoak), y los drafts OEIS. **La cadena, la reducción y el
+  programa de φ NO están ahí** — eso queda en este repo.
+- **OEIS**: A-numbers reservados A398792–A398795. **Tres PROPUESTAS**:
+  A398792 (a(n), 36 términos), A398793 (b(n), 35), A398794 (`5x+1`,
+  22). A398795 (`7x+1`) reservada: el límite de 3 drafts activos por
+  cuenta nueva la deja en cola (el texto está listo en
+  `zootheorem/drafts/`). **Primera interacción editorial en minutos**:
+  Michel Marcus pidió «more terms» en A398793 y devolvió el draft a
+  editing; respondido en la discusión (los 35 términos son todos los
+  alcanzables: el último exige 2^36 exacto por dos vías) y re-propuesto.
+- **Capa 1 en vivo**: un testigo inventado (`r = 690`) en el ejemplo de
+  A398794 se cazó ANTES de guardar; el real es `r = 909` (calculado).
+- **Pendiente que NO pude hacer**: la página wiki de usuario de OEIS
+  (que enlaza `conjeturadecollazpython`) está **protegida** — los user
+  pages los edita el staff. Para completar el redireccionamiento:
+  pedir el cambio a los editores de OEIS, o decisión del usuario sobre
+  el repo viejo. **Ninguna de las 4 submissions enlaza el repo viejo.**
+
+# ⇢ 09-08-2026 — EL LEMA DE BLOQUES: EL PISO QUEDA EN UNA SOLA DESIGUALDAD. Y LA FAMILIA q
+
+Sesión de goal («avanzar hasta donde puedas», todo local, sin agentes).
+Cuatro `.py` nuevos y un `.txt`; **sin commit — el usuario decide**.
+
+| # | resultado | estatus |
+|---|---|---|
+| 1 | **`b(t) = N_t(1,1)` EXACTO** — las nuevas SON el pre-vórtice; afila a Zorras (`p_t = b(t)/m_k1`) | exacto (`minorizacion.py` C0, t=3..15 vs publicada) |
+| 2 | **La serie `p_t` completa** (t=1..34): cociente bianual ↑ 0,981, exponente local 0,32 y bajando | medido, no decide (`pisoporvisita.py`) |
+| 3 | **EL LEMA DE BLOQUES**: si `φ<1`, la ocupación viva de TODA rejilla finita, sumada por bloques de largo `T_G`, es `≤ 2^{T_G}` (continuaciones disjuntas). **Contrapositivo: `M_G(t)` no sumable ⟹ `φ = 1`** | elemental, dado (A); argumento entero en `minorizacion.py` |
+| 4 | **Accesibilidad (A), TEOREMA constructivo**: política explícita de bits fusiona desde TODO estado; terminación demostrada (torre ↓, gap `g → ~3g/4` estricto por viaje, ventana de Perras cierra); largo `≤ 2,5·(k+log₂|c|+1)` | demostrado + exhaustivo rejilla + 2000 aleatorios a 10^30 (`accesibilidad.py`) |
+| 5 | BFS hacia atrás: la rejilla `k≤8, |c|≤2000, g≤2000` fusiona ENTERA con `T = 23` óptimo | exacto (`minorizacion.py` C1/C2) |
+| 6 | **El frente difusivo**: `sup_t m(k,t)·2^k` se alcanza en el último nivel para `k ≥ 6` — la versión UNIFORME de la tensión en k es dudosa; el lema de bloques la esquiva | medido; etiqueta honesta |
+| 7 | **La serie decisiva `M_G(t)`**: 0,497 a t=30, exponente local α ≈ 0,35 subiendo despacio; RATAS predice `~1/√t` (no sumable) | medido, no decide — **α tendría que cruzar 1 para salvar `φ<1`** |
+| 8 | **La cadena para `(qx+r)/2`**: las seis leyes con `3→q` (53.400 instancias × 4 mapas), simbólico=directo k≤14, espejo `3x−1` clava `a(k)` idéntica k≤22 | exacto (`cadenaqnr.py`) |
+| 9 | **`E[m] = (1+q)/4`: κ=1 (Tigresas) CARACTERIZA a q=3** en la familia; `q≥5` supercrítica en log (Jensen cierra la ventana de Moscas) | exacto, una línea |
+| 10 | **Densidades de fusión medidas POR PRIMERA VEZ**: `3x+1`: 0,409 ↑; `7x+1`: 0,107 casi parada (razón b ~1,6 — huele a límite `<1`); `5x+1`: 0,0044 (primera fusión en k=13) | medido k=22; OEIS/literatura SIN consultar |
+| 11 | Los 5 objetivos de la maquinaria sin Collatz, con etiquetas (Moscas standalone = teorema listo para nota; cripto y relacional = diccionarios; método = 6 casos) | `maquinaria.txt` |
+
+**EL ESTADO DEL PROGRAMA**: `φ = 1` queda reducido a **UNA desigualdad
+sobre UNA serie** — que `M_G(t)` no sea sumable (p. ej. `≥ c/t`). La
+pieza (A) del lema ya es teorema (arriba); el muro que queda es (B):
+la ocupación de la rejilla contra la recurrencia del paseo.
+
+**⇢ LA SEGUNDA PASADA DE LA MISMA JORNADA (bautizos del usuario
+aplicados):** cinco habitantes nuevos del zoológico — **HORMIGAS**
+(accesibilidad, teorema), **ABEJAS** (lema de bloques), **PALOMAS**
+(`b(t) = N_t(1,1)`), **ÁGUILAS** (`E[m] = (1+q)/4`: κ=1 caracteriza a
+`q = 3`) y **LECHUZAS** (`3 | r ⟹` los consecutivos no funden jamás:
+`c ≡ 0 mod 3` inalcanzable — `a(k) = 0` clavado k ≤ 22 en `5x+3` y
+`7x+3`). Y tres entregas más: **`diferenciales.py`** — el perfil
+diferencial exacto `a_Δ(k)` para `Δ ≤ 16` (la «DDT 2-ádica»: Δ = 1 es
+la diferencia más fusible, 0,402; con la identidad par→impar
+`a_{2m}(k) = a_m(k−1) + a_{3m}(k−1)` exacta) — el instrumento de los
+objetivos 3 (cripto) y 4 (relacional); **`notamoscas.txt`** — Moscas
+sin Collatz, nota autocontenida completa (la ventana `(0,1)` abierta
+POR la criticidad, vía convexidad; contraste supercrítico por Jensen);
+y los flujos de la rejilla en `minorizacion.py` (`entra/sale` sube
+0,11 → 0,66: el intercambio se hace recurrente, no fuga seca). La
+tabla del zoológico en `RutaTeoremas.md` está al día.
+
+**⇢ Y LA TERCERA PASADA cerró los flancos que quedaban:**
+
+- **EL COROLARIO DE HALCONAS** (demostrado desde Abejas + Hormigas +
+  Moscas, en el encabezado de `minorizacion.py`): **`φ < 1` ⟹ la masa
+  viva de TODA banda finita `k ≤ K` tiende a 0** — Abejas da
+  sumabilidad (⟹ `M_G → 0`) en la rejilla `{k ≤ K, |u| ≤ x}`, y como
+  Moscas es uniforme en `t` para TODO `x`, el limsup queda `≤ B/x^θ`
+  con `x` arbitrario: cero. Contrapositivo: **una banda de torre que
+  conserve masa viva da `φ = 1`** — y el 93% medido vive en `k ≤ 8`.
+  El escenario `φ < 1` exige que toda la masa suba y no vuelva,
+  contra la recurrencia de RATAS.
+- **OEIS consultada con control** (curl, 09-08): `a_5(k)` y `a_7(k)`
+  dan «No results» las dos; el control Fibonacci devuelve `A000045`.
+  **Las dos series de la familia NO están catalogadas.**
+- **Literatura de los secundarios LOCALIZADA** (búsqueda web; el
+  matiz de la casa: *localizado no es leído*): #2 → el caso crítico
+  de `X = MX + Q` es Babillot–Bougerol–Elie 1997 + arXiv:2105.04994,
+  y los momentos fraccionarios de ecuaciones de recurrencia
+  estocásticas tienen paper propio — la vecindad existe, la
+  comparación fina pendiente; #3 → Lipmaa–Moriai FSE 2001 (xdp+) y
+  «The Additive Differential Probability of ARX» (FSE 2011) es el
+  hermano exacto del perfil de `diferenciales.py`; #4 →
+  self-composition (Barthe et al.), product programs / ct-verif,
+  CtChecker (ECOOP 2024). Punteros escritos en `maquinaria.txt` y
+  `notamoscas.txt`.
+
+*Capa 1 del día: un cursor de sqlite reutilizado me hizo «desaparecer»
+cuatro tablas de `afirmaciones.db` en el primer listado — verificado
+contra `sqlite_master` antes de creerlo. Y el primer borrador de la
+tensión en k afirmaba la versión uniforme; la C4 la degradó a dudosa
+ANTES de publicarla.*
+
+---
+
 # ⇢ CIERRE DEL 04-08-2026 — EMPEZAR POR `RutaTeoremas.md`, SECCIÓN «EL ESTADO Y LOS PRÓXIMOS PASOS»
 
 **La jornada más larga del repo.** Lo que entró, en una línea cada cosa:

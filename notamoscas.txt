@@ -1,0 +1,105 @@
+NOTAMOSCAS.TXT -- el teorema de Moscas SIN Collatz: cota uniforme de
+momentos fraccionarios para cadenas afines criticas, autocontenida
+=====================================================================
+(09-08-2026. El objetivo secundario 2 del goal, redactado completo.
+El teorema esta demostrado sobre la cadena real en moscas.py; esta
+nota es su version abstracta, que no menciona Collatz en ninguna
+linea y es la que puede interesar a alguien de probabilidad.)
+
+ENUNCIADO
+---------
+Sea (u_t) cualquier sucesion de variables reales (no se pide cadena
+de Markov, ni independencia entre pasos, ni estacionariedad) que
+satisfaga la dominacion
+
+    |u_{t+1}|  <=  m_t |u_t| + s,
+
+donde s <= 1/2 es constante y m_t toma los valores 1/2 y 3/2 cada
+uno con probabilidad 1/2, con m_t independiente de u_t (la moneda
+del paso es fresca). Mas en general: m_t >= 0 con E[m_t] = 1,
+distribucion fija no degenerada e independiente del pasado.
+
+Entonces, para TODO theta en (0, 1):
+
+    E[ |u_t|^theta ]  <=  B_theta   =   |u_0|^theta + s^theta / (1 - r_theta),
+
+UNIFORME en t, donde  r_theta = E[m^theta] < 1.  Para la moneda
+{1/2, 3/2}:  r_theta = ((1/2)^theta + (3/2)^theta) / 2, y por
+ejemplo  B_{1/2} <= |u_0|^{1/2} + 21,8  y  B_{0,9} <= |u_0|^{0,9} + 46,2.
+
+DEMOSTRACION (entera, tres pasos)
+---------------------------------
+1. SUBADITIVIDAD. Para 0 < theta < 1 y a, b >= 0 vale
+   (a + b)^theta <= a^theta + b^theta  (la funcion x^theta es
+   concava con valor 0 en 0). Aplicada a la dominacion:
+
+       |u_{t+1}|^theta  <=  m_t^theta |u_t|^theta + s^theta.
+
+2. ESPERANZA. Como m_t es independiente de u_t:
+
+       E|u_{t+1}|^theta  <=  r_theta E|u_t|^theta + s^theta.
+
+3. LA VENTANA ESTA ABIERTA POR LA CRITICIDAD. La funcion
+   phi(theta) = E[m^theta] es convexa en theta (es una media de
+   exponenciales theta -> m^theta), vale phi(0) = 1 y
+   phi(1) = E[m] = 1, y no es constante (m no degenerada). Una
+   convexa que vale 1 en los dos extremos y no es constante es
+   ESTRICTAMENTE menor que 1 en todo el interior:
+
+       r_theta < 1   para todo theta en (0, 1).
+
+   Iterando el paso 2:  E|u_t|^theta <= r_theta^t |u_0|^theta +
+   s^theta (1 + r_theta + ...) <= |u_0|^theta + s^theta/(1-r_theta).
+   QED.
+
+COROLARIO (tension). Por Markov, P(|u_t| > x) <= B_theta / x^theta
+para todo t y todo x > 0: la masa no escapa, con cota explicita y
+uniforme en el tiempo.
+
+POR QUE PUEDE INTERESAR
+-----------------------
+El caso E[m] = 1 es el caso CRITICO de las ecuaciones en diferencias
+aleatorias (u' = m u + q) y de las perpetuidades: alli la teoria
+clasica (Kesten 1973, Goldie 1991, y el libro de
+Buraczewski-Damek-Mikosch) trabaja con condiciones de Cramer
+E[m^kappa] = 1 y teoria de renovacion, y la criticidad es la
+frontera incomoda. El punto de esta nota es que PARA MOMENTOS
+FRACCIONARIOS la criticidad no es el caso dificil sino el facil:
+la ventana theta en (0,1) esta abierta EXACTAMENTE porque
+E[m] = 1 (el argumento de convexidad del paso 3 usa la criticidad
+como hipotesis, no la esquiva), la demostracion cabe en tres pasos
+sin renovacion ni teoremas tauberianos, la constante es explicita,
+y no se pide independencia del proceso: solo la dominacion y la
+moneda fresca. La cota es ademas optima en el exponente: en theta = 1
+la conclusion es falsa en general (E|u_t| puede crecer linealmente),
+asi que la ventana abierta (0,1) es exactamente la que hay.
+
+Y EL CONTRASTE SUPERCRITICO, que delimita el alcance: si
+E[log m] > 0 (por ejemplo la moneda {1/2, q/2} con q >= 5), entonces
+por Jensen E[m^theta] >= e^(theta E[log m]) > 1 para todo theta > 0:
+NO queda ventana ninguna, y de hecho |u_t| -> infinito casi
+seguramente. La dicotomia es exacta para monedas {1/2, q/2}:
+ventana abierta <=> q = 3 <=> E[m] = 1 (el teorema de Aguilas del
+repo, en cadenaqnr.py).
+
+ESTADO Y HONESTIDAD
+-------------------
+- La version sobre la cadena real (con la masa de palabras como
+  medida y la dominacion verificada exacta en 354.299 transiciones)
+  esta demostrada en moscas.py desde el 04-08-2026.
+- La version abstracta de arriba es el mismo calculo, sin el objeto
+  concreto. LA VECINDAD BIBLIOGRAFICA SE LOCALIZO el 09-08-2026
+  (busqueda web, sin leer los papers enteros -- eso sigue pendiente):
+  el caso critico de X_n = M_n X_{n-1} + Q_n tiene literatura propia
+  (el paper clasico es Babillot-Bougerol-Elie 1997; recurrencia y
+  transiencia del caso critico en arXiv:2105.04994; y existe
+  "Fractional Moments of Solutions to Stochastic Recurrence
+  Equations" para el regimen de Kesten). O sea: los momentos
+  fraccionarios de estas ecuaciones SI estan estudiados, y lo que
+  habria que comparar antes de reclamar nada es si la combinacion
+  concreta de esta nota -- sin independencia del proceso, solo
+  dominacion + moneda fresca, constante explicita, tres pasos --
+  aparece tal cual. "Localizada la vecindad" no es "leida": la
+  lectura fina es el pendiente que queda.
+- Lo que si es seguro: como pieza del programa (la tension que
+  alimenta el lema de Abejas via Moscas) esta demostrada y en uso.

@@ -1,0 +1,156 @@
+MAQUINARIA.TXT -- la maquinaria del programa de fusion, SIN Collatz
+====================================================================
+(09-08-2026. Los cinco objetivos secundarios del goal, cada uno con su
+etiqueta honesta: TEOREMA / INSTRUMENTO / DICCIONARIO / DOCTRINA.
+Nada de esta lista es una promesa: lo hecho esta hecho y lo demas es
+un mapa de donde puede morder.)
+
+Lo que la maquinaria es, dicho sin mencionar 3n+1: seguir DOS orbitas
+de un mapa a trozos; una coordenada que linealiza la diferencia entre
+ellas (la forma {v, q^k v + c}); esa diferencia colapsando a un
+sistema simbolico de seis leyes decididas por un bit fresco; conteo
+EXACTO por clases 2-adicas (cada palabra de largo t = una clase mod
+2^t); y un reescalado (u = c/q^k) que borra el nivel y deja una
+cadena critica con cota uniforme de momentos fraccionarios.
+
+--------------------------------------------------------------------
+1. LA FAMILIA (qx + r)/2 -- HECHO, INSTRUMENTO + UNA LINEA EXACTA
+--------------------------------------------------------------------
+Fichero: cadenaqnr.py. Las seis leyes de la cadena valen con 3 -> q,
+1 -> r (verificadas exactas en 53.400 instancias por mapa; simbolico
+= directo k = 3..14 en los cuatro mapas; el espejo (3,-1) clava a(k)
+identica a (3,+1) hasta k = 22 -- el teorema de espejoak salido de la
+cadena generalizada).
+
+LA LINEA EXACTA: el multiplicador de la perpetuidad del offset es
+moneda justa entre 1/2 y q/2, luego
+
+    E[m] = (1 + q)/4      y      E[m] = 1  <=>  q = 3.
+
+La criticidad kappa = 1 de Tigresas CARACTERIZA al 3 dentro de la
+familia. Para q >= 5, E[log m] = (ln q - ln 4)/2 > 0: la perpetuidad
+es supercritica en log, la ventana de momentos de Moscas se cierra
+(Jensen: E[m^theta] >= e^(theta E[log m]) > 1), y la fusion por
+clases se apaga.
+
+MEDIDO POR PRIMERA VEZ (k = 22): densidad de fusion de consecutivos
+    3x+1 : 0,4090 y subiendo (razon b -> 1,89; el caso critico)
+    7x+1 : 0,1073 y casi parada (razon b ~ 1,6: huele a limite < 1)
+    5x+1 : 0,0044 (la primera clase que funde aparece en k = 13)
+OEIS CONSULTADA (09-08-2026, con control): a_5(k) y a_7(k) devuelven
+"No results" las dos, y el control Fibonacci devuelve A000045 -- las
+dos series NO estan catalogadas. La revision de literatura (papers
+sobre coalescencia en qx+1) sigue pendiente; "no encontrado" no es
+"no existe".
+
+--------------------------------------------------------------------
+2. MOSCAS SIN COLLATZ -- TEOREMA, listo para nota autocontenida
+--------------------------------------------------------------------
+Enunciado libre de contexto: sea u_t cualquier proceso (no hace falta
+Markov ni independencia) que satisfaga la dominacion
+
+    |u_{t+1}| <= m_t |u_t| + s,    s <= 1/2,
+
+donde m_t vale 1/2 o 3/2 con moneda justa (mas en general: E[m] = 1,
+m acotado). Entonces para todo theta en (0,1):
+
+    E[|u_t|^theta] <= B_theta   UNIFORME en t,
+    B_theta = s^theta / (1 - r_theta),
+    r_theta = E[m^theta] < 1.
+
+Demostracion (tres lineas): subaditividad (a+b)^theta <= a^theta +
+b^theta; E[|u'|^theta] <= r_theta E[|u|^theta] + s^theta; y r_theta
+< 1 porque theta -> E[m^theta] es convexa, vale 1 en theta = 0 y en
+theta = 1 (E[m] = 1) y no es constante: estrictamente menor que 1 en
+todo el intervalo abierto. LA VENTANA (0,1) ESTA ABIERTA EXACTAMENTE
+PORQUE LA CADENA ES CRITICA -- el caso dificil de la literatura de
+perpetuidades (Kesten, Goldie, Buraczewski-Damek-Mikosch) es aqui el
+caso facil, con constante explicita y sin teoria de renovacion.
+Estado: demostrado en moscas.py (la dominacion, sobre la cadena
+real); la version abstracta de arriba es el mismo calculo. Falta:
+la nota redactada y la revision bibliografica (nadie la busco).
+
+--------------------------------------------------------------------
+3. CRIPTOANALISIS DIFERENCIAL -- DICCIONARIO (idea, sin instrumento)
+--------------------------------------------------------------------
+El diccionario, entrada por entrada:
+  - el par (x, x + Delta) seguido por rondas  =  un trail diferencial;
+  - la D del programa (y el gap g)  =  la diferencia, entera y con
+    signo (no XOR);
+  - la cadena (k, c)  =  la FORMA CANONICA exacta de la diferencia
+    tras t rondas -- lo que un criptoanalista aproxima con
+    probabilidades de trail, aqui es un automata exacto;
+  - a(k)/2^k  =  la probabilidad EXACTA de que la diferencia 1
+    colapse a 0 en <= k rondas de la funcion de ronda "(qx+r)/2 con
+    rama dependiente del dato" -- una probabilidad de colision
+    diferencial calculada en cerrado;
+  - los estratos |M|  =  el peso de la caracteristica diferencial;
+  - la ley de la moneda (Terras)  =  la hipotesis de uniformidad de
+    los bits de rama, aqui TEOREMA en vez de heuristica.
+La funcion de ronda es casi ARX: multiplicacion chica + suma +
+shift condicional. Lo que este programa tiene y esa literatura no:
+exactitud 2-adica por clases. Lo que esa literatura tiene y esto no:
+25 anios de herramientas de busqueda de trails (SAT, MILP, Matsui).
+Estado: INSTRUMENTO CONSTRUIDO (diferenciales.py, 09-08-2026): el
+perfil a_DELTA(k) exacto para DELTA <= 16 -- la "DDT 2-adica" del
+mapa -- con la identidad par->impar a_2m(k) = a_m(k-1) + a_3m(k-1)
+como enteros. Literatura LOCALIZADA (09-08-2026, busqueda web):
+Lipmaa-Moriai, "Efficient Algorithms for Computing Differential
+Properties of Addition" (FSE 2001) es la formula fundacional del
+xdp+; "The Additive Differential Probability of ARX" (Velichkov,
+Mouha, De Canniere, Preneel, FSE 2011) es el objeto hermano exacto
+del nuestro (adp de construcciones ARX); y las escuelas SAT/MILP de
+busqueda de trails (Speck, Chaskey) son las herramientas a importar.
+Los papers NO estan leidos desde aqui: localizado no es leido.
+
+--------------------------------------------------------------------
+4. VERIFICACION RELACIONAL -- DICCIONARIO (idea, sin instrumento)
+--------------------------------------------------------------------
+"Dos entradas que difieren en 1 tardan lo mismo?" es una propiedad
+2-safety (relacional): no se decide observando UNA ejecucion sino
+comparando dos. El diccionario:
+  - la cadena (k, c)  =  un invariante relacional del programa
+    producto (self-composition), encontrado a mano;
+  - el conteo por clases mod 2^t  =  interpretacion abstracta sobre
+    dominios de congruencia 2-adica;
+  - "misma altura"  =  analisis de tiempo constante (timing leaks):
+    la pregunta formal identica a la de un canal lateral.
+Un analizador relacional que quisiera probar igualdad de tiempos en
+un programa hostil (rama dependiente del dato, sin cota de bucle)
+necesitaria exactamente un objeto como la cadena. Estado: la tabla
+de indistinguibilidad de timing ES el instrumento de
+diferenciales.py (misma tabla, otra lectura). Literatura LOCALIZADA
+(09-08-2026): self-composition es de Barthe et al. (la tecnica
+fundacional de 2-safety), los product programs la componen en
+lock-step (ct-verif la usa), y el estado del arte de verificacion
+constant-time incluye CtChecker (ECOOP 2024) y CT-Prover. Los
+papers NO estan leidos desde aqui: localizado no es leido.
+
+--------------------------------------------------------------------
+5. EL METODO -- DOCTRINA, transferible, con seis casos documentados
+--------------------------------------------------------------------
+Lo unico de esta lista que ya funciono seis veces fuera de toda
+matematica particular (los casos, con su corr. en afirmaciones.db):
+  1. ECUACION DE CONSERVACION COMO DETECTOR: la renovacion que no
+     cerraba destapo la familia fantasma (corr. 33) -- un barrido la
+     confirmaba porque media al fantasma.
+  2. IDENTIDADES EXACTAS DE ENTEROS EN VEZ DE MONTE CARLO: el
+     "cierre" 0,4504/0,4453 se retiro por sesgo compartido y lo
+     sustituyo una igualdad de enteros por nivel (corr. 39).
+  3. ESTRATIFICAR PARA HACER COMPUTABLE UNA SUMA INFINITA: los
+     estratos |M|, los pisos reducidos, los canales de e_s.
+  4. INSTRUMENTAR ANTES DE EXTRAPOLAR: dispersionc.py cambio el
+     signo de la conclusion en una hora al aparecer el mecanismo.
+  5. EL CONTROL A/B ESPEJO: toda cantidad se mide tambien sobre el
+     mapa gemelo; lo que no los distingue no habla de convergencia.
+  6. LA REGLA DEL RANGO: todo numero publicado lleva su rango y su
+     estimador, porque ya mordio tres veces (1,7345 / 0% / holgura).
+Estado: doctrina viva en CLAUDE.md; este resumen es la version
+portable, para cualquier problema donde se estime algo por
+simulacion.
+
+--------------------------------------------------------------------
+El orden de ataque si estos objetivos se persiguen de verdad:
+1 (ya tiene instrumento y linea exacta) -> 2 (nota corta, teorema
+hecho) -> 5 (redaccion) -> 3 y 4 (exigen leer literatura ajena
+primero -- la leccion de Wu-Huang: buscar en el indice correcto).
