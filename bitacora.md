@@ -36,11 +36,34 @@ salió mejor que Lamperti:
    que lo decidiría: la estacionaria del IFS de Arañas condicionada al
    fondo (perturbed IFS — el blanco técnico ya nombrado).
 
+**⇢ Y EL EMPALME, ACORRALADO** (`empalme.py`, la misma tarde): (1) la
+u-CDF condicionada al fondo se desliza con DECREMENTOS GEOMÉTRICOS
+(−0,023 → −0,016 → −0,012 por cuatrienio: extrapola a límite positivo
+≈ 0,31 — no decide, orienta); (2) el sesgo de visita existe y es
+acotado (fondo: `P(|u|≤1) = 0,34` contra torre 0,48 — llegar abajo
+exige bits 1 = rama expansiva); (3) **la tasa de Hormigas
+`E[2^{−2,5(k+log₂(1+|c|))}]` tiene α local ≈ 0,65 estable y bajando:
+`E[# toques a (1,1)]` DIVERGE como `t^{0,35}` — el empalme vale EN
+MEDIA.** Lo que decidiría: convergencia de la estacionaria
+condicionada (perturbed IFS) o un segundo momento para pasar de
+media divergente a i.o. casi seguro.
+
+**Y EL SEGUNDO ROUND DE OEIS, la misma tarde**: Michel Marcus pidió en
+A398792 alfabetizar referencias y aclaró que «Jia-Bang» no es
+apellido. Aplicado (Gao antes de Garner; «J.-B. Wu and G.-L. Huang»
+bajo la W) y respondido con el ancla MR 1885838 + entrada 125 de
+Lagarias. **La sugerencia de QUITAR la cita de Wu se rechazó con la
+corrección #8 en la mano** — es la Mathematica Applicata verificada
+byte a byte, no la «Elongate iteration» que Lagarias no vio: quitarla
+habría repetido el error que esa corrección documenta, en espejo.
+Las tres re-propuestas.
+
 **Capa 1 de la tanda**: el primer borrador afirmaba la versión
-uniforme de la tensión en `k` (falsa: frente difusivo) y un testigo
-inventado en OEIS (`r = 690` → real `r = 909`); los dos cazados antes
-de publicar. `respuestas.db` capturada a mitad de sesión (1.161
-mensajes) y transcripciones re-zipeadas, como manda la regla.
+uniforme de la tensión en `k` (falsa: frente difusivo), un testigo
+inventado en OEIS (`r = 690` → real `r = 909`), y un print roto en
+`empalme.py`; los tres cazados antes de publicar/correr.
+`respuestas.db` capturada a mitad de sesión (1.161 mensajes) y
+transcripciones re-zipeadas, como manda la regla.
 
 # ⇢ 09-08-2026 (2) — LA SALIDA AL MUNDO: zootheorem + OEIS A398792–A398795
 
