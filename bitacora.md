@@ -50,16 +50,30 @@ predicción del lema para `c₀ = 2000` con horizonte infinito es
 ~0,09 y lo medido a T=30 es 0,063, compatible. El test limpio pide
 el barrido podado a T ≥ 60: instrumento anotado para la próxima.)*
 
-**⇢ Y EL TEST LIMPIO, CORRIDO EL MISMO CIERRE — EL LEMA PASA**:
-barrido podado desde `(2, 2000)` con cotas exactas
-(ventana acumulada = cota INFERIOR estricta; + pérdida = superior):
-`φ(2000)` = 0,063 (T=30) → 0,081 → 0,092 → 0,0995 → **≥ 0,1044 a
-T=70** (superior 0,130), todavía subiendo — contra la predicción
-~0,09 del análisis de tres factores. **El piso por arranque es un
-orden de magnitud mayor que la foto a T=30**, el diagnóstico del
-horizonte era correcto, y el lema 1 de la reducción tiene su primer
-test cuantitativo APROBADO. La jornada cierra con la reducción
-final validada por las dos puntas.
+**⇢ Y EL TEST LIMPIO, CORRIDO EL MISMO CIERRE — EL LEMA PASA EN
+NIVEL**: barrido podado desde `(2, 2000)` con cotas exactas
+(ventana acumulada = cota INFERIOR estricta; + pérdida = superior
+del truncado): `φ(2000)` = 0,063 (T=30) → 0,081 → 0,092 → 0,0995 →
+**≥ 0,1044 a T=70**, todavía subiendo — contra la predicción ~0,09
+del análisis de tres factores. **El piso por arranque es un orden
+de magnitud mayor que la foto a T=30**: el lema 1 tiene su primer
+test de NIVEL aprobado.
+
+**⇢ PERO EL TEST DE FORMA QUEDA ABIERTO (capa 1 del último
+barrido)**: los tres puntos certificados a T=70 dan
+`φ_min·√(log₃c₀)` = 1,26 / 0,72 / 0,13 para c₀ = 20 / 200 / 20000
+— NO constante. El veredicto honesto es NO CONCLUYENTE, no
+refutación: el sesgo de horizonte CRECE con `c₀` (la contracción
+media de `c₀ = 20000` son ~62 pasos y el barrido ve 70 — la misma
+trampa que ya mordió a T=30 con el 2000, donde la subida 0,063 →
+0,104 seguía viva a T=70), así que las cotas inferiores grandes
+subestiman cada vez peor. **El test limpio de forma necesita
+`T ~ 10·log₃c₀` escalando con el arranque** (T ≈ 100+ para el
+20000): instrumento anotado, fuera del alcance del cierre. La
+forma `1/√log` queda como CONJETURA con el nivel validado en
+`c₀ ≤ 2000`; la alternativa (degradación polinomial `c₀^{−γ}` con
+`γ` cayendo) no rompería la reducción mientras `γ → 0` — pero
+decidirlo es de la próxima sesión, con la adversarial por delante.
 
 # ⇢ 10-08-2026 (12) — LA SÍNTESIS DEL DÍA: EL CÍRCULO SE CIERRA SOBRE EL PISO POR VISITA — MEDIDO EN 0,76 EN LAS COORDENADAS CORRECTAS
 
