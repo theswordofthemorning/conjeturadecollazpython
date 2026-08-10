@@ -49,19 +49,23 @@
 # LOS TRES HALLAZGOS (medidos, ORIENTAN -- el veredicto es del
 # mecanismo; detalles en el VEREDICTO impreso al final):
 #   1) el sesgo de la moneda condicionada al fondo vive en k <= 3
-#      (mas del 99% de las monedas), es <= ~0,03 por moneda, decae de
-#      k=1 a k=3 y esta en LAS DOS mitades de la trayectoria: no es
-#      efecto de borde final; el TOTAL por trayectoria crece
-#      ~0,003-0,004/paso (aun el peor caso lineal da a_D -> ~0,004,
-#      sesenta veces bajo el umbral efectivo 0,2446);
+#      (el 95,8% de las monedas y el 98,0% del sesgo total; el 99%
+#      de las monedas recien en k <= 5 -- cifra corregida por la 7a
+#      revision), es <= ~0,03 por moneda, decae de k=1 a k=3 (k=4
+#      repunta a +0,009 con poca masa) y esta en LAS DOS mitades de
+#      la trayectoria: no es efecto de borde final; el TOTAL por
+#      trayectoria crece ~0,003-0,004/paso (aun el peor caso lineal
+#      da a_D -> ~0,004, sesenta veces bajo el umbral efectivo);
 #   2) condicionado a estar EN (1,1) -- el evento cuya serie ES el
 #      criterio de retorno11.py -- el balance a_V + a_D - a_K es
-#      NEGATIVO (~-0,05): la obstruccion de CEBRAS (multiplicadores
-#      supercriticos en las historias que vuelven) NO aparece;
+#      NEGATIVO (~-0,05) EN LA VENTANA MEDIDA; la serie sube
+#      +0,0016/paso (extrapolada cruzaria 0 hacia T ~ 60 -- 7a
+#      revision): es un enunciado de ventana, no de limite;
 #   3) de regalo del forward: el exponente local de P(X_t = (1,1))
 #      -- la ventana de UN estado de LIEBRES, la que el acta dejo
-#      INDECIDIDA -- cruzo 1 HACIA ABAJO en t ~ 22 y baja monotono
-#      (1,14 en t=18 a 0,76 en t=30); la divergencia de la serie de
+#      INDECIDIDA -- esta bajo 1 y baja monotono desde t = 18 (1,14
+#      a 0,76 en t=30; hubo cruces previos en la serie corta
+#      ruidosa: t=14 -- 7a revision); la divergencia de la serie de
 #      Green pide mas lento que 1/t: la direccion medida es la de la
 #      recurrencia (phi = 1). Etiqueta honesta: P_t ~ 1/(t log^2 t)
 #      tambien tendria alfa -> 1 por abajo y su serie CONVERGE -- la
@@ -340,7 +344,7 @@ for t in range(2, T_MAX + 1, 2):
 print()
 print("VEREDICTO (medido, ORIENTA -- el veredicto final es del mecanismo):")
 print("1) el desbalance de la moneda condicionada al fondo vive en k <= 3")
-print("   (alli estan mas del 99% de las monedas), con sesgo por moneda")
+print("   (el 95,8% de las monedas, el 98% del sesgo), con sesgo por moneda")
 print("   <= ~0,03, decayendo de k=1 a k=3, y presente en LAS DOS mitades")
 print("   de la trayectoria (no es efecto de borde final);")
 print("2) el TOTAL por trayectoria E[Ee-E0 | fondo] crece ~0,003-0,004")

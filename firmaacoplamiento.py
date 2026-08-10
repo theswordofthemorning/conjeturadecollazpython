@@ -55,17 +55,29 @@
 #   funcion del horizonte m. MEDIDO (proxy: pares alcanzables al
 #   mismo nivel, delta = 1, 3, 9; ponderado por masa):
 #
-#       kappa * m ~ 0,42 / 0,46 / 0,45 / 0,37   en m = 4, 8, 16, 24
+#       kappa * m: agregado ponderado real 0,50 / 0,51 / 0,42 / 0,37
+#       en m = 4, 8, 16, 24 (la tabla imprime celdas por k; la serie
+#       ponderada la recomputo la 7a revision -- la version anterior
+#       de este encabezado citaba una serie que ningun codigo
+#       imprimia)
 #
-#   -- kappa decae como ~0,45/m, la firma del laplaciano discreto
-#   (efecto de SEGUNDO orden del paseo justo), casi independiente de
-#   delta y de k. COMPUESTO: sesgo por moneda ~ Sigma_j 2^-j *
-#   kappa(m-j) => total por trayectoria ~ c*log T con c ~ 0,08 -- y
-#   cierra por las dos puntas contra monedacondicionada.py (nivel
-#   0,239 en T=30 y tasa ~0,003/paso = c/T). La lectura: a_D ~
-#   log T / T -> 0: el desbalance condicionado SE DESVANECE, no solo
-#   queda bajo el umbral. La pieza analitica que queda: kappa <= C/m
-#   a priori. (Todo esto mide y orienta; no decide phi.)
+#   -- kappa decae como potencia de m: el ajuste adversarial da
+#   theta = 1,13 +- 0,04 (la exponencial queda excluida; theta = 1
+#   exacto NO esta establecido, y theta > 1 REFUERZA el
+#   desvanecimiento). NO es "casi independiente de delta y k": la
+#   celda k=3, m=4 da kappa*m = 1,45 y kappa sube ~30% de delta=1 a
+#   delta=9 en m=4 (7a revision). ⇢ CORRECCION DE LA 7a SOBRE LA
+#   COMPOSICION: la composicion hecha de verdad (fracciones de j*
+#   medidas + densidad de monedas) SOBREPREDICE x3,2 el total de
+#   monedacondicionada.py -- el "c ~ 0,08" que aqui se publicaba
+#   salia del AJUSTE a esa serie, no de la composicion, y c*sqrt(T)
+#   ajusta nivel y tasa igual de bien que c*log T: la FORMA no esta
+#   derivada. Causa del x3,2: kappa usa |gama2-gama1| SIN signo
+#   sobre pares producto con delta en {1,3,9}, no el nucleo
+#   post-divergencia real (gap +-3^i*d, con signo, con
+#   cancelaciones). Lo que sobrevive: la DIRECCION (a_D -> 0, que
+#   cualquier theta > 0 da). La pieza analitica que queda: kappa <=
+#   C/m^theta a priori. (Todo esto mide y orienta; no decide phi.)
 #
 # COMPROBACIONES (SystemExit antes de concluir):
 #   C0  el lema contra la cadena real: rejilla k = 1..8, c par en
@@ -328,15 +340,16 @@ print("mantiene ~0,4-0,5: el decaimiento es ~1/m, la firma del laplaciano")
 print("discreto (segundo orden del paseo justo).")
 
 print()
-print("VEREDICTO: el sesgo de la moneda condicionada al fondo es un efecto")
-print("de TIMING controlado por el acoplamiento: cae con j* en las cubetas")
-print("con masa (0,0216 / 0,0171 / 0,0075 / ~0), es EXACTAMENTE cero cuando")
-print("el acoplamiento sobrevive al horizonte, y las unicas fugas son los")
-print("dos eventos exceptuados, con masa 2e-5. Y la sensibilidad ES chica y")
-print("decae: kappa ~ 0,45/m, asi que el sesgo por moneda compone a")
-print("Sigma_j 2^-j kappa(m-j) y el total por trayectoria a ~c*log T con")
-print("c ~ 0,08 -- consistente con el nivel Y la tasa de la serie de")
-print("monedacondicionada.py: a_D ~ log T / T -> 0. La pieza analitica que")
-print("queda -- kappa <= C/m a priori -- esta desacoplada de la dinamica de")
-print("c. (Todo esto MIDE y estructura; no decide phi.)")
+print("VEREDICTO (etiquetas de la 7a revision): el sesgo de la moneda")
+print("condicionada al fondo es un efecto de TIMING controlado por el")
+print("acoplamiento: cae con j* EN AGREGADO (0,0216 / 0,0171 / 0,0075 /")
+print("+0,0027 el resto ponderado; NO monotona cubeta a cubeta: j*=5 da")
+print("+0,012), es EXACTAMENTE cero cuando el acoplamiento sobrevive al")
+print("horizonte (en este barrido: fugas 2e-5; la tasa de E1/E2 depende")
+print("de la region), y la sensibilidad decae como potencia (theta =")
+print("1,13 +- 0,04, ajuste adversarial). La composicion cuantitativa")
+print("NO cierra (sobrepredice x3,2: el kappa proxy no es el nucleo con")
+print("signo); sobrevive la DIRECCION a_D -> 0. La pieza analitica que")
+print("queda -- kappa <= C/m^theta a priori -- esta desacoplada de c.")
+print("(Todo esto MIDE y estructura; no decide phi.)")
 print("%.0fs" % (time.time() - t0))

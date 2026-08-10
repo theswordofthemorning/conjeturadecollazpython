@@ -81,9 +81,22 @@
 #       DESIGUALDADES a T fijo; el cierre asintotico (suma < umbral
 #       para TODO T grande) sigue dependiendo del lema local inferior
 #       P(F) >= c/sqrt(T) (la cota cruda sqrt(N'V')/(P T) ~ T^(-1/4)
-#       -> 0 y la ayuda t3 solo mejora). La medicion fina dice que la
-#       verdad es mucho mejor (suma real ~0,019); estas cotas son las
-#       DEMOSTRADAS.
+#       -> 0 y la ayuda t3 solo mejora). ⇢ ETIQUETAS DE LA 7a
+#       REVISION: (i) a T fijo la suma real exacta (~0,019, una
+#       enumeracion en racionales) es IGUAL de demostrada que la
+#       cota y certifica 10x mas -- el valor de estas cotas es ser
+#       EXTENSIBLES (la forma martingala sobrevive a T -> inf
+#       modulo el lema local), no "mas demostradas"; (ii) el umbral
+#       0,2446 es una constante MEDIDA (error del modelo ~+0,009
+#       nats/paso) y ningun teorema del repo consume la
+#       desigualdad como hipotesis: el certificado es consistencia
+#       con una heuristica cuantificada, no eslabon hacia phi = 1;
+#       (iii) la cota es sobre el PROMEDIO condicionado -- no da
+#       concentracion por-historia; (iv) la cota CRUDA esta sobre
+#       el umbral en todo T computado (0,364 -> 0,299): el
+#       certificado a T accesible lo carga entero la resta de la
+#       ayuda t3; y la cota fina SUBE de T=10 a T=14 antes de
+#       bajar (la monotonia observada no dice nada del limite).
 #
 #   Relacion con URRACAS: alli quedo aislado "el desbalance de UNA
 #   moneda justa condicionada"; aqui esa esperanza queda acotada por

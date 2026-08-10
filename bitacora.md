@@ -5,6 +5,66 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (14) — LA 7ª REVISIÓN: TRES ADVERSARIOS CONTRA LA TANDA ENTERA. SÉPTIMA VEZ QUE ROMPE ALGO — Y EL REGALO ES MARKOV FUERTE
+
+**Lanzada por orden del usuario; acta íntegra: `actarevision1008.txt`.**
+Tres adversarios con implementación propia, recomputación al dígito
+y declaración de ataques fallidos. El saldo:
+
+- **GAVIOTAS A y B: AGUANTAN ENTEROS** (re-derivación desde cero
+  sin fallo; números dígito a dígito por implementación
+  independiente; la resta de la ayuda legítima; el vórtice aporta
+  `ΔM = 0`: mejor que lo publicado). Exagerados de prosa E1–E5
+  aplicados (el peor: «estas cotas son las DEMOSTRADAS» — la suma
+  real exacta es igual de demostrada; el valor es EXTENSIBILIDAD).
+  Colateral reparado: `urracas.py` conservaba la formulación
+  pre-corrección-50.
+- **TÓRTOLAS: lema y corolario AGUANTAN** (búsqueda adversarial
+  propia: 3 violaciones, las 3 son E1). Hallazgo estructural nuevo:
+  `k` impar ⟹ `j* = 0` siempre. **Exagerados**: la firma no es
+  monótona por cubeta; `θ = 1,13 ± 0,04` (no 1; y θ>1 refuerza);
+  la serie `κ·m` citada no la imprimía ningún código; **la
+  composición `c ≈ 0,08` era AJUSTE, no derivación (sobrepredice
+  ×3,2)** — sobrevive la dirección `a_D → 0`, no la forma. El
+  comentario de la cola geométrica en `tortolas.lean` era FALSO
+  por-estado en k par (allí la muerte de racha es DETERMINISTA) —
+  etiquetado.
+- **GARZAS: EXAGERADO con una cifra rota** («>99% en k≤3» es
+  95,8%; «cruzó 1 en t≈22» era el tercer cruce; el balance del
+  (1,1) sube +0,0016/paso — enunciado de ventana). C4/C5 validan
+  agregación, no semántica (dicho ahora). Reparado.
+- **FOCAS pieza (3): ROTA** — «monedas justas libres dado el camino
+  de k» es falso (10.648/10.649 grupos constriñen; 86–94% de bits
+  compartidos DETERMINADOS — **el mecanismo delator es TÓRTOLAS,
+  del propio repo**); H2 afirmaba lo falso; falta H5. La medición
+  de mezcla SIGUE EN PIE; la vía honesta es la annealed de Arañas.
+  Encabezado-veredicto aplicado al fichero.
+- **LA FORMA `1/√log` DEL PISO: EXCLUIDA** con cotas certificadas
+  en 200–2000 (ratio ≤ 0,744 vs 0,836); el rango limpio ajusta
+  `γ ≈ 0,4` estable. «Pasa en NIVEL» era muestra-por-constante (la
+  fórmula falla ×3 en los otros puntos). **Decidir si `γ(c₀) → 0`
+  por décadas ES el punto donde el programa se decide.**
+- **EL REGALO (como CABRAS en la 5ª): MARKOV FUERTE** —
+  `P(ventana en excursión i | todo el pasado) = φ(c_i)` EXACTO (el
+  arranque es tiempo de parada): la mezcla NO hace falta para el
+  salto condicional, Lévy–B-C es teorema, y quedan DOS lemas
+  nombrados: (L-A) piso poly-log (= H4 re-coordinada — la
+  dificultad no se redujo, se re-coordinó) y (L-B) ritmo
+  `τ_i ≤ e^{o(i²)}` (la unión con Moscas vale; falta el ritmo).
+- También: «firma `t^{−1/2}`» de la cola era exagerada (exponente
+  0,41 y cayendo — compatible con α < 1/2, donde Erickson da solo
+  liminf); la fórmula del 0,76 tenía dos erratas (Σ P(h)q(h)
+  normalizada da 0,95; la frase de capa 1 duplicaba un factor); la
+  lista `q(h)` de RutaTeoremas estaba mal etiquetada (era la banda
+  tardía). Todo reparado en sus ficheros.
+
+**Reparaciones aplicadas**: `monedacondicionada.py`,
+`firmaacoplamiento.py`, `gaviotas.py`, `urracas.py`,
+`tortolas.lean`, `lemadelamezcla.txt`, `RutaTeoremas.md` (la cadena
+re-escrita post-acta). Las correcciones nuevas van a la base en el
+próximo volcado (51: la cifra de GARZAS; 52: FOCAS pieza 3; 53: la
+composición de TÓRTOLAS; 54: la forma del piso).
+
 # ⇢ 10-08-2026 (13) — LA REDUCCIÓN FINAL: EL SALTO CONDICIONAL NO NECESITA UN PISO UNIFORME
 
 La desigualdad única de (12), pensada de frente, se DISUELVE en dos

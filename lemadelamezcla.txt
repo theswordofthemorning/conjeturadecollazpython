@@ -3,6 +3,40 @@ tiran al agua desde cualquier roca y nadan igual; el bautizo es del
 usuario). 10-08-2026, el cierre teorico de la jornada.
 =====================================================================
 
+⇢⇢ VEREDICTO DE LA 7a REVISION (mismo dia, actarevision1008.txt):
+LA PIEZA (3) ESTA ROTA COMO ESTA ENUNCIADA, y este encabezado manda
+sobre el texto de abajo (que se conserva integro como registro):
+
+- "dado el camino de k, los bits compartidos son monedas justas
+  LIBRES" es FALSO: medido exhaustivo (todas las palabras hasta
+  L=16, agrupadas por camino de k completo), 10.648 de 10.649
+  grupos CONSTRINEN los bits compartidos, y el 86-94% de las
+  posiciones compartidas tienen frecuencia condicional 0 o 1 -- son
+  FUNCIONES del camino, no monedas. EL MECANISMO DELATOR ES
+  TORTOLAS (el lema del propio repo): los dos hijos de una moneda
+  difieren en Delta y el camino de k los delata en j* = v2(Delta)
+  pasos; para k IMPAR j* = 0 (delacion inmediata siempre).
+- H2 afirmaba justo lo falso ("la particion es exactamente el
+  remiendo"). El hueco no listado es H5: la base D-F por camino NO
+  existe; el lema necesita otra demostracion.
+- LA VIA QUE QUEDA (annealed): sin condicionar al camino, cada
+  paso del nucleo aplica u/2 + d o (3u-1)/2 + d con bit justo dado
+  el pasado -- el IFS de Aranas con E[log K] = -0,144 POR PASO
+  TOTAL, legitimo sin particion. Pero entonces el hueco vuelve a
+  ser el condicionamiento a la entrada (H2/H3) sin remiendo.
+- "la tasa clava": EXAGERADO -- tasas empiricas 0,107-0,167/paso;
+  el 0,144 es compatible, no clavado (y su derivacion por-camino
+  esta rota; sobrevive solo como tasa annealed).
+- LA MEDICION de la mezcla (tres arranques a < 0,03 en t=29) SIGUE
+  EN PIE: el fenomeno es real; lo roto es esta demostracion.
+- Y LA RONDA DEJO ALGO MEJOR (el regalo): para la REDUCCION de la
+  bitacora (13), la mezcla NI HACE FALTA -- por MARKOV FUERTE,
+  P(ventana en la excursion i | todo el pasado) = phi(c_i) EXACTO
+  (el arranque de excursion es tiempo de parada). El rol de este
+  lema queda degradado a herramienta para el piso (L-A), no
+  eslabon de la cadena.
+=====================================================================
+
 QUE DICE, en una linea: la ley de u = c/3^k en la PRIMERA ENTRADA al
 fondo de una excursion de la cadena modificada OLVIDA el estado
 inicial de la excursion, exponencialmente en el largo -- las

@@ -57,8 +57,11 @@
 #     SIN condicionar, Sigma_palabras (Ee - E0) = 0 EXACTO (en cada paso
 #     par los dos hijos se reparten bit 0 y bit 1) -- el sesgo entero del
 #     condicionamiento al fondo vive en UN termino que sin condicionar es
-#     una moneda justa. El ultimo paso queda reducido a: el desbalance
-#     de esa moneda bajo el condicionamiento es < ~0,2446 por paso.
+#     una moneda justa. El ultimo paso queda reducido a: LA SUMA
+#     a_V + a_D - a_K bajo el condicionamiento es < ~0,2446 por paso
+#     (⇢ correccion 50, 10-08: la version anterior decia "esa moneda"
+#     -- comparaba una parte contra el umbral de la suma; gaviotas.py
+#     teorema B acota la suma entera).
 #
 #   ETIQUETAS HONESTAS. URRACAS es EXACTO (demostracion arriba, y las
 #   comprobaciones la clavan como igualdad de enteros palabra a palabra y
@@ -408,9 +411,10 @@ print("  compensado en gran parte por a_K = %.5f; la moneda condicionada"
 print("  a_D = %.5f es chica y tambien baja. Los tres terminos decaen;"
       % (dif_f / pasos_f))
 print("  el sesgo total ~0,019 esta plano -- lejos del umbral por x13.")
-print("  LO QUE QUEDA (el ultimo paso, ahora con nombre): acotar el")
-print("  desbalance de la moneda justa condicionada al fondo por debajo")
-print("  del umbral efectivo ~0,2446 por paso. Es UNA esperanza")
-print("  condicionada de incrementos centrados -- el objeto exacto que el")
+print("  LO QUE QUEDA (el ultimo paso; correccion 50: es LA SUMA, no la")
+print("  moneda sola): acotar a_V + a_D - a_K condicionado al fondo por")
+print("  debajo del umbral efectivo ~0,2446 por paso -- gaviotas.py")
+print("  teorema B lo acota a T fijo (cota fina ~0,19); el objeto es una")
+print("  esperanza condicionada de incrementos centrados, que el")
 print("  h-transform de un paseo critico sesga O(1/k) y no")
 print("  exponencialmente.")

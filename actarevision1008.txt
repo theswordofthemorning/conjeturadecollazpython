@@ -1,0 +1,290 @@
+ACTA DE LA 7a REVISION EXTERNA (10-08-2026, tarde) -- TRES
+ADVERSARIOS INDEPENDIENTES CONTRA LA TANDA ENTERA DEL 10-08.
+SEPTIMA REVISION, SEPTIMA VEZ QUE ROMPE ALGO.
+=====================================================================
+Lanzada por orden del usuario. Metodo: cada adversario con la lista
+de la casa, los modos de fallo historicos (correcciones 49 y 50
+incluidas, que son de esta misma tanda), implementacion propia
+reescrita desde el papel (no copiada), y ataques obligatorios mas
+los suyos. Los tres corrieron el codigo, recomputaron los numeros y
+declararon tambien los ataques QUE FALLARON.
+
+EL VEREDICTO GLOBAL EN CUATRO LINEAS:
+- La MATEMATICA de la tanda aguanta casi entera: GAVIOTAS A y B
+  enteros, el lema y el corolario de TORTOLAS, la transicion y el
+  vortice consistentes en los cinco ficheros, las mediciones de
+  sintesis reproducidas al digito.
+- Lo ROTO: una cifra de GARZAS (el "mas del 99% en k<=3" es 95,8%)
+  y LA PIEZA (3) DE FOCAS (las "monedas justas libres dado el
+  camino de k" NO existen: el 86-94% de los bits compartidos estan
+  DETERMINADOS por el camino -- y el mecanismo delator es TORTOLAS,
+  del propio repo).
+- La forma 1/sqrt(log) del piso por arranque queda EXCLUIDA con
+  cotas certificadas en el rango limpio 200-2000 (ratio <= 0,744
+  contra 0,836): la degradacion ajusta a potencia gamma ~ 0,4
+  estable -- EL PUNTO DONDE EL PROGRAMA SE DECIDE.
+- El regalo de la ronda: LA REDUCCION CONDICIONAL SALE MAS FUERTE
+  de lo publicado -- por Markov fuerte, P(ventana en la excursion i
+  | TODO el pasado) = phi(c_i) EXACTO (el arranque de excursion es
+  tiempo de parada): la mezcla NO hace falta para ese salto, y
+  Levy-Borel-Cantelli es teorema. Quedan DOS lemas: (L-A) el piso
+  poly-log phi(c0) >= c/(log c0)^A -- la cuota re-coordinada, la
+  dificultad NO se redujo -- y (L-B) el ritmo de visitas
+  tau_i <= e^(o(i^2)) c.s., nombrado y no escrito.
+
+=====================================================================
+SECCION 1 -- ADVERSARIO 1: GARZAS y TORTOLAS
+=====================================================================
+
+TRANSICION/VORTICE EN LOS 5 FICHEROS: AGUANTA. 0 discrepancias en
+600.000 transiciones rederivadas del papel; el rebote (1,1)->(2,2)
+en los dos bits es consistente (el bit 0 del vortice ES N3 tal
+cual: la modificacion solo redirige el bit 1). Libro de tipos
+identico urracas/monedacondicionada.
+
+GARZAS (monedacondicionada.py): EXAGERADO, CON UNA CIFRA ROTA.
+- ROTO: "el sesgo vive en k <= 3 (alli estan mas del 99% de las
+  monedas)" -- la propia tabla da 95,75% (99% recien en k <= 5).
+  Como fraccion del SESGO, k <= 3 lleva el 98,0%. Y "decae de k=1
+  a k=3" no continua (k=4 da +0,0089 > k=3 +0,0045).
+- C4 (cruce con urracas): numericamente real (fila t=28 exacta),
+  pero la independencia es SOLO del algoritmo de agregacion --
+  transicion y libro compartidos: caza bugs de convencion, no de
+  semantica. C5 es circular respecto del modelo. La validacion
+  semantica vive en urracas C0 / liebres (bien apilada; decirlo).
+- "cruzo 1 hacia abajo en t~22": es el TERCER cruce (alfa ya
+  estuvo bajo 1 en t=14 y volvio a subir); monotonia solo desde
+  t=18.
+- El balance del (1,1): negativo, pero la serie sube +0,0016/paso
+  (extrapolada cruza 0 hacia T~60); el .py omitia la tendencia.
+  Enunciado de ventana, no de limite.
+- AGUANTA: C1-C3 y el hallazgo del fondo con su etiqueta.
+
+TORTOLAS (firmaacoplamiento.py + tortolas.lean): LEMA Y COROLARIO
+AGUANTAN; FIRMA, KAPPA Y COMPOSICION, EXAGERADOS.
+- El lema, rederivado ley por ley (N1 +D, N2 +3D, N3 +3D, N4 +D,
+  F1 +D, F2 +3D, F3 +3D, F4 -3D, salida +-D mismo signo); 400.000
+  pares sin factor fuera de +-D/+-3D salvo E2; el acoplamiento
+  probado en region propia (20.000 estados, k <= 12, |c| <= 1e9):
+  divergencia EXACTA en j*, 0 fallos. HALLAZGO ESTRUCTURAL NUEVO:
+  para k IMPAR toda moneda tiene j* = 0 (m_k impar) -- los
+  acoplamientos largos viven solo en k par y frontera.
+- El corolario: busqueda adversarial propia con j* = m = 8..13:
+  3 violaciones en 256 estados, LAS TRES explicadas integramente
+  por E1 (enumeracion exhaustiva: 0 palabras difieren sin
+  excepcion previa). El "99,85% / 2,2e-5" es del barrido T=28
+  desde (0,1), NO universal (en la rejilla adversarial E1 sale a
+  3/256).
+- La firma: la caida con j* NO es monotona (j*=5: +0,0119 > j*=2:
+  +0,0075); el "~0 (3+)" solo vale como agregado (+0,0027).
+- kappa: "casi independiente de delta y k" falso en celdas (k=3,
+  m=4: kappa*m = 1,45; +30% de delta 1 a 9); el exponente ajustado
+  por el adversario es theta = 1,13 +- 0,04 (potencia si,
+  exponencial excluida; theta = 1 NO establecido; theta > 1
+  REFUERZA el desvanecimiento); la serie "0,42/0,46/0,45/0,37
+  ponderado" citada NO la imprime ningun codigo (el agregado real:
+  0,50/0,51/0,42/0,37).
+- LA COMPOSICION c ~ 0,08 (el hallazgo central): la composicion
+  hecha de verdad (fracciones de j* medidas + densidad de monedas
+  0,462/paso + kappa = 0,45/m) predice 0,761 contra 0,239 medido
+  (x3,2); el c = 0,08 sale del AJUSTE a la serie de GARZAS, no de
+  la composicion. Causa: kappa usa |gama2-gama1| sin signo sobre
+  pares producto con delta en {1,3,9} -- no el nucleo
+  post-divergencia real (gap +-3^i*d, con signo, con
+  cancelaciones). Y "cierra por las dos puntas" no discrimina:
+  c*sqrt(T) ajusta nivel y tasa igual de bien. Sobrevive la
+  DIRECCION a_D -> 0; no la forma log T/T como derivada ni el
+  c = 0,08.
+- tortolas.lean: AGUANTA (24 teoremas -- la bitacora decia
+  "veinte", desfasada --, 0 sorryAx). Limites: (a) el lema
+  COMPLETO no esta formalizado (kit por-ley + instancia; el
+  ensamblaje vive en Python/prosa -- no citar "el lema,
+  formalizado"); (b) el comentario "cola geometrica de tasa >=
+  1/2" NO se sigue de los lemas y es FALSO por-estado en k par
+  (alli la muerte de la racha es DETERMINISTA: m = 0 mod 4 =>
+  ningun bit mata o ambos matan); en k impar la tasa 1/2 es
+  exacta. La cola del agregado necesita la distribucion 2-adica
+  de entrada (el 0,9265 medido, sin teorema).
+
+=====================================================================
+SECCION 2 -- ADVERSARIO 2 (probabilidad): GAVIOTAS
+=====================================================================
+
+TEOREMA A: AGUANTA. Re-derivado desde cero: medibilidad de "ser
+moneda" ok; bits iid justos POR DEFINICION de la medida; la torre
+ok; el doble Cauchy-Schwarz NO pierde factor; V_c <= P - P^2 por
+ortogonalidad. No se encontro el fallo.
+
+TEOREMA B: AGUANTA. Numeros reproducidos digito a digito por
+implementacion independiente (martingala de Doob por estado en
+Fraction, estructura distinta); la ruta URRACAS verificada como
+igualdad de Fraction por DOS forwards aumentados distintos (2^16 y
+2^20 palabras); la resta de la ayuda t3 es unilateral y legitima
+(igualdad exacta, no cota). Detalle a favor: en el vortice los dos
+hijos son identicos => dM = 0 => la "absorcion de a_V" es incluso
+mejor de lo que la cota usa. Observaciones: la cota CRUDA esta POR
+ENCIMA del umbral en todos los T (0,364 -> 0,299) -- el certificado
+lo carga entero la resta de la ayuda t3, decirlo entero; los
+acumuladores nuevos no tenian cruce independiente hasta esta acta
+(cubierto ahora).
+
+C2: AGUANTA como igualdad, EXAGERADO como salvaguarda -- la
+ortogonalidad es estructural (vale para CUALQUIER transicion):
+ciega a errores de convencion (modo correccion 49). La guardia real
+es el cruce de rejilla (hecho: 63.042 transiciones gaviotas ===
+urracas).
+
+ASINTOTICO: AGUANTA en direccion -- el lema local INFERIOR es el
+lado correcto (hace falta P*T -> infinito); P*sqrt(T) creciente es
+favorable. "1,37/sqrt(T)" y "0,44T" son fotos, no leyes.
+
+EXAGERADOS CONCRETOS:
+(E1) "estas cotas son las DEMOSTRADAS": a T fijo la suma real
+     exacta (0,019) es IGUAL de demostrada y certifica 10x mas. La
+     distincion honesta es extensible-vs-no-extensible.
+(E2) "LA SUMA queda CERTIFICADA bajo el umbral efectivo": el 0,2446
+     es una constante MEDIDA (error del modelo ~+0,009 nats/paso) y
+     NINGUN teorema del repo consume esa desigualdad como hipotesis
+     -- es consistencia con una heuristica cuantificada, no eslabon
+     demostrado hacia phi = 1.
+(E3) "la hipotesis de Kesten de CEBRAS demostrada asintoticamente
+     para las historias que vuelven": dice mas que su calculo
+     INCLUSO modulo Erickson -- la cota es sobre el PROMEDIO
+     condicionado (media bajo umbral no impide masa de historias
+     por encima; sin concentracion demostrada) y falta la
+     identificacion del limite condicionado (tipo Yaglom).
+(E4) "bajando con T": la cota fina SUBE de T=10 a T=14 y baja
+     recien desde 14 -- la lista publicada empieza en 16.
+(E5) COLATERAL: urracas.py conservaba la formulacion PRE-correccion
+     50 ("el ultimo paso queda reducido a: el desbalance de esa
+     moneda < ~0,2446") -- debe decir "la suma".
+ROTO: nada. El barrido de TODOS los T 10..30: bajo el umbral en los
+21 valores, sin efecto de borde.
+
+=====================================================================
+SECCION 3 -- ADVERSARIO 3: FOCAS Y LA CADENA DE SINTESIS
+=====================================================================
+
+REPRODUCCIONES AL DIGITO: las cuotas de mezcla, q(h), la cuota por
+t, la primera entrada nunca en c=1, S(t)*sqrt(t), phi(2000) por
+niveles, phi(200)*sqrt(log) -- las mediciones son reales y
+reproducibles. Los problemas estan en las FRASES.
+
+FOCAS, PIEZA (3): ROTA COMO ESTA ENUNCIADA. "Dado el camino de k,
+los pasos compartidos quedan como monedas justas LIBRES": mediendo
+directo (enumeracion exacta hasta L=16, agrupada por camino de k
+completo): de 10.649 grupos de camino, 10.648 CONSTRINEN los bits
+compartidos; el 93,8% de las posiciones compartidas con k impar y
+el 85,5% con k par tienen frecuencia condicional del bit
+EXACTAMENTE 0 o 1 -- no son monedas: son funciones del camino. EL
+MECANISMO ES TORTOLAS: en un compartido los hijos difieren en Delta
+y el camino de k los delata en j* = v2(Delta) pasos (k impar: j*=0,
+delacion inmediata siempre). Consecuencia: condicionado al camino
+la composicion es (casi toda) DETERMINISTA -- no hay promedio D-F
+por camino, y por camino la contraccion NO esta garantizada. La via
+honesta que queda es la ANNEALED sin condicionar (el IFS de Aranas,
+E[log K] = -0,144 por paso TOTAL, legitimo sin particion) -- pero
+entonces el hueco vuelve a ser el condicionamiento a la entrada SIN
+el remiendo que la particion pretendia ser. H2 del fichero afirma
+justo lo falso; FALTA H5 (este hueco). Piezas (1) y (4) AGUANTAN;
+la (2) aguanta como identidad pero su rol probabilistico no.
+
+"LA TASA CLAVA": EXAGERADO. Tasas empiricas 0,107/paso (gap de
+cuotas) a 0,167/paso (TV entre leyes); el 0,144 queda dentro --
+compatible, NO clavado (el cotejo puntual necesita un ancla O(1)
+que nadie fijo, y la derivacion por-camino esta rota por H5; el
+numero sobrevive solo como tasa annealed de Aranas).
+
+LA MEDICION DE MEZCLA (10).7: AGUANTA (reproducida; el (2,20)
+converge mas lento: el "< 0,03" es el peor caso justo).
+
+q(h) Y LA MATRIZ: AGUANTA en h >= 6; "a altura fija la cuota es
+ESTABLE en t" EXAGERADO en h = 3..5 (el 97% de la masa: sigue
+bajando banda a banda, 0,82->0,79 / 0,82->0,74 / 0,69->0,62 --
+decelera, no se detuvo). ERRATA SUSTANTIVA en RutaTeoremas: la
+lista "q(h) > 0: 0,79/0,75/..." NO es q(h) global (que empieza
+1,00/0,95) -- es la banda tardia t en [23,30] para h = 3..8; dos
+documentos publican dos listas distintas bajo el mismo nombre.
+
+EL 0,76: EL ATAQUE DE INFLACION FALLO (declarado) -- es cota
+inferior estricta (sin condicionar; condicionado a entrar da
+0,9505: horquilla certificada [0,763, 0,960]). Lo que SI esta mal:
+la formula publicada "Sigma_h P(h) q(h) = 0,76" es inconsistente
+(con P(h) normalizada da 0,95); la frase "el piso
+condicional-a-retornar es >= 0,76*(masa entrada)" DUPLICA un factor
+(el 0,76 ya la lleva); el 0,76 es phi(2), especifico del arranque
+(2,2); y el numero operativo por visita es 0,76 * eps_Doeblin ~
+0,104, conviene decirlo al lado del titular.
+
+LA REDUCCION (13) -- EL VEREDICTO FINO:
+- EL ESQUELETO CONDICIONAL AGUANTA Y ES MAS FUERTE DE LO
+  PUBLICADO: por MARKOV FUERTE, P(ventana en la excursion i | TODO
+  el pasado) = phi(c_i) EXACTO (el arranque de excursion es tiempo
+  de parada de una cadena homogenea). La mezcla NO hace falta para
+  ese salto -- la frase de (12) "la mezcla es exactamente el
+  instrumento para esa uniformizacion" es un red herring. El
+  ataque "el pasado da mas informacion que c_i" FALLA por Markov.
+- QUEDAN DOS LEMAS, nombrados: (L-A) piso poly-log phi(c0) >=
+  c/(log c0)^A -- que es H4 DE FOCAS RE-COORDINADA: la dificultad
+  de la cuota no se redujo, se re-coordino; (L-B) ritmo de visitas
+  tau_i <= e^(o(i^2)) c.s. -- la union burda sobre tiempos
+  deterministas con Moscas ES valida (el ataque de la trampa de
+  tiempos de parada FALLA ahi), pero el ritmo no esta escrito en
+  ningun fichero (saldria del esqueleto SRW de k + el reloj de
+  rachas de tortolas.lean).
+- CONTRA LA FORMA (lo mas duro): con cotas certificadas a T=70,
+  phi_inf(2000) <= 0,2414 y phi_inf(200) >= 0,3245 => ratio <=
+  0,744 < 0,836 = sqrt(log3(200)/log3(2000)): LA FORMA EXACTA
+  c/sqrt(log c0) QUEDA EXCLUIDA EN EL RANGO 200-2000 por aritmetica
+  de intervalos (horizontes adecuados por el criterio del propio
+  repo). El rango limpio ajusta potencia gamma ~ 0,37-0,49 ESTABLE
+  por decada (0,763 -> 0,3245 -> 0,1044 en 20/200/2000) --
+  exactamente la alternativa que rompe la ruta si gamma no baja.
+  El "NO CONCLUYENTE" del test de forma era correcto pero corto.
+- "EL LEMA PASA EN NIVEL": EXAGERADO -- muestra tomada por
+  constante: la misma formula de tres factores falla x2,7 en
+  c0=200 y x3 en c0=20; un acierto de un punto con constante libre
+  no es un test aprobado.
+- El factor (c) del lema ("la mezcla borra el arranque y la
+  entrada cae con q barra > 0") CONTRADICE el propio H4: la cuota
+  cae ~t^(-0,4..0,5); el piso heuristico honesto seria
+  ~(log c0)^(-0,95). Ironicamente la reduccion es MAS robusta que
+  su propio factor (poly-log siempre suma infinito), pero el
+  factor como esta escrito es falso segun los datos del mismo dia.
+
+LA COLA DEL CICLO Y ERICKSON: la medicion AGUANTA; "la firma
+t^(-1/2)" EXAGERADO -- el exponente local de S(t) es 0,44 -> 0,41
+CAYENDO (por debajo de 1/2 y alejandose): igual de compatible con
+alfa < 1/2 (cola mas pesada), donde Erickson da solo liminf y
+Caravenna-Doney exige I1+. El u(t) ~ 0,29/sqrt(t) esta condicionado
+a S*sqrt(t) -> c finito, que lo medido no muestra. El uso en (13)
+factor (b) es del lado seguro; el uso para el lema local
+cuantitativo va del lado contrario. La ficha es honesta consigo
+misma; la frase de (8) no es honesta con la ficha.
+
+ATAQUES QUE FALLARON (declarados): inflacion pro-cortos del 0,76;
+la tasa 0,072 por fraccion de pasos libres (los mixtos tambien
+promedian -0,144: el annealed es coherente); la trampa de tiempos
+de parada contra la union de Moscas; "el pasado da mas que c_i".
+
+=====================================================================
+LO QUE ESTA RONDA DEJA OBLIGATORIO
+=====================================================================
+1. FOCAS se reescribe sobre la base ANNEALED de Aranas con H5
+   declarado; la particion forzado/libre condicionada al camino NO
+   existe como esta enunciada (TORTOLAS es la prueba).
+2. La forma del piso por arranque tiene evidencia certificada EN
+   CONTRA de su version exacta en el unico rango limpio: el test
+   de forma con T ~ 10*log3(c0) escalado NO es un refinamiento
+   pendiente -- ES EL PUNTO DONDE EL PROGRAMA SE DECIDE (gamma(c0)
+   por decadas: baja hacia 0 => la reduccion vive; se estabiliza
+   > 0 => phi < 1 con techo).
+3. Las reparaciones de prosa: la cifra de GARZAS, la composicion
+   de TORTOLAS (c = 0,08 es ajuste), los E1-E5 de GAVIOTAS, la
+   errata de q(h) en RutaTeoremas, la formula del 0,76, "la firma
+   t^(-1/2)", y el comentario de la cola geometrica en
+   tortolas.lean.
+4. El regalo de la ronda (como CABRAS en la 5a): MARKOV FUERTE
+   hace exacto el salto condicional -- la reduccion queda en dos
+   lemas nombrados (L-A, L-B) y la mezcla queda relegada a
+   herramienta para L-A/L-B, no eslabon.

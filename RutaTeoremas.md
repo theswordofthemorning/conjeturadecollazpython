@@ -295,14 +295,33 @@ exponencialmente — ésa sigue siendo la vía.
 >
 > **⇢ 10-08 (7) — LA SÍNTESIS FINAL (bitácora (12), EMPEZAR POR
 > AHÍ): el círculo se cierra sobre el piso por visita, MEDIDO EN
-> `p* ≈ 0,76` en las coordenadas correctas** (por excursión, a la
-> ventana de Doeblin — que contiene el atractor entero; el viejo
-> `p_34 = 0,0457` medía otro objeto, la cuota del pre-vórtice). A
-> altura fija la cuota es estable en t (`q(h) > 0`: 0,79/0,75/
-> 0,62/0,52/0,39/0,26…). **El programa entero cuelga de UNA
-> desigualdad: uniformizar `p* ≥ p₀ > 0` sobre el pasado** —
-> Golondrinas + piso uniforme + mezcla (FOCAS, `lemadelamezcla.txt`)
-> + Borel–Cantelli condicional ⟹ ventana i.o. ⟹ φ=1 (LIEBRES).
+> `p* ≈ 0,76` en las coordenadas correctas** (por excursión desde
+> `(2,2)`, a la ventana de Doeblin — que contiene el atractor
+> entero; horquilla certificada [0,763, 0,960]; el viejo
+> `p_34 = 0,0457` medía otro objeto). Cuotas de la banda tardía
+> (t ∈ [23,30], h = 3…8): 0,79/0,75/0,62/0,52/0,39/0,26 *(7ª
+> revisión: esta lista NO es `q(h)` global, que empieza 1,00/0,95;
+> y en h ≤ 5 la cuota aún baja banda a banda — decelera, no
+> estable)*.
+>
+> **⇢ TRAS LA 7ª REVISIÓN (acta: `actarevision1008.txt`), la
+> cadena queda ASÍ — más fuerte en el esqueleto, más honesta en
+> los lemas**: por **MARKOV FUERTE** (regalo de la ronda),
+> `P(ventana en la excursión i | todo el pasado) = φ(c_i)` EXACTO —
+> la mezcla NO hace falta para ese salto y Lévy–Borel–Cantelli es
+> teorema. Quedan DOS lemas: **(L-A)** el piso poly-log
+> `φ(c₀) ≥ c/(log c₀)^A` — pero la forma `1/√log` exacta quedó
+> **EXCLUIDA** con cotas certificadas en 200–2000 (ratio ≤ 0,744
+> vs 0,836) y el rango limpio ajusta potencia `γ ≈ 0,4` estable:
+> **decidir si `γ(c₀) → 0` por décadas ES el punto donde el
+> programa se decide** (γ baja ⟹ la reducción vive; se estabiliza
+> ⟹ φ < 1 con techo); **(L-B)** el ritmo de visitas
+> `τ_i ≤ e^{o(i²)}` c.s. — la unión con Moscas es válida, falta el
+> ritmo (saldría del SRW de `k` + el reloj de rachas de
+> `tortolas.lean`, cuyo régimen k-par es DETERMINISTA — 7ª). FOCAS
+> pieza (3) ROTA (los bits compartidos son funciones del camino —
+> TÓRTOLAS los delata); la vía annealed de Arañas queda como
+> herramienta para L-A.
 >
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,

@@ -138,9 +138,18 @@ theorem impar_impar_impar (u v e : Int)
 -- lema local): los dos hijos de la moneda en (k, c par) son AMBOS
 -- pares -- la racha compartida sigue segura -- exactamente cuando
 -- a = c/2 es par Y m = (3^k - 1)/2 es par; y m es par si y solo si k
--- es par (3^k mod 4 alterna 3, 1, 3, 1...). En cualquier otro caso al
--- menos un bit mata la racha: la cola del reloj de los mixtos es
--- geometrica de tasa >= 1/2 (medido: P(racha >= j) * 2^j -> 0,9265).
+-- es par (3^k mod 4 alterna 3, 1, 3, 1...).
+-- ⇢ ETIQUETA DE LA 7a REVISION sobre la lectura probabilistica: la
+-- frase anterior de este comentario ("cola geometrica de tasa >= 1/2")
+-- NO se sigue de estos lemas y su lectura por-estado es FALSA en k
+-- PAR: alli m es par y la muerte de la racha depende solo de la
+-- paridad de a -- es DETERMINISTA (ningun bit mata, o ambos), jamas
+-- una moneda. En k IMPAR m es impar y exactamente un bit mata: alli
+-- la tasa 1/2 por paso si es exacta. La cola geometrica del AGREGADO
+-- (P(racha >= j) * 2^j -> 0,9265 medido) mezcla los dos regimenes y
+-- necesita ademas la distribucion 2-adica de los estados de entrada
+-- -- eso NO lo cubre ningun teorema de este fichero. Estos lemas dan
+-- la aritmetica por-caso; el ensamblaje probabilistico esta abierto.
 -- Testigos: c = 2a, 3^k = 2m+1; hijos a y 3a - m.
 -- ---------------------------------------------------------------------
 
