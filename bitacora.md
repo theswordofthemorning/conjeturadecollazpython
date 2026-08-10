@@ -5,6 +5,33 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (16) — EL TEST DECISIVO DE γ, PRIMERA PASADA: γ CAE POR DÉCADA — EL LADO DE LA REDUCCIÓN
+
+El protocolo que la 7ª dejó como «el punto donde el programa se
+decide», corrido en su primera versión limpia: `φ(c₀)` con
+horizonte EMPAREJADO T=130 y poda acotada (masa viva y pérdida
+casi idénticas entre puntos: 0,037–0,040 y 0,063–0,067 — el sesgo
+residual no fabrica la tendencia):
+
+    φ(2000)   ≥ 0,1182   [horquilla del límite: 0,118 – 0,221]
+    φ(20000)  ≥ 0,0586   [0,059 – 0,19]
+    φ(200000) ≥ 0,0354   [0,035 – 0,14]
+
+    γ(2000→20000)   = 0,30      γ(20000→200000) = 0,22
+
+**γ cae por década sobre las cotas certificadas emparejadas** — la
+dirección en la que la reducción vive (`γ → 0` ⟹ el piso es
+efectivamente poly-log ⟹ `Σ φ(|c_i|) = ∞` con arranques
+polinomiales ⟹ φ=1 vía Markov fuerte + Lévy). Etiqueta honesta:
+las horquillas de los límites se solapan — la monotonía de γ NO
+está certificada por intervalos, sólo la tendencia de las cotas
+inferiores emparejadas; y dos décadas de tendencia no son un
+límite (la lección de siempre). **El instrumento queda listo y el
+protocolo definido**: la próxima década (`2·10⁶`, T≈150) y el
+cierre de horquillas (subir el tope de poda) son el primer trabajo
+de la próxima sesión. La jornada del 10-08 cierra con el programa
+en dos lemas y su test decisivo doblando al lado recurrente.
+
 # ⇢ 10-08-2026 (15) — EL BAUTIZO DE QUELTEHUES (orden del usuario, el cierre)
 
 El lema de la mezcla (el «FOCAS» provisional, roto en su pieza 3
