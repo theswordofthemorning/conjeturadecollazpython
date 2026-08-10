@@ -290,8 +290,19 @@ exponencialmente — ésa sigue siendo la vía.
 > recurrencia de la ventana ⟹ φ=1 (LIEBRES) — con GAVIOTAS-B ya
 > certificando el balance de Lyapunov bajo el umbral en todo T
 > computable.** Pendientes user-gated: bautizos (GARZAS, TÓRTOLAS,
-> GAVIOTAS), la adversarial externa de toda la tanda del 10-08
-> (regla del ritmo), LaTourette/Frinkle/Rozier.
+> GAVIOTAS, FOCAS), la adversarial externa de toda la tanda del
+> 10-08 (regla del ritmo), LaTourette/Frinkle/Rozier.
+>
+> **⇢ 10-08 (7) — LA SÍNTESIS FINAL (bitácora (12), EMPEZAR POR
+> AHÍ): el círculo se cierra sobre el piso por visita, MEDIDO EN
+> `p* ≈ 0,76` en las coordenadas correctas** (por excursión, a la
+> ventana de Doeblin — que contiene el atractor entero; el viejo
+> `p_34 = 0,0457` medía otro objeto, la cuota del pre-vórtice). A
+> altura fija la cuota es estable en t (`q(h) > 0`: 0,79/0,75/
+> 0,62/0,52/0,39/0,26…). **El programa entero cuelga de UNA
+> desigualdad: uniformizar `p* ≥ p₀ > 0` sobre el pasado** —
+> Golondrinas + piso uniforme + mezcla (FOCAS, `lemadelamezcla.txt`)
+> + Borel–Cantelli condicional ⟹ ventana i.o. ⟹ φ=1 (LIEBRES).
 >
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,
