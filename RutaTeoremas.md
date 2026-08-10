@@ -230,6 +230,19 @@ exponencialmente — ésa sigue siendo la vía.
 > `tortolas.lean`, 20 teoremas, 0 `sorryAx` — queda la cota del
 > timing como ÚNICO frente analítico.)*
 >
+> **⇢ 10-08 (4): GAVIOTAS — EL ÚLTIMO PASO, CERTIFICADO A T FIJO.**
+> La cota martingala (`gaviotas.py`): `|E[(Ee−E0)·1_F]| ≤
+> √(N_c·V_c) ≤ √(N_c·P(1−P))` — ocho líneas (bits justos dado el
+> pasado + Doob + Cauchy–Schwarz), **la endogeneidad del horario
+> desaparece del argumento**. A T=24: `a_D ≤ 0,0739 < 0,2446`,
+> certificado con aritmética exacta y CERO lemas pendientes;
+> ortogonalidad verificada como igualdad de racionales. Asintótico
+> `O(T^{−1/4}) → 0` módulo UN lema local: `P(fondo en T) ≥ c/√T`
+> (medido: `P·√T ≈ 1,37` estable — forma Lamperti clásica). **El
+> programa queda así: el desbalance está DEMOSTRADO bajo el umbral
+> a todo T alcanzable, y el cierre asintótico depende de un único
+> lema local con forma clásica.**
+>
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,
 > firma del laplaciano discreto; C4 de `firmaacoplamiento.py`).

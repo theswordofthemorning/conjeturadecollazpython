@@ -5,6 +5,41 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (6) — GAVIOTAS (propuesto): LA COTA MARTINGALA — EL «ÚLTIMO PASO», CERTIFICADO BAJO EL UMBRAL A T FIJO
+
+**El resultado más fuerte de la jornada, y esquiva el hueco de la
+endogeneidad por completo.** `gaviotas.py` (el 69º `.py`):
+
+> **TEOREMA (propuesto: GAVIOTAS).** Con `M_s = E[1_F | F_s]` la
+> martingala de Doob del evento fondo y `ε_s` el bit ±1 de los pasos
+> moneda: `|E[(Ee−E0)·1_F]| ≤ √(N_c·V_c)`, con `N_c` = monedas
+> esperadas y `V_c` = energía de martingala de los pasos moneda,
+> `V_c ≤ Var(1_F) = P(1−P)`. Demostración de OCHO líneas: los bits
+> son justos dado el pasado (exacto en la medida de clases de
+> Leonas) ⟹ `E[ε_s·1_F] = E[ε_s·ΔM_{s+1}]`, y Cauchy–Schwarz dos
+> veces + ortogonalidad de incrementos. **Sin horario producto, sin
+> Efron–Stein, sin CLT local: la endogeneidad desaparece.**
+
+Los números (tabla de `gaviotas.py`, exactos): a T=24 la cota da
+**`a_D ≤ 0,0739 < 0,2446` — el «último paso» del acta de la 5ª
+queda CERTIFICADO bajo el umbral efectivo a T fijo, con desigualdad
+demostrada + aritmética exacta y CERO lemas pendientes**; la cota
+baja con T (0,0851 → 0,0705 en T = 16→28) y la holgura contra el
+valor real es ×8. Asintótico: con `P(F) ~ 1,37/√T` (medido),
+`a_D = O(T^{−1/4}) → 0` — el único pendiente asintótico es el lema
+local inferior `P(fondo en T) ≥ c/√T` (forma Lamperti clásica).
+Las monedas cargan sólo ~11% de la varianza de información del
+fondo. Comprobaciones: **la ortogonalidad `Σ_s E[ΔM²] = P(1−P)`
+verificada como IGUALDAD EXACTA DE RACIONALES (`Fraction`) en los
+cuatro T** — el descuadre más mínimo delataría un error de γ —,
+cruce con GARZAS a 6 cifras, cota cumplida con holgura, y la capa 1
+cazó en vivo números escritos a mano en el veredicto antes de
+correr (ahora se imprimen desde los datos). De paso: la distorsión
+del horario bajo condicionamiento quedó medida (−0,014 media al
+fondo) — ya no hace falta para la cota, queda como dato. Conteos:
+**69 `.py` · 19 `.lean` · 3 `.db`**. Bautizo y adversarial externa:
+en cola, del usuario.
+
 # ⇢ 10-08-2026 (5) — LA COSECHA VOLCADA (182·49) Y EFRON–STEIN CIERRA EL ESLABÓN EXÓGENO
 
 1. **El pendiente doble del volcado, COBRADO** (agente en segundo
