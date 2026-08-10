@@ -38,6 +38,16 @@
 #   cociente pierde la cota); (2) el PISO de absorcion por visita.
 #   El piso es la pieza abierta final del programa.
 #
+#   ⇢ EXTENSION DE LA 6a REVISION (09-08-2026, actarevision0908c.txt):
+#   la dominacion (a) y por tanto (b), (c) y la cota uniforme B_theta
+#   valen VERBATIM para la cadena MODIFICADA (el vortice rebotado a
+#   (2,2), sobre la que razona el criterio de retorno): el rebote
+#   multiplica |u| por 2/3 y cumple |u'| <= m_bit|u| + 1/2 en los dos
+#   bits, y (2/3)^theta <= r_theta para todo theta en (0,1) (2/3 <
+#   sqrt(3)/2 = GM de {1/2, 3/2} y AM >= GM): la ventana de Lyapunov
+#   lo absorbe. Verificado en rondadeltronco.py PARTE 2 (84.020
+#   transiciones con el rebote incluido, 0 fallos).
+#
 #   Verificacion: (a) exacto con Fraction en rejilla amplia; (b)-(c)
 #   sobre la cadena real, midiendo S_t nivel a nivel y comprobando la
 #   recursion y la cota; y el corolario de cola contra lo medido.

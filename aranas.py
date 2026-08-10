@@ -10,17 +10,27 @@
 #     bit 0  (N1 o N3):   u' = u/2       + delta      [contrae]
 #     bit 1  (N2 o N4):   u' = (3u-1)/2  + delta      [expande]
 #
-#   con delta EXACTA y diminuta:
+#   con delta EXACTA (los valores, identidades de enteros):
 #     N1: delta = 0            N2: delta = 3^(-k)/2
 #     N3: delta = 3^(-k-1)/2   N4: delta = 0
 #   y la salida del nucleo (k = 1, c impar, bit 1) tambien es
 #   u' = (3u-1)/2 EXACTA (delta = 0). El bit ES la moneda del IFS.
 #
 #   O sea: LA DINAMICA DE c ES LA DEL IFS DE MONEDA JUSTA
-#   { u/2, (3u-1)/2 } MAS UNA PERTURBACION SUMABLE (|delta| <= 3^(-k)/2,
-#   y la masa en el piso k decae 2^(-k): la perturbacion total esta
+#   { u/2, (3u-1)/2 } MAS UNA PERTURBACION ACOTADA (|delta| <= 3^(-k)/2
+#   <= 1/6, y la ESPERANZA POR PASO bajo el perfil de masa en k esta
 #   dominada por suma 2^(-k) 3^(-k)/2 < 1/10). El nivel de la torre
 #   DESAPARECE de la dinamica del offset: la sombra teje los pisos.
+#   ⇢ CORRECCION DE LA 6a REVISION (09-08-2026, actarevision0908c.txt):
+#   la frase original decia "PERTURBACION SUMABLE" -- y sumable NO es,
+#   en el sentido de trayectoria que la teoria de IFS perturbado
+#   necesita: por GOLONDRINAS el fondo se visita infinitas veces c.s.
+#   y delta_t = 1/6 (la N2 de k = 1) ocurre infinitas veces, o sea
+#   Sigma_t |delta_t| = infinito c.s. Lo que si vale: |delta| <= 1/6
+#   siempre y esperanza por paso < 1/10. Y "diminuta" tambien se
+#   califica: en el fondo (k = 1, donde |u| >= 1/3) delta llega a la
+#   MITAD del piso de |u| -- diminuta para k grande, no donde vive la
+#   masa. Las identidades no se movieron; el adjetivo si.
 #
 #   LO QUE COMPRA (con las etiquetas de la casa):
 #   . EXACTO: las identidades de arriba (T1, enteros multiplicados).

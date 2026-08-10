@@ -214,7 +214,7 @@ parece.
 
 ## Instalación [historia y avisos: D-03]
 
-`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 09-08-2026 (noche): **65 `.py` · 17 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
+`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 09-08-2026 (noche): **66 `.py` · 17 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
 
 ## Cómo está repartido el repo [detalle: D-04]
 
@@ -356,6 +356,8 @@ for a in sorted(glob.glob('*.py')):
 | **`cabras.lean`** | El 16º: el invariante mod 3 de la torre (la puerta de CABRAS por la cadena entera) — `c % 3 ≠ 0` para todo alcanzado con `k ≥ 1`, corolario `torre_sin_ceros`; el regalo de la 5ª revisión, formalizado |
 | **`aterrizajen2.lean`** | El 17º: el aterrizaje de N2 — la pieza 2-ádica con signo de Golondrinas (`v₂(c) > A ⟹` el bit 1 aterriza EXACTO en `v₂ = A−1`; `c = 0` ídem; `v₂(c) < A ⟹` baja exacto 1), testigos sin división, cotejado en 42.196 instancias |
 | **`pumasescalera.py`** | Los escalones 7 y 8 del acorralado: los seis truncados publicados reproducidos + `K=13` y `K=15` (1,3M estados) ⟹ **`λ ≥ 1,9844`**; gaps ×0,78 → ×0,81 subiendo — consistente con λ = 2. El 8º tras la bandera `ESCALON_8` (~10 min) |
+| **`rondadeltronco.py`** | **La 6ª revisión (la ronda del tronco)**: Leonas contra 50.000 pares reales (12,5 M de pasos, 0 fallos de forma; el censo de las coalescencias del ciclo `{1,4}→2`) y Moscas extendida a la cadena modificada. Acta: `actarevision0908c.txt` |
+| **`actarevision0908c.txt`** | El acta de la 6ª revisión (la ronda del tronco): Leonas con dos frases corregidas (clase vs instancia; el ancla), Arañas con dos adjetivos («sumable», «diminuta»), Tigresas intacta, Moscas reforzada |
 | `actarevision0908.txt` | El acta de la 4ª revisión externa (la que rompió Abejas-como-programa y validó el criterio) |
 | `maquinaria.txt` / `notamoscas.txt` | Los cinco objetivos sin Collatz y la nota autocontenida de Moscas |
 | `inventario.md` / `derivados.md` | El catálogo del repo, y las ramas del tronco (sistema de derivados `[D-nn]`) |

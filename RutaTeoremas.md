@@ -204,6 +204,32 @@ CABRAS por la cadena entera y está formalizado en **`cabras.lean` (el
 16º)** con el corolario `torre_sin_ceros` — los saltos de `c = 0` son
 teorema, no convención.
 
+## ⇢ EL PUENTE — lo que hay DESPUÉS de φ (esbozado por el usuario con Opus 5, 09-08 noche)
+
+La ruta si el programa de la densidad cierra, escrita para que no se
+pierda:
+
+1. **Si `φ = 1` cae** (Gao–Wu en densidad): casi todo `n` funde con su
+   vecino, y fundirse es compartir destino — encadenando vecinos salen
+   **bloques enormes de números con el mismo final** (las rachas de
+   Frinkle et al. 2025, medidas en decenas de miles de consecutivos).
+   Eso convierte «todo número llega al 1» en «**los representantes de
+   cada bloque llegan al 1**»: no es Collatz demostrada, es **Collatz
+   REDUCIDA a un conjunto flaco** — y esa frase sí se puede escribir
+   en un paper. *(Cuantificador honesto: el conjunto excepcional de
+   densidad 0 es exactamente donde viviría el contraejemplo — el
+   mismo muro de Tao 2019, y se declara como tal.)*
+2. **El techo de la maquinaria, con su porqué**: el teorema del espejo
+   (`a₊ = a₋`) limita los TEOREMAS de esta cadena, no las
+   herramientas — todo enunciado que salga de aquí vale igual para
+   `3n−1`, así que no puede decidir lo que los separa. **El
+   ingrediente que falta para tocar Collatz misma tiene nombre: seguir
+   el VALOR, no la diferencia.** La cadena `(k,c)` sigue la diferencia
+   de dos órbitas (ciega al signo); una extensión que arrastre
+   información del valor (la altura, el tamaño de `v`) rompería la
+   simetría del espejo. Ésa es la puerta del zoológico que queda por
+   abrir cuando la densidad esté cerrada.
+
 ## ⇢ LA REFORMULACIÓN DEL 09-08 (manda sobre lo de abajo)
 
 **`φ = 1 ⟺ (1,1) es RECURRENTE en la cadena MODIFICADA`** (la de
@@ -457,7 +483,7 @@ descriptivo entre paréntesis.)*
 | **PANDAS** | lema condicional | igual altura ⟹ fusión al mismo índice (`Res < 3`); corolario `φ = d` (el puente a Gao) | condicional; incond. `< 2^71` | `lemadepandas.txt`, `zoologico.lean` |
 | **3 CHANCHITOS** | teoremas | `b₄ = 7·2^{m−7}−m+4`, `c₄ = 6·2^{m−7}−m+4` (grafo `{−3,−5}` + puertas + torre + gasto) | teoremas ∀m | `teoremadelos3chanchitos.txt` |
 | **KOMODO 3** | teorema en Lean | tras el paso 0 el mayor es `≡ 2 (mod 3)` y «no múltiplo de 3» es invariante para siempre | demostrado, 0 sorry | `teoremadekomodo3.lean` |
-| **LEONAS** | teorema-marco | LA CADENA `(k,c)`: seis leyes exactas con moneda de Terras; el zoológico entero son sus estados | demostrado (leyes en Lean, `p` impar arbitrario) | `paseodeladeuda.py`, `cadenakc.lean` |
+| **LEONAS** | teorema-marco | LA CADENA `(k,c)`: seis leyes exactas con moneda de Terras (la paridad DEL ANCLA — 6ª revisión); el zoológico entero son sus estados. **Cualificador de la 6ª**: es la dinámica DE CLASES (ahí `a(k)` exacto y la única absorción es el vórtice); a nivel de instancias existen además las coalescencias del ciclo terminal (`{1,4}→2`, 28% del censo) que NO son fusiones de clase ni tocan φ | demostrado (leyes en Lean, `p` impar arbitrario); **pasó la 6ª revisión: cálculo intacto (12,5 M de pasos contra pares reales, 0 fallos), dos frases corregidas** | `paseodeladeuda.py`, `cadenakc.lean`, `rondadeltronco.py` |
 | **TIGRESAS** | teorema | el multiplicador: cada paso del núcleo es moneda justa `×1/2 / ×3/2` — `E[m]=1` exacto: perpetuidad de Kesten CRÍTICA (κ=1) | demostrado (lectura φ=1: heurística declarada) | `subrenovacionc.py` |
 | **CABRAS** | teorema | las puertas mod 3: directa → clase 2, vuelco → clase 1, nunca 0; **la puerta que funde es la del vuelco**. Y por la cadena entera: todo alcanzado con `k ≥ 1` tiene `c % 3 ≠ 0` — la torre no fabrica múltiplos de 3; corolario `torre_sin_ceros` (`(k,0)` inalcanzable) | demostrado; **formalizada en Lean (el 16º)** — el regalo de la 5ª revisión resultó ser esta puerta | `subrenovacionc.py`, `cabras.lean` |
 | **ZORRAS** | teorema condicional | la inversión: `λ < 2 ⟹ φ = 1` — el autovalor no puede separar (`b(t+2) ≥ N_t(1,2)` exacto; piso `s_t` medido) | mecanismo exacto + piso medido | `retornoslambda.py` |
@@ -474,8 +500,8 @@ descriptivo entre paréntesis.)*
 | **PANTERAS** | recursión | la diagonal vertical del triángulo: `e_s(N)\|_{r≡1} = e_{s−2}(N−2)` — la contracción trepando estratos | demostrado (motor en Lean) | `recursionvertical.lean` |
 | **CIERVAS** | ecuación | una clase se estrena ⟺ primer encuentro en un vórtice (`a = 3b+1`, `S` compensada) — la ecuación fundacional de las nuevas | caracterización medida (`k ≤ 15`, 0 fallos) | `nuevasfusion.py` C2/C3 |
 | **OSAS** | sistema | el sistema cerrado de φ: `φ = 8(1+ε)/(23−13ρ)`; `φ = 1 ⟺ ε_torre = 1/4 ⟺` el paseo recurrente | medido (ecuación 1 demostrada; 2 y 3 verificadas) | `auditoria_rigor.py` #86–88 |
-| **ARAÑAS** | teorema | la sombra: en `u = c/3^k` las leyes colapsan al IFS `{u/2, (3u−1)/2}` con perturbación exacta `≤ 3^{−k}/2` — la torre desaparece; Goldie–Kesten aplica al IFS puro | demostrado (354.293 identidades exactas) | `aranas.py` |
-| **MOSCAS** | teorema | la tensión transferida: `S_t(θ) ≤ B_θ` uniforme en `t` (Lyapunov con `r_θ < 1` para todo `θ < 1`) — la masa viva con `\|u\| > x` es `≤ B_θ/x^θ` siempre; las moscas no escapan de la telaraña | demostrado (dominación exacta + subaditividad, autocontenido) | `moscas.py`, `notamoscas.txt` |
+| **ARAÑAS** | teorema | la sombra: en `u = c/3^k` las leyes colapsan al IFS `{u/2, (3u−1)/2}` con perturbación exacta `≤ 3^{−k}/2 ≤ 1/6` — Goldie–Kesten aplica al IFS puro. **Etiquetas de la 6ª**: la perturbación es ACOTADA con esperanza por paso < 1/10, **NO sumable en trayectoria** (Golondrinas ⟹ `δ = 1/6` i.o.), y en el fondo llega a la mitad del piso de `\|u\|` — la transferencia IFS→cadena sigue PENDIENTE, como el propio fichero declara | demostrado (354.293 identidades exactas, intactas); dos adjetivos corregidos por la 6ª | `aranas.py`, `actarevision0908c.txt` |
+| **MOSCAS** | teorema | la tensión transferida: `S_t(θ) ≤ B_θ` uniforme en `t` (Lyapunov con `r_θ < 1` para todo `θ < 1`) — la masa viva con `\|u\| > x` es `≤ B_θ/x^θ` siempre; las moscas no escapan de la telaraña. **Extensión de la 6ª: vale VERBATIM en la cadena MODIFICADA** (el rebote 2/3 cumple la dominación y `(2/3)^θ ≤ r_θ` — la ventana de Lyapunov lo absorbe) | demostrado (dominación exacta + subaditividad, autocontenido); **salió REFORZADA de la 6ª** | `moscas.py`, `notamoscas.txt`, `rondadeltronco.py` |
 | **HORMIGAS** | teorema | la accesibilidad: desde TODO estado `(k, c)` hay una palabra finita que fusiona — política explícita, terminación demostrada (redemostrada por la 4ª revisión), largo `O(k + log₂\|c\|)` — siempre hay camino a casa. *(4ª revisión: la constante 2,5 era muestra; sup exhaustivo ~2,73, demostrable candidata ~4,8 — constante fina ABIERTA)* | demostrado + exhaustivo rejilla + aleatorios a 10^30 | `accesibilidad.py` |
 | **ABEJAS** | lema | el lema de bloques: la ocupación de toda rejilla finita sumada por bloques es `≤ 2^{T_G}` — **INCONDICIONAL (es Kraft)**. *(4ª revisión: el contrapositivo «`M_G` no sumable ⟹ φ=1» era VACUO — `M_G` es sumable siempre; el blanco no-vacuo es `M_G/L` o la cadena modificada = el criterio de retorno)* | demostrado (más fuerte de lo anunciado; lectura corregida) | `minorizacion.py`, `actarevision0908.txt` |
 | **PALOMAS** | identidad | `b(t) = N_t(1,1)` EXACTO: las clases nuevas del nivel `t+1` SON las palabras en el pre-vórtice al nivel `t` — las nuevas vuelven del pre-vórtice, mensajeras; afila a Zorras y da `p_t = b(t)/m_{k1}` | exacto (t = 3..15 vs publicada) | `minorizacion.py` C0, `pisoporvisita.py` |

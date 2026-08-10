@@ -9,11 +9,19 @@
 #   trayectorias siguen acopladas es una FORMA
 #
 #       { v, 3^k v + c }        (k >= 1: "torre de nivel k", c en Z)
-#       { v, v + g }            (k = 0: "frontera", gap g >= 1 constante)
+#       { v, v + g }            (k = 0: "frontera", gap g >= 1, que es
+#                                constante DE LA CLASE: no depende de v
+#                                -- en el tiempo F1/F2 si lo mueven)
 #
-#   y la dinamica del par la decide UN SOLO BIT FRESCO por paso (la
-#   paridad del menor, que por Terras es una moneda justa sobre la
-#   clase). LAS SEIS LEYES, cada una un calculo de una linea:
+#   y la dinamica del par la decide UN SOLO BIT FRESCO por paso: la
+#   paridad DEL ANCLA v, que por Terras es una moneda justa sobre la
+#   clase. (⇢ CORRECCION DE LA 6a REVISION, 09-08-2026, acta en
+#   actarevision0908c.txt: la frase original decia "la paridad del
+#   menor" -- el ancla NO siempre es el menor: en los tramos de
+#   instancia rumbo al ciclo terminal deja de serlo en millones de
+#   pasos del censo de rondadeltronco.py, y las leyes valen igual con
+#   la paridad del ancla, 0 fallos en 12,5 millones de pasos.)
+#   LAS SEIS LEYES, cada una un calculo de una linea:
 #
 #     nucleo k >= 1, c PAR (paso compartido):
 #       N1  bit 0:  (k, c)   ->  (k, c/2)
@@ -51,6 +59,18 @@
 #   un paseo +-1 simetrico en k (N3/N4), la frontera es una cuenta
 #   atras de v_2 (F1/F2) que reentra (F3/F4), y la unica absorcion es
 #   el vortice (1,1) con bit 1.
+#
+#   ⇢ EL CUALIFICADOR DE LA 6a REVISION (09-08-2026), que la frase de
+#   arriba necesita: todo esto es la dinamica DE CLASES (residuos mod
+#   2^t), que es el objeto que el barrido cuenta -- y ahi es EXACTO.
+#   A nivel de INSTANCIAS hay ademas coalescencias FUERA del vortice:
+#   las colas obligadas del ciclo terminal (el par {1,4} -> 2, estados
+#   (k, 4-3^k) con v = 1 -- el 28% de los pares n <= 50.000; el
+#   contraejemplo de registro es (7,8), que funde en el paso 10 desde
+#   (2,-5)). Esas NO son fusiones de clase y no tocan a(k) ni a phi:
+#   la phi del programa es FUSION DE CLASE (el puente a igual altura
+#   es PANDAS); la coalescencia eventual de instancias seria
+#   trivialmente 1. Censo completo: rondadeltronco.py PARTE 1.
 #
 #   Mapa del ATAJO, enteros exactos, SystemExit antes de concluir.
 

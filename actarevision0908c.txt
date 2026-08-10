@@ -1,0 +1,141 @@
+ACTA DE LA 6a REVISION -- LA RONDA DEL TRONCO (09-08-2026, noche)
+==================================================================
+
+Orden del usuario: mirar el mapa de dependencias y revisar DE LAS
+RAMAS HACIA EL TRONCO -- porque las ramas (Liebres, Cebras, Urracas)
+acababan de pasar por tres adversarios y lo de abajo (Leonas,
+Tigresas, Aranas, Moscas) no lo habia mirado nadie. Metodo pedido y
+seguido: NO recomputar el codigo del repo -- releer cada ENUNCIADO y
+preguntar si el calculo lo respalda exactamente, recomputando desde
+las definiciones del papel (el patron historico: lo que cae siempre
+es una lectura, no un calculo). Revision hecha en la conversacion
+principal, sin agentes (regimen vigente). Verificaciones permanentes:
+rondadeltronco.py (nuevo, 66o .py).
+
+RESUMEN EJECUTIVO
+-----------------
+
+SEXTA REVISION, SEXTA VEZ QUE ROMPE ALGO -- y esta vez mordio el
+TRONCO MISMO (Leonas), ademas de dos frases de Aranas. Todo lo roto
+es LECTURA; ningun calculo cayo. Y dos piezas salieron REFORZADAS
+(Tigresas intacta; Moscas EXTENDIDA a la cadena modificada con
+calculo nuevo).
+
+L1. LEONAS [EXAGERADO -- el central de la ronda]. El encabezado de
+    paseodeladeuda.py dice "todo estado de un par vivo (no fundido)
+    ... es una FORMA {v, 3^k v + c}" y "la unica absorcion es el
+    vortice (1,1) con bit 1". VERDADERO A NIVEL DE CLASES (el objeto
+    que el barrido simbolico cuenta, y que reproduce a(k) EXACTO
+    k <= 32); FALSO a nivel de instancias: el par real (7, 8) funde
+    en el paso 10 SIN pasar por el vortice -- en t = 9 su estado es
+    (2, -5) con instancia {1, 4}, y T(1) = T(4) = 2. El censo sobre
+    n <= 50.000 (rondadeltronco.py PARTE 1): 22.027 fusiones de clase
+    (todas en el vortice, exacto), 14.009 coalescencias de instancia
+    FUERA del vortice (28%), 13.964 sin fundir en 800 pasos. La
+    estructura de las 14.009: TODAS son el mismo evento entero -- el
+    par {1, 4} del ciclo terminal 1 -> 2 -> 1 (v = 1 y c = 4 - 3^k en
+    todas, verificado una a una). O sea: son las colas obligadas de
+    pares con alturas distintas que se pisan en el ciclo, no fusiones
+    de clase. CONSECUENCIA DE LECTURA: la phi del programa es FUSION
+    DE CLASE (el puente a "igual altura" es PANDAS); la coalescencia
+    eventual de instancias seria trivialmente 1 si Collatz vale. La
+    frase del encabezado necesita el cualificador de clase -- sin el,
+    "la unica absorcion es el vortice" es falsa con densidad 28% en
+    el rango medido. n = 7 queda como contraejemplo de registro.
+
+L2. LEONAS [EXAGERADO]. "la dinamica del par la decide UN SOLO BIT
+    FRESCO por paso (la paridad del menor...)": el bit que gobierna
+    las seis leyes es la paridad DEL ANCLA v, no del menor. En
+    4.622.056 pasos-instancia del censo el ancla NO es el menor
+    (los tramos rumbo al ciclo, donde un miembro baja al ciclo y el
+    otro sigue alto), y la frase del parentesis "en un mixto el mayor
+    es impar <=> v es par" cae exactamente en esos pasos. Con bit =
+    paridad(ancla), las leyes dan 0 fallos en los 12.516.313 pasos
+    del censo (V1 perfecto). Para las CLASES desde (0,1) con v
+    generico la distincion no muerde (por eso a(k) sale exacto); para
+    instancias es una frase falsa.
+
+L3. LEONAS [OK]. Las seis formulas y la forma {v, 3^k v + c}:
+    perfectas contra el objeto real -- V1 = 0 fallos en 12,5 millones
+    de pasos de pares consecutivos evolucionados con el atajo,
+    reconstruyendo el estado en cada paso desde las definiciones.
+    [MATIZ menor: "gap g >= 1 constante" en el encabezado -- el gap
+    NO es constante en el tiempo (F1 lo parte, F2 lo multiplica);
+    "constante" solo puede leerse como "constante DE LA CLASE" (no
+    depende de v, a diferencia de la torre). Reescribir.]
+
+T1. TIGRESAS [OK -- intacta]. El multiplicador afin c' = m*c + s con
+    m en {1/2, 3/2} moneda justa en el nucleo, la excepcion de la
+    frontera impar declarada ("la bomba", ambas ramas 3/2), y las
+    condiciones de Kesten declaradas como NO cumplidas (los (m, s)
+    no son i.i.d.). Las etiquetas del fichero son ejemplares: "Lo
+    exacto: T1 y T3. Lo medido: T2. Lo heuristico: el cierre."
+    [MATIZ nuevo, de reconciliacion: la moneda de TIGRESAS (sobre c)
+    y la de CEBRAS (sobre u = c/3^k) tienen asignacion de bit OPUESTA
+    en los pasos impares: N3 expande c (x3/2) pero contrae u (x1/2,
+    la torre absorbe el 3), y N4 al reves. Ambas son correctas en su
+    coordenada y ambas justas; la nota de reconciliacion no estaba
+    escrita en ningun sitio y ya casi produce una confusion en la 5a.
+    Queda escrita aqui.]
+
+A1. ARANAS [EXAGERADO]. "PERTURBACION SUMABLE (|delta| <= 3^(-k)/2,
+    y la masa en el piso k decae 2^(-k): la perturbacion total esta
+    dominada por suma 2^(-k) 3^(-k)/2 < 1/10)": esa suma domina la
+    ESPERANZA POR PASO de |delta| bajo el perfil de masa en k -- no
+    la suma temporal a lo largo de una trayectoria. Y por GOLONDRINAS
+    (el fondo k <= 1 se visita infinitas veces c.s.) las trayectorias
+    tienen delta_t = 1/6 en la rama N2 de k = 1 infinitas veces:
+    Sigma_t |delta_t| = infinito c.s. La perturbacion NO es sumable
+    en el sentido que la teoria de IFS perturbado necesita para
+    transferir la estacionaria -- que es exactamente el uso que el
+    banner le da ("IFS mas perturbacion sumable"). El fichero declara
+    honesto "LO QUE FALTA PARA TEOREMA" (la transferencia esta
+    pendiente), pero la palabra "sumable" viaja al CLAUDE.md y al
+    zoologico diciendo mas de lo que el calculo prueba.
+
+A2. ARANAS [EXAGERADO]. "delta EXACTA y diminuta": en el fondo
+    (k = 1), delta = 3^(-1)/2 = 1/6 contra |u| >= 1/3 -- hasta la
+    MITAD del piso de |u|. Diminuta en absoluto para k grande; no
+    donde vive la masa (93% en k <= 8, y el fondo es el sitio de la
+    pregunta). Coherente con el mordisco lateral de la 5a revision
+    (el -1/2 afin domina cerca de u = 0). Las IDENTIDADES de Aranas
+    (las delta exactas por ley, las excepciones F2/F4 declaradas)
+    estan verificadas y AGUANTAN -- lo roto es el adjetivo y el uso.
+
+M1. MOSCAS [OK + EXTENSION POSITIVA]. La dominacion (a) |u'| <=
+    m_bit |u| + 1/2 -- demostrada para la cadena REAL -- vale
+    VERBATIM en la cadena MODIFICADA: verificado en 84.020
+    transiciones (k <= 10, |c| <= 2000, c = 0 y el rebote (1,1) ->
+    (2,2) incluidos, 0 fallos), y el multiplicador 2/3 del rebote
+    queda DENTRO de la ventana de Lyapunov: (2/3)^theta <= r_theta
+    para todo theta en (0,1) (2/3 < sqrt(3)/2 = GM de {1/2, 3/2} y
+    AM >= GM; margen minimo 0,0003 en la malla). La recursion
+    S_{t+1} <= r*S_t + (1/2)^theta y la cota uniforme B_theta se
+    heredan sin tocar una constante. La brecha "Moscas se demostro
+    para la real y hoy se razona sobre la modificada" -- la pregunta
+    2 del encargo -- queda CERRADA con calculo, no con lectura.
+
+CORRECCIONES APLICADAS EN ESTE CIERRE
+--------------------------------------
+1. paseodeladeuda.py (encabezado): cualificador de CLASE en la forma
+   y en "la unica absorcion"; "paridad del ancla" en vez de "del
+   menor" con la nota del censo; "constante de la clase" en el gap.
+2. aranas.py (encabezado): "sumable" reetiquetada (esperanza por paso
+   acotada + |delta| <= 1/6; NO sumable en trayectoria por
+   Golondrinas); "diminuta" calificada (en el fondo llega a la mitad
+   del piso de |u|).
+3. moscas.py (encabezado): la extension a la modificada, anotada con
+   su verificacion (rondadeltronco.py PARTE 2).
+4. rondadeltronco.py NUEVO (66o .py): las dos verificaciones como
+   programa permanente con SystemExit.
+5. CLAUDE.md (banner y conteos) y RutaTeoremas.md (zoologico: filas
+   de LEONAS, ARANAS, MOSCAS) con las etiquetas del acta; bitacora
+   09-08 (14).
+
+VEREDICTO DE LA CASA: el tronco AGUANTA COMO CALCULO -- las seis
+leyes son exactas como dinamica de clases (12,5 millones de pasos
+contra el objeto real, 0 fallos) y Moscas sale mas fuerte de la
+ronda. Lo que cayo es lo de siempre: tres frases que decian mas que
+su calculo (la absorcion unica sin el cualificador de clase, la
+paridad del menor, la perturbacion sumable). Sexta revision, sexta
+vez. La doctrina no falla -- y ahora el tronco tambien esta revisado.

@@ -5,6 +5,48 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (14) — LA 6ª REVISIÓN: LA RONDA DEL TRONCO. SEXTA VEZ QUE ROMPE ALGO — Y ESTA VEZ MORDIÓ A LEONAS
+
+**Orden del usuario: revisar el mapa de dependencias DE LAS RAMAS AL
+TRONCO** — las ramas acababan de pasar por tres adversarios; el tronco
+(Leonas) y la terna (Tigresas/Arañas/Moscas) no los había mirado
+nadie. Método: releer cada ENUNCIADO y preguntar si el cálculo lo
+respalda — recomputando desde las definiciones del papel, sin agentes.
+**Acta íntegra: `actarevision0908c.txt`. Verificación permanente:
+`rondadeltronco.py` (el 66º `.py`).**
+
+- **LEONAS [EXAGERADO, el central]**: «la única absorción es el
+  vórtice» es verdad A NIVEL DE CLASES (donde `a(k)` sale exacto) y
+  falso a nivel de instancias: **el par (7,8) funde en el paso 10 sin
+  pasar por el vórtice** (estado `(2,−5)`, instancia `{1,4}`,
+  `T(1)=T(4)=2`). Censo `n ≤ 50.000`: 22.027 fusiones de clase (todas
+  en el vórtice), **14.009 coalescencias de instancia fuera (28%) —
+  TODAS el mismo evento `{1,4}→2` del ciclo terminal** (`v = 1`,
+  `c = 4−3^k`, verificado una a una). La φ del programa es FUSIÓN DE
+  CLASE (el puente a igual altura es Pandas); la coalescencia eventual
+  sería trivialmente 1. Cualificador aplicado al encabezado.
+- **LEONAS [EXAGERADO]**: «la paridad del menor» → es la paridad DEL
+  ANCLA (el ancla no es el menor en 4,6 M de pasos-instancia rumbo al
+  ciclo). Con el ancla: **0 fallos en 12.516.313 pasos** contra pares
+  reales (V1 perfecto). Las seis fórmulas: intactas.
+- **TIGRESAS [OK, intacta]** — etiquetas ejemplares. Matiz nuevo
+  escrito: las monedas de Tigresas (en `c`) y Cebras (en `u`) tienen
+  bit OPUESTO en los pasos impares (la torre absorbe el 3) — la nota
+  de reconciliación no existía y casi produce confusión en la 5ª.
+- **ARAÑAS [EXAGERADO ×2]**: «perturbación SUMABLE» no es sumable en
+  trayectoria (Golondrinas ⟹ `δ_t = 1/6` infinitas veces c.s.; lo que
+  vale: `|δ| ≤ 1/6` y esperanza por paso < 1/10); «diminuta» llega a
+  la MITAD del piso de `|u|` en el fondo. Las identidades: intactas.
+- **MOSCAS [OK + EXTENSIÓN]**: la dominación vale VERBATIM en la
+  cadena MODIFICADA (84.020 transiciones con el rebote, 0 fallos;
+  `(2/3)^θ ≤ r_θ` en todo θ — la ventana de Lyapunov absorbe el
+  rebote). La brecha «demostrado para la real, razonado sobre la
+  modificada» — cerrada con cálculo.
+
+**El veredicto: el tronco aguanta COMO CÁLCULO; lo que cayó es lo de
+siempre — tres frases que decían más que su cálculo.** Conteos:
+**66 `.py` · 17 `.lean` · 3 `.db`**.
+
 # ⇢ 09-08-2026 (13) — LOS ESCALONES 7 Y 8 DE PUMAS: `λ ≥ 1,9844`
 
 **`pumasescalera.py`** (el 65º `.py`): la escalera de truncados
