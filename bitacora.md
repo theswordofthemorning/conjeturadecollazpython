@@ -5,6 +5,101 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 11-08-2026 — LA JORNADA SATELITAL: EL MURO ES DE UN METRO, Y TIENE DOS PUERTAS
+
+**El plan lo dictó el usuario** («estamos muy cerrados; hay que mirar
+desde afuera»): masticar el repo entero, cosechar OEIS, contraponer, y
+—la joya— **la prueba de circularidad de L-A**: escribirla sin Collatz
+y ver si colapsa en «el paseo es recurrente». El saldo, en orden de
+peso:
+
+1. **LA PRUEBA DE CIRCULARIDAD (`sombraexogena.py` +
+   `notaLAautonoma.txt`): EL MURO ES DE UN METRO.** L-A escrita
+   autónoma (paseo perezoso + perpetuidad acoplada por el bit, reloj
+   exógeno — cero aritmética) NO colapsa en recurrencia, y el modelo
+   V2 **reproduce las γ de la cadena a ±0,03** (V3 real por MC:
+   0,298/0,201/0,182; V2: 0,249/0,190/0,165). El reloj endógeno v₂
+   aporta un factor acotado, no el mecanismo. El fenómeno entero es
+   «excursión crítica × contracción con fluctuaciones» — el
+   «polinomial con γ cayendo» es el TRANSITORIO de grandes
+   desviaciones del modelo clásico, cuya asíntota es lentamente
+   variable: **γ → 0 es computable en V2**. Sonda extendida: en V2,
+   γ cae a la mitad cada ~2 décadas a lo largo de SEIS
+   (0,22→0,16→0,14→0,10→0,11→0,08, hasta x = 2·10⁹).
+2. **LA DÉCADA NUEVA DEL TEST DECISIVO, CERTIFICADA
+   (`pisoporarranque.py`, ahora fichero del repo con reproducción por
+   `SystemExit` — pagada la deuda de método: el instrumento vivía en
+   la transcripción).** Escalera emparejada a T=150:
+   φ = 0,1202 / 0,0606 / 0,0373 / **0,0237** ⟹
+   **γ = 0,297 / 0,211 / 0,197 — CAE en los tres escalones**; los
+   CUATRO controles de reproducción del cierre del 10-08 clavados a
+   4 decimales. Contra la predicción PRE-REGISTRADA
+   (`prediccion_gamma_1108.txt`, escrita antes de mirar): 0,197 en
+   el borde inferior de las dos bandas (0,20-0,24) — la década dobla
+   al lado de la reducción algo más fuerte de lo que ambos modelos
+   predecían. Etiqueta: tres décadas no son un límite; el veredicto
+   es del mecanismo (y el mecanismo, hoy, es el punto 1).
+3. **LAS DOS PATAS EN PROSA DE LA REDUCCIÓN, MEDIDAS POR PRIMERA VEZ
+   (`arranquesporvisita.py`)**: **β = 0,000** — los arranques |c_i|
+   NO crecen (planos de i=2 a i=1325, 138.813 excursiones; mediana
+   ~2⁴, p90 ~2⁷: γ·β < 1 con margen enorme, la distribución se ve
+   estacionaria) — y el reloj **η = 2,082** (τ_i ~ i², polinomial:
+   L-B pide e^(o(i²)) — margen infinito en la medición). Cruce
+   independiente: p*(2,2) = 0,84 por MC dentro de la horquilla
+   certificada [0,763, 0,960] del barrido exacto. Y
+   **`notamoscasinducida.txt`**: esquema de demostración de la
+   condición β vía Moscas + cota local del retorno + Hölder en el
+   tiempo de parada (H1-H4 declarados, SIN adversarial).
+4. **LA VISTA SATELITAL OEIS: nuestro problema tiene un GEMELO
+   RESUELTO.** El lado «dropping time» (A076227/A100982/A020914) está
+   estructuralmente cerrado: déficit del doblado concentrado en los
+   niveles de A020914 y = A100982 (Zarubin 2019), triángulo de Pascal
+   generador (Winkler 2017; paper maduro arXiv:1709.03385 **v8 del
+   28-07-2026**), y la asintótica —NO publicada— la midió nuestro
+   agente sobre el b-file oficial: razón → 3^H(log₃2) = 2,8395,
+   clavando la heurística de gran desviación. **b(k) es el análogo
+   exacto de A100982 y nadie ha conectado los dos lados: el conteo
+   del repo parece inédito** (`fichawinklerzarubin.txt`). El
+   experimento que la ficha propone: tabular R_par(nivel, estrato)
+   con datos de clasesfusion y comprobar la recursión de Pascal —
+   con v₂(Δ) de Tórtolas como candidata a «posición».
+5. **LOS PROBLEMAS HERMANOS, FICHADOS (`fichaproblemashermanos.txt`)**:
+   el hermano exacto de L-A es **AGKV 2005** (paseo crítico oscilante
+   + funcional multiplicativa: supervivencia θ·n^(−1/2) con θ bajo el
+   paseo condicionado — h-transform de Bertoin–Doney; versión
+   Markov-dependiente: Grama–Lauvergnat–Le Page). Más: Lyapunov
+   afinadas de Menshikov–Popov–Wade para el crítico exacto (la salida
+   a la obstrucción Foster del 10-08 (9)), Goldie κ=1 para la cola
+   1/x, el checklist Caravenna–Doney en α=1/2, y la lección
+   Koukoulopoulos–Maynard (cuasi-independencia EN PROMEDIO +
+   Paley–Zygmund) para Σ P(X_t ∈ C) = ∞. Advertencia transversal: la
+   maquinaria crítica exacta sólo se ha cerrado en problemas
+   puramente probabilísticos — usarla dentro de uno aritmético no
+   tiene precedente… que es justo lo que la prueba de circularidad
+   suaviza: el factor aritmético quedó MEDIDO como acotado.
+6. **EL CÍRCULO CONCEPTUAL, CERRADO**: la vía combinatoria (W/Z) y la
+   probabilística (AGKV) desembocan en EL MISMO objeto — la cola de
+   supervivencia de la masa no fundida: exponencial ⟹ razón 2ρ < 2 y
+   φ < 1; SUBexponencial ⟹ razón → 2 y φ = 1. Nuestra criticidad
+   medida (S(t)·√t ~ 1,1) es la firma subexponencial.
+7. **El mapa de dependencias, actualizado a la última milla** (45
+   nodos, 74 aristas, regla respetada): la frontera AVANZABLE es
+   `lema_LA_piso` y `lema_LB_ritmo`; `phi_uno` bloqueado sólo por
+   ellos. Y de regalo: las TRES transcripciones que el LEEME daba por
+   perdidas existen en esta máquina y quedaron zipeadas en git.
+
+**PENDIENTES QUE DEJA LA JORNADA**: la adversarial externa de TODA la
+tanda de hoy (regla del ritmo — nada de hoy la tiene);
+los bautizos user-gated que siguen en cola (GARZAS confirmado,
+TÓRTOLAS/GAVIOTAS propuestos); el experimento de Pascal para b(k)
+(punto 4 — barato, con datos existentes); el teorema V2 (AGKV +
+Bertoin–Doney sobre el enunciado autónomo — la pieza analítica con
+nombre y molde); y el cierre de horquillas si algún día hace falta
+certificación fina (tope de poda ↑). Conteos: **72 `.py` · 19
+`.lean` · 3 `.db`**.
+
+---
+
 # ⇢ 10-08-2026 (16) — EL TEST DECISIVO DE γ, PRIMERA PASADA: γ CAE POR DÉCADA — EL LADO DE LA REDUCCIÓN
 
 El protocolo que la 7ª dejó como «el punto donde el programa se

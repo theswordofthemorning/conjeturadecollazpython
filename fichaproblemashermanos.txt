@@ -1,0 +1,360 @@
+FICHA: PROBLEMAS HERMANOS DE LA CADENA (k, c)
+==============================================
+Agente bibliografico, 10-08-2026. Solo busqueda web; NO se abrio ningun
+fichero del repo. Cada referencia lleva etiqueta de verificacion:
+  [ABSTRACT] = lei el abstract o texto (via busqueda/fetch directo)
+  [LOCALIZADO] = referencia localizada y coherente en varios resultados,
+                 pero no lei el texto en esta sesion
+Regla de honestidad: "no encontrado" NO es "no existe". Donde la busqueda
+no dio con la pieza exacta, lo digo.
+
+La forma que buscamos en cada problema: paseo critico (martingala sin
+deriva) + perpetuidad afin critica + renovacion + piso de probabilidad
+por excursion.
+
+
+SECCION 1 -- EL PROBLEMA DE LAMPERTI (deriva ~ c/x, caso critico)
+-----------------------------------------------------------------
+Referencias:
+- J. Lamperti, "Criteria for the recurrence or transience of stochastic
+  process I", J. Math. Anal. Appl. 1 (1960) 314-330; y las secuelas
+  JMAA 7 (1963) sobre momentos. [LOCALIZADO -- citas estandar, no lei
+  el original en esta sesion]
+- M. Menshikov, S. Popov, A. Wade, "Non-homogeneous Random Walks:
+  Lyapunov Function Methods for Near-Critical Stochastic Systems",
+  Cambridge Tracts in Mathematics 209, CUP, 2017. [ABSTRACT + resenas;
+  el capitulo relevante es el de "Lamperti's problem"]
+- C.H. Lo, tesis Durham "On some random walk problems" (2018),
+  arXiv:1802.06623: extension a semiejes/franjas con derivas Lamperti
+  generalizadas. [ABSTRACT]
+- Denisov-Korshunov-Wachtel, "Markov chains with heavy-tailed
+  increments and asymptotically zero drift", arXiv:1806.07166.
+  [LOCALIZADO]
+
+Que se sabe: para un proceso en R+ con deriva mu(x) ~ c/x y varianza
+sigma^2(x) -> s^2, la clasificacion es por el cociente 2c/s^2:
+transiente si 2c > s^2, recurrente positivo si 2c < -s^2 (en variantes),
+nulo-recurrente en la franja intermedia. EL CASO CRITICO EXACTO
+(2c = s^2, la frontera) se decide con TERMINOS LOGARITMICOS de orden
+inferior en la deriva: c/x + d/(x log x) + ...
+
+HERRAMIENTA QUE CIERRA (una linea): funciones de Lyapunov afinadas a
+mano -- f(x) = x^alpha con alpha = 1 - 2c/s^2, y en la frontera exacta
+f(x) = (log x)^beta o log log x -- mas los criterios semimartingala de
+Foster-Lyapunov (recurrente si E[f(X_{n+1}) - f(X_n) | X_n = x] <= 0
+fuera de un compacto, con f -> infinito). El libro MPW 2017 es el
+manual entero de esa tecnica. Es EXACTAMENTE la maquinaria disenada
+para "martingala critica con correccion pequena": el caso critico no
+se decide por la deriva sino por el segundo orden, y la funcion de
+Lyapunov es quien lo ve.
+
+
+SECCION 2 -- LA RECURSION AFIN CRITICA X_n = A_n X_{n-1} + B_n
+--------------------------------------------------------------
+2a. Caso critico "de Babillot" (E[log A] = 0):
+- M. Babillot, P. Bougerol, L. Elie, "The random difference equation
+  X_n = A_n X_{n-1} + B_n in the critical case", Ann. Probab. 25
+  (1997) 478-493. [ABSTRACT] Resultados: recurrencia de la cadena,
+  existencia y UNICIDAD de una medida invariante de Radon (infinita),
+  teorema limite para tiempos de ocupacion. Sin hipotesis de densidad.
+  HERRAMIENTA: un TEOREMA DE RENOVACION para el proceso conjunto
+  (X_n, A_n...A_1) -- renovacion sobre el paseo log A, que es critico.
+- S. Brofferio, D. Buraczewski, E. Damek, "On the invariant measure of
+  the random difference equation X_n = A_n X_{n-1} + B_n in the
+  critical case", Ann. IHP Prob. Stat. 48 (2012) 377-395. [ABSTRACT]
+  Comportamiento en infinito de la medida invariante (limite homogeneo
+  al dilatar). Tambien: Buraczewski, "On invariant measures of
+  stochastic recursions in a critical case", Ann. Appl. Probab. 17
+  (2007), arXiv:0710.3687 [ABSTRACT]; Brofferio-Buraczewski, "On
+  unbounded invariant measures of stochastic dynamical systems",
+  Ann. Probab. (2015), arXiv:1304.7145 [ABSTRACT].
+- G. Alsmeyer, A. Iksanov, "Recurrence and transience of random
+  difference equations in the critical case", arXiv:2105.04994 (2021).
+  [ABSTRACT] Dicotomia nula-recurrencia/transiencia cuando el paseo
+  subyacente oscila; tecnica heredada de Alsmeyer-Buraczewski-Iksanov
+  2017.
+- D. Buraczewski, K. Kolesko, "Linear stochastic equations in the
+  critical case", J. Difference Equ. Appl. 20 (2014) 188-209.
+  [LOCALIZADO]
+
+2b. NUESTRO regimen (E[A] = 1, E[log A] < 0 -- contractivo en log,
+critico en media; kappa de Kesten = 1):
+- OJO: este NO es el "caso critico" de la literatura de arriba (alli
+  critico = E[log A] = 0). El nuestro es el caso CONTRACTIVO con
+  indice de Kesten kappa = 1: existe estacionaria y su cola es
+  P(X > x) ~ C/x (Kesten 1973, Acta Math. 131; Goldie 1991, Ann.
+  Appl. Probab. 1, "Implicit renewal theory and tails of solutions of
+  random equations"). [LOCALIZADO -- teoria estandar; el libro
+  Buraczewski-Damek-Mikosch, "Stochastic Models with Power-Law Tails:
+  The Equation X = AX + B", Springer 2016, la contiene entera]
+- G. Alsmeyer, D. Buraczewski, A. Iksanov, "Null-recurrence and
+  transience of random difference equations in the contractive case",
+  J. Appl. Probab. 54 (2017) 1089-1110, arXiv:1612.02148. [ABSTRACT]
+  Contractivo (Pi_n = M_1...M_n -> 0 c.s.) pero con Q_n grandes
+  esporadicos que impiden recurrencia positiva: dan el criterio exacto
+  de nula-recurrencia vs transiencia. HERRAMIENTA: comparar la cadena
+  con el paseo log Pi_n y las excursiones donde un salto grande de Q
+  "recarga" el proceso -- descomposicion por excursiones del paseo.
+
+Lectura para nosotros: con E[A] = 1 la teoria de Goldie da cola ~ C/x
+para la ESTACIONARIA (si la perpetuidad converge), y la constante C
+sale de la teoria de renovacion implicita -- renovacion sobre el paseo
+log A con h-transform exponencial (cambio de medida de Cramer con
+kappa = 1). La cola 1/x del caso kappa = 1 es exactamente el tipo de
+"masa viva |u| > x acotada por B/x" que ya tenemos en Moscas.
+
+HERRAMIENTA QUE CIERRA (una linea): renovacion implicita de Goldie
+(cambio de medida exponencial en el paseo log A + teorema de
+renovacion clave) para las colas; renovacion conjunta (X_n, Pi_n) de
+BBE para la recurrencia critica; excursiones del paseo log para la
+dicotomia contractiva.
+
+
+SECCION 3 -- BRANCHING RANDOM WALK EN EL CASO FRONTERA
+------------------------------------------------------
+Referencias:
+- J.D. Biggins, A.E. Kyprianou, "Measure change in multitype
+  branching" / "Seneta-Heyde norming in the branching random walk"
+  (1997-2004): definen el caso frontera (boundary case) y la
+  martingala derivada. [LOCALIZADO]
+- E. Aidekon, "Convergence in law of the minimum of a branching
+  random walk", Ann. Probab. 41 (2013) 1362-1426. [ABSTRACT]
+  El minimo M_n = (3/2) log n + Gumbel desplazada por la martingala
+  derivada D_infinito.
+- E. Aidekon, Z. Shi, "The Seneta-Heyde scaling for the branching
+  random walk", Ann. Probab. 42 (2014) 959-993, arXiv:1102.0217.
+  [ABSTRACT] En el caso frontera la martingala aditiva W_n -> 0, pero
+  sqrt(n) * W_n converge EN PROBABILIDAD (no c.s.) a c * D_infinito.
+  ESE sqrt(n) ES EL PISO t^{-1/2}: la masa que sobrevive al instante n
+  es de orden n^{-1/2} por la martingala derivada.
+- Chen / Boutaud-Maillard, "On the derivative martingale in a
+  branching random walk", arXiv:2002.05215 (condiciones optimas).
+  [LOCALIZADO]
+
+De donde sale el t^{-1/2}: del paseo del espinazo (spine) condicionado
+a quedarse positivo. La descomposicion espinal cambia la medida para
+que la particula marcada haga un paseo centrado; la probabilidad de que
+un paseo centrado se mantenga sobre una barrera n pasos es ~ c/sqrt(n)
+(fluctuaciones, ballot theorem), y la renormalizacion de Seneta-Heyde
+hereda ese exponente. La martingala derivada D_n = sum (posicion -
+barrera) * peso es el objeto que queda vivo cuando la aditiva muere.
+
+HERRAMIENTA QUE CIERRA (una linea): descomposicion espinal (cambio de
+medida) + paseo condicionado a positivo (h-transform con la funcion de
+renovacion) + martingala derivada; el exponente 1/2 es el del ballot
+problem del espinazo, no del arbol.
+
+Nota honesta: el paralelismo con nuestro piso es por ANALOGIA de
+estructura (masa critica que decae t^{-1/2} gobernada por una
+martingala secundaria), no una identificacion. No encontre un teorema
+"BRW = perpetuidad afin critica" directo.
+
+
+SECCION 4 -- PASEOS CONDICIONADOS A POSITIVO Y PISOS POR EXCURSION
+------------------------------------------------------------------
+Referencias:
+- J. Bertoin, R.A. Doney, "On conditioning a random walk to stay
+  nonnegative", Ann. Probab. 22 (1994) 2152-2167. [ABSTRACT]
+  Construccion del condicionamiento via h-transform de Doob con la
+  funcion armonica V(x) = funcion de renovacion de las escaleras
+  descendentes; V es armonica para el paseo matado bajo 0.
+- V.I. Afanasyev, J. Geiger, G. Kersting, V.A. Vatutin, "Criticality
+  for branching processes in random environment", Ann. Probab. 33
+  (2005) 690-708. [ABSTRACT] EL HERMANO MAS CERCANO QUE ENCONTRE:
+  proceso de ramificacion cuyo entorno hace un paseo OSCILANTE
+  (critico); demuestran P(supervivencia hasta n) ~ theta * P(min del
+  paseo en [0,n] >= 0) ~ c * n^{-1/2} bajo la condicion de Spitzer.
+  La supervivencia es un PISO POR EXCURSION del paseo asociado: la
+  poblacion sobrevive si y solo si el paseo del entorno no baja
+  demasiado, y la constante theta es la probabilidad de que la
+  funcional multiplicativa (la poblacion) aguante DADO el paseo
+  condicionado. Exactamente la forma del lema L-A: "la excursion
+  aterriza con |u| acotado con probabilidad >= piso".
+- F. Caravenna, "invariance principles for random walks conditioned
+  to stay positive", Ann. IHP 44 (2008). [LOCALIZADO]
+- Grama-Lauvergnat-Le Page, "Limit theorems for Markov walks
+  conditioned to stay positive under a spectral gap assumption",
+  arXiv:1607.07757, y "Limit theorems for affine Markov walks
+  conditioned to stay positive", arXiv:1601.02991. [LOCALIZADO --
+  la version MARKOV-dependiente del h-transform: relevante porque
+  nuestro reloj perezoso rompe la iid y esta linea la repara]
+
+Respuesta a la pregunta exacta: SI -- la maquinaria de
+Afanasyev-Geiger-Kersting-Vatutin da precisamente "probabilidad de que
+una funcional multiplicativa (producto de medias del entorno) no se
+hunda antes del primer retorno/en la excursion", y la respuesta viene
+en la forma producto: (exponente universal n^{-1/2} del paseo) x
+(constante theta = esperanza de la funcional bajo el paseo
+condicionado, via h-transform de Bertoin-Doney/Tanaka).
+
+HERRAMIENTA QUE CIERRA (una linea): h-transform de Doob con la funcion
+de renovacion V + teoria de fluctuaciones (Spitzer, factorizacion de
+Wiener-Hopf); el piso = theta * n^{-1/2} con theta calculada bajo la
+medida condicionada.
+
+Renovacion fuerte en alfa = 1/2 (la pieza que pediste aparte):
+- F. Caravenna, R.A. Doney, "Local large deviations and the strong
+  renewal theorem", Electron. J. Probab. 24 (2019), arXiv:1612.07635.
+  [ABSTRACT] Condicion NECESARIA Y SUFICIENTE para el teorema de
+  renovacion fuerte con media infinita, indice alfa en (0,1); la
+  variacion regular sola NO basta justo en alfa <= 1/2 -- nuestro
+  alfa = 1/2 es el caso borde donde hace falta su condicion local.
+  Cierra un problema abierto desde Garsia-Lamperti 1962.
+- Q. Berger, "Strong renewal theorems with infinite mean beyond local
+  large deviations", Ann. Appl. Probab. 25 (2015), arXiv:1505.07622.
+  [LOCALIZADO]
+HERRAMIENTA: grandes desviaciones LOCALES del paseo de renovacion --
+en alfa = 1/2 el teorema fuerte NO es gratis y la condicion de
+Caravenna-Doney es el checklist a verificar para nuestra cadena.
+
+
+SECCION 5 -- PROBLEMAS ARITMETICOS CERRADOS CON ESTA MAQUINARIA
+---------------------------------------------------------------
+5a. Tao sobre Collatz:
+- T. Tao, "Almost all orbits of the Collatz map attain almost bounded
+  values", arXiv:1909.03562 (2019), publicado en Forum of Mathematics
+  Pi 10 (2022). [ABSTRACT + blog del autor] Piezas probabilisticas:
+  (i) las "Syracuse random variables" que modelan n mod 3^k tras k
+  pasos impares; (ii) decaimiento superpolinomial de Fourier de esas
+  variables condicionadas a la suma (caracter en el grupo ciclico
+  3-adico); (iii) la estimacion via un proceso de RENOVACION
+  bidimensional interactuando con uniones de triangulos por
+  frecuencia; (iv) transporte aproximado de la densidad logaritmica
+  por un tiempo de primer paso, y PRIMER MOMENTO sobre densidad
+  logaritmica. NO usa martingalas criticas ni h-transforms: la clave
+  fue MEZCLA CUANTITATIVA (Fourier) + renovacion, con el paseo
+  supercritico (deriva log 3/4 < 0, no critico).
+  Leccion para nosotros: Tao esquiva el caso critico porque su paseo
+  tiene deriva negativa; nuestro programa vive donde el suyo no entra
+  (la martingala exactamente justa).
+
+5b. Duffin-Schaeffer:
+- D. Koukoulopoulos, J. Maynard, "On the Duffin-Schaeffer conjecture",
+  Ann. of Math. 192 (2020) 251-307, arXiv:1907.04593. [ABSTRACT +
+  expositorio del autor] La reduccion es EXACTAMENTE "una serie de
+  medidas diverge => infinitas soluciones" (Borel-Cantelli segundo,
+  sin independencia). Lo que la cerro: METODO DEL SEGUNDO MOMENTO
+  (cuasi-independencia en promedio de los eventos) demostrado con los
+  GCD GRAPHS: iteracion de compresion de un grafo bipartito que
+  regulariza la estructura de divisores subiendo una "calidad"
+  monotona. Es un descenso combinatorio, no probabilistico: la
+  probabilidad plantea, la combinatoria cierra.
+  - Version cuantitativa: Aistleitner-Borda-Hauke, arXiv:2202.00936;
+    Hauke-Vazquez-Walker sin GCD graphs, arXiv:2409.10386.
+    [LOCALIZADO]
+  Leccion: cuando el criterio es "Sum P(X_t en C) = infinito", el
+  enemigo real es la correlacion entre visitas; K-M ensenan que basta
+  cuasi-independencia EN PROMEDIO, certificada por un objeto
+  combinatorio con cantidad monotona.
+
+5c. Zaremba:
+- J. Bourgain, A. Kontorovich, "On Zaremba's conjecture", Ann. of
+  Math. 180 (2014) 137-196. [ABSTRACT via resenas] Densidad uno de
+  denominadores admisibles. HERRAMIENTA: metodo del circulo orbital +
+  cotas uniformes de OPERADORES DE TRANSFERENCIA (formalismo
+  termodinamico del shift de fracciones continuas) en el aspecto de
+  congruencias (Oh-Winter); refinado por Huang, Kan y otros
+  (arXiv:1503.06132 etc.). Aqui el "paseo" es el semigrupo de
+  matrices y el piso lo da la dimension del conjunto limite
+  (delta > 5/6): espectro del operador, no martingala.
+
+HERRAMIENTA QUE CIERRA (una linea, las tres): mezcla cuantitativa
+(Fourier/renovacion) en Tao; segundo momento + descenso combinatorio
+en K-M; operadores de transferencia + circulo en B-K. NINGUNO de los
+tres cierra un caso critico de martingala: todos trabajan con margen
+(deriva negativa, densidad, gap espectral).
+
+
+SECCION 6 -- EXPONENTE DE LYAPUNOV CERO EN SISTEMAS POR TROZOS
+--------------------------------------------------------------
+Lo que encontre (menos redondo que las otras secciones -- honesto):
+- El caso E[log A] = 0 para productos de matrices/afines 1-d es la
+  seccion 2a: BBE 1997 y sucesores SON el "Furstenberg critico" en
+  dimension 1, y la herramienta fue renovacion + medida de Radon
+  infinita unica.
+- J.-P. Conze, Y. Guivarc'h, "Recurrence and ergodicity of random
+  walks on linear groups and on homogeneous spaces" (ETDS): marcos de
+  recurrencia para acciones con exponente cero. [LOCALIZADO]
+- B. Deroin, V. Kleptsyn, A. Navas, K. Parwani, "Symmetric random
+  walks on Homeo+(R)", Ann. Probab. (2013), arXiv:1103.1650:
+  recurrencia de paseos simetricos (deriva cero) de homeomorfismos --
+  el analogo no lineal de nuestro IFS critico. [LOCALIZADO]
+- Giacomin-Greenblatt y sucesores, "Lyapunov exponent for products of
+  random 2x2 matrices in the critical case" (transfer matrix del RFIM
+  critico; Ann. Henri Poincare 2025, link.springer.com/article/
+  10.1007/s00023-025-01589-5): comportamiento del exponente cerca de
+  cero con desorden debil. [LOCALIZADO]
+- Comtet-Texier-Tourigny, "Fluctuations of the product of random
+  matrices and generalized Lyapunov exponent", arXiv:1907.08512
+  (fisica matematica: grandes desviaciones del producto en/cerca del
+  critico). [LOCALIZADO]
+- Para interval exchange / Lorenz con exponente cero NO encontre un
+  resultado limpio de recurrencia tipo "caso critico resuelto" en
+  esta sesion; los IET tienen exponente cero por ser isometrias por
+  trozos y su maquinaria (Masur-Veech, renormalizacion de Rauzy) no
+  mapea sobre nuestra pregunta. No encontrado no es no existe.
+
+HERRAMIENTA (una linea): en dimension 1 el critico se cierra con
+renovacion + medidas invariantes infinitas (BBE); en grupos, con
+recurrencia a la Chacon-Ornstein/Conze-Guivarc'h; la teoria de
+fluctuaciones da correcciones cerca del critico pero no conoce un
+"cierre" general del caso exactamente cero en dimension > 1.
+
+
+LO TRANSFERIBLE (para el lema L-A)
+==================================
+Las cinco herramientas con mas probabilidad de morder, en orden:
+
+1. EL PAQUETE AGKV (Afanasyev-Geiger-Kersting-Vatutin 2005) +
+   h-transform de Bertoin-Doney 1994. Es LA MISMA PREGUNTA con otros
+   nombres: paseo critico oscilante (nuestro k), funcional
+   multiplicativa colgada del paseo (nuestro u), y el teorema sale en
+   la forma piso = theta * n^{-1/2}, con theta = E[funcional aguanta |
+   paseo condicionado a positivo via V-transform]. Nuestro lema L-A
+   es "theta(u_0) >= c/polylog(u_0)": la via es escribir la excursion
+   k=2 -> k=1 bajo el h-transform y estimar la contraccion de u con
+   E[log mult] = -0,144 < 0 a lo largo de la excursion condicionada.
+   La deriva log-negativa de u es el margen que AGKV no necesitan
+   pero nosotros si podemos gastar.
+
+2. FUNCIONES DE LYAPUNOV AFINADAS (Menshikov-Popov-Wade 2017). Para
+   el acoplamiento k-u entero (el par (k, log|u|) es un paseo 2-d
+   casi-critico), la tecnica MPW de f(k,u) = mezcla de potencias y
+   logaritmos con criterio semimartingala es la unica que decide
+   casos criticos EXACTOS sin calcular la ley del proceso. Candidata
+   natural: f = log|u| + lambda*k (lineal en las dos derivas) y sus
+   correcciones log log para el borde.
+
+3. RENOVACION IMPLICITA DE GOLDIE (1991) con kappa = 1. Nuestro
+   E[A] = 1 exacto es el indice de Kesten kappa = 1: la cola C/x de
+   la estacionaria (que Moscas ya tiene empiricamente como B/x^theta)
+   tiene un teorema detras, y la CONSTANTE C es calculable por
+   renovacion implicita. Si la cadena modificada admite estacionaria
+   sigma-finita, Goldie da la forma exacta de la cola que el piso por
+   visita necesita.
+
+4. EL CHECKLIST DE CARAVENNA-DONEY (2019) para alfa = 1/2. El teorema
+   de renovacion fuerte que queremos NO es automatico justo en 1/2:
+   su condicion necesaria-y-suficiente (cota local de grandes
+   desviaciones del tiempo de retorno) es la lista concreta que
+   nuestra cola t^{-1/2} del primer retorno debe pasar antes de usar
+   "renovacion fuerte" como lema.
+
+5. LA LECCION KOUKOULOPOULOS-MAYNARD para el criterio final
+   Sum P(X_t en C) = infinito: no hace falta independencia de las
+   visitas, basta cuasi-independencia EN PROMEDIO certificada por una
+   cantidad monotona bajo compresion. Traduccion: si el segundo
+   momento de N_T = numero de visitas a C crece como (primer
+   momento)^2 * O(1), Paley-Zygmund da el piso de recurrencia sin
+   resolver la dependencia fina -- es la version combinatoria del
+   mismo cierre que Doeblin nos da por el lado Markov.
+
+Y la advertencia transversal, honesta: en TODOS los problemas
+aritmeticos cerrados (Tao, K-M, B-K) la maquinaria probabilistica
+trabajo con margen (deriva o gap); el caso critico exacto solo esta
+cerrado en los problemas puramente probabilisticos (Lamperti, BBE,
+AGKV, BRW frontera). Nuestro programa esta intentando usar la segunda
+familia dentro de un problema de la primera -- eso no esta hecho en
+la literatura que encontre, y es a la vez el riesgo y la novedad.
+
+FIN

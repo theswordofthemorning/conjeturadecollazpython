@@ -1,0 +1,93 @@
+﻿COMPROBACION 1 OK: la cadena modificada coincide con los pares
+reales en 108840 instancias (y el vortice con bit 1 fusiona de verdad
+en todas las suyas: el rebote es construccion, no error).
+
+--- barrido desde (2, 2000), T = 150, tope 2000000 ---
+  c0=2000     t= 10  phi_min=0.0029  perdida=0.000  viva=0.404  [0 s]
+  c0=2000     t= 20  phi_min=0.0347  perdida=0.000  viva=0.266  [0 s]
+  c0=2000     t= 30  phi_min=0.0627  perdida=0.000  viva=0.213  [5 s]
+  c0=2000     t= 40  phi_min=0.0812  perdida=0.002  viva=0.180  [89 s]
+  c0=2000     t= 50  phi_min=0.0924  perdida=0.009  viva=0.154  [204 s]
+  c0=2000     t= 60  phi_min=0.0995  perdida=0.017  viva=0.131  [315 s]
+  c0=2000     t= 70  phi_min=0.1044  perdida=0.026  viva=0.111  [431 s]
+  c0=2000     t= 80  phi_min=0.1081  perdida=0.034  viva=0.094  [539 s]
+  c0=2000     t= 90  phi_min=0.1110  perdida=0.042  viva=0.079  [647 s]
+  c0=2000     t=100  phi_min=0.1134  perdida=0.048  viva=0.067  [752 s]
+  c0=2000     t=110  phi_min=0.1153  perdida=0.054  viva=0.056  [856 s]
+  c0=2000     t=120  phi_min=0.1169  perdida=0.059  viva=0.047  [943 s]
+  c0=2000     t=130  phi_min=0.1182  perdida=0.063  viva=0.040  [1035 s]
+  c0=2000     t=140  phi_min=0.1193  perdida=0.066  viva=0.033  [1126 s]
+  c0=2000     t=150  phi_min=0.1202  perdida=0.069  viva=0.028  [1209 s]
+  C2 OK: phi(2000) a T=130 reproduce el 0.1182 de la bitacora.
+
+--- barrido desde (2, 20000), T = 150, tope 2000000 ---
+  c0=20000    t= 10  phi_min=0.0000  perdida=0.000  viva=0.386  [0 s]
+  c0=20000    t= 20  phi_min=0.0023  perdida=0.000  viva=0.263  [0 s]
+  c0=20000    t= 30  phi_min=0.0108  perdida=0.000  viva=0.212  [4 s]
+  c0=20000    t= 40  phi_min=0.0222  perdida=0.004  viva=0.179  [62 s]
+  c0=20000    t= 50  phi_min=0.0322  perdida=0.011  viva=0.152  [136 s]
+  c0=20000    t= 60  phi_min=0.0395  perdida=0.019  viva=0.128  [226 s]
+  c0=20000    t= 70  phi_min=0.0447  perdida=0.028  viva=0.109  [324 s]
+  c0=20000    t= 80  phi_min=0.0486  perdida=0.036  viva=0.092  [414 s]
+  c0=20000    t= 90  phi_min=0.0515  perdida=0.044  viva=0.077  [506 s]
+  c0=20000    t=100  phi_min=0.0539  perdida=0.050  viva=0.065  [596 s]
+  c0=20000    t=110  phi_min=0.0558  perdida=0.056  viva=0.055  [686 s]
+  c0=20000    t=120  phi_min=0.0573  perdida=0.060  viva=0.046  [777 s]
+  c0=20000    t=130  phi_min=0.0586  perdida=0.064  viva=0.039  [877 s]
+  c0=20000    t=140  phi_min=0.0597  perdida=0.068  viva=0.033  [994 s]
+  c0=20000    t=150  phi_min=0.0606  perdida=0.070  viva=0.027  [1106 s]
+  C2 OK: phi(20000) a T=130 reproduce el 0.0586 de la bitacora.
+
+--- barrido desde (2, 200000), T = 150, tope 2000000 ---
+  c0=200000   t= 10  phi_min=0.0000  perdida=0.000  viva=0.401  [0 s]
+  c0=200000   t= 20  phi_min=0.0001  perdida=0.000  viva=0.266  [0 s]
+  c0=200000   t= 30  phi_min=0.0012  perdida=0.000  viva=0.213  [8 s]
+  c0=200000   t= 40  phi_min=0.0048  perdida=0.006  viva=0.177  [82 s]
+  c0=200000   t= 50  phi_min=0.0104  perdida=0.015  viva=0.148  [170 s]
+  c0=200000   t= 60  phi_min=0.0163  perdida=0.024  viva=0.124  [257 s]
+  c0=200000   t= 70  phi_min=0.0214  perdida=0.033  viva=0.104  [343 s]
+  c0=200000   t= 80  phi_min=0.0253  perdida=0.041  viva=0.088  [430 s]
+  c0=200000   t= 90  phi_min=0.0284  perdida=0.048  viva=0.074  [516 s]
+  c0=200000   t=100  phi_min=0.0307  perdida=0.054  viva=0.062  [606 s]
+  c0=200000   t=110  phi_min=0.0326  perdida=0.059  viva=0.053  [695 s]
+  c0=200000   t=120  phi_min=0.0342  perdida=0.063  viva=0.044  [783 s]
+  c0=200000   t=130  phi_min=0.0354  perdida=0.067  viva=0.037  [877 s]
+  c0=200000   t=140  phi_min=0.0365  perdida=0.070  viva=0.031  [965 s]
+  c0=200000   t=150  phi_min=0.0373  perdida=0.073  viva=0.026  [1048 s]
+  C2 OK: phi(200000) a T=130 reproduce el 0.0354 de la bitacora.
+
+--- barrido desde (2, 2000000), T = 150, tope 2000000 ---
+  c0=2000000  t= 10  phi_min=0.0000  perdida=0.000  viva=0.392  [0 s]
+  c0=2000000  t= 20  phi_min=0.0000  perdida=0.000  viva=0.264  [0 s]
+  c0=2000000  t= 30  phi_min=0.0001  perdida=0.000  viva=0.212  [8 s]
+  c0=2000000  t= 40  phi_min=0.0006  perdida=0.010  viva=0.172  [77 s]
+  c0=2000000  t= 50  phi_min=0.0023  perdida=0.022  viva=0.141  [170 s]
+  c0=2000000  t= 60  phi_min=0.0052  perdida=0.032  viva=0.116  [281 s]
+  c0=2000000  t= 70  phi_min=0.0088  perdida=0.041  viva=0.097  [385 s]
+  c0=2000000  t= 80  phi_min=0.0122  perdida=0.048  viva=0.081  [489 s]
+  c0=2000000  t= 90  phi_min=0.0151  perdida=0.055  viva=0.068  [595 s]
+  c0=2000000  t=100  phi_min=0.0174  perdida=0.060  viva=0.057  [689 s]
+  c0=2000000  t=110  phi_min=0.0193  perdida=0.065  viva=0.048  [784 s]
+  c0=2000000  t=120  phi_min=0.0208  perdida=0.069  viva=0.040  [888 s]
+  c0=2000000  t=130  phi_min=0.0219  perdida=0.072  viva=0.034  [993 s]
+  c0=2000000  t=140  phi_min=0.0229  perdida=0.075  viva=0.029  [1093 s]
+  c0=2000000  t=150  phi_min=0.0237  perdida=0.078  viva=0.024  [1186 s]
+
+LA ESCALERA EMPAREJADA (T = 150, tope 2000000):
+   c0         phi_min   horquilla del limite      perdida   viva
+  2000       0.1202    [0.1202, 0.2175]           0.069     0.028
+  20000      0.0606    [0.0606, 0.1585]           0.070     0.027
+  200000     0.0373    [0.0373, 0.1367]           0.073     0.026
+  2000000    0.0237    [0.0237, 0.1253]           0.078     0.024
+
+gamma por decada (cotas inferiores emparejadas a T = 150):
+  gamma(2000 -> 20000) = 0.297
+  gamma(20000 -> 200000) = 0.211
+  gamma(200000 -> 2000000) = 0.197
+
+VEREDICTO DE LA PASADA: gamma CAE en cada escalon de la escalera
+emparejada -- la direccion en la que la reduccion (13) vive.
+
+Etiqueta honesta: son cotas inferiores truncadas con horquillas que
+se solapan; tres decadas de tendencia no son un limite. El veredicto
+final de L-A pide mecanismo, no extrapolacion.

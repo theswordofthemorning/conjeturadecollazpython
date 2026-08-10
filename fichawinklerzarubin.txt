@@ -1,0 +1,281 @@
+================================================================================
+FICHA BIBLIOGRAFICA: WINKLER / ZARUBIN / A100982-A076227 Y EL PUENTE A b(k)
+Agente bibliografico, 10-08-2026. Solo busqueda web; ningun fichero del repo
+abierto. Marcas: [LEIDO] = contenido inspeccionado (abstract/HTML/OEIS crudo);
+[LOCALIZADO] = referencia verificada pero texto completo no inspeccionado.
+Los datos numericos de la seccion 3 son CALCULO PROPIO de hoy sobre el b-file
+oficial de OEIS (capa 1 pasada: mapa ATAJO, sigma_k exacto via bit_length de
+3^k, suma de densidades en aritmetica exacta con Fraction).
+================================================================================
+
+--------------------------------------------------------------------------------
+1. LAS REFERENCIAS DE WINKLER (y una correccion de atribucion)
+--------------------------------------------------------------------------------
+
+W0. [LOCALIZADO] Mike Winkler, "On a stopping time algorithm of the 3n+1
+    function", ResearchGate, 2011. (Citado en OEIS A100982 como el origen de
+    la linea.)
+
+W1. [LEIDO abstract] Mike Winkler, "On the structure and the behaviour of
+    Collatz 3n+1 sequences - Finite subsequences and the role of the Fibonacci
+    sequence", arXiv:1412.0519 [math.GM], 2014 (metadatos revisados 2021).
+    Subsecuencias finitas por clases de residuo mod potencias de 12; conjetura
+    que el numero de clases admisibles con parametros h,t lo da Fibonacci
+    (verificado 2 <= h,t <= 50). NO es el paper de A100982.
+
+W2. [LEIDO abstract] Mike Winkler, "New results on the stopping time behaviour
+    of the Collatz 3x+1 function", arXiv:1504.00212 [math.GM], v1 29-03-2015,
+    v4 06-10-2021, 18 pp. AQUI nace la formula de A100982 como CONJETURA:
+    para cada n existe la familia de clases mod 2^sigma_n (sigma_n =
+    floor(1 + n·log2 3), la sucesion A020914 de "allowable dropping times")
+    con tiempo de parada finito = sigma_n; z_n = numero de esas clases =
+    A100982(n); formula recursiva con binomiales y un parametro delta que
+    cambia a intervalos de 5-6 terminos (probada por computo hasta n = 53,
+    para n mayores el algoritmo "se modifica ligeramente" - comentario del
+    propio Winkler en OEIS, 03-01-2018). Algoritmos en PARI/GP.
+
+W3. [LEIDO, HTML v8] Mike Winkler, "Deterministic Structures in the Stopping
+    Time Dynamics of the 3x+1 Problem", arXiv:1709.03385 [math.GM], v1
+    06-09-2017 (titulo original: "The algorithmic structure of the finite
+    stopping time behavior of the 3x+1 function"), *** v8 del 28-07-2026 ***
+    (tambien como preprint ResearchGate 2026; OEIS remite a sus pp. 2, 4,
+    12-13). ES EL PAPER MADURO. Contenido por teoremas:
+      - Teorema 7: x impar > 1 tiene sigma*(x) = sigma_n (tiempo de parada
+        DE COEFICIENTE) y nivel n si y solo si x mod 2^sigma_n cae en la
+        familia C_n, caracterizada por VECTORES DE POSICIONES IMPARES
+        admisibles.
+      - Proposicion 8 (la recursion tipo Pascal): el conteo R(k,n) de
+        vectores admisibles con posicion final k cumple
+            R(k,n) = R(k-1,n) + R(k-1,n-1),
+        |C_n| = Suma_{k=n..kappa(n)} R(k,n) = A100982(n), y las sumas por
+        filas dan A076227 (los residuos supervivientes).
+      - Teorema 11: formula afin del iterado, T^(sigma_n)(x) =
+        (3^(n+1)·x + S(alfa)) / 2^sigma_n con S(alfa) dependiente solo de
+        las posiciones.
+      - Corolarios 19-21: reglas aritmeticas de transicion entre vectores
+        (congruencias con inversos de 3^(n+1) mod 2^sigma_n).
+      - Proposiciones 26-27: densidad exacta cubierta delta_N = 3/4 +
+        Suma_{n=1..N} |C_n|/2^sigma_n, cobertura periodica mod 2^sigma_n, y
+        la equivalencia "K(N) -> infinito sii todo x >= 2 tiene sigma*
+        finito".
+      - DISCLAIMER EXPLICITO del abstract v8: los resultados son sobre
+        estructuras FINITAS del tiempo de coeficiente; NO prueban que todo
+        x tenga sigma* finito NI que sigma* = sigma (la conjetura CST).
+      - ASINTOTICA: el paper NO contiene ninguna tasa de crecimiento, ni
+        razon de terminos consecutivos, ni ley de potencias. Confirmado
+        sobre el HTML v8.
+
+W4. [LOCALIZADO] OEIS A177789 (Winkler): otro teorema/algoritmo generador de
+    A100982 (citado en el comentario de A100982 del 12-09-2017).
+
+CORRECCION DE ATRIBUCION (importa para citar): el "Theorem 1" con la formula
+iterativa NO es de Winkler 2017 sino de VLADIMIR M. ZARUBIN, 25-09-2015, en
+OEIS A100982. Lo de Winkler (12-09-2017) es el "Theorem 2" (la generacion
+tipo triangulo de Pascal). La recursion del deficit en A076227 y el criterio
+de Brown son de Zarubin, agosto-septiembre de 2019.
+
+--------------------------------------------------------------------------------
+2. LOS ENUNCIADOS EXACTOS (OEIS crudo, ficheros %C/%F descargados hoy)
+--------------------------------------------------------------------------------
+
+A100982 = numero de sucesiones admisibles de orden n (definicion %F): s(k) en
+{3/2, 1/2}, con 3/2 exactamente j veces, producto total < 1 pero todo producto
+parcial propio > 1. Longitud comun de las de orden j: A020914(j) =
+floor(1 + j·log2 3). Terminos: 1, 1, 2, 3, 7, 12, 30, 85, 173, 476, 961,
+2652, 8045, ... (b-file actual: 2218 terminos, de Hikawa y Nakanishi).
+
+TEOREMA 1 (Zarubin, 25-09-2015, en A100982) - la formula cerrada iterativa:
+    a(1) = 1,
+    a(k+1) = Suma_{m=1..k} (-1)^(m-1)
+             · binomial( floor((k-m+1)·log2 3) + m - 1, m ) · a(k-m+1).
+
+TEOREMA 2 (Winkler, 12-09-2017, en A100982 y A076227) - el triangulo:
+    a(n) se genera desde los valores iniciales 0 y 1 con la regla de Pascal
+    (k+1,n) = (k,n) + (k,n-1); la ultima entrada de la columna n la da
+    k+1 = A056576(n-1) (= floor(n·log2 3) por arriba), y la entrada mas alta
+    de la columna se repite dos veces exactamente cuando A022921(n-2) = 2
+    (el gap de A020914). Entonces:
+      a(n)        = suma de la COLUMNA n del triangulo,
+      A076227(k)  = suma de la FILA k del mismo triangulo.
+    (Es el mismo objeto R(k,n) de la Proposicion 8 del paper W3.)
+
+ZARUBIN 2019 (en A076227, con el criterio de Brown para la completitud):
+    a(0) = a(1) = 1, y para k > 0:
+      a(A020914(k)) = 2·a(A020914(k) - 1) - A100982(k)     [nivel con gap 2]
+      a(A054414(k)) = 2·a(A054414(k) - 1)                  [resto: dobla]
+    Equivalencia (Zarubin, 29-09-2019, en A100982):
+      A100982(k) = 2·A076227(A020914(k)-1) - A076227(A020914(k)).
+    ES DECIR: el deficit del doblado de los supervivientes esta CONCENTRADO
+    en los indices A020914 y vale exactamente A100982(k). (Esto es lo que el
+    encargo pedia confirmar: confirmado, con firmas y fechas.)
+
+OTRAS FORMULAS EN OEIS:
+  - Lombardo, 08-09-2019 (A076227): a(n) = 2^n - 2^n·Suma_{k=0..A156301(n)-1}
+    A186009(k+1)/2^A020914(k).
+  - Lombardo, 18-10-2019 (A100982): a(n) = Suma A325904(k)·binomial(...).
+  - Hikawa, 21-07-2026 (A076227): a(n) = numero de palabras binarias
+    v(1)...v(n) con 2^m < 3^(v(1)+...+v(m)) para todo m = 1..n. (La lectura
+    de camino de reticula / balota, limpia.)
+
+ROOSENDAAL: conto TODAS las sucesiones admisibles hasta orden j = 1000 (2005;
+consta en el %C de A100982). Su web (ericr.nl/wondrous) tiene las paginas de
+Terras y de records de glide, no una tabla publica de admisibles. AVISO DE
+ERRATA (en OEIS): tanto Wagon 1985 como Chamberland (survey catalan 2003)
+tienen un typo en la definicion de la constante de Wagon 9,477955...:
+floor(1 + 2i + i·log2 3) debe ser floor(1 + i + i·log2 3).
+
+NOVEDAD 2026 (relevante, no estaba en el encargo): Kazunobu Hikawa y Kazuo
+Nakanishi publicaron preprints (ResearchGate ene-2026 y jul-2026, doi
+10.13140/RG.2.2.12065.06240 y 10.13140/RG.2.2.29894.84804/1; Jxiv feb-2026
+doi 10.51094/jxiv.3096 de Nakanishi solo) sobre estructuras combinatorias y
+aritmeticas de vectores de paridad del mapa acelerado, con programacion
+dinamica exacta "rolling-layer": extendieron el b-file de A100982 a 2218
+terminos y el de A076227 a 3508. [LOCALIZADOS; no leidos.]
+
+--------------------------------------------------------------------------------
+3. LA ASINTOTICA DE A100982: QUE HAY PUBLICADO (nada fino) Y QUE DA EL DATO
+--------------------------------------------------------------------------------
+
+PUBLICADO: NADA sobre el limite de la razon a(k+1)/a(k). El paper v8 de
+Winkler no trae asintotica (verificado sobre el HTML); OEIS no trae ninguna
+formula asintotica en A100982 ni en A076227; ni Chamberland ni Lagarias
+(overview) dan la razon. Lo unico estructural publicado: la convergencia de
+la suma de Wagon (media del tiempo de parada de los impares, 9,477955...) y
+la de la densidad (Terras), que FUERZAN a(k)/2^(A020914(k)-1) sumable.
+
+CALCULO PROPIO (hoy, sobre el b-file oficial de 2218 terminos):
+  - La razon consecutiva NO converge termino a termino: oscila entre ~2,35
+    y ~3,16 segun el gap A022921 (gap 1: razon baja; gap 2: razon alta).
+  - La MEDIA GEOMETRICA si converge, y rapido:
+        k = 11..21     : 2,5982
+        k = 101..111   : 2,8304
+        k = 501..511   : 2,8510
+        k = 1001..1011 : 2,8583
+        k = 2001..2011 : 2,8612   (ventanas cortas: ruido del gap)
+        k = 1109..2217 : 2,836813 (ventana larga)
+        con correccion polinomial tipo k^(-3/2): 2,839474.
+  - HEURISTICA DE GRAN DESVIACION (propia, no publicada): las admisibles de
+    orden k son caminos de balota de longitud sigma_k ~ k·log2 3 con
+    exactamente k pasos "3/2"; el conteo de Stirling da limite
+        lambda = 3^H(log3 2) = 2,8395135...
+    donde H es la entropia binaria y log3 2 = 0,630930 (H = 0,949956).
+    El empirico con correccion k^(-3/2) clava este valor a 4-5 decimales:
+    2,839474 contra 2,839514. Conclusion practica: a(k) ~ C·lambda^k·k^(-3/2)
+    con lambda = 3^H(log3 2) ~ 2,8395 < 3. ES HEURISTICA + NUMERO; la COTA
+    SUPERIOR si es rigurosa y elemental: a(k) <= binomial(sigma_k, k) <=
+    2^(sigma_k·H(k/sigma_k)) = poly · lambda^k, y de ahi sale gratis la
+    convergencia de la suma de Wagon: d_k = a(k)/2^(sigma_k - 1) <= ~0,9465^k.
+  - DENSIDADES (aritmetica exacta, Fraction): Suma_{k=1..800} d_k =
+    1 - 3,54e-23. La cola decae por factor 0,944130 por unidad de k
+    (medido entre k = 400 y k = 800). Es la version cuantitativa de "casi
+    todo impar tiene tiempo de parada (de coeficiente) finito": la masa
+    superviviente muere exponencialmente, tasa ~ lambda/3.
+  - Traduccion a A076227: la fraccion de supervivientes mod 2^n decae
+    ~ 0,9651 por nivel binario n (= (lambda/3)^(1/log2 3)); a n = 39 es
+    0,657% y bajando.
+
+--------------------------------------------------------------------------------
+4. LA CONEXION CON LA COALESCENCIA DE PARES CONSECUTIVOS: NO EXISTE PUBLICADA
+--------------------------------------------------------------------------------
+
+Lo que hay, en orden:
+  - C. L. Garner, "On heights in the Collatz 3n+1 problem", Discrete Math.
+    55 (1985) 57-64. [LOCALIZADO] La familia conjetural de condiciones para
+    cuando n y n+1 tienen la misma altura.
+  - G.-G. Gao, "On consecutive numbers of the same height in the Collatz
+    problem", Discrete Math. 112 (1993) 261-267. [LOCALIZADO]
+  - M. Elia y A. Tucker, "Consecutive integers and the Collatz conjecture",
+    INTEGERS 15 (2015), #A54 (arXiv:1511.09141). [LOCALIZADO, abstract
+    leido] Familia INFINITA de contraejemplos a la conjetura de Garner.
+  - R. Burson, "On the distribution of the first point of coalescence for
+    some Collatz trajectories", arXiv:2005.09456 (2020): *** RETIRADO
+    (withdrawn) *** y ademas era numerico sin teoremas (coalescencia de n y
+    3n+2, valor esperado ~4n/5 que se degrada al subir el limite). No
+    citable como resultado.
+  - Frinkle et al. 2025 (ver seccion 5): usa la coalescencia como TECNICA
+    computacional (lookup tables), no cuenta clases.
+
+VEREDICTO DE BUSQUEDA: no se encontro NINGUN trabajo que conecte las
+recursiones Winkler/Zarubin (deficit del doblado concentrado en niveles) con
+el conteo de clases mod 2^k de pares consecutivos que coalescen. Nadie conto
+las clases fundidas mod 2^k mas alla del alcance de Elia-Tucker. El conteo
+a(k)/b(k) del repo parece INEDITO. (Busquedas: "coalescence mod 2^k",
+citantes de Elia-Tucker, Garner, Gao, Frinkle; agosto 2026.)
+
+--------------------------------------------------------------------------------
+5. FRINKLE 2025-2026
+--------------------------------------------------------------------------------
+
+  - K. Frinkle, S. Rowland, J. Pack, M. Gordon, J. Eskue, S. Egbe, M. Morris,
+    "Computing streaks of consecutive numbers with the same Collatz height",
+    The Journal of Supercomputing 81, art. 1338 (2025), doi
+    10.1007/s11227-025-07820-8. [LOCALIZADO, abstract y resenas leidos]
+    HPC + lookup tables + coalescencia para calcular RACHAS de consecutivos
+    con la misma altura; extiende A277109 hasta el elemento 3950 (9336 de
+    los primeros 10000 establecidos); racha record: 2^3951 + 1 con longitud
+    2^47 - 1 ~ 10^14,15.
+  - RESPUESTA A LA PREGUNTA DEL ENCARGO: publican RECORDS DE RACHAS, no
+    densidades de fusion. Ninguna medicion de densidad en el paper.
+  - Secuela 2026: NO localizada. Su pagina en se.edu solo lista el paper de
+    2025; la actividad visible de 2026 es de mantenimiento en OEIS (A277109).
+    La universidad (nota de prensa dic-2025) no anuncia segunda parte.
+
+--------------------------------------------------------------------------------
+6. EL PUENTE A b(k) - EVALUACION HONESTA
+--------------------------------------------------------------------------------
+
+LA CORRESPONDENCIA ESTRUCTURAL (fuerte). El sistema Winkler/Zarubin es:
+supervivientes s(n) mod 2^n que DOBLAN en cada nivel salvo en los indices
+A020914 (los niveles donde floor(n·log2 3) salta 2), donde pierden
+exactamente A100982(k) - los absorbidos en ese nivel. Nuestro sistema es el
+complementario exacto en espiritu: no-fundidos que doblan salvo lo que se
+funde; por definicion b(k) = a(k+1) - 2a(k) es "los absorbidos del nivel",
+o sea b(k) juega el papel de A100982 y los pares aun-no-fundidos el de
+A076227. Y el eco es literal: alli el deficit entra SOLO en los niveles de
+gap 2 de A020914; aqui los estratos |M| entran cada dos niveles. Misma
+geometria de fondo: log2 3 contra el doblado binario.
+
+LO QUE SE TRANSFIERE CASI GRATIS:
+  (i)  La recursion tipo Zarubin es tautologica en ambos lados; el contenido
+       esta en DONDE se concentra el deficit. En su caso lo da la condicion
+       de balota (2^m < 3^(suma parcial)); en el nuestro habria que
+       demostrar que la fusion nueva solo puede entrar en niveles marcados
+       (la observacion de estratos ya apunta a "cada dos niveles").
+  (ii) El Teorema 2 (triangulo de Pascal con dos entradas) es la pieza
+       codiciada: alli funciona porque cada clase superviviente tiene un
+       VECTOR DE POSICIONES y los hijos del doblado se ordenan por la
+       posicion final, con regla (k+1,n) = (k,n) + (k,n-1). Para el par, el
+       estado (k, c) de Leonas + el descenso exacto de v2(Delta) en 1 por
+       paso (Tortolas) ES un candidato natural a "posicion": si el conteo
+       de clases no-fundidas estratificado por v2(Delta) (o por |M|)
+       satisface una recursion de Pascal con dos entradas, todo el aparato
+       (formula tipo Teorema 1 con binomiales incluida) se copia. ESTO ES
+       COMPROBABLE EN NUMEROS CON DATOS QUE EL REPO YA TIENE (el barrido de
+       clasesfusion): armar la tabla R_par(nivel, estrato) y mirar si
+       R = izquierda + arriba-izquierda. Es el experimento que yo haria
+       primero.
+LO QUE NO SE TRANSFIERE (la advertencia):
+  (iii) El mecanismo de absorcion es distinto. Alli morir = cruzar una
+       recta (primer pasaje de UNA suma; por eso el limite de la razon es
+       una entropia, 3^H = 2,8395 < 3, y la masa muere exponencialmente).
+       Aqui morir = encuentro en vortice (condicion aritmetica del segundo
+       padre), y Tortolas dice que v2(Delta) baja EXACTO 1 por paso: la
+       supervivencia no es un paseo con azar en la frontera sino un reloj
+       determinista modulado por el timing critico. No hay garantia de que
+       la cola sea exponencial; y ahi vive precisamente NUESTRA pregunta.
+  (iv) La leccion asintotica util: en su sistema, razon(A100982) ->
+       (tamano del nivel)·(factor de gran desviacion) = 3·0,9465 = 2,8395.
+       En el nuestro el tamano del nivel es 2, asi que b(k+1)/b(k) -> 2
+       equivale a factor de gran desviacion -> 1, es decir cola de
+       supervivencia SUBexponencial (polinomial o mas lenta). Si la cola
+       fuera exponencial con tasa rho < 1, la razon quedaria clavada en
+       2·rho < 2 y la densidad de fusion seria < 1. Dicho en corto: medir
+       la tasa de decaimiento de la fraccion no fundida ES medir el limite
+       de b(k+1)/b(k); son la misma constante, y el aparato W/Z da el
+       molde exacto para separarla en (doblado trivial) x (deficit
+       concentrado). Esa reduccion si es adaptable, y nadie la ha hecho.
+
+FUENTES PRINCIPALES: OEIS A100982 y A076227 (texto crudo, 24/29-07-2026);
+arXiv 1504.00212, 1709.03385 (v8), 1412.0519, 1511.09141, 2005.09456;
+Springer doi 10.1007/s11227-025-07820-8; se.edu/kfrinkle; ericr.nl/wondrous.
+================================================================================
