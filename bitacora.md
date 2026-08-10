@@ -5,6 +5,28 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (10) — LA SERIE DEL PISO EN SU FORMA RENOVACIÓN-CORRECTA, Y «LA ENTRADA NUNCA ES EL PRE-VÓRTICE»
+
+Las dos últimas mediciones de la jornada, sobre la excursión real
+desde el rebote `(2,2)` con absorción exacta al entrar al fondo:
+
+1. **`P(|c| ≤ 25 | primera entrada al fondo en t)`** — la serie del
+   piso por visita en el objeto condicional CORRECTO (el de la
+   renovación; `pisoporvisita.py` medía la ocupación a t fijo, no la
+   entrada): **0,94 (t=11) → 0,54 (t=33), con tasa DECRECIENTE**
+   (−0,016 → −0,010 por paso). La ventana chica `|c| ≤ 8` da
+   0,43 → 0,15. La serie corta no distingue `→ p₀ > 0` de `→ 0`
+   lento (la lección, siempre); es LA serie a extender y el insumo
+   directo de la transferencia de Arañas.
+2. **La primera entrada NUNCA aterriza en `(1,1)`**: 0 exacto en
+   los 33 niveles. Estructura: el único acceso externo al
+   pre-vórtice es `(2,5) →bit1→ (1,1)`, y `(2,5)` no aparece en un
+   BFS de 44 M de estados desde `(2,2)` sin tocar fondo (acotado a
+   `|c| ≤ 10⁷, k ≤ 40` — hecho finito, NO teorema; sin obstrucción
+   simple mod 9: el residuo 5 sí vive en k=2). Consistente con
+   PALOMAS: el pre-vórtice se puebla desde ADENTRO de la
+   circulación del fondo — la absorción exige recircular.
+
 # ⇢ 10-08-2026 (9) — LA LÍNEA FOSTER: TRES INTENTOS, TRES DIAGNÓSTICOS, Y LA OBSERVACIÓN QUE REORDENA EL PROBLEMA
 
 Se atacó la recurrencia de la ventana con **Foster de m pasos**
