@@ -26,6 +26,16 @@ piso entre tiempos vecinos — queda como lema de suavizado):
    las historias que vuelven. Pendiente bibliográfico nuevo:
    Erickson, Trans. AMS 1970.
 
+**⇢ Y LA PIEZA (ii) YA TIENE SU MEDICIÓN DIRECTA** (misma tarde):
+la cola del ciclo de regeneración REAL — masa sin volver a
+`C = {(0,g): g ≤ 25} ∪ {(1,c): |c| ≤ 25}` partiendo del rebote
+`(2,2)`, absorción exacta al entrar — da **`S(t)·√t = 1,03 → 1,16`
+en t = 6…33** (tope de estados en t=34), deriva suave hacia arriba:
+la firma `t^{−1/2}` del ciclo crítico con corrección lentamente
+variable. OJO del oficio: en α = 1/2 exacto el SRT clásico puede
+exigir condiciones extra (Caravenna–Doney) — la ficha de Erickson
+está encargada y dirá qué hay que verificar sobre esta cola.
+
 # ⇢ 10-08-2026 (7) — LA CORRECCIÓN 50 (cazada por Opus 5, vía el usuario) Y EL TEOREMA B: LA SUMA ENTERA, BAJO EL UMBRAL
 
 **La crítica, y es correcta**: el umbral efectivo 0,2446 del
