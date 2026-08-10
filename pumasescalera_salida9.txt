@@ -1,0 +1,21 @@
+﻿la escalera de PUMAS, re-computada entera + los escalones 7 y 8:
+  K     C       estados    lambda_T      gap 2-lambda_T
+   2      12          20    1.739963      0.260037    (0 s)
+   3      48         121    1.866657      0.133343    (0 s)
+   5     192         734    1.933590      0.066410    (0 s)
+   7     768        3717    1.955595      0.044405    (0 s)
+   9    3072       16361    1.967467      0.032533    (2 s)
+  11   12288       72835    1.975447      0.024553    (11 s)
+  13   49152      313672    1.980748      0.019252    (83 s)
+  15  196608     1312342    1.984415      0.015585    (254 s)
+  17  786432     5338332    1.987046      0.012954    (842 s)
+
+razones de gaps consecutivos: ['0.513', '0.498', '0.669', '0.733', '0.755', '0.784', '0.809', '0.831']
+
+VEREDICTO: los seis escalones publicados REPRODUCIDOS (monotonia y
+valores), y los escalones nuevos:
+  LAMBDA >= 1.987046    (K = 17, |c| <= 786432, 5338332 estados)
+El gap sigue achicandose con razon SUBIENDO hacia 1 (0.78, 0.81)
+sin senal de piso: consistente con lambda = 2 (el paseo critico),
+que es lo que LOBAS dice que ningun truncado puede refutar. La cota
+DEMOSTRADA de PUMAS queda en lambda >= 1.9870.

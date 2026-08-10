@@ -46,11 +46,16 @@ ESCALERA = [
     (11, 12288, 1.97545),
     (13, 49152, 1.980748),
     (15, 196608, 1.984415),
+    (17, 786432, None),
 ]
 PASOS = 420
 TOLERANCIA = 5e-4          # contra lo publicado (que se dio con 4-5 cifras)
 ESCALON_8 = True           # el (15, 196608) son 1,3M de estados y ~10 min
                            # de CPU; False para la pasada rapida (~2 min)
+ESCALON_9 = True           # el (17, 786432) son ~5M de estados y ~40-60 min
+                           # de CPU (11-08-2026, primera corrida: modo
+                           # descubrimiento, publicada = None); False para
+                           # quedarse en la escalera verificada
 
 
 def transicion(k, c, bit):
@@ -136,6 +141,9 @@ for (K, C, publicada) in ESCALERA:
     if (K, C) == (15, 196608) and not ESCALON_8:
         print("  [escalon 8 saltado: ESCALON_8 = False; su valor verificado")
         print("   el 09-08-2026 es lambda_T = 1.984415, gap 0.015585]")
+        continue
+    if (K, C) == (17, 786432) and not ESCALON_9:
+        print("  [escalon 9 saltado: ESCALON_9 = False]")
         continue
     t0 = time.time()
     n, lo, hi = escalon(K, C)

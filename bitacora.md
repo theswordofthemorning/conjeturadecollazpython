@@ -88,6 +88,23 @@ peso:
    ellos. Y de regalo: las TRES transcripciones que el LEEME daba por
    perdidas existen en esta máquina y quedaron zipeadas en git.
 
+**⇢ LA PRÓRROGA DE LA JORNADA (tras la síntesis, orden de seguir):**
+(a) **el primer experimento de Pascal** (`triangulodefusion.py`): la
+tabla `F(t,S)` con `Σ_S = b(t−1)` clavada t=4..22 — NEGATIVO con `S`
+como posición (sin recursión de dos términos; el porqué estructural:
+la supervivencia del gemelo es un evento 1-d en `(m, S_m)`, el
+vórtice nuestro es afín en la palabra entera), con dos regalos: la
+ley de borde exacta `F(t, t−2) = ⌊t/2⌋−1` y la diagonal sesgada
+`S/t → 0,549 ≠ 0,613` — los que funden llevan MENOS impares que la
+moneda. Y la reconvergencia conceptual: la ruta combinatoria del
+gemelo ES el programa λ (Zorras/Lobas/Pumas) — las dos vistas
+satelitales confirman las dos puertas del repo, no abren terceras.
+(b) **el escalón 9 de PUMAS** (`pumasescalera.py`, bandera
+`ESCALON_9`): `K=17, |c| ≤ 786432`, 5.338.332 estados, los ocho
+anteriores reproducidos ⟹ **`λ ≥ 1,987046`** (antes 1,9844); la
+razón de gaps sube 0,809 → 0,831 hacia 1 sin piso — un punto más
+consistente con λ = 2.
+
 **PENDIENTES QUE DEJA LA JORNADA**: la adversarial externa de TODA la
 tanda de hoy (regla del ritmo — nada de hoy la tiene);
 los bautizos user-gated que siguen en cola (GARZAS confirmado,
