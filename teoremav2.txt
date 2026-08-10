@@ -99,6 +99,83 @@ las piezas 2 y 3 son condicionales al mismo camino: interseccion
 K = M + 1. QED (modulo L3 y la escritura fina de 1 y 2).
 
 =====================================================================
+LAS PIEZAS 1 Y 2, ESCRITAS CON TODAS LAS LETRAS (11-08, noche)
+=====================================================================
+
+NOTACION. Bits (b_t) justos e iid; reloj (m_t) iid justo
+{mixto, compartido} INDEPENDIENTE de los bits (V2a). El paseo k
+arranca en 2, se mueve solo en pasos mixtos (baja si b = 1, sube si
+b = 0), tau = primer t con k = 1. Multiplicador A_t = 1/2 (b = 0) o
+3/2 (b = 1); l_t = log A_t; S(t) = l_1 + ... + l_t. L_c(t) = numero
+de compartidos en [1, t]. Constantes: mu = -(1/2) log(4/3) =
+-0,14384 (media de l en un paso libre), sigma^2 = (log 3)^2 / 4 =
+0,30177 (varianza), T = T(x) = 30 log x.
+
+LEMA 1 (el paseo dura). Existe c1 > 0 universal y T0 con: para todo
+T >= T0,
+    P( tau >= T )  >=  c1 / sqrt(T).
+Demostracion. El paseo embebido (solo pasos mixtos) es +-1 justo
+desde altura 1 sobre la barrera; P(sobrevive m movimientos) >=
+c/sqrt(m) es la balota clasica. En T pasos hay a lo sumo T
+movimientos, luego {embebido sobrevive T movimientos} implica
+{tau >= T} (la pereza solo alarga). QED. (Notese que NO hace falta
+la cota superior de tau en las piezas 1-2.)
+
+LEMA 2 (los compartidos abundan, sin tocar el condicionamiento).
+    P( L_c(T) < 0,4 T )  <=  e^(-T/50)      (Chernoff, Binomial(T,1/2)).
+Por tanto
+    P( tau >= T, L_c(T) >= 0,4 T )  >=  c1/sqrt(T) - e^(-T/50)
+                                    >=  (c1/2)/sqrt(T)   para T grande.
+(El truco: NO se condiciona el reloj al paseo -- se restan eventos.
+La correlacion reloj-supervivencia, que ademas va a favor, no hace
+falta ni mencionarla.)
+
+LEMA 3 (pieza 2: la contraccion condicionada). Sea G la sigma-algebra
+del reloj y de los bits mixtos (el "camino"). En el evento
+{tau >= T, L_c(T) >= 0,4 T} vale, para todo x >= x0 (universal):
+    P( S(tau) <= -log x  |  G )  >=  3/4.
+Demostracion. Dado G, S(tau) = F + S_libre con:
+  (a) F = suma sobre mixtos = -s log 2 + (s+1) log(3/2) =
+      log(3/2) - s log(4/3) <= log(3/2)  (el balance: d = s + 1
+      bajadas por construccion de la absorcion desde 2 hasta 1).
+  (b) S_libre = suma de L_c >= 0,4 T = 12 log x variables iid con
+      media mu y varianza sigma^2 (los bits compartidos son libres
+      dado G: el reloj es independiente y los bits mixtos no
+      constrinen a los compartidos).
+  E[F + S_libre | G] <= log(3/2) - 0,14384 * 12 log x =
+      log(3/2) - 1,726 log x.
+  El objetivo -log x queda a distancia >= 0,726 log x - log(3/2) de
+  la media, y la desviacion tipica es sigma sqrt(L_c) <= 0,549
+  sqrt(L_c); Chebyshev con dos desviaciones exige
+      0,726 log x - 0,405 >= 2 * 0,549 * sqrt(L_c).
+  OJO FINO: L_c puede ser grande (tau largo ayuda a la media pero
+  engorda la varianza si tau >> T). Se parte en dos: si L_c <= C3
+  (log x)^2 con C3 = 0,109/(1,0986)^2... la forma limpia: la media
+  crece LINEAL en L_c (0,14384 L_c) y la desviacion como sqrt --
+  para L_c >= 12 log x, media - 2sd <= -0,14384 L_c +
+  1,0986 sqrt(L_c) <= -log x - 1 en cuanto L_c >= 12 log x y
+  log x >= 60 (resolver la cuadratica en sqrt(L_c): el minimo del
+  margen se da en el extremo inferior L_c = 12 log x, donde
+  0,726 log x - 0,405 - 1,0986 sqrt(12 log x) >= 0, cuya raiz
+  exacta es sqrt(log x) = 5,347, o sea log x >= 28,6: BASTA
+  log x >= 29, x0 = e^29 ~ 4e12, y Chebyshev con dos desviaciones
+  da el 3/4).  QED.
+  [CORRECCION EN VIVO, capa 1 al releer para el usuario: el primer
+  volcado decia "basta log x >= 28" con la raiz estimada en 5,25 --
+  la raiz verdadera es 5,347 y en log x = 28 la desigualdad falla
+  por 0,2. El enunciado asintotico no cambia; la constante si.]
+  [Los x < x0 no son un hueco del programa: phi_V2(x) > 0 se
+  comprueba finito ahi (y el MC lo da ~1); el teorema es asintotico.]
+
+COMPOSICION PARCIAL (1 + 2): para x >= x0,
+    P( tau >= T  y  prod_tau * x <= 1 )  >=  (3/4)(c1/2)/sqrt(30 log x)
+                                          =  c / sqrt(log x).
+LO QUE FALTA ES EXACTAMENTE LA PIEZA 3: en ese evento, |u_tau| <=
+1 + |W_tau|, y hace falta P(|W_tau| <= M | ...) >= 1/2 con M
+universal. Las piezas 1-2 quedan DEMOSTRADAS (a falta de revision
+externa); la 3 sigue con su molde AGKV y su plan B de apareamiento.
+
+=====================================================================
 EL ORDEN DE TRABAJO QUE ESTE PLAN DICTA
 =====================================================================
 
