@@ -50,6 +50,17 @@ predicción del lema para `c₀ = 2000` con horizonte infinito es
 ~0,09 y lo medido a T=30 es 0,063, compatible. El test limpio pide
 el barrido podado a T ≥ 60: instrumento anotado para la próxima.)*
 
+**⇢ Y EL TEST LIMPIO, CORRIDO EL MISMO CIERRE — EL LEMA PASA**:
+barrido podado desde `(2, 2000)` con cotas exactas
+(ventana acumulada = cota INFERIOR estricta; + pérdida = superior):
+`φ(2000)` = 0,063 (T=30) → 0,081 → 0,092 → 0,0995 → **≥ 0,1044 a
+T=70** (superior 0,130), todavía subiendo — contra la predicción
+~0,09 del análisis de tres factores. **El piso por arranque es un
+orden de magnitud mayor que la foto a T=30**, el diagnóstico del
+horizonte era correcto, y el lema 1 de la reducción tiene su primer
+test cuantitativo APROBADO. La jornada cierra con la reducción
+final validada por las dos puntas.
+
 # ⇢ 10-08-2026 (12) — LA SÍNTESIS DEL DÍA: EL CÍRCULO SE CIERRA SOBRE EL PISO POR VISITA — MEDIDO EN 0,76 EN LAS COORDENADAS CORRECTAS
 
 La matriz conjunta `(altura, banda de t)` dictó lo que faltaba: **a
