@@ -314,6 +314,48 @@ print("sublineal, asi que q1 global sube hacia 1/2 -- nota de la 5a")
 print("revision; la contabilidad vale a todo t finito.)")
 
 # ---------------------------------------------------------------------------
+# COMPROBACION 6 (post-acta, los tres q1 separados): LA q1 INSTANTANEA
+# TIENE TECHO EXACTO 1/2. La rama expansiva de CEBRAS exige bit 1 en
+# TODOS los casos (nucleo: bit 1; frontera par: bit 1; frontera impar:
+# nunca), y el bit es moneda justa: P(proximo paso expansivo | estado)
+# vale 1/2 (nucleo o frontera par) o 0 (frontera impar). Condicionada
+# al fondo:
+#     q1_inst(fondo) = (1 - masa(k = 0, c impar | fondo)) / 2  <=  1/2
+# -- SIEMPRE bajo el umbral log2/log3 = 0,63. El sesgo del que habla el
+# corolario vive entero en la q1 HISTORICA (la acumulada por las
+# trayectorias condicionadas), no en la instantanea: la brecha entre
+# las dos ES el h-transform, y URRACAS la tiene ledgerizada. Aqui se
+# verifica la identidad del techo como igualdad exacta de enteros.
+# ---------------------------------------------------------------------------
+
+estados_q = {(0, 1): 1}
+for t in range(1, 21):
+    nuevo = {}
+    for (k, c), n in estados_q.items():
+        for bit in (0, 1):
+            sig = tipo_de_paso(k, c, bit)[4]
+            nuevo[sig] = nuevo.get(sig, 0) + n
+    estados_q = nuevo
+    fondo_q = exp_sig = imp_front = 0
+    for (k, c), n in estados_q.items():
+        if k <= 1:
+            fondo_q += n
+            imp_front += n if (k == 0 and c % 2 == 1) else 0
+            # numerador de la instantanea: palabras (estado, bit) expansivas
+            exp_sig += sum(1 for bit in (0, 1) if expansiva(k, c, bit)) * n
+    # la identidad del techo, entera: 2*exp_sig = 2*(fondo_q - imp_front)
+    # (cada estado no-frontera-impar aporta exactamente UNO de sus dos bits)
+    if exp_sig != fondo_q - imp_front:
+        raise SystemExit("C6: la identidad de la q1 instantanea falla en t=%d" % t)
+
+print()
+print("COMPROBACION 6 OK: q1 instantanea del fondo = (1 - masa(k=0 impar |")
+print("fondo))/2 EXACTO en t = 1..20 -- techo 1/2, siempre bajo el umbral")
+print("0,6309. En t = 20: %.4f (la '0,42 bajando' del acta). El sesgo vive"
+      % (0.5 * (1 - imp_front / fondo_q)))
+print("entero en la q1 HISTORICA; la brecha entre ambas es el h-transform.")
+
+# ---------------------------------------------------------------------------
 # LA MEDICION: los tres terminos del corolario, condicionados al fondo.
 #   q1(fondo) - 1/2 = (a_V + a_D - a_K)/2 con a_V = 2V/t, a_D = (Ee-E0)/t,
 #   a_K = k_t/t promediados sobre la masa del fondo. El umbral del

@@ -36,6 +36,14 @@ del testigo verificado en todas. Conteos: **64 `.py` · 17 `.lean` ·
 3 `.db`**. El pendiente que queda de esta línea es el de siempre: la
 estacionaria condicionada.
 
+**Y la C6 de `urracas.py`** (el cabo de «los tres q1» del acta,
+cerrado): la q1 INSTANTÁNEA tiene techo exacto 1/2 — la rama expansiva
+exige bit 1 siempre, así que `q1_inst(fondo) = (1 − masa(k=0 impar |
+fondo))/2`, identidad de enteros verificada en `t = 1…20`; a `t = 20`
+da 0,4212 — **el «0,42 bajando» del revisor 2, ahora con fórmula**. El
+sesgo del corolario vive entero en la q1 histórica: la brecha entre
+las dos ES el h-transform, ya ledgerizado por URRACAS.
+
 # ⇢ 09-08-2026 (11) — LA LOCALIZACIÓN: EL INGREDIENTE COMBINATORIO DE `e₈` ENTRA TODO POR EL CANAL PAR, Y `e^h₈` TIENE FORMA CERRADA
 
 La continuación inmediata del (10), por los canales de NUTRIAS
