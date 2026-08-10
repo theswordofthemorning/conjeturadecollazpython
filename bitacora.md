@@ -47,6 +47,27 @@ transferencia IFS→cadena de Arañas (pendiente declarada) debería
 dar. La línea Foster queda ABIERTA con sus candidatos; el interior
 crítico-nulo y el ratchet están mapeados para no repetirlos.
 
+**⇢ EL CUARTO INTENTO (clamp suave) Y LA OBSTRUCCIÓN ESTRUCTURAL,
+nombrada**: el clamp suave también filtra (+0,52 en `k=5,
+u ∈ [−2,−1]` — la zona del atractor, otra vez) y el patrón de los
+cuatro fallos es UNO: hay una tensión de fondo entre las tres
+exigencias del Foster de una función — (1) conjuntos de nivel
+finitos exigen que `V` crezca en `|c|` a TODO `k`; (2) el interior
+crítico tiene `E[Δk] = 0` EXACTO: no hay presupuesto con qué pagar;
+(3) cerca del atractor la dinámica de `u` bombea cualquier
+funcional monótono de `|u|` (el punto fijo expansivo, la
+reinyección y el ratchet son tres caras de lo mismo), y un `f(u)`
+exactamente armónico no existe salvo constantes (ergodicidad del
+IFS). **El Foster «V = k + f(u)» está estructuralmente obstruido
+para esta cadena crítica-nula** — como el paseo 2D, que exige
+funciones log-afinadas casi-armónicas. El análogo fino aquí ES la
+transferencia IFS→cadena de Arañas (la pendiente que el propio
+fichero declara): la vía que queda para la recurrencia de la
+ventana es esa transferencia (mezcla del `u` sobre el atractor en
+los tiempos de fondo — y la ventana CONTIENE el atractor con
+margen ×8), no una función de Lyapunov monótona. Cinco rejillas
+corridas, cero desperdicio: cada fallo dejó su pieza.
+
 # ⇢ 10-08-2026 (8) — T=30 EN LA TABLA CERTIFICADA, Y EL ESQUELETO DEL LEMA LOCAL CON NOMBRES: DOEBLIN + LAMPERTI + ERICKSON
 
 Cierre de la jornada: la tabla de GAVIOTAS-B extendida a **T=30**
