@@ -2257,7 +2257,11 @@ AFIRMACIONES = [
          "(0 fallos) y DEMOSTRADAS en Lean con coeficiente impar "
          "arbitrario p (mas general que 3^k): cadenakc.lean, nucleo "
          "puro, 0 sorryAx. El programa de fusion entero es un sistema "
-         "simbolico con una sola absorcion: (1,1) con bit 1."),
+         "simbolico con una sola absorcion: (1,1) con bit 1. "
+         "CUALIFICADA por la 6a revision (09-08-2026, "
+         "rondadeltronco.py): la unicidad de la absorcion vale a nivel "
+         "de CLASES, y la moneda es la paridad del ANCLA, no del menor "
+         "-- ver la fila de la ronda del tronco y su correccion."),
 
     fila("el barrido SIMBOLICO de la cadena reproduce a(k) EXACTO sin "
          "tocar un par (contra la sucesion publicada k = 3..12, contra "
@@ -2618,6 +2622,259 @@ AFIRMACIONES = [
          "timing) estan en maquinaria.txt con la literatura localizada "
          "(Lipmaa-Moriai 2001, ADP de ARX 2011; localizado no es "
          "leido)."),
+
+    # ------------ la sub-teoria de la madriguera y la ronda del tronco
+    #                                        (09-08-2026 noche, 10-08-2026)
+
+    fila("TEOREMA DE LIEBRES: phi = 1 <=> Sigma_t P(X_t en C) = "
+         "infinito para TODA ventana finita C que contenga (1,1), "
+         "sobre la cadena modificada -- basta mirar cualquier ventana "
+         "finita. Piezas: la serie de Green, la clase cerrada, el "
+         "acoplamiento P(no fundir) = E[2^-N], aperiodicidad (gcd de "
+         "retornos = 1) y minorizacion de Doeblin EXACTA sobre "
+         "conjunto finito: eps >= 17887/131072",
+         "todo_n", "demostrado", "liebres.py", "propio",
+         "09-08-2026. Procedencia: sesion Opus 5 frenada por el "
+         "usuario; adoptado tras revision adversarial propia (30.600 "
+         "transiciones contra pares reales; Doeblin recomputado por "
+         "camino independiente con Fraction, clavado). AGUANTO la 5a "
+         "revision externa (actarevision0908b.txt) con dos "
+         "correcciones: el enunciado 'C finito arbitrario' tenia "
+         "cuantificador escondido -- la accesibilidad para C "
+         "arbitrario es HORMIGAS cualitativo, cita anadida --; y el "
+         "titular 'alfa 0,40 contra umbral 1' de la ventana grande NO "
+         "informa (a PROF 30 C_625 contiene el 99,99% del fondo y esa "
+         "serie diverge bajo LAS DOS hipotesis, por Golondrinas): lo "
+         "informativo es r_5 y r_25 bajando sin estabilizar -- "
+         "INDECIDIDO."),
+
+    fila("LEMA DE CEBRAS (PARTIDO POR LA 5a REVISION -- la mitad que "
+         "aguanta): la clasificacion afin exacta de las transiciones "
+         "de la sombra u, y el umbral log2/log3 como EXPONENTE DE "
+         "LYAPUNOV de los multiplicadores (la hipotesis de Kesten de "
+         "Aranas). La otra mitad -- la lectura 'deriva de log|u| de "
+         "la cadena' -- esta ROTA Y RETIRADA (ver la correccion)",
+         "todo_n", "demostrado", "liebres.py", "propio",
+         "09-08-2026. La mitad que aguanta paso una verificacion "
+         "independiente de 100.398 transiciones exactas del revisor "
+         "externo (actarevision0908b.txt). El guardian del barrido "
+         "paso de r_625 (control muerto: cuantil 99,9% de |c| en el "
+         "fondo es 238) a r_25. Reenunciada tras el acta."),
+
+    fila("TEOREMA DE URRACAS - EL LIBRO MAYOR DEL SESGO: en la cadena "
+         "modificada, para TODA palabra, exp - contr = 2V + (Ee - E0) "
+         "+ k0 - k_t como IGUALDAD DE ENTEROS (V = rebotes en el "
+         "vortice; Ee - E0 = desbalance de bits en pasos con c par). "
+         "Demostracion por libro mayor: los NUEVE tipos de paso "
+         "conservan exp - contr - 2V - (Ee-E0) + k. COROLARIO: la "
+         "deriva del fondo es negativa <=> a_V + a_D - a_K < "
+         "2(log2/log3 - 1/2) = 0,26186 -- y sin condicionar "
+         "Sigma(Ee-E0) = 0 EXACTO en cada nivel (la moneda justa): el "
+         "sesgo del h-transform queda aislado en UNA esperanza "
+         "condicionada",
+         "todo_n", "demostrado", "urracas.py", "propio",
+         "09-08-2026. Formalizado en urracas.lean (el 15o, once "
+         "constructores con testigos sin division, invariancia + "
+         "induccion sobre caminos, 0 sorryAx); exhaustividad de los "
+         "nueve tipos contra la cadena en C0 (76.000 transiciones); "
+         "identidad clavada 2^15 palabras exhaustivo + estado a "
+         "estado en 30 niveles. AGUANTO ENTERA la 5a revision "
+         "(actarevision0908b.txt: identidad en 200.000 palabras "
+         "propias, Lean cotejado a maquina, circularidad rota con "
+         "59.990 pares enteros reales); correccion del acta: el <=> "
+         "del corolario es exacto solo en la sombra IFS (el rebote "
+         "2/3 viola la cota de Aranas; error medido ~+0,009 "
+         "nats/paso) => UMBRAL EFECTIVO ~0,2446, la direccion "
+         "sobrevive x13. Y OJO: la identidad es DEGENERADA en la "
+         "convencion del vortice (ver la correccion del 10-08)."),
+
+    fila("LA 6a REVISION (LA RONDA DEL TRONCO) - LEONAS CUALIFICADA: "
+         "'la unica absorcion es el vortice' vale A NIVEL DE CLASES "
+         "(donde a(k) sale exacto) y es falso a nivel de instancias: "
+         "el par (7,8) funde en el paso 10 sin pasar por el vortice. "
+         "Censo n <= 50.000: 22.027 fusiones de clase (TODAS en el "
+         "vortice) y 14.009 coalescencias de instancia fuera (28%), "
+         "TODAS el mismo evento {1,4} -> 2 del ciclo terminal. Y la "
+         "moneda es la paridad DEL ANCLA, no del menor: con el ancla, "
+         "0 fallos en 12.516.313 pasos contra pares reales. Las seis "
+         "formulas: intactas. La phi del programa es FUSION DE CLASE "
+         "(el puente a igual altura es Pandas)",
+         "verificado_hasta", "medido", "rondadeltronco.py", "propio",
+         "09-08-2026, acta en actarevision0908c.txt. Sexta revision, "
+         "sexta vez que rompe algo: el tronco aguanta COMO CALCULO y "
+         "lo que cayo son tres frases que decian mas que su calculo "
+         "(las dos de Leonas y dos adjetivos de Aranas: 'sumable' no "
+         "lo es en trayectoria -- Golondrinas da delta_t = 1/6 "
+         "infinitas veces c.s.; lo que vale es |delta| <= 1/6 y "
+         "esperanza por paso < 1/10 --, y 'diminuta' llega a la mitad "
+         "del piso de |u| en el fondo). Tigresas intacta. EL FILTRO "
+         "CLASE/INSTANCIA pasado a toda la terna y los criterios: el "
+         "cualificador solo faltaba en Leonas, el error no estaba "
+         "replicado."),
+
+    fila("MOSCAS, EXTENDIDA A LA CADENA MODIFICADA: la dominacion "
+         "lineal |u'| <= m_b |u| + 1/2 y la recursion de Lyapunov "
+         "valen VERBATIM en la cadena modificada (con el rebote): la "
+         "tension uniforme en t se transfiere tal cual",
+         "todo_n", "demostrado", "rondadeltronco.py", "propio",
+         "09-08-2026, la 6a revision (actarevision0908c.txt). 84.020 "
+         "transiciones con el rebote, 0 fallos; (2/3)^theta <= "
+         "r_theta en todo theta -- la ventana de Lyapunov absorbe el "
+         "rebote. La brecha 'demostrado para la real, razonado sobre "
+         "la modificada' quedo cerrada con calculo."),
+
+    fila("CONEJAS, FORMALIZADA (el 18o .lean): para todo j PAR, el "
+         "par (2^j - 2, 2^j - 1) llega al MISMO x = 3t + 2 en "
+         "EXACTAMENTE j + 2 pasos del atajo, con 3^(j-1) = 4t + 3 (el "
+         "testigo de por que j debe ser par) y el vortice en el "
+         "repunit ternario w = 2t + 1. COROLARIO CON NUCLEO DETRAS: "
+         "b(j+2) >= 1 para todo j par -- las nuevas nunca se acaban, "
+         "maquina-verificado",
+         "todo_n", "demostrado", "conejas.lean", "propio",
+         "09-08-2026 (madrugada), 0 sorryAx. Arquitectura: PasoT con "
+         "testigos sin division, CaminoN con largo exacto, el peldano "
+         "3^p 2^(q+1) - 1 -> 3^(p+1) 2^q - 1 y la escalera por "
+         "induccion; separados_antes (en j+1 los valores son w y "
+         "3w+1, impar contra par: el encuentro es de verdad) y el "
+         "caso j = 2 instanciando el teorema. Revision adversarial "
+         "propia antes de entrar (A1-A5, 0 fallos): trayectorias "
+         "reales paso a paso j = 2..20. Este fichero formaliza 'a mas "
+         "tardar en j+2'; la PRIMERA vez sigue siendo del barrido "
+         "(nuevasfusion.py C5)."),
+
+    fila("PUMAS, ESCALONES 7 Y 8: la escalera de truncados recomputada "
+         "entera (conteo entero, ni un float en la cadena que decide), "
+         "los seis escalones publicados reproducidos digito a digito, "
+         "y dos nuevos: K = 13 (313.672 estados) da lambda_T = "
+         "1,980748 y K = 15 (1.312.342 estados) da lambda_T = "
+         "1,984415 => lambda >= 1,9844 (antes 1,9754). Los gaps "
+         "consecutivos 0,513 / 0,498 / 0,669 / 0,733 / 0,755 / 0,784 "
+         "/ 0,810: subiendo hacia 1 sin senial de piso, exactamente "
+         "como corresponde si lambda = 2 (resto polinomial), que es "
+         "lo que LOBAS dice que ningun truncado puede refutar",
+         "verificado_hasta", "demostrado", "pumasescalera.py", "propio",
+         "09-08-2026. La cota es rigurosa (truncados anidados, "
+         "monotonia y convergencia exigidas con SystemExit); "
+         "'verificado_hasta' porque el escalon es finito. El escalon "
+         "8 va tras la bandera ESCALON_8 (~10 min de CPU). La capa 1 "
+         "atrapo un susto en vivo: el 1,9754 publicado venia del "
+         "escalon 11 de retornoslambda.py, no del 7 -- la replica "
+         "independiente restauro la monotonia."),
+
+    fila("CABRAS, FORMALIZADA (el 16o .lean) - EL INVARIANTE MOD 3 "
+         "POR LA CADENA ENTERA: desde cualquier arranque en la "
+         "frontera, todo estado alcanzado con k >= 1 cumple c % 3 != "
+         "0 (paso_puerta en los once constructores + induccion sobre "
+         "caminos), con el corolario torre_sin_ceros: (k, 0) es "
+         "INALCANZABLE. Justifica como teorema los saltos de c = 0 en "
+         "las C0 de liebres.py/urracas.py y los 17 estados fantasma "
+         "del conjunto de Doeblin",
+         "todo_n", "demostrado", "cabras.lean", "propio",
+         "09-08-2026, 0 sorryAx, nucleo puro. El 'regalo' del informe "
+         "1 de la 5a revision resulto ser la puerta mod 3 de CABRAS "
+         "(ya en la base, fila de subrenovacionc.py) viajando por la "
+         "cadena entera: por la regla de la casa se formaliza bajo su "
+         "nombre, no como animal nuevo. La llave: 3^(k+1) = 2m+1 => "
+         "m = 1 (mod 3). Revision propia: once constructores "
+         "cotejados contra modificada() en 25.521 estados (0 "
+         "desajustes); BFS de falsificacion a 7.709.949 estados "
+         "(profundidad 34): cero torres con 3 | c."),
+
+    fila("EL ATERRIZAJE DE N2, FORMALIZADO (el 17o .lean) - LA PIEZA "
+         "2-ADICA CON SIGNO de Golondrinas: (i) si v2(c) > A = "
+         "v2(3^k - 1), el paso bit 1 aterriza EXACTO en v2 = A - 1; "
+         "(ii) c = 0 igual; (iii) si v2(c) < A, v2 baja EXACTO en 1 "
+         "(el descenso determinista de L2). El caso v2 = A queda "
+         "fuera A PROPOSITO: es la unica subida posible (C1c de "
+         "oscilacion.py)",
+         "todo_n", "demostrado", "aterrizajen2.lean", "propio",
+         "09-08-2026, 0 sorryAx en los cinco #print axioms. Estilo "
+         "testigos sin division (la valuacion viaja en los testigos; "
+         "A = B+1 y w parametrizado esquivan la resta en Nat). El "
+         "mecanismo es la linea de oscilacion.py: 3c + 1 - 3^k = 3c - "
+         "2^A impar y el minimo de valuaciones cuando difieren. "
+         "Revision propia: los tres enunciados instanciados contra el "
+         "numerador real del paso bit 1 en 42.196 instancias (k = "
+         "1..10, |c| <= 6000 par), 0 fallos. Era el pendiente "
+         "declarado de la bitacora 09-08 (5), cobrado."),
+
+    fila("GARZAS (PROPUESTO) - LA MONEDA CONDICIONADA, LEIDA POR "
+         "ALTURA: forward-backward exacto en enteros sobre la cadena "
+         "modificada (el h-transform medido estado a estado). (1) El "
+         "sesgo condicionado al fondo vive en k <= 3 (mas del 99% de "
+         "las monedas), es <= ~0,03 por moneda, DECAE de k = 1 a k = "
+         "3 (0,025 / 0,009 / 0,005) y esta en las dos mitades; el "
+         "total E[Ee - E0 | fondo] crece ~0,003-0,004 por paso (0,187 "
+         "en T = 16 -> 0,239 en T = 30): aun el peor caso lineal da "
+         "a_D -> ~0,004, sesenta veces bajo el umbral efectivo. (2) "
+         "Condicionado a estar EN (1,1), el balance a_V + a_D - a_K "
+         "es NEGATIVO (~-0,05): la obstruccion de Cebras no aparece "
+         "en ninguna de las dos condicionadas. (3) El exponente local "
+         "de P(X_t = (1,1)) cruzo 1 HACIA ABAJO en t ~ 22 y baja "
+         "monotono (1,14 -> 0,76 entre t = 18 y 30): la direccion "
+         "medida es la de la recurrencia (la serie de Green diverge "
+         "sii el decaimiento es mas lento que 1/t)",
+         "verificado_hasta", "medido", "monedacondicionada.py", "propio",
+         "10-08-2026. Mide y ORIENTA, no decide: 1/(t log^2 t) "
+         "tambien daria exponente -> 1 por abajo y converge. Revision "
+         "propia C1-C5 antes de entrar: conservacion 2^s, identidad "
+         "de Urracas entera, objetivo trivial => sesgo cero entero, "
+         "cruce contra urracas.py (fila t = 28 a 6 cifras por "
+         "algoritmo independiente -- cazo el bug de la convencion del "
+         "vortice, ver la correccion), y fuerza bruta 2^12 palabras. "
+         "Bautizo GARZAS pendiente de confirmacion; adversarial "
+         "externa en cola (regla del ritmo)."),
+
+    fila("TORTOLAS (PROPUESTO) - EL LEMA DEL ACOPLAMIENTO: los dos "
+         "hijos de una moneda en (k, c par) son (k, c/2) y (k, "
+         "(3c + 1 - 3^k)/2) -- mismo k, diferencia DELTA = c + "
+         "(1 - 3^k)/2. Bajo la MISMA palabra comparten trayectoria de "
+         "k y paridad, las partes afines se cancelan, v2(DELTA) baja "
+         "EXACTAMENTE 1 por paso y las paridades divergen JUSTO en "
+         "j* = v2(DELTA); DELTA = 0 => los dos hijos son EL MISMO "
+         "estado. Excepciones, exactamente DOS y nombradas: E1 el "
+         "vortice asimetrico (una sola copia pisa (1,1)) y E2 el "
+         "signo mixto (la salida k=1 impar bit 1 lleva el unico abs "
+         "de la cadena). COROLARIO: j* >= horizonte => las "
+         "trayectorias de k coinciden hasta T => el sesgo de esa "
+         "moneda respecto del fondo es EXACTAMENTE CERO",
+         "todo_n", "demostrado", "firmaacoplamiento.py", "propio",
+         "10-08-2026. El nucleo aritmetico DEMOSTRADO en "
+         "tortolas.lean (el 19o, veinte teoremas, 0 sorryAx, "
+         "compilado a la primera): delta_hijos, moneda_sin_efecto, "
+         "las siete leyes par a par con testigos sin division, "
+         "pot2_mitad, salida_signo_mixto (el porque de E2 como "
+         "teorema), instancia (2,8) con decide sobre las 4 palabras. "
+         "Verificado: 48.015 pruebas, 0 fallos, las unicas "
+         "interrupciones 1xE1 + 1xE2. El corolario medido: 1.315 de "
+         "1.317 monedas-estado clavadas (99,85%); las 2 violaciones "
+         "son E1/E2 con masa 2,2e-5 de F. La firma: el sesgo por "
+         "moneda cae con la vida del acoplamiento (0,0216 / 0,0171 / "
+         "0,0075 / ~0 en j* = 0, 1, 2, 3+). Bautizo pendiente de "
+         "confirmacion; adversarial externa en cola."),
+
+    fila("EL NUCLEO DE SENSIBILIDAD: kappa(m) = |gamma(k, c + delta) "
+         "- gamma(k, c)| / (suma), medido con proxy de pares "
+         "alcanzables al mismo nivel ponderado por masa: kappa por m "
+         "da 0,42 / 0,46 / 0,45 / 0,37 en m = 4, 8, 16, 24 -- "
+         "decaimiento ~0,45/m, casi independiente de delta (1, 3, 9) "
+         "y de k: la firma del laplaciano discreto (el efecto es de "
+         "SEGUNDO orden en el paseo justo). La composicion cierra por "
+         "las dos puntas: sesgo por moneda ~ suma_j 2^-j "
+         "kappa(m - j) => total por trayectoria ~ c log T con c ~ "
+         "0,08, que reproduce a la vez el NIVEL (0,239 en T = 30) y "
+         "la TASA (~0,003 por paso) de la serie de Garzas => a_D ~ "
+         "log T / T -> 0: el desbalance condicionado SE DESVANECE",
+         "verificado_hasta", "medido", "firmaacoplamiento.py", "propio",
+         "10-08-2026, la segunda mitad de Tortolas (seccion nueva + "
+         "C4: decrecimiento estricto exigido con SystemExit). Con a_K "
+         "<= 1/T y a_V sublineal, el sesgo total de Urracas apunta a "
+         "0: el exponente de Lyapunov de las historias que vuelven "
+         "tiende al incondicionado (-0,144 nats < 0). QUEDA UNA PIEZA "
+         "ANALITICA: kappa <= C/m a priori -- un enunciado de "
+         "suavidad del nucleo de un paseo justo perezoso, desacoplado "
+         "de c. Todo mide y orienta; el veredicto sigue siendo del "
+         "mecanismo."),
 ]
 
 
@@ -3238,6 +3495,60 @@ CORRECCIONES = [
      "una lectura dinamica se contrasta contra la tabla del propio "
      "fichero antes de imprimirse: los datos que uno mismo publica son "
      "el primer adversario, y aqui ya la refutaban"),
+
+    ("CEBRAS: el umbral log2/log3 actua como deriva de log|u| de la "
+     "cadena -- el mecanismo de la densidad es esa deriva negativa del "
+     "fondo",
+     "ROTA Y RETIRADA por la 5a revision externa (09-08-2026, "
+     "actarevision0908b.txt): la deriva real del fondo es +0,023 "
+     "nats/paso (la formula daba -0,133); |u| >= 1/3 en el fondo la "
+     "prohibia aritmeticamente; el desplazamiento afin -1/2 es el IFS y "
+     "no la perturbacion (14-17 puntos de q1 contra un margen de 12,1); "
+     "'ESTABLE' era un pico en t ~ 25 y baja; el control r_625 < 0,5 "
+     "era un CONTROL MUERTO (cuantil 99,9% de |c| en el fondo: 238); y "
+     "'el rebote conservador' es falso en agregado. Lo que SOBREVIVE: "
+     "el mismo umbral como exponente de Lyapunov de los multiplicadores "
+     "(la hipotesis de Kesten de Aranas), verificado por el revisor en "
+     "100.398 transiciones exactas",
+     "el mismo numero puede aguantar con una lectura y estar roto con "
+     "otra: 'exponente de multiplicadores' y 'deriva de la cadena' se "
+     "verifican POR SEPARADO, y un control que nunca puede disparar "
+     "(r_625) no es un control -- el guardian del barrido paso a r_25"),
+
+    ("LEONAS: la unica absorcion del par es el vortice, y la moneda de "
+     "Terras es la paridad del menor",
+     "las dos frases decian mas que su calculo -- la 6a revision (la "
+     "ronda del tronco, 09-08-2026, rondadeltronco.py + "
+     "actarevision0908c.txt): (1) la unicidad de la absorcion vale A "
+     "NIVEL DE CLASES (donde a(k) sale exacto) y es falsa a nivel de "
+     "instancias -- el par (7,8) funde en el paso 10 sin vortice; censo "
+     "n <= 50.000: 14.009 coalescencias de instancia fuera del vortice "
+     "(28%), TODAS el mismo evento {1,4} -> 2 del ciclo terminal; (2) "
+     "la moneda es la paridad DEL ANCLA, no del menor (el ancla no es "
+     "el menor en 4,6 M de pasos-instancia rumbo al ciclo); con el "
+     "ancla: 0 fallos en 12.516.313 pasos. Las seis formulas intactas; "
+     "cualificador aplicado al encabezado del fichero",
+     "los cualificadores clase/instancia se escriben en el enunciado, "
+     "no se sobreentienden: la phi del programa es fusion de CLASE y la "
+     "coalescencia eventual de instancias seria trivialmente 1. El "
+     "filtro pasado a toda la terna y los criterios confirmo que el "
+     "error no estaba replicado: solo faltaba en Leonas"),
+
+    ("la identidad de URRACAS, con su C2, vigila la convencion del "
+     "conteo del vortice: si V se contara mal, la identidad delataria "
+     "el error",
+     "contar V en LOS DOS bits del vortice duplica a_V y la identidad "
+     "cierra IGUAL: exp <-> contr y V se compensan (+2 - 2 = 0). La "
+     "identidad es DEGENERADA en esa convencion y ningun C2 la "
+     "distingue. La cazo el cruce con implementacion independiente "
+     "(monedacondicionada.py C4, la fila t = 28 de urracas.py "
+     "reproducida a 6 cifras por algoritmo forward-backward propio), "
+     "10-08-2026",
+     "una identidad puede ser CIEGA a una convencion: que cierre "
+     "certifica la suma, no la convencion de cada sumando. Solo el "
+     "cruce con una implementacion que no comparte codigo distingue las "
+     "dos convenciones -- otra vez la regla de los tres, ahora sobre "
+     "contabilidad interna"),
 ]
 
 

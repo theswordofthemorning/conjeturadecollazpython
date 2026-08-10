@@ -183,10 +183,21 @@ la cadena real (kappa*m ~ 0,42-0,52 estable en m = 4..24, forma 1/m)
 NO es la sensibilidad a un slot sino al cambio PERSISTENTE de
 horario (la divergencia de paridades cambia el horario para
 siempre), y las dos son consistentes: el efecto persistente es la
-suma de ~raiz(m) slots efectivos por m^(-3/2) ~ 1/m. La cadena de
-cotas que hay que demostrar: un slot <= C/m^(3/2) (CLT local, el
-ejercicio) => persistente <= C/m (sumando) => composicion con
-P(j* = j) ~ 2^(-j) => total <= C log T.
+DESVIACION TIPICA de gamma sobre horarios, y para horario producto
+eso se acota RIGUROSO por EFRON-STEIN:
+
+    Var(gamma_sigma) <= Sigma_slots (sensibilidad por slot)^2
+                     <= m * C^2/m^3  =  C^2/m^2   =>  std <= C/m.
+
+VERIFICADO EN EL MODELO PURO (DP del par con horario compartido y
+bits independientes, 10-08-2026): std * m -> ~1,1 en m = 32..512,
+para arranques 1, 2 y 4 -- la forma C/m clavada. La cadena de cotas
+que hay que demostrar queda entonces con nombres CLASICOS los dos
+eslabones exogenos: un slot <= C/m^(3/2) (CLT local: gradiente del
+nucleo del calor discreto) => std sobre horarios <= C/m
+(EFRON-STEIN) => composicion con P(j* = j) ~ 2^(-j) => total <=
+C log T. Lo unico no clasico es la ENDOGENEIDAD del horario (la
+retroalimentacion paridad -> horario de la cadena real).
 
 EL SALTO QUE FALTA, dicho honesto: en la cadena real el horario NO
 es exogeno -- lo genera la paridad de c, que retroalimenta con los

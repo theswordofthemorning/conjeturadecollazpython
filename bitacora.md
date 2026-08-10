@@ -5,6 +5,31 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (5) — LA COSECHA VOLCADA (182·49) Y EFRON–STEIN CIERRA EL ESLABÓN EXÓGENO
+
+1. **El pendiente doble del volcado, COBRADO** (agente en segundo
+   plano según la regla de prioridad; diff revisado por la sesión
+   principal antes del sello): `afirmaciones.db` pasa de
+   **170·46·20 a 182·49·20** — las 12 filas de la madriguera y la
+   ronda del tronco (Liebres, Cebras partida, Urracas, la 6ª/Leonas
+   cualificada, Moscas extendida, Conejas/Cabras/N2 formalizadas,
+   Pumas 7-8, Garzas, Tórtolas, el núcleo) y las 3 correcciones (la
+   deriva de Cebras rota, las dos frases de Leonas, y la
+   **degeneración de la identidad de URRACAS en la convención del
+   vórtice** con su lección: una identidad que cierra certifica la
+   suma, no la convención de cada sumando — sólo el cruce sin código
+   común las distingue). Los conteos del D-06 en `CLAUDE.md`,
+   actualizados.
+2. **El eslabón (ii) de la cota del timing quedó con nombre clásico:
+   EFRON–STEIN.** El efecto persistente es la desviación típica de
+   `γ` sobre horarios, y para horario producto
+   `Var ≤ Σ(sensibilidad por slot)² ≤ m·C²/m³ ⟹ std ≤ C/m` —
+   riguroso. Verificado en el modelo puro (DP del par con horario
+   compartido y bits independientes): `std·m → ~1,1` en m = 32…512,
+   arranques 1/2/4. La cadena exógena entera es ahora clásica (CLT
+   local + Efron–Stein); lo único no clásico es la ENDOGENEIDAD del
+   horario. `maquinaria.txt` objetivo 6, actualizado.
+
 # ⇢ 10-08-2026 (4) — GRIMMETT–HOLMES FICHADO (cero solapamiento) Y EL MODELO PURO CORRIGE EL EXPONENTE: UN SLOT ES `m^{−3/2}`, EL PERSISTENTE ES `1/m`
 
 Dos cierres de retaguardia, uno con mordida de capa 1:
