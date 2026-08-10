@@ -19,9 +19,14 @@
 #     (<=) Si la serie diverge y C es FINITO, algun y en C tiene funcion
 #     de Green G(x,y) = Sigma_t P_x(X_t = y) = infinito. Como
 #     G(x,y) = P_x(T_y < inf) * G(y,y), sale G(y,y) = infinito: y es
-#     RECURRENTE. La COMPROBACION 2 demuestra por calculo exacto que
-#     desde TODO estado de C se alcanza (1,1) con probabilidad >= eps
-#     en <= L pasos; en particular y -> (1,1). Un estado recurrente
+#     RECURRENTE. Para el C concreto de este fichero, la COMPROBACION 2
+#     demuestra por calculo exacto que desde TODO estado de C se
+#     alcanza (1,1) con probabilidad >= eps en <= L pasos; para C
+#     finito ARBITRARIO, la accesibilidad de (1,1) desde todo estado
+#     es el teorema de HORMIGAS en su version cualitativa
+#     (accesibilidad.py, redemostrado por la 4a revision) -- cita
+#     exigida por la 5a revision: sin ella el enunciado general tenia
+#     un cuantificador escondido. En particular y -> (1,1). Un estado recurrente
 #     lleva a su clase y la clase de un recurrente es cerrada y
 #     recurrente, luego (1,1) es recurrente; y como (0,1) y (1,1) se
 #     COMUNICAN (COMPROBACION 1, los dos caminos explicitos), el
@@ -29,10 +34,14 @@
 #     E[2^-N] = 0, o sea phi = 1. QED.
 #
 #     LO QUE CAMBIA. El criterio de retorno11 pedia una serie sobre UN
-#     estado; este pide la MISMA serie sobre cualquier ventana finita, y
-#     la ventana grande decae MUCHO mas despacio (medido abajo: el
-#     exponente pasa de ~0,73 en {(1,1)} a ~0,40 en la ventana, contra
-#     el umbral 1). Y sobre todo: la minorizacion deja de necesitar el
+#     estado; este pide la MISMA serie sobre cualquier ventana finita.
+#     (AVISO de la 5a revision sobre la medicion: a PROF = 30 la
+#     ventana C_625 contiene el 99,99% del fondo, asi que su serie es
+#     la del fondo entero -- que DIVERGE bajo las dos hipotesis por
+#     Golondrinas; el alfa ~0,40 es el exponente del retorno al fondo,
+#     NO evidencia sobre phi. La informacion esta en si la ventana
+#     FIJA pierde cuota del fondo, y eso a t = 30 esta INDECIDIDO.)
+#     Y sobre todo: la minorizacion deja de necesitar el
 #     piso por visita con |c| NO acotado -- que es justo donde la 4a
 #     revision rompio la constante 2,5 de Hormigas (muestra tomada por
 #     constante). Sobre un conjunto FINITO la constante de Doeblin es un
@@ -46,34 +55,49 @@
 #     de esas infinitas visitas al fondo. La COMPROBACION 4 mide
 #     exactamente eso.
 #
-#   ⇢ LEMA (propuesto: CEBRAS -- el sesgo se lee en las rayas, y hay
-#     margen). En la sombra de ARANAS (u = c/3^k) el multiplicador de
-#     cada paso es 1/2 o 3/2 (nunca otra cosa), y la rama EXPANSIVA
-#     (3u-1)/2 es exactamente: nucleo k >= 1 con bit 1, o frontera con
-#     g PAR y bit 1. En la frontera con g IMPAR LOS DOS BITS CONTRAEN
-#     (F3 y F4 suben k, y u = c/3^k se divide por 3 mientras c se
-#     multiplica por 3/2: neto 1/2). Luego, si q1 es la frecuencia de
-#     pasos expansivos,
+#   ⇢ LEMA (CEBRAS -- el sesgo se lee en las rayas), REENUNCIADO POR LA
+#     5a REVISION (acta: actarevision0908b.txt). Lo que es EXACTO:
+#     (a) LA CLASIFICACION AFIN: en la sombra de ARANAS (u = c/3^k)
+#     cada paso es u' = rama + delta con |delta| <= 3^-k/2, donde la
+#     rama es u/2 o (3u-1)/2, y la rama EXPANSIVA (3u-1)/2 es
+#     exactamente: nucleo k >= 1 con bit 1, o frontera con g PAR y
+#     bit 1 (frontera con g IMPAR: los dos bits contraen; el rebote
+#     (1,1)->(2,2) queda FUERA: multiplica |u| por 2/3 y viola la cota
+#     en ese estado). (b) EL UMBRAL:
 #
-#         deriva de log|u|  =  q1*log(3/2) + (1-q1)*log(1/2)  <  0
+#         q1*log(3/2) + (1-q1)*log(1/2)  <  0
 #         <=>  q1  <  log2 / log3  =  0,6309297...
 #
-#     (la identidad exacta: log2 + log(3/2) = log3, asi que el umbral es
-#     LA constante clasica de Collatz, otra vez). MEDIDO: q1 global
-#     ~0,455 y q1 de la masa que esta EN EL FONDO ~0,5096, ESTABLE. O
-#     sea: condicionar a estar en el fondo (que exige descender la
-#     torre, y descender es la rama expansiva) sesga el multiplicador
-#     UN 1%, y hacen falta 13 puntos para romper la contraccion. Ese es
-#     el mecanismo por el que el fondo se mantiene apretado en c -- no
-#     una extrapolacion de la serie, que es lo que la casa prohibe.
+#     (log2 + log(3/2) = log3: LA constante clasica, otra vez) -- que
+#     es el EXPONENTE DE LYAPUNOV de los multiplicadores: la hipotesis
+#     de Kesten que la perpetuidad de ARANAS necesita.
+#     LO QUE LA 5a REVISION ROMPIO Y QUEDA RETIRADO: esa formula NO es
+#     la deriva de log|u| de la cadena. El desplazamiento -1/2 de la
+#     rama expansiva es el IFS mismo (no la perturbacion) y en el
+#     fondo domina: alli |u| >= 1/3 SIEMPRE y la deriva real medida es
+#     +0,02 nats/paso, no -0,13. MEDIDO, con las TRES q1 separadas
+#     (correccion de la 5a): q1 global 0,4585 (foto a t = 30, sube
+#     hacia 1/2), q1 historico del fondo 0,5095 (pico en t~25 y baja),
+#     q1 instantaneo del fondo 0,420 y bajando. El margen al umbral es
+#     de 12,1 puntos, pero SIN el puente de la deriva ese margen ya no
+#     es mecanismo: la reduccion exacta que lo reemplaza es URRACAS
+#     (urracas.py: el sesgo condicionado contra 0,26186, umbral
+#     efectivo ~0,2446 con el error del modelo IFS medido).
 #
-#   ETIQUETAS HONESTAS. LIEBRES y CEBRAS son EXACTOS (uno es
-#   demostracion, el otro algebra de una linea mas una clasificacion
-#   verificada). Lo MEDIDO -- que el exponente vale ~0,40 < 1 y que el
-#   fondo esta apretado -- ORIENTA a phi = 1 y NO lo demuestra: una
-#   serie que baja despacio no distingue "tiende a constante" de
-#   "tiende a 0" (el muro de b(k), tres veces). Lo que si es nuevo es
-#   que ahora el margen es 0,40 contra 1,00 en vez de un filo.
+#   ETIQUETAS HONESTAS (revisadas: 5a revision, actarevision0908b.txt).
+#   LIEBRES es demostracion (con la cita de HORMIGAS de arriba). De
+#   CEBRAS es exacta la clasificacion afin y el umbral COMO exponente
+#   de Lyapunov de los multiplicadores; la lectura "deriva de log|u|
+#   de la cadena" esta RETIRADA. Lo MEDIDO orienta y no decide, y la
+#   5a revision degrado la lectura del exponente: el alfa ~0,40 de la
+#   ventana grande es el exponente del retorno al fondo (divergente
+#   bajo las dos hipotesis, Golondrinas), no margen sobre phi; las
+#   ventanas que SI muerden (r_5, r_25) bajan sin estabilizar --
+#   INDECIDIDO. Ademas hay estados (k, 0) en el espacio (inalcanzables
+#   desde (0,1): invariante mod 3 demostrado por el revisor 1 -- toda
+#   entrada a la torre da c = 2 mod 3 y las ramas nunca fabrican
+#   c = 0 mod 3; por eso el salto de c = 0 en C0 es inocuo y 17
+#   estados de C son fantasmas que solo abaratan eps).
 #
 #   Mapa del ATAJO, enteros exactos, SystemExit antes de concluir.
 
@@ -323,12 +347,16 @@ for t in range(1, PROF + 1):
                len(estados))
 
 ult = max(hist)
-# el control que separa esto de una extrapolacion: si el fondo se estuviera
-# vaciando de c chico, r_K caeria a plomo; se exige que siga alto
-r_final = hist[ult][2][-1] / hist[ult][1]
-if r_final < 0.5:
+# el control (recalibrado por la 5a revision): r_625 NO puede disparar a
+# PROF = 30 -- el cuantil 99,9% de |c| en el fondo es ~238, la masa no
+# llega a 625 en 30 pasos ni aunque phi < 1 fuese verdad. El guardian
+# con poder real es una ventana que SI muerde: r_25 (0,9952 -> 0,9237
+# en t = 12..30); un colapso de verdad la hundiria.
+r_final = hist[ult][2][-1] / hist[ult][1]      # r_625: informativo
+r_guard = hist[ult][2][2] / hist[ult][1]       # r_25: el guardian
+if r_guard < 0.5:
     raise SystemExit("C4: la tension del fondo se rompio: r_%d(%d) = %.4f"
-                     % (VENTANAS[-1], ult, r_final))
+                     % (VENTANAS[2], ult, r_guard))
 
 print()
 print("la serie de LIEBRES en la cadena modificada (umbral de divergencia:")
@@ -371,19 +399,25 @@ print("  accesibilidad calculada en C2 mas la comunicacion de C1. El")
 print("  contrarreciproco: phi < 1 <=> la cadena modificada es TRANSITORIA")
 print("  y abandona toda ventana finita; con GOLONDRINAS (fondo visitado")
 print("  infinitas veces c.s.) eso obliga a |c| -> infinito en el fondo.")
-print("  EXACTO (CEBRAS): la deriva de log|u| es negativa si y solo si la")
-print("  frecuencia de rama expansiva es < log2/log3 = %.6f." % UMBRAL)
-print("  MEDIDO (orienta, NO decide): el exponente de la ventana grande es")
-print("  ~%.2f contra el umbral 1,00; la tension del fondo aguanta"
-      % (-(math.log(hist[ult][2][-1]) - math.log(hist[ult - 6][2][-1]))
-         / (math.log(ult) - math.log(ult - 6))))
-print("  (r_%d = %.4f al nivel %d) y el sesgo de descenso mueve q1 solo"
-      % (VENTANAS[-1], r_final, ult))
-print("  hasta %.4f, a %.4f del umbral. La casa avisa: una serie que baja"
-      % (hist[ult][3], UMBRAL - hist[ult][3]))
-print("  despacio no distingue limite positivo de cero -- lo que vale aqui")
-print("  es el MECANISMO (CEBRAS), no la extrapolacion.")
-print("  LO QUE QUEDA: demostrar que la frecuencia expansiva de las")
-print("  historias que vuelven al fondo se queda por debajo de log2/log3")
-print("  (el h-transform del paseo critico de k sesga O(1/k), no")
-print("  exponencialmente) -- ahi esta el ultimo paso.")
+print("  EXACTO (CEBRAS, reenunciada por la 5a revision): el exponente de")
+print("  Lyapunov de los multiplicadores es negativo si y solo si la")
+print("  frecuencia de rama expansiva es < log2/log3 = %.6f --" % UMBRAL)
+print("  hipotesis de Kesten para la perpetuidad de Aranas, NO la deriva")
+print("  de log|u| de la cadena (en el fondo |u| >= 1/3 y la deriva real")
+print("  medida es positiva: la lectura vieja queda retirada).")
+print("  MEDIDO (orienta, NO decide; leido con el acta de la 5a): r_625 =")
+print("  %.4f al nivel %d, o sea la ventana grande AUN NO MUERDE -- su"
+      % (r_final, ult))
+print("  serie es la del fondo, que diverge bajo las dos hipotesis")
+print("  (Golondrinas). Las que muerden: r_5 = %.4f, r_25 = %.4f, bajando"
+      % (hist[ult][2][1] / hist[ult][1], hist[ult][2][2] / hist[ult][1]))
+print("  sin estabilizar: INDECIDIDO. q1 historico del fondo %.4f (pico y"
+      % (hist[ult][3],))
+print("  baja), a %.4f del umbral -- pero sin el puente de la deriva ese"
+      % (UMBRAL - hist[ult][3]))
+print("  margen no es mecanismo. La casa avisa: una serie que baja despacio")
+print("  no distingue limite positivo de cero.")
+print("  LO QUE QUEDA (la reduccion exacta vive en urracas.py): acotar el")
+print("  sesgo condicionado a_V + a_D - a_K bajo el umbral efectivo ~0,2446")
+print("  -- el h-transform del paseo critico de k sesga O(1/k), no")
+print("  exponencialmente; ahi esta el ultimo paso.")

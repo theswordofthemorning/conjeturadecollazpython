@@ -349,9 +349,10 @@ for a in sorted(glob.glob('*.py')):
 | **`diferenciales.py`** | El perfil diferencial exacto `a_Δ(k)`, `Δ ≤ 16` (la «DDT 2-ádica») |
 | `pisoporvisita.py` / `empalme.py` / `pisoremedido.py` | Las series del piso por visita (la última con el exponente honesto post-revisión) |
 | **`hormigas.lean`** | El 14º: descenso del gap y de frontera, núcleo puro |
-| **`liebres.py`** | **LIEBRES + CEBRAS** (adoptado tras revisión adversarial; procedencia: sesión Opus 5 del 09-08): `φ = 1 ⟺ Σ P(X_t ∈ C) = ∞` para toda ventana finita C (Doeblin exacto `ε ≥ 17887/131072`), y el umbral de deriva `log 2/log 3` |
-| **`urracas.py`** | **TEOREMA DE URRACAS**: `exp − contr = 2V + (Ee−E0) + k0 − k_t` exacto por palabra; el sesgo del fondo descompuesto en tres términos medibles contra el umbral 0,26186 |
-| **`urracas.lean`** | El 15º: el libro mayor demostrado — once constructores con testigos, invariancia por paso e inducción sobre caminos, 0 `sorryAx` |
+| **`liebres.py`** | **LIEBRES + CEBRAS** (procedencia: sesión Opus 5 del 09-08; **pasó la 5ª revisión externa con correcciones aplicadas**): `φ = 1 ⟺ Σ P(X_t ∈ C) = ∞` para toda ventana finita C (Doeblin exacto `ε ≥ 17887/131072`; C arbitrario vía Hormigas cualitativo), y el umbral `log 2/log 3` como exponente de Lyapunov (la lectura «deriva de log\|u\|» fue ROTA por la 5ª y está retirada) |
+| **`urracas.py`** | **TEOREMA DE URRACAS** (**aguantó entera la 5ª revisión**): `exp − contr = 2V + (Ee−E0) + k0 − k_t` exacto por palabra; el sesgo del fondo en tres términos medibles contra el umbral 0,26186 (efectivo ~0,2446 en la cadena) |
+| **`urracas.lean`** | El 15º: el libro mayor demostrado — once constructores con testigos, invariancia por paso e inducción sobre caminos, 0 `sorryAx`; cotejado a máquina contra la cadena real por la 5ª revisión |
+| **`actarevision0908b.txt`** | El acta de la 5ª revisión externa (tres adversarios contra la terna de la madriguera): LIEBRES aguantó, CEBRAS partida en dos, URRACAS entera |
 | `actarevision0908.txt` | El acta de la 4ª revisión externa (la que rompió Abejas-como-programa y validó el criterio) |
 | `maquinaria.txt` / `notamoscas.txt` | Los cinco objetivos sin Collatz y la nota autocontenida de Moscas |
 | `inventario.md` / `derivados.md` | El catálogo del repo, y las ramas del tronco (sistema de derivados `[D-nn]`) |

@@ -5,6 +5,59 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (7) — LA 5ª REVISIÓN EXTERNA: TRES ADVERSARIOS CONTRA LA TERNA. QUINTA REVISIÓN, QUINTA VEZ QUE ROMPE ALGO
+
+**Acta íntegra (los tres informes verbatim): `actarevision0908b.txt`.
+Correcciones aplicadas el mismo cierre.** Tres revisores adversariales
+independientes, uno por pieza, cada uno con cálculo propio:
+
+- **LIEBRES AGUANTÓ**: Green, clase cerrada, acoplamiento `E[2^{−N}]`,
+  aperiodicidad (gcd de retornos = 1) y Doeblin (`17887/131072`
+  reproducido dígito a dígito, y EXACTO para C — la ventana contiene
+  la bola de L pasos). Correcciones: (a) el enunciado general «C
+  finito arbitrario» tenía **cuantificador escondido** — la
+  accesibilidad para C arbitrario es HORMIGAS cualitativo, cita
+  añadida; (b) el titular «alfa 0,40 contra umbral 1» sobrevendía: a
+  PROF 30 `C_625` contiene el 99,99% del fondo y esa serie **diverge
+  bajo las dos hipótesis** (Golondrinas) — lo informativo es `r_5`,
+  `r_25` bajando sin estabilizar: INDECIDIDO. Regalo del revisor: **el
+  invariante mod 3** (entrada a la torre ⟹ `c ≡ 2 mod 3`; `c ≡ 0 mod
+  3` no se fabrica desde `(0,1)`) — justifica los saltos de `c = 0` y
+  deja 17 estados fantasma en C.
+- **CEBRAS PARTIDA EN DOS**: la clasificación afín y el umbral
+  aguantan una verificación independiente de 100.398 transiciones
+  exactas — pero como **exponente de Lyapunov de los multiplicadores**
+  (la hipótesis de Kesten de Arañas), NO como deriva de la cadena. La
+  lectura dinámica está **ROTA y RETIRADA**: deriva real del fondo
+  +0,023 nats/paso (la fórmula daba −0,133), `|u| ≥ 1/3` en el fondo
+  la prohibía aritméticamente, el desplazamiento afín −1/2 es el IFS y
+  no la perturbación (14–17 puntos de q1 contra un margen de 12,1),
+  «ESTABLE» era pico en t≈25 y baja, el control `r_625 < 0,5` era un
+  **control muerto** (cuantil 99,9% de `|c|` en el fondo: 238), y «el
+  rebote conservador» es falso en agregado. Reenunciada; el guardián
+  del barrido pasó a `r_25`.
+- **URRACAS AGUANTÓ ENTERA**: tabla de los nueve tipos rederivada sin
+  mirar la nuestra, identidad clavada en 200.000 palabras propias
+  (largo ≤ 60), nivel t = 20 reconstruido desde cero dígito a dígito,
+  Lean cotejado A MÁQUINA constructor a constructor (2.709 estados,
+  `c = 0` y `|c| ~ 2^120`), y **la circularidad C0/Lean/modificada
+  rota por fuera**: 59.990 pares enteros reales `{v, 3^k v + c}` bajo
+  el atajo, 0 fallos. Correcciones: el `⟺` del corolario es exacto
+  sólo en la sombra IFS (rebote 2/3 viola la cota de Arañas en ese
+  estado; error medido ~+0,009 nats/paso ⟹ **umbral efectivo
+  ~0,2446**, la dirección sobrevive ×13); C0 ampliada con la rejilla
+  fea (c = 0, ±3^k±3, primos, k = 10..14 — pasa); «q1 global 0,455»
+  es foto, no régimen (sube hacia 1/2).
+
+**El estado de la sub-teoría tras el acta:** los dos pilares (LIEBRES,
+URRACAS) en pie con etiquetas finas; CEBRAS reducida a su mitad
+verdadera; el «último paso» pierde el puente heurístico de la deriva y
+queda SOLO la reducción exacta de URRACAS: el sesgo condicionado
+contra ~0,2446, margen medido ×13. Todo reejecutado tras las
+correcciones (los dos `.py` limpios, `urracas.lean` recompilado, cp1252
+a 0). Pendiente que dejó el acta: el lema del invariante mod 3 como
+fichero propio, y la estacionaria condicionada de siempre.
+
 # ⇢ 09-08-2026 (6) — LA SUB-TEORÍA DE LA MADRIGUERA: LIEBRES Y CEBRAS REVISADAS Y ADOPTADAS, Y URRACAS (TEOREMA + EL 15º .LEAN)
 
 **Procedencia y revisión.** `liebres.py` apareció sin trackear, escrito a las

@@ -18,10 +18,17 @@
 -- libro en el arranque (contadores a cero: libro = k0).
 --
 -- La exhaustividad de los nueve constructores contra la cadena real
--- la verifica la COMPROBACION 0 de urracas.py sobre la rejilla
--- k <= 9, |c| <= 2000: las formulas de aqui son EXACTAMENTE las de
--- tipo_de_paso() alli. Lean garantiza demostracion <-> enunciado; el
--- enunciado <-> objeto lo cierra ese barrido.
+-- la verifica la COMPROBACION 0 de urracas.py (rejilla k <= 9,
+-- |c| <= 2000 MAS la rejilla fea de la 5a revision: c = 0, ±3^k±3,
+-- primos, k = 10..14); la 5a revision ademas cotejo a maquina los
+-- once constructores contra la cadena real (2.709 estados, 0
+-- desajustes) y anclo el eje afuera con 59.990 pares enteros reales.
+-- MATIZ del acta: las hipotesis hd restringen la frontera a c >= 1 --
+-- correcto (los k = 0, c <= 0 son inalcanzables desde (0,1), y hay
+-- invariante mod 3 que prohibe c ≡ 0 mod 3 en la torre), pero es
+-- RESTRICCION, no identidad con tipo_de_paso(), que es total. Lean
+-- garantiza demostracion <-> enunciado; el enunciado <-> objeto lo
+-- cierran esos barridos.
 --
 -- Nucleo puro, sin Mathlib. Control final: #print axioms sin sorryAx.
 

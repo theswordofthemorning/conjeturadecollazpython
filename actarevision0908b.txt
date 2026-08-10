@@ -1,0 +1,525 @@
+ACTA DE LA 5a REVISION EXTERNA ADVERSARIAL (09-08-2026, noche)
+================================================================
+
+Objeto: la terna de la sub-teoria de la madriguera — LIEBRES y CEBRAS
+(liebres.py, adoptado tras revision propia) y URRACAS (urracas.py +
+urracas.lean). Tres revisores adversariales independientes, uno por
+pieza, cada uno con la lista de la casa, los modos de fallo historicos
+y el encargo de romper. Cada afirmacion de los informes viene con
+calculo propio del revisor (scripts en el scratchpad de la sesion,
+implementaciones independientes; ninguno modifico el repo).
+
+RESUMEN EJECUTIVO
+-----------------
+
+- LIEBRES: AGUANTA como teorema. Green, la clase cerrada, el
+  acoplamiento E[2^-N], la aperiodicidad (gcd de retornos = 1) y la
+  constante de Doeblin (17887/131072, reproducida digito a digito)
+  sobrevivieron. DOS correcciones exigidas: (a) el enunciado general
+  "C finito arbitrario" tiene un cuantificador escondido — la prueba
+  local solo cubre el C concreto; hay que citar HORMIGAS cualitativo
+  (accesibilidad.py) o restringir C; (b) el titular "alfa ~0,40 contra
+  el umbral 1" sobrevende: a PROF = 30 la ventana C_625 contiene el
+  99,99% del fondo, su serie es la del fondo entero, y esa DIVERGE
+  bajo las dos hipotesis (Golondrinas) — no es evidencia sobre phi.
+  Las ventanas que si muerden (r_5, r_25) bajan sin estabilizar:
+  INDECIDIDO. Regalo del revisor: el invariante mod 3 (toda entrada a
+  la torre produce c = 2 mod 3; c = 0 mod 3 no se fabrica nunca desde
+  (0,1)) que justifica el salto de c = 0 en las rejillas y deja 17
+  estados fantasma en C.
+
+- CEBRAS: PARTIDA EN DOS. La mitad clasificatoria AGUANTA verificacion
+  independiente (100.398 transiciones exactas: rejilla afin u' = rama
+  + delta con |delta| <= 3^-k/2, rama expansiva donde dice el lema,
+  frontera incluida; el umbral log2/log3 como identidad algebraica).
+  La mitad dinamica esta ROTA: (1) "el multiplicador es 1/2 o 3/2
+  salvo perturbacion" es falso como enunciado multiplicativo — el
+  desplazamiento -1/2 de la rama expansiva ES el IFS, no la
+  perturbacion, y cerca de u = 0 domina (ratios reales medidos: 2, 3,
+  hasta 7 millones); (2) "la deriva de log|u| = q1 log(3/2) +
+  (1-q1) log(1/2)" es falsa como descripcion de la cadena: la deriva
+  real de las historias del fondo es +0,023 nats/paso (positiva), la
+  formula da -0,133, y el propio espacio la prohibe (en el fondo
+  |u| >= 1/3 siempre); (3) el margen "13 puntos" son 12,1, y en nats
+  el margen (0,133) es MENOR que el error de modelado (+0,156): el
+  argumento del margen no se sostiene en ninguna unidad; (4) "el
+  rebote contado como expansivo es conservador" es falso en agregado
+  y para u < 0; (5) "q1 estable" es pico en t~25 y despues baja, y
+  conviven tres q1 distintos (global 0,4585 subiendo, historico del
+  fondo 0,5095, instantaneo del fondo 0,420 bajando) que el texto no
+  separa; (6) el control r_625 < 0,5 es un control MUERTO a PROF = 30
+  (cuantil 99,9% de |c| en el fondo: 238 < 625 — no puede disparar ni
+  aunque phi < 1 fuese verdad). LO QUE SOBREVIVE: la formula del
+  umbral es el EXPONENTE DE LYAPUNOV de los multiplicadores — la
+  hipotesis de Kesten que la perpetuidad de ARANAS necesita — no la
+  deriva de la cadena. Reenunciada asi, CEBRAS queda como lema
+  clasificatorio + umbral de Lyapunov, y pierde el papel de
+  "mecanismo del fondo apretado".
+
+- URRACAS: AGUANTA ENTERA. La tabla de los nueve tipos rederivada por
+  el revisor sin mirar la nuestra coincide; la identidad clavada en
+  200.000 palabras propias (largo <= 60, arranques k0 = 0..6) y el
+  nivel t = 20 reconstruido desde cero digito a digito; el Lean
+  compila sin sorryAx y sus once constructores, cotejados A MAQUINA
+  contra la cadena real (2.709 estados, c = 0 y |c| ~ 2^120
+  incluidos), son exactamente la cadena con sus contadores; la
+  circularidad C0/Lean/modificada que la casa temia fue ROTA POR
+  FUERA: 59.990 pruebas con pares enteros reales {v, 3^k v + c} bajo
+  el atajo, 0 fallos. Correcciones: (1) el "<=> DEMOSTRADO" del
+  corolario es exacto solo en la sombra IFS — en la cadena modificada
+  el rebote multiplica |u| por 2/3 (violando la cota de ARANAS en ese
+  estado) y el error medido es ~+0,009 nats/paso (umbral efectivo
+  ~0,2446); la DIRECCION sobrevive con margen x13 — reetiquetar;
+  (2) el Lean restringe la frontera a c >= 1 (correcto — inalcanzables
+  — pero es restriccion, no identidad con tipo_de_paso, que es total);
+  (3) C1/C2 corren sobre tipo_de_paso fuera de la rejilla donde C0
+  certifico la equivalencia — la rejilla fea del revisor (k = 10..14,
+  c = 0, +-3^k, primos, 200 bits: 0 fallos) y el argumento estructural
+  lo cierran, dejarlo escrito; (4) "q1 global ~0,455" es foto de
+  t = 30, no regimen (q1 global sube hacia 1/2; E[k_t] crece
+  sublineal).
+
+CORRECCIONES APLICADAS EN ESTE MISMO CIERRE
+-------------------------------------------
+1. liebres.py: cita de HORMIGAS cualitativo en la demostracion de
+   LIEBRES; CEBRAS reenunciada (clasificacion + Lyapunov, la lectura
+   "deriva de log|u|" RETIRADA); margen 12,1; "ESTABLE" retirado (las
+   tres q1 separadas); el guardian del barrido pasa de r_625 a r_25;
+   el veredicto reescrito (el alfa del fondo no es evidencia sobre
+   phi; lo que queda es la reduccion de urracas.py).
+2. urracas.py: el corolario reetiquetado (<=> en la sombra IFS,
+   desigualdad con termino de error en la cadena; umbral efectivo
+   ~0,2446); C0 ampliada con la rejilla fea (c = 0, +-3^k+-3, primos,
+   k = 10..14); nota estructural C1/C2; "q1 global" como foto.
+3. urracas.lean: nota de la restriccion de frontera en el comentario.
+4. Registro: bitacora 09-08 (7), zoologico actualizado (estatus de las
+   tres filas), la sub-teoria reescrita en RutaTeoremas.md con las
+   etiquetas del acta.
+
+VEREDICTO DE LA CASA: quinta revision externa, quinta vez que rompe
+algo. La identidad de URRACAS y el criterio de LIEBRES quedan como los
+dos pilares; CEBRAS queda reducida a su mitad verdadera; y el "ultimo
+paso" pierde el puente heuristico de la deriva — lo que queda en pie
+es la reduccion EXACTA de URRACAS: acotar el sesgo condicionado
+(moneda + vortice - altura) bajo el umbral, ahora con el umbral
+efectivo honesto ~0,2446 y margen medido x13.
+
+================================================================
+INFORME 1 — LIEBRES (revisor adversarial independiente)
+================================================================
+
+1. [OK] La direccion (<=): el esqueleto de Green es correcto.
+Sigma_t P(X_t en C) = Sigma_{y en C} G(x,y) (Tonelli, C finito) =>
+algun y con G(x,y) = inf; la identidad G(x,y) = P_x(T_y<inf)*G(y,y)
+es el Markov fuerte estandar y da G(y,y) = inf => y recurrente; "la
+clase de un recurrente es cerrada y recurrente" es el teorema clasico
+(y recurrente con y -> z implica z -> y); con y -> (1,1) (C2) queda
+(1,1) recurrente, y C1 mete el arranque en la clase. Verifique a mano
+los dos caminos de C1: (0,1) -0,0-> (1,1) y (1,1) -rebote,1,1,0,1->
+(0,1) — exactos con la funcion real. La alcanzabilidad de y desde
+(0,1) esta garantizada gratis: G((0,1),y) = inf > 0. No pude romper
+esta direccion.
+
+2. [EXAGERADO] El enunciado general "sea C un conjunto FINITO" es mas
+grande que la prueba escrita — cuantificador escondido. La
+demostracion dice "La COMPROBACION 2 demuestra por calculo exacto que
+desde TODO estado de C se alcanza (1,1)" — pero C2 solo cubre EL C
+concreto {k<=1, |c|<=25}. Para C arbitrario esa frase es falsa tal
+como esta escrita: la accesibilidad de (1,1) desde todo estado es
+exactamente HORMIGAS (cualitativo, demostrado y redemostrado por el
+revisor externo segun accesibilidad.py), que este fichero presume de
+no usar ("NO usa la constante fina de Hormigas para nada" — la
+constante fina no, pero el enunciado general SI necesita la parte
+cualitativa). Evidencia de que el enunciado es verdadero pero la
+prueba local no lo cubre: mi Doeblin con C agrandado (k<=3, |c|<=40,
+INCLUYENDO c=0, L=26, ventana de 2.008.968 estados): 0 estados sin
+acceso, peor (3,-40) con prob 0,0699. Correccion exigida: o
+restringir el enunciado a "C dentro de una ventana con C2 calculada",
+o citar HORMIGAS-cualitativo en la demostracion. Es un agujero de
+cita, no de matematica.
+
+3. [OK] La constante de Doeblin: reproducida exacta. Mi
+implementacion independiente da eps = 17887/131072 = 0,13646698, peor
+estado (0,25), ventana 88.194 estados, ningun estado de C con A = 0.
+Ademas comprobe que la ventana contiene la bola completa de L pasos
+de C, asi que para los estados de C el conteo no es cota: es EXACTO.
+Matiz sin coste: para el teorema la constante es decorativa — solo
+hace falta eps > 0; y 17 estados de C (los c = 0 mod 3 en k=1,
+incluido (1,0)) son fantasmas (ver punto 4), solo pueden abaratar eps.
+
+4. [OK] Los c = 0 que la COMPROBACION 0 salta son INALCANZABLES desde
+(0,1) — el salto es inocuo. Hay un invariante mod 3 que el fichero no
+menciona: toda entrada a la torre (k>=1) produce c = 2 mod 3 (las
+ramas (3c+1)/2 y (3c+1-3^k)/2), y dentro de la torre las ramas o
+multiplican c por 2 mod 3 o vuelven a 2 mod 3 — nunca fabrican
+c = 0 mod 3. Verificado en rejilla k <= 8, |c| <= 3000: 0
+violaciones; y BFS desde (0,1) a profundidad 24 (78.651 estados):
+cero estados con k>=1, c = 0 mod 3, cero con c = 0. Ademas (k,0) no
+puede producir fusion (la fusion exige k=1, c=1). La exhaustividad de
+C0 no se rompe.
+
+5. [OK] Periodicidad: no hay. Primeros retornos a (1,1) con masa
+positiva en los largos 6, 7, 8, ..., 17 (conteos 1, 2, 3, 6, 10, 17,
+...); gcd = 1: aperiodica. Ni el criterio (que ademas no necesita
+aperiodicidad: la dicotomia de recurrencia es por serie) ni la
+medicion de alfa sufren por clases de tiempo.
+
+6. [OK] Las monedas del argumento E[2^-N] son de verdad
+independientes de la trayectoria. La cadena es Markov por
+construccion (X_t = f(X_{t-1}, bit) con bits i.i.d. uniformes — la
+masa palabras/2^t es exactamente esa ley), y el rebote consume el bit
+sin usarlo: verifique modificada(1,1,0) = modificada(1,1,1) = (2,2) y
+que en la cadena real el unico sucesor superviviente de (1,1) es
+(2,2) (bit 0). Condicional a la trayectoria modificada, cada visita
+sobrevive con moneda 1/2 fresca: P(no fundir) = E[2^-N] es solido.
+(La identificacion de phi con el par consecutivo REAL descansa en
+Leonas/retorno11, heredado y ya revisado — fuera del alcance de este
+fichero.)
+
+7. [EXAGERADO] La medicion estrella "alfa ~0,40 contra el umbral 1"
+no mide lo que el titular sugiere: a t = 30 la ventana 625 NO esta
+mordiendo. Mi barrido independiente reproduce sus numeros (P(1,1) =
+0,0089170, alfa_11 = 0,760, alfa_625 = 0,400 a t=30 — sin bug de
+implementacion). Pero: r_625(30) = 0,9999. La ventana contiene TODA
+la masa del fondo, asi que P(X_t en C_625) es numericamente identica
+a P(k<=1) — cuya serie diverge PASE LO QUE PASE con phi (Golondrinas:
+el fondo se visita i.o. c.s. => visitas esperadas infinitas). El
+"0,40" es el exponente del retorno al fondo, divergente bajo las dos
+hipotesis; la informacion sobre phi esta en si la ventana FIJA pierde
+cuota del fondo, y eso a t = 30 ni ha empezado para K >= 125 (alfa
+identico 0,400 para K = 125, 300, 625, 700, 1000, 2000). Las ventanas
+que si muerden lo ensenian: K=5: r = 0,61, alfa = 0,635 y subiendo;
+K=25: alfa 0,437 -> 0,491 subiendo. Y el propio alfa_625 sube sin
+meseta (0,354 -> 0,400 entre t=20 y 30) mientras alfa_(1,1) baja
+(1,045 -> 0,760): como por el PROPIO LIEBRES las dos series comparten
+destino, esos dos exponentes locales describen el mismo objeto
+asintotico y estan a 0,36 — al menos uno esta lejos de su limite. La
+frase del banner "la ventana grande decae MUCHO mas despacio" no es
+margen ganado: es la constatacion de que la ventana aun no muerde. El
+fichero se salva parcialmente a si mismo (etiqueta MEDIDO/orienta,
+imprime r_K), pero el VEREDICTO impreso "~0,40 contra el umbral 1,00"
+sobrevende. Sobre el angulo de las potencias de 5: probe ventanas NO
+redondas (300, 700, 1000, 2000) y ventanas de ajuste w = 4/6/8/12:
+alfa en [0,389, 0,404]. No hay sesgo de borde — precisamente porque
+la ventana no es vinculante todavia.
+
+8. [MATIZ] El control r_final >= 0,5 con SystemExit es casi vacuo a
+PROF = 30. Con r_625 = 0,9999, para dispararlo la masa tipica del
+fondo tendria que dispersarse mas alla de |c| = 625 en 30 pasos. El
+control con poder a estas profundidades seria sobre K = 5 o 25
+(0,61 / 0,92) — la tabla los imprime pero el guardian no los vigila.
+
+9. [OK] CEBRAS: el algebra y la medicion aguantan; una errata menor.
+Umbral log2/log3 = 0,6309297 verificado; la clasificacion de ramas la
+re-derive de la dinamica en u y coincide (incluido el pliegue de
+signo en la salida de k=1 y la perturbacion exacta <= 3^-k/2, que en
+(k,0) se alcanza con igualdad). q1_acum(fondo) reproducido: 0,5095,
+estable hasta t=28; el q1 INSTANTANEO de la masa del fondo es 0,420 y
+bajando — aun mas lejos del umbral. Menor: "hacen falta 13 puntos" —
+son 12,1 (0,6309 - 0,5096). Y la lectura "contraccion en el fondo" es
+heuristica para |c| chico (ahi la perturbacion no es pequenia relativa
+a |u|); como mecanismo direccional vale, como cota no — el fichero no
+lo vende como cota.
+
+VEREDICTO GLOBAL: LIEBRES AGUANTA como teorema, con dos correcciones
+exigidas. La equivalencia phi = 1 <=> Sigma_t P(X_t en C) = inf es
+correcta y su demostracion es valida para el C concreto verificado;
+no encontre error en Green, en la clase cerrada, en el acoplamiento
+E[2^-N], ni en la constante de Doeblin (reproducida digito a digito).
+Correcciones: (a) el enunciado general sobre "C finito arbitrario"
+exige citar HORMIGAS-cualitativo o restringir C — tal como esta
+escrito, la prueba tiene un cuantificador escondido (hallazgo 2);
+(b) reescribir el titular de la medicion: a PROF = 30 la serie de
+C_625 es indistinguible de la del fondo, que diverge bajo las dos
+hipotesis — el margen "0,40 contra 1,00" no es evidencia sobre phi a
+esta profundidad; la evidencia honesta es r_K mas el comportamiento
+de las ventanas chicas (hallazgo 7). Menores: 13 -> 12 puntos en
+CEBRAS; anotar que 17 estados de C son inalcanzables (invariante mod
+3, que ademas convendria escribir: es un lema gratis que justifica el
+salto de c = 0 en C0).
+
+================================================================
+INFORME 2 — CEBRAS y las mediciones de liebres.py (revisor 2)
+================================================================
+
+H1. [OK] La clasificacion (a) como clasificacion AFIN aguanta.
+Rejilla independiente: k en {0..8, 12..15}, c en [-2000, 2000] con
+negativos, ambas paridades, k=0 incluido, 100.398 transiciones
+exactas con Fraction: 0 fallos de "u' = rama asignada + delta,
+|delta| <= 3^-k/2", con la rama expansiva exactamente donde dice el
+lema (nucleo bit 1; frontera c par bit 1; frontera impar contrae por
+los dos bits). La cota es ajustada (el peor delta la toca
+asintoticamente en cada k). Esta mitad del lema es solida.
+
+H2. [ROTO] "El multiplicador de cada paso es 1/2 o 3/2 (nunca otra
+cosa) salvo perturbacion". Falso como enunciado multiplicativo:
+29.996 de 100.398 transiciones de la rejilla tienen |u'|/|u| fuera de
+1/2 +-10% y de 3/2 +-10%. Ejemplos: (1,-3,bit1) ratio 2,0;
+(1,-1,bit1) ratio 3; (15,+-1,bit1) ratio 7.174.455. El desplazamiento
+-1/2 de la rama (3u-1)/2 no es la perturbacion delta: es el IFS mismo
+(en esa rama delta=0 exacto), y cerca de u=0 domina por completo.
+Ninguna mejora de la cota 3^-k/2 arregla esto.
+
+H3. [ROTO] — el central. "La deriva de log|u| es
+q1*log(3/2)+(1-q1)*log(1/2)". Medido en el barrido real
+(masa-ponderado, mismas historias a las que el fichero aplica
+q1=0,5096):
+- Deriva REAL por paso de las historias de la masa en el fondo:
+  +0,0227 nats (positiva). Formula con su q1 acumulado: -0,1335.
+  Error: +0,156 nats/paso = 14,2 puntos de q1.
+- Global: real +0,0003 (~0, como exige acercarse a estacionariedad),
+  formula -0,189: error 17,3 puntos.
+- Prueba aritmetica independiente del barrido: en el fondo
+  |u| >= 1/3 siempre (minimo verificado constante = 0,3333). Una
+  deriva de -0,133/paso daria log|u_t| ~ -0,13*t, imposible pasado
+  t~8. La formula predice algo que el propio espacio de estados
+  prohibe.
+- E[log|u|] de la masa del fondo sube monotonamente: -0,20 (t=8) ->
+  +0,68 (t=30). El fondo no se esta "apretando" en u; se esta
+  aflojando despacio.
+Lo que si sobrevive: q1*log(3/2)+(1-q1)*log(1/2) < 0 <=> q1 <
+log2/log3 es algebra exacta sobre el exponente de Lyapunov de los
+multiplicadores — la hipotesis de Kesten que Aranas necesita
+(garantiza perpetuidad estacionaria). No es la deriva de log|u| de la
+cadena, que es ~0 por recurrencia. La etiqueta "EXACTO" aplica a la
+formula, no a su identificacion con la deriva: [EXAGERADO] tal como
+esta redactada, y el "mecanismo por el que el fondo se mantiene
+apretado" queda sin sosten medido.
+
+H4. [EXAGERADO] "Hacen falta 13 puntos para romper la contraccion" —
+las unidades. El margen es 0,63093 - 0,50946 = 0,1215 = 12,1 puntos,
+no 13. Peor: en las unidades correctas (nats/paso, tipo de cambio
+log 3 = 1,0986 por punto entero de q1) el margen vale 0,133
+nats/paso, mientras el termino afin despreciado, medido en las MISMAS
+historias, vale +0,156 nats/paso. El margen es menor que el error de
+modelado que lo respalda. La comparacion 0,5096 contra 0,6309 no esta
+en unidades que signifiquen algo para log|u|.
+
+H5. [ROTO en agregado] "El rebote contado como expansivo es
+conservador". Masa medida por (1,1): 0,89% del total, 3,57% del fondo
+en t=30 (decae). En la contabilidad de q1 el mislabel infla q1
+(conservador, ~+0,006). En la deriva, el rebote aporta ~-0,003
+nats/paso en direccion conservadora — ruido frente al error neto
++0,156 en direccion ANTI-conservadora (la deriva real es menos
+negativa que la formula). Y si depende del signo: en las salidas de
+k=1 con u<0, la expansion real es |3u-1|/(2|u|) > 3/2 (medido: ratio
+2 en (1,-3), ratio 3 en (1,-1)) — ahi el mislabel oculta expansion.
+El agregado manda: la frase es falsa como garantia.
+
+H6. [MATIZ] "q1(fondo) ~ 0,5096 ESTABLE". La serie no es estable:
+sube, hace pico en t=25-26 (0,509586) y baja con diferencias de
+magnitud creciente (-4,4e-5 en t=30). La direccion del giro favorece
+la contraccion, pero "estable" es una lectura de 4 decimales sobre 10
+puntos que la propia casa prohibe. Ademas conviven tres q1 distintos:
+global 0,4585, historico-del-fondo 0,5095, instantaneo-del-fondo
+0,4198 (P(expansivo | estar en el fondo), que baja monotono) — el
+texto cita dos sin distinguir el tercero.
+
+H7. [ROTO como control] r_final < 0.5 con K=625 a PROF=30. El cuantil
+99,9% de |c| en el fondo a t=30 es 238 < 625 (mediana: 4; maximo:
+18.680). Para que r_625 baje de 0,5 la mitad de la masa del fondo
+tendria que cruzar |c|=625 (~16 pasos expansivos netos):
+estructuralmente imposible en 30 niveles aunque phi<1 fuese verdad.
+El SystemExit no puede disparar: es un control muerto, y 0,5 es
+numero comodo. Lo informativo son las ventanas chicas, y TODAS caen
+monotonas sin estabilizar: r_1: 0,2947->0,1903; r_5: 0,8075->0,6128;
+r_25: 0,9952->0,9237 (t=12->30). Sus diferencias sucesivas (ratio
+~0,8) no distinguen limite positivo de caida lenta — exactamente el
+modo de fallo historico. "La tension aguanta" no esta demostrado por
+r_625; esta indecidido por r_5/r_25.
+
+H8. [MATIZ] u = 0 existe en el espacio. La propia transicion produce
+(k,0) desde (k+1, 3^k) (verificado: (2,3)->(1,0), y (1,0) tiene bucle
+bit0 sobre si mismo). Ahi log|u| no esta definido y el lema no lo
+trata. En el barrido desde (0,1) c=0 no aparecio nunca en 30 niveles
+(verificado), asi que probablemente hay un invariante de
+alcanzabilidad — pero no esta enunciado ni demostrado en el fichero.
+[Nota de la casa al cerrar el acta: el revisor 1 lo demostro — el
+invariante mod 3 del hallazgo 4 de su informe.]
+
+Lista de la casa: mapa = atajo, correcto y consistente. La deriva es
+un PROMEDIO (el fichero lo sabe para alfa, no lo dice para la deriva
+misma). PROF=30 redondo, y la ventana de la tabla (t=12..30) termina
+justo en la meseta del pico de q1acum. No hay circularidad grave en
+C3 (verifica contra la misma transicion, pero Aranas ya cruzo contra
+Leonas con 354.293 identidades).
+
+VEREDICTO GLOBAL. La mitad clasificatoria de CEBRAS (rejilla afin,
+rama expansiva, cota de delta, umbral log2/log3 como identidad
+algebraica) aguanta una verificacion independiente. La mitad dinamica
+no: la frase "deriva de log|u|" es falsa como descripcion de la
+cadena — la deriva real de las historias del fondo es +0,02, no
+-0,13, el termino afin -1/2 (que no es perturbacion y no es sumable
+en el fondo) vale 14-17 puntos de q1 contra un margen de 12,1, y el
+piso |u| >= 1/3 hace la prediccion de la formula aritmeticamente
+imposible. Correcciones exigidas: (1) reenunciar CEBRAS como "el
+exponente de Lyapunov de los multiplicadores es negativo <=> q1 <
+log2/log3" — hipotesis para la perpetuidad de Aranas, no deriva de
+la cadena — y degradar la etiqueta EXACTO en su lectura actual;
+(2) retirar "ESTABLE" (es pico + descenso) y "13 puntos" (son 12,1, y
+en nats el margen es menor que el error de modelado — el argumento
+del margen no se sostiene en ninguna unidad); (3) retirar o
+reencuadrar "contado como expansivo es conservador" (falso en
+agregado y para u<0); (4) sustituir el control r_625<0,5 por uno
+capaz de disparar en el horizonte (r_5 o r_25 con umbral calibrado) o
+declararlo no-falsable a PROF=30; (5) declarar el estado (k,0) y su
+(in)alcanzabilidad. Las mediciones de C4 en si (alfa 0,40, series
+r_K, q1) son reproducibles y honestas como MEDIDO; lo que se cae es
+el puente entre la formula de CEBRAS y la dinamica real de log|u| —
+que es justamente el "mecanismo" que el fichero ofrece en lugar de la
+extrapolacion.
+
+================================================================
+INFORME 3 — URRACAS (urracas.py + urracas.lean) (revisor 3)
+================================================================
+
+1. La demostracion: los nueve tipos y el invariante L — [OK]
+Rehice la tabla desde modificada/expansiva sin mirar la de urracas.py
+(funcion mi_paso, derivada ademas desde los pares enteros reales, ver
+seccion 4). Los nueve casos coinciden uno a uno, y verifique a mano
+dL = 0 en los once constructores. El tipo 3 (frontera impar) es
+contractivo con LOS DOS bits segun expansiva, coherente con el
+objeto: en (0,c) impar el multiplicador real de |u| es (3c+-1)/(6c)
+~ 1/2 en ambos bits. El tipo 9 (rebote) si mueve k en +1
+((1,1)->(2,2)) y el 2V es forzado, no decorativo: el rebote suma +1
+por exp y +1 por dk, de modo que solo -2 por visita anula dL. Con V
+simple la identidad seria falsa (lo comprobe: rompe en la primera
+palabra con rebote). Identidad revalidada por mi cuenta en 200.000
+palabras aleatorias de largo <= 60 con arranques k0 = 0..6 (c0
+incluyendo 3^k+2, negativos, 999983): 0 rotas.
+
+2. Exhaustividad fuera de la rejilla redonda — [OK con MATIZ]
+Rejilla fea propia: k = 10..14, c en {+-3^k-3 .. +-3^k+3}, c = 0,
++-1, +-2, primos 999983 / 1000003 / 10^9+7 / 2^61-1 con los dos
+signos, y 200 enteros aleatorios de 200 bits por nivel; mas k = 0..2
+con c negativos. 2.334 transiciones, 0 discrepancias entre
+tipo_de_paso y modificada. Estructuralmente no puede haberlas: ambos
+parten los mismos bordes de caso (k=0/k>=1, paridad de c, k>=2/k=1,
+c=1) y el algebra es entera exacta; la unica trampa posible era la
+division entera de Python con c negativo, y (c-1)//2 = (c-1)/2 para c
+impar negativo es exacta. [MATIZ] El hueco de metodo que si existe:
+C1 y C2 corren sobre tipo_de_paso, no sobre modificada, y a t = 30 el
+barrido visita k > 9 y |c| astronomicos — muy fuera de la rejilla
+k <= 9, |c| <= 2000 donde C0 certifico la equivalencia. Si las
+formulas divergieran fuera de la rejilla, C1/C2 validarian la
+identidad sobre la cadena equivocada. Mi rejilla fea y el argumento
+estructural cierran el hueco, pero el fichero deberia o ampliarse la
+C0 con casos feos o dejar escrito el argumento estructural.
+
+3. Estados c = 0, k >= 1 — [MATIZ, sin agujero]
+Las formulas los cubren bien: tipo_de_paso(k,0,.) = modificada
+(probado, 0 discrepancias), y el Lean tambien (n_par0/n_par1 con
+d = 0, sin hipotesis que lo excluya). No son alcanzables desde (0,1)
+en lo observable: BFS propia de la modificada hasta 3.056.054 estados
+(t <= 32): ningun (k,0), ningun (2,3), ningun (k, 3^{k-1}). El
+predecesor de (k,0) solo puede ser (k,0) mismo o (k+1, 3^k) via tipo
+7, y esos exigen v3(c) alto que el barrido nunca produce. El barrido
+de masas C2, por tanto, no los visita — pero como la identidad vale
+tambien ahi, no hay agujero, solo un caso muerto que la C0 del repo
+ni siquiera prueba (su rango excluye c=0 explicitamente).
+
+4. El Lean — [OK con un MATIZ de enunciado]
+Compila limpio: lean urracas.lean -> los cinco #print axioms dan
+propext, Quot.sound (y vortice_bit0 sin axiomas). Sin sorryAx.
+Cotejo mecanico constructor a constructor: transcribi los ONCE
+constructores a Python desde el texto del .lean (testigos d, m,
+hipotesis hd/hm incluidas) y exigi que, para cada estado, el conjunto
+de transiciones Lean = las dos transiciones reales CON los mismos
+movimientos de contadores (exp/contr/vor/dif). 2.709 estados (c=0 y
+|c| ~ 2^120 incluidos): 0 desajustes. Cada estado vivo tiene
+exactamente dos constructores aplicables (las hd de la salida —
+d>=1 / d<=-1 / rebote en d=0 — parten k=1 impar sin solaparse ni
+dejar hueco); no sobra ninguno: no hay transicion Lean que la cadena
+real no haga. libro = (exp - contr) - 2V - (Ee-E0) + k, identico al L
+del .py incluidos signos y el cast de k; el teorema urracas dice
+e - x = 2v + f + k0 - k, el mismo sentido k0 - k_t del .py. caso_ida
+es de verdad el camino (0,1)->(1,2)->(1,1) de liebres C1 con
+contadores correctos. [MATIZ] La frase "los constructores son
+EXACTAMENTE las formulas de tipo_de_paso()" sobra un poco:
+tipo_de_paso es total (cubre k=0 con c <= 0: p.ej. daria
+(0,-2)->(0,-1)/(0,-3)) y el Lean ahi no tiene constructor (las hd lo
+excluyen). Es la restriccion correcta — esos estados son
+inalcanzables — pero es restriccion, no identidad exacta; el teorema
+Lean cubre estrictamente menos palabras que la formula Python, sin
+consecuencia para nada alcanzable. La salida al objeto real (la
+circularidad de la casa): CERRADA por mi cuenta. C0 compara
+tipo_de_paso<->modificada y el Lean<->tipo_de_paso: todo contra el
+mismo eje. Yo ancle el eje afuera: rederive la dinamica de pares a
+mano y probe con enteros de verdad {v, 3^k*v + c}, aplicando el atajo
+T a los dos miembros con bit = v mod 2: 59.990 pruebas aleatorias
+(k <= 12), 0 fallos, incluida la fusion real del vortice (T(v) = T(w)
+en (1,1)-bit1) y el intercambio de papeles en k=0-impar-bit1 (mi
+primer arnes lo marco como fallo y el bug era MIO: la base nueva pasa
+a ser el miembro grande). Mapa: atajo, consistente en todo.
+
+5. El corolario numerico, t = 20 — [OK]
+Barrido independiente propio: exp_f = 3.129.503, pasos_f = 6.144.860,
+vor_f = 138.893, dif_f = 61.723, alt_f = 225.363; la identidad
+agregada 2*exp_f - pasos_f = 114.146 = 2*vor_f + dif_f - alt_f cierra
+como enteros, y los floats reproducen la fila impresa por urracas.py
+digito a digito: 0.509288 / 0.045206 / 0.010045 / 0.036675 /
+0.018576.
+
+6. "q1 global ~0,455: la torre sube y se lleva el exceso" — [MATIZ]
+La contabilidad si esta demostrada: verifique 2E[V] - E[k_t] =
+2t*(q1_global - 1/2) exacto en t = 10, 16, 20, 26, 30 (p.ej. t=30:
+-2,48883 por los dos lados), con Sigma SD = 0 en todos. Pero la frase
+sugiere un regimen estable y 0,455 es una foto, no un limite:
+q1_global sube (0,4223 -> 0,4585 entre t=10 y 30) y E[k_t] crece
+sublineal (2,25 -> 3,47; incrementos decrecientes, pinta
+logaritmica), asi que el deficit global (E[k]-2E[V])/(2t) -> 0 y
+q1_global -> 1/2. La torre sube, pero no se lleva un exceso lineal;
+como explicacion del numero al nivel 30 vale, como asintotica no.
+
+7. El "<=>" del corolario — [EXAGERADO]
+El corolario esta etiquetado DEMOSTRADO: "con CEBRAS, la deriva de
+log|u| en el fondo es negativa <=> a_V + a_D - a_K < 0,26186". Ese
+<=> es exacto solo para el IFS idealizado (multiplicadores {1/2,
+3/2}); en la cadena modificada es falso como equivalencia:
+- El rebote — que URRACAS cuenta como expansivo — multiplica |u| por
+  2/3, no por 3/2: (1,1)->(2,2) es u: 1/3 -> 2/9; brecha -0,811
+  nats. Y viola incluso la cota aditiva de CEBRAS: |u2 - rama| = 2/9
+  > 3^-1/2 = 1/6. La C3 de liebres excluye explicitamente (1,1) y
+  todo k=0 de su verificacion: el "multiplicador 1/2 o 3/2, nunca
+  otra cosa" se verifico excluyendo justo donde falla.
+- En el fondo con |c| chico las brechas son O(1) por paso: (2,1)-bit1
+  y (1,-1)-bit1 multiplican por 3 (modelo 3/2, +0,693); (0,1)-bit1
+  por 1/3 (modelo 1/2, -0,405); vortice-bit0 por 2/3 (+0,288).
+- Magnitud medida: brecha de un paso pesada por la masa del fondo al
+  nivel 29: E[log mult real] = -0,2225 vs modelo -0,2320: +0,00944
+  nats/paso. El umbral efectivo sobre a_V+a_D-a_K baja de 0,26186 a
+  ~0,2446. La direccion sobrevive con margen x13 de sobra, pero el
+  "<=> DEMOSTRADO" esconde un termino de perturbacion no acotado en
+  el enunciado. Etiqueta honesta: <=> exacto en la sombra IFS +
+  desigualdad-con-margen en la cadena real, o el <=> con su termino
+  de error explicito (acotable por la ocupacion del fondo por la
+  perturbacion por visita).
+
+Lista de la casa: mapa atajo, anclado a enteros. Promedio o cota:
+URRACAS es identidad por palabra (ni promedio ni cota: mejor); la
+medicion es promedio y esta etiquetada "orienta, NO decide".
+Circularidad: existia en el trio C0/Lean/modificada y la rompi por
+fuera con pares reales. Limites redondos: la rejilla C0 (9, 2000) es
+redonda pero el resultado no depende del borde (equivalencia
+estructural, confirmada en rejilla fea). Unidades: umbral adimensional
+log2/log3, coherente.
+
+VEREDICTO GLOBAL: LA IDENTIDAD DE URRACAS AGUANTA. No pude romperla:
+ni la tabla de los nueve tipos (rederivada), ni el invariante (once
+casos a mano), ni la identidad (200.000 palabras propias + nivel t=20
+reconstruido entero desde cero), ni el Lean (compila sin sorryAx y
+sus once constructores son, cotejados a maquina, exactamente la
+cadena real con sus contadores). El anclaje al objeto — pares enteros
+del atajo — tambien aguanto 59.990 intentos. Correcciones: (1) el
+corolario <=> no es exacto en la cadena modificada — bajar a "<= con
+margen" o aniadir el termino de error (+~0,009 nats/paso medido;
+umbral efectivo ~0,2446); no cambia ninguna conclusion numerica.
+(2) "Constructores EXACTAMENTE las formulas": el Lean omite k=0,
+c<=0 (correctamente — inalcanzables — pero es restriccion, no
+identidad). (3) C1/C2 validan la identidad sobre tipo_de_paso fuera
+de la rejilla donde C0 certifico tipo=modificada; ampliar C0 con
+casos feos (c=0, +-3^k, primos grandes, 200 bits — todos pasan) o
+dejar el argumento estructural escrito. (4) La frase "q1 global
+~0,455" es una foto de t=30, no una constante: q1_global sube hacia
+1/2 y E[k_t] crece sublineal; la explicacion vale como contabilidad a
+t finito, no como regimen.

@@ -39,29 +39,37 @@
 #     (El mismo libro esta formalizado en urracas.lean; la exhaustividad
 #     de los nueve tipos contra la cadena real la verifica la C0 de aqui.)
 #
-#   ⇢ COROLARIO (la reduccion del ultimo paso). Con CEBRAS, la deriva de
-#     log|u| en el fondo es negativa  <=>  q1(fondo) < log2/log3  <=>
+#   ⇢ COROLARIO (la reduccion, con la etiqueta que fijo la 5a revision,
+#     acta en actarevision0908b.txt). En la SOMBRA IFS PURA
+#     (multiplicadores {1/2, 3/2} exactos) vale el si-y-solo-si:
+#     exponente de multiplicadores negativo  <=>  q1 < log2/log3  <=>
 #
 #       a_V + a_D - a_K  <  2*(log2/log3 - 1/2)  =  0,26186
 #
 #     con a_V = 2V/t (ocupacion del vortice), a_D = (Ee-E0)/t (desbalance
 #     de moneda justa en pasos pares) y a_K = k_t/t (altura final,
-#     que en el fondo es 0 o 1 y RESTA: ayuda). Y la pieza clave:
+#     que en el fondo es 0 o 1 y RESTA: ayuda). EN LA CADENA MODIFICADA
+#     el <=> NO es exacto: el rebote multiplica |u| por 2/3 (ni 1/2 ni
+#     3/2, y viola la cota de Aranas en ese estado) y en el fondo la
+#     parte afin del IFS es O(1) por paso; el error del modelo, medido
+#     con la masa del fondo, es ~+0,009 nats/paso, o sea UMBRAL EFECTIVO
+#     ~0,2446. La DIRECCION sobrevive con margen x13. Y la pieza clave:
 #     SIN condicionar, Sigma_palabras (Ee - E0) = 0 EXACTO (en cada paso
 #     par los dos hijos se reparten bit 0 y bit 1) -- el sesgo entero del
 #     condicionamiento al fondo vive en UN termino que sin condicionar es
 #     una moneda justa. El ultimo paso queda reducido a: el desbalance
-#     de esa moneda bajo el condicionamiento es < 0,26186 por paso.
+#     de esa moneda bajo el condicionamiento es < ~0,2446 por paso.
 #
 #   ETIQUETAS HONESTAS. URRACAS es EXACTO (demostracion arriba, y las
 #   comprobaciones la clavan como igualdad de enteros palabra a palabra y
 #   estado a estado). La MEDICION de abajo (los tres terminos en el
 #   fondo) ORIENTA y no decide: el sesgo total es ~0,019 contra el umbral
-#   0,26186 (margen x13,8), el termino mayor es a_V (ocupacion acumulada
-#   del vortice) y BAJA con t, a_K lo compensa en gran parte, y la moneda
-#   condicionada a_D es chica y tambien baja. Lo demostrado nuevo es la
-#   IDENTIDAD y la REDUCCION; la cota del sesgo condicionado queda como
-#   el ultimo paso, ahora aislado y con nombre.
+#   0,26186 (efectivo ~0,2446 con el error del modelo IFS; margen x13),
+#   el termino mayor es a_V (ocupacion acumulada del vortice) y BAJA con
+#   t, a_K lo compensa en gran parte, y la moneda condicionada a_D es
+#   chica y tambien baja. Lo demostrado nuevo es la IDENTIDAD y la
+#   REDUCCION; la cota del sesgo condicionado queda como el ultimo paso,
+#   ahora aislado y con nombre.
 #
 #   Mapa del ATAJO via la cadena de Leonas; enteros exactos; SystemExit
 #   antes de concluir.
@@ -154,9 +162,19 @@ def tipo_de_paso(k, c, bit):
 
 vistos = set()
 probadas = 0
+celdas = []
 for k in range(0, 10):
     rango = range(1, 2001) if k == 0 else [c for c in range(-2000, 2001) if c != 0]
     for c in rango:
+        celdas.append((k, c))
+# la rejilla FEA de la 5a revision (fuera de los limites redondos, con
+# c = 0 incluido -- inalcanzable desde (0,1) por el invariante mod 3,
+# pero las formulas tienen que cubrirlo igual):
+for k in (10, 11, 12, 13, 14):
+    celdas += [(k, 0), (k, 1), (k, -1), (k, 3 ** k - 3), (k, 3 ** k + 3),
+               (k, -(3 ** k) + 1), (k, 999983), (k, -1000003)]
+for (k, c) in celdas:
+    if True:
         for bit in (0, 1):
             tipo, d_exp, d_vor, d_dif, objetivo = tipo_de_paso(k, c, bit)
             if objetivo != modificada(k, c, bit):
@@ -177,10 +195,17 @@ if vistos != set(range(1, 10)):
                      % (set(range(1, 10)) - vistos))
 
 print("COMPROBACION 0 OK: los nueve tipos del libro mayor son exhaustivos y")
-print("sus formulas reproducen modificada() en %d transiciones (k <= 9," % probadas)
-print("|c| <= 2000, los dos bits); el marcador expansivo es el de CEBRAS y")
-print("V solo se mueve en el rebote (1,1)-bit1. Son los mismos nueve")
-print("constructores de urracas.lean: el hueco Lean<->Python queda cerrado.")
+print("sus formulas reproducen modificada() en %d transiciones: la rejilla" % probadas)
+print("k <= 9, |c| <= 2000 MAS la rejilla fea de la 5a revision (k = 10..14")
+print("con c = 0, +-1, 3^k+-3, -3^k+1 y primos grandes). El marcador")
+print("expansivo es el de CEBRAS y V solo se mueve en el rebote (1,1)-bit1.")
+print("Son las formulas de los constructores de urracas.lean (que restringe")
+print("la frontera a c >= 1: los k=0, c <= 0 son inalcanzables); fuera de")
+print("toda rejilla la equivalencia es estructural -- tipo_de_paso() y")
+print("modificada() parten los MISMOS bordes de caso (k=0/k>=1, paridad de")
+print("c, k>=2/k=1, c=1) con algebra entera exacta -- asi que C1 y C2, que")
+print("corren sobre tipo_de_paso, validan la cadena buena tambien en los")
+print("|c| astronomicos del barrido (nota exigida por la 5a revision).")
 
 # ---------------------------------------------------------------------------
 # COMPROBACION 1: LA IDENTIDAD, PALABRA A PALABRA, EXHAUSTIVA.
@@ -283,8 +308,10 @@ print("igualdad de enteros en TODOS los estados de TODOS los niveles t <= %d"
 print("(%d estados solo en el ultimo nivel)." % hist[ult][5])
 print("COMPROBACION 3 OK: sin condicionar, Sigma (Ee-E0) = 0 EXACTO en cada")
 print("nivel (la moneda justa), y el balance global exp-contr = 2V - k_t")
-print("cierra entero: el deficit expansivo global ES la altura media (por")
-print("eso q1 global ~0,455 < 1/2: la torre sube y se lleva el exceso).")
+print("cierra entero: el deficit expansivo global ES la altura media. (El")
+print("q1 global ~0,455 es FOTO a t = 30, no regimen: E[k_t] crece")
+print("sublineal, asi que q1 global sube hacia 1/2 -- nota de la 5a")
+print("revision; la contabilidad vale a todo t finito.)")
 
 # ---------------------------------------------------------------------------
 # LA MEDICION: los tres terminos del corolario, condicionados al fondo.
@@ -321,10 +348,14 @@ print("  DEMOSTRADO (URRACAS): exp - contr = 2V + (Ee-E0) + k0 - k_t, la")
 print("  igualdad de enteros palabra a palabra (C1), estado a estado (C2)")
 print("  y global (C3); los nueve tipos exhaustivos contra la cadena (C0)")
 print("  y el libro formalizado en urracas.lean.")
-print("  DEMOSTRADO (corolario): con CEBRAS, la deriva del fondo es negativa")
-print("  <=> a_V + a_D - a_K < %.5f; y sin condicionar E[Ee-E0] = 0" % (2 * (UMBRAL - 0.5)))
-print("  EXACTO -- el sesgo del h-transform vive entero en UNA moneda justa")
-print("  condicionada, mas una ocupacion de vortice que decae.")
+print("  DEMOSTRADO (corolario, <=> EXACTO solo en la sombra IFS pura --")
+print("  etiqueta fijada por la 5a revision): multiplicadores contractivos")
+print("  <=> a_V + a_D - a_K < %.5f. En la cadena modificada el error" % (2 * (UMBRAL - 0.5)))
+print("  del modelo (rebote 2/3 + parte afin O(1) en el fondo) esta medido")
+print("  en ~+0,009 nats/paso: umbral efectivo ~0,2446, la direccion")
+print("  sobrevive. Y sin condicionar E[Ee-E0] = 0 EXACTO -- el sesgo del")
+print("  h-transform vive entero en UNA moneda justa condicionada, mas una")
+print("  ocupacion de vortice que decae.")
 print("  MEDIDO (orienta, NO decide): al nivel %d el sesgo total es %.5f" % (ult, sesgo))
 print("  contra el umbral %.5f -- margen x%.1f. El termino mayor es"
       % (2 * (UMBRAL - 0.5), 2 * (UMBRAL - 0.5) / sesgo if sesgo > 0 else float('inf')))
@@ -336,7 +367,8 @@ print("  a_D = %.5f es chica y tambien baja. Los tres terminos decaen;"
       % (dif_f / pasos_f))
 print("  el sesgo total ~0,019 esta plano -- lejos del umbral por x13.")
 print("  LO QUE QUEDA (el ultimo paso, ahora con nombre): acotar el")
-print("  desbalance de la moneda justa condicionada al fondo por debajo de")
-print("  0,26186 por paso. Es UNA esperanza condicionada de incrementos")
-print("  centrados -- el objeto exacto que el h-transform de un paseo")
-print("  critico sesga O(1/k) y no exponencialmente.")
+print("  desbalance de la moneda justa condicionada al fondo por debajo")
+print("  del umbral efectivo ~0,2446 por paso. Es UNA esperanza")
+print("  condicionada de incrementos centrados -- el objeto exacto que el")
+print("  h-transform de un paseo critico sesga O(1/k) y no")
+print("  exponencialmente.")
