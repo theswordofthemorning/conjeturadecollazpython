@@ -40,6 +40,18 @@ fondo) — ya no hace falta para la cota, queda como dato. Conteos:
 **69 `.py` · 19 `.lean` · 3 `.db`**. Bautizo y adversarial externa:
 en cola, del usuario.
 
+**⇢ Addendum: la base del lema local, extendida a t=34** (forward de
+un nivel): `P(fondo)·√t` = 1,271 → 1,383 entre t = 16 y 34,
+subiendo suave con incrementos decrecientes — consistente con
+`c/√t` por corrección lentamente variable, `c ≥ 1,27` en toda la
+ventana. **La ruta de demostración del lema, esbozada**: lejos del
+borde `k` es paseo justo con reloj (los mixtos); los huecos del
+reloj tienen cola exponencial POR EL ARGUMENTO v₂ DE L2 (una racha
+todo-compartido agota `v₂(c)`) ⟹ el cambio de tiempo es a lo sumo
+geométrico ⟹ las cotas locales del paseo justo transfieren salvo
+constante. Escribirlo riguroso es el único trabajo asintótico que
+queda.
+
 # ⇢ 10-08-2026 (5) — LA COSECHA VOLCADA (182·49) Y EFRON–STEIN CIERRA EL ESLABÓN EXÓGENO
 
 1. **El pendiente doble del volcado, COBRADO** (agente en segundo
