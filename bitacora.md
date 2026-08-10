@@ -98,7 +98,17 @@ desde el rebote `(2,2)` con absorción exacta al entrar al fondo:
    dobla hacia el lado recurrente, sin decidir (la lección de
    siempre). La serie y el instrumento quedan listos para la
    próxima extensión.
-6. **Y LA MEZCLA DE LA TRANSFERENCIA, VERIFICADA**: tres barridos
+6b. **La cuota, ESTRATIFICADA POR ALTURA** (extensión del H4 de
+   `lemadelamezcla.txt`): `P(|c| ≤ 25 | entrada, altura máx h)` =
+   1,00 / 0,95 / 0,87 / 0,70 / 0,52 / 0,38 / 0,25 / 0,18 / 0,10 /
+   0,04 / 0,01 para h = 2…12 (t ≤ 30) — función fuerte y monótona
+   de la altura; la masa entrante está dominada por h ≤ 5 (97%,
+   cuota ≥ 0,7), y la caída agregada en t es el peso creciente de
+   la cola alta. OJO: a t ≤ 30 altura y largo están confundidos
+   por el horizonte (las largas exigen h ~ √t): el objeto limpio
+   es conjunto `(h, largo)` — el eslabón abierto, ahora con sus
+   coordenadas correctas.
+7. **Y LA MEZCLA DE LA TRANSFERENCIA, VERIFICADA**: tres barridos
    de excursión desde arranques con `u` distinta (`(2,2)`,
    `(2,−4)`, `(2,20)`) — a t=9 las leyes de entrada difieren
    fuerte (cuotas 0,91 / 0,77 / 1,00); **a t=29 están a < 0,03
