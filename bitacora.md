@@ -110,6 +110,22 @@ anteriores reproducidos ⟹ **`λ ≥ 1,987046`** (antes 1,9844); la
 razón de gaps sube 0,809 → 0,831 hacia 1 sin piso — un punto más
 consistente con λ = 2.
 
+**⇢ EL REMATE DE LA PRÓRROGA — LA GRAMÁTICA DE RETORNOS Y EL RÉCORD
+(`gramaticaderetornos.py`):** la lectura del addendum 3 subió a
+IDENTIDAD DE ENTEROS: `F = Σ_j R^{*j} * A` clavada sobre el
+triángulo entero (t ≤ 20, z ≤ 12) — el triángulo ES la convolución
+de los primeros retornos al lazo con la cola de absorción. Y la
+resumación geométrica de la renovación da **LA NUEVA COTA INFERIOR
+RÉCORD DE LA DENSIDAD DE FUSIÓN: `φ ≥ α/(1−ρ) = 0,443061`**
+(bloques ≤ 28, ceros ≤ 12, enteros exactos; el argumento:
+descomposición única + composiciones disjuntas + medida producto;
+los subconteos sólo la bajan) — **supera el 0,435658 de
+`a(32)/2^32`** que costó el barrido a `2^32`; a profundidad
+emparejada la ganancia estructural es +1,7 puntos (0,4431 contra
+0,4262 a 28). El puente Winkler/Zarubin cobrado en cota dura. *(Capa
+1 de la corrida: la tabla de comparación puso `a(28)` en la casilla
+de `k=26` y el 1,70 absurdo la delató; corregida antes del sello.)*
+
 **⇢ LA REVISIÓN ADVERSARIAL LOCAL (orden del usuario: en Python, sin
 agentes — `revisionadversarial1108.py`): 10 ataques, 0 ROTOS.** Lo
 que subió de categoría: la monotonía de la poda verificada por A/B
@@ -135,8 +151,11 @@ TÓRTOLAS/GAVIOTAS propuestos); el experimento de Pascal para b(k)
 (punto 4 — barato, con datos existentes); el teorema V2 (AGKV +
 Bertoin–Doney sobre el enunciado autónomo — la pieza analítica con
 nombre y molde); y el cierre de horquillas si algún día hace falta
-certificación fina (tope de poda ↑). Conteos: **72 `.py` · 19
-`.lean` · 3 `.db`**.
+certificación fina (tope de poda ↑). Conteos al cierre de la
+prórroga: **75 `.py` · 19 `.lean` · 3 `.db`**; la base volcada:
+**190 afirmaciones · 58 correcciones · 20 constantes** (las 7
+afirmaciones y 4 correcciones del día, incluido el récord
+`φ ≥ 0,443061`).
 
 ---
 

@@ -2899,6 +2899,116 @@ AFIRMACIONES = [
          "modulo el lema local inferior P(fondo en T) >= c/sqrt(T) "
          "(medido: P sqrt(T) = 1,27 -> 1,38 a t = 34, subiendo "
          "suave). Bautizo y adversarial externa en cola."),
+
+    # --- LA JORNADA SATELITAL DEL 11-08-2026 ---
+
+    fila("EL TEST DECISIVO DE gamma, CERTIFICADO A TRES DECADAS: la "
+         "escalera emparejada (T = 150, tope 2e6, reproduccion de los "
+         "puntos del 10-08 exigida por SystemExit) da phi_min = "
+         "0,1202 / 0,0606 / 0,0373 / 0,0237 para c0 = 2e3..2e6 => "
+         "gamma = 0,297 / 0,211 / 0,197 -- CAE en los tres escalones, "
+         "en el borde inferior de las dos predicciones pre-registradas "
+         "(prediccion_gamma_1108.txt, escrita ANTES de mirar)",
+         "verificado_hasta", "medido", "pisoporarranque.py", "propio",
+         "11-08-2026. Tres decadas no son un limite (la leccion de "
+         "siempre); el veredicto es del mecanismo -- que ahora esta "
+         "medido aparte (la prueba de circularidad). La cota inferior "
+         "es valida bajo poda (A/B de tope verificado en la revision "
+         "local: podar mas agresivo BAJA phi_min)."),
+
+    fila("LAS DOS PATAS DE LA REDUCCION, MEDIDAS: beta = 0,000 -- los "
+         "arranques |c_i| de las excursiones NO crecen con i (mediana "
+         "~2^4, p90 ~2^7, planos de i = 2 a i = 1325; 138.813 "
+         "excursiones) -- y el reloj eta = 2,082 (tau_i ~ i^2, "
+         "polinomial: L-B pide e^(o(i^2)), margen infinito). Cruce "
+         "independiente: p*(2,2) = 0,84 por Monte Carlo dentro de la "
+         "horquilla certificada [0,763, 0,960] del barrido exacto",
+         "verificado_hasta", "medido", "arranquesporvisita.py", "propio",
+         "11-08-2026. Monte Carlo con semillas fijas, dinamica entera "
+         "exacta; la censura recorta los relojes lentos (eta sesgado "
+         "abajo, declarado). Robusto a semilla fresca (revision local "
+         "A5: p90 = 7 constante; max |c_i| jamas visto = 18 bits)."),
+
+    fila("LA PRUEBA DE CIRCULARIDAD DE L-A (dictada por el usuario): "
+         "el enunciado autonomo V2 (paseo perezoso + perpetuidad "
+         "acoplada por el bit, reloj exogeno, CERO aritmetica) NO "
+         "colapsa en 'el paseo es recurrente' y REPRODUCE las gammas "
+         "de la cadena a +-0,03 (V2: 0,249/0,190/0,165 contra V3 "
+         "real 0,298/0,201/0,182) -- el reloj endogeno v2 aporta un "
+         "factor acotado, no el mecanismo. EL MURO ES DE UN METRO: "
+         "el fenomeno es el transitorio de grandes desviaciones de "
+         "la excursion critica, y gamma -> 0 es computable en el "
+         "modelo (OCHO decadas de caida monotona medidas, hasta "
+         "x = 2e12 en la revision local A4)",
+         "promedio", "medido", "sombraexogena.py", "propio",
+         "11-08-2026, notaLAautonoma.txt. 'gamma -> 0 en el modelo "
+         "por Laplace' es calculo esbozado, no teorema escrito: el "
+         "proximo entregable analitico, ahora sin aritmetica de por "
+         "medio (el molde clasico: AGKV 2005 + Bertoin-Doney, "
+         "fichaproblemashermanos.txt)."),
+
+    fila("PUMAS, ESCALON 9: lambda >= 1,987046 -- K = 17, |c| <= "
+         "786432, 5.338.332 estados, conteo entero de caminos, los "
+         "ocho escalones anteriores reproducidos digito a digito; la "
+         "razon de gaps sube 0,809 -> 0,831 hacia 1 sin piso",
+         "todo_n", "demostrado", "pumasescalera.py", "propio",
+         "11-08-2026. Cota inferior DEMOSTRADA (los caminos del "
+         "truncado son caminos reales); consistente con lambda = 2, "
+         "que Lobas dice que ningun truncado puede refutar."),
+
+    fila("EL TRIANGULO DE FUSION F(t, S) (las nuevas por nivel y "
+         "numero de unos, Sigma_S F(t, S) = b(t-1) clavada t = "
+         "4..22) NO satisface Pascal con S como posicion (17/121 "
+         "celdas; deficit desparramado): la solubilidad del gemelo "
+         "Winkler/Zarubin viene de que su supervivencia es un evento "
+         "1-d en (m, S_m) y el vortice nuestro es afin en la palabra "
+         "entera. La diagonal esta sesgada: S/t -> 0,549 < 0,613 de "
+         "Terras -- los que funden llevan MENOS impares que la moneda",
+         "verificado_hasta", "medido", "triangulodefusion.py", "propio",
+         "11-08-2026. El experimento propuesto por "
+         "fichawinklerzarubin.txt; el negativo con su porque "
+         "estructural registrado. La siguiente coordenada candidata: "
+         "v2(Delta) de Tortolas o la posicion del ultimo mixto."),
+
+    fila("LA LEY DEL BORDE DEL TRIANGULO: F(t, t-2) = floor((t-1)/2) "
+         "para t >= 5 -- las palabras de DOS ceros que funden son "
+         "exactamente 1^a 0 1^b 0 1 con a par (lazo de Gatas -> "
+         "ventana de Perras (1,2) -> (1,1) -> fusion). La llave: "
+         "(1,1) tiene EXACTAMENTE dos preimagenes en toda la cadena "
+         "-- (1,2)-bit0 y (2,5)-bit1 (las demas exigirian c = 4/3 o "
+         "g = 1/3) -- y la rama a-impar no funde porque el "
+         "presupuesto de dos ceros no alcanza para voltear el signo "
+         "(F3) Y trepar a (2,5). Y LA FILA 2: F(t, t-4) = "
+         "C(floor((t-4)/2), 2) -- todas las palabras de cuatro ceros "
+         "son 1^a0 0 1 0 1^a2 0 1^a3 0 1 con a0, a2 impares: fila 1 "
+         "mas UN desvio neutro por la puerta de los Chanchitos "
+         "((1,-1) -> (2,-1) -> (1,-2) -> (1,-1))",
+         "todo_n", "medido", "leydelborde.txt", "propio",
+         "11-08-2026. Esbozo de demostracion COMPLETO (pendiente "
+         "trio/Lean); el lema de preimagenes verificado por fuerza "
+         "bruta (15,6M transiciones, revision local A6); las dos "
+         "filas re-enumeradas por via independiente con su "
+         "parametrizacion (A7). La fila 3 ya no es binomial: la "
+         "frontera geometria/combinatoria esta entre las filas 2 y "
+         "3, el mismo corte de Nutrias en los estratos."),
+
+    fila("LA GRAMATICA DE RETORNOS ES IDENTIDAD DE ENTEROS: F = "
+         "Sigma_j R^(*j) * A sobre el triangulo entero (t <= 20, "
+         "z <= 12) -- el triangulo de fusion ES la convolucion de "
+         "los primeros retornos al lazo (0,1) con la cola de "
+         "absorcion: Ovejas, el triangulo y lambda unificados. Y EL "
+         "RECORD: phi >= alfa/(1-rho) = 0,443061 (bloques <= 28, "
+         "enteros exactos + resumacion geometrica) -- LA NUEVA COTA "
+         "INFERIOR DE LA DENSIDAD DE FUSION, sobre el 0,435658 de "
+         "a(32)/2^32 que costo el barrido a 2^32; a profundidad "
+         "emparejada 28 la ganancia estructural es +1,7 puntos",
+         "clase_residual", "demostrado", "gramaticaderetornos.py", "propio",
+         "11-08-2026. El argumento: descomposicion unica en bloques "
+         "de primer retorno + cola, composiciones disjuntas, medida "
+         "producto; los subconteos (z > 12 desbordado) solo BAJAN la "
+         "cota. C4 exige el record con SystemExit. phi = 1 <=> "
+         "alfa = 1 - rho <=> la gramatica no deja escapar masa: el "
+         "criterio en forma de renovacion pura."),
 ]
 
 
@@ -3644,6 +3754,44 @@ CORRECCIONES = [
      "un ajuste de forma se testea con el horizonte ESCALANDO con el "
      "parametro (T ~ 10*log3(c0)) y en al menos tres puntos: un acierto "
      "en un punto con constante libre no es un test aprobado"),
+
+    # --- las de la jornada satelital del 11-08 ---
+
+    ("las absorciones frescas del paso t del barrido simbolico son b(t)",
+     "son b(t-1): a(k) = absorbidas en <= k pasos y b(k) = a(k+1) - 2a(k), "
+     "asi que lo fresco del paso t es a(t) - 2a(t-1) = b(t-1). El SystemExit "
+     "de la C1 de triangulodefusion.py la cazo en la primera corrida "
+     "(Sigma_S F(4,S) = 1 contra b(4) = 2). 11-08-2026",
+     "la indexacion paso/estado muerde cada vez que se estrena un conteo "
+     "nuevo (ya lo hizo en Perras R2): el cruce contra la serie publicada "
+     "va ANTES de leer cualquier estructura"),
+
+    ("la ley del borde es F(t, t-2) = floor(t/2) - 1",
+     "es floor((t-1)/2): la formula leida de la tabla solo se habia "
+     "cotejado en t pares (3,4,4,5,5... casa en pares y falla en impares: "
+     "t = 9 da 4, no 3). La cazo el intento de DEMOSTRARLA, no otra "
+     "medicion. 11-08-2026",
+     "una formula leida de una tabla se comprueba en LAS DOS paridades "
+     "antes de escribirse; y derivar es el mejor verificador: el conteo "
+     "de la demostracion no dejaba salir el floor(t/2) - 1"),
+
+    ("la tabla de comparacion a(k)/2^k de gramaticaderetornos usaba a(26)",
+     "tenia a(28) = 114400435 en la casilla de k = 26: imprimia 1,70 como "
+     "'fraccion', un absurdo evidente que delato el volcado de memoria. "
+     "a(26) = 28247507 y la fraccion es 0,4209. 11-08-2026",
+     "toda tabla de comparacion se recomputa desde la fuente "
+     "(sucesiones.txt), no se escribe de memoria -- y un valor absurdo "
+     "en una columna de control es un regalo: mirarlo, no taparlo"),
+
+    ("la tension en el primer retorno es uniforme en el arranque (Paso 3 "
+     "de notamoscasinducida)",
+     "la cota de Moscas hereda el arranque (S_t <= r^t |u_0|^theta + B): "
+     "el momento E[|c|^0,3] del PRIMER retorno crece con c0 (1,67 -> "
+     "12,25 para c0 = 5 -> 20001, sublineal en c0^0,3). Lo cazo el A8 de "
+     "la revision adversarial local. 11-08-2026",
+     "la uniformidad de un momento se enuncia diciendo EN QUE VISITA "
+     "vale: la primera lleva el factor del arranque (que el Paso 4 "
+     "degrada en i^(2/3)); 'uniforme' a secas decia mas que su calculo"),
 ]
 
 
