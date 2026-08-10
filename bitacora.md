@@ -55,6 +55,18 @@ desde el rebote `(2,2)` con absorción exacta al entrar al fondo:
    dobla hacia el lado recurrente, sin decidir (la lección de
    siempre). La serie y el instrumento quedan listos para la
    próxima extensión.
+6. **Y LA MEZCLA DE LA TRANSFERENCIA, VERIFICADA**: tres barridos
+   de excursión desde arranques con `u` distinta (`(2,2)`,
+   `(2,−4)`, `(2,20)`) — a t=9 las leyes de entrada difieren
+   fuerte (cuotas 0,91 / 0,77 / 1,00); **a t=29 están a < 0,03
+   (0,574 / 0,583 / 0,600), medianas 20/20/19: las excursiones
+   largas OLVIDAN su `u` inicial.** La ley de entrada es
+   asintóticamente independiente del arranque — el insumo exacto
+   de mezcla que la transferencia de Arañas y la renovación
+   (ciclos i.i.d.) necesitan. La cadena del argumento futuro:
+   mezcla (medida) + cuota con exponente < ½ (medida, punto 5) +
+   Golondrinas (demostrado) ⟹ recurrencia de la ventana — cada
+   pieza medida tiene ya su forma de lema.
 
 # ⇢ 10-08-2026 (9) — LA LÍNEA FOSTER: TRES INTENTOS, TRES DIAGNÓSTICOS, Y LA OBSERVACIÓN QUE REORDENA EL PROBLEMA
 
