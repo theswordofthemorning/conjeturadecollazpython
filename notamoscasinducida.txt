@@ -60,6 +60,15 @@ LA TENSION EN EL RETORNO ES TEOREMA-FORMA para theta < 1/3: el
 condicionamiento al tiempo de visita, que era el muro (la densidad
 temporal de visitas decae t^(-1/2) y la cota por tiempo fijo se la
 traga), se paga con Holder y un tercio del exponente.
+  [CUALIFICADOR de la revision adversarial local del 11-08 (A8): la
+  cota del Paso 1 hereda el arranque (S_t <= r^t |u_0|^(theta p) + B),
+  asi que en el PRIMER retorno desde un arranque grande el momento
+  crece con |c_0| -- medido: E[|c|^0.3] = 1,67 / 2,94 / 6,36 / 12,25
+  para c_0 = 5/101/2001/20001, sublineal en c_0^0.3. La uniformidad
+  del enunciado vale para las visitas TARDIAS (el arranque ya
+  contraido); la primera visita lleva el factor del arranque, que es
+  exactamente lo que el Paso 4 degrada en i^(2/3). La frase sin este
+  matiz decia mas que su calculo.]
 
 PASO 4 (la iteracion: de una visita a la visita i). tau_i se reparte
 sobre ~i^2 valores de t (el reloj polinomial MEDIDO hoy en

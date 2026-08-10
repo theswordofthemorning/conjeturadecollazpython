@@ -214,7 +214,7 @@ parece.
 
 ## Instalación [historia y avisos: D-03]
 
-`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 11-08-2026: **73 `.py` · 19 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
+`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 11-08-2026: **74 `.py` · 19 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
 
 ## Cómo está repartido el repo [detalle: D-04]
 

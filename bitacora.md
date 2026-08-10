@@ -110,6 +110,24 @@ anteriores reproducidos ⟹ **`λ ≥ 1,987046`** (antes 1,9844); la
 razón de gaps sube 0,809 → 0,831 hacia 1 sin piso — un punto más
 consistente con λ = 2.
 
+**⇢ LA REVISIÓN ADVERSARIAL LOCAL (orden del usuario: en Python, sin
+agentes — `revisionadversarial1108.py`): 10 ataques, 0 ROTOS.** Lo
+que subió de categoría: la monotonía de la poda verificada por A/B
+de tope (podar más agresivo BAJA φ_min: 0,1037 < 0,1044 — la cota
+inferior es cota de verdad); el test de FALSACIÓN del mecanismo pasó
+(V2 a `2·10¹²`: γ sigue cayendo 0,086 → 0,077 — OCHO décadas de
+caída); el lema de las preimágenes de `(1,1)` confirmado por fuerza
+bruta (15,6M transiciones: exactamente `(1,2)`-bit0 y `(2,5)`-bit1);
+la ley del borde y la fila 2 re-enumeradas por vía independiente con
+su parametrización; β plano con semilla fresca (p90 = 7 constante,
+max`|c_i|` jamás visto = 18 bits); las γ y las semillas de V3
+clavadas. **El hallazgo fino de la ronda (A8)**: el momento
+`E[|c|^θ]` en el PRIMER retorno crece con el arranque (sublineal en
+`c₀^θ`) — el cualificador aplicado a `notamoscasinducida.txt`: la
+uniformidad del Paso 3 es de visitas tardías, no de la primera.
+*Etiqueta honesta: revisión propia, no externa — vale como capa 1
+reforzada, no sustituye al trío/adversarial de afuera.*
+
 **PENDIENTES QUE DEJA LA JORNADA**: la adversarial externa de TODA la
 tanda de hoy (regla del ritmo — nada de hoy la tiene);
 los bautizos user-gated que siguen en cola (GARZAS confirmado,
