@@ -5,6 +5,55 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 — GARZAS (propuesto): LA MONEDA CONDICIONADA, LEÍDA POR ALTURA — Y EL EXPONENTE DEL CRITERIO CRUZA 1 HACIA ABAJO
+
+El «último paso» del acta de la 5ª (acotar el desbalance de la moneda
+condicionada bajo el umbral efectivo ~0,2446), atacado con el
+instrumento que faltaba: **`monedacondicionada.py` (el 67º `.py`)** —
+forward-backward EXACTO en enteros sobre la cadena modificada
+(`alfa_s` × `gama_s`, el h-transform medido estado a estado), que
+descompone el sesgo POR ALTURA `k` y POR MITAD de trayectoria, cosa
+que la acumulación forward de `urracas.py` no puede.
+
+**Los tres hallazgos (miden, ORIENTAN):**
+
+1. **El sesgo condicionado al fondo vive en `k ≤ 3`** (más del 99% de
+   las monedas), es `≤ ~0,03` por moneda, DECAE de k=1 a k=3
+   (0,025 / 0,009 / 0,005) y está en LAS DOS mitades — no es efecto
+   de borde final. El TOTAL por trayectoria `E[Ee−E0 | fondo]` crece
+   ~0,003–0,004/paso (0,187 en T=16 → 0,239 en T=30): aun el peor
+   caso lineal da `a_D → ~0,004`, sesenta veces bajo el umbral.
+2. **Condicionado a estar EN `(1,1)`** — el evento cuya serie ES el
+   criterio de `retorno11.py` — el balance `a_V + a_D − a_K` es
+   **NEGATIVO** (~−0,05 y subiendo lento): la obstrucción de CEBRAS
+   (multiplicadores supercríticos en las historias que vuelven) NO
+   aparece en ninguna de las dos condicionadas.
+3. **La ventana de UN estado de LIEBRES, la que el acta dejó
+   INDECIDIDA**: el exponente local de `P(X_t = (1,1))` cruzó 1
+   HACIA ABAJO en t≈22 y baja monótono (1,14 → 0,76 entre t=18 y 30).
+   La serie de Green diverge (= φ=1) sii el decaimiento es más lento
+   que 1/t: **la dirección medida es la de la recurrencia.** Etiqueta
+   honesta: `1/(t·log²t)` también daría α→1⁻ y converge — orienta,
+   no decide.
+
+**La revisión propia, ANTES de entrar (C1–C5):** conservación 2^s;
+identidad de URRACAS entera; objetivo trivial ⟹ sesgo CERO entero;
+**el cruce contra `urracas.py`** (fila t=28 reproducida a 6 cifras
+por algoritmo independiente) — que **cazó un bug real**: contar V en
+los dos bits del vórtice duplica `a_V` y **la identidad del libro
+mayor cierra igual** (exp↔contr y V se compensan, +2−2=0): la
+identidad es DEGENERADA en la convención del vórtice y ningún C2 la
+distingue — lección nueva del oficio; y **la fuerza bruta** (2^12
+palabras una a una, igualdad de enteros en todos los acumuladores y
+el perfil, para los dos objetivos). Pendientes que deja: la
+adversarial externa cuando el usuario la pida (regla del ritmo; se
+suma a la cola de la terna de la madriguera), el volcado a
+`afirmaciones.db` (sigue pendiente de la noche anterior), y el
+bautizo — GARZAS es propuesta. Conteos: **67 `.py` · 18 `.lean` ·
+3 `.db`**. *(De paso, operativo: `lean --version` se colgaba —
+elan en «stable» intentando bajar v4.33; default fijado a v4.32.2,
+lock huérfano borrado.)*
+
 # ⇢ 09-08-2026 (15, madrugada) — CONEJAS EN LEAN: EL 18º, COBRADO CON SU REVISIÓN POR DELANTE
 
 El pendiente que la regla del ritmo dejó esperando, cobrado como

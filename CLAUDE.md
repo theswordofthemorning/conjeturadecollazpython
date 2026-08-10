@@ -214,7 +214,7 @@ parece.
 
 ## Instalación [historia y avisos: D-03]
 
-`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 10-08-2026 (madrugada): **66 `.py` · 18 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
+`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 10-08-2026: **67 `.py` · 18 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
 
 ## Cómo está repartido el repo [detalle: D-04]
 
@@ -348,6 +348,7 @@ for a in sorted(glob.glob('*.py')):
 | **`cadenaqnr.py`** | La cadena para `(qx+r)/2`: ÁGUILAS (`E[m]=(1+q)/4`) y LECHUZAS (`3\|r` ⟹ sin fusión S-igualada); series de `5x+1`/`7x+1` |
 | **`diferenciales.py`** | El perfil diferencial exacto `a_Δ(k)`, `Δ ≤ 16` (la «DDT 2-ádica») |
 | `pisoporvisita.py` / `empalme.py` / `pisoremedido.py` | Las series del piso por visita (la última con el exponente honesto post-revisión) |
+| **`monedacondicionada.py`** | **GARZAS (propuesto, 10-08)**: forward-backward exacto del sesgo de la moneda condicionada, POR ALTURA — vive en `k ≤ 3`, `≤ ~0,03` por moneda, en las dos mitades; el balance condicionado a `(1,1)` es NEGATIVO; y el exponente local de `P(X_t=(1,1))` cruza 1 hacia abajo (0,76 a t=30). Validado contra urracas.py (6 cifras; el cruce cazó la degeneración del vórtice en el libro mayor) y por fuerza bruta entera |
 | **`hormigas.lean`** | El 14º: descenso del gap y de frontera, núcleo puro |
 | **`liebres.py`** | **LIEBRES + CEBRAS** (procedencia: sesión Opus 5 del 09-08; **pasó la 5ª revisión externa con correcciones aplicadas**): `φ = 1 ⟺ Σ P(X_t ∈ C) = ∞` para toda ventana finita C (Doeblin exacto `ε ≥ 17887/131072`; C arbitrario vía Hormigas cualitativo), y el umbral `log 2/log 3` como exponente de Lyapunov (la lectura «deriva de log\|u\|» fue ROTA por la 5ª y está retirada) |
 | **`urracas.py`** | **TEOREMA DE URRACAS** (**aguantó entera la 5ª revisión**): `exp − contr = 2V + (Ee−E0) + k0 − k_t` exacto por palabra; el sesgo del fondo en tres términos medibles contra el umbral 0,26186 (efectivo ~0,2446 en la cadena) |

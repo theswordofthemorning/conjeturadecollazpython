@@ -198,7 +198,21 @@ correcciones aplicadas el mismo cierre):
 condicionada del desbalance de la moneda justa (más la ocupación del
 vórtice, que decae) por debajo del umbral efectivo ~0,2446 por paso.
 El h-transform del paseo crítico de `k` sesga `O(1/k)`, no
-exponencialmente — ésa sigue siendo la vía. **Regalo de la revisión,
+exponencialmente — ésa sigue siendo la vía.
+
+> **⇢ 10-08: el último paso ya tiene su instrumento —
+> `monedacondicionada.py` (GARZAS, propuesto).** Forward-backward
+> exacto: el sesgo condicionado al fondo vive en `k ≤ 3`, es
+> `≤ ~0,03` por moneda y su TOTAL por trayectoria crece sólo
+> ~0,003–0,004/paso (peor caso `a_D → ~0,004`: ×60 bajo el umbral);
+> condicionado a `(1,1)` el balance es **negativo** (la obstrucción
+> de CEBRAS no aparece); y el exponente local de `P(X_t=(1,1))` —
+> la ventana de UN estado, la INDECIDIDA del acta — **cruzó 1 hacia
+> abajo y baja monótono (0,76 a t=30): la dirección es la de la
+> recurrencia.** Todo medido/orienta; validado contra `urracas.py`
+> a 6 cifras y por fuerza bruta entera. El teorema que esto deja a
+> tiro: el desbalance por moneda acotado a la vista es la mitad
+> cuantitativa del `O(1/k)`; falta la cota a priori. **Regalo de la revisión,
 YA COBRADO (09-08 (8)):** el invariante mod 3 resultó ser la puerta de
 CABRAS por la cadena entera y está formalizado en **`cabras.lean` (el
 16º)** con el corolario `torre_sin_ceros` — los saltos de `c = 0` son
