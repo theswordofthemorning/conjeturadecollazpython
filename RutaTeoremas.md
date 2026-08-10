@@ -261,8 +261,15 @@ exponencialmente — ésa sigue siendo la vía.
 > ⟹ `P(X_t ∈ C) ≍ t^{−1/2}` — el lema local entero. Con eso,
 > GAVIOTAS-B da `suma → 0` y **la hipótesis de Kesten de CEBRAS
 > queda demostrada asintóticamente para las historias que vuelven**.
-> Referencia a leer: Erickson 1970 (strong renewal theorem, Trans.
-> AMS) — pendiente bibliográfico nuevo.
+> ⇢ **Erickson FICHADO (10-08, `fichaerickson.txt`)**: α = 1/2
+> exacto es el borde duro — Erickson sólo da `liminf`; el SRT en
+> 1/2 pide la condición de Caravenna–Doney (T1.4 iff; T1.5 el
+> atajo: basta `S(t)·√t → c` finito, y entonces `u(t) ~
+> 1/(π·c·√t) ≈ 0,29/√t` con la `c ≈ 1,1` medida). El empalme:
+> split de Athreya–Ney/Nummelin. Y la lectura que manda: **para
+> φ=1 el SRT ni hace falta** — `Σ P(X_t ∈ C) = ∞ ⟺ recurrencia a
+> secas; el SRT es el ritmo cuantitativo del paper. Todo cuelga de
+> UNA pregunta: `P_{(2,2)}(τ_C < ∞) = 1`.
 >
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,

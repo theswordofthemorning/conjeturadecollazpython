@@ -1,0 +1,104 @@
+FICHA BIBLIOGRAFICA -- EL TEOREMA DE RENOVACION FUERTE (SRT) CON
+MEDIA INFINITA: Erickson 1970, Garsia-Lamperti 1962,
+Caravenna-Doney 2016/2019
+=====================================================================
+(10-08-2026. Leida por agente bibliografico; Erickson primario
+INACCESIBLE (AMS 403, PDF de epoca sin OCR) -- sus enunciados vienen
+del survey de Mitov (Encyclopedia, PDF extraido verbatim) y coinciden
+con como los citan Caravenna-Doney. Leidos DE VERDAD (ar5iv, texto
+completo): Caravenna-Doney arXiv:1612.07635 (Teoremas 1.4 y 1.5) y
+Doney arXiv:1507.06790 (Teorema 4). Los numeros internos de los
+teoremas de Erickson 1970 quedan SIN confirmar: no se citan aqui
+para no inventar.)
+
+PARA QUE LA QUERIAMOS: el esqueleto del lema local (bitacora 10-08
+(8)): regeneracion de Doeblin (LIEBRES) + cola del ciclo ~ t^(-1/2)
++ SRT => P(X_t en C) ~ t^(-1/2). La cola medida: S(t)*sqrt(t) =
+1,03 -> 1,16 en t = 6..33 (deriva suave arriba).
+
+EL VEREDICTO EN CUATRO LINEAS
+-----------------------------
+1. alfa = 1/2 exacto es EL BORDE DURO: Erickson garantiza el SRT
+   solo para alfa en (1/2, 1]; en (0, 1/2] da solo liminf
+   (igual Garsia-Lamperti 1962 en el caso aritmetico), y hay
+   contraejemplos regularmente variables (desde Williamson 1968).
+2. Caravenna-Doney 2019 (T1.4): para alfa <= 1/2 el SRT vale SI Y
+   SOLO SI su condicion integral I1+ es despreciable; y (T1.5) el
+   atajo para alfa = 1/2: basta sup_{s<=x} A(s)/sqrt(s) =
+   O(A(x)/sqrt(x)) con A = 1/cola.
+3. TRADUCIDO A NUESTRO CICLO: si S(t)*sqrt(t) -> c finito, (1.14) se
+   cumple trivial => SRT automatico y u(t) ~ 1/(pi c sqrt(t)) ~
+   0,29/sqrt(t) con c ~ 1,1. Si S(t)*sqrt(t) sube a infinito
+   (correccion lenta), hay que verificar I1+ a mano (suficiente
+   estilo Doney 1997: masa puntual p(t) = O(cola(t)/t), sin picos) y
+   el local cambia a t^(-1/2)/l(t).
+4. Y LA LECTURA QUE MANDA: para phi = 1 el SRT NI HACE FALTA --
+   Sigma_t P(X_t en C) = infinito <=> recurrencia, a secas (visitas
+   esperadas a un conjunto finito). El SRT es para el LOCAL
+   cuantitativo (el ritmo t^(-1/2) del paper), no para la
+   divergencia. Coincide con la precision de capa 1 de la bitacora:
+   S(t) -> 0 ES la pregunta.
+
+LOS ENUNCIADOS
+--------------
+Marco: F sobre (0, inf) (largos de ciclo iid tras la regeneracion),
+cola F*(t) = l(t) t^(-alfa) regularmente variable, alfa en (0,1);
+m(t) = integral de F* hasta t; u(n) = P(renovacion en n).
+
+- ERICKSON 1970 (global): U(t) ~ C_alfa t/m(t), C_alfa =
+  1/(Gamma(1+alfa) Gamma(2-alfa)).
+- ERICKSON 1970 (Blackwell con media infinita, via survey de Mitov):
+  alfa en (1/2, 1]: lim m(t) [U(t) - U(t-h)] = C_alfa h;
+  alfa en (0, 1/2]: solo liminf.
+- GARSIA-LAMPERTI 1962 (aritmetico): liminf n^(1-alfa) L(n) u_n =
+  sin(pi alfa)/pi para todo alfa en (0,1); es lim si 1/2 < alfa < 1.
+- LA FORMA LOCAL (cuando el SRT vale):
+      u(n) ~ (sin(pi alfa)/pi) / (n * F*(n))
+  y en alfa = 1/2: u(t) ~ (1/pi) / (t F*(t)) = 1/(pi c sqrt(t)) si
+  F*(t) ~ c/sqrt(t). Con c ~ 1,03-1,16: u(t) ~ 0,27-0,31 t^(-1/2).
+  (Ojo reticulo: si el retorno vive en paso d, factor d y n en d*N.)
+- CARAVENNA-DONEY T1.4 (iff, alfa <= 1/2):
+      lim_{delta->0} limsup_x  x F*(x) *
+          integral_{1<=z<=delta x} F(x - dz) / (z F*(z)^2)  =  0.
+  (Forma discreta, Doney arXiv:1507.06790 T4: (5) lim x F*(x) p(x)
+  = 0 y (6) la suma analoga con p(x-w)/(w F*(w)^2).)
+- CARAVENNA-DONEY T1.5 (suficiente, alfa = 1/2, su (1.14)):
+      sup_{1<=s<=x} A(s)/sqrt(s) = O(A(x)/sqrt(x)),  A = 1/F*.
+  Se lee: la parte lenta de la cola nunca estuvo muy por debajo de
+  su valor actual. Si (1.14) falla hay ejemplos donde el SRT falla.
+
+EL EMPALME A P(X_t en C)
+------------------------
+Split de Athreya-Ney (Trans. AMS 245, 1978) / Nummelin (1978): la
+minorizacion de Doeblin da ciclos iid y deja todo en el SRT.
+Despues P(X_t en C) = Sigma_s u(s) g(t-s) con g = ocupacion de C por
+ciclo (sumable: geometrica via el propio Doeblin, aunque E[ciclo] =
+infinito). Los key renewal theorems publicados (Erickson, Teugels
+1968, Anderson-Athreya 1987) cubren alfa en (1/2, 1]; en 1/2 se hace
+a mano desde el SRT (rutina con u(t-j)/u(t) -> 1). Kesten 1974
+(renovacion para funcionales de cadenas) es media FINITA: no aplica.
+Analogo operatorial con el mismo dilema: Melbourne-Terhesiu, Invent.
+Math. 189 (2012), mejoras de Gouezel para alfa <= 1/2.
+
+REFERENCIAS EXACTAS
+-------------------
+- K. B. Erickson, Strong renewal theorems with infinite mean, Trans.
+  AMS 151 (1970) 263-291; y A renewal theorem for distributions on
+  R^1 without expectation (1971).
+- A. Garsia, J. Lamperti, A discrete renewal theorem with infinite
+  mean, Comment. Math. Helv. 37 (1962) 221-234.
+- F. Caravenna, R. A. Doney, Local large deviations and the strong
+  renewal theorem, arXiv:1612.07635 = Electron. J. Probab. 24
+  (2019). (El arXiv:1507.07502 esta SUPERSEDIDO por este; el gemelo
+  independiente es Doney arXiv:1507.06790.)
+- R. A. Doney, One-sided local large deviation and renewal theorems
+  in the case of infinite mean, PTRF 107 (1997) (suficiente p(x) =
+  O(F*(x)/x)). Williamson 1968 (contraejemplos). Z. Chi ~2014-15
+  (criterios integrales).
+- Athreya-Ney 1978 / Nummelin 1978 (el split).
+
+FIABILIDAD: los enunciados de Caravenna-Doney y Doney son verbatim
+de ar5iv; los de Erickson/Garsia-Lamperti, del survey de Mitov (de
+segunda mano, consistentes con las citas de C-D); los dos calculos
+de aplicacion (que (1.14) es trivial con l acotada; el 0,29/sqrt(t))
+son del agente, verificados dos veces, sin adversarial.
