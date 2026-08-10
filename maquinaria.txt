@@ -150,7 +150,57 @@ portable, para cualquier problema donde se estime algo por
 simulacion.
 
 --------------------------------------------------------------------
+6. LA COTA DEL TIMING -- TEOREMA-OBJETIVO (10-08-2026), puro
+   probabilidad, sin Collatz: LA ULTIMA PIEZA ANALITICA DEL PROGRAMA
+--------------------------------------------------------------------
+Enunciado libre de contexto. Sea S un paseo +-1 JUSTO sobre los
+enteros no negativos con reflexion en 0 (la reflexion concreta:
+tiempo de espera geometrico en el borde) y con HORARIO: en cada
+instante el paseo esta activo (da el paso) o perezoso (se queda),
+segun una sucesion de horario. El objetivo:
+
+    kappa(m) := sup | P(S_m <= 1 | horario H) - P(S_m <= 1 | H') |
+                sobre pares de horarios H, H' que difieren en UN slot
+
+    DEMOSTRAR:  kappa(m) <= C/m.
+
+Por que es cierto y por que es clasico: cambiar un slot perezoso por
+activo es aplicar medio paso extra del nucleo del calor discreto, y
+
+    P(S_(n+1) <= a) - P(S_n <= a) = (p_n(a+1) - p_n(a))/2,
+
+el GRADIENTE de la densidad local -- que el CLT local acota por
+C'/n para el paseo justo (el maximo del gradiente gaussiano escala
+como n^(-1); la reflexion en 0 lo dobla a lo sumo). MEDIDO en la
+cadena real (firmaacoplamiento.py, el nucleo de sensibilidad):
+kappa*m ~ 0,42-0,52 estable en m = 4..24 -- la forma 1/m clavada.
+(El valor 0,45 no se compara con la constante gaussiana: el numero
+de pasos ACTIVOS es una fraccion del horizonte y la reflexion mete
+su factor; la FORMA es lo verificado, la constante es de la casa.)
+
+EL SALTO QUE FALTA, dicho honesto: en la cadena real el horario NO
+es exogeno -- lo genera la paridad de c, que retroalimenta con los
+bits. La reduccion de TORTOLAS deja el sesgo condicionado escrito
+como (probabilidad de romper el acoplamiento en j) x (sensibilidad
+de horario a horizonte m - j), con P(j* = j) ~ 2^(-j); si kappa <=
+C/m vale con horario ENDOGENO (o si la retroalimentacion se acota
+aparte), la composicion da
+
+    E[Ee - E0 | fondo, T]  <=  Sigma_j 2^(-j) C/(m-j)  ~  C log T
+    =>  a_D <= C log T / T  ->  0,
+
+sesenta veces bajo el umbral efectivo 0,2446 ya en T = 30 y
+DESVANECIENDOSE -- la hipotesis de Kesten de la cadena (CEBRAS)
+quedaria demostrada asintoticamente para las historias que vuelven.
+Estado: objetivo enunciado con su medicion detras (kappa medida,
+composicion cerrada contra nivel Y tasa de la serie de GARZAS);
+el teorema con horario exogeno es ejercicio de CLT local; el
+endogeno es la pieza de verdad.
+
+--------------------------------------------------------------------
 El orden de ataque si estos objetivos se persiguen de verdad:
-1 (ya tiene instrumento y linea exacta) -> 2 (nota corta, teorema
-hecho) -> 5 (redaccion) -> 3 y 4 (exigen leer literatura ajena
-primero -- la leccion de Wu-Huang: buscar en el indice correcto).
+6 (LA pieza del programa: primero el lema exogeno, despues la
+retroalimentacion) -> 1 (ya tiene instrumento y linea exacta) -> 2
+(nota corta, teorema hecho) -> 5 (redaccion) -> 3 y 4 (exigen leer
+literatura ajena primero -- la leccion de Wu-Huang: buscar en el
+indice correcto).
