@@ -134,6 +134,55 @@ theorem impar_impar_impar (u v e : Int)
     (h : (2 * v + 1) - (2 * u + 1) = 2 * e + 1) : False := by omega
 
 -- ---------------------------------------------------------------------
+-- LA LEY DE LA MUERTE DE LA RACHA (10-08-2026, el sub-lema mod 4 del
+-- lema local): los dos hijos de la moneda en (k, c par) son AMBOS
+-- pares -- la racha compartida sigue segura -- exactamente cuando
+-- a = c/2 es par Y m = (3^k - 1)/2 es par; y m es par si y solo si k
+-- es par (3^k mod 4 alterna 3, 1, 3, 1...). En cualquier otro caso al
+-- menos un bit mata la racha: la cola del reloj de los mixtos es
+-- geometrica de tasa >= 1/2 (medido: P(racha >= j) * 2^j -> 0,9265).
+-- Testigos: c = 2a, 3^k = 2m+1; hijos a y 3a - m.
+-- ---------------------------------------------------------------------
+
+-- si a y m son pares, ambos hijos son pares (la racha sigue)
+theorem racha_sigue (u v : Int) : ∃ w, (3 * (2 * u) - 2 * v) = 2 * w := by
+  exact ⟨3 * u - v, by omega⟩
+
+-- si a es impar, el hijo 0 (= a) es impar: la racha muere con bit 0
+theorem racha_muere_a_impar (u : Int) : 2 * u + 1 ≠ 2 * ((2 * u + 1) / 2) := by
+  omega
+
+-- si a es par y m es impar, el hijo 1 = 3a - m es impar: muere con bit 1
+theorem racha_muere_m_impar (u v : Int) :
+    3 * (2 * u) - (2 * v + 1) = 2 * (3 * u - v - 1) + 1 := by omega
+
+-- y la alternancia de 3^k mod 4 que decide la paridad de m:
+-- pot3 par = 4q + 1 (m par), pot3 impar = 4q + 3 (m impar)
+theorem pot3_mod4 : ∀ n : Nat,
+    (∃ q : Int, pot3 (2 * n) = 4 * q + 1) ∧
+    (∃ q : Int, pot3 (2 * n + 1) = 4 * q + 3) := by
+  intro n
+  induction n with
+  | zero => exact ⟨⟨0, rfl⟩, ⟨0, rfl⟩⟩
+  | succ p ih =>
+      cases ih with
+      | intro hpar himp =>
+        cases hpar with
+        | intro q hq =>
+          constructor
+          · show ∃ r, pot3 (2 * p + 1 + 1) = 4 * r + 1
+            cases himp with
+            | intro s hs =>
+              exact ⟨3 * s + 2, by show 3 * pot3 (2 * p + 1) = _; omega⟩
+          · show ∃ r, pot3 (2 * p + 1 + 1 + 1) = 4 * r + 3
+            cases himp with
+            | intro s hs =>
+              have h2 : pot3 (2 * p + 1 + 1) = 3 * pot3 (2 * p + 1) := rfl
+              exact ⟨9 * s + 6, by
+                show 3 * pot3 (2 * p + 1 + 1) = _
+                rw [h2]; omega⟩
+
+-- ---------------------------------------------------------------------
 -- LA INSTANCIA DEL REPO, con la transicion REAL de la cadena
 -- modificada (definida aqui solo para las instancias; los teoremas de
 -- arriba no dividen). La moneda (k=2, c=8): hijos (2,4) y (2,8),
@@ -198,6 +247,10 @@ theorem testigo_2_8 : (8 : Int) - 4 = pot2 2 * 1 ∧ pot2 2 * (1 : Int) = 4 := b
 #print axioms impar_menos
 #print axioms par_par_impar
 #print axioms impar_impar_impar
+#print axioms racha_sigue
+#print axioms racha_muere_a_impar
+#print axioms racha_muere_m_impar
+#print axioms pot3_mod4
 #print axioms hijos_2_8
 #print axioms acuerdo_antes
 #print axioms divergencia_en_2

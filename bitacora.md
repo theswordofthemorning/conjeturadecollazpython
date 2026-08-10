@@ -5,6 +5,39 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (7) — LA CORRECCIÓN 50 (cazada por Opus 5, vía el usuario) Y EL TEOREMA B: LA SUMA ENTERA, BAJO EL UMBRAL
+
+**La crítica, y es correcta**: el umbral efectivo 0,2446 del
+corolario de URRACAS es sobre **LA SUMA `a_V + a_D − a_K`**, no
+sobre `a_D` solo — y la entrada (6) escribía «a_D ≤ 0,0739 < 0,2446
+— CERTIFICADO», comparando una parte contra el umbral del todo,
+con el término MAYOR (`a_V`) sin cota. Tenía la forma exacta de los
+errores históricos y es la **corrección nº 50** (en la base).
+
+**La respuesta de fondo (teorema B de GAVIOTAS, mismo día): el
+mismo argumento martingala acota LA SUMA ENTERA.** En el libro de
+URRACAS el paso del vórtice también es moneda centrada (bit 0 =
+tipo 6 contractivo, bit 1 = tipo 9 expansivo), igual que mixtos y
+monedas; el ÚNICO paso no centrado es el tipo 3 (frontera impar,
+contractiva segura), que RESTA. Así `exp − contr = Σ ε'_s − #tipo3`
+con todos los `ε'` justos dado el pasado, y
+
+> `E[a_V + a_D − a_K | F] ≤ (√(N'·V') − E[#tipo3·1_F]) / (P(F)·T)`
+
+con la ayuda tipo-3 computada EXACTA. **La cota fina: 0,198 /
+0,196 / 0,194 / 0,192 en T = 16…28 — LA SUMA ENTERA certificada
+POR DEBAJO de 0,2446 en todos los T computados, bajando** (valor
+real 0,019; `a_V` absorbido en la martingala, sin cota aparte).
+C4 ahora EXIGE la cota fina bajo el umbral con `SystemExit`. El
+asintótico queda igual: `O(T^{−1/4}) → 0` módulo el lema local
+`P(F) ≥ c/√T`. Y de esta ronda: los cuatro lemas de la muerte de
+la racha (`racha_sigue`, `racha_muere_*`, `pot3_mod4`) entraron a
+`tortolas.lean` (0 `sorryAx`) — la cola geométrica del reloj de los
+mixtos, medida exacta (`P(racha ≥ j)·2^j → 0,9265`), tiene ya su
+aritmética demostrada. **La lección de la 50**: una cota nueva se
+compara contra el umbral DE SU PROPIA CANTIDAD — parte contra
+umbral de suma es el cuantificador escondido de las cotas.
+
 # ⇢ 10-08-2026 (6) — GAVIOTAS (propuesto): LA COTA MARTINGALA — EL «ÚLTIMO PASO», CERTIFICADO BAJO EL UMBRAL A T FIJO
 
 **El resultado más fuerte de la jornada, y esquiva el hueco de la
@@ -23,7 +56,10 @@ endogeneidad por completo.** `gaviotas.py` (el 69º `.py`):
 Los números (tabla de `gaviotas.py`, exactos): a T=24 la cota da
 **`a_D ≤ 0,0739 < 0,2446` — el «último paso» del acta de la 5ª
 queda CERTIFICADO bajo el umbral efectivo a T fijo, con desigualdad
-demostrada + aritmética exacta y CERO lemas pendientes**; la cota
+demostrada + aritmética exacta y CERO lemas pendientes** *(⇢
+CORREGIDO en la entrada (7): el umbral 0,2446 es de LA SUMA
+`a_V + a_D − a_K`, no de `a_D` solo — corrección nº 50; la
+reparación, el teorema B, salió MÁS FUERTE)*; la cota
 baja con T (0,0851 → 0,0705 en T = 16→28) y la holgura contra el
 valor real es ×8. Asintótico: con `P(F) ~ 1,37/√T` (medido),
 `a_D = O(T^{−1/4}) → 0` — el único pendiente asintótico es el lema

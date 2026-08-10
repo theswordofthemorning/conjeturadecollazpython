@@ -230,18 +230,23 @@ exponencialmente — ésa sigue siendo la vía.
 > `tortolas.lean`, 20 teoremas, 0 `sorryAx` — queda la cota del
 > timing como ÚNICO frente analítico.)*
 >
-> **⇢ 10-08 (4): GAVIOTAS — EL ÚLTIMO PASO, CERTIFICADO A T FIJO.**
-> La cota martingala (`gaviotas.py`): `|E[(Ee−E0)·1_F]| ≤
-> √(N_c·V_c) ≤ √(N_c·P(1−P))` — ocho líneas (bits justos dado el
-> pasado + Doob + Cauchy–Schwarz), **la endogeneidad del horario
-> desaparece del argumento**. A T=24: `a_D ≤ 0,0739 < 0,2446`,
-> certificado con aritmética exacta y CERO lemas pendientes;
-> ortogonalidad verificada como igualdad de racionales. Asintótico
+> **⇢ 10-08 (4): GAVIOTAS — LA COTA MARTINGALA, y tras la
+> corrección nº 50, LA SUMA ENTERA BAJO EL UMBRAL.** La cota
+> (`gaviotas.py`): bits justos dado el pasado + Doob +
+> Cauchy–Schwarz — **la endogeneidad del horario desaparece del
+> argumento**. La corrección 50 (cazada por Opus 5): el umbral
+> 0,2446 es de LA SUMA `a_V + a_D − a_K`, no de `a_D` solo; la
+> reparación salió más fuerte: el vórtice es moneda centrada (a_V
+> absorbido en la martingala) y la frontera impar resta, y la cota
+> fina certifica **la SUMA entera bajo 0,2446 en todos los T
+> computados** (0,198→0,192 en T = 16…28; valor real 0,019).
+> Ortogonalidad verificada como igualdad de racionales. Asintótico
 > `O(T^{−1/4}) → 0` módulo UN lema local: `P(fondo en T) ≥ c/√T`
-> (medido: `P·√T ≈ 1,37` estable — forma Lamperti clásica). **El
-> programa queda así: el desbalance está DEMOSTRADO bajo el umbral
-> a todo T alcanzable, y el cierre asintótico depende de un único
-> lema local con forma clásica.**
+> (medido: `P·√T` = 1,27→1,38 a t=34 — forma Lamperti clásica; la
+> ruta v₂ del reloj, con sus lemas de racha ya en `tortolas.lean`).
+> **El programa queda así: el balance de Lyapunov condicionado está
+> DEMOSTRADO bajo el umbral a todo T computado, y el cierre
+> asintótico depende de un único lema local con forma clásica.**
 >
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,

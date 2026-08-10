@@ -2875,6 +2875,30 @@ AFIRMACIONES = [
          "suavidad del nucleo de un paseo justo perezoso, desacoplado "
          "de c. Todo mide y orienta; el veredicto sigue siendo del "
          "mecanismo."),
+
+    fila("GAVIOTAS (PROPUESTO) - LA COTA MARTINGALA, en dos teoremas. "
+         "(A) |E[(Ee-E0) 1_F]| <= sqrt(N_c V_c) con V_c <= Var(1_F): "
+         "bits justos dado el pasado + Doob + Cauchy-Schwarz, ocho "
+         "lineas -- LA ENDOGENEIDAD DEL HORARIO DESAPARECE DEL "
+         "ARGUMENTO. (B, la reparacion de la correccion 50): el "
+         "vortice es moneda CENTRADA (tipos 6/9) y la frontera impar "
+         "(tipo 3, contractiva segura) RESTA, luego exp - contr = "
+         "Sigma eps'_s - #tipo3 con todos los eps' centrados, y "
+         "E[a_V + a_D - a_K | F] <= (sqrt(N' V') - E[#tipo3 1_F]) / "
+         "(P(F) T): LA SUMA ENTERA del corolario de Urracas, acotada "
+         "-- a_V absorbido en la martingala, sin cota aparte",
+         "verificado_hasta", "demostrado", "gaviotas.py", "propio",
+         "10-08-2026. La desigualdad es teorema (demostracion en el "
+         "encabezado, sin nada de Collatz); los numeros son exactos: "
+         "la cota fina da 0,198 / 0,196 / 0,194 / 0,192 en T = 16, "
+         "20, 24, 28 -- LA SUMA CERTIFICADA BAJO EL UMBRAL EFECTIVO "
+         "0,2446 en todos los T computados (valor real 0,019). "
+         "Ortogonalidad Sigma E[dM^2] = P(1-P) verificada como "
+         "IGUALDAD DE RACIONALES (Fraction); cruce con GARZAS a 6 "
+         "cifras. El asintotico (todo T grande) queda O(T^(-1/4)) "
+         "modulo el lema local inferior P(fondo en T) >= c/sqrt(T) "
+         "(medido: P sqrt(T) = 1,27 -> 1,38 a t = 34, subiendo "
+         "suave). Bautizo y adversarial externa en cola."),
 ]
 
 
@@ -3549,6 +3573,22 @@ CORRECCIONES = [
      "cruce con una implementacion que no comparte codigo distingue las "
      "dos convenciones -- otra vez la regla de los tres, ahora sobre "
      "contabilidad interna"),
+
+    ("GAVIOTAS certifica el ultimo paso: a_D <= 0,0739 < 0,2446 a T fijo "
+     "-- el desbalance de la moneda condicionada queda bajo el umbral "
+     "efectivo",
+     "el umbral 0,2446 del corolario de URRACAS es sobre LA SUMA "
+     "a_V + a_D - a_K, no sobre a_D solo: la frase comparaba una parte "
+     "contra el umbral del todo, con el termino MAYOR (a_V, la ocupacion "
+     "del vortice) sin cota. Lo cazo la revision de Opus 5 (via el "
+     "usuario) el mismo dia, 10-08-2026. La reparacion salio MAS FUERTE "
+     "(teorema B de gaviotas.py): el vortice es moneda centrada y el "
+     "mismo argumento acota la suma entera bajo el umbral en todos los "
+     "T computados (cota fina 0,192-0,198)",
+     "una cota nueva se compara contra el umbral DE SU PROPIA CANTIDAD: "
+     "parte contra umbral de suma es el cuantificador escondido de las "
+     "cotas. Y el termino sin acotar era EL MAYOR -- mirar siempre "
+     "cual de los sumandos manda antes de celebrar la cota del chico"),
 ]
 
 
