@@ -26,6 +26,22 @@ desde el rebote `(2,2)` con absorción exacta al entrar al fondo:
    simple mod 9: el residuo 5 sí vive en k=2). Consistente con
    PALOMAS: el pre-vórtice se puebla desde ADENTRO de la
    circulación del fondo — la absorción exige recircular.
+3. **La anatomía de la entrada**: TODO ingreso viene de `k=2` (la
+   única puerta, estructural) y el paso de entrada ES la rama
+   expansiva (`bit1` en impar: `u → (3u−1)/2`) — la entrada
+   selecciona ×1,5-2 de `u`, por eso aterriza en el borde de la
+   ventana y no en el atractor. Mediana de `|c|` al entrar: 8 → 23
+   (t = 9…33), crecimiento sublineal; q90: 19 → 95.
+4. **LA LECTURA DE TRABAJO (etiqueta: ajuste de exponentes en dos
+   décadas — punto 5 de la capa 1, NO resultado)**: la cuota de
+   ventana en la entrada cae `~t^{−0,50}` (log(0,94/0,54) /
+   log(33/11) ≈ 0,50); con densidad de visitas `~t^{−1/2}`, la
+   serie de Green iría como `Σ 1/t`: **divergente POR UN
+   LOGARITMO** — φ=1 en el filo exacto. Explicaría de una vez por
+   qué TODAS las series del programa (la razón de b, r_25, S(t),
+   p_t) convergen con lentitud agónica: κ=1 crítico en todas
+   partes, marginalidad máxima en todas las coordenadas. Es la
+   hipótesis de trabajo a testear — no una conclusión.
 
 # ⇢ 10-08-2026 (9) — LA LÍNEA FOSTER: TRES INTENTOS, TRES DIAGNÓSTICOS, Y LA OBSERVACIÓN QUE REORDENA EL PROBLEMA
 
