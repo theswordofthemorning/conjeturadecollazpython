@@ -108,8 +108,8 @@ from fractions import Fraction
 import math
 import time
 
-T_MAX = 28
-TES = (16, 20, 24, 28)
+T_MAX = 30
+TES = (16, 20, 24, 28, 30)
 FONDO_K = 1
 UMBRAL_EFECTIVO = 0.2446
 CRUCE_GARZAS = {24: 0.009087, 28: 0.008330}   # a_D de monedacondicionada.py

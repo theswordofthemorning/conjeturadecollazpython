@@ -5,6 +5,27 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (8) — T=30 EN LA TABLA CERTIFICADA, Y EL ESQUELETO DEL LEMA LOCAL CON NOMBRES: DOEBLIN + LAMPERTI + ERICKSON
+
+Cierre de la jornada: la tabla de GAVIOTAS-B extendida a **T=30**
+(cota fina 0,1906 — quinta fila bajo el umbral, bajando). Y el lema
+local inferior (`P(fondo en T) ≥ c/√T`, lo único asintótico que
+queda) recibió su **esqueleto clásico con nombres**, tras descartar
+por circular la vía del piso-por-constructor (sólo transfiere el
+piso entre tiempos vecinos — queda como lema de suavizado):
+
+1. **Regeneración de Doeblin** sobre el conjunto finito de LIEBRES
+   (ε ≥ 17887/131072, ya exacto) ⟹ ciclos de renovación.
+2. **La cola del ciclo `P(τ > t) ≍ t^{−1/2}`** — el paseo crítico
+   de `k` con reloj de cola geométrica (medida exacta
+   `P(racha ≥ j)·2^j → 0,9265`; los lemas de racha ya en
+   `tortolas.lean`). **La única pieza por demostrar.**
+3. **Erickson 1970** (strong renewal theorem) ⟹ `P(X_t ∈ C) ≍
+   t^{−1/2}` — el lema local entero, y con GAVIOTAS-B, `suma → 0`:
+   la hipótesis de Kesten de CEBRAS demostrada asintóticamente para
+   las historias que vuelven. Pendiente bibliográfico nuevo:
+   Erickson, Trans. AMS 1970.
+
 # ⇢ 10-08-2026 (7) — LA CORRECCIÓN 50 (cazada por Opus 5, vía el usuario) Y EL TEOREMA B: LA SUMA ENTERA, BAJO EL UMBRAL
 
 **La crítica, y es correcta**: el umbral efectivo 0,2446 del

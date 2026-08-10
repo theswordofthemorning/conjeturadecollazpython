@@ -248,6 +248,22 @@ exponencialmente — ésa sigue siendo la vía.
 > DEMOSTRADO bajo el umbral a todo T computado, y el cierre
 > asintótico depende de un único lema local con forma clásica.**
 >
+> **⇢ 10-08 (5): el esqueleto clásico del lema local, con nombres.**
+> La vía que NO es circular (la del piso por constructor lo era:
+> `P(F_T) ≥ 2^{−w}·P(ventana en T−w)` sólo TRANSFIERE el piso entre
+> tiempos — queda como lema de suavizado): **(i) regeneración de
+> Doeblin sobre el conjunto finito de LIEBRES** (ε ≥ 17887/131072,
+> ya exacto) ⟹ ciclos de renovación i.i.d.; **(ii) cola del ciclo
+> `P(τ > t) ≍ t^{−1/2}`** — el paseo crítico de `k` con el reloj de
+> cola geométrica (los lemas de racha de `tortolas.lean`) — la única
+> pieza por demostrar; **(iii) el teorema de renovación fuerte de
+> Erickson** (renovaciones nulas-recurrentes con cola `t^{−1/2}`)
+> ⟹ `P(X_t ∈ C) ≍ t^{−1/2}` — el lema local entero. Con eso,
+> GAVIOTAS-B da `suma → 0` y **la hipótesis de Kesten de CEBRAS
+> queda demostrada asintóticamente para las historias que vuelven**.
+> Referencia a leer: Erickson 1970 (strong renewal theorem, Trans.
+> AMS) — pendiente bibliográfico nuevo.
+>
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,
 > firma del laplaciano discreto; C4 de `firmaacoplamiento.py`).
