@@ -250,9 +250,11 @@ igualada». Palomas y el criterio: aguantaron todos los ataques.
 Retaguardia: ⇢ SALDADA la misma noche — `pisoremedido.py` (el piso
 sobrevive a `e = 5`: α = 0,675 < 1 bajando) y **`hormigas.lean`, el
 14º `.lean`** (descenso del gap en los dos regímenes + descenso de
-frontera exacto, núcleo puro, a la primera). Queda del 15º: el
-aterrizaje de N2 en `v₂ = A−1` (2-ádica con signo), y el paso
-teórico abierto de siempre: la estacionaria condicionada.
+frontera exacto, núcleo puro, a la primera). ⇢ El aterrizaje de N2
+en `v₂ = A−1` (2-ádica con signo) quedó COBRADO el 09-08 (12):
+**`aterrizajen2.lean`, el 17º** (tres teoremas con testigos sin
+división, cotejados en 42.196 instancias). El paso teórico abierto
+de siempre sigue siendo la estacionaria condicionada.
 
 ## Dónde está el programa, en cinco líneas
 

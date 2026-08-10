@@ -5,6 +5,37 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (12) — EL ATERRIZAJE DE N2, EN LEAN: EL 17º `.lean`, Y EL PENDIENTE DECLARADO DE GOLONDRINAS, COBRADO
+
+**`aterrizajen2.lean`** — la pieza 2-ádica CON SIGNO del lema del
+descenso de Golondrinas, la que la bitácora 09-08 (5) declaró
+candidata al siguiente `.lean`. Tres teoremas, estilo testigos sin
+división (la valuación viaja en los testigos, `A = B+1` y `w`
+parametrizado para esquivar la resta en `Nat`):
+
+- **`aterrizaje_N2`**: si `v₂(c) > A = v₂(3^k−1)`, el paso bit 1
+  entrega `2·(2^{A−1}·impar explícito)` — aterriza EXACTO en
+  `v₂ = A−1`;
+- **`aterrizaje_c0`**: `c = 0` igual (el impar es `−(2b+1)`);
+- **`descenso_bajo_A`**: si `v₂(c) < A`, baja EXACTO en 1 (el
+  descenso determinista de L2).
+
+El mecanismo formalizado es la línea de `oscilacion.py`: `3c+1−3^k =
+3c − 2^A·impar` y el mínimo de valuaciones cuando difieren. Táctica:
+`pot2_add` propio + distribución y normalización AC con `simp only` +
+`omega` sobre los átomos — compiló con esa receta a la tercera
+iteración. `#print axioms` limpio en los cinco, casos conocidos por
+`decide` e instanciación de los teoremas generales con los mismos
+números. **El caso `v₂ = A` queda fuera A PROPÓSITO** (es la única
+subida posible — C1c de `oscilacion.py`).
+
+**Revisión adversarial propia:** los tres enunciados instanciados con
+sus testigos exactos contra el numerador real del paso bit 1 —
+**42.196 instancias** (`k = 1…10`, `|c| ≤ 6000` par), 0 fallos, impar
+del testigo verificado en todas. Conteos: **64 `.py` · 17 `.lean` ·
+3 `.db`**. El pendiente que queda de esta línea es el de siempre: la
+estacionaria condicionada.
+
 # ⇢ 09-08-2026 (11) — LA LOCALIZACIÓN: EL INGREDIENTE COMBINATORIO DE `e₈` ENTRA TODO POR EL CANAL PAR, Y `e^h₈` TIENE FORMA CERRADA
 
 La continuación inmediata del (10), por los canales de NUTRIAS
