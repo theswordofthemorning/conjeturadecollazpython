@@ -1,0 +1,120 @@
+EL TEOREMA V2 -- EL PLAN DE DEMOSTRACION A NIVEL DE LEMAS
+(11-08-2026, el cierre analitico de la jornada satelital. ESTADO:
+plan con tres piezas -- dos elementales, una con molde AGKV --
+NINGUNA escrita con todo rigor todavia. Sin bautizo. El enunciado
+es el V2 de sombraexogena.py / notaLAautonoma.txt, legitimado por
+la prueba de circularidad: reproducir la cadena a +-0,03.)
+
+=====================================================================
+EL ENUNCIADO (autonomo, cero Collatz)
+=====================================================================
+
+Bits justos b_t (dado el pasado); reloj exogeno m_t (mixto con prob
+1/2, o rachas geometricas -- ambas variantes valen); paseo k desde 2
+que en pasos mixtos baja con b = 1 y sube con b = 0, absorbido en
+k = 1 (tiempo tau); perpetuidad u_0 = x, y en TODO paso
+u <- u/2 (b = 0) o u <- (3u - 1)/2 (b = 1).
+
+  TEOREMA V2 (objetivo). Existen constantes K y c > 0 (universales,
+  independientes de x) con
+
+      phi_V2(x) := P( |u_tau| <= K )  >=  c / sqrt(ln x).
+
+Con esto, la reduccion del programa cierra por su lado autonomo:
+Levy solo pide Sigma_i phi(|c_i|) = infinito con arranques planos
+(beta = 0 medido), y un piso 1/sqrt(log) lo da de sobra; Liebres
+acepta CUALQUIER ventana finita, asi que K universal basta (ver la
+pieza 3: la universalidad de K es el punto tecnico de verdad).
+
+=====================================================================
+LAS TRES PIEZAS
+=====================================================================
+
+PIEZA 1 (clasica): EL PASEO SE ABSORBE EN LA VENTANA TEMPORAL BUENA.
+  Sea T = C1 * ln x (C1 a elegir en la pieza 2). Entonces
+
+      P( tau en [T, 2T] )  >=  c1 / sqrt(T).
+
+  Es primer-pasaje de un paseo justo perezoso desde altura 1 sobre
+  la barrera: P(sobrevivir T) ~ c/sqrt(T) (reflexion/balota para el
+  paseo embebido + concentracion del reloj: mixtos ~ T/2 con
+  fluctuacion sqrt(T)), y absorberse en la ventana siguiente cuesta
+  un factor constante. Con reloj de rachas geometricas: la
+  concentracion del reloj es Chernoff estandar. TODO CLASICO.
+
+PIEZA 2 (elemental -- ni CLT hace falta): LA CONTRACCION CONDICIONADA
+  SUPERA ln x POR CHEBYSHEV.
+  Condicionado al camino del paseo (que fija los bits de los pasos
+  mixtos), los pasos compartidos llevan bits LIBRES y justos. El
+  log-multiplicador total al tiempo tau es
+
+      log prod_tau = (forzado por el camino) + (libre)
+
+  con: forzado = -s ln2 + (s+1) ln(3/2) <= ln(3/2) (el balance
+  s subidas / s+1 bajadas: QUELTEHUES pieza (2), aqui exacta POR
+  CONSTRUCCION); libre = paseo de L_c ~ tau/2 pasos, media
+  -0,1438 L_c, desviacion 0,549 sqrt(L_c).
+  Con tau >= T = C1 ln x y C1 = 30: media libre <= -2 ln x para
+  todo x grande, y desviacion O(sqrt(ln x)) << ln x. Chebyshev:
+
+      P( log prod_tau <= -ln x  |  camino con tau >= T )  >=  3/4.
+
+  O sea: condicionado a durar, la parte multiplicativa del arranque
+  MUERE con probabilidad 3/4. Sin CLT, sin grandes desviaciones.
+
+PIEZA 3 (LA TECNICA, molde AGKV): LA PERPETUIDAD DE OFFSETS TIENE
+  MEDIANA UNIVERSAL BAJO EL PASEO CONDICIONADO.
+  u_tau = prod_tau * x + W_tau, con W_tau = Sigma_j delta_j *
+  (producto de j+1 a tau), |delta_j| <= 1/2. Falta:
+
+      (L3)  existe M universal con
+            P( |W_tau| <= M  |  camino del paseo, tau en [T, 2T] )
+            >= 1/2   UNIFORME en x y en el camino tipico.
+
+  DONDE MUERDE: en los tramos de descenso forzado el multiplicador
+  es 3/2 deterministico (E[m^theta] > 1 por paso ahi): la dominacion
+  ingenua de Moscas NO cierra paso a paso. Lo que salva es el
+  BALANCE del camino (cada bajada tiene su subida, salvo una): el
+  producto de cola desde j es (3/4)^(s_j) * (3/2) * (libre_j), y el
+  theta-momento de cada termino se acota con el balance mas la
+  contraccion media de los libres. ESTE es exactamente el objeto
+  theta de AGKV 2005 (la esperanza de la funcional multiplicativa
+  bajo el paseo condicionado a positivo, construida con el
+  h-transform de Bertoin-Doney); la version Markov-dependiente
+  (Grama-Lauvergnat-Le Page) cubre el reloj de rachas.
+  LA SUTILEZA QUE ESTE PLAN DEJA ESCRITA (cazada al armarlo): si en
+  vez de (L3) se usa Markov sobre un momento que crece con T, la
+  ventana K saldria poly(ln x) -- y una ventana que CRECE con x NO
+  sirve para Liebres. La universalidad de M es el contenido real de
+  la pieza; no hay atajo por momentos crudos.
+
+COMPOSICION. P(|u_tau| <= M + 1) >= P(pieza 1) * (3/4 - 1/2 ...) --
+las piezas 2 y 3 son condicionales al mismo camino: interseccion
+>= 1/4 condicional >= (c1/sqrt(T)) * 1/4 = c / sqrt(ln x) con
+K = M + 1. QED (modulo L3 y la escritura fina de 1 y 2).
+
+=====================================================================
+EL ORDEN DE TRABAJO QUE ESTE PLAN DICTA
+=====================================================================
+
+1. Escribir la pieza 2 con todas las letras (es una pagina: balance
+   exacto + Chebyshev) -- cero riesgo.
+2. La pieza 1 con el reloj de rachas (Chernoff + balota) -- una
+   pagina mas, clasica.
+3. LA PIEZA 3 = leer AGKV 2005 de verdad (esta [ABSTRACT] en la
+   ficha) y adaptar su Lemma de la funcional condicionada; si el
+   camino se atasca, el plan B es la dominacion por bloques de
+   subida-bajada apareados (el balance permite aparear cada 3/2
+   forzado con un 1/2 forzado anterior, dejando solo los libres --
+   boceto de una tarde, riesgo medio).
+4. La transferencia V2 -> cadena real (el reloj endogeno): la
+   dominacion estocastica de rachas por geometricas -- los lemas de
+   racha de tortolas.lean; medido hoy que el factor es acotado
+   (la prueba de circularidad). Va DESPUES de 1-3.
+
+Con 1-3, el lema L-A queda demostrado PARA V2; con 4, para la
+cadena; y con Markov fuerte + Golondrinas + beta = 0 (cuya version
+teorema es notamoscasinducida con su cualificador), phi = 1 via
+Liebres. Ese es el arbol completo, con cada rama etiquetada por
+riesgo. La adversarial externa de la tanda entera sigue pendiente
+y va antes de invertir en la pieza 3 (regla del ritmo).
