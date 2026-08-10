@@ -61,6 +61,11 @@ PIEZA 2 (elemental -- ni CLT hace falta): LA CONTRACCION CONDICIONADA
 
   O sea: condicionado a durar, la parte multiplicativa del arranque
   MUERE con probabilidad 3/4. Sin CLT, sin grandes desviaciones.
+  [VERIFICADO por MC el mismo dia (sonda de scratchpad, 2000 casos
+  condicionados por punto): P(contraccion > ln x | tau >= T) =
+  0,999-1,000 para x = 2e3 y 2e6, con C1 = 30 Y TAMBIEN con
+  C1 = 15 -- el margen real es mucho mayor que el 3/4 de Chebyshev;
+  las constantes del plan son holgadas.]
 
 PIEZA 3 (LA TECNICA, molde AGKV): LA PERPETUIDAD DE OFFSETS TIENE
   MEDIANA UNIVERSAL BAJO EL PASEO CONDICIONADO.
