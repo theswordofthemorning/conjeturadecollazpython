@@ -3599,7 +3599,9 @@ CORRECCIONES = [
      "una cifra publicada se coteja contra la tabla del propio fichero "
      "antes de imprimirse: los datos propios son el primer adversario"),
 
-    ("FOCAS pieza (3): dado el camino de k, los bits compartidos quedan "
+    ("QUELTEHUES pieza (3) (ex-FOCAS, rebautizado por el usuario post-7a: "
+     "el queltehue tiene espolones -- lo rompieron y corta de vuelta por "
+     "la via annealed): dado el camino de k, los bits compartidos quedan "
      "como monedas justas LIBRES",
      "falso: la enumeracion exacta hasta L = 16 agrupada por camino de k "
      "completo da 10.648 de 10.649 grupos que CONSTRINEN los bits "

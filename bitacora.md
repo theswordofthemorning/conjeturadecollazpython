@@ -5,6 +5,22 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (15) — EL BAUTIZO DE QUELTEHUES (orden del usuario, el cierre)
+
+El lema de la mezcla (el «FOCAS» provisional, roto en su pieza 3
+por la 7ª y salvado por la vía annealed) queda bautizado
+**QUELTEHUES** — el queltehue (tero chileno) lleva ESPOLONES en las
+alas: lo rompieron y corta de vuelta. El nombre honra exactamente
+su historia: la pieza rota el mismo día de su nacimiento, y el
+espolón (la base annealed de Arañas + la medición intacta) con el
+que sigue peleando como herramienta del lema L-A. Aplicado en
+`lemadelamezcla.txt`, `RutaTeoremas.md`, la corrección 52 de la
+base, y nota post-acta en `actarevision1008.txt` (el acta conserva
+el nombre de época). El zoológico del 10-08 queda: GARZAS,
+TÓRTOLAS, GAVIOTAS, QUELTEHUES — bautizos confirmados por el
+usuario para el primero... pendientes los otros tres, QUELTEHUES
+confirmado hoy.
+
 # ⇢ 10-08-2026 (14) — LA 7ª REVISIÓN: TRES ADVERSARIOS CONTRA LA TANDA ENTERA. SÉPTIMA VEZ QUE ROMPE ALGO — Y EL REGALO ES MARKOV FUERTE
 
 **Lanzada por orden del usuario; acta íntegra: `actarevision1008.txt`.**

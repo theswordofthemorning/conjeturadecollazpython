@@ -290,8 +290,10 @@ exponencialmente — ésa sigue siendo la vía.
 > recurrencia de la ventana ⟹ φ=1 (LIEBRES) — con GAVIOTAS-B ya
 > certificando el balance de Lyapunov bajo el umbral en todo T
 > computable.** Pendientes user-gated: bautizos (GARZAS, TÓRTOLAS,
-> GAVIOTAS, FOCAS), la adversarial externa de toda la tanda del
-> 10-08 (regla del ritmo), LaTourette/Frinkle/Rozier.
+> GAVIOTAS, y QUELTEHUES — bautizado por el usuario post-7ª: el
+> lema de la mezcla, roto en su pieza 3 y salvado por la vía
+> annealed — el queltehue corta con los espolones), la adversarial
+> YA HECHA (7ª, `actarevision1008.txt`), LaTourette/Frinkle/Rozier.
 >
 > **⇢ 10-08 (7) — LA SÍNTESIS FINAL (bitácora (12), EMPEZAR POR
 > AHÍ): el círculo se cierra sobre el piso por visita, MEDIDO EN
@@ -318,10 +320,11 @@ exponencialmente — ésa sigue siendo la vía.
 > ⟹ φ < 1 con techo); **(L-B)** el ritmo de visitas
 > `τ_i ≤ e^{o(i²)}` c.s. — la unión con Moscas es válida, falta el
 > ritmo (saldría del SRW de `k` + el reloj de rachas de
-> `tortolas.lean`, cuyo régimen k-par es DETERMINISTA — 7ª). FOCAS
-> pieza (3) ROTA (los bits compartidos son funciones del camino —
-> TÓRTOLAS los delata); la vía annealed de Arañas queda como
-> herramienta para L-A.
+> `tortolas.lean`, cuyo régimen k-par es DETERMINISTA — 7ª).
+> **QUELTEHUES** (ex-FOCAS, rebautizado por el usuario) pieza (3)
+> ROTA (los bits compartidos son funciones del camino — TÓRTOLAS
+> los delata); la vía annealed de Arañas es el espolón: el lema se
+> salva como herramienta para L-A.
 >
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,
