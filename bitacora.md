@@ -5,6 +5,33 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (15, madrugada) — CONEJAS EN LEAN: EL 18º, COBRADO CON SU REVISIÓN POR DELANTE
+
+El pendiente que la regla del ritmo dejó esperando, cobrado como
+manda: **primero la revisión, después el registro.**
+**`conejas.lean`, el 18º `.lean`, 0 `sorryAx`**: para todo `j` par,
+el par `(2^j−2, 2^j−1)` llega al MISMO `x = 3t+2` en EXACTAMENTE
+`j+2` pasos (con `3^{j−1} = 4t+3` — el testigo de por qué `j` debe
+ser par), con el vórtice en el repunit ternario `w = 2t+1`. La
+arquitectura: el atajo como relación `PasoT` con testigos sin
+división, `CaminoN` con largo exacto, **el peldaño**
+`3^p·2^{q+1}−1 → 3^{p+1}·2^q−1` (el lema de identidad del repo) y
+**la escalera** por inducción; más `separados_antes` (en `j+1` los
+valores son `w` y `3w+1`, impar contra par: el encuentro es de
+verdad) y el caso `j=2` (el par `(2,3)` a `x=2` en 4 pasos)
+instanciando el teorema.
+
+**La revisión adversarial propia, ANTES de entrar al repo** (A1–A5,
+cero fallos): los constructores SON el atajo; las dos trayectorias
+reales coinciden PASO A PASO con las fórmulas del fichero para
+`j = 2…20` y llegan juntas en `j+2` exacto; el paso `j+1` es
+`(w, 3w+1)`; `w` es el repunit impar; y ninguna fusión real ocurre
+antes de `j+2` (lo que afirma `nuevasfusion` C5, comprobado igual —
+este fichero sólo formaliza «a más tardar en `j+2`», la «primera
+vez» sigue siendo del barrido). Corolario del repo ahora con núcleo:
+**`b(j+2) ≥ 1` para todo `j` par — las nuevas nunca se acaban,
+máquina-verificado.** Conteos: **66 `.py` · 18 `.lean` · 3 `.db`**.
+
 # ⇢ 09-08-2026 (14) — LA 6ª REVISIÓN: LA RONDA DEL TRONCO. SEXTA VEZ QUE ROMPE ALGO — Y ESTA VEZ MORDIÓ A LEONAS
 
 **Orden del usuario: revisar el mapa de dependencias DE LAS RAMAS AL
