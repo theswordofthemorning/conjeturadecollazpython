@@ -94,7 +94,12 @@ tabla `F(t,S)` con `Σ_S = b(t−1)` clavada t=4..22 — NEGATIVO con `S`
 como posición (sin recursión de dos términos; el porqué estructural:
 la supervivencia del gemelo es un evento 1-d en `(m, S_m)`, el
 vórtice nuestro es afín en la palabra entera), con dos regalos: la
-ley de borde exacta `F(t, t−2) = ⌊t/2⌋−1` y la diagonal sesgada
+ley de borde exacta `F(t, t−2) = ⌊(t−1)/2⌋` *(el primer registro
+decía `⌊t/2⌋−1`, falso en t impar — capa 1 al intentar demostrarla;
+la derivación esbozada: las palabras de dos ceros que funden son
+`1^a 0 1^b 0 1` con `a` par — lazo de Gatas → ventana de Perras →
+`(1,1)`; falta el lema «`a` impar no funde», candidato
+Chanchitos/Cabras)* y la diagonal sesgada
 `S/t → 0,549 ≠ 0,613` — los que funden llevan MENOS impares que la
 moneda. Y la reconvergencia conceptual: la ruta combinatoria del
 gemelo ES el programa λ (Zorras/Lobas/Pumas) — las dos vistas
