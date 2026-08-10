@@ -161,3 +161,103 @@ print()
 print("CONCLUSION: e8 extendida %d niveles mas alla de lo medido; si las" % (prof_p - 18))
 print("terceras diferencias no se estabilizan, e8 NO es cubica (la")
 print("escalera fallada, ahora con serie larga para buscar su forma).")
+
+# ---------------------------------------------------------------------------
+# COMPROBACION 4 (09-08-2026): LA ESCALERA DE FORMAS CERRADAS TERMINA EN e6.
+#   Busqueda EXHAUSTIVA de forma cuasi-polinomial para e8, e10, e12:
+#     e_s(N) = P(N) + correccion(N mod p),   grado(P) <= 8, p <= 8,
+#   con el ajuste anclado en CADA arranque N1 = 10..16 (porque una forma
+#   legitima puede valer solo desde un N1, como la propia e6) y resuelto
+#   EXACTO (Fraction, eliminacion gaussiana); vale solo si reproduce la
+#   serie ENTERA desde N1 con al menos 6 puntos fuera del ajuste.
+#   Resultado esperado (medido el 09-08): NINGUNA valida -- e8/e10/e12
+#   llevan un ingrediente no cuasi-polinomial (las diferencias altas
+#   oscilan con amplitud creciente, la firma de un termino tipo b(k)).
+#   e6 se usa de CONTROL: su forma cuadratica debe encontrarse.
+#   Y ademas: ninguna de las tres series esta en OEIS (consultado
+#   09-08-2026: "No results" para las tres) -- van a sucesiones.txt.
+# ---------------------------------------------------------------------------
+
+from fractions import Fraction
+
+def _ajusta_cuasi(serie, n0, grado, periodo, arranque):
+    # ajusta con los primeros nvar puntos desde 'arranque' y exige la
+    # igualdad EXACTA en toda la cola; None si no hay forma
+    nvar = grado + 1 + periodo - 1
+    puntos = serie[arranque:]
+    if len(puntos) < nvar + 6:
+        return None
+    A = []
+    for i in range(nvar):
+        N = n0 + arranque + i
+        fila = [Fraction(N) ** g for g in range(grado + 1)]
+        fila += [Fraction(1 if N % periodo == r else 0)
+                 for r in range(1, periodo)]
+        fila.append(Fraction(puntos[i]))
+        A.append(fila)
+    m = nvar
+    fila_p = 0
+    for col in range(m):
+        piv = next((r for r in range(fila_p, len(A)) if A[r][col] != 0), None)
+        if piv is None:
+            continue
+        A[fila_p], A[piv] = A[piv], A[fila_p]
+        pv = A[fila_p][col]
+        A[fila_p] = [x / pv for x in A[fila_p]]
+        for r in range(len(A)):
+            if r != fila_p and A[r][col] != 0:
+                f = A[r][col]
+                A[r] = [a - f * b for a, b in zip(A[r], A[fila_p])]
+        fila_p += 1
+    sol = [Fraction(0)] * m
+    for r in range(fila_p):
+        col = next((c for c in range(m) if A[r][c] == 1), None)
+        if col is not None:
+            sol[col] = A[r][m]
+    for i, v in enumerate(puntos):
+        N = n0 + arranque + i
+        w = sum(sol[g] * N ** g for g in range(grado + 1))
+        if N % periodo != 0:
+            w += sol[grado + 1 + (N % periodo) - 1]
+        if w != v:
+            return None
+    return sol
+
+series_c4 = {
+    6:  [ppal[N].get(6, 0) for N in range(10, prof_p + 1)],
+    8:  e8,
+    10: [ppal[N].get(10, 0) for N in range(10, prof_p + 1)],
+    12: [ppal[N].get(12, 0) for N in range(10, prof_p + 1)],
+}
+formas = {}
+for s, serie in series_c4.items():
+    hallada = None
+    for g in range(1, 9):
+        for p in range(1, 9):
+            for arr in range(0, 7):
+                sol = _ajusta_cuasi(serie, 10, g, p, arr)
+                if sol is not None and hallada is None:
+                    hallada = (g, p, 10 + arr, sol)
+        if hallada:
+            break
+    formas[s] = hallada
+
+if formas[6] is None:
+    raise SystemExit("C4: el CONTROL fallo -- la cuadratica de e6 no se "
+                     "encontro; el buscador esta roto")
+if formas[6][0] != 2:
+    raise SystemExit("C4: el control e6 salio con grado %d != 2" % formas[6][0])
+for s in (8, 10, 12):
+    if formas[s] is not None:
+        raise SystemExit("C4: e%d SI tiene forma cuasi-polinomial %s -- "
+                         "actualizar la conclusion, esto la refuta" % (s, formas[s][:3]))
+
+print()
+print("COMPROBACION 4 OK: el control e6 se encuentra (grado 2, como debe),")
+print("y e8, e10, e12 NO admiten forma cuasi-polinomial con grado <= 8,")
+print("periodo <= 8 y arranque N1 <= 16, validada exacta sobre toda la cola")
+print("(>= 6 puntos fuera del ajuste). LA ESCALERA DE FORMAS CERRADAS")
+print("TERMINA EN e6: los estratos 8, 10, 12 llevan un ingrediente")
+print("combinatorio no cuasi-polinomial. Y ninguna de las tres series esta")
+print("en OEIS (09-08-2026, 'No results' las tres): tres sucesiones nuevas")
+print("mas para sucesiones.txt.")

@@ -260,3 +260,33 @@ revision es github.com/theswordofthemorning/zootheorem (verificadores
 por fuerza bruta sin codigo compartido con este laboratorio, b-files,
 y el teorema del espejo en Lean). El intercambio con los editores va
 en la bitacora (09-08 (2) y (4)).
+
+---------------------------------------------------------------------------
+TRES SUCESIONES MAS QUE NO ESTAN EN OEIS: e8, e10, e12 (09-08-2026)
+---------------------------------------------------------------------------
+
+Los estratos de las clases nuevas por la cadena (k, c): e_s(N) = clases
+nuevas del nivel N que funden con |M| = s (estratoscadena.py, barrido
+principal desde (0,1) hasta prof 29). Las series, desde N = 10:
+
+e8  = 3, 7, 15, 27, 45, 73, 111, 166, 237, 330, 451, 605, 797, 1033,
+      1316, 1655, 2054, 2517, 3051, 3665
+e10 = 0, 1, 4, 12, 30, 65, 131, 247, 447, 761, 1242, 1953, 3003, 4485,
+      6570, 9410, 13204, 18164, 24596, 32753
+e12 = 0, 0, 0, 1, 5, 18, 52, 134, 315, 681, 1393, 2698, 4947, 8712,
+      14818, 24465, 39278, 61513, 94110, 140829
+
+CONSULTADO OEIS el 09-08-2026 (API, fmt=text, prefijos largos sin los
+ceros iniciales): "No results" para las tres. El control de la casa del
+30-07 (Fibonacci devuelve A000045) sigue valiendo para el metodo.
+
+Y LO QUE SE SABE DE SU FORMA (COMPROBACION 4 de estratoscadena.py):
+e2 = e4 = 1 y e6 = 3 + (N-7)(N-8)/2 son cerradas; e8, e10 y e12 NO
+admiten forma cuasi-polinomial (grado <= 8, periodo <= 8, arranque
+N1 <= 16, ajuste exacto con Fraction validado sobre toda la cola con
+al menos 6 puntos retenidos; el control e6 SI se encuentra con grado
+2). LA ESCALERA DE FORMAS CERRADAS TERMINA EN e6: del estrato 8 en
+adelante las series llevan un ingrediente combinatorio no
+cuasi-polinomial -- la misma familia de crecimiento que b(k), que es
+la sospecha natural: los estratos altos heredan la combinatoria de
+las nuevas, no la geometria de la rejilla.

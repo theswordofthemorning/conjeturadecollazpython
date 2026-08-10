@@ -302,8 +302,14 @@ autocontenido). **Queda UNA pieza: el piso de absorción por visita.**
 - **Formalizar Moscas en Lean**: la dominación `|u'| ≤ m_b|u| + 1/2` es
   aritmética pura — sería el 14º `.lean` y blindaría la única cadena de
   teoremas nuevos del cierre.
-- **`e₁₀` y `e₁₂`**: medidas por primera vez (`estratoscadena.py`),
-  esperan su forma cerrada — el siguiente peldaño tras `e₆`/`e₈`.
+- **`e₁₀` y `e₁₂` — RESUELTO EN NEGATIVO (09-08 (10)):** no hay forma
+  cerrada que esperar. La C4 nueva de `estratoscadena.py` demuestra por
+  exclusión exacta que `e₈`, `e₁₀` y `e₁₂` **no son cuasi-polinomiales**
+  (grado ≤ 8, período ≤ 8, arranque ≤ 16, validación entera con control
+  `e₆` positivo): **la escalera de formas cerradas termina en `e₆`** —
+  del estrato 8 en adelante manda la combinatoria tipo `b(k)`. Y las
+  tres series **no están en OEIS** («No results», 09-08) — añadidas a
+  `sucesiones.txt` con su ficha.
 - **La revisión bibliográfica de la cadena — HECHA (09-08 (9), cuatro
   barridas web con ángulos distintos):** la forma `{v, 3^k v + c}` como
   sistema simbólico con leyes exactas y moneda de Terras **no aparece

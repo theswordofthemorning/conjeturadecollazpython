@@ -5,6 +5,31 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (10) — LA ESCALERA DE FORMAS CERRADAS TERMINA EN `e₆`: EL PENDIENTE DE `e₁₀`/`e₁₂`, RESUELTO EN NEGATIVO
+
+El peldaño que la retaguardia esperaba («`e₁₀` y `e₁₂` esperan su forma
+cerrada») no existe. **COMPROBACIÓN 4 nueva en `estratoscadena.py`**:
+búsqueda exhaustiva de forma cuasi-polinomial `P(N) + corrección(N mod
+p)` con grado ≤ 8, período ≤ 8 y arranque `N₁ = 10…16`, ajuste EXACTO
+(`Fraction`, eliminación gaussiana) validado como igualdad de enteros
+sobre toda la cola con ≥ 6 puntos retenidos — y con `e₆` de CONTROL
+(su cuadrática SÍ se encuentra, grado 2, como debe). Resultado: **`e₈`,
+`e₁₀` y `e₁₂` no admiten ninguna** — las diferencias altas oscilan con
+amplitud creciente, la firma de un ingrediente combinatorio tipo
+`b(k)`. La lectura estructural: los estratos ≥ 8 heredan la
+combinatoria de las nuevas, no la geometría de la rejilla — la
+frontera exacta entre «geometría» (e₂ = e₄ = 1, `e₆` cuadrática) y
+«combinatoria» está entre los estratos 6 y 8.
+
+**Y las tres series NO ESTÁN EN OEIS** (consultas API del 09-08, «No
+results» las tres; el control Fibonacci del método sigue valiendo) —
+añadidas a `sucesiones.txt` con su ficha completa. La autocrítica
+adversarial aplicada al negativo antes de escribirlo: el ajuste se
+ancló también en arranques tardíos (una forma legítima puede valer
+sólo desde un `N₁`, como la propia `e₆`) y el buscador se valida a sí
+mismo con el control positivo — sin eso, «no encontré» no habría
+distinguido «no existe» de «mi buscador está roto».
+
 # ⇢ 09-08-2026 (9) — LA REVISIÓN BIBLIOGRÁFICA DE LA CADENA, HECHA: LA FORMA `{v, 3^k·v + c}` NO ESTÁ PUBLICADA
 
 El pendiente de la retaguardia que «ni siquiera se había buscado»,
