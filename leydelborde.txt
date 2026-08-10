@@ -115,6 +115,44 @@ el siguiente candidato barato; la fila 3 es donde empieza la
 combinatoria de verdad.
 
 =====================================================================
+ADDENDUM 2 (misma tarde): LA FILA 2, PARAMETRIZADA ENTERA
+=====================================================================
+
+Enumeracion EXHAUSTIVA de las palabras de cuatro ceros que funden
+(sonda de scratchpad, C(t,4) palabras por nivel, t = 8..18): TODAS
+tienen la forma
+
+    1^(a0) 0 1 0 1^(a2) 0 1^(a3) 0 1
+    con a0 IMPAR, a2 IMPAR, a3 >= 0 libre (su paridad la fuerza el
+    largo total), y a0 + a2 + a3 = t - 6.
+
+El conteo (stars-and-bars sobre a0 = 2x+1, a2 = 2y+1) da
+C(floor((t-4)/2), 2) -- la formula del addendum 1, ahora con su
+parametrizacion. LA LECTURA ESTRUCTURAL: el motivo rigido "0 1 0"
+tras a0 impar es la excursion NEUTRA por la puerta de los
+Chanchitos --
+
+    (1,-1) -0-> (2,-1) -1-> (1,-2) -0-> (1,-1)
+
+(la forma h y el grafo {-3,-5} del zoologico: salir del lazo y
+volver en tres pasos) -- y el resto es la palabra de la fila 1
+(lazo + ventana de Perras + vortice). O sea:
+
+    FILA 2 = FILA 1 + UN DESVIO NEUTRO INSERTADO (dos parametros
+    libres: donde arranca el desvio, donde arranca la ventana).
+
+La demostracion formal es el mismo esqueleto de la ley del borde
+(lema de preimagenes + conservacion de signo) mas: (i) el desvio
+neutro es la UNICA excursion de 2 ceros que devuelve al lazo (las
+demas colocaciones caen en los callejones ya demostrados: el rebote
+(1,1)->(2,2) y la rama B profunda); (ii) verificado exhaustivo
+t <= 18. CONJETURA NATURAL PARA LA FILA j: j-1 desvios neutros mas
+la ventana final -- C(floor((t-2j)/2) + j - 1, j)-ish con las
+correcciones de paridad; la fila 3 medida (17, 32, 50, ...) NO la
+cumple tal cual: alli entra el primer desvio NO neutro (la
+combinatoria de verdad), consistente con la frontera 2/3.
+
+=====================================================================
 POR QUE IMPORTA
 =====================================================================
 
