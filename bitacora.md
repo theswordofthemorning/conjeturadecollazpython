@@ -174,8 +174,23 @@ uniformidad del Paso 3 es de visitas tardías, no de la primera.
 *Etiqueta honesta: revisión propia, no externa — vale como capa 1
 reforzada, no sustituye al trío/adversarial de afuera.*
 
-**PENDIENTES QUE DEJA LA JORNADA**: la adversarial externa de TODA la
-tanda de hoy (regla del ritmo — nada de hoy la tiene);
+**⇢ EL CIERRE DE VERDAD (orden del usuario): LOS DOS PAPERS DE
+LEGADO.** `paper_programa_densidad.txt` — el programa entero
+autocontenido: el objeto, de dónde venimos (T1–T7 con etiquetas),
+dónde estamos (los dos lemas + la circularidad + las dos vías),
+adónde vamos (P1–P7 con costo y riesgo), el techo del espejo
+declarado, y el método (8/8 revisiones mordieron). Y
+`paper_cota_renovacion.txt` — la cota `φ ≥ 0,443061` como nota
+autocontenida candidata a salir del repo (enunciado, bloques,
+cómputo exacto, la verificación doble de la 8ª, la mejora gratis
+pendiente, y lo que NO dice). La sesión cierra con la 8ª aplicada,
+la base en 190·63·20 y el repo íntegro en origin.
+
+**PENDIENTES QUE DEJA LA JORNADA** (post-8ª): la pieza L3 vía AGKV
+(P1 del paper); la versión exacta del récord con el cap subido
+(~0,4503, P4); L-B y la transferencia (P2–P3); las demostraciones
+formales de las filas del triángulo (P5); Collatz–Wielandt 6–9
+(P6); y lo user-gated de siempre:
 los bautizos user-gated que siguen en cola (GARZAS confirmado,
 TÓRTOLAS/GAVIOTAS propuestos); el experimento de Pascal para b(k)
 (punto 4 — barato, con datos existentes); el teorema V2 (AGKV +

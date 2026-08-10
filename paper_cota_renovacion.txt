@@ -1,0 +1,123 @@
+=====================================================================
+UNA COTA INFERIOR DE LA DENSIDAD DE FUSION POR RENOVACION:
+    phi >= 0,443061
+Documento autocontenido, candidato a nota externa. 11-08-2026.
+Paso la 8a revision adversarial externa (adversario 2: recomputado
+por dos caminos independientes). Instrumento: gramaticaderetornos.py;
+acta: actarevision1108b.txt.
+=====================================================================
+
+---------------------------------------------------------------------
+1. ENUNCIADO
+---------------------------------------------------------------------
+
+Sea T(n) = n/2 (n par), (3n+1)/2 (n impar), y para el par (r, r+1)
+digase que la clase r mod 2^k SE FUNDE si T^k(r) = T^k(r+1) con el
+mismo numero de pasos impares. Sea a(k) el numero de clases fundidas
+mod 2^k y phi = lim a(k)/2^k (existe: a(k+1) >= 2a(k), Gao 1993).
+
+    TEOREMA. phi >= 0,443061.
+
+(La mejor cota previa era a(32)/2^32 = 0,435658, que costo un
+barrido de 2^32 clases. Esta se computa en segundos con bloques de
+profundidad 28, y es mejorable por la misma via.)
+
+---------------------------------------------------------------------
+2. LA CADENA DE PALABRAS
+---------------------------------------------------------------------
+
+Todo estado del par vivo es {v, 3^k v + c} (nucleo, k >= 1) o
+{v, v + g} (frontera, k = 0), y el paso lo decide la paridad del
+ancla -- un bit fresco de Terras por paso (teorema de la cadena
+(k, c); leyes en Lean, verificadas contra pares reales). El par
+consecutivo arranca en el estado (0, 1); la fusion de clase es la
+absorcion en el vortice ((1,1) con bit 1). En consecuencia, el
+evento "la clase r mod 2^t funde en el paso t" es un EVENTO DE
+PALABRA: depende solo de los t primeros bits, y su medida 2-adica
+es (numero de palabras que fusionan en t) / 2^t. phi es la medida
+del conjunto de palabras infinitas que fusionan alguna vez.
+
+---------------------------------------------------------------------
+3. LA DESCOMPOSICION EN BLOQUES
+---------------------------------------------------------------------
+
+Llamese LAZO al estado (0, 1). Defina:
+  R(L) = numero de palabras de largo L que, partiendo del lazo,
+         VUELVEN al lazo por primera vez en el paso L (sin fundir);
+  A(L) = numero de palabras de largo L que funden en el paso L sin
+         haber vuelto al lazo.
+
+(i) Toda palabra que funde se descompone de forma UNICA como
+    concatenacion de bloques de primer retorno seguidos de una cola
+    de absorcion. (ii) Reciprocamente, toda concatenacion de bloques
+    R y una cola A es una palabra que funde, y la correspondencia es
+    inyectiva. (iii) La medida de una concatenacion es el producto
+    de las medidas (cilindros). Por tanto, con
+        rho_L0 = Sigma_{L <= L0} R(L)/2^L,
+        alfa_L0 = Sigma_{L <= L0} A(L)/2^L,
+    la union (disjunta) de todas las composiciones con bloques de
+    largo <= L0 tiene medida alfa_L0 / (1 - rho_L0), y
+
+        phi  >=  alfa_L0 / (1 - rho_L0)     para todo L0.
+
+Los conteos truncados (por largo o por cualquier otro criterio,
+p. ej. un tope de ceros por bloque) solo pueden BAJAR el lado
+derecho: la cota es segura por construccion.
+
+---------------------------------------------------------------------
+4. EL COMPUTO Y EL NUMERO
+---------------------------------------------------------------------
+
+Con L0 = 28 y un cap tecnico de <= 12 ceros por bloque (estados
+(k, c, z) del barrido; el exceso se descarta y solo baja la cota):
+
+    rho  = 0,433519...      alfa = 0,250986...
+    phi  >=  alfa/(1-rho)  =  0,443061.
+
+Conteo entero exacto (los R y A son enteros; las series, racionales
+diadicos). De paso, la identidad de convolucion
+
+    F(t, S) = Sigma_j (R^(*j) * A)(t, S)
+
+(F = las palabras que funden en t con S unos -- el "triangulo de
+fusion", cuyas sumas por nivel reproducen b(t-1) publicada) se
+verifico como IGUALDAD DE ENTEROS en todas las celdas t <= 20.
+
+---------------------------------------------------------------------
+5. VERIFICACION (8a revision adversarial, 11-08-2026)
+---------------------------------------------------------------------
+
+- R(L, z) y A(L, z) recomputados por CENSO DE PARES ENTEROS REALES
+  (2^20 clases, sin la cadena simbolica): identicos celda a celda.
+- Segundo camino: barrido con transicion INFERIDA de pares (no
+  copiada): la tabla L = 10..28 clavada a 6 decimales.
+- Conservacion verificada EN RACIONALES: rho + alfa + viva +
+  descartada == 1 exacto.
+- Consistencia externa: todos los a(k)/2^k conocidos son < 0,4431,
+  como corresponde a una sucesion creciente hacia phi; prediccion
+  falsable: a(k)/2^k cruzara 0,4431 hacia k ~ 36-40.
+- Mejora pendiente (senalada por el adversario): el cap de ceros
+  descarta el 25,77% de la masa de bloques -- subirlo mejora la
+  cota gratis (una corrida sin cap, en flotante, da ~0,4503; la
+  version exacta es el paso P4 del programa).
+
+---------------------------------------------------------------------
+6. QUE NO DICE (etiqueta de la casa)
+---------------------------------------------------------------------
+
+Nada sobre la convergencia de Collatz: el conteo es invariante bajo
+el espejo 3n-1 (teorema en Lean del repo) y solo habla de la
+densidad de fusion de consecutivos. La cota es INCONDICIONAL y
+elemental (renovacion + conteo exacto); su interes es doble: mejora
+el estado del arte del conteo con dos ordenes de magnitud menos de
+computo, y exhibe la estructura de renovacion (el lazo, los
+bloques, la geometrica) que el criterio phi = 1 <=> alfa = 1 - rho
+pone en el centro del programa.
+
+REFERENCIAS MINIMAS: Terras 1976 (Acta Arith. 30); Garner 1985
+(Discrete Math. 55); Gao 1993 (Discrete Math. 112); Elia-Tucker
+2015 (INTEGERS 15 #A54); LaTourette 2007 (los primeros retornos,
+con la fe de erratas del repo); las series propias: OEIS A398792,
+A398793 (propuestas). Ficheros: gramaticaderetornos.py,
+paseodeladeuda.py, actarevision1108b.txt.
+=====================================================================

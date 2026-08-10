@@ -369,6 +369,9 @@ for a in sorted(glob.glob('*.py')):
 | **`conejas.lean`** | El 18º: CONEJAS formalizada — `(2^j−2, 2^j−1)` llega al mismo `x = 3t+2` en exactamente `j+2` pasos para todo `j` par (peldaño + escalera por inducción, testigo `3^{j−1} = 4t+3`, vórtice en el repunit); `b(j+2) ≥ 1` con núcleo detrás |
 | **`actarevision0908c.txt`** | El acta de la 6ª revisión (la ronda del tronco): Leonas con dos frases corregidas (clase vs instancia; el ancla), Arañas con dos adjetivos («sumable», «diminuta»), Tigresas intacta, Moscas reforzada |
 | `actarevision0908.txt` | El acta de la 4ª revisión externa (la que rompió Abejas-como-programa y validó el criterio) |
+| **`actarevision1108b.txt`** | **El acta de la 8ª revisión externa** (tres adversarios contra la jornada satelital entera; informes íntegros en `_adv1/2/3.txt`): el récord aguantó, ocho mordidas aplicadas |
+| **`paper_programa_densidad.txt`** | **EL PAPER DE LEGADO** (11-08): el programa entero autocontenido — de dónde venimos (la cadena y sus teoremas), dónde estamos (los dos lemas, la circularidad, las dos vías), adónde vamos (P1–P7 con riesgo), el techo declarado y el método |
+| **`paper_cota_renovacion.txt`** | **EL PAPER DE LA COTA** (11-08, candidato a nota externa): `φ ≥ 0,443061` por renovación — enunciado, descomposición en bloques, cómputo exacto, la verificación de la 8ª y lo que NO dice |
 | `maquinaria.txt` / `notamoscas.txt` | Los cinco objetivos sin Collatz y la nota autocontenida de Moscas |
 | `inventario.md` / `derivados.md` | El catálogo del repo, y las ramas del tronco (sistema de derivados `[D-nn]`) |
 
