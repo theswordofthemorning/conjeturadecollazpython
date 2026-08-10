@@ -5,6 +5,41 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (13) — LA REDUCCIÓN FINAL: EL SALTO CONDICIONAL NO NECESITA UN PISO UNIFORME
+
+La desigualdad única de (12), pensada de frente, se DISUELVE en dos
+lemas más débiles — porque **Borel–Cantelli condicional (Lévy) no
+pide piso uniforme: pide `Σ_i P(ventana | pasado_i) = ∞` c.s.**, y
+eso lo da un piso que degrade LENTO en el arranque más control
+polinomial de los arranques:
+
+1. **EL PISO POR ARRANQUE (lema con tres factores, los tres ya
+   medidos hoy)**: `P(entrar en ventana | excursión desde (2, c₀))
+   ≥ φ(|c₀|) ~ c/√(log|c₀|)`, porque:
+   (a) contraer `log₃|c₀|` de offset cuesta `~log|c₀|/0,144` pasos
+       — Tigresas / Diaconis–Freedman (la contracción media);
+   (b) que la excursión dure esos pasos cuesta `~(pasos)^{−1/2}` —
+       la cola crítica del ciclo, **exactamente el
+       `S(t)·√t ≈ 1,03–1,16` medido en (8)**;
+   (c) condicionado a durar, la mezcla (FOCAS) borra el arranque y
+       la entrada cae en ventana con `q̄ > 0` — **exactamente la
+       estabilidad de `q(h)` medida en (12)**.
+2. **LOS ARRANQUES NO EXPLOTAN**: basta `|c_i| = O(poly(i))` en
+   probabilidad a lo largo de las visitas — mucho MÁS débil que lo
+   que Moscas (tensión uniforme en t) sugiere; el salto
+   condicional-en-tiempos-de-parada se ablanda a un crecimiento
+   polinomial en probabilidad, alcanzable con uniones burdas.
+3. **⟹ `Σ_i φ(|c_i|) ≳ Σ_i (log i)^{−1/2} = ∞` c.s. ⟹ la ventana
+   se visita i.o. c.s. ⟹ recurrencia ⟹ φ = 1** (LIEBRES).
+
+**Lo que cambió**: el «piso de absorción por visita» pedía una
+constante uniforme que el condicionamiento amenazaba; la forma
+Lévy sólo pide que el piso no muera más rápido que `1/log` — y la
+degradación real es `1/√log`. Los dos lemas restantes tienen cada
+factor medido y cada herramienta nombrada. ESTE es el frente para
+la próxima sesión (después de la adversarial de la tanda — regla
+del ritmo).
+
 # ⇢ 10-08-2026 (12) — LA SÍNTESIS DEL DÍA: EL CÍRCULO SE CIERRA SOBRE EL PISO POR VISITA — MEDIDO EN 0,76 EN LAS COORDENADAS CORRECTAS
 
 La matriz conjunta `(altura, banda de t)` dictó lo que faltaba: **a
