@@ -75,6 +75,25 @@ forma `1/√log` queda como CONJETURA con el nivel validado en
 `γ` cayendo) no rompería la reducción mientras `γ → 0` — pero
 decidirlo es de la próxima sesión, con la adversarial por delante.
 
+**⇢ EL TEST LARGO, CORRIDO (T=130 desde `(2, 20000)`): LA FORMA
+`1/√log` PIERDE.** `φ_min` = 0,032 (T=50) → 0,045 → 0,052 → 0,056
+→ **0,0586 (T=130)**, incrementos cayendo (~×0,65 por ventana de
+20), pérdida por poda 0,064 ⟹ horquilla del truncado
+`φ(20000) ∈ [0,059, ~0,12]`. La predicción `1/√log` era ~0,24:
+**fuera de la horquilla por arriba** — a diferencia del 2000, acá
+el horizonte ya no explica el déficit. La degradación real parece
+**polinomial suave** (`φ(200)/φ(20000) ≈ 3–5 por dos décadas ⟹
+γ ≈ 0,25–0,35`). Consecuencia para la reducción (13): **el lema 1
+se reenuncia** — `φ(c₀) ≳ c₀^{−γ}` con `γ` chico; Lévy sigue dando
+`Σ φ(|c_i|) = ∞` **si** los arranques crecen despacio
+(`|c_i| = O(i^β)` con `γ·β < 1` — con γ ≈ 0,3 basta `β < 3`:
+sigue siendo mucho más débil que Moscas). La reducción SOBREVIVE
+con la forma corregida; el factor que el análisis de tres factores
+subestimó es la probabilidad de supervivencia de la excursión
+larga (no es `(pasos)^{−1/2}` para arranque grande: la cola crítica
+es del ciclo desde la ventana, no desde arranques lejanos). Todo a
+la adversarial.
+
 # ⇢ 10-08-2026 (12) — LA SÍNTESIS DEL DÍA: EL CÍRCULO SE CIERRA SOBRE EL PISO POR VISITA — MEDIDO EN 0,76 EN LAS COORDENADAS CORRECTAS
 
 La matriz conjunta `(altura, banda de t)` dictó lo que faltaba: **a
