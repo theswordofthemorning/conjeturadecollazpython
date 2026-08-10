@@ -1,0 +1,120 @@
+NOTA DE TRABAJO -- MOSCAS EN LOS TIEMPOS DE RETORNO (el esqueleto de
+la condicion de los arranques). 11-08-2026. ESTADO: ESQUEMA PROPUESTO,
+sin adversarial, sin bautizo (el bautizo es del usuario). NO construir
+encima sin la revision (regla del ritmo).
+
+=====================================================================
+QUE AFIRMA (la diana)
+=====================================================================
+
+En la cadena MODIFICADA (vortice rebotado, sin absorcion: sin
+condicionamiento a vivo), sea tau_i el tiempo global de la i-esima
+entrada al fondo (k <= 1) y u = c/3^k la coordenada de Aranas.
+
+    (ARRANQUES POLINOMIALES, version en probabilidad)
+    Existen beta < infinito y theta > 0 con
+        P( |u_{tau_i}| > x * i^beta )  <=  C / x^theta
+    para todo i, x -- es decir |c_i| = O(i^beta) en probabilidad:
+    EXACTAMENTE la condicion 2 de la reduccion del 10-08 (13), que
+    estaba declarada "alcanzable con uniones burdas" y no tenia ni
+    esquema.
+
+Con esto y el piso L-A en cualquier forma con gamma(c0) -> 0 (p. ej.
+la exp(-a sqrt(log c0)) de prediccion_gamma_1108.txt), la serie de
+Levy Sigma_i phi(|c_i|) >= Sigma_i exp(-a sqrt(beta log i)) DIVERGE
+(el termino decae mas despacio que toda potencia), y la cadena
+Markov fuerte + Levy-Borel-Cantelli + LIEBRES dispara phi = 1.
+La reduccion quedaria colgando de L-A SOLO.
+
+=====================================================================
+EL ESQUEMA, en cuatro pasos
+=====================================================================
+
+PASO 1 (hecho: MOSCAS, extension de la 6a). En la cadena modificada
+el theta-momento de |u_t| es uniforme en t: S_t(theta) <= B_theta
+para todo theta < 1 (Lyapunov con r_theta < 1; el rebote 2/3 cumple
+la dominacion). Desde arranque u_0: S_t <= r^t |u_0|^theta + B.
+
+PASO 2 (la pieza nueva chica: LA COTA LOCAL DEL RETORNO). Para el
+primer retorno tau de una excursion: P(tau = t) <= C * t^(-3/2).
+La via: (a) k es martingala de incrementos acotados en el nucleo
+(tabla de derivas, Golondrinas); (b) el paseo EMBEBIDO (solo pasos
+mixtos) es +-1 justo, y su primera pasada tiene la cota local
+clasica m^(-3/2) (balota/reflexion); (c) el reloj entre mixtos son
+las rachas de v2 (TORTOLAS: v2 baja exacto 1 por paso compartido;
+la racha nueva tras un mixto es ~geometrica(1/2) -- con el regimen
+k-par determinista que la 7a etiqueto en tortolas.lean), asi que el
+tiempo total concentra ~2m +- sqrt(m) y la cota local sobrevive el
+cambio de reloj. [POR ESCRIBIR: la concentracion del reloj con el
+regimen k-par determinista de por medio.]
+
+PASO 3 (el empalme: HOLDER EN EL TIEMPO DE PARADA). Para el primer
+retorno (i = 1), con 1/p + 1/q = 1, theta*p < 1:
+
+    E[|u_tau|^theta] = Sigma_t E[|u_t|^theta ; tau = t]
+                    <= Sigma_t (S_t(theta p))^(1/p) * P(tau=t)^(1/q)
+                    <= B^(1/p) * Sigma_t (C t^(-3/2))^(1/q)
+
+y la suma converge sii q < 3/2, o sea p > 3, o sea theta < 1/3.
+LA TENSION EN EL RETORNO ES TEOREMA-FORMA para theta < 1/3: el
+condicionamiento al tiempo de visita, que era el muro (la densidad
+temporal de visitas decae t^(-1/2) y la cota por tiempo fijo se la
+traga), se paga con Holder y un tercio del exponente.
+
+PASO 4 (la iteracion: de una visita a la visita i). tau_i se reparte
+sobre ~i^2 valores de t (el reloj polinomial MEDIDO hoy en
+arranquesporvisita.py: eta ~ 2). La misma cuenta con el soporte
+ensanchado degrada la cota en un factor polinomial en i:
+
+    E[|u_{tau_i}|^theta]  <=  B' * i^(2(1-1/q))      [~ i^(2/3)]
+
+y Markov da P(|u_{tau_i}| > x i^beta) <= C x^(-theta) con
+beta ~ (2/3)/theta ~ 2 para theta cerca de 1/3. POLINOMIAL: es lo
+que la reduccion pide, con margen (gamma*beta no aparece: la forma
+exp(-a sqrt(log)) es sumable contra TODO polinomio).
+[POR ESCRIBIR: la cota de P(tau_i = t) sobre el soporte i^2 -- aqui
+esta el paso mas blando del esquema; la version burda usa
+P(tau_i = t) <= C t^(-1/2) mas el conteo del soporte.]
+
+=====================================================================
+LOS HUECOS, numerados (lo que la revision debe atacar)
+=====================================================================
+
+H1. La cota local P(tau = t) <= C t^(-3/2) con el reloj de rachas:
+    el paseo embebido es justo dado el pasado (Tigresas), pero las
+    RACHAS no son iid (dependen de v2(c), que es funcion del camino
+    -- la leccion de la pieza 3 de QUELTEHUES). La via honesta es
+    dominacion estocastica de la racha por una geometrica, no
+    independencia. El regimen k-par determinista (7a) ayuda: alli la
+    racha es funcion determinista y CORTA.
+H2. El Paso 4 usa "soporte ~ i^2" como si tau_i tuviera densidad
+    plana en el; la cuenta fina necesita la ley local de tau_i
+    (renovacion critica: Erickson/Caravenna-Doney, fichaerickson.txt
+    -- alfa = 1/2 es el borde duro y solo hay liminf en general).
+    Si solo sale liminf, la conclusion se debilita a "a lo largo de
+    una subsucesion" -- ver H4.
+H3. Moscas da momentos de |u|; el arranque de excursion esta en
+    k = 2 y |c_i| = 9|u_{arranque}| -- la traduccion es un factor
+    constante, pero el arranque es UN paso despues de la entrada
+    (la puerta con seleccion expansiva x1,5-2, H3 de QUELTEHUES):
+    otro factor acotado. Revisar que ningun condicionamiento se
+    cuele en esos dos pasos.
+H4. Para Levy basta MUCHO menos que la cota en toda i: basta
+    limsup-frecuencia positiva de {|c_i| <= C} o incluso
+    Sigma phi(|c_i|) = infinito sobre una subsucesion c.s. -- los
+    huecos H1-H2 debilitados a liminf PODRIAN bastar igual. La
+    version minima que dispara el programa debe enunciarse aparte.
+
+=====================================================================
+LO QUE ESTO CAMBIA SI SOBREVIVE (y que no cambia)
+=====================================================================
+
+- La "condicion de los arranques" pasa de prosa a esquema con dos
+  huecos tecnicos (H1, H2) de probabilidad clasica, sin Collatz
+  dentro: paseo justo perezoso + renovacion critica.
+- La medicion del dia la respalda fuerte: beta ~ 0 medido (los
+  arranques ni siquiera crecen -- el esquema demuestra beta <= ~2,
+  la realidad parece estacionaria), eta ~ 2 medido para el reloj.
+- NO toca L-A (el piso), que sigue siendo el unico frente con la
+  degradacion gamma(c0) por decidir. Y NO toca el techo del espejo:
+  todo esto vale identico para 3n-1.

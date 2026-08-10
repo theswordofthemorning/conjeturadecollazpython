@@ -1,0 +1,60 @@
+﻿COMPROBACION 1 OK: cadena modificada contra pares reales, 54420
+instancias (k = 0..7, c = -60..60, ambas paridades).
+
+MONTE CARLO: 400 cadenas x 400000 pasos desde (2,2); 138813 excursiones
+terminadas, 397 censuradas por tope de pasos; la cadena mas viajera
+hizo 1325 excursiones.
+
+COMPROBACION 2 OK: p*(desde (2,2)) = 0.8397 en 19034 excursiones --
+dentro de la horquilla certificada [0,763, 0,960] del barrido
+exacto de masa (10-08 (7)). Dos instrumentos, un numero.
+
+la serie de los arranques (bit_length de |c_i|, o sea ~log2):
+   cubeta i        n      mediana   p90   p99
+       1-1           400        2        2     2
+       2-3           796        4        7    10
+       4-7          1588        4        7    11
+       8-15         3147        4        7    10
+      16-31         6183        4        7    10
+      32-63        11749        4        7    10
+      64-127       21486        4        7    11
+     128-255       34425        4        7    11
+     256-511       39398        4        7    11
+     512-1023      18392        4        7    11
+    1024-2047       1646        4        7    11
+
+beta medido (pendiente de log2|c_i| contra log2 i, cubetas i >= 8):
+  sobre la mediana:      beta = 0.000
+  sobre el percentil 90: beta = 0.000
+
+el criterio de la reduccion (13): con gamma ~ 0,22-0,30 (la escalera
+emparejada de pisoporarranque.py), gamma * beta < 1 exige beta < 3.3.
+  gamma * beta (peor caso, gamma = 0,30 y el p90): 0.000
+
+Etiqueta honesta: beta es una MEDICION sobre i <= 1325 con una semilla;
+la cola de arranques gigantes (p99) es donde una union burda se juega
+la vida, y la censura por PASOS_MAX recorta justo las excursiones mas
+largas -- el beta de la cola esta subestimado por construccion.
+
+el reloj de las visitas (log2 de tau_i, pasos al arrancar):
+   cubeta i        n      mediana   p90
+       2-3           796       4.09      8.04
+       4-7          1588       6.67     11.57
+       8-15         3147       8.88     13.40
+      16-31         6183      11.05     14.49
+      32-63        11749      13.14     16.48
+      64-127       21486      14.81     17.49
+     128-255       34425      16.48     18.08
+     256-511       39398      17.53     18.38
+     512-1023      18392      18.07     18.54
+    1024-2047       1646      18.41     18.58
+
+eta medido (pendiente de log2 tau_i contra log2 i, mediana, i >= 8):
+  eta = 2.082   (el paseo critico predice ~2; L-B pide e^(o(i^2)):
+  cualquier eta POLINOMIAL lo cumple con margen infinito)
+la mediana de excursiones alcanzadas en 400000 pasos es ~296
+  (si tau_i ~ i^2, se esperaba ~sqrt(400000) = 632: mismo orden)
+
+Etiqueta honesta: eta esta sesgado hacia abajo a i grande (censura
+de relojes lentos); el dato robusto es el par (eta ~ 2, i_final ~
+sqrt(pasos)) apuntando JUNTOS al reloj polinomial del paseo critico.

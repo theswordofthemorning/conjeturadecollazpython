@@ -1,0 +1,66 @@
+PREDICCION PRE-REGISTRADA -- LA DECADA NUEVA DEL TEST DE gamma
+(11-08-2026, escrita ANTES de leer el resultado de pisoporarranque.py
+para c0 = 2.000.000; los dos modelos calibrados SOLO con los tres
+puntos publicados del cierre del 10-08: phi >= 0,1182 / 0,0586 /
+0,0354 a T = 130.)
+
+=====================================================================
+LOS DOS MODELOS EN COMPETENCIA (el punto donde el programa se decide,
+7a revision):
+
+MODELO A -- gamma SE ESTABILIZA (phi < 1 con techo):
+    gamma(2*10^5 -> 2*10^6) ~ gamma anterior ~ 0,20 - 0,22
+
+MODELO B -- gamma(c0) = a / sqrt(ln c0) -> 0 (la reduccion vive;
+    equivale a phi(c0) ~ exp(-a * sqrt(ln c0)), la forma "polinomial
+    suave con gamma cayendo"). Calibrado con las dos decadas
+    publicadas: a = 1,77 (primera) / a = 1,46 (segunda). Prediccion:
+    gamma(2*10^5 -> 2*10^6) = 0,137 * a  en  [0,200, 0,242]
+    (con el a de la segunda decada, el mas cercano: ~0,201).
+
+EL CANDIDATO A MECANISMO DE B (heuristica, capa 1 -- NO resultado):
+el analisis de tres factores annealed (contraccion 0,144/paso +
+supervivencia critica L^(-1/2) + cuota q) da 1/sqrt(log), EXCLUIDA en
+el rango limpio por la 7a; anadir la anticoncentracion local
+(aterrizar en una ventana O(1) con fluctuacion sqrt(L)) da 1/log,
+que TAMPOCO ajusta el rango limpio (prediria ratio 1,4 por decada
+contra el ~3 medido). Ningun modelo simple ajusta las TRES horquillas
+certificadas a la vez. La forma exp(-a sqrt(ln c0)) es la que
+reproduce los DOS gamma por decada medidos (0,30 / 0,22) con a en
+[1,46, 1,77], y tiene la propiedad que importa a la reduccion: con
+ella Sigma phi(|c_i|) diverge para CUALQUIER crecimiento polinomial
+de los arranques (exp(-a sqrt(ln i^beta)) = i^(-a sqrt(beta)/
+sqrt(ln i)) decae mas despacio que toda potencia).
+
+=====================================================================
+LA VERDAD INCOMODA DE ESTA DECADA, dicha antes de mirar: los dos
+modelos predicen casi lo mismo (0,20-0,22 contra 0,20-0,24). UNA
+decada mas NO discrimina; discriminarian (i) el cierre de horquillas
+(subir el tope de poda en los c0 grandes), (ii) dos decadas mas con
+T escalado, o (iii) el mecanismo demostrado. Si el gamma nuevo cae
+claramente bajo 0,19 favorece B contra ambos calibrados; si sube de
+0,25 favorece A con rebote; en [0,19, 0,25] esta decada empata y el
+programa sigue en el mismo punto con un dato mas de serie.
+
+=====================================================================
+LO QUE LOS OTROS DOS INSTRUMENTOS DE HOY YA DEJARON MEDIDO
+(arranquesporvisita.py, salida en arranquesporvisita_salida.txt):
+
+- beta = 0,000 (mediana Y p90): los arranques |c_i| NO crecen con i
+  (mediana ~2^4, p90 ~2^7, p99 ~2^11, PLANOS de i = 2 a i = 1325;
+  138.813 excursiones, 400 cadenas x 4*10^5 pasos, semilla fija).
+  La condicion gamma*beta < 1 de la reduccion queda con margen
+  enorme; la distribucion de arranques se ve ESTACIONARIA --
+  consistente con Moscas en la cadena modificada (tension uniforme
+  sin condicionamiento a vivo).
+- p*(2,2) = 0,8397 por Monte Carlo (0,8407 con el otro conjunto de
+  semillas del primer barrido), dentro de la horquilla certificada
+  [0,763, 0,960] del barrido exacto de masa: dos instrumentos sin
+  codigo de conteo compartido, un numero.
+- el reloj de visitas: eta = 2,082 sobre las cubetas sin saturar
+  (i >= 8, p90 del reloj < pasos/4) -- el paseo critico predice ~2;
+  mediana de excursiones alcanzadas 296 ~ orden sqrt(4*10^5) = 632.
+  L-B pide tau_i <= e^(o(i^2)): un reloj polinomial lo cumple con
+  margen infinito. MEDICION, no teorema: la censura recorta los
+  relojes lentos; el dato robusto es el par (eta ~ 2, i_final ~
+  sqrt(pasos)) apuntando juntos al reloj polinomial.
