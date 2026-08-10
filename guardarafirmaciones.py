@@ -3589,6 +3589,59 @@ CORRECCIONES = [
      "parte contra umbral de suma es el cuantificador escondido de las "
      "cotas. Y el termino sin acotar era EL MAYOR -- mirar siempre "
      "cual de los sumandos manda antes de celebrar la cota del chico"),
+
+    ("GARZAS: el sesgo condicionado vive en k <= 3 -- alli estan mas del "
+     "99% de las monedas",
+     "la propia tabla del fichero daba 95,75% (el 99% se alcanza recien "
+     "en k <= 5); como fraccion del SESGO, k <= 3 si lleva el 98,0%. La "
+     "cazo el adversario 1 de la 7a revision externa "
+     "(actarevision1008.txt), 10-08-2026",
+     "una cifra publicada se coteja contra la tabla del propio fichero "
+     "antes de imprimirse: los datos propios son el primer adversario"),
+
+    ("FOCAS pieza (3): dado el camino de k, los bits compartidos quedan "
+     "como monedas justas LIBRES",
+     "falso: la enumeracion exacta hasta L = 16 agrupada por camino de k "
+     "completo da 10.648 de 10.649 grupos que CONSTRINEN los bits "
+     "compartidos, y el 86-94% de las posiciones tienen frecuencia "
+     "condicional del bit exactamente 0 o 1 -- no son monedas, son "
+     "funciones del camino. El mecanismo delator es TORTOLAS, del propio "
+     "repo: los hijos difieren en Delta y el camino los delata en "
+     "j* = v2(Delta) pasos (k impar => j* = 0, delacion inmediata "
+     "siempre). H2 del fichero afirmaba justo lo falso. Adversario 3 de "
+     "la 7a revision (actarevision1008.txt), 10-08-2026",
+     "antes de postular independencia condicional, pasar el propio "
+     "zoologico por encima: el lema que la refutaba estaba a un fichero "
+     "de distancia, demostrado el mismo dia"),
+
+    ("TORTOLAS: el sesgo compone a c*log T con c ~ 0,08 y cierra por las "
+     "dos puntas",
+     "la composicion hecha DE VERDAD (fracciones de j* medidas + "
+     "densidad de monedas + kappa) sobrepredice x3,2 (0,761 contra 0,239 "
+     "medido); el c = 0,08 salia del AJUSTE a la serie de GARZAS, no de "
+     "la composicion; y c*sqrt(T) ajusta nivel y tasa igual de bien, asi "
+     "que 'las dos puntas' no discriminaban. Ademas el exponente de "
+     "kappa es theta = 1,13 +- 0,04 (no 1) y la serie 'kappa*m "
+     "ponderado' citada no la imprimia ningun codigo. Sobrevive solo la "
+     "DIRECCION a_D -> 0. Adversario 1 de la 7a revision "
+     "(actarevision1008.txt), 10-08-2026",
+     "'cierra por las dos puntas' exige que la prediccion salga de la "
+     "COMPOSICION y no del ajuste -- un ajuste siempre cierra con lo que "
+     "se ajusto. Y toda serie citada debe tener el codigo que la "
+     "imprime"),
+
+    ("la forma del piso por arranque es phi(c0) ~ c/sqrt(log c0), y el "
+     "lema pasa en nivel",
+     "la forma exacta quedo EXCLUIDA con cotas certificadas en el rango "
+     "limpio 200-2000 (ratio <= 0,744 contra 0,836 = sqrt del ratio de "
+     "logs); el rango limpio ajusta potencia gamma ~ 0,4 ESTABLE por "
+     "decada; y 'pasa en nivel' era muestra tomada por constante -- la "
+     "misma formula de tres factores falla x2,7 en c0 = 200 y x3 en "
+     "c0 = 20. La cazaron el adversario 3 y el barrido largo T = 130 el "
+     "mismo dia. 7a revision (actarevision1008.txt), 10-08-2026",
+     "un ajuste de forma se testea con el horizonte ESCALANDO con el "
+     "parametro (T ~ 10*log3(c0)) y en al menos tres puntos: un acierto "
+     "en un punto con constante libre no es un test aprobado"),
 ]
 
 
