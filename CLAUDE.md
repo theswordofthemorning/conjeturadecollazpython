@@ -156,7 +156,7 @@ defecto, un fallo dentro — y eso incluye las del asistente.*
 - Núcleo sin Mathlib: hay `by_cases, cases, calc, rw, rwa, omega, decide, exfalso, show, unfold, split, rename_i`. **NO hay** `by_contra, ring, set, rcases, obtain`. Nombres de lemas: **sondear con `#check`**, no adivinar.
 - **`#eval` NO vale como comprobación** (lo calcula el compilador): se escribe teorema `by decide` (lo revisa el núcleo). Todo `.lean` lleva un caso conocido del repo comprobado + cruce con implementación que no comparta código. Control final: **`#print axioms` sin `sorryAx`**.
 - LA TRAMPA: Lean garantiza demostración↔enunciado, NO enunciado↔objeto.
-- Al 09-08-2026 son **14 `.lean`**, todos núcleo puro, 0 `sorryAx`.
+- Al 09-08-2026 (noche) son **17 `.lean`**, todos núcleo puro, 0 `sorryAx`.
 
 ## LA REGLA DE LOS TRES [detalle íntegro: D-02]
 
@@ -355,7 +355,7 @@ for a in sorted(glob.glob('*.py')):
 | **`actarevision0908b.txt`** | El acta de la 5ª revisión externa (tres adversarios contra la terna de la madriguera): LIEBRES aguantó, CEBRAS partida en dos, URRACAS entera |
 | **`cabras.lean`** | El 16º: el invariante mod 3 de la torre (la puerta de CABRAS por la cadena entera) — `c % 3 ≠ 0` para todo alcanzado con `k ≥ 1`, corolario `torre_sin_ceros`; el regalo de la 5ª revisión, formalizado |
 | **`aterrizajen2.lean`** | El 17º: el aterrizaje de N2 — la pieza 2-ádica con signo de Golondrinas (`v₂(c) > A ⟹` el bit 1 aterriza EXACTO en `v₂ = A−1`; `c = 0` ídem; `v₂(c) < A ⟹` baja exacto 1), testigos sin división, cotejado en 42.196 instancias |
-| **`pumasescalera.py`** | El 7º escalón del acorralado: los seis truncados publicados reproducidos + `K=13, \|c\| ≤ 49152` ⟹ **`λ ≥ 1,9807`**; gaps ×0,78 subiendo — consistente con λ = 2 |
+| **`pumasescalera.py`** | Los escalones 7 y 8 del acorralado: los seis truncados publicados reproducidos + `K=13` y `K=15` (1,3M estados) ⟹ **`λ ≥ 1,9844`**; gaps ×0,78 → ×0,81 subiendo — consistente con λ = 2. El 8º tras la bandera `ESCALON_8` (~10 min) |
 | `actarevision0908.txt` | El acta de la 4ª revisión externa (la que rompió Abejas-como-programa y validó el criterio) |
 | `maquinaria.txt` / `notamoscas.txt` | Los cinco objetivos sin Collatz y la nota autocontenida de Moscas |
 | `inventario.md` / `derivados.md` | El catálogo del repo, y las ramas del tronco (sistema de derivados `[D-nn]`) |

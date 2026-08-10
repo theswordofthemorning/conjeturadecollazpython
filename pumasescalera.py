@@ -11,15 +11,18 @@
 #      floats aparecen solo al formar la razon final), y exige que
 #      coincidan con lo publicado y que la escalera sea MONOTONA
 #      (menores anidados);
-#   2. COMPUTA EL ESCALON 7, nunca corrido: K = 13, |c| <= 49152
-#      (313.672 estados). Resultado (09-08-2026):
+#   2. COMPUTA LOS ESCALONES 7 Y 8, nunca corridos antes del
+#      09-08-2026: K = 13, |c| <= 49152 (313.672 estados) y K = 15,
+#      |c| <= 196608 (1.312.342 estados). Resultados:
 #
-#          lambda_T = 1.980748   ==>   LAMBDA >= 1.9807
+#          escalon 7:  lambda_T = 1.980748    gap 0.019252
+#          escalon 8:  lambda_T = 1.984415    gap 0.015585
+#                                ==>   LAMBDA >= 1.9844
 #
-#      (antes 1.9754), con la razon PLANA de t = 240 a t = 420 y el
-#      gap 2 - lambda_T pasando de 0.024553 a 0.019252 (razon de gaps
-#      ~0.78: el patron x0.5-0.75 del acorralado, apenas por encima --
-#      el gap se resiste, como corresponde si lambda = 2).
+#      (antes 1.9754), razones PLANAS en la cola (t = 250..420) y los
+#      gaps consecutivos 0.513/0.498/0.669/0.733/0.755/0.784/0.810 --
+#      SUBIENDO hacia 1 sin piso: el gap se resiste cada vez mas, como
+#      corresponde si lambda = 2 (decaimiento polinomial del resto).
 #
 #   RECORDATORIO DE LOBAS (el techo de este metodo): ningun truncado
 #   finito puede demostrar lambda < 2 (la libertad de la torre), y por
@@ -30,8 +33,10 @@
 
 import time
 
-# (K, C, lambda publicada o None si es nuevo); los seis primeros son
-# la escalera de retornoslambda.py, el septimo es el de este fichero
+# (K, C, lambda esperada); los seis primeros son la escalera de
+# retornoslambda.py, el 7 y el 8 se corrieron por primera vez el
+# 09-08-2026 (noche) y sus valores quedan aqui como esperados: las
+# pasadas futuras VERIFICAN, no descubren
 ESCALERA = [
     (2, 12, 1.7400),
     (3, 48, 1.8667),
@@ -39,10 +44,13 @@ ESCALERA = [
     (7, 768, 1.9556),
     (9, 3072, 1.9675),
     (11, 12288, 1.97545),
-    (13, 49152, None),
+    (13, 49152, 1.980748),
+    (15, 196608, 1.984415),
 ]
 PASOS = 420
 TOLERANCIA = 5e-4          # contra lo publicado (que se dio con 4-5 cifras)
+ESCALON_8 = True           # el (15, 196608) son 1,3M de estados y ~10 min
+                           # de CPU; False para la pasada rapida (~2 min)
 
 
 def transicion(k, c, bit):
@@ -119,12 +127,16 @@ def escalon(K, C, pasos=PASOS):
     return n, min(cola), max(cola)
 
 
-print("la escalera de PUMAS, re-computada entera + el escalon 7:")
+print("la escalera de PUMAS, re-computada entera + los escalones 7 y 8:")
 print("  K     C       estados    lambda_T      gap 2-lambda_T")
 anterior = 0.0
 gaps = []
 resultados = []
 for (K, C, publicada) in ESCALERA:
+    if (K, C) == (15, 196608) and not ESCALON_8:
+        print("  [escalon 8 saltado: ESCALON_8 = False; su valor verificado")
+        print("   el 09-08-2026 es lambda_T = 1.984415, gap 0.015585]")
+        continue
     t0 = time.time()
     n, lo, hi = escalon(K, C)
     if hi - lo > 1e-6:
@@ -147,10 +159,11 @@ print("razones de gaps consecutivos:",
       ["%.3f" % (gaps[i + 1] / gaps[i]) for i in range(len(gaps) - 1)])
 print()
 print("VEREDICTO: los seis escalones publicados REPRODUCIDOS (monotonia y")
-print("valores), y el septimo es nuevo:")
-print("  LAMBDA >= %.6f    (K = 13, |c| <= 49152, %d estados)"
-      % (resultados[-1][3], resultados[-1][2]))
-print("El gap sigue achicandose (~x0.78 este escalon) sin senal de piso:")
-print("consistente con lambda = 2 (el paseo critico), que es lo que LOBAS")
-print("dice que ningun truncado puede refutar. La cota DEMOSTRADA de PUMAS")
-print("queda en lambda >= 1.9807.")
+print("valores), y los escalones nuevos:")
+print("  LAMBDA >= %.6f    (K = %d, |c| <= %d, %d estados)"
+      % (resultados[-1][3], resultados[-1][0], resultados[-1][1],
+         resultados[-1][2]))
+print("El gap sigue achicandose con razon SUBIENDO hacia 1 (0.78, 0.81)")
+print("sin senal de piso: consistente con lambda = 2 (el paseo critico),")
+print("que es lo que LOBAS dice que ningun truncado puede refutar. La cota")
+print("DEMOSTRADA de PUMAS queda en lambda >= %.4f." % resultados[-1][3])

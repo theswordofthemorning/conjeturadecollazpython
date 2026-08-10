@@ -5,25 +5,30 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
-# ⇢ 09-08-2026 (13) — EL SÉPTIMO ESCALÓN DE PUMAS: `λ ≥ 1,9807`
+# ⇢ 09-08-2026 (13) — LOS ESCALONES 7 Y 8 DE PUMAS: `λ ≥ 1,9844`
 
 **`pumasescalera.py`** (el 65º `.py`): la escalera de truncados
 re-computada ENTERA con tabla de sucesores precomputada (conteo
 entero, ni un float en la cadena que decide) — **los seis escalones
 publicados reproducidos dígito a dígito** con monotonía y convergencia
-exigidas por `SystemExit` — y **el escalón 7, nunca corrido: `K = 13,
-|c| ≤ 49152` (313.672 estados)**:
+exigidas por `SystemExit` — y **dos escalones nuevos, nunca corridos**:
 
-    lambda_T = 1,980748   ⟹   λ ≥ 1,9807      (antes 1,9754)
+    escalón 7: K = 13, |c| ≤  49152 (  313.672 estados)  λ_T = 1,980748
+    escalón 8: K = 15, |c| ≤ 196608 (1.312.342 estados)  λ_T = 1,984415
 
-con la razón plana de t = 240 a 420. Los gaps consecutivos:
-0,513 / 0,498 / 0,669 / 0,733 / 0,755 / **0,784** — subiendo hacia 1
-sin señal de piso: consistente con `λ = 2` (el paseo crítico), que es
-exactamente lo que LOBAS dice que ningún truncado puede refutar. En el
-camino, la capa 1 atrapó un susto de convergencia: a 400 pasos el
-escalón (9) parecía dar MENOS que el (7) publicado — era que el 1,9754
-publicado venía del escalón (11) de `retornoslambda.py`, no del (7);
-la réplica independiente restauró la monotonía y validó los seis.
+    ⟹  λ ≥ 1,9844      (antes 1,9754)
+
+con las razones planas en la cola (t = 250…420). Los gaps
+consecutivos: 0,513 / 0,498 / 0,669 / 0,733 / 0,755 / 0,784 /
+**0,810** — subiendo hacia 1 sin señal de piso: el gap se resiste cada
+vez más, exactamente como corresponde si `λ = 2` (resto polinomial), que
+es lo que LOBAS dice que ningún truncado puede refutar. El escalón 8
+queda tras la bandera `ESCALON_8` (son ~10 min de CPU; con `False` la
+pasada rápida verifica los siete primeros en ~2 min). En el camino, la
+capa 1 atrapó un susto de convergencia: a 400 pasos el escalón (9)
+parecía dar MENOS que el «(7) publicado» — era que el 1,9754 publicado
+venía del escalón (11) de `retornoslambda.py`, no del (7); la réplica
+independiente restauró la monotonía y validó los seis.
 
 # ⇢ 09-08-2026 (12) — EL ATERRIZAJE DE N2, EN LEAN: EL 17º `.lean`, Y EL PENDIENTE DECLARADO DE GOLONDRINAS, COBRADO
 
