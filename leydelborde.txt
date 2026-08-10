@@ -92,6 +92,29 @@ LO QUE FALTA PARA EL ASCENSO A TEOREMA
   SystemExit sobre b(t-1)).
 
 =====================================================================
+ADDENDUM (misma tarde): LA SEGUNDA FILA Y LA FRONTERA
+=====================================================================
+
+MEDIDO sobre la tabla de triangulodefusion.py (13 celdas, t = 10..22):
+
+    F(t, t-4)  =  C( floor((t-4)/2), 2 )      [3,3,6,6,10,10,15,15,
+                                               21,21,28,28,36 --
+                                               triangulares duplicados]
+
+clavada sin excepcion. Y LA TERCERA FILA YA NO ES BINOMIAL PURA:
+F(t, t-6) = 17, 32, 50, 80, 112, 160, 209, 279, ... no casa con
+C(m, 3) para ningun desplazamiento -- la frontera entre "geometria"
+(filas con forma cerrada) y "combinatoria" del triangulo esta entre
+las filas 2 y 3: EXACTAMENTE el mismo corte que NUTRIAS encontro en
+los estratos (e2 = e4 = 1, e6 cuadratica cerrada, e8 en adelante
+combinatoria). Dos triangulos, la misma frontera -- consistente con
+que son dos proyecciones del mismo objeto. La fila 2 con su
+demostracion (censo de palabras con cuatro ceros: dos ventanas de
+Perras componiendose, o preludio de Chanchitos + ventana) queda como
+el siguiente candidato barato; la fila 3 es donde empieza la
+combinatoria de verdad.
+
+=====================================================================
 POR QUE IMPORTA
 =====================================================================
 
