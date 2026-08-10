@@ -198,10 +198,11 @@ correcciones aplicadas el mismo cierre):
 condicionada del desbalance de la moneda justa (más la ocupación del
 vórtice, que decae) por debajo del umbral efectivo ~0,2446 por paso.
 El h-transform del paseo crítico de `k` sesga `O(1/k)`, no
-exponencialmente — ésa sigue siendo la vía. **Regalo de la revisión:
-el invariante mod 3** (toda entrada a la torre da `c ≡ 2 mod 3`;
-`c ≡ 0 mod 3` no se fabrica nunca desde `(0,1)`) — lema gratis que
-justifica los saltos de `c = 0` y merece su propio fichero.
+exponencialmente — ésa sigue siendo la vía. **Regalo de la revisión,
+YA COBRADO (09-08 (8)):** el invariante mod 3 resultó ser la puerta de
+CABRAS por la cadena entera y está formalizado en **`cabras.lean` (el
+16º)** con el corolario `torre_sin_ceros` — los saltos de `c = 0` son
+teorema, no convención.
 
 ## ⇢ LA REFORMULACIÓN DEL 09-08 (manda sobre lo de abajo)
 
@@ -441,7 +442,7 @@ descriptivo entre paréntesis.)*
 | **KOMODO 3** | teorema en Lean | tras el paso 0 el mayor es `≡ 2 (mod 3)` y «no múltiplo de 3» es invariante para siempre | demostrado, 0 sorry | `teoremadekomodo3.lean` |
 | **LEONAS** | teorema-marco | LA CADENA `(k,c)`: seis leyes exactas con moneda de Terras; el zoológico entero son sus estados | demostrado (leyes en Lean, `p` impar arbitrario) | `paseodeladeuda.py`, `cadenakc.lean` |
 | **TIGRESAS** | teorema | el multiplicador: cada paso del núcleo es moneda justa `×1/2 / ×3/2` — `E[m]=1` exacto: perpetuidad de Kesten CRÍTICA (κ=1) | demostrado (lectura φ=1: heurística declarada) | `subrenovacionc.py` |
-| **CABRAS** | teorema | las puertas mod 3: directa → clase 2, vuelco → clase 1, nunca 0; **la puerta que funde es la del vuelco** | demostrado | `subrenovacionc.py` |
+| **CABRAS** | teorema | las puertas mod 3: directa → clase 2, vuelco → clase 1, nunca 0; **la puerta que funde es la del vuelco**. Y por la cadena entera: todo alcanzado con `k ≥ 1` tiene `c % 3 ≠ 0` — la torre no fabrica múltiplos de 3; corolario `torre_sin_ceros` (`(k,0)` inalcanzable) | demostrado; **formalizada en Lean (el 16º)** — el regalo de la 5ª revisión resultó ser esta puerta | `subrenovacionc.py`, `cabras.lean` |
 | **ZORRAS** | teorema condicional | la inversión: `λ < 2 ⟹ φ = 1` — el autovalor no puede separar (`b(t+2) ≥ N_t(1,2)` exacto; piso `s_t` medido) | mecanismo exacto + piso medido | `retornoslambda.py` |
 | **LOBAS** | lema | la libertad de la torre: única absorción `(1,1)`-bit1; ningún truncado finito demuestra `λ < 2` | demostrado (test exacto) | `matriztransferencia.py` |
 | **PUMAS** | cotas | el acorralado de λ: `λ ≥ 1.9754` por seis truncados anidados (conteo entero), gap ×0.5–0.75 por escalón | demostrado (cotas) | `matriztransferencia.py`, `retornoslambda.py` |

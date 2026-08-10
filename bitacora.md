@@ -5,6 +5,30 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (8) — EL PENDIENTE DEL ACTA, COBRADO: `cabras.lean` (EL 16º), EL INVARIANTE MOD 3 DE LA TORRE
+
+El «regalo» del informe 1 de la 5ª revisión resultó ser **la puerta
+mod 3 de CABRAS** (`subrenovacionc.py`) viajando por la cadena entera —
+no un animal nuevo: por la regla de la casa, se formaliza bajo su
+nombre. **`cabras.lean`, el 16º `.lean`, núcleo puro, 0 `sorryAx`:**
+desde cualquier arranque en la frontera, todo estado alcanzado con
+`k ≥ 1` cumple `c % 3 ≠ 0` (`paso_puerta` en los once constructores +
+inducción sobre caminos), con el corolario **`torre_sin_ceros`**
+(`(k, 0)` inalcanzable) — lo que justifica como teorema los saltos de
+`c = 0` en las C0 de `liebres.py`/`urracas.py` y los 17 fantasmas del
+conjunto de Doeblin. Mecánica: el esqueleto de `urracas.lean` sin
+contadores; la llave es `3^{k+1} = 2m+1 ⟹ m ≡ 1 (mod 3)`: la rama
+par-bit1 «resetea» a clase 2 y el descenso manda `{1,2}` en `{2,1}`.
+
+**Revisión adversarial propia (régimen del usuario: avanzar y
+revisarse una misma, sin agentes):** (A1) los once constructores
+transcritos DESDE el `.lean` y cotejados contra `modificada()` —
+25.521 estados con `c = 0` y rejilla fea: **0 desajustes**; (A2)
+intento de falsificación por BFS a **7.709.949 estados** (profundidad
+34): **cero** estados de torre con `3 | c`, clases vistas `{1, 2}`;
+(A3) el paso del descenso `(d − m)` enumerado bajo las hipótesis del
+lema: 0 violaciones. Conteos: **64 `.py` · 16 `.lean` · 3 `.db`**.
+
 # ⇢ 09-08-2026 (7) — LA 5ª REVISIÓN EXTERNA: TRES ADVERSARIOS CONTRA LA TERNA. QUINTA REVISIÓN, QUINTA VEZ QUE ROMPE ALGO
 
 **Acta íntegra (los tres informes verbatim): `actarevision0908b.txt`.
