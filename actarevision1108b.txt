@@ -1,0 +1,123 @@
+ACTA DE LA 8a REVISION EXTERNA ADVERSARIAL (11-08-2026, noche)
+=====================================================================
+Tres adversarios independientes contra la tanda entera de la jornada
+satelital, cada uno con implementacion propia y ataques fallidos
+declarados. Informes integros: actarevision1108b_adv1.txt (los
+instrumentos de medicion), _adv2.txt (la rama combinatoria y el
+record), _adv3.txt (las piezas analiticas). OCTAVA REVISION, OCTAVA
+VEZ QUE MUERDE. Correcciones aplicadas el mismo cierre (este fichero
+es el resumen ejecutivo; el detalle vive en los tres informes).
+
+=====================================================================
+LO QUE AGUANTO (con verificacion independiente)
+=====================================================================
+
+- **EL RECORD phi >= 0,443061 AGUANTA ENTERO** (adv 2): recomputado
+  por DOS caminos propios -- censo por pares enteros reales (2^20
+  clases, sin cadena simbolica: R/A identicos celda a celda) y
+  barrido con transicion INFERIDA de pares (tabla L = 10..28 clavada
+  a 6 decimales). La logica de la cota validada (descomposicion
+  unica, composiciones disjuntas, truncados solo bajan), el puente
+  palabra<->clase probado contra a(k) exacta k = 3..20, y la
+  conservacion rho + alfa + viva + desbordada == 1 verificada EN
+  RACIONALES (que el C1 original no exigia). Consistencia externa:
+  todos los a(k)/2^k < 0,4431; prediccion falsable: a(k)/2^k cruza
+  0,4431 hacia k ~ 36-40. Y el regalo: el cap z <= 12 descarta
+  25,77% de la masa -- subir el cap mejora la cota GRATIS (la
+  cadena restringida sin cap ya midio 0,4503 en float; la version
+  exacta es el siguiente paso).
+- **La escalera de gamma** (adv 1): barrido reimplementado desde
+  pares reales (0 discrepancias), los puntos intermedios clavados,
+  la poda NO fabrica la tendencia (cotas superiores tambien caen;
+  MC sin poda coincide).
+- **beta = 0 y eta = 2,082** (adv 1): el ataque de cuantizacion
+  fallo (con log2 continuo la mediana es exactamente plana,
+  beta_p90 = -0,027); p* = 0,8410 con semilla propia.
+- **Los Lemas 1-3 del teorema V2** (adv 3): aritmetica rehecha desde
+  cero (signos y balance BIEN; raiz 28,58 clavada), MC propio hasta
+  x = 2e27 (probabilidad condicionada = 1,000 en 17 puntos).
+- **La ley del borde, FORTALECIDA a t >= 3** (adv 2): las filas 1-3
+  y el lema de preimagenes verificados exhaustivamente; los dos
+  huecos encargados (trepada N3, vuelco F4) NO existen.
+- **triangulodefusion y pumasescalera** (adv 2): F(t,S) y los
+  escalones reproducidos; Pumas ademas REFORZADA con certificado
+  Collatz-Wielandt en racionales por escalon (recomendacion:
+  extenderlo a los escalones 6-9).
+- **notamoscasinducida** (adv 3): aguanta COMO ESQUEMA, con dos
+  reparaciones constructivas regaladas (la cota local t^(-3/2) no
+  se hereda por dominacion pero NO hace falta -- cola t^(-1/2) +
+  Holder por bloques da el mismo theta < 1/3; el "soporte ~ i^2"
+  es un salto reparable al mismo orden).
+- **Dato nuevo A FAVOR de L3** (adv 3, ataque fallido declarado):
+  el exito condicionado a excursiones largas es 0,29 ESTABLE en 12
+  decadas (x = 2e15..2e27) -- la mediana universal de W se VE en el
+  modelo; asintota estimada phi_V2a ~ 0,125/sqrt(ln x).
+
+=====================================================================
+LO QUE SE ROMPIO O EXAGERO (aplicado)
+=====================================================================
+
+R1 (adv 1, BUG REAL): la "semilla fija" de sombraexogena.py no
+    existia -- hash((nombre, x)) esta SALADO por proceso: la corrida
+    publicada no era reproducible. ARREGLADO (semilla determinista
+    por indice de modelo) y RE-CORRIDO: mismos numeros a ruido MC,
+    conclusiones en pie, ahora reproducibles.
+R2 (adv 1 y adv 3, LA DOBLE CAZADA): gamma_3 = 0,197 esta EN la
+    banda de empate [0,19, 0,25] del pre-registro -- "la decada
+    dobla al lado de la reduccion" contradecia la regla propia.
+    RETIRADO: la decada EMPATA (con gamma cayendo en la serie de
+    cotas, que es lo que se puede decir).
+R3 (adv 1): "V2 reproduce a +-0,03" es falso sobre su propia tabla:
+    la primera decada da V3 - V2a = +0,049 (7,2 sigma). CORREGIDO:
+    forma reproducida; decadas 2-3 a +-0,02; la primera con
+    diferencia significativa (el reloj endogeno muerde mas cerca).
+R4 (adv 1 + adv 3): "EL MURO ES DE UN METRO" decia mas que su
+    calculo. Queda la version estructural: V2 es diana autonoma
+    legitima, la transferencia es acotada y medible, y gamma -> 0
+    en el modelo es CALCULO DE LAPLACE con optimo en t = L* - 11
+    (adv 3 lo hizo) -- pero la reproduccion cuantitativa fina y el
+    "computable" como teorema siguen pendientes.
+R5 (adv 3, EL HALLAZGO CENTRAL): la sonda extendida (A4 incluida)
+    midio en parte un ARTEFACTO DE HORIZONTE -- a T = 4000 las
+    mismas decadas dan gamma 0,048 -> 0,036 (no 0,088 -> 0,077), y
+    a T fijo gamma toca fondo y SUBE. "Ocho decadas de caida
+    monotona" empalmaba protocolos. La medicion honesta del modelo
+    exige T >= 30 ln x; ahi el modelo predice gamma(2e10 -> 2e12)
+    ~ 0,025-0,035. El aplanamiento de phi sqrt(ln x) llega en
+    x ~ 10^400: intesteable directo -- la prediccion falsable es
+    la de horizonte escalado.
+R6 (adv 3): el plan B de la pieza 3 (apareamiento) esta ROTO en un
+    punto concreto: desde altura k_j hay k_j - 1 expansiones SIN
+    pareja ((3/2)^(c sqrt(ln x)), no O(1)). La via AGKV queda como
+    la unica del plan.
+R7 (adv 1): el sesgo v2 de la escalera es REAL y ahora esta MEDIDO
+    (phi varia x1,8 con v2 a magnitud fija; se satura en v2 >= 4,
+    donde vive la escalera; las gamma re-emparejadas no fabrican la
+    caida) -- la frase "sesgo comun" estaba sin medir.
+R8 (adv 2): error de hecho en leydelborde.txt (las palabras del
+    borde chico son 001 y 0101, no lo escrito) -- y el enunciado se
+    FORTALECE a t >= 3. Corregido.
+R9 (adv 2): "S/t -> 0,549" no esta soportado: es 0,5493 en t = 22 y
+    sigue bajando. Corregido a serie medida sin limite proclamado.
+R10 (adv 3): el enunciado de los lemas V2 dice "bits justos dado el
+    pasado" pero lo demostrado es iid + reloj exogeno. Corregido.
+R11 (menores): encabezado y gaps cableados en pumasescalera
+    (corregidos, barrido NO re-corrido -- regla de la casa);
+    calibraciones del pre-registro (a = 1,80, techo 0,246; nota
+    post-acta anadida SIN reescribir el pre-registro); cola p99 de
+    beta anotada; la sonda extendida necesita fichero de repo o
+    salir de la bitacora (se registro como fichero con su caveat).
+
+=====================================================================
+EL SALDO
+=====================================================================
+
+Los numeros duros del dia AGUANTAN TODOS (record, escalera, beta,
+eta, lambda, filas del triangulo, lemas 1-2 de V2). Lo que se rompio
+es lo de siempre en esta casa: frases que decian mas que su calculo,
+un protocolo empalmado, un bug de reproducibilidad y un atajo
+analitico que no cierra. Ocho revisiones, ocho mordidas -- la
+doctrina no falla. Piezas nuevas que la ronda REGALO: el certificado
+Collatz-Wielandt (Pumas), la reparacion por bloques del esquema de
+Moscas inducida, la evidencia de L3 (0,29 en 12 decadas), y el
+Laplace hecho de verdad (optimo en L* - 11).

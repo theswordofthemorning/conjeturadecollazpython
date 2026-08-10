@@ -180,10 +180,14 @@ print("la prueba de circularidad: phi(x) por modelo, %d excursiones/punto,"
 print("horizonte T = %d, ventana |u| <= 25/3 (|c| <= 25 en k = 1)" % T_MAX)
 print()
 resultados = {}
-for nombre, correr in modelos:
+for indice_modelo, (nombre, correr) in enumerate(modelos):
     fila = {}
     for x in X_LISTA:
-        azar = random.Random(SEMILLA * 7 + hash((nombre, x)) % 10 ** 6)
+        # ⇢ CORRECCION DE LA 8a REVISION (adversario 1): la version
+        # original usaba hash((nombre, x)), que Python SALA por proceso
+        # (PYTHONHASHSEED): la "semilla fija" era falsa y la corrida no
+        # era reproducible. Semilla determinista de verdad:
+        azar = random.Random(SEMILLA * 7 + indice_modelo * 10 ** 9 + x)
         exitos = censuras = 0
         for _ in range(N_CADENAS):
             r = correr(azar, x)

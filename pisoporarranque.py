@@ -46,10 +46,14 @@
 #   Y el aviso del punto 8 de la lista adversarial: los c0 de la
 #   escalera son decadas redondas (v2(c0) sube exactamente 1 por
 #   decada: 2000 = 2^4*125, ..., 2*10^6 = 2^7*15625); la comparacion
-#   entre decadas arrastra ese desplazamiento sistematico de v2. Para
-#   la tendencia de gamma es un sesgo COMUN a todos los escalones (no
-#   fabrica la caida); para el valor absoluto de phi(c0), no esta
-#   descartado. El control con c0 impar vecino queda anotado.
+#   entre decadas arrastra ese desplazamiento sistematico de v2.
+#   ⇢ MEDIDO POR LA 8a REVISION (adv 1) -- la frase original "sesgo
+#   comun, no fabrica" estaba SIN medir: phi varia hasta x1,8 con v2
+#   a magnitud fija (0,0519..0,0938 en ~2000), SE SATURA en v2 >= 4
+#   (donde vive la escalera entera), y las gamma re-emparejadas por
+#   v2 NO fabrican la caida. El sesgo es real, acotado, y no produce
+#   la tendencia; para el valor absoluto de phi(c0) sigue siendo un
+#   parametro del protocolo.
 #
 #   Mapa del ATAJO via la cadena simbolica; enteros exactos; SystemExit
 #   antes de concluir.

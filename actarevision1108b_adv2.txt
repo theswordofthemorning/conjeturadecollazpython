@@ -1,0 +1,236 @@
+=====================================================================
+ACTA DEL ADVERSARIO 2 -- 8a REVISION EXTERNA (11-08-2026)
+Bloque: la rama combinatoria (el RECORD, el triangulo, la ley del
+borde, la escalera de PUMAS). Encargo: romper, no aplaudir.
+Metodo: TODA verificacion con codigo propio; la transicion de la
+cadena (k,c) fue INFERIDA de pares de enteros reales (interpolacion
+lineal exacta sobre dos representantes grandes, con asserts), no
+copiada de paseodeladeuda.py. Scripts del scratchpad: adv2_comun.py,
+adv2_pares.py, adv2_simbolico.py, adv2_borde.py, adv2_pumas.py,
+adv2_cw.py.
+=====================================================================
+
+---------------------------------------------------------------------
+PIEZA 1 -- EL RECORD (gramaticaderetornos.py): phi >= 0,443061
+VEREDICTO: AGUANTA. Reproducido por DOS caminos independientes y la
+logica de la cota es valida. Es un record legitimo del repo.
+---------------------------------------------------------------------
+
+1a. EL PUENTE PALABRA <-> CLASE, atacado por pares reales (el ataque
+    mas duro que tenia). Censo de bloques SIN cadena simbolica: las
+    2^20 clases r mod 2^20 con representante grande n = r + 2^20 *
+    100 * 3^20, iterando los DOS enteros con el atajo y detectando
+    los eventos sobre los enteros mismos (diferencia == 1 -> retorno;
+    encuentro -> absorcion). Resultado:
+      - R(t,z) y A(t,z) IDENTICOS celda a celda a los del barrido
+        simbolico (96 celdas, t <= 18, z <= 12, 0 diferencias);
+      - a(k) EXACTA para k = 3..20 contra la publicada (hasta
+        a(20) = 421.643) -- la medida producto de palabras ES la
+        densidad 2-adica de clases, verificado contra enteros;
+      - 0 anomalias S_x != S_y en los encuentros (2^20 clases): la
+        fusion de clase es siempre S-igualada (el vortice), tambien
+        visto desde los enteros;
+      - las series parciales rho_L, alfa_L, phi_trunc IDENTICAS a la
+        salida publicada en L = 10..20 (seis decimales).
+    El 'abs' de la ley N4 (la identificacion (0,-1) == (0,1)) queda
+    validado por este camino: el censo de pares no sabe nada de abs
+    y produce los mismos conteos.
+
+1b. EL RECORD RE-COMPUTADO con transicion inferida de pares, cap
+    z <= 12, L = 28, racionales exactos:
+        phi >= alfa/(1-rho) = 0,4430614898
+    identico al publicado (0,443061). Tabla entera L = 10..28
+    reproducida a seis decimales.
+
+1c. LA LOGICA DE LA COTA, auditada pieza a pieza:
+      - Descomposicion unica: los bordes de bloque son los tiempos de
+        retorno sucesivos a (0,1); dado el camino, son unicos. La
+        renovacion es legitima: la cadena es Markov determinista
+        dirigida por bits iid, y el estado de re-arranque es
+        EXACTAMENTE el inicial (0,1).
+      - Composiciones disjuntas e inyectivas: verificado como
+        IDENTIDAD DE ENTEROS con convolucion propia: F = Suma_j
+        R^(*j) * A exacta en t <= 20, z <= 12, 0 celdas malas
+        (igual el rango publicado).
+      - Cota inferior: phi >= alfa_T + rho_T * phi para series
+        truncadas (los eventos contados son subconjuntos disjuntos
+        del evento de fusion), o sea phi >= alfa_T/(1-rho_T). Los
+        recortes (L <= 28, z <= 12) solo BAJAN la cota. Correcto.
+      - phi = lim a(k)/2^k: la sucesion es monotona (doblado de Gao)
+        y a(k)/2^k = P(fusion <= k) quedo verificado contra pares
+        hasta k = 20; el limite es la medida de Haar 2-adica del
+        conjunto de fusion. La cota se compara con el objeto justo.
+      - El rebote (1,1)-bit0 -> (2,2) NO rompe la renovacion: es un
+        estado interior de bloque como cualquier otro; la absorcion
+        solo ocurre en el vortice y el retorno solo en (0,1). El
+        barrido lo trata igual que a todo estado. Sin hueco.
+
+1d. CONSERVACION EXACTA (mas fuerte que el C1 publicado, que solo
+    verifica <= 1): rho + alfa + viva + desbordada == 1 como
+    igualdad de racionales, con desbordada = 0,257657. Cerrado.
+
+1e. CONSISTENCIA EXTERNA: todos los a(k)/2^k computados (0,3604 ...
+    0,4357) estan POR DEBAJO de 0,443061, como debe ser (phi es el
+    supremo de la sucesion creciente; una cota inferior de phi puede
+    superar todos los terminos computados sin contradiccion). No
+    existe en el repo ninguna cota superior de phi que la contradiga
+    (las 'cotas superiores' del repo son de Res, de ciclos y del
+    phi(c0) truncado por arranque -- otros objetos). PREDICCION
+    FALSABLE que el record deja: a(k)/2^k debe cruzar 0,443061 en
+    algun k finito (al ritmo actual, en la zona k ~ 36-40).
+
+1f. OBSERVACIONES (no rompen, se anotan):
+      - La palabra "conservacion de masa" en el comentario de C1 del
+        fichero promete mas de lo que el check hace (solo <= 1). La
+        conservacion verdadera la verifique yo (1d) y DA: se puede
+        subir la frase a "verificada" citando esta acta, o dejar el
+        check como esta y rebajar la palabra.
+      - El cap z <= 12 descarta el 25,77% de la masa. El record es
+        CONSERVADOR: subir Z_MAX con el mismo L = 28 mejoraria la
+        cota gratis (mas memoria, cero riesgo logico). Recomendado
+        como siguiente paso barato.
+      - La justificacion entre parentesis del C3 ("todo bloque
+        contado funde de verdad") es floja como prosa: la razon
+        exacta es que las composiciones truncadas son subconjuntos
+        disjuntos del evento de fusion. La formula esta bien.
+
+---------------------------------------------------------------------
+PIEZA 2 -- triangulodefusion.py: F(t,S), Pascal, la diagonal
+VEREDICTO: AGUANTA, con UNA correccion de prosa sobre la diagonal.
+---------------------------------------------------------------------
+
+  - Sigma_S F(t,S) = b(t-1): confirmado implicitamente por mi censo
+    de pares (a(k) exacta k <= 20 implica las absorciones frescas
+    del paso t = b(t-1)); la b publicada viene ademas del barrido
+    de restos a 2^32, que es un camino sin cadena simbolica.
+  - El negativo de Pascal (17/121, 4/121, 4/121 celdas exactas) es
+    un negativo honesto reportado como tal. Sin objecion.
+  - LA DIAGONAL: la salida muestra S/t = 0,5493 en t = 22 todavia
+    BAJANDO ~0,0015 por nivel, sin estabilizarse. La frase del
+    encargo "la diagonal S/t -> 0,549" NO esta soportada por el
+    dato: 0,549 es el ultimo valor medido de una sucesion
+    decreciente, no un limite. Si esa frase esta en bitacora o
+    prosa, corregir a "S/t = 0,5493 en t = 22, aun decreciente".
+    (El objetivo Terras 0,6131 claramente NO es el limite de esta
+    diagonal; eso el fichero ya lo deja ver.)
+
+---------------------------------------------------------------------
+PIEZA 3 -- leydelborde.txt: la ley del borde y sus addenda
+VEREDICTO: AGUANTA (las tres filas y el esbozo), con DOS
+correcciones de prosa exactas. Los ataques encargados FALLARON.
+---------------------------------------------------------------------
+
+  Verificacion exhaustiva propia (enumeracion de palabras, transicion
+  inferida de pares):
+  - FILA 1: F(t,t-2) = floor((t-1)/2) clavada t = 5..22, y TODA
+    palabra de dos ceros que funde tiene EXACTAMENTE la forma
+    1^a 0 1^b 0 1 con a PAR (0 excepciones en t <= 22). Esto cierra
+    empiricamente los dos huecos que se me encargo atacar:
+      * pieza 3a (conservacion de signo): ademas verificada en
+        rejilla k <= 8, |c| <= 4000 -- el nucleo con c < 0 es
+        cerrado bajo AMBOS bits (con la unica salida a frontera
+        k = 0 con gap positivo), F4 vuelve al nucleo con c < 0
+        para todo g impar >= 1, F2 conserva par positivo, y ningun
+        estado con c < 0 fusiona. Sin contraejemplo.
+      * pieza 3c (gastar el segundo cero ANTES de la primera
+        bajada, trepadas N3 con c < 0): N3 desde c < 0 conserva
+        c < 0 a cualquier k (rejilla), y con solo unos el nivel k
+        nunca sube por encima de max(k,1) (rejilla: bit 1 jamas
+        sube k desde k <= 1, y desde k >= 2 solo baja o queda) --
+        (2,5) y (1,1) inalcanzables. El caso esta cubierto.
+  - PIEZA 2 (la llave): en rejilla k <= 8, |c| <= 4000, las
+    preimagenes de (1,1) son EXACTAMENTE (1,2)-bit0 y (2,5)-bit1.
+    Confirmada. (La rejilla es finita; el argumento algebraico de
+    los seis casos del txt es correcto y Lean lo cerrara.)
+  - FILA 2: F(t,t-4) = C(floor((t-4)/2),2) clavada t = 8..20 y la
+    parametrizacion 1^a0 0 1 0 1^a2 0 1^a3 0 1 con a0 y a2 IMPARES
+    verificada sin excepcion hasta t = 20 (el txt decia t <= 18:
+    extendida dos niveles).
+  - FILA 3: la serie 3, 9, 17, 32, 50, 80, 112, 160, 209, 279
+    clavada t = 10..19. (Nota: existe ademas F(9,3) = 1 en t = 9,
+    anterior al arranque de la sonda del txt; consistente con la
+    tabla del triangulo.)
+
+  CORRECCION 1 (error de hecho en el txt, seccion "LO QUE FALTA"):
+    la frase "las palabras 101 y 1101... en realidad 0 1 1 y
+    1 0 1 1" esta MAL DOS VECES: ni las originales ni las
+    "corregidas" son las palabras. Las palabras de los casos borde
+    son  0 0 1  (t = 3: la palabra de Garner, que paseodeladeuda.py
+    si tiene bien) y  0 1 0 1  (t = 4). Verificado por enumeracion:
+    son las UNICAS de dos ceros que funden en t = 3 y t = 4.
+
+  CORRECCION 2 (el enunciado se puede FORTALECER): t = 3 y t = 4 NO
+    quedan fuera de la ley -- F(3,1) = 1 = floor(2/2) y F(4,2) = 1
+    = floor(3/2), y ambas palabras tienen la forma de la rama A con
+    a = 0 (par). La formula del conteo de la pieza 1
+    (floor((t-3)/2) + 1) tambien las cubre. El enunciado vale para
+    todo t >= 3; el "para todo t >= 5" regala dos casos que son
+    suyos.
+
+---------------------------------------------------------------------
+PIEZA 4 -- pumasescalera.py + salida9: lambda >= 1,987046
+VEREDICTO: AGUANTA, y sale REFORZADA (cota certificada nueva).
+Dos manchas de prosa en la salida.
+---------------------------------------------------------------------
+
+  - Escalones 1-5 re-corridos con implementacion propia (BFS propio,
+    iteracion entera propia, transicion inferida de pares): numero
+    de estados IDENTICO (20 / 121 / 734 / 3717 / 16361) y lambda_T
+    identica a seis decimales (1,739963 / 1,866657 / 1,933590 /
+    1,955595 / 1,967467), spread de la cola = 0. Los escalones 6-9
+    no se re-corrieron (caros); su aritmetica interna si:
+  - Los 8 cocientes de gaps de la salida re-calculados a mano:
+    0,513 / 0,498 / 0,669 / 0,733 / 0,755 / 0,784 / 0,809 / 0,831
+    -- todos correctos. Monotonia de la escalera: correcta.
+  - REFUERZO (adv2_cw.py): cota de Collatz-Wielandt CERTIFICADA en
+    racionales exactos (v entero, Mv >= c*v en toda coordenada =>
+    radio espectral >= c): para los escalones 1-5 da c igual a la
+    lambda_T publicada a seis decimales. Eso sube la "razon
+    convergida" a cota demostrada del truncado. RECOMENDACION:
+    correr el mismo certificado sobre los escalones 6-9 (una pasada
+    extra de la matriz, coste marginal) y la palabra DEMOSTRADA de
+    la cota 1,9870 queda sin letra chica.
+  - PROSA (salida9): (i) el titulo dice "re-computada entera + los
+    escalones 7 y 8" pero la tabla incluye el 9 -- encabezado viejo;
+    (ii) la linea final "(0.78, 0.81)" esta cableada en el print y
+    con el escalon 9 los ultimos cocientes son 0,809 y 0,831.
+    Ninguna toca los numeros de la tabla.
+
+---------------------------------------------------------------------
+ATAQUES FALLIDOS (declarados, como pide la regla)
+---------------------------------------------------------------------
+  1. Romper la descomposicion unica / disyuncion de composiciones
+     del RECORD: fallo (identidad de convolucion re-verificada como
+     enteros con codigo propio, t <= 20, z <= 12, 0 celdas).
+  2. Romper el puente palabra <-> clase (el abs de N4, el cambio de
+     ancla en el retorno, la S-igualada): fallo -- el censo por
+     pares reales, ciego a la cadena, reproduce R, A y a(k) exactos
+     (k <= 20) con 0 anomalias de S.
+  3. Encontrar una cota superior de phi en el repo que el 0,443061
+     contradiga: no existe (verificado por busqueda; las cotas
+     superiores del repo son de otros objetos).
+  4. Romper la fila 1 por el hueco de la trepada (segundo cero en
+     k >= 2) o por el vuelco F4: fallo (exhaustivo t <= 22 + rejilla
+     de signos 4000: cero contraejemplos).
+  5. Romper la aritmetica de gaps o la monotonia de PUMAS: fallo
+     (todo re-calculado, correcto).
+
+---------------------------------------------------------------------
+RESUMEN DE CORRECCIONES PEDIDAS
+---------------------------------------------------------------------
+  C-1 leydelborde.txt: las palabras borde son 0 0 1 y 0 1 0 1 (no
+      "0 1 1 y 1 0 1 1"); y el enunciado vale desde t >= 3.
+  C-2 prosa de la diagonal (donde se cite): "S/t = 0,5493 en t = 22,
+      aun decreciente", no "tiende a 0,549".
+  C-3 pumasescalera: actualizar encabezado y print final de la
+      salida con escalon 9; opcional pero recomendado, anadir el
+      certificado Collatz-Wielandt a los escalones 6-9.
+  C-4 gramaticaderetornos: opcionales -- subir Z_MAX (el 25,77% de
+      masa descartada deja cota sobre la mesa) y ajustar la palabra
+      "conservacion" de C1 o citar la conservacion exacta de esta
+      acta.
+
+FIRMADO: Adversario 2, 8a revision. Los seis scripts quedan en el
+scratchpad de la sesion; todos ASCII, todos con SystemExit antes de
+concluir, ninguno toca ficheros del repo.
+=====================================================================

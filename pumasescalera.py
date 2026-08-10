@@ -132,7 +132,7 @@ def escalon(K, C, pasos=PASOS):
     return n, min(cola), max(cola)
 
 
-print("la escalera de PUMAS, re-computada entera + los escalones 7 y 8:")
+print("la escalera de PUMAS, re-computada entera + los escalones nuevos:")
 print("  K     C       estados    lambda_T      gap 2-lambda_T")
 anterior = 0.0
 gaps = []
@@ -171,7 +171,9 @@ print("valores), y los escalones nuevos:")
 print("  LAMBDA >= %.6f    (K = %d, |c| <= %d, %d estados)"
       % (resultados[-1][3], resultados[-1][0], resultados[-1][1],
          resultados[-1][2]))
-print("El gap sigue achicandose con razon SUBIENDO hacia 1 (0.78, 0.81)")
+print("El gap sigue achicandose con razon SUBIENDO hacia 1 (ultimas: %s)"
+      % ", ".join("%.2f" % (gaps[i + 1] / gaps[i])
+                  for i in range(max(0, len(gaps) - 3), len(gaps) - 1)))
 print("sin senal de piso: consistente con lambda = 2 (el paseo critico),")
 print("que es lo que LOBAS dice que ningun truncado puede refutar. La cota")
 print("DEMOSTRADA de PUMAS queda en lambda >= %.4f." % resultados[-1][3])

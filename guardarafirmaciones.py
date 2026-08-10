@@ -3792,6 +3792,55 @@ CORRECCIONES = [
      "la uniformidad de un momento se enuncia diciendo EN QUE VISITA "
      "vale: la primera lleva el factor del arranque (que el Paso 4 "
      "degrada en i^(2/3)); 'uniforme' a secas decia mas que su calculo"),
+
+    # --- las de la 8a revision externa (actarevision1108b.txt) ---
+
+    ("sombraexogena corria con semilla fija y era reproducible",
+     "usaba hash((nombre, x)), que Python SALA por proceso "
+     "(PYTHONHASHSEED): cada corrida usaba semillas distintas y la "
+     "salida publicada no era reproducible. Lo cazo el adversario 1 de "
+     "la 8a revision con dos hashes distintos en dos procesos. Arreglado "
+     "(semilla determinista por indice) y re-corrido: mismos numeros a "
+     "ruido MC. 11-08-2026",
+     "'semilla fija' se verifica corriendo DOS VECES y comparando, no "
+     "leyendo el codigo: hash() de Python no es determinista entre "
+     "procesos para tuplas con strings"),
+
+    ("la decada nueva del test de gamma doblo al lado de la reduccion",
+     "gamma_3 = 0,197 cae DENTRO de la banda de empate [0,19, 0,25] que "
+     "el PROPIO pre-registro fijo antes de mirar: la decada EMPATO. Lo "
+     "cazaron LOS DOS adversarios (1 y 3) por separado. 11-08-2026",
+     "el pre-registro obliga en las dos direcciones: si se escribe la "
+     "banda de empate antes de mirar, el veredicto posterior se lee de "
+     "la banda, no del entusiasmo"),
+
+    ("V2 reproduce las gammas de la cadena a +-0,03",
+     "falso sobre su propia tabla: la primera decada da V3 - V2a = "
+     "+0,049 (7,2 sigma) y V3 - V2b = +0,062. Lo honesto: la FORMA "
+     "reproducida, decadas 2-3 a +-0,02, la primera con diferencia "
+     "significativa. Adversario 1 de la 8a. 11-08-2026",
+     "un '+-' global se verifica contra TODAS las celdas de la tabla "
+     "que resume, no contra las que mejor salen"),
+
+    ("las sondas extendidas median gamma -> 0 en ocho decadas monotonas",
+     "median en parte un ARTEFACTO DE HORIZONTE: a T = 4000 las mismas "
+     "decadas dan gamma 0,048 -> 0,036 (no 0,088 -> 0,077) y a T fijo "
+     "gamma toca fondo y SUBE con x; la serie ademas empalmaba dos "
+     "protocolos (T=250 y T=300) sin decirlo. La medicion honesta del "
+     "modelo exige T >= 30 ln x. Adversario 3 de la 8a, el hallazgo "
+     "central. 11-08-2026",
+     "la leccion del test de forma de la 7a, otra vez y en el modelo: "
+     "todo barrido de phi con arranque creciente lleva el horizonte "
+     "ESCALANDO con el arranque, o mide el truncamiento"),
+
+    ("las palabras del borde chico del triangulo son 011 y 1011",
+     "son 001 y 0101 (error de hecho, escrito dos veces en "
+     "leydelborde.txt) -- y ademas la ley del borde VALE en t = 3, 4, "
+     "asi que el enunciado se FORTALECE a t >= 3 sin casos a mano. "
+     "Adversario 2 de la 8a. 11-08-2026",
+     "los ejemplos de un enunciado se generan con el codigo, no se "
+     "escriben de memoria: un ejemplo mal escrito en un documento de "
+     "demostracion es una mina para el lector futuro"),
 ]
 
 

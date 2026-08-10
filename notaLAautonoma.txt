@@ -60,12 +60,16 @@ autonoma no ve -- y entonces atacar V2 seria atacar otro problema.
 3. EL VEREDICTO
 =====================================================================
 
-EL MURO ES DE UN METRO. El enunciado autonomo V2 reproduce el
-fenomeno de la cadena CUANTITATIVAMENTE (mismas gammas a +-0,03,
-misma caida por decada, convergiendo entre si al crecer x). El reloj
-endogeno (la aritmetica v2 que TORTOLAS describe) aporta un factor
-acotado y una correccion transitoria (V3 apenas por encima de V2,
-acercandose), NO el mecanismo. Hasta V1 (sin acople) muestra la misma
+EL MURO ES BAJO -- LA VERSION ESTRUCTURAL (⇢ recalibrada por la 8a
+revision, R3/R4: el "+-0,03" original era FALSO sobre su propia
+tabla -- la primera decada da V3 - V2a = +0,049, 7,2 sigma -- y "el
+muro es de un metro" decia mas que su calculo). Lo que SI esta
+medido: V2 reproduce la FORMA del fenomeno (gamma cayendo por
+decada), las decadas 2-3 coinciden a +-0,02, y la primera decada
+difiere significativamente (el reloj endogeno muerde mas cerca del
+arranque). El reloj endogeno (la aritmetica v2 que TORTOLAS
+describe) aporta un factor acotado y una correccion transitoria,
+NO el mecanismo. Hasta V1 (sin acople) muestra la misma
 forma: el fenomeno entero es
 
     excursion critica (cola t^(-1/2) del primer regreso)
@@ -139,3 +143,25 @@ decada (en V2 se puede calcular cual; en la cadena, medirse).
   V3 es el mismo sesgo comun de siempre del protocolo.
 - Nada de esto toca el techo del espejo: vale identico para 3n-1.
   phi = 1 seguiria siendo Gao-Wu en densidad, no Collatz.
+
+=====================================================================
+6. POST-ACTA DE LA 8a REVISION (11-08, noche -- adv 1 y adv 3)
+=====================================================================
+
+- El Laplace del mecanismo QUEDO HECHO por el adversario 3: el
+  optimo esta en t = L* - 11 (sin regimen intermedio), y la
+  asintota c/sqrt(ln x) DEPENDE de que W provea la ventana (= la
+  pieza L3), no del "aterrizaje" (ese computo daria (ln x)^(-3/2)).
+- LA PREDICCION FALSABLE, CUANTIFICADA: phi*sqrt(ln x) se aplana al
+  10% recien en x ~ 10^400 -- intesteable directo. La version
+  medible es con horizonte ESCALADO T >= 30 ln x; ahi el modelo
+  predice gamma(2e10 -> 2e12) ~ 0,025-0,035.
+- LAS SONDAS EXTENDIDAS A T FIJO MEDIAN EN PARTE UN ARTEFACTO DE
+  HORIZONTE (el hallazgo central del adv 3): a T = 4000 las mismas
+  decadas dan gamma 0,048 -> 0,036 (no 0,088 -> 0,077), y a T fijo
+  gamma toca fondo y SUBE con x. "Ocho decadas de caida monotona"
+  empalmaba protocolos: RETIRADO. La caida de gamma en el modelo
+  sobrevive medida con horizonte escalado; los numeros de las
+  sondas rapidas estaban inflados por truncamiento.
+- El bug de la semilla (adv 1) esta ARREGLADO y la corrida
+  re-ejecutada: mismos numeros a ruido MC, ahora reproducibles.

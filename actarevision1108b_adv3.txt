@@ -1,0 +1,347 @@
+ACTA DE LA 8a REVISION EXTERNA -- ADVERSARIO 3 (las piezas ANALITICAS)
+11-08-2026. Encargo: romper teoremav2.txt, notamoscasinducida.txt,
+notaLAautonoma.txt, prediccion_gamma_1108.txt y las afirmaciones
+184-190 (jornada satelital). Metodo: (i) rehacer la aritmetica de los
+lemas desde cero, a mano; (ii) MC INDEPENDIENTE de V2a (numpy, codigo
+propio sin mirar el de sombraexogena mas alla de la definicion del
+modelo), 200.000 excursiones/punto, HORIZONTE T = 4000, x = 2e3 hasta
+2e27 (17 puntos), semillas propias (20260811 + 17i); script en el
+scratchpad de la sesion (adv3_mc.py), salida al pie de esta acta en
+resumen. Lista de la capa 1 aplicada a mis propios numeros antes de
+escribirlos.
+
+=====================================================================
+PIEZA 1 -- teoremav2.txt (los lemas 1-3 y el plan)
+VEREDICTO: LEMAS 1 Y 2 AGUANTAN. LEMA 3 (pieza 2) AGUANTA.
+           EL BOCETO DE LA PIEZA 3: ROTO EN UN PUNTO CONCRETO.
+=====================================================================
+
+(a) EL LEMA 3 REHECHO DESDE CERO (el encargo pedia verificar signos).
+    El balance esta BIEN: absorcion desde k=2 hasta k=1 es neto -1 =
+    subidas - bajadas, luego bajadas d = s + 1; la bajada de k es
+    bit 1 = expansion x3/2 (N4), la subida es bit 0 = contraccion
+    x1/2 (N3). F = -s ln2 + (s+1) ln(3/2) = ln(3/2) - s ln(4/3)
+    <= ln(3/2). Signos correctos: el termino no apareado es UNA
+    expansion, y cada par sube-baja contrae x3/4. Constantes: mu =
+    -0,143841, sigma = 0,549306, ambas exactas. La cuadratica,
+    rehecha: 0,72609 y^2 - 3,80564 y - 0,405465 = 0 con y =
+    sqrt(log x); raiz y = 5,3458, log x >= 28,58. El fichero dice
+    5,347 / 28,6 / "basta 29": COINCIDE (y la correccion en vivo del
+    28 al 29 que el propio fichero registra era necesaria: en
+    log x = 28 falla). La monotonia del margen para L_c > 14,6
+    (minimo en el extremo inferior L_c = 12 log x): correcta.
+
+(b) EL CONDICIONAMIENTO (bits libres dado el camino Y el reloj).
+    Para bits IID y reloj EXOGENO INDEPENDIENTE (V2a/V2b tal como
+    estan definidos), es legitimo: G (reloj entero + bits mixtos) es
+    independiente de los bits compartidos, y dado G el numero
+    L_c(tau) queda fijo, asi que Chebyshev aplica limpio. PERO HAY UN
+    CUANTIFICADOR ESCONDIDO EN LA CABECERA: el enunciado del teorema
+    dice "bits justos b_t (dado el pasado)" y la NOTACION de los
+    lemas dice "justos e iid". NO es lo mismo: G contiene el FUTURO
+    del reloj y de los bits mixtos, y con bits solo-martingala
+    condicionar al futuro puede sesgar los compartidos. Lo demostrado
+    es la version iid + reloj exogeno independiente. CORRECCION C1.
+
+(c) LA COMPOSICION P(evento G-medible) x (3/4): legitima. El evento
+    {tau >= T, L_c(T) >= 0,4T} es G-medible, la esperanza iterada
+    E[1_evento P(S <= -ln x | G)] >= (3/4) P(evento) no mezcla
+    sigma-algebras. El Bonferroni de la composicion final
+    (3/4 + 1/2 - 1 = 1/4) tambien es correcto. ATAQUE FALLIDO.
+
+(d) EL HUECO L_c(T) contra L_c(tau): NO EXISTE. En el evento, tau >=
+    T y L_c es no decreciente, luego L_c(tau) >= L_c(T) >= 12 log x;
+    la media se hace MAS negativa con L_c grande y el "OJO FINO"
+    (resolver la cuadratica en el extremo inferior + monotonia) cubre
+    TODO L_c >= 12 log x, tau sin techo incluido. ATAQUE FALLIDO.
+    (Es la razon por la que abandonar la ventana [T, 2T] en las
+    piezas 1-2 sale gratis, y el fichero lo dice bien.)
+
+(e) LA PIEZA 3: la sutileza de la ventana universal esta BIEN
+    diagnosticada (una K = poly(ln x) que crece con x no sirve a
+    Liebres: la ventana de la serie de Levy tiene que ser UNA).
+    PERO EL BOCETO TIENE UNA IDENTIDAD FALSA, y es la de trabajo:
+    dice "el producto de cola desde j es (3/4)^(s_j) * (3/2) *
+    (libre_j)". Eso vale SOLO si la altura en j es 2. En general,
+    desde altura k_j el balance de la cola es d_j = s_j + (k_j - 1),
+    y el producto forzado de cola es
+        (3/4)^(s_j) * (3/2)^(k_j - 1) * (libre_j).
+    "Cada bajada tiene su subida, salvo UNA" es verdad para la
+    excursion ENTERA desde k=2, no para las colas intermedias -- y
+    W_tau se arma con colas intermedias. En una excursion tipica de
+    largo L la altura maxima es de orden sqrt(L) ~ sqrt(ln x): el
+    factor sin aparear llega a (3/2)^(c sqrt(ln x)), que NO es O(1)
+    (crece con x, aunque subpolinomial). El plan B ("aparear cada
+    3/2 forzado con un 1/2 forzado anterior, dejando solo los
+    libres") tal como esta escrito NO cierra: en el pico de la
+    excursion hay k_j - 1 expansiones sin pareja. La via AGKV sigue
+    viva (ese es exactamente el objeto que su h-transform controla),
+    pero el boceto subestima la dificultad. CORRECCION C2. VEREDICTO
+    de la pieza 3 como boceto: ROTO (la pieza en si sigue ABIERTA,
+    que es lo que el fichero declara).
+
+(f) Menores: (i) la pieza 1 del plan enuncia P(tau en [T,2T]) y L3
+    condiciona a esa ventana, pero la composicion parcial usa
+    {tau >= T}: al escribir L3 hay que elegir UN evento (con tau sin
+    techo las colas de W son mas largas). C3. (ii) El Lema 2 esta
+    escrito solo para V2a (Binomial(T,1/2)); V2b necesita su propia
+    concentracion (clasica, no escrita). (iii) El resumen de la
+    pieza 2 dice "media libre <= -2 ln x"; lo demostrado con
+    L_c >= 0,4T es -1,726 ln x -- el -2 es el valor tipico
+    (L_c ~ T/2), no el garantizado. Cosmetico: el lema usa 1,726.
+
+(g) MC INDEPENDIENTE DEL LEMA 3 (ataque fallido, declarado): con mi
+    codigo y mis semillas, P(S(tau) <= -ln x | tau >= 30 ln x) =
+    1,000 en LOS 17 PUNTOS x = 2e3 ... 2e27 (n condicionado entre
+    11.645 y 1.695). El 3/4 de Chebyshev tiene margen enorme, como
+    el fichero afirmaba. Y UN DATO NUEVO A FAVOR DE L3: la tasa de
+    exito condicionada a excursiones largas (tau en (1200, 4000]) es
+    0,29 ESTABLE en las 12 decadas 2e15..2e27 (0,291 / 0,295 /
+    0,287 / 0,297 / 0,289) -- la "mediana universal de W" se VE en
+    el Monte Carlo. L3 parece verdadera; lo que falta es demostrarla.
+
+=====================================================================
+PIEZA 2 -- notamoscasinducida.txt (Moscas inducida a los retornos)
+VEREDICTO: AGUANTA COMO ESQUEMA, con dos correcciones exigidas
+           (una de ellas le QUITA un hueco, no se lo anade).
+=====================================================================
+
+(1) PASO 2, MAL APUNTADO (el ataque que pedia el encargo): la cota
+    LOCAL P(tau = t) <= C t^(-3/2) NO se hereda por dominacion
+    estocastica -- la dominacion controla colas P(tau >= t), no
+    probabilidades puntuales, y la "via honesta" que H1 declara
+    (dominacion de rachas por geometricas) no puede dar el enunciado
+    local tal cual. PERO EL ESQUEMA NO LA NECESITA: con la cota de
+    COLA P(tau >= t) <= C t^(-1/2) y Holder POR BLOQUES DIADICOS,
+        Sigma_{t en [2^j, 2^(j+1))} P(tau=t)^(1/q)
+        <= (2^j)^(1-1/q) * P(tau >= 2^j)^(1/q)
+        <= C' 2^(j(1 - 3/(2q))),
+    sumable exactamente sii q < 3/2: LA MISMA condicion, el MISMO
+    theta < 1/3. La version cola SI es compatible con dominacion +
+    el paseo embebido justo (Tigresas). CORRECCION CONSTRUCTIVA C4:
+    reescribir el Paso 2 como cota de cola; H1 se encoge.
+
+(2) PASO 4, "soporte ~ i^2" ES UN SALTO (confirmado): tau_i tiene
+    soporte infinito, no ~i^2 valores; la cuenta con densidad plana
+    no es una cota. REPARACION AL MISMO ORDEN: partir en t <= A i^2
+    (Holder plano contra la medida de conteo: i^(2(1-1/q)), sin
+    necesitar siquiera la ley local) mas t > A i^2 con el lema de
+    salto grande P(tau_i = t) <= C i t^(-3/2) (un salto domina);
+    la segunda suma da c i^(1/q) (i^2)^(1 - 3/(2q)) = c i^(2 - 2/q),
+    EL MISMO ORDEN. El enunciado que falta es el lema de salto
+    grande (renovacion alfa = 1/2, single big jump), no la densidad
+    plana. C5. La aritmetica del esquema, verificada: q < 3/2 <->
+    p > 3 <-> theta < 1/3; beta ~ (2/3)/theta ~ 2; y la serie de
+    Levy con exp(-a sqrt(beta ln i)) diverge (el algebra
+    exp(-a sqrt(ln i^beta)) = i^(-a sqrt(beta)/sqrt(ln i)) es
+    correcta).
+
+(3) H4 (la version minima para Levy): BIEN PLANTEADA. Frecuencia
+    limsup positiva de {|c_i| <= C} da Sigma phi(|c_i|) >=
+    phi(C) * #{i <= N: |c_i| <= C} -> infinito, y con terminos no
+    negativos la divergencia sobre una subsucesion es la divergencia
+    a secas. Trivial pero correcto, y es la diana debil correcta.
+
+(4) El cualificador A8 (el primer retorno hereda el arranque) esta
+    bien aplicado y en el sitio justo. Sin ataque.
+
+=====================================================================
+PIEZA 3 -- notaLAautonoma.txt (el mecanismo y el Laplace esbozado)
+VEREDICTO: EL MECANISMO AGUANTA; DOS FRASES MEDULARES EXAGERADAS;
+           Y EL TEST A4 DE LA REVISION LOCAL MIDE UN ARTEFACTO.
+=====================================================================
+
+(1) EL LAPLACE, HECHO (el encargo pedia la cuenta). El optimo del
+    costo gaussiano contra la entropia esta en t = L* - 3 sigma_e^2 /
+    (2 mu^2) ~ L* - 11: corrimiento O(1), NO hay regimen intermedio.
+    PERO la asintota c/sqrt(ln x) NO sale de "aterrizar el
+    multiplicador en una ventana O(1)": ese computo da
+    (ln x)^(-3/2) (t^(-3/2) local x ventana/sqrt(t), integrado sobre
+    la anchura sqrt(ln x) del valle). La asintota c/sqrt(ln x) sale
+    de que LA PERPETUIDAD W PROVEE LA ESCALA O(1): basta sobrevivir
+    tau >= L* (prob ~ L*^(-1/2)) y que |W| caiga en la ventana con
+    prob acotada -- ES DECIR, la asintota del modelo DEPENDE DE L3
+    (la mediana universal de W). Si L3 fallara, la asintota seria
+    otra. El fichero mezcla los dos computos ("anticoncentracion
+    local" en prediccion_gamma es el computo equivocado; con W en
+    juego no hace falta aterrizar nada). Mi MC respalda la version
+    correcta: exito condicionado a excursion larga = 0,29 estable en
+    12 decadas => asintota estimada phi ~ 0,125/sqrt(ln x) en V2a.
+
+(2) LA TRAMPA DEL HORIZONTE (el hallazgo central de esta acta).
+    El A4 de la revision local (V2a en 2e8/2e10/2e12 con T = 300
+    FIJO) mide el artefacto de truncamiento, no la cola intrinseca:
+      - mi MC, MISMO protocolo T=300: gamma/dec 0,088 -> 0,077
+        (A4 midio 0,086 -> 0,077: REPRODUCIDO);
+      - mismas decadas a T = 4000: gamma/dec 0,048 -> 0,036;
+      - forma pura c/sqrt(log): 0,023 -> 0,019.
+    MAS DE LA MITAD del gamma de A4 es el horizonte. "gamma sigue
+    cayendo lejos" a T fijo es consistente con CUALQUIER asintota,
+    incluida phi = c/sqrt(ln x) EXACTA: el test no falsa nada.
+    Y PEOR: a T fijo el modelo predice que gamma TOCA FONDO Y SUBE
+    (T = 150: minimo ~0,15 en x ~ 2e6-2e7; despues 0,19 / 0,23 /
+    0,27 / 0,34 subiendo hasta 0,76 en 2e14->2e15, medido en mi MC).
+    La caida medida en la escalera certificada de la cadena (T =
+    130/150, gammas 0,297/0,211/0,197) esta en el tramo pre-minimo
+    del MISMO artefacto: seguir anadiendo decadas a T fijo mide el
+    protocolo, no el limite. OJO: los phi_min certificados SIGUEN
+    siendo cotas inferiores validas de la phi sin horizonte (el
+    truncamiento solo pierde masa); lo confundido es la INFERENCIA
+    de tendencia de gamma, no las cotas.
+
+(3) LA PREDICCION FALSABLE ("phi sqrt(ln x) toca fondo y se aplana
+    en alguna decada; en V2 se puede calcular cual") -- CALCULADA:
+    en ninguna decada alcanzable se ve plano. A T = 4000 (~9 veces
+    L* en 2e27), phi*sqrt(ln x) baja 0,117 -> 0,093 entre 2e15 y
+    2e27 todavia; corrigiendo la masa censurada (~0,018 x 0,29) la
+    correccion relativa es de orden 1/sqrt(ln x) con coeficiente ~3:
+    plano al 10% exigiria ln x del orden de 10^3 (x ~ 10^400). La
+    version falsable HONESTA es otra y la dejo exigida: con
+    protocolo T >= 30 ln x, el modelo predice gamma/dec ~ 0,025 -
+    0,035 en 2e10..2e12 (contra 0,077 del protocolo T=300) y
+    cayendo hacia ~1,3-1,7 veces gamma_forma = 0,5 log10(ln 10x /
+    ln x). Eso SI se puede medir y SI discrimina. C6.
+
+(4) "REPRODUCE las gammas de la cadena a +-0,03": FALSO tal cual.
+    Con los numeros del propio fichero: |V2a - V3| = 0,049 / 0,011 /
+    0,017 y |V2b - V3| = 0,062 / 0,006 / 0,036. La primera decada
+    esta a 0,05-0,06, no a 0,03. La conclusion cualitativa (V2
+    reproduce la forma y V3 se le acerca al crecer x) aguanta; la
+    frase numerica dice mas que su calculo. C7.
+
+(5) A FAVOR (ataques fallidos, declarados): reproduje la tabla V2a
+    de sombraexogena con codigo y semillas propios (phi T=150:
+    0,0931/0,0530/0,0344/0,0241 contra 0,0942/0,0531/0,0343/0,0234:
+    dentro del error MC). La conclusion estructural -- el fenomeno
+    es el transitorio del modelo clasico, el reloj endogeno aporta
+    un factor acotado -- AGUANTA en mi replica: V1 sin acople ya
+    muestra la misma forma. El "no hay colapso logico" (V2 no es
+    "el paseo es recurrente") tambien aguanta: es un enunciado
+    cuantitativo por excursion, la recurrencia sola no lo da.
+
+=====================================================================
+PIEZA 4 -- prediccion_gamma_1108.txt y afirmaciones 184-190
+VEREDICTO: AGUANTA con erratas numericas menores y UNA frase de
+           retorica que contradice su propio pre-registro.
+=====================================================================
+
+(1) Calibracion del modelo B: a = 1,77 sale de usar el gamma
+    REDONDEADO (0,30); con el gamma exacto de los phi publicados
+    (0,3047) sale a = 1,7991 ~ 1,80, y el techo de la horquilla es
+    0,246, no 0,242. No mueve el veredicto (0,197 cae en el borde
+    inferior igual), pero calibrar con entradas redondeadas es
+    exactamente el tipo de mugre que la capa 1 caza. C8.
+    Verificados exactos: el factor 0,137 (= 0,13698); los gammas
+    nuevos 0,297/0,211/0,197 recomputados de los phi_min; a2 =
+    1,4536; la banda de empate.
+
+(2) "prediria ratio 1,4 por decada contra el ~3 medido" (el parrafo
+    del candidato a mecanismo): NO REPRODUCIBLE de sus propios
+    numeros. Ratios medidos por decada: 2,02 y 1,66; la forma 1/log
+    predice 1,30 y 1,23. La exclusion de 1/log sobrevive, con menos
+    margen del que la frase vende. C8.
+
+(3) EL PUNTO GORDO DEL PRE-REGISTRO: la regla escrita ANTES de mirar
+    dice "en [0,19, 0,25] esta decada empata y el programa sigue en
+    el mismo punto". Salio 0,197: EMPATE por su propia regla (a
+    0,003 del borde, con phi_min que son cotas, no valores). La
+    afirmacion 184 en si es correcta ("cae, en el borde inferior de
+    las dos predicciones"), pero el titulo "EL TEST DECISIVO" y el
+    "dobla al lado de la reduccion" de la bitacora/commit dicen mas
+    que su calculo: por el pre-registro, esta decada NO decidio
+    nada. C9.
+
+(4) Afirmacion 186: ademas del "+-0,03" falso (arriba), "OCHO
+    decadas de caida monotona medidas hasta 2e12" EMPALMA DOS
+    PROTOCOLOS (T = 150 en 2e3..2e6; T = 300 en 2e8..2e12) sin
+    decirlo. Mi MC muestra que a igual x el gamma con T = 300 es
+    sistematicamente MENOR que con T = 150 (p. ej. en 2e5->2e6:
+    0,118 contra 0,154): parte de la "caida monotona" es el cambio
+    de horizonte, y el resto es el artefacto de la pieza 3(2). La
+    afirmacion esta etiquetada "promedio/medido", bien; la prosa
+    "OCHO decadas de caida monotona" necesita el asterisco del
+    protocolo. C7.
+
+(5) Afirmacion 185: "margen infinito" es retorica sobre una
+    medicion censurada (el propio parrafo lo etiqueta luego como
+    "MEDICION, no teorema", que es la version correcta). Menor,
+    sin correccion exigida mas alla de preferir la segunda frase.
+
+(6) Afirmaciones 187-190 (Pumas 9, triangulo, borde, gramatica):
+    FUERA de mi bloque analitico; solo higiene rapida: el 0,435658 =
+    a(32)/2^32 del record de 190 verificado; sin ataque profundo
+    aqui (declarado -- le tocan al adversario combinatorio).
+
+=====================================================================
+ATAQUES FALLIDOS (declarados, como exige la casa)
+=====================================================================
+ F1. Signos y balance del Lema 3: estan bien (rehecho desde cero).
+ F2. El hueco L_c(T)/L_c(tau): no existe; el OJO FINO lo cubre.
+ F3. La mezcla de sigma-algebras en la composicion: no la hay.
+ F4. La cuadratica y el x0: exactos (raiz 5,3458, log x >= 28,58).
+ F5. Intentar que la asintota del modelo no fuera c/sqrt(log) via el
+     computo de aterrizaje: resuelto A FAVOR del programa una vez
+     que W provee la ventana -- condicionado a L3.
+ F6. MC independiente del Lema 3: p = 1,000 en 17 puntos, mas fuerte
+     que el 3/4 enunciado.
+ F7. Reproducibilidad de sombraexogena con semillas independientes:
+     reproducida (V2a y el orden V1 < V2 < V3).
+
+=====================================================================
+CORRECCIONES EXIGIDAS
+=====================================================================
+ C1. teoremav2: en el enunciado, "bits justos (dado el pasado)" ->
+     "bits iid justos, reloj independiente"; o demostrar la version
+     martingala (hoy NO esta demostrada: G contiene el futuro).
+ C2. teoremav2 pieza 3: corregir la identidad de cola a
+     (3/4)^(s_j) (3/2)^(k_j - 1) (libre_j) y reevaluar el plan B:
+     en el pico de la excursion hay k_j - 1 expansiones sin pareja,
+     de orden (3/2)^(c sqrt(ln x)), no O(1).
+ C3. teoremav2: unificar el evento de L3 con el de la composicion
+     ({tau >= T} o [T, 2T], no uno en cada sitio).
+ C4. notamoscas Paso 2: version COLA (P(tau >= t) <= C t^(-1/2) +
+     Holder por bloques diadicos); la local no se hereda por
+     dominacion y no hace falta.
+ C5. notamoscas Paso 4: truncamiento en A i^2 + lema de salto grande
+     P(tau_i = t) <= C i t^(-3/2); "densidad plana en soporte i^2"
+     no es una cota.
+ C6. notaLAautonoma / revision A4: reetiquetar A4 como medicion del
+     artefacto de horizonte; toda medicion futura de gamma con
+     T >= 30 ln x; registrar la prediccion corregida: gamma(2e10 ->
+     2e12, T >= 30 ln x) ~ 0,025-0,035, y a T fijo gamma toca fondo
+     y SUBE (T=150: minimo ~0,15 cerca de 2e6-2e7). La prediccion
+     "phi sqrt(ln x) se aplana en una decada medible" se retira: el
+     plano al 10% del modelo esta en x ~ 10^400.
+ C7. "a +-0,03" -> "+-0,05 en la primera decada, +-0,02 despues";
+     "OCHO decadas de caida monotona" -> declarar el empalme de
+     protocolos T=150/T=300.
+ C8. prediccion_gamma: a = 1,80 (no 1,77) y techo 0,246 (no 0,242);
+     "el ~3 medido" -> "2,0 y 1,66".
+ C9. La retorica del "TEST DECISIVO que dobla al lado de la
+     reduccion": por la banda pre-registrada del propio fichero,
+     esta decada EMPATO. Decirlo asi donde se cite.
+
+=====================================================================
+VEREDICTO GLOBAL
+=====================================================================
+ teoremav2 piezas 1-2 ....... AGUANTA (con C1, C3; aritmetica exacta,
+                              MC independiente a favor).
+ teoremav2 pieza 3 (boceto) . ROTO en la identidad de cola (C2); la
+                              pieza sigue abierta y la via AGKV viva,
+                              pero mas dura de lo escrito.
+ notamoscasinducida ......... AGUANTA COMO ESQUEMA (C4, C5); dos de
+                              sus huecos se ENCOGEN con la version
+                              cola; H4 bien planteado.
+ notaLAautonoma ............. mecanismo AGUANTA; EXAGERADO en el
+                              "+-0,03" y en la prediccion del
+                              aplanamiento; A4 mide un artefacto
+                              (C6, C7). El dato nuevo pro-L3 (exito
+                              condicionado 0,29 estable 12 decadas)
+                              queda a su favor.
+ prediccion_gamma + 184-186 . AGUANTA con erratas (C8) y una frase
+                              contra su propio pre-registro (C9).
+
+Ninguna pieza de las DEMOSTRADAS cayo; lo roto es un boceto y una
+bateria de frases que decian mas que su calculo. Siete revisiones
+mordieron; la octava, por este flanco, muerde en la pieza 3 y en el
+protocolo de medicion de gamma.

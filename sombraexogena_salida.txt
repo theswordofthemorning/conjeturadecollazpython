@@ -1,20 +1,20 @@
 ﻿la prueba de circularidad: phi(x) por modelo, 200000 excursiones/punto,
 horizonte T = 150, ventana |u| <= 25/3 (|c| <= 25 en k = 1)
 
-  V1 sin acople   phi(   2000)=0.1502 (cens 0.092)  phi(  20000)=0.0900 (cens 0.093)  phi( 200000)=0.0606 (cens 0.091)  phi(2000000)=0.0430 (cens 0.091)
-  V2a acople      phi(   2000)=0.0942 (cens 0.093)  phi(  20000)=0.0531 (cens 0.092)  phi( 200000)=0.0343 (cens 0.091)  phi(2000000)=0.0234 (cens 0.092)
-  V2b rachas      phi(   2000)=0.0932 (cens 0.092)  phi(  20000)=0.0541 (cens 0.092)  phi( 200000)=0.0336 (cens 0.091)  phi(2000000)=0.0240 (cens 0.092)
-  V3 cadena       phi(   2000)=0.1222 (cens 0.093)  phi(  20000)=0.0615 (cens 0.092)  phi( 200000)=0.0387 (cens 0.093)  phi(2000000)=0.0255 (cens 0.093)
+  V1 sin acople   phi(   2000)=0.1490 (cens 0.092)  phi(  20000)=0.0905 (cens 0.091)  phi( 200000)=0.0605 (cens 0.092)  phi(2000000)=0.0426 (cens 0.092)
+  V2a acople      phi(   2000)=0.0937 (cens 0.093)  phi(  20000)=0.0531 (cens 0.092)  phi( 200000)=0.0340 (cens 0.091)  phi(2000000)=0.0245 (cens 0.092)
+  V2b rachas      phi(   2000)=0.0940 (cens 0.092)  phi(  20000)=0.0535 (cens 0.091)  phi( 200000)=0.0339 (cens 0.093)  phi(2000000)=0.0238 (cens 0.092)
+  V3 cadena       phi(   2000)=0.1201 (cens 0.094)  phi(  20000)=0.0617 (cens 0.093)  phi( 200000)=0.0386 (cens 0.093)  phi(2000000)=0.0260 (cens 0.093)
 
 COMPROBACION 1 OK: el Monte Carlo de la cadena real reproduce los
 phi_min del barrido exacto de masa (a horizonte mayor, sin poda).
 
 gamma por decada (y phi*sqrt(ln x), constante <=> forma 1/sqrt(log)):
    modelo          g(2k->20k)  g(20k->200k)  g(200k->2M)   phi*sqrt(ln x) en la escalera
-  V1 sin acople     0.222       0.172        0.149      [0.414  0.283  0.212  0.164]
-  V2a acople        0.249       0.190        0.165      [0.260  0.167  0.120  0.089]
-  V2b rachas        0.236       0.207        0.146      [0.257  0.170  0.117  0.091]
-  V3 cadena         0.298       0.201        0.182      [0.337  0.194  0.135  0.097]
+  V1 sin acople     0.216       0.175        0.153      [0.411  0.285  0.212  0.162]
+  V2a acople        0.247       0.193        0.142      [0.258  0.167  0.119  0.093]
+  V2b rachas        0.244       0.198        0.155      [0.259  0.168  0.118  0.090]
+  V3 cadena         0.289       0.203        0.172      [0.331  0.194  0.135  0.099]
 
 LECTURA (el veredicto es del mecanismo, no de una pasada):
  - si V2 (a o b) muestra gammas ~0 y phi*sqrt(ln x) ~constante,

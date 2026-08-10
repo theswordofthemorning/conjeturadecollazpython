@@ -34,10 +34,13 @@ peso:
    **γ = 0,297 / 0,211 / 0,197 — CAE en los tres escalones**; los
    CUATRO controles de reproducción del cierre del 10-08 clavados a
    4 decimales. Contra la predicción PRE-REGISTRADA
-   (`prediccion_gamma_1108.txt`, escrita antes de mirar): 0,197 en
-   el borde inferior de las dos bandas (0,20-0,24) — la década dobla
-   al lado de la reducción algo más fuerte de lo que ambos modelos
-   predecían. Etiqueta: tres décadas no son un límite; el veredicto
+   (`prediccion_gamma_1108.txt`, escrita antes de mirar): 0,197 cae
+   DENTRO de la banda de empate [0,19, 0,25] del propio pre-registro
+   — **la década EMPATA** *(⇢ corregido por la 8ª revisión, cazado
+   por los DOS adversarios: la frase original «dobla al lado de la
+   reducción» contradecía la regla propia; lo que sí cae es la
+   serie de cotas inferiores emparejadas, que es menos que
+   decidir)*. Etiqueta: tres décadas no son un límite; el veredicto
    es del mecanismo (y el mecanismo, hoy, es el punto 1).
 3. **LAS DOS PATAS EN PROSA DE LA REDUCCIÓN, MEDIDAS POR PRIMERA VEZ
    (`arranquesporvisita.py`)**: **β = 0,000** — los arranques |c_i|
@@ -125,6 +128,33 @@ emparejada la ganancia estructural es +1,7 puntos (0,4431 contra
 0,4262 a 28). El puente Winkler/Zarubin cobrado en cota dura. *(Capa
 1 de la corrida: la tabla de comparación puso `a(28)` en la casilla
 de `k=26` y el 1,70 absurdo la delató; corregida antes del sello.)*
+
+**⇢ LA 8ª REVISIÓN EXTERNA (orden del usuario, el cierre de la
+noche): TRES ADVERSARIOS CONTRA LA TANDA ENTERA — OCTAVA REVISIÓN,
+OCTAVA MORDIDA. Acta: `actarevision1108b.txt` (informes íntegros en
+`_adv1/2/3.txt`), correcciones aplicadas el mismo cierre.** El
+titular: **EL RÉCORD `φ ≥ 0,443061` AGUANTA ENTERO** (recomputado
+por dos caminos propios — censo de pares enteros reales y transición
+inferida — con conservación en racionales; y el regalo: el cap
+`z ≤ 12` descarta 25,77% de masa — subir el cap mejora la cota
+gratis). También aguantan: la escalera (reimplementada, la poda no
+fabrica), β/η/p*, los Lemas 1-3 de V2 (aritmética rehecha, MC a
+`2·10²⁷`), la ley del borde **fortalecida a t ≥ 3**, el triángulo, y
+Pumas **reforzada** con certificado Collatz–Wielandt. Lo roto/
+exagerado, aplicado: el bug real de la semilla salada de
+`sombraexogena.py` (arreglado y re-corrido: mismos números, ahora
+reproducibles); la doble cazada del EMPATE pre-registrado; el
+«±0,03» falso en la primera década (+0,049, 7,2σ); «el muro es de
+un metro» rebajado a su versión estructural; **el hallazgo central
+del adv 3: las sondas extendidas a T fijo medían en parte un
+artefacto de horizonte** («ocho décadas monótonas» empalmaba
+protocolos — la medición honesta pide `T ≥ 30·ln x`, y ahí el
+modelo predice γ(2e10→2e12) ≈ 0,025-0,035); el plan B de la pieza 3
+ROTO (la vía AGKV es la única) — con el regalo a favor de L3: éxito
+condicionado a excursiones largas = 0,29 estable en 12 décadas; el
+sesgo v₂ MEDIDO (×1,8, satura en v₂ ≥ 4, no fabrica); el error de
+hecho de las palabras del borde (001/0101); y las notas de
+calibración del pre-registro (post-acta, sin reescribirlo).
 
 **⇢ LA REVISIÓN ADVERSARIAL LOCAL (orden del usuario: en Python, sin
 agentes — `revisionadversarial1108.py`): 10 ataques, 0 ROTOS.** Lo

@@ -103,7 +103,12 @@ LAS PIEZAS 1 Y 2, ESCRITAS CON TODAS LAS LETRAS (11-08, noche)
 =====================================================================
 
 NOTACION. Bits (b_t) justos e iid; reloj (m_t) iid justo
-{mixto, compartido} INDEPENDIENTE de los bits (V2a). El paseo k
+{mixto, compartido} INDEPENDIENTE de los bits (V2a).
+[⇢ C1 de la 8a revision (adv 3): lo demostrado abajo es EXACTAMENTE
+este marco iid + reloj exogeno -- el enunciado de arriba decia "bits
+justos dado el pasado", que es mas general de lo probado; para la
+cadena real esa generalidad la tiene que dar la TRANSFERENCIA, no
+estos lemas. Corregido.] El paseo k
 arranca en 2, se mueve solo en pasos mixtos (baja si b = 1, sube si
 b = 0), tau = primer t con k = 1. Multiplicador A_t = 1/2 (b = 0) o
 3/2 (b = 1); l_t = log A_t; S(t) = l_1 + ... + l_t. L_c(t) = numero
@@ -184,11 +189,16 @@ EL ORDEN DE TRABAJO QUE ESTE PLAN DICTA
 2. La pieza 1 con el reloj de rachas (Chernoff + balota) -- una
    pagina mas, clasica.
 3. LA PIEZA 3 = leer AGKV 2005 de verdad (esta [ABSTRACT] en la
-   ficha) y adaptar su Lemma de la funcional condicionada; si el
-   camino se atasca, el plan B es la dominacion por bloques de
-   subida-bajada apareados (el balance permite aparear cada 3/2
-   forzado con un 1/2 forzado anterior, dejando solo los libres --
-   boceto de una tarde, riesgo medio).
+   ficha) y adaptar su Lemma de la funcional condicionada.
+   ⇢ EL PLAN B QUEDO ROTO POR LA 8a REVISION (adv 3): el
+   apareamiento "(3/4)^s (3/2)" es FALSO para las colas intermedias
+   de W -- desde altura k_j hay k_j - 1 expansiones SIN pareja
+   ((3/2)^(c sqrt(ln x)), no O(1)). LA VIA AGKV ES LA UNICA.
+   A favor de L3, el regalo del mismo adversario (ataque fallido
+   declarado): exito condicionado a excursiones largas = 0,29
+   ESTABLE en 12 decadas (x = 2e15..2e27) -- la mediana universal
+   de W se VE en el modelo; asintota estimada
+   phi_V2a ~ 0,125/sqrt(ln x).
 4. La transferencia V2 -> cadena real (el reloj endogeno): la
    dominacion estocastica de rachas por geometricas -- los lemas de
    racha de tortolas.lean; medido hoy que el factor es acotado

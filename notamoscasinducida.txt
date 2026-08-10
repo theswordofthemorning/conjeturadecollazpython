@@ -1,7 +1,15 @@
 NOTA DE TRABAJO -- MOSCAS EN LOS TIEMPOS DE RETORNO (el esqueleto de
 la condicion de los arranques). 11-08-2026. ESTADO: ESQUEMA PROPUESTO,
-sin adversarial, sin bautizo (el bautizo es del usuario). NO construir
-encima sin la revision (regla del ritmo).
+sin bautizo (el bautizo es del usuario).
+⇢ PASO POR LA 8a REVISION (adv 3): AGUANTA COMO ESQUEMA, con DOS
+reparaciones constructivas regaladas que la redaccion final debe
+incorporar: (i) la cota local P(tau = t) <= C t^(-3/2) NO se hereda
+por dominacion estocastica del reloj -- pero NO HACE FALTA: la cola
+t^(-1/2) (que si se hereda) mas Holder POR BLOQUES de tiempo da el
+mismo theta < 1/3; (ii) el "soporte ~ i^2" del Paso 4 es un salto,
+reparable al mismo orden con el lema de salto grande del paseo. El
+cualificador del primer retorno (A8 de la revision local) sigue
+vigente.
 
 =====================================================================
 QUE AFIRMA (la diana)

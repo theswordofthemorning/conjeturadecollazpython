@@ -1,3 +1,15 @@
+[⇢ NOTA POST-ACTA DE LA 8a REVISION (11-08 noche) -- este fichero es
+PRE-REGISTRO y no se reescribe; las correcciones van aqui arriba:
+(1) EL VEREDICTO SEGUN LA PROPIA REGLA DE ABAJO: gamma_3 certificada
+= 0,197, DENTRO de la banda de empate [0,19, 0,25] -- la decada
+EMPATO (la frase "dobla al lado de la reduccion" que circulo en
+bitacora queda RETIRADA; lo que si cae es la serie de cotas
+inferiores emparejadas, que es menos que decidir). (2) Calibraciones
+del adv 3: a = 1,80 (no 1,77 -- se calibro con gamma redondeada) y
+el techo de la banda B es 0,246. (3) El "ratio ~3 por dos decadas"
+del texto era 2,0/1,66 medido. Todo lo demas se lee como se
+escribio.]
+
 PREDICCION PRE-REGISTRADA -- LA DECADA NUEVA DEL TEST DE gamma
 (11-08-2026, escrita ANTES de leer el resultado de pisoporarranque.py
 para c0 = 2.000.000; los dos modelos calibrados SOLO con los tres

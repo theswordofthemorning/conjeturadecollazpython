@@ -13,7 +13,14 @@ en la cadena de Leonas que absorben en el paso t con S unos), la fila
 del borde S = t - 2 (dos ceros exactos, contando el bit final de la
 fusion como uno) vale
 
-    F(t, t-2)  =  floor((t-1)/2)        para todo t >= 5.
+    F(t, t-2)  =  floor((t-1)/2)        para todo t >= 3.
+
+(⇢ FORTALECIDO POR LA 8a REVISION, adversario 2: el enunciado
+original decia t >= 5 y dejaba t = 3, 4 "a mano"; el adversario
+verifico que la ley VALE tambien ahi -- F(3,1) = 1 = floor(2/2) y
+F(4,2) = 1 = floor(3/2) -- y cazo un error de hecho en los ejemplos
+de abajo: las palabras del borde chico son 001 y 0101, no las que
+este fichero escribia.)
 
 (Es la "primera fila" de nuestro triangulo -- el papel que la fila
 1,1,1,... de Winkler juega en el gemelo A100982/A076227, y el eco
@@ -83,13 +90,15 @@ LO QUE FALTA PARA EL ASCENSO A TEOREMA
   desigualdades de una linea por ley -- estilo cabras.lean, que ya
   demuestra invariantes por la cadena entera; la Pieza 2 es
   decidible por casos sobre los once constructores).
-- El caso de borde t = 3, 4 (F(3,1) = 1, F(4,2) = 1: las palabras
-  101 y 1101... en realidad 0 1 1 y 1 0 1 1 -- los arranques con
-  a = 0 y el minimo b) queda fuera del enunciado t >= 5 y se
-  comprueba a mano en la tabla.
-- Verificacion computacional ya hecha: la fila entera t = 5..22
+- El caso t = 3, 4: F(3,1) = 1 con la palabra 001 (a = 0, b = 0:
+  la familia de Garner) y F(4,2) = 1 con la palabra 0101 (a = 0,
+  b = 1). ⇢ CORREGIDO POR LA 8a (adversario 2): este fichero
+  escribia "0 1 1 y 1 0 1 1" -- error de hecho, dos veces -- y
+  ademas la ley SI vale en t = 3, 4: el enunciado quedo
+  FORTALECIDO a t >= 3, sin casos a mano.
+- Verificacion computacional ya hecha: la fila entera t = 3..22
   clavada contra el barrido exacto (triangulodefusion.py, C1 con
-  SystemExit sobre b(t-1)).
+  SystemExit sobre b(t-1)) y re-enumerada por el adversario 2.
 
 =====================================================================
 ADDENDUM (misma tarde): LA SEGUNDA FILA Y LA FRONTERA
