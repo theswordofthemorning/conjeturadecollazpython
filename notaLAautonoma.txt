@@ -1,0 +1,141 @@
+L-A COMO ENUNCIADO AUTONOMO -- LA PRUEBA DE CIRCULARIDAD
+(11-08-2026; la prueba la dicto el usuario: "escribe L-A sin Collatz ni
+cadena, solo paseo perezoso y excursiones; si sale equivalente a 'el
+paseo es recurrente', ya tienes la respuesta y te ahorras meses; si
+sale genuinamente mas debil, el muro es de un metro". Instrumento:
+sombraexogena.py; salida: sombraexogena_salida.txt.)
+
+=====================================================================
+1. EL ENUNCIADO AUTONOMO (V2 -- cero Collatz, cero aritmetica)
+=====================================================================
+
+  Sea (b_t) una sucesion de bits justos (dado el pasado). Definanse
+  a la vez:
+    - UN PASEO PEREZOSO: k_0 = 2; en cada paso, el paseo esta activo
+      (regimen "mixto") o perezoso ("compartido") segun un reloj
+      EXOGENO (V2a: activo con prob. 1/2 por paso; V2b: rachas
+      perezosas de largo geometrico(1/2) entre pasos activos). En un
+      paso activo, k baja 1 si b_t = 1 y sube 1 si b_t = 0. La
+      EXCURSION termina la primera vez que k llega a 1 (tau).
+    - UNA PERPETUIDAD CRITICA ACOPLADA: u_0 = x; en TODO paso,
+      u <- u/2 si b_t = 0, u <- (3u - 1)/2 si b_t = 1. (El MISMO
+      bit: bajar en k es expandir u, subir en k es contraer u --
+      la estructura N3/N4 de la cadena, sin la cadena.)
+
+  ENUNCIADO (L-A autonomo): existe una funcion gamma(x) -> 0 con
+
+      phi(x) := P( |u_tau| <= K )  >=  C * x^(-gamma(x)).
+
+  (K fijo, p. ej. 25/3; C > 0.)
+
+POR QUE NO ES "EL PASEO ES RECURRENTE": el enunciado es sobre UNA
+excursion desde UN arranque, cuantitativo en x. La recurrencia del
+programa solo se sigue componiendo infinitas excursiones (Markov
+fuerte + Levy-Borel-Cantelli + la condicion de arranques) -- piezas
+que YA son teorema o tienen su esquema aparte. No hay colapso logico:
+la version autonoma es genuinamente mas debil. PERO quedaba el riesgo
+empirico: que el fenomeno medido en la cadena (decaimiento polinomial
+con gamma cayendo, la forma 1/sqrt(log) excluida por la 7a) fuera un
+efecto de la aritmetica v2 del reloj REAL (endogeno) que la version
+autonoma no ve -- y entonces atacar V2 seria atacar otro problema.
+
+=====================================================================
+2. EL EXPERIMENTO (200.000 excursiones/punto, T = 150 emparejado,
+   la escalera x = 2000 / 2e4 / 2e5 / 2e6, semilla fija)
+=====================================================================
+
+  gamma por decada:            g1      g2      g3
+    V1 sin acople            0,222   0,172   0,149
+    V2a acople (reloj 1/2)   0,249   0,190   0,165
+    V2b acople (rachas geo)  0,236   0,207   0,146
+    V3 cadena real (MC)      0,298   0,201   0,182
+
+  (V3 validado contra el barrido exacto de masa: C1 OK, los tres
+  phi_min del 10-08 reproducidos desde abajo a horizonte mayor.
+  phi*sqrt(ln x) BAJA en los cuatro modelos: la forma exacta
+  C/sqrt(log) esta lejos en todos, igual que en la cadena --
+  consistente con la exclusion de la 7a en el rango limpio.)
+
+=====================================================================
+3. EL VEREDICTO
+=====================================================================
+
+EL MURO ES DE UN METRO. El enunciado autonomo V2 reproduce el
+fenomeno de la cadena CUANTITATIVAMENTE (mismas gammas a +-0,03,
+misma caida por decada, convergiendo entre si al crecer x). El reloj
+endogeno (la aritmetica v2 que TORTOLAS describe) aporta un factor
+acotado y una correccion transitoria (V3 apenas por encima de V2,
+acercandose), NO el mecanismo. Hasta V1 (sin acople) muestra la misma
+forma: el fenomeno entero es
+
+    excursion critica (cola t^(-1/2) del primer regreso)
+  x contraccion log-lineal con fluctuaciones gaussianas (CLT)
+
+y el "polinomial suave con gamma cayendo" que medimos es el
+TRANSITORIO de grandes desviaciones de ese modelo: para contraer
+ln x hace falta sobrevivir ~L* = ln x / 0,144 pasos; a x moderado
+el costo gaussiano de contraer mas rapido que la media compite con
+la entropia t^(-1/2) de sobrevivir, y la mezcla se lee como potencia
+con exponente que cae; la asintota es lentamente variable (familia
+sqrt(log)) y por tanto gamma(x) -> 0 EN EL MODELO CLASICO, por
+computo directo de Laplace. La prediccion falsable que deja: el
+producto phi(x)*sqrt(ln x) debe TOCAR FONDO y aplanarse en alguna
+decada (en V2 se puede calcular cual; en la cadena, medirse).
+
+=====================================================================
+4. LO QUE CAMBIA EN EL PROGRAMA
+=====================================================================
+
+(a) L-A tiene ahora su DIANA AUTONOMA LEGITIMA: demostrar el piso
+    poly-log para V2 --
+
+      phi_V2(x) >= c / sqrt(ln x)   (o cualquier potencia de log)
+
+    -- alcanza para la reduccion (Levy solo pide Sigma phi(|c_i|) =
+    infinito con arranques planos/polinomiales, y un piso poly-log
+    lo da contra CUALQUIER beta polinomial). La via de demostracion
+    en V2 es clasica y SIN los huecos de la cadena: condicionado a
+    la forma de la excursion, los pasos activos estan FORZADOS y su
+    producto contrae ((3/4)^s * 3/2 -- la pieza (2) de QUELTEHUES,
+    que aqui es exacta por construccion); los pasos perezosos son
+    monedas libres con deriva -0,144 (la pieza (3), que aqui NO
+    esta rota: el reloj es exogeno de verdad); CLT sobre el largo
+    L* y el aterrizaje en la ventana da la constante. El espolon
+    del queltehue, en el terreno donde corta limpio.
+
+(b) La TRANSFERENCIA V2 -> cadena queda como pieza aparte y acotada:
+    el error entre el reloj exogeno y el endogeno se mide (V3 - V2:
+    +0,03 de gamma en la primera decada, cayendo) y su forma de lema
+    es la dominacion estocastica de las rachas reales por
+    geometricas (los lemas de racha de tortolas.lean). NO es la
+    pieza dura: es contabilidad de acoplamiento.
+
+(c) La prediccion de la proxima decada queda registrada POR TRES
+    vias ANTES del barrido exacto: el MC de V3 da
+    phi(2e6) ~ 0,0255 (err. tip. ~0,0004) y gamma_3 ~ 0,18 --
+    debajo de las dos predicciones pre-registradas de
+    prediccion_gamma_1108.txt (0,20-0,24): la decada dobla al lado
+    de la reduccion MAS fuerte de lo que ambos modelos predecian.
+
+(d) Meses ahorrados en la direccion opuesta a la temida: no hay
+    circularidad -- hay un problema clasico bien planteado que
+    reproduce el fenomeno, con su asintota computable. El programa
+    no estaba dando vueltas: estaba midiendo el transitorio de un
+    objeto que ya se dejaba calcular.
+
+=====================================================================
+5. ETIQUETAS HONESTAS (capa 1)
+=====================================================================
+
+- Monte Carlo con una semilla; error tipico ~0,0005 por punto; las
+  gammas llevan +-0,01. Las conclusiones usan la FORMA, no un punto.
+- Censura ~9% a T = 150 en los cuatro modelos por igual (el sesgo es
+  comun y no fabrica las diferencias entre modelos).
+- "gamma -> 0 en el modelo clasico por Laplace" es un CALCULO
+  esbozado, no un teorema escrito: es el proximo entregable
+  analitico (y ahora sin aritmetica de por medio).
+- La escalera x sigue siendo la familia de decadas redondas (v2 de
+  x sube 1 por decada); en V1/V2 eso es irrelevante (u es real); en
+  V3 es el mismo sesgo comun de siempre del protocolo.
+- Nada de esto toca el techo del espejo: vale identico para 3n-1.
+  phi = 1 seguiria siendo Gao-Wu en densidad, no Collatz.

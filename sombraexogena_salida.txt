@@ -1,0 +1,28 @@
+﻿la prueba de circularidad: phi(x) por modelo, 200000 excursiones/punto,
+horizonte T = 150, ventana |u| <= 25/3 (|c| <= 25 en k = 1)
+
+  V1 sin acople   phi(   2000)=0.1502 (cens 0.092)  phi(  20000)=0.0900 (cens 0.093)  phi( 200000)=0.0606 (cens 0.091)  phi(2000000)=0.0430 (cens 0.091)
+  V2a acople      phi(   2000)=0.0942 (cens 0.093)  phi(  20000)=0.0531 (cens 0.092)  phi( 200000)=0.0343 (cens 0.091)  phi(2000000)=0.0234 (cens 0.092)
+  V2b rachas      phi(   2000)=0.0932 (cens 0.092)  phi(  20000)=0.0541 (cens 0.092)  phi( 200000)=0.0336 (cens 0.091)  phi(2000000)=0.0240 (cens 0.092)
+  V3 cadena       phi(   2000)=0.1222 (cens 0.093)  phi(  20000)=0.0615 (cens 0.092)  phi( 200000)=0.0387 (cens 0.093)  phi(2000000)=0.0255 (cens 0.093)
+
+COMPROBACION 1 OK: el Monte Carlo de la cadena real reproduce los
+phi_min del barrido exacto de masa (a horizonte mayor, sin poda).
+
+gamma por decada (y phi*sqrt(ln x), constante <=> forma 1/sqrt(log)):
+   modelo          g(2k->20k)  g(20k->200k)  g(200k->2M)   phi*sqrt(ln x) en la escalera
+  V1 sin acople     0.222       0.172        0.149      [0.414  0.283  0.212  0.164]
+  V2a acople        0.249       0.190        0.165      [0.260  0.167  0.120  0.089]
+  V2b rachas        0.236       0.207        0.146      [0.257  0.170  0.117  0.091]
+  V3 cadena         0.298       0.201        0.182      [0.337  0.194  0.135  0.097]
+
+LECTURA (el veredicto es del mecanismo, no de una pasada):
+ - si V2 (a o b) muestra gammas ~0 y phi*sqrt(ln x) ~constante,
+   el enunciado autonomo pierde el fenomeno: la degradacion
+   polinomial de la cadena viene del RELOJ ENDOGENO (aritmetica
+   v2) y L-A no se deja despegar de la cadena -- circularidad
+   parcial: atacar V2 seria atacar otro problema.
+ - si V2 muestra los gammas de la cadena (0,2-0,3 cayendo), L-A
+   es un problema de probabilidad clasica sin aritmetica dentro:
+   el muro es de un metro y V2 es EL enunciado a demostrar.
+ - V1 calibra cuanto aporta el acoplamiento; V3 valida el MC.

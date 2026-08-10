@@ -3999,12 +3999,76 @@ NODOS = [
      "LECHUZAS: p primo impar, p | r, p sin dividir 2q => los "
      "consecutivos no funden jamas (unidades mod p + balance de S)"),
     ("empalme_por_visita", "pendiente",
-     "LA ULTIMA PIEZA: de las infinitas visitas al fondo a tocar (1,1) "
-     "i.o. - E[toques] diverge t^0.35 (empalme.py); falta estacionaria "
-     "condicionada del perturbed IFS o segundo momento"),
+     "el salto historico 'de las visitas al fondo a tocar (1,1) i.o.'. "
+     "RE-COORDINADO el 10-08 por Markov fuerte: se parte en L-A (piso "
+     "por arranque) y L-B (ritmo de visitas); queda como nombre del "
+     "salto, el trabajo vive en esos dos nodos"),
+    # --- LA ULTIMA MILLA (09..11-08-2026): de la madriguera a los dos lemas ---
+    ("liebres_criterio", "demostrado",
+     "LIEBRES: phi = 1 <=> Sigma_t P(X_t en C) = infinito para TODA "
+     "ventana finita con (1,1) dentro - Green + clase cerrada + Doeblin "
+     "exacto eps >= 17887/131072; aguanto la 5a revision (liebres.py)"),
+    ("urracas_libro", "demostrado",
+     "URRACAS: exp - contr = 2V + (Ee-E0) + k0 - k_t EXACTO por palabra "
+     "(libro mayor de nueve tipos, urracas.lean 0 sorry); umbral efectivo "
+     "~0,2446 en la cadena; aguanto ENTERA la 5a revision"),
+    ("cebras_lyapunov", "medido",
+     "CEBRAS (la mitad viva tras la 5a): clasificacion afin exacta y el "
+     "umbral log2/log3 como exponente de Lyapunov de los multiplicadores "
+     "(hipotesis de Kesten de Aranas); la lectura 'deriva de log|u| de "
+     "la cadena' esta ROTA y RETIRADA"),
+    ("cabras_mod3", "demostrado",
+     "CABRAS por la cadena entera: todo alcanzado con k >= 1 tiene "
+     "c % 3 != 0; corolario torre_sin_ceros (cabras.lean, el 16o)"),
+    ("tortolas_acoplamiento", "demostrado",
+     "TORTOLAS: los dos hijos de una moneda difieren en Delta = c + "
+     "(1-3^k)/2, v2(Delta) baja EXACTO 1 por paso, divergen en j* = "
+     "v2(Delta); j* >= horizonte => sesgo CERO (tortolas.lean, el 19o; "
+     "aguanto la 7a con exagerados reparados)"),
+    ("garzas_sesgo", "medido",
+     "GARZAS: forward-backward exacto del sesgo condicionado - vive en "
+     "k <= 3, <= ~0,03 por moneda; el exponente local de P(X_t=(1,1)) "
+     "cruzo 1 hacia abajo (la direccion de la recurrencia); la 7a lo "
+     "dejo EXAGERADO-reparado (monedacondicionada.py)"),
+    ("gaviotas_martingala", "demostrado",
+     "GAVIOTAS A+B: bits justos dado el pasado + Doob + Cauchy-Schwarz "
+     "- la SUMA entera a_V + a_D - a_K certificada bajo el umbral "
+     "0,2446 en todo T computado (0,198->0,192, real 0,019); asintotico "
+     "O(T^-1/4) modulo el lema local P(fondo) >= c/sqrt(T); aguanto la "
+     "7a entera (gaviotas.py)"),
+    ("markov_fuerte", "demostrado",
+     "EL REGALO DE LA 7a: P(ventana en la excursion i | TODO el pasado) "
+     "= phi(c_i) EXACTO (el arranque de excursion es tiempo de parada) "
+     "- la mezcla NO hace falta para el salto condicional y "
+     "Levy-Borel-Cantelli es teorema"),
+    ("queltehues_mezcla", "medido",
+     "QUELTEHUES: la mezcla de las excursiones MEDIDA (tres arranques a "
+     "< 0,03 en t=29); la pieza 3 (monedas libres dado el camino) ROTA "
+     "por la 7a via Tortolas; se salva por la via annealed como "
+     "herramienta para L-A (lemadelamezcla.txt)"),
+    ("lema_LA_piso", "pendiente",
+     "L-A, EL PISO POR ARRANQUE: phi(c0) >= C*c0^(-gamma(c0)) con "
+     "gamma -> 0. La forma 1/sqrt(log) EXCLUIDA (7a); el test decisivo "
+     "de gamma por decadas es pisoporarranque.py (escalera emparejada); "
+     "la prueba de circularidad V1/V2/V3 es sombraexogena.py. DONDE EL "
+     "PROGRAMA SE DECIDE"),
+    ("lema_LB_ritmo", "pendiente",
+     "L-B, EL RITMO DE VISITAS: tau_i <= e^(o(i^2)) c.s. La medicion "
+     "(arranquesporvisita.py): reloj polinomial eta ~ 2 - un reloj "
+     "polinomial cumple con margen infinito; falta el teorema (la via: "
+     "paseo critico + reloj de rachas de tortolas.lean)"),
+    ("arranques_polinomiales", "medido",
+     "LA CONDICION BETA: |c_i| = O(i^beta) en probabilidad a lo largo "
+     "de las visitas. MEDIDO beta = 0,000 (planos hasta i = 1325, "
+     "arranquesporvisita.py); esquema de demostracion via Moscas + cota "
+     "local del retorno + Holder en notamoscasinducida.txt (H1-H4 "
+     "abiertos, sin adversarial)"),
     ("phi_uno", "pendiente",
-     "phi = 1 (Gao-Wu en densidad): criterio + Golondrinas + Hormigas "
-     "+ el empalme. Si el empalme cae, cae entera"),
+     "phi = 1 (Gao-Wu en densidad). LA CADENA VIGENTE (post-7a): "
+     "Golondrinas + Markov fuerte + Levy-B-C exigen SOLO L-A (piso con "
+     "gamma -> 0) y L-B (ritmo) + arranques polinomiales; Liebres da la "
+     "equivalencia con la recurrencia y Gaviotas certifica el balance "
+     "de Lyapunov bajo el umbral en todo T computado"),
 ]
 
 # (hijo, padre): el hijo se apoya en el padre
@@ -4056,9 +4120,35 @@ DEPENDENCIAS = [
     ("empalme_por_visita", "golondrinas_fondo"),
     ("empalme_por_visita", "moscas_tension"),
     ("empalme_por_visita", "hormigas_accesibilidad"),
+    # --- la ultima milla ---
+    ("liebres_criterio", "cadena_kc"),
+    ("liebres_criterio", "criterio_recurrencia"),
+    ("liebres_criterio", "hormigas_accesibilidad"),
+    ("urracas_libro", "cadena_kc"),
+    ("cebras_lyapunov", "aranas_sombra"),
+    ("cabras_mod3", "cadena_kc"),
+    ("tortolas_acoplamiento", "cadena_kc"),
+    ("garzas_sesgo", "urracas_libro"),
+    ("garzas_sesgo", "criterio_recurrencia"),
+    ("gaviotas_martingala", "urracas_libro"),
+    ("gaviotas_martingala", "tigresas_multiplicador"),
+    ("markov_fuerte", "criterio_recurrencia"),
+    ("markov_fuerte", "golondrinas_fondo"),
+    ("queltehues_mezcla", "aranas_sombra"),
+    ("lema_LA_piso", "tigresas_multiplicador"),
+    ("lema_LA_piso", "aranas_sombra"),
+    ("lema_LA_piso", "golondrinas_fondo"),
+    ("lema_LB_ritmo", "tortolas_acoplamiento"),
+    ("lema_LB_ritmo", "golondrinas_fondo"),
+    ("arranques_polinomiales", "moscas_tension"),
+    ("arranques_polinomiales", "golondrinas_fondo"),
     ("phi_uno", "criterio_recurrencia"),
     ("phi_uno", "golondrinas_fondo"),
-    ("phi_uno", "empalme_por_visita"),
+    ("phi_uno", "liebres_criterio"),
+    ("phi_uno", "markov_fuerte"),
+    ("phi_uno", "lema_LA_piso"),
+    ("phi_uno", "lema_LB_ritmo"),
+    ("phi_uno", "arranques_polinomiales"),
 ]
 
 print()
