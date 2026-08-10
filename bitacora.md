@@ -40,8 +40,22 @@ priori el desbalance condicionado bajo ~0,2446) se REDUCE a la
 sensibilidad-al-timing del paseo crítico de `k` — un enunciado sobre
 paseos justos perezosos, DESACOPLADO de la dinámica de `c`. El lema
 es aritmética por ley (testigos sin división, estilo
-`aterrizajen2.lean`): candidato natural al 19º `.lean`. Conteos:
-**68 `.py` · 18 `.lean` · 3 `.db`**.
+`aterrizajen2.lean`): candidato natural al 19º `.lean`.
+
+**⇢ Y EL 19º QUEDÓ COBRADO LA MISMA TARDE: `tortolas.lean`**,
+compilado A LA PRIMERA (la segunda pasada sólo afinó la salida:
+los lemas del `abs` ahora hablan de `natAbs` — el warning de
+hipótesis sin usar delató que la primera forma era N1 disfrazado,
+capa 1 en vivo). Veinte teoremas, 0 `sorryAx`: `delta_hijos` (la
+diferencia de los hijos ES `Δ`), `moneda_sin_efecto`, las siete
+leyes par a par con testigos sin división, `pot2_mitad` (el
+enganche del descenso), la imparidad conservada, las dos
+imposibilidades de paridad, **`salida_signo_mixto`** (el porqué de
+E2 como teorema: con signos opuestos los abs restan la SUMA — el
+salto exacto que el lema exceptúa), y la instancia `(2,8)`
+(`Δ=4, j*=2`) cotejada con `decide` sobre las 4 palabras contra la
+transición real. Cruce sin código común: `firmaacoplamiento.py` C0.
+Conteos: **68 `.py` · 19 `.lean` · 3 `.db`**.
 
 # ⇢ 10-08-2026 — GARZAS (propuesto): LA MONEDA CONDICIONADA, LEÍDA POR ALTURA — Y EL EXPONENTE DEL CRITERIO CRUZA 1 HACIA ABAJO
 

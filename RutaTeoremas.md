@@ -226,7 +226,9 @@ exponencialmente — ésa sigue siendo la vía.
 > t=34 da `P_t·t` SUBIENDO (0,246→0,277): en la ventana medida
 > `P(X_t=(1,1))` decae más lento que `1/t`, el lado de la
 > divergencia de Green. Pendiente inmediato: el lema a Lean (el
-> 19º) y la cota del timing. **Regalo de la revisión,
+> 19º) y la cota del timing. *(El 19º quedó cobrado la misma tarde:
+> `tortolas.lean`, 20 teoremas, 0 `sorryAx` — queda la cota del
+> timing como ÚNICO frente analítico.)* **Regalo de la revisión,
 YA COBRADO (09-08 (8)):** el invariante mod 3 resultó ser la puerta de
 CABRAS por la cadena entera y está formalizado en **`cabras.lean` (el
 16º)** con el corolario `torre_sin_ceros` — los saltos de `c = 0` son
