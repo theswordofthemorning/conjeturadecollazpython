@@ -37,7 +37,12 @@ predicha `e^{−0,144·ℓ}` CLAVA la medición de (10.6) (a ℓ=29:
 `e^{−4,2} ≈ 0,015` contra el < 0,03 medido). La mezcla pasa de
 hipótesis a **lema con esqueleto**; el trabajo que queda es la
 redacción cuidadosa (la ley de entrada = mezcla + el paso de
-selección expansiva de (10.3)) y su verificación de trío. Con eso,
+selección expansiva de (10.3)) y su verificación de trío. *(Las
+piezas 1 y 2, ya verificadas EXHAUSTIVAS: las 1.284 excursiones
+reales de largo ≤ 16 desde `(2,2)` cumplen `bajadas = subidas + 1`
+y el producto forzado `(1/2)^s(3/2)^{s+1} = (3/4)^s·(3/2)`, 0
+fallos — con un bug propio cazado en vivo por capa 1: la primera
+pasada no avanzaba el estado y daba 0 excursiones, el «0» delator.)* Con eso,
 la cadena de la ruta queda: **mezcla (lema con esqueleto) + cuota
 de exponente < ½ (medida, el hueco de verdad) + Golondrinas
 (demostrado) ⟹ recurrencia de la ventana ⟹ φ=1.** El único
