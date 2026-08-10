@@ -5,6 +5,40 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (9) — LA REVISIÓN BIBLIOGRÁFICA DE LA CADENA, HECHA: LA FORMA `{v, 3^k·v + c}` NO ESTÁ PUBLICADA
+
+El pendiente de la retaguardia que «ni siquiera se había buscado»,
+cerrado con cuatro barridas web de ángulos distintos (coalescencia de
+consecutivos, diferencia de dos órbitas como cadena, la forma `3^k·v +
+c` literal, coalescencia + Markov). **Resultado: la cadena `(k, c)` de
+Leonas — el par como `{v, 3^k·v + c}` con seis leyes exactas y moneda
+de Terras — no aparece en la literatura.** Vecinos fichados: la
+coalescencia clásica y los consecutivos (Garner, Gao, Elia–Tucker,
+Frinkle 2025 — todos ya en el libro); **Grimmett & Holmes,
+«Coalescence in Markov chains» (arXiv:2510.13572, J. Theor. Probab.
+2026)** — marco general de clases de coalescencia por acoplamiento en
+espacios finitos, sin Collatz ni nuestra forma: **pendiente de
+lectura** (es el pariente abstracto más cercano de la pregunta φ); y
+**ccchallenge.org**, el proyecto comunitario de formalización Lean de
+la literatura Collatz — referencia nueva para la línea Lean del repo.
+La novedad de Leonas queda con su búsqueda hecha y documentada; el
+único cruce bibliográfico que sigue bloqueado es LaTourette (el PDF).
+
+**Y el paper, LEÍDO la misma noche** (bajado a `lecturas/` — la
+convención nueva del usuario: los textos se dejan ahí, fuera de git,
+con respaldo zip en el escritorio). Veredicto de lectura: espacio de
+estados FINITO en todo el paper, cero Collatz, cero espacios
+numerables. Lo que sí da: **el lenguaje abstracto correcto** — dos
+trayectorias de Collatz son exactamente el *grand coupling
+determinista* (`F_t = T` para todo `t`) de su marco, y nuestra φ es la
+densidad de coalescencia de ese acoplamiento sobre ℕ; su lema de
+«densidad estacionaria `π_s > 1/m` fuerza el encuentro» es el pariente
+finito de nuestro criterio de recurrencia. Nada transferible
+directamente (todo depende de estacionariedad en espacio finito); la
+pista que deja: su companion previo «Non-coupling from the past»
+(Springer 2021). Los cuatro problemas abiertos que listan (3.3, 3.8,
+3.11, 7.4) no tocan nuestro régimen.
+
 # ⇢ 09-08-2026 (8) — EL PENDIENTE DEL ACTA, COBRADO: `cabras.lean` (EL 16º), EL INVARIANTE MOD 3 DE LA TORRE
 
 El «regalo» del informe 1 de la 5ª revisión resultó ser **la puerta

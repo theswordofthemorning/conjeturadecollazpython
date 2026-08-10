@@ -304,9 +304,18 @@ autocontenido). **Queda UNA pieza: el piso de absorción por visita.**
   teoremas nuevos del cierre.
 - **`e₁₀` y `e₁₂`**: medidas por primera vez (`estratoscadena.py`),
   esperan su forma cerrada — el siguiente peldaño tras `e₆`/`e₈`.
-- **La revisión bibliográfica de la cadena**: nadie ha buscado si
-  `{v, 3^k v + c}` como sistema simbólico está publicado. *«No
-  encontrado» no es «no existe»* — y aquí ni siquiera se buscó.
+- **La revisión bibliográfica de la cadena — HECHA (09-08 (9), cuatro
+  barridas web con ángulos distintos):** la forma `{v, 3^k v + c}` como
+  sistema simbólico con leyes exactas y moneda de Terras **no aparece
+  publicada**. Vecinos encontrados y fichados: la coalescencia clásica
+  (`8n+4/8n+5`, Garner, Gao, Elia–Tucker — ya en el libro de la casa);
+  Frinkle et al. 2025 (streaks, ya en la ruta); **Grimmett & Holmes,
+  «Coalescence in Markov chains», arXiv:2510.13572, J. Theor. Probab.
+  2026** — el marco general (clases de coalescencia por acoplamiento,
+  espacios finitos), SIN Collatz ni nuestra forma: leerlo es pendiente
+  nuevo; y **ccchallenge.org** (formalización Lean de la literatura
+  Collatz, paper a paper) — referencia útil para la línea Lean del
+  repo. *«No encontrado» sigue sin ser «no existe», pero ya se buscó.*
 - **Cortesía a Moravian**: el error de la Tabla 4.2 de LaTourette 2007
   es publicable como nota a Michael Fraboni (decisión del usuario).
 - **Revisión externa adversarial** de la terna Tigresas/Arañas/Moscas:
