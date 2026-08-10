@@ -35,10 +35,20 @@ polinomial de los arranques:
 **Lo que cambió**: el «piso de absorción por visita» pedía una
 constante uniforme que el condicionamiento amenazaba; la forma
 Lévy sólo pide que el piso no muera más rápido que `1/log` — y la
-degradación real es `1/√log`. Los dos lemas restantes tienen cada
-factor medido y cada herramienta nombrada. ESTE es el frente para
-la próxima sesión (después de la adversarial de la tanda — regla
-del ritmo).
+degradación conjeturada es `1/√log`. Los dos lemas restantes tienen
+cada factor medido y cada herramienta nombrada. ESTE es el frente
+para la próxima sesión (después de la adversarial de la tanda —
+regla del ritmo).
+
+*(El test directo de `φ(|c₀|)`, intentado el mismo cierre y
+DECLARADO NO CONCLUYENTE por horizonte: a T=30 exacto,
+`P(ventana | (2,c₀))` da 0,76 plano para `c₀ ≤ 20` ✓, pero cae
+`~c₀^{−0,7}` para `c₀ ≥ 200` — que NO refuta el lema: la
+contracción de `c₀ = 2000` necesita ~37 pasos y el barrido ve 30 —
+las excursiones exitosas largas quedan fuera de la foto; la
+predicción del lema para `c₀ = 2000` con horizonte infinito es
+~0,09 y lo medido a T=30 es 0,063, compatible. El test limpio pide
+el barrido podado a T ≥ 60: instrumento anotado para la próxima.)*
 
 # ⇢ 10-08-2026 (12) — LA SÍNTESIS DEL DÍA: EL CÍRCULO SE CIERRA SOBRE EL PISO POR VISITA — MEDIDO EN 0,76 EN LAS COORDENADAS CORRECTAS
 
