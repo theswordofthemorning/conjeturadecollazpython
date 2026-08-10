@@ -5,6 +5,41 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (12) — LA SÍNTESIS DEL DÍA: EL CÍRCULO SE CIERRA SOBRE EL PISO POR VISITA — MEDIDO EN 0,76 EN LAS COORDENADAS CORRECTAS
+
+La matriz conjunta `(altura, banda de t)` dictó lo que faltaba: **a
+altura fija la cuota es ESTABLE en t** (h=6: 0,542/0,520/0,515;
+h=7 → 0,39; h=8 → 0,26 subiendo a su nivel) — existe `q(h) > 0`
+por altura, decayendo ~×0,75 por nivel. Y con eso, el argumento
+completo del programa queda en su forma final:
+
+> **Golondrinas** (toda excursión termina c.s. — demostrado) +
+> **el piso por visita** `E[entrar EN la ventana | excursión] =
+> Σ_h P(h)·q(h) = p* ≈ 0,76 MEDIDO` + **la mezcla** (FOCAS:
+> visitas i.i.d.-ish — esqueleto con 2/4 piezas exhaustivas) +
+> **Borel–Cantelli condicional** ⟹ la ventana se visita i.o.
+> c.s. ⟹ recurrencia ⟹ **φ = 1** (LIEBRES).
+
+**La ganancia de coordenadas, dicha claro**: el viejo
+`p_34 = 0,0457` medía la cuota del PRE-VÓRTICE dentro de `k=1` —
+un objeto chiquito. El piso por visita en su forma
+renovación-correcta es «entrar a la VENTANA de Doeblin por
+excursión», y como la ventana contiene el atractor entero del IFS
+con margen ×8 (el hallazgo geométrico del día), ese piso mide
+**0,76, no 0,05**. El único salto que queda es EL DE SIEMPRE, ahora
+nítido y con su herramienta al lado: **uniformizar `p* ≥ p₀ > 0`
+sobre el pasado** (condicional en la visita — el salto que la base
+etiquetó en κ=1 y en (10)) — y la mezcla de FOCAS es exactamente
+el instrumento para esa uniformización. El programa entero cuelga
+de UNA desigualdad condicional con su esqueleto escrito.
+
+*(Capa 1 del cierre: `p* ≈ 0,76` suma masa entrada×cuota con la
+excursión incompleta a t=30 — es cota sobre lo entrado, no sobre el
+ciclo entero; el 20% aún vivo entra con `q ≥ 0`, así que el piso
+condicional-a-retornar es ≥ 0,76·(masa entrada)/(1) — el número
+fino lo dará el instrumento cuando se promueva. Y todo lo de hoy
+espera la adversarial externa: regla del ritmo.)*
+
 # ⇢ 10-08-2026 (11) — EL LEMA DE LA MEZCLA, REDUCIDO A CUATRO PIEZAS EXACTAS (el esqueleto demostrable)
 
 El cierre teórico de la jornada: la mezcla medida en (10.6) no es
