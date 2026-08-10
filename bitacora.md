@@ -42,6 +42,19 @@ desde el rebote `(2,2)` con absorción exacta al entrar al fondo:
    p_t) convergen con lentitud agónica: κ=1 crítico en todas
    partes, marginalidad máxima en todas las coordenadas. Es la
    hipótesis de trabajo a testear — no una conclusión.
+5. **Y EL PRIMER TEST DE LA HIPÓTESIS, mismo cierre** (barrido con
+   poda acotada: exacto hasta t=32; de ahí a t=55 con poda al tope
+   de 2 M de estados y la masa podada contabilizada EXACTA — las
+   cotas rigurosas se vacían en t≈37 y el instrumento lo declara;
+   los puntos t>32 son estimadores del barrido superviviente, sesgo
+   de dirección desconocida): la cuota sigue suave 0,538 → 0,439
+   (t = 33 → 55) y **el exponente local CAE: 0,50 en [11, 33] →
+   0,40 en [33, 55]** — la caída se frena más que una potencia
+   fija. Si `δ < ½` persiste, `Σ visitas × cuota ~ Σ t^{−1/2−δ}`
+   diverge POLINOMIALMENTE, no por un logaritmo: el primer test
+   dobla hacia el lado recurrente, sin decidir (la lección de
+   siempre). La serie y el instrumento quedan listos para la
+   próxima extensión.
 
 # ⇢ 10-08-2026 (9) — LA LÍNEA FOSTER: TRES INTENTOS, TRES DIAGNÓSTICOS, Y LA OBSERVACIÓN QUE REORDENA EL PROBLEMA
 
