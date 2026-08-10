@@ -214,7 +214,7 @@ parece.
 
 ## Instalación [historia y avisos: D-03]
 
-`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 09-08-2026 (noche): **64 `.py` · 17 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
+`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 09-08-2026 (noche): **65 `.py` · 17 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
 
 ## Cómo está repartido el repo [detalle: D-04]
 
@@ -355,6 +355,7 @@ for a in sorted(glob.glob('*.py')):
 | **`actarevision0908b.txt`** | El acta de la 5ª revisión externa (tres adversarios contra la terna de la madriguera): LIEBRES aguantó, CEBRAS partida en dos, URRACAS entera |
 | **`cabras.lean`** | El 16º: el invariante mod 3 de la torre (la puerta de CABRAS por la cadena entera) — `c % 3 ≠ 0` para todo alcanzado con `k ≥ 1`, corolario `torre_sin_ceros`; el regalo de la 5ª revisión, formalizado |
 | **`aterrizajen2.lean`** | El 17º: el aterrizaje de N2 — la pieza 2-ádica con signo de Golondrinas (`v₂(c) > A ⟹` el bit 1 aterriza EXACTO en `v₂ = A−1`; `c = 0` ídem; `v₂(c) < A ⟹` baja exacto 1), testigos sin división, cotejado en 42.196 instancias |
+| **`pumasescalera.py`** | El 7º escalón del acorralado: los seis truncados publicados reproducidos + `K=13, \|c\| ≤ 49152` ⟹ **`λ ≥ 1,9807`**; gaps ×0,78 subiendo — consistente con λ = 2 |
 | `actarevision0908.txt` | El acta de la 4ª revisión externa (la que rompió Abejas-como-programa y validó el criterio) |
 | `maquinaria.txt` / `notamoscas.txt` | Los cinco objetivos sin Collatz y la nota autocontenida de Moscas |
 | `inventario.md` / `derivados.md` | El catálogo del repo, y las ramas del tronco (sistema de derivados `[D-nn]`) |
