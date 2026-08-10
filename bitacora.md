@@ -47,6 +47,24 @@ respalda — recomputando desde las definiciones del papel, sin agentes.
 siempre — tres frases que decían más que su cálculo.** Conteos:
 **66 `.py` · 17 `.lean` · 3 `.db`**.
 
+**⇢ EL FILTRO CLASE/INSTANCIA (pedido del usuario, addendum del
+acta):** ¿el cualificador estaba sólo en Leonas? Pasado por toda la
+terna y los criterios: **sí — sólo en Leonas.** φ está definida en su
+fuente como «probabilidad de absorción de esta cadena» (clase por
+definición); Tigresas/Arañas/Moscas hablan de la cadena; los
+criterios, de la modificada (palabras/masa); Pandas es instancia POR
+DISEÑO (el puente a Gao); la cota 43,56% transfiere a instancias en
+la dirección segura. El error no estaba replicado.
+
+**⇢ Pendientes que deja la noche para la próxima sesión:**
+`conejas.lean` **compilado limpio (0 sorryAx) en el scratchpad** —
+la fusión en `j+2` de la familia extremal formalizada (escalera de
+peldaños impares + testigo `3^{j−1} = 4t+3`) — entra al repo CON su
+revisión propia (regla del ritmo: tres piezas nuevas ya esperan
+revisión externa); y la terna nueva de la noche (Liebres/Cebras
+post-acta, Urracas, los teoremas de la ronda) espera la próxima
+adversarial cuando el usuario la pida.
+
 # ⇢ 09-08-2026 (13) — LOS ESCALONES 7 Y 8 DE PUMAS: `λ ≥ 1,9844`
 
 **`pumasescalera.py`** (el 65º `.py`): la escalera de truncados

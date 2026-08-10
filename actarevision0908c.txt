@@ -139,3 +139,42 @@ ronda. Lo que cayo es lo de siempre: tres frases que decian mas que
 su calculo (la absorcion unica sin el cualificador de clase, la
 paridad del menor, la perturbacion sumable). Sexta revision, sexta
 vez. La doctrina no falla -- y ahora el tronco tambien esta revisado.
+
+ADDENDUM -- EL FILTRO CLASE/INSTANCIA SOBRE EL RESTO DEL MAPA
+--------------------------------------------------------------
+(Pedido por el usuario tras el hallazgo L1: "el cualificador esta solo
+en Leonas?" -- pasar por cada enunciado preguntando si habla de clases
+o de numeros, y si el calculo respalda cual.)
+
+- phi EN SU FUENTE: paseodeladeuda.py la define "la probabilidad de
+  absorcion de esta cadena" -- nivel de CLASE por definicion; el
+  cualificador de esta ronda quedo exactamente ahi. Los criterios
+  (retorno11, Liebres, Lamperti, Oscilacion, Urracas, Osas) hablan
+  todos de la cadena modificada (masa/palabras): clase por
+  construccion. PASAN.
+- TIGRESAS: transiciones de la cadena (objeto de clase); la moneda es
+  la de Terras sobre clases, heredada del encabezado de Leonas (ya
+  corregido). Sin afirmaciones de instancia. PASA.
+- ARANAS: identidades por transicion de la cadena + medidas de masa.
+  Sin afirmaciones de instancia. PASA (sus dos adjetivos ya corregidos
+  en esta ronda).
+- MOSCAS: "suma sobre las palabras VIVAS" -- clase explicita. PASA.
+- PANDAS: enunciado a nivel de INSTANCIA -- y esta bien que lo sea:
+  es el puente a "igual altura" de Gao, instancia POR DISENO, con su
+  condicional declarado (Res < 3) y su verificacion (< 2^71). PASA.
+- La cota 43,5658%: es a(k)/2^k (clase), y TRANSFIERE a instancias en
+  la direccion segura (la fusion de clase implica la fusion de todos
+  sus miembros al mismo indice): como cota inferior de la densidad de
+  instancia tambien vale. PASA.
+
+VEREDICTO DEL FILTRO: el cualificador clase/instancia faltaba SOLO en
+el encabezado de Leonas (el tronco -- por eso dolia); el resto del
+mapa habla del objeto correcto o es instancia a proposito. Media hora
+bien gastada: el error no estaba replicado.
+
+NOTA DE CIERRE: conejas.lean (la formalizacion de la fusion en j+2 de
+la familia extremal) quedo COMPILADA LIMPIA (0 sorryAx) en el
+scratchpad de la sesion -- NO se registra como teorema del repo esta
+noche: tres piezas nuevas ya esperan revision y la regla del ritmo
+manda (el patron del primer dia no se repite). Entrara con su
+revision propia en la proxima sesion.
