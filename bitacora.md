@@ -36,6 +36,22 @@ variable. OJO del oficio: en α = 1/2 exacto el SRT clásico puede
 exigir condiciones extra (Caravenna–Doney) — la ficha de Erickson
 está encargada y dirá qué hay que verificar sobre esta cola.
 
+**⇢ LA PRECISIÓN DE CAPA 1 SOBRE EL PROPIO ESQUELETO (antes de que
+envejezca)**: la mitad «`S(t) → 0`» de la pieza (ii) **ES la
+recurrencia misma** — el ciclo termina c.s. ⟺ la ventana finita es
+recurrente ⟺ φ = 1 (LIEBRES + dicotomía) — así que el esqueleto NO
+reduce el problema: le da la FORMA cuantitativa que tendrá la
+prueba (una vez esté la recurrencia, Erickson convierte la cola en
+el local `≍ t^{−1/2}` y todo lo demás encaja), y deja la pregunta
+abierta en su enunciado más limpio conocido:
+
+> **`φ = 1 ⟺ P_{(2,2)}(τ_C < ∞) = 1`** — ¿el rebote del vórtice
+> vuelve casi seguro a la ventana `{k ≤ 1, |c| ≤ 25}`?
+
+con `S(33) = 0,2016` medido y la firma crítica en la cola. La
+medición NO distingue `S → 0` de `S → s∞ > 0` (la lección de la
+casa, una vez más): el veredicto es del mecanismo.
+
 # ⇢ 10-08-2026 (7) — LA CORRECCIÓN 50 (cazada por Opus 5, vía el usuario) Y EL TEOREMA B: LA SUMA ENTERA, BAJO EL UMBRAL
 
 **La crítica, y es correcta**: el umbral efectivo 0,2446 del
