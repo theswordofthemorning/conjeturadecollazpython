@@ -169,14 +169,24 @@ activo es aplicar medio paso extra del nucleo del calor discreto, y
 
     P(S_(n+1) <= a) - P(S_n <= a) = (p_n(a+1) - p_n(a))/2,
 
-el GRADIENTE de la densidad local -- que el CLT local acota por
-C'/n para el paseo justo (el maximo del gradiente gaussiano escala
-como n^(-1); la reflexion en 0 lo dobla a lo sumo). MEDIDO en la
-cadena real (firmaacoplamiento.py, el nucleo de sensibilidad):
-kappa*m ~ 0,42-0,52 estable en m = 4..24 -- la forma 1/m clavada.
-(El valor 0,45 no se compara con la constante gaussiana: el numero
-de pasos ACTIVOS es una fraccion del horizonte y la reflexion mete
-su factor; la FORMA es lo verificado, la constante es de la casa.)
+el GRADIENTE de la densidad local. VERIFICADO EN EL MODELO PURO por
+DP exacto (10-08-2026; paseo justo reflejado en 0, K = 4000 estados,
+m hasta 1000): la sensibilidad a UN slot decae como
+
+    delta(m) ~ C(k0) / m^(3/2)     (delta * m^1.5 -> 1,59 / 4,76 /
+                                    7,87 para k0 = 1 / 2 / 4)
+
+con C(k0) creciente en el arranque -- y el SUPREMO sobre arranques
+(el peor esta en k ~ raiz(m)) devuelve el C/m uniforme. DOS NIVELES
+que la capa 1 obligo a separar: lo que mide firmaacoplamiento.py en
+la cadena real (kappa*m ~ 0,42-0,52 estable en m = 4..24, forma 1/m)
+NO es la sensibilidad a un slot sino al cambio PERSISTENTE de
+horario (la divergencia de paridades cambia el horario para
+siempre), y las dos son consistentes: el efecto persistente es la
+suma de ~raiz(m) slots efectivos por m^(-3/2) ~ 1/m. La cadena de
+cotas que hay que demostrar: un slot <= C/m^(3/2) (CLT local, el
+ejercicio) => persistente <= C/m (sumando) => composicion con
+P(j* = j) ~ 2^(-j) => total <= C log T.
 
 EL SALTO QUE FALTA, dicho honesto: en la cadena real el horario NO
 es exogeno -- lo genera la paridad de c, que retroalimenta con los

@@ -387,10 +387,15 @@ autocontenido). **Queda UNA pieza: el piso de absorción por visita.**
   Frinkle et al. 2025 (streaks, ya en la ruta); **Grimmett & Holmes,
   «Coalescence in Markov chains», arXiv:2510.13572, J. Theor. Probab.
   2026** — el marco general (clases de coalescencia por acoplamiento,
-  espacios finitos), SIN Collatz ni nuestra forma: leerlo es pendiente
-  nuevo; y **ccchallenge.org** (formalización Lean de la literatura
-  Collatz, paper a paper) — referencia útil para la línea Lean del
-  repo. *«No encontrado» sigue sin ser «no existe», pero ya se buscó.*
+  espacios finitos), SIN Collatz ni nuestra forma: ⇢ **LEÍDO Y FICHADO
+  (10-08, `fichagrimmettholmes.txt`)** — cero solapamiento (no citan
+  Collatz ni Garner/Gao/E–T); todo espacio finito, sin herramienta
+  directa para el piso; importables: la cita canónica Doeblin 1938
+  para Liebres, el test de bloques (T4.3/4.4) y la obstrucción del
+  período (T3.13b) como plantilla para `c mod 3`; y **ccchallenge.org**
+  (formalización Lean de la literatura Collatz, paper a paper) —
+  referencia útil para la línea Lean del repo. *«No encontrado» sigue
+  sin ser «no existe», pero ya se buscó.*
 - **Cortesía a Moravian**: el error de la Tabla 4.2 de LaTourette 2007
   es publicable como nota a Michael Fraboni (decisión del usuario).
 - **Revisión externa adversarial** de la terna Tigresas/Arañas/Moscas:

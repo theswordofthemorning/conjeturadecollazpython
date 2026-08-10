@@ -5,6 +5,33 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (4) — GRIMMETT–HOLMES FICHADO (cero solapamiento) Y EL MODELO PURO CORRIGE EL EXPONENTE: UN SLOT ES `m^{−3/2}`, EL PERSISTENTE ES `1/m`
+
+Dos cierres de retaguardia, uno con mordida de capa 1:
+
+1. **La ficha de Grimmett & Holmes** (arXiv:2510.13572, el pendiente
+   de la ruta) — leída por agente, archivada en
+   `fichagrimmettholmes.txt`. Lo esencial: **cero Collatz** (no citan
+   a nadie de la coalescencia 3x+1 — la novedad de la cadena sigue en
+   pie); su marco («grand coupling») es exactamente nuestro objeto y
+   el nuestro es el caso degenerado del acoplamiento determinista de
+   Terras; pero TODO es espacio finito — sin Lyapunov, sin
+   recurrencia numerable, sin tasas. Importables: Doeblin 1938 como
+   cita canónica de Liebres, el test de bloques (T4.3/4.4: clases
+   c.s. constantes ⟺ cociente doblemente estocástico) y la
+   obstrucción del período (T3.13b) como plantilla para `c mod 3`.
+2. **El DP exacto del modelo puro** (paseo justo reflejado, K=4000,
+   m ≤ 1000) **corrigió el objetivo 6 de `maquinaria.txt` antes de
+   que envejeciera**: la sensibilidad a UN slot de horario decae
+   `~C(k₀)/m^{3/2}` (constantes clavadas: `δ·m^{3/2} →` 1,59 / 4,76 /
+   7,87 para k₀ = 1/2/4), NO `1/m` — el `κ ~ 0,45/m` de la cadena es
+   el efecto PERSISTENTE (la divergencia cambia el horario para
+   siempre) = suma de ~√m slots efectivos × m^{−3/2}. La cadena de
+   cotas queda: un slot ≤ C/m^{3/2} (CLT local, el ejercicio) ⟹
+   persistente ≤ C/m ⟹ composición con `P(j*=j) ~ 2^{−j}` ⟹ total
+   ≤ C·log T ⟹ `a_D → 0`. Los dos niveles medidos, consistentes
+   entre sí y con la serie de GARZAS.
+
 # ⇢ 10-08-2026 (3) — EL NÚCLEO DE SENSIBILIDAD: `κ ~ 0,45/m` — EL DESBALANCE CONDICIONADO SE DESVANECE COMO `log T / T`
 
 La segunda mitad de TÓRTOLAS, integrada a `firmaacoplamiento.py`
