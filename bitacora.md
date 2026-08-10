@@ -5,6 +5,48 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (9) — LA LÍNEA FOSTER: TRES INTENTOS, TRES DIAGNÓSTICOS, Y LA OBSERVACIÓN QUE REORDENA EL PROBLEMA
+
+Se atacó la recurrencia de la ventana con **Foster de m pasos**
+(`V = k + β·log₃₊(|u|/u₁)`, β = 2 — las piezas: martingala exacta de
+`k` (Lamperti C1), contracción −0,131/paso de la moneda (Tigresas),
+compensación de la frontera con β ≥ 1,585). **Tres verificadores,
+tres fallos instructivos** (rejillas de ~37.000, ~11.600 y ~6.200
+estados, 2^8 y 2^12 palabras exactas por estado):
+
+1. `u₁ = 1, m = 8`: positivos en el rayo `u = −1` para TODO k —
+   **el clamp estaba sentado sobre el punto fijo `u* = −1 de la
+   rama expansiva del IFS** (`(3u−1)/2 = u`), donde el atractor
+   bombea el borde sin parar. Lección de diseño: el clamp va FUERA
+   del atractor `[−1, ½]`.
+2. `u₁ = 4, m = 12`: los peores positivos eran **estados
+   inalcanzables** (`(0, c<0)`: el gap de frontera es ≥ 1) y
+   contaminación post-visita (la deriva de m pasos debe usar el
+   **proceso PARADO** en `C₀`, `E[V(X_{m∧τ})] ≤ V`).
+3. Parado + filtros (alcanzabilidad, CABRAS): el positivo
+   persistente vive EXACTAMENTE en el borde del clamp (`u ≈ ±4`,
+   +0,80 en k=4): **el clamp duro es un RATCHET** — los cruces
+   hacia arriba pagan `+β·log₃(13/8) ≈ 0,44β` y los de bajada no
+   reembolsan (el `max(·,0)` no baja de 0). Candidatos siguientes,
+   anotados: clamp suave `f = ½·log₃(1+(u/4)²)` (reinyección casi
+   gratis: +0,007β) o pendiente `−δ` bajo el clamp (reembolso).
+
+**Lo estructural que quedó demostrado por el camino**: (a) en el
+interior (`k ≥ 3, |u| ≤ 7/3`) la deriva es **CERO EXACTO** — el
+clamp es incruzable en un paso (`|u'| ≤ 3|u|/2 + ½ < 4`) y `k` es
+martingala: la cadena es genuinamente crítica-nula ahí, y el Foster
+de recurrencia lo tolera (pide ≤ 0, no < 0); (b) la reinyección
+(`u ~ 0 → u' ≈ −½` vía N4) aterriza DENTRO del atractor: con el
+clamp en 4 es gratis; (c) **LA OBSERVACIÓN QUE REORDENA: la ventana
+de Doeblin `|c| ≤ 25` en `k = 1` es `|u| ≤ 25/3 = 8,33` — contiene
+el atractor ENTERO del IFS con margen ×8**. La recurrencia de la
+ventana equivale a «`u` cerca del atractor cuando `k` toca fondo» —
+exactamente lo que el diagnóstico del mecanismo midió (la masa
+superviviente lleva `u = O(1)` pegado a la torre) y lo que la
+transferencia IFS→cadena de Arañas (pendiente declarada) debería
+dar. La línea Foster queda ABIERTA con sus candidatos; el interior
+crítico-nulo y el ratchet están mapeados para no repetirlos.
+
 # ⇢ 10-08-2026 (8) — T=30 EN LA TABLA CERTIFICADA, Y EL ESQUELETO DEL LEMA LOCAL CON NOMBRES: DOEBLIN + LAMPERTI + ERICKSON
 
 Cierre de la jornada: la tabla de GAVIOTAS-B extendida a **T=30**
