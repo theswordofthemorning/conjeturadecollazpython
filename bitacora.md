@@ -5,6 +5,32 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 09-08-2026 (11) — LA LOCALIZACIÓN: EL INGREDIENTE COMBINATORIO DE `e₈` ENTRA TODO POR EL CANAL PAR, Y `e^h₈` TIENE FORMA CERRADA
+
+La continuación inmediata del (10), por los canales de NUTRIAS
+(`e₈(N) = e₆(N−2) + e^h₈(N−2) + e^par₈(N−1)`). **Hallazgo positivo: el
+piso h del estrato 8 SÍ tiene forma cerrada**, cuasi-cuadrática exacta
+con período 3:
+
+    e^h₈(N) = (4N² − 76N + 384 − 2·[N ≡ 2 mod 3]) / 3      (N ≥ 13)
+
+clavada como igualdad de enteros en `N = 13…27` (COMPROBACIÓN 5 nueva
+de `estratoscadena.py`; descubierta con el buscador de la C4 y diez
+puntos retenidos en la validación). Como `e₆` es cuadrática y `e^h₈`
+cuasi-cuadrática, **todo el ingrediente no cuasi-polinomial de `e₈`
+entra por el CANAL PAR** — el subárbol de `r` par es la puerta
+combinatoria. Y dentro del canal h la frontera está entre sus estratos
+8 y 10 (`e^h₁₀`, `e^h₁₂` sin forma, verificado).
+
+**La trampa que la capa 1 atrapó en vivo:** la primera réplica de los
+canales usó `m_inicial = 0` (el fichero usa 2 para el piso h y 1 para
+el par) y dio `e^par ≡ 0` — la identidad de Nutrias lo delataba
+(`e^par₈(13)` tenía que ser 22). Se rehízo con las convenciones
+exactas y con la C2 reproducida entera como control ANTES de leer
+ninguna serie. El mapa fino queda: estrato 6 geometría pura; estrato
+8 geometría en dos canales (vertical + h) y combinatoria en uno (par);
+estratos ≥ 10 combinatoria en todos.
+
 # ⇢ 09-08-2026 (10) — LA ESCALERA DE FORMAS CERRADAS TERMINA EN `e₆`: EL PENDIENTE DE `e₁₀`/`e₁₂`, RESUELTO EN NEGATIVO
 
 El peldaño que la retaguardia esperaba («`e₁₀` y `e₁₂` esperan su forma

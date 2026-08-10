@@ -261,3 +261,56 @@ print("TERMINA EN e6: los estratos 8, 10, 12 llevan un ingrediente")
 print("combinatorio no cuasi-polinomial. Y ninguna de las tres series esta")
 print("en OEIS (09-08-2026, 'No results' las tres): tres sucesiones nuevas")
 print("mas para sucesiones.txt.")
+
+# ---------------------------------------------------------------------------
+# COMPROBACION 5 (09-08-2026, la localizacion): POR QUE PUERTA ENTRA EL
+# INGREDIENTE COMBINATORIO DE e8. Por la identidad de NUTRIAS (C2),
+#     e8(N) = e6(N-2)  +  e^h_8(N-2)  +  e^par_8(N-1),
+# y resulta que el piso h del estrato 8 TIENE forma cerrada:
+#
+#     e^h_8(N) = (4*N^2 - 76*N + 384 - 2*[N = 2 mod 3]) / 3    (N >= 13)
+#
+# (cuasi-cuadratica exacta, periodo 3; descubierta con el buscador de la
+# C4 anclado en N = 13 y validada aqui como igualdad de enteros en toda
+# la cola). Como e6 es cuadratica y e^h_8 cuasi-cuadratica, TODO el
+# ingrediente no cuasi-polinomial de e8 entra por el CANAL PAR: el
+# subarbol de r par es la puerta combinatoria. Los pisos h de los
+# estratos 10 y 12 ya no tienen forma (se verifica), asi que la
+# frontera dentro del canal h esta entre sus estratos 8 y 10.
+# ---------------------------------------------------------------------------
+
+for N in range(13, prof_h + 1):
+    v = piso_h.get(N, {}).get(8, 0)
+    f = (4 * N * N - 76 * N + 384 - 2 * (1 if N % 3 == 2 else 0))
+    if f % 3 != 0 or v != f // 3:
+        raise SystemExit("C5: la forma de e^h_8 falla en N=%d: cadena=%d "
+                         "formula=%s" % (N, v, f / 3))
+
+sin_forma = []
+for nombre, datos, prof, s in (("e^h_10", piso_h, prof_h, 10),
+                               ("e^h_12", piso_h, prof_h, 12),
+                               ("e^par_8", canal_p, prof_c, 8),
+                               ("e^par_10", canal_p, prof_c, 10),
+                               ("e^par_12", canal_p, prof_c, 12)):
+    serie = [datos.get(t, {}).get(s, 0) for t in range(10, prof + 1)]
+    hallada = None
+    for g in range(1, 9):
+        for p in range(1, 9):
+            for arr in range(0, 7):
+                if _ajusta_cuasi(serie, 10, g, p, arr) is not None:
+                    hallada = (g, p)
+        if hallada:
+            break
+    if hallada is not None:
+        raise SystemExit("C5: %s SI tiene forma %s -- actualizar la "
+                         "conclusion" % (nombre, hallada))
+    sin_forma.append(nombre)
+
+print()
+print("COMPROBACION 5 OK (la localizacion): e^h_8 = (4N^2 - 76N + 384")
+print("- 2*[N=2 mod 3])/3 clavada como enteros en N = 13..%d, y %s"
+      % (prof_h, ", ".join(sin_forma)))
+print("sin forma cuasi-polinomial (g <= 8, p <= 8). Con e6 cuadratica y")
+print("e^h_8 cuasi-cuadratica, el ingrediente combinatorio de e8 entra")
+print("TODO por el CANAL PAR (el subarbol de r par): esa es la puerta.")
+print("Dentro del canal h, la frontera esta entre los estratos 8 y 10.")
