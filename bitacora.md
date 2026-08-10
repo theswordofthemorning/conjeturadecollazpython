@@ -52,6 +52,23 @@ con `S(33) = 0,2016` medido y la firma crítica en la cola. La
 medición NO distingue `S → 0` de `S → s∞ > 0` (la lección de la
 casa, una vez más): el veredicto es del mecanismo.
 
+**⇢ Y EL MECANISMO, DIAGNOSTICADO** (dónde vive la masa que no
+vuelve): el 98% de la superviviente está ARRIBA en la torre
+(`k` medio 3,8 → 6,2 entre t = 9 y 33: crecimiento DIFUSIVO ~√t),
+con `log₂|c|` del núcleo clavado en `1,585·k` — **`u = c/3^k` se
+queda O(1): el escape es pura difusión crítica de `k`, NO
+dispersión de `c`**. La rebanada que pisa el fondo sin entrar a la
+ventana es ~2%, con `log₂|c| ≈ 5–7` estable (pegada al borde
+`log₂25 ≈ 4,6`, sin fuga). Con Golondrinas (el paseo vuelve c.s.)
+y Moscas (u tenso, verbatim en la modificada), el mecanismo
+favorece `S → 0` al paso `t^{−1/2}`; lo que decide sigue siendo la
+cuota de ventana dentro del fondo (la `r_25` de LIEBRES,
+INDECIDIDA). El intento de armar «Golondrinas + Moscas ⟹ visitas a
+la ventana i.o.» tropieza con el salto condicional-en-visita (la
+tensión de Moscas es incondicional en t, no en tiempos de parada) —
+el mismo salto que la base ya tenía etiquetado en la heurística
+κ=1: anotado para que nadie lo recorra dos veces.
+
 # ⇢ 10-08-2026 (7) — LA CORRECCIÓN 50 (cazada por Opus 5, vía el usuario) Y EL TEOREMA B: LA SUMA ENTERA, BAJO EL UMBRAL
 
 **La crítica, y es correcta**: el umbral efectivo 0,2446 del
