@@ -1,0 +1,108 @@
+LA LEY DEL BORDE DEL TRIANGULO DE FUSION -- demostracion esbozada
+(11-08-2026, la prorroga de la jornada satelital. ESTADO: esbozo
+completo, pendiente de verificacion de trio y de Lean; sin bautizo.
+Datos: triangulodefusion.py, tabla F(t,S); la fila del borde clavada
+t = 5..22.)
+
+=====================================================================
+ENUNCIADO
+=====================================================================
+
+En el triangulo de fusion F(t, S) (= palabras de largo t desde (0,1)
+en la cadena de Leonas que absorben en el paso t con S unos), la fila
+del borde S = t - 2 (dos ceros exactos, contando el bit final de la
+fusion como uno) vale
+
+    F(t, t-2)  =  floor((t-1)/2)        para todo t >= 5.
+
+(Es la "primera fila" de nuestro triangulo -- el papel que la fila
+1,1,1,... de Winkler juega en el gemelo A100982/A076227, y el eco
+del stem 1^j 0 1 de Garner/Perras.)
+
+=====================================================================
+DEMOSTRACION (esbozo completo)
+=====================================================================
+
+PIEZA 0 (el lazo de los unos). Desde (0,1), la palabra todo-unos
+cicla (0,1) -1-> (1,-1) -1-> (0,1) (el lazo de Gatas). Una palabra
+con DOS ceros sale del lazo en el primer cero, en uno de dos estados:
+  - tras a unos con a PAR esta en (0,1):  bit 0 -> (1,2)   [rama A]
+  - tras a unos con a IMPAR esta en (1,-1): bit 0 -> (2,-1) [rama B]
+
+PIEZA 1 (la rama A cuenta todo). Desde (1,2), el bit 1 es lazo:
+(1,2) -1-> (1,2) exacto ((3*2+1-3)/2 = 2). Tras b unos sigue en
+(1,2); el segundo cero da (1,2) -0-> (1,1), y el bit 1 final FUSIONA.
+Palabra: 1^a 0 1^b 0 1, largo t = a+b+3, unos S = a+b+1 = t-2. Las
+soluciones con a par, a+b = t-3, b >= 0 son exactamente
+floor((t-3)/2) + 1 = floor((t-1)/2). Toda palabra de la rama A que
+funde tiene esta forma: desde (1,2), el unico camino a la fusion con
+UN cero restante es caer a (1,1) (el cero) y rematar (el uno final):
+cualquier uno intermedio deja (1,2) quieto y cualquier otro gasto del
+cero (no hay otro: en (1,2) el cero va a (1,1)) esta contado.
+
+PIEZA 2 (el lema de las preimagenes de (1,1) -- la llave). En la
+cadena entera, (1,1) tiene EXACTAMENTE dos preimagenes:
+    (1,2)  con bit 0   (N1: 2/2 = 1)
+    (2,5)  con bit 1   (N4: (5-3)/2 = 1)
+y ninguna mas: N2 pediria (3c+1-3)/2 = 1, o sea c = 4/3, no entero;
+N3 aterriza en k >= 2; F3 pediria (3g+1)/2 = 1, o sea g = 1/3; F4
+pediria (1-3g)/2 = 1, o sea g = -1/3; F1/F2 quedan en k = 0.
+COROLARIO: fusionar exige, en el paso previo al remate, estar en
+(1,2) y gastar un CERO, o estar en (2,5) -- y estar en k = 2 desde
+el fondo exige haber TREPADO con un cero (N3 o F3 son los unicos
+ascensos, ambos bit 0).
+
+PIEZA 3 (la rama B no funde: el presupuesto de ceros no alcanza).
+En la rama B el primer cero ya se gasto en (1,-1) -0-> (2,-1); queda
+UNO. Se necesita, por la Pieza 2, terminar en (1,2)+cero (imposible:
+seria un segundo cero mas el que llega a (1,2)... y (1,2) solo se
+alcanza con c positivo) o en (2,5)+uno. Ahora:
+  (3a) CON SOLO UNOS, EL NUCLEO CONSERVA c < 0 desde (2,-1): N4
+       ((c - 3^(k-1))/2) y N2 ((3c+1-3^k)/2, y 3c+1-3^k < 0 para
+       c < 0, k >= 1) preservan negativo; la salida al fondo N4
+       (k=1) da gap |g| y la frontera con unos F2 (g par) crece y
+       F4 (g impar) VUELVE al nucleo con c = (1-3g)/2 < 0 para
+       g >= 1. O sea: sin gastar el cero, todo estado de nucleo
+       visitado tiene c < 0 y (2,5) (c = 5 > 0) es inalcanzable.
+  (3b) EL CERO RESTANTE, gastado donde sea, o conserva el signo
+       (N1, F1: mitades; N3: (3c+1)/2 < 0 para c <= -1) o lo
+       VOLTEA A POSITIVO via F3 ((0,g impar) -0-> (1,(3g+1)/2)).
+       Tras F3 ya no quedan ceros.
+  (3c) CON SOLO UNOS DESDE (1, c > 0): (1,1) es inalcanzable por la
+       Pieza 2 (sus dos accesos piden un cero o estar en (2,5)) y
+       (2,5) es inalcanzable porque subir a k = 2 desde k <= 1
+       exige un ascenso, y los dos ascensos (N3, F3) son bit 0.
+  Conclusion: la rama B no produce ninguna fusion con dos ceros. QED
+
+=====================================================================
+LO QUE FALTA PARA EL ASCENSO A TEOREMA
+=====================================================================
+
+- (3a) y (3c) estan argumentados por inspeccion de las seis leyes;
+  el trio debe verificarlos como enunciados de signo/alcance (son
+  desigualdades de una linea por ley -- estilo cabras.lean, que ya
+  demuestra invariantes por la cadena entera; la Pieza 2 es
+  decidible por casos sobre los once constructores).
+- El caso de borde t = 3, 4 (F(3,1) = 1, F(4,2) = 1: las palabras
+  101 y 1101... en realidad 0 1 1 y 1 0 1 1 -- los arranques con
+  a = 0 y el minimo b) queda fuera del enunciado t >= 5 y se
+  comprueba a mano en la tabla.
+- Verificacion computacional ya hecha: la fila entera t = 5..22
+  clavada contra el barrido exacto (triangulodefusion.py, C1 con
+  SystemExit sobre b(t-1)).
+
+=====================================================================
+POR QUE IMPORTA
+=====================================================================
+
+Es la primera fila DEMOSTRADA (esbozo) de nuestro triangulo -- el
+paralelo exacto de la fila 1,1,1,... de Winkler en el gemelo
+resuelto, y la version por-palabras de la alternancia de YEGUAS
+(unicidad_M2). El molde del gemelo pide ahora las filas siguientes
+(S = t-3, t-4, ...): cada una es un censo de palabras con tres,
+cuatro ceros -- los preludios de los Chanchitos y las ventanas de
+Perras componiendose. Si las filas bajas salen todas con forma
+cerrada, la parte "geometrica" del triangulo queda demostrada y la
+pregunta de la razon 2 se concentra en la cola combinatoria -- la
+misma particion geometria/combinatoria que NUTRIAS encontro en los
+estratos e_s.
