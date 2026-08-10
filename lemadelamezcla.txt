@@ -1,0 +1,119 @@
+EL LEMA DE LA MEZCLA DE LAS EXCURSIONES (propuesto: FOCAS -- se
+tiran al agua desde cualquier roca y nadan igual; el bautizo es del
+usuario). 10-08-2026, el cierre teorico de la jornada.
+=====================================================================
+
+QUE DICE, en una linea: la ley de u = c/3^k en la PRIMERA ENTRADA al
+fondo de una excursion de la cadena modificada OLVIDA el estado
+inicial de la excursion, exponencialmente en el largo -- las
+excursiones largas entran todas con la misma ley, independiente de
+donde salieron.
+
+POR QUE IMPORTA (el lugar en la ruta): con la mezcla, los ciclos de
+la renovacion (regeneracion de Doeblin de LIEBRES, split de
+Athreya-Ney) son i.i.d. de verdad, y la cadena del programa queda:
+
+    mezcla (ESTE LEMA)
+  + cuota de ventana en la entrada con exponente < 1/2 (MEDIDA,
+    bitacora 10-08 (10.5): 0,50 -> 0,40 y cayendo -- el unico
+    eslabon sin forma de teorema)
+  + Golondrinas (DEMOSTRADO: el fondo se visita i.o. c.s.)
+  => recurrencia de la ventana  =>  phi = 1  (LIEBRES),
+
+con GAVIOTAS-B certificando ya el balance de Lyapunov condicionado
+bajo el umbral efectivo en todo T computable.
+
+---------------------------------------------------------------------
+LAS CUATRO PIEZAS, con su estatus
+---------------------------------------------------------------------
+
+(1) EL BALANCE EXACTO [demostrado; exhaustivo 1.284 excursiones,
+    0 fallos]. Una excursion sale de (2,2) (el rebote), vive en
+    k >= 2, y entra al fondo por la unica puerta (N4 en k = 2).
+    Sus pasos mixtos cumplen  bajadas = subidas + 1  (sale y entra
+    por el mismo nivel, neta -1). Es contabilidad de caminos.
+
+(2) LOS MAPAS FORZADOS SE COMPENSAN [demostrado; exhaustivo, 0
+    fallos]. Condicionado al camino de k de la excursion, cada paso
+    mixto FUERZA el mapa de u: la subida (N3) aplica u -> u/2 + d
+    (Lipschitz K = 1/2), la bajada (N4) aplica u -> (3u-1)/2
+    (K = 3/2). El producto de las constantes forzadas es
+
+        (1/2)^s (3/2)^(s+1)  =  (3/4)^s * (3/2)
+
+    con s = subidas: ACOTADO POR 3/2 y CONTRACTIVO en cuanto s >= 2,
+    en TODA excursion (no en promedio: en todas). Verificado como
+    igualdad de Fractions sobre las 1.284 excursiones de largo <= 16.
+
+(3) LAS MONEDAS LIBRES CONTRAEN EN PROMEDIO [clasico: el marco es
+    Diaconis-Freedman, "Iterated random functions", SIAM Review 41
+    (1999); hipotesis verificadas]. Dado el camino de k, los pasos
+    compartidos (c par) quedan como monedas justas LIBRES (Terras),
+    aplicando u -> u/2 + d o u -> 3u/2 + d' con probabilidad 1/2
+    cada uno:  E[log K] = (log(1/2) + log(3/2))/2 = (1/2)log(3/4) =
+    -0,1438 < 0,  mapas afines Lipschitz, probabilidades constantes
+    -- el caso mas limpio del teorema: ley estacionaria unica
+    atractora del IFS puro y convergencia geometrica de la ley desde
+    todo arranque.
+
+(4) LA PERTURBACION ES LA DE ARANAS [demostrado en aranas.py,
+    intacto tras la 6a revision]: el error entre el paso real y el
+    IFS puro es |d| <= 3^(-k)/2 por paso, chico arriba de la torre
+    (y acotado por 1/6 siempre).
+
+CONSECUENCIA (la forma del lema): el exponente de Lyapunov de la
+dependencia en el arranque es negativo en toda excursion --
+    (1/largo) * log(sensibilidad) <= (fraccion mixta) * log(3/4)-ish
+                                     + (fraccion libre) * (-0,1438)
+y la ley de entrada converge a una ley limite unica al crecer el
+largo, a tasa exponencial ~ e^(-0,14 * largo).
+
+LA MEDICION QUE LO CLAVA (bitacora 10-08 (10.6)): tres barridos
+exactos desde (2,2), (2,-4) y (2,20): a t = 9 las leyes de entrada
+difieren fuerte (cuotas 0,91 / 0,77 / 1,00); a t = 29 estan a
+< 0,03 (0,574 / 0,583 / 0,600), medianas 20/20/19. La tasa predicha
+e^(-0,144 * 29) ~ 0,015 es compatible con el < 0,03 medido.
+
+---------------------------------------------------------------------
+LOS HUECOS HONESTOS (lo que la redaccion final debe cerrar)
+---------------------------------------------------------------------
+
+H1. ANNEALED contra PATHWISE. El argumento (2)+(3) condiciona al
+    camino de k DE CADA COPIA; dos copias distintas tienen caminos
+    distintos (sus paridades difieren), asi que NO es un
+    acoplamiento pathwise: es convergencia de la LEY de cada copia a
+    la misma ley limite (via D-F por copia, promediando sobre
+    caminos). Para la renovacion basta (se necesita la ley de
+    entrada, no el acoplamiento), pero la redaccion debe decirlo
+    con cuantificadores.
+
+H2. EL CONDICIONAMIENTO A LA EXCURSION. D-F es para el IFS sin
+    condicionar; aqui los pasos estan condicionados a k >= 2 hasta
+    la entrada. La particion forzado/libre de (2)+(3) es
+    exactamente el remiendo (los forzados quedan deterministas y se
+    acotan por (2); los libres quedan monedas justas legitimas dado
+    el camino), pero el paso "ley de u dado el camino de k ->
+    promedio sobre caminos" necesita escribirse con cuidado.
+
+H3. LA LEY DE ENTRADA no es la estacionaria del IFS: el ultimo paso
+    (la puerta N4 con seleccion expansiva, bitacora 10-08 (10.3))
+    multiplica por ~x1,5-2 y el condicionamiento a "entrar" sesga
+    los ultimos bits. La ley limite del lema es (ley del IFS
+    condicionada al camino tipico) empujada por la puerta -- existe
+    por el mismo argumento, pero NO es nu_IFS y no hay que llamarla
+    asi.
+
+H4. LA PIEZA QUE ESTE LEMA NO DA: la cuota de ventana de esa ley
+    limite (P(|c| <= 25) bajo la ley de entrada a largo t) es
+    justamente la serie medida con exponente local 0,50 -> 0,40
+    cayendo -- si la ley limite existiera con cuota positiva, la
+    cuota mediria constante; que caiga dice que la convergencia del
+    lema es EN t DE ENTRADA CRECIENTE con anchura creciente (la ley
+    limite depende del largo via la altura tipica de la excursion).
+    El enunciado fino debe ser por (largo, altura) -- y la cuota
+    sigue siendo el eslabon abierto del programa, este lema no la
+    decide.
+
+VERIFICACION PENDIENTE (regla de los tres, cuando el usuario la
+pida): el trio sobre (1)-(2) [ya exhaustivas], la instancia numerica
+de (3) contra el IFS puro, y el adversarial sobre H1-H4.
