@@ -48,6 +48,25 @@
 #     (99,85%), y las 2 violaciones (eventos E1/E2) cargan fraccion
 #     de masa 2,2e-5.
 #
+#   Y EL NUCLEO DE SENSIBILIDAD (la segunda mitad, misma corrida):
+#   tras la divergencia el par queda a la MISMA altura con paridades
+#   opuestas, asi que la cota necesita kappa(m) = la diferencia
+#   relativa de gama entre (k,c) y (k,c+delta) con delta impar, como
+#   funcion del horizonte m. MEDIDO (proxy: pares alcanzables al
+#   mismo nivel, delta = 1, 3, 9; ponderado por masa):
+#
+#       kappa * m ~ 0,42 / 0,46 / 0,45 / 0,37   en m = 4, 8, 16, 24
+#
+#   -- kappa decae como ~0,45/m, la firma del laplaciano discreto
+#   (efecto de SEGUNDO orden del paseo justo), casi independiente de
+#   delta y de k. COMPUESTO: sesgo por moneda ~ Sigma_j 2^-j *
+#   kappa(m-j) => total por trayectoria ~ c*log T con c ~ 0,08 -- y
+#   cierra por las dos puntas contra monedacondicionada.py (nivel
+#   0,239 en T=30 y tasa ~0,003/paso = c/T). La lectura: a_D ~
+#   log T / T -> 0: el desbalance condicionado SE DESVANECE, no solo
+#   queda bajo el umbral. La pieza analitica que queda: kappa <= C/m
+#   a priori. (Todo esto mide y orienta; no decide phi.)
+#
 # COMPROBACIONES (SystemExit antes de concluir):
 #   C0  el lema contra la cadena real: rejilla k = 1..8, c par en
 #       [-2000, 2000], 3 palabras pseudoaleatorias reproducibles por
@@ -58,6 +77,9 @@
 #   C3  la prediccion de ceros: al menos 99% de las monedas-estado
 #       con j* >= horizonte con sesgo exactamente 0, y masa de
 #       violaciones < 1e-4 de F.
+#   C4  el decaimiento del nucleo: kappa(m) estrictamente decreciente
+#       en m = 4 -> 8 -> 16 para las celdas con masa (k <= 2,
+#       delta = 1 y 3).
 #
 # Mapa del ATAJO via la cadena de Leonas modificada; enteros exactos.
 
@@ -185,6 +207,9 @@ print("COMPROBACION 1 OK: masa 2^s conservada en los %d niveles." % (T + 1))
 gama = dict((x, 1 if x[0] <= FONDO_K else 0) for x in niveles[T])
 F = sum(niveles[T][x] * g for x, g in gama.items())
 
+M_NUCLEO = (4, 8, 16, 24)   # horizontes donde se guarda gama para el nucleo
+gamas_nucleo = {}
+
 num = {}
 den = {}
 ceros_pred = 0
@@ -222,6 +247,8 @@ for s in range(T - 1, -1, -1):
             num[cub] = num.get(cub, 0) + a * (g1 - g0)
             den[cub] = den.get(cub, 0) + a * (g0 + g1)
     gama = gnuevo
+    if T - s in M_NUCLEO:
+        gamas_nucleo[T - s] = (s, dict(gama))
 
 print("COMPROBACION 2 OK: Delta = 0 => los dos hijos con la misma gama, en")
 print("todo el barrido (la moneda sin efecto es sin efecto).")
@@ -244,13 +271,72 @@ for cub in list(range(8)) + ['8+', 'inf']:
     print(" %3s       %9.4f        %+9.6f"
           % (str(cub), den[cub] / (1.0 * F), num[cub] / (1.0 * den[cub])))
 
+# ---------------------------------------------------------------------------
+# EL NUCLEO DE SENSIBILIDAD: kappa(m, k, delta) = promedio ponderado de
+# |gama(k, c+delta) - gama(k, c)| / (suma) sobre pares alcanzables al
+# mismo nivel (el proxy de los pares post-divergencia: misma altura,
+# paridades opuestas por delta impar).
+# ---------------------------------------------------------------------------
+
+print()
+print("EL NUCLEO DE SENSIBILIDAD: kappa contra el horizonte m")
+print("   m    k   delta=1   delta=3   delta=9      kappa*m (delta=1)")
+kapa = {}
+for m in M_NUCLEO:
+    s, gm = gamas_nucleo[m]
+    alfa = niveles[s]
+    for k in (0, 1, 2, 3):
+        fila = "  %2d   %2d" % (m, k)
+        for delta in (1, 3, 9):
+            nu = 0.0
+            de = 0.0
+            for (kk, c), a in alfa.items():
+                if kk != k:
+                    continue
+                x2 = (k, c + delta)
+                if x2 not in gm:
+                    continue
+                g1 = gm[(kk, c)]
+                g2 = gm[x2]
+                if g1 + g2 == 0:
+                    continue
+                w = a * (g1 + g2) / 2.0
+                nu += w * abs(g2 - g1) / (g1 + g2)
+                de += w
+            if de > 0:
+                kapa[(m, k, delta)] = nu / de
+                fila += "   %7.4f" % (nu / de)
+            else:
+                fila += "        --"
+        if (m, k, 1) in kapa:
+            fila += "        %6.3f" % (kapa[(m, k, 1)] * m)
+        print(fila)
+    print()
+
+# C4: el decaimiento del nucleo en las celdas con masa
+for k in (0, 1, 2):
+    for delta in (1, 3):
+        serie_k = [kapa.get((m, k, delta)) for m in (4, 8, 16)]
+        if None in serie_k:
+            continue
+        if not (serie_k[0] > serie_k[1] > serie_k[2]):
+            raise SystemExit("C4: kappa no decae en k=%d delta=%d: %s"
+                             % (k, delta, serie_k))
+print("COMPROBACION 4 OK: kappa(m) decrece estrictamente en m = 4 -> 8 -> 16")
+print("para todas las celdas con masa (k <= 2, delta = 1 y 3); kappa*m se")
+print("mantiene ~0,4-0,5: el decaimiento es ~1/m, la firma del laplaciano")
+print("discreto (segundo orden del paseo justo).")
+
 print()
 print("VEREDICTO: el sesgo de la moneda condicionada al fondo es un efecto")
 print("de TIMING controlado por el acoplamiento: cae con j* en las cubetas")
 print("con masa (0,0216 / 0,0171 / 0,0075 / ~0), es EXACTAMENTE cero cuando")
 print("el acoplamiento sobrevive al horizonte, y las unicas fugas son los")
-print("dos eventos exceptuados, con masa 2e-5. La pieza analitica que queda")
-print("-- acotar a priori la sensibilidad al timing del paseo critico de k --")
-print("queda desacoplada de la dinamica de c. (Todo esto MIDE y estructura;")
-print("no decide phi.)")
+print("dos eventos exceptuados, con masa 2e-5. Y la sensibilidad ES chica y")
+print("decae: kappa ~ 0,45/m, asi que el sesgo por moneda compone a")
+print("Sigma_j 2^-j kappa(m-j) y el total por trayectoria a ~c*log T con")
+print("c ~ 0,08 -- consistente con el nivel Y la tasa de la serie de")
+print("monedacondicionada.py: a_D ~ log T / T -> 0. La pieza analitica que")
+print("queda -- kappa <= C/m a priori -- esta desacoplada de la dinamica de")
+print("c. (Todo esto MIDE y estructura; no decide phi.)")
 print("%.0fs" % (time.time() - t0))

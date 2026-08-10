@@ -228,7 +228,18 @@ exponencialmente — ésa sigue siendo la vía.
 > divergencia de Green. Pendiente inmediato: el lema a Lean (el
 > 19º) y la cota del timing. *(El 19º quedó cobrado la misma tarde:
 > `tortolas.lean`, 20 teoremas, 0 `sorryAx` — queda la cota del
-> timing como ÚNICO frente analítico.)* **Regalo de la revisión,
+> timing como ÚNICO frente analítico.)*
+>
+> **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
+> `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,
+> firma del laplaciano discreto; C4 de `firmaacoplamiento.py`).
+> Composición cerrada por las dos puntas: total `≈ 0,08·log T`
+> reproduce nivel y tasa de la serie de GARZAS ⟹ **`a_D ~ log T/T
+> → 0`: el desbalance condicionado SE DESVANECE** (con `a_K ≤ 1/T`
+> y `a_V` sublineal, el sesgo entero de URRACAS apunta a 0). **La
+> única pieza analítica del programa queda enunciada así: demostrar
+> `κ ≤ C/m` a priori** — suavidad del núcleo de un paseo justo
+> perezoso, sin `c` de por medio. **Regalo de la revisión,
 YA COBRADO (09-08 (8)):** el invariante mod 3 resultó ser la puerta de
 CABRAS por la cadena entera y está formalizado en **`cabras.lean` (el
 16º)** con el corolario `torre_sin_ceros` — los saltos de `c = 0` son

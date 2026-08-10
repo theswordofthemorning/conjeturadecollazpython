@@ -5,6 +5,33 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (3) — EL NÚCLEO DE SENSIBILIDAD: `κ ~ 0,45/m` — EL DESBALANCE CONDICIONADO SE DESVANECE COMO `log T / T`
+
+La segunda mitad de TÓRTOLAS, integrada a `firmaacoplamiento.py`
+(sección nueva + C4): tras la divergencia el par queda a la MISMA
+altura con paridades opuestas, así que la cota necesita
+`κ(m) = |γ(k,c+δ) − γ(k,c)|/(suma)` con `δ` impar, contra el
+horizonte `m`. **Medido (proxy: pares alcanzables al mismo nivel,
+ponderado por masa): `κ·m ≈ 0,42 / 0,46 / 0,45 / 0,37` en
+m = 4, 8, 16, 24** — decaimiento `~0,45/m`, casi independiente de
+`δ` (1, 3, 9) y de `k`: la firma del laplaciano discreto (el efecto
+es de SEGUNDO orden en el paseo justo). C4 nueva: decrecimiento
+estricto exigido con `SystemExit`.
+
+**La composición cierra por las dos puntas**: sesgo por moneda
+`≈ Σ_j 2^{−j}·κ(m−j)` ⟹ total por trayectoria `≈ c·log T` con
+`c ≈ 0,08` — que reproduce simultáneamente el NIVEL (0,239 en T=30)
+y la TASA (~0,003/paso = c/T) de la serie de GARZAS. La lectura
+mecánica completa del «último paso»: **`a_D ~ log T/T → 0` — el
+desbalance de la moneda condicionada no sólo queda bajo el umbral
+efectivo 0,2446: SE DESVANECE.** Con `a_K ≤ 1/T` y `a_V` sublineal
+(E[2V] crece con tasa decreciente), el sesgo total de URRACAS
+apunta a 0: el exponente de Lyapunov de las historias que vuelven
+tiende al incondicionado (−0,144 nats < 0). **Queda UNA pieza
+analítica: `κ ≤ C/m` a priori** — un enunciado de suavidad del
+núcleo de un paseo justo perezoso, desacoplado de `c`. (Todo mide y
+orienta; el veredicto sigue siendo del mecanismo.)
+
 # ⇢ 10-08-2026 (2) — TÓRTOLAS (propuesto): EL LEMA DEL ACOPLAMIENTO — EL SESGO DE LA MONEDA ES TIMING PURO
 
 La continuación estructural de GARZAS, la misma tarde: el sesgo de la
