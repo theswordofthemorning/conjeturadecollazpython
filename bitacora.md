@@ -5,6 +5,44 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (2) — TÓRTOLAS (propuesto): EL LEMA DEL ACOPLAMIENTO — EL SESGO DE LA MONEDA ES TIMING PURO
+
+La continuación estructural de GARZAS, la misma tarde: el sesgo de la
+moneda condicionada NO es un misterio — **es un efecto de timing
+controlado por un acoplamiento exacto**. `firmaacoplamiento.py`
+(el 68º `.py`):
+
+- **EL LEMA**: los dos hijos de una moneda en `(k, c par)` son
+  `(k, c/2)` y `(k, (3c+1−3^k)/2)` — mismo `k`, diferencia
+  `Δ = c + (1−3^k)/2`. Bajo la MISMA palabra, comparten trayectoria
+  de `k` y paridad; las seis leyes son afines con parte lineal
+  `±1/2 / ±3/2` y las partes afines se cancelan: `v₂(Δ)` baja
+  EXACTAMENTE 1 por paso y las paridades divergen JUSTO en
+  `j* = v₂(Δ)`. `Δ = 0` (`c = (3^k−1)/2`) ⟹ los dos hijos son EL
+  MISMO estado. Excepciones, exactamente DOS y nombradas: (E1) el
+  vórtice asimétrico (una sola copia pisa `(1,1)`); (E2) el signo
+  mixto — la salida `k=1 impar bit 1` lleva el ÚNICO `abs` de la
+  cadena, y con `g` de signos opuestos la diferencia salta (hasta
+  coalescer). En la frontera no puede pasar: el gap es positivo.
+  **Verificado: 48.015 pruebas, 0 fallos, y las únicas
+  interrupciones fueron 1×E1 + 1×E2.**
+- **EL COROLARIO** (la mitad del «último paso» del acta):
+  `j* ≥ horizonte ⟹ las trayectorias de k coinciden hasta T ⟹ el
+  sesgo de esa moneda respecto del fondo es EXACTAMENTE CERO`.
+  Medido: 1.315 de 1.317 monedas-estado clavadas (99,85%); las 2
+  violaciones son E1/E2 con masa 2,2·10⁻⁵ de F.
+- **LA FIRMA**: el sesgo por moneda CAE con la vida del acoplamiento
+  en las cubetas con masa: 0,0216 (j*=0) / 0,0171 (1) / 0,0075 (2) /
+  ~0 (3+).
+
+**Lo que esto cambia**: la pieza analítica que queda (acotar a
+priori el desbalance condicionado bajo ~0,2446) se REDUCE a la
+sensibilidad-al-timing del paseo crítico de `k` — un enunciado sobre
+paseos justos perezosos, DESACOPLADO de la dinámica de `c`. El lema
+es aritmética por ley (testigos sin división, estilo
+`aterrizajen2.lean`): candidato natural al 19º `.lean`. Conteos:
+**68 `.py` · 18 `.lean` · 3 `.db`**.
+
 # ⇢ 10-08-2026 — GARZAS (propuesto): LA MONEDA CONDICIONADA, LEÍDA POR ALTURA — Y EL EXPONENTE DEL CRITERIO CRUZA 1 HACIA ABAJO
 
 El «último paso» del acta de la 5ª (acotar el desbalance de la moneda

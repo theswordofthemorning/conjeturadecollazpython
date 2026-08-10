@@ -212,7 +212,21 @@ exponencialmente — ésa sigue siendo la vía.
 > recurrencia.** Todo medido/orienta; validado contra `urracas.py`
 > a 6 cifras y por fuerza bruta entera. El teorema que esto deja a
 > tiro: el desbalance por moneda acotado a la vista es la mitad
-> cuantitativa del `O(1/k)`; falta la cota a priori. **Regalo de la revisión,
+> cuantitativa del `O(1/k)`; falta la cota a priori.
+>
+> **⇢ 10-08 (2): la cota a priori ya tiene su lema —
+> `firmaacoplamiento.py` (TÓRTOLAS, propuesto).** Los dos hijos de
+> toda moneda difieren en `Δ = c + (1−3^k)/2` y bajo la misma
+> palabra `v₂(Δ)` baja exacto 1 por paso: divergen JUSTO en
+> `j* = v₂(Δ)` (48.015 pruebas, 0 fallos; dos excepciones nombradas
+> con masa 2·10⁻⁵). Corolario clavado al 99,85%: `j* ≥ horizonte ⟹
+> sesgo EXACTAMENTE cero`. **El desbalance condicionado queda
+> reducido a sensibilidad-al-timing de un paseo justo perezoso,
+> desacoplado de `c`** — y la extensión de la serie del criterio a
+> t=34 da `P_t·t` SUBIENDO (0,246→0,277): en la ventana medida
+> `P(X_t=(1,1))` decae más lento que `1/t`, el lado de la
+> divergencia de Green. Pendiente inmediato: el lema a Lean (el
+> 19º) y la cota del timing. **Regalo de la revisión,
 YA COBRADO (09-08 (8)):** el invariante mod 3 resultó ser la puerta de
 CABRAS por la cadena entera y está formalizado en **`cabras.lean` (el
 16º)** con el corolario `torre_sin_ceros` — los saltos de `c = 0` son
