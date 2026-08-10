@@ -5,6 +5,44 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 10-08-2026 (11) — EL LEMA DE LA MEZCLA, REDUCIDO A CUATRO PIEZAS EXACTAS (el esqueleto demostrable)
+
+El cierre teórico de la jornada: la mezcla medida en (10.6) no es
+sólo empírica — **su demostración se arma con piezas que el repo ya
+tiene**, condicionando al camino de `k` de la excursión:
+
+1. **El balance exacto**: una excursión que sale de `k=2` y vuelve
+   tiene subidas = bajadas (`d` y `d`).
+2. **Los mapas forzados se compensan**: dado el camino de `k`, los
+   pasos mixtos fuerzan el mapa de `u` — subida N3 aplica `f₀`
+   (`u → u/2 + δ`, `K = 1/2`), bajada N4 aplica `f₁`
+   (`u → (3u−1)/2`, `K = 3/2`) — y el producto de las constantes
+   de Lipschitz forzadas es `(1/2)^d (3/2)^d = (3/4)^d < 1`
+   **EXACTO: la parte forzada contrae siempre**, en toda excursión.
+3. **Las monedas libres contraen en promedio**: los pasos
+   compartidos quedan como monedas justas LIBRES dado el camino de
+   `k` (Terras), aplicando `f₀/f₁` con `E[log K] = ½·log(3/4) =
+   −0,144 < 0` — el marco clásico es **Diaconis–Freedman 1999
+   («Iterated random functions», SIAM Review): E[log K] < 0 +
+   momento ⟹ ley estacionaria única atractora, convergencia
+   geométrica** (ancla bibliográfica nueva, hipótesis verificadas:
+   mapas afines, probabilidades constantes ½/½ — el caso más
+   limpio del teorema).
+4. **La perturbación es la de Arañas**: `|δ| ≤ 3^{−k}/2` por paso,
+   exacta y chica arriba de la torre.
+
+**⟹ el exponente de Lyapunov condicional de la diferencia es
+negativo en TODA excursión** — el olvido exponencial: la tasa
+predicha `e^{−0,144·ℓ}` CLAVA la medición de (10.6) (a ℓ=29:
+`e^{−4,2} ≈ 0,015` contra el < 0,03 medido). La mezcla pasa de
+hipótesis a **lema con esqueleto**; el trabajo que queda es la
+redacción cuidadosa (la ley de entrada = mezcla + el paso de
+selección expansiva de (10.3)) y su verificación de trío. Con eso,
+la cadena de la ruta queda: **mezcla (lema con esqueleto) + cuota
+de exponente < ½ (medida, el hueco de verdad) + Golondrinas
+(demostrado) ⟹ recurrencia de la ventana ⟹ φ=1.** El único
+eslabón sin forma de teorema es la cuota — y ahora está aislado.
+
 # ⇢ 10-08-2026 (10) — LA SERIE DEL PISO EN SU FORMA RENOVACIÓN-CORRECTA, Y «LA ENTRADA NUNCA ES EL PRE-VÓRTICE»
 
 Las dos últimas mediciones de la jornada, sobre la excursión real
