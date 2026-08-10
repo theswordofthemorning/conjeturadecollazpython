@@ -271,6 +271,28 @@ exponencialmente — ésa sigue siendo la vía.
 > secas; el SRT es el ritmo cuantitativo del paper. Todo cuelga de
 > UNA pregunta: `P_{(2,2)}(τ_C < ∞) = 1`.
 >
+> **⇢ 10-08 (6) — EL CIERRE DE LA JORNADA: la pregunta única, con
+> todas sus piezas medidas y su forma de lema.** (a) **La
+> obstrucción Foster**: `V = k + f(u)` está estructuralmente
+> obstruido (cuatro rejillas: el punto fijo `u* = −1`, la parada,
+> el ratchet, el clamp suave — bitácora (9)); la vía es la
+> transferencia de Arañas, no una Lyapunov monótona. (b) **La
+> anatomía de la entrada**: todo ingreso al fondo pasa por `k=2`
+> con selección expansiva ×1,5–2; la primera entrada NUNCA es el
+> pre-vórtice (la absorción exige recircular — PALOMAS). (c) **La
+> cuota de ventana en la entrada**: 0,94 → 0,54 (t ≤ 33, exacto)
+> → 0,44 (t=55, poda acotada), con exponente local CAYENDO
+> (0,50 → 0,40): el primer test dobla al lado recurrente. (d) **LA
+> MEZCLA, verificada**: tres arranques con `u` distinta convergen
+> a < 0,03 en t=29 — las excursiones olvidan su `u` inicial. **La
+> cadena del argumento que queda por demostrar: mezcla (medida) +
+> cuota de exponente < ½ (medida) + Golondrinas (demostrado) ⟹
+> recurrencia de la ventana ⟹ φ=1 (LIEBRES) — con GAVIOTAS-B ya
+> certificando el balance de Lyapunov bajo el umbral en todo T
+> computable.** Pendientes user-gated: bautizos (GARZAS, TÓRTOLAS,
+> GAVIOTAS), la adversarial externa de toda la tanda del 10-08
+> (regla del ritmo), LaTourette/Frinkle/Rozier.
+>
 > **⇢ 10-08 (3): y el timing ya tiene su núcleo medido** —
 > `κ(m) ~ 0,45/m` (la sensibilidad de γ a un salto impar de `c`,
 > firma del laplaciano discreto; C4 de `firmaacoplamiento.py`).
