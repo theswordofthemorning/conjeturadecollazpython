@@ -153,6 +153,34 @@ cumple tal cual: alli entra el primer desvio NO neutro (la
 combinatoria de verdad), consistente con la frontera 2/3.
 
 =====================================================================
+ADDENDUM 3 (el cierre del hilo): LA GRAMATICA DE RETORNOS
+=====================================================================
+
+La fila 3 (seis ceros; sonda exhaustiva t = 10..14: n = 3, 9, 17,
+32, 50 -- clava la serie medida del triangulo) ya NO es un desvio
+neutro repetido: aparecen palabras que ENTRAN AL REBOTE
+((1,1) -0-> (2,2), las puertas P1-P3 del zoologico de vuelta al
+lazo) y desvios chanchito mas largos. La lectura que unifica todo:
+
+    EL TRIANGULO F(t, S) ES LA CONVOLUCION DE RENOVACION DEL CENSO
+    DE PRIMEROS RETORNOS AL LAZO {(0,1), (1,-1)}, estratificado por
+    (largo del retorno, ceros del retorno) -- fila j = composiciones
+    de j unidades: la ventana final (2 ceros) mas j-1 desvios.
+
+Y ese censo de primeros retornos ES la serie de OVEJAS (LaTourette
+blocks/strings, retornoslambda.py) -- el criterio phi = 1 <=>
+Sigma retornos(L)*2^(-L) = 1 es exactamente "la gramatica de
+desvios tiene funcion generatriz con radio 1/2", o sea lambda = 2.
+El triangulo de fusion es el refinamiento por S de Ovejas; las
+filas bajas (desvios neutros: geometria, formas cerradas
+demostrables) contra la cola de desvios largos (la combinatoria)
+es la MISMA particion doblado-trivial / deficit-concentrado del
+gemelo Winkler/Zarubin, ahora en coordenadas de renovacion. El
+instrumento natural que esto pide (proxima sesion): el censo
+exacto de retornos por (largo, ceros) y su generatriz bivariada --
+uniria Ovejas, el triangulo y lambda en un solo objeto.
+
+=====================================================================
 POR QUE IMPORTA
 =====================================================================
 
