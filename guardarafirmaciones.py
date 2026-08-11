@@ -3157,9 +3157,15 @@ AFIRMACIONES = [
          "que la 8a habia medido del sesgo v2 (aquel era el sesgo "
          "por valor de v2; este es la cola del largo de racha -- "
          "objetos distintos, el segundo es el que la dominacion "
-         "pide). El paso analitico pendiente: escribir la "
-         "dominacion desde los lemas v2 de tortolas.lean / "
-         "aterrizajen2.lean."),
+         "pide). Y LA VERSION ADAPTADA (C4, anadida la misma "
+         "pasada): la cola CONDICIONAL al largo de la racha "
+         "anterior es geometrica con C_j <= 1,17 en los cuatro "
+         "buckets {0},{1-2},{3-5},{>=6} -- la dominacion que la "
+         "transferencia pide es adaptada, no solo marginal, y "
+         "tambien esta medida. El paso analitico pendiente: "
+         "escribir la dominacion desde los lemas v2 de "
+         "tortolas.lean / aterrizajen2.lean (pieza B de "
+         "notadominacion.txt)."),
 ]
 
 

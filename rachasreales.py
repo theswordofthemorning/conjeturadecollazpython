@@ -24,6 +24,13 @@
 #         y en las alturas tipicas de la excursion, <= 6).
 #     C3  la media de racha esta cerca del 1 del reloj geometrico
 #         puro (E[Geom(1/2)] = 1): media global en [0,5, 2,5].
+#     C4  LA VERSION ADAPTADA (la que la dominacion estocastica de
+#         verdad pide): la cola CONDICIONAL al largo de la racha
+#         ANTERIOR -- P(racha >= j | anterior en bucket) * 2^j
+#         acotada por C_TOPE en todos los buckets {0},{1-2},{3-5},
+#         {>=6}. Si la cola fuera geometrica solo en promedio pero
+#         no condicionalmente, la dominacion adaptada fallaria y
+#         hay que saberlo.
 #
 #   Semilla fija; los largos se recogen de TODAS las excursiones
 #   (la dominacion del reloj no se condiciona a sobrevivir).
@@ -64,15 +71,19 @@ def transicion(k, c, bit):
     return (0, abs(g))
 
 
+BUCKETS = [(0, 0), (1, 2), (3, 5), (6, 999)]
+
 azar = random.Random(SEMILLA)
 rachas_global = {}
 rachas_franja = {f: {} for f in FRANJAS}
+rachas_bucket = {b: {} for b in BUCKETS}
 total_rachas = 0
 suma_largos = 0
 for _ in range(N_EXCURSIONES):
     k, c = 2, C0
     racha = None           # largo de la racha compartida en curso
     k_racha = None
+    anterior = None        # largo de la racha previa (para C4)
     for t in range(T_MAX):
         k0 = k
         r = transicion(k, c, azar.getrandbits(1))
@@ -93,6 +104,12 @@ for _ in range(N_EXCURSIONES):
                     if f[0] <= k_racha <= f[1]:
                         rachas_franja[f][racha] = \
                             rachas_franja[f].get(racha, 0) + 1
+                if anterior is not None:
+                    for b in BUCKETS:
+                        if b[0] <= anterior <= b[1]:
+                            rachas_bucket[b][racha] = \
+                                rachas_bucket[b].get(racha, 0) + 1
+                anterior = racha
             # ...y abre la siguiente (la que sigue a ESTE mixto)
             racha = 0
             k_racha = k
@@ -160,8 +177,27 @@ if not (0.5 <= media <= 2.5):
 print("COMPROBACION 3 OK: media de racha %.3f ~ el 1 del reloj" % media)
 print("geometrico puro de V2b.")
 print()
+print("la version ADAPTADA (C4): cola condicional al largo anterior")
+peor_b = 0.0
+for b in BUCKETS:
+    n_b, cola_b = cola(rachas_bucket[b])
+    peor = 0.0
+    for j in range(1, J_MAX + 1):
+        if cola_b[j] * n_b >= MINIMO_MUESTRA:
+            peor = max(peor, cola_b[j] * 2 ** j)
+    peor_b = max(peor_b, peor)
+    print("  anterior en [%d, %s]: %7d rachas, C_j maximo %.3f"
+          % (b[0], str(b[1]) if b[1] < 999 else "inf", n_b, peor))
+if peor_b > C_TOPE:
+    raise SystemExit("C4: C_j condicional = %.2f > %.1f -- la dominacion "
+                     "ADAPTADA falla" % (peor_b, C_TOPE))
+print("COMPROBACION 4 OK: la cola condicional al pasado es geometrica")
+print("con C_j <= %.2f en todos los buckets -- la dominacion que la" % peor_b)
+print("transferencia pide es ADAPTADA, no solo marginal.")
+print()
 print("Lectura: el lema de racha de P2 (dominacion estocastica del")
 print("reloj real por geometricas con offset O(log k)) tiene sus dos")
-print("mitades medidas: la cola C * 2^-j aqui, el offset LTE por")
-print("aritmetica. El paso analitico es escribir la dominacion desde")
-print("los lemas v2 de tortolas.lean/aterrizajen2.lean. Medicion.")
+print("mitades medidas: la cola C * 2^-j aqui (marginal, por franja de")
+print("k, y CONDICIONAL al pasado), el offset LTE por aritmetica. El")
+print("paso analitico es escribir la dominacion desde los lemas v2 de")
+print("tortolas.lean/aterrizajen2.lean. Medicion.")

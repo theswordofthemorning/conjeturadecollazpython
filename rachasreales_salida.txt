@@ -27,8 +27,18 @@ logaritmico; las alturas tipicas llevan A <= 6).
 COMPROBACION 3 OK: media de racha 0.947 ~ el 1 del reloj
 geometrico puro de V2b.
 
+la version ADAPTADA (C4): cola condicional al largo anterior
+  anterior en [0, 0]: 1978371 rachas, C_j maximo 0.956
+  anterior en [1, 2]: 1353279 rachas, C_j maximo 1.165
+  anterior en [3, 5]:  398577 rachas, C_j maximo 1.105
+  anterior en [6, inf]:   54880 rachas, C_j maximo 1.017
+COMPROBACION 4 OK: la cola condicional al pasado es geometrica
+con C_j <= 1.17 en todos los buckets -- la dominacion que la
+transferencia pide es ADAPTADA, no solo marginal.
+
 Lectura: el lema de racha de P2 (dominacion estocastica del
 reloj real por geometricas con offset O(log k)) tiene sus dos
-mitades medidas: la cola C * 2^-j aqui, el offset LTE por
-aritmetica. El paso analitico es escribir la dominacion desde
-los lemas v2 de tortolas.lean/aterrizajen2.lean. Medicion.
+mitades medidas: la cola C * 2^-j aqui (marginal, por franja de
+k, y CONDICIONAL al pasado), el offset LTE por aritmetica. El
+paso analitico es escribir la dominacion desde los lemas v2 de
+tortolas.lean/aterrizajen2.lean. Medicion.
