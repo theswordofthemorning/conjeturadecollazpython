@@ -28,6 +28,13 @@ logaritmico; las alturas tipicas llevan A <= 6).
 COMPROBACION 3 OK: media de racha 0.947 ~ el 1 del reloj
 geometrico puro de V2b.
 
+LA PIEZA A EN COMPOSICION (C5): racha contra v2(c) de entrada
+  racha == v2: 0.8157   crash (racha < v2): 0.0931   recarga (racha > v2): 0.0912
+  exceso maximo racha - v2 = 19
+COMPROBACION 5 OK: el largo de racha ES v2(c) salvo los dos
+eventos de aterrizajen2 (crash acorta -- ayuda a la dominacion;
+recarga alarga pero LOCAL: exceso <= 19 <= 24).
+
 la version ADAPTADA (C4): cola condicional al largo anterior
   anterior en [0, 0]: 1978371 rachas, C_j maximo 0.956
   anterior en [1, 2]: 1353279 rachas, C_j maximo 1.165

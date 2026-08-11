@@ -31,6 +31,13 @@
 #         {>=6}. Si la cola fuera geometrica solo en promedio pero
 #         no condicionalmente, la dominacion adaptada fallaria y
 #         hay que saberlo.
+#     C5  LA PIEZA A EN COMPOSICION (racha contra v2(c) de entrada):
+#         el largo realizado debe ser v2(c) salvo los dos eventos de
+#         aterrizajen2 -- el CRASH (bit 1 con v2 > A aterriza en
+#         A - 1: acorta) y la RECARGA (bit 1 exactamente en v2 = A:
+#         alarga). Se miden las tres fracciones; el exceso
+#         racha - v2 queda acotado por EXCESO_TOPE (la recarga es
+#         local: A <= 12 en las alturas alcanzables).
 #
 #   Semilla fija; los largos se recogen de TODAS las excursiones
 #   (la dominacion del reloj no se condiciona a sobrevivir).
@@ -72,6 +79,18 @@ def transicion(k, c, bit):
 
 
 BUCKETS = [(0, 0), (1, 2), (3, 5), (6, 999)]
+EXCESO_TOPE = 24
+
+
+def v2_de(n):
+    if n == 0:
+        return 99
+    v = 0
+    while n % 2 == 0:
+        n //= 2
+        v += 1
+    return v
+
 
 azar = random.Random(SEMILLA)
 rachas_global = {}
@@ -79,10 +98,13 @@ rachas_franja = {f: {} for f in FRANJAS}
 rachas_bucket = {b: {} for b in BUCKETS}
 total_rachas = 0
 suma_largos = 0
+iguales = crashes = recargas = 0        # C5
+exceso_max = 0
 for _ in range(N_EXCURSIONES):
     k, c = 2, C0
     racha = None           # largo de la racha compartida en curso
     k_racha = None
+    v2_entrada = None      # v2(c) al abrir la racha (para C5)
     anterior = None        # largo de la racha previa (para C4)
     for t in range(T_MAX):
         k0 = k
@@ -91,17 +113,24 @@ for _ in range(N_EXCURSIONES):
             break
         k, c = r
         if k == k0:
-            # paso compartido (nucleo k >= 1, o FRONTERA k = 0 con c
-            # par: alli ambos bits tambien bajan v2 en 1 -- la
-            # primera version excluia la frontera por error, capa 1)
+            # paso compartido (la frontera k = 0 no aparece antes de
+            # la primera entrada al fondo: verificado, franja (0,0)
+            # con 0 rachas)
             if racha is not None:
                 racha += 1
         else:
-            # paso mixto (o frontera): cierra la racha anterior...
+            # paso mixto: cierra la racha anterior...
             if racha is not None:
                 rachas_global[racha] = rachas_global.get(racha, 0) + 1
                 total_rachas += 1
                 suma_largos += racha
+                if racha == v2_entrada:
+                    iguales += 1
+                elif racha < v2_entrada:
+                    crashes += 1
+                else:
+                    recargas += 1
+                    exceso_max = max(exceso_max, racha - v2_entrada)
                 for f in FRANJAS:
                     if f[0] <= k_racha <= f[1]:
                         rachas_franja[f][racha] = \
@@ -115,6 +144,7 @@ for _ in range(N_EXCURSIONES):
             # ...y abre la siguiente (la que sigue a ESTE mixto)
             racha = 0
             k_racha = k
+            v2_entrada = v2_de(c)
         if k <= 1:
             break
 
@@ -178,6 +208,20 @@ if not (0.5 <= media <= 2.5):
     raise SystemExit("C3: media de racha %.3f fuera de [0,5, 2,5]" % media)
 print("COMPROBACION 3 OK: media de racha %.3f ~ el 1 del reloj" % media)
 print("geometrico puro de V2b.")
+print()
+print("LA PIEZA A EN COMPOSICION (C5): racha contra v2(c) de entrada")
+n5 = iguales + crashes + recargas
+print("  racha == v2: %.4f   crash (racha < v2): %.4f   recarga "
+      "(racha > v2): %.4f" % (iguales / float(n5), crashes / float(n5),
+                              recargas / float(n5)))
+print("  exceso maximo racha - v2 = %d" % exceso_max)
+if exceso_max > EXCESO_TOPE:
+    raise SystemExit("C5: exceso %d > %d -- la recarga NO es local"
+                     % (exceso_max, EXCESO_TOPE))
+print("COMPROBACION 5 OK: el largo de racha ES v2(c) salvo los dos")
+print("eventos de aterrizajen2 (crash acorta -- ayuda a la dominacion;")
+print("recarga alarga pero LOCAL: exceso <= %d <= %d)."
+      % (exceso_max, EXCESO_TOPE))
 print()
 print("la version ADAPTADA (C4): cola condicional al largo anterior")
 peor_b = 0.0

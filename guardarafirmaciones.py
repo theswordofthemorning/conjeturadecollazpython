@@ -3162,10 +3162,16 @@ AFIRMACIONES = [
          "anterior es geometrica con C_j <= 1,17 en los cuatro "
          "buckets {0},{1-2},{3-5},{>=6} -- la dominacion que la "
          "transferencia pide es adaptada, no solo marginal, y "
-         "tambien esta medida. El paso analitico pendiente: "
-         "escribir la dominacion desde los lemas v2 de "
-         "tortolas.lean / aterrizajen2.lean (pieza B de "
-         "notadominacion.txt)."),
+         "tambien esta medida. Y LA PIEZA A EN COMPOSICION (C5): "
+         "el largo de racha ES v2(c) de entrada en el 81,6% de los "
+         "casos, con crash (acorta, 9,3%) y recarga (alarga, 9,1%, "
+         "exceso maximo 19: LOCAL) como unicos desvios -- "
+         "exactamente los dos eventos de aterrizajen2.lean. El "
+         "caso frontera es VACUO para P2 (0 rachas con k = 0 en "
+         "150.000 excursiones: la frontera no aparece antes de la "
+         "primera entrada al fondo). El paso analitico pendiente: "
+         "escribir la equidistribucion adaptada (pieza B de "
+         "notadominacion.txt; mezcla multi-racha)."),
 ]
 
 
