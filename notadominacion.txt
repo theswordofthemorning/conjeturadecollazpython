@@ -52,9 +52,15 @@ medido esta en rachasreales.py: C_j = 0,92-0,97 <= 1.)
 5. QUE FALTA PARA TEOREMA: (i) escribir B desde las leyes de
    Leonas (el candidato: la biyeccion de Terras sobre los j bits
    bajos del c nuevo -- misma tecnica que perrasconteo.lean);
-   (ii) el caso frontera k = 0 (las rachas alli son de la forma
-   {v, v+g} y el conteo es distinto -- en rachasreales.py la
-   frontera esta DENTRO de la muestra global y no infla nada);
+   (ii) el caso frontera k = 0: RESUELTO EN VACUO para P2 -- las
+   excursiones de la transferencia terminan en la PRIMERA entrada
+   al fondo (k <= 1), asi que la frontera no aparece nunca dentro
+   de ellas (verificado: la franja (0,0) de rachasreales.py da 0
+   rachas en 150.000 excursiones, y el conteo total no se movio al
+   incluirla). La frontera pertenece al regimen post-fondo, que es
+   territorio Doeblin/Liebres, no del lema de racha. (La mecanica
+   alli seria la misma de todos modos: con c par ambos bits bajan
+   v2 en 1 -- F1 da c/2, F2 da 3c/2 con 3 impar.);
    (iii) la version condicionada a sobrevivir (la que P2 usa de
    verdad) -- el h-transform solo toca los bits mixtos, y las
    rachas son de bits compartidos: la dominacion deberia pasar

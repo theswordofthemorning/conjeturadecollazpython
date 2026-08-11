@@ -45,7 +45,7 @@ J_MAX = 12                 # cola medida hasta aqui
 MINIMO_MUESTRA = 200       # C_j solo se exige con muestra suficiente
 C_TOPE = 8.0
 SEMILLA = 20260814
-FRANJAS = [(1, 3), (4, 8), (9, 99)]
+FRANJAS = [(0, 0), (1, 3), (4, 8), (9, 99)]   # (0,0) = la FRONTERA
 
 
 def pot3(k, _cache={0: 1}):
@@ -90,8 +90,10 @@ for _ in range(N_EXCURSIONES):
         if r is None:
             break
         k, c = r
-        if k == k0 and k0 >= 1:
-            # paso compartido: alarga la racha en curso
+        if k == k0:
+            # paso compartido (nucleo k >= 1, o FRONTERA k = 0 con c
+            # par: alli ambos bits tambien bajan v2 en 1 -- la
+            # primera version excluia la frontera por error, capa 1)
             if racha is not None:
                 racha += 1
         else:
