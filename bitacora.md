@@ -5,6 +5,51 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 11-08-2026 (2) — P4 COBRADO: EL RÉCORD SIN CAP, `φ ≥ 0,462781` EN ARITMÉTICA EXACTA
+
+**La orden del usuario: «P4 primero, la mejora gratis del récord».**
+Hecho en la sesión, con su verificación independiente propia
+(`recordsincap.py`, salida en `recordsincap_salida.txt`):
+
+1. **El mecanismo, confirmado antes de tocar nada**: el cap `z ≤ 12`
+   de `gramaticaderetornos.py` tiraba caminos enteros al descarte
+   (25,77% de la masa, hallazgo de la 8ª) y el `z` sólo hacía falta
+   para la identidad C2 del triángulo — para la cota sobra. Sin cap
+   los estados son `(k, c)` a secas y crecen ~×1,58 por nivel:
+   7,7M de estados a `L = 34` (~4 GB pico, el tope con 16 GB de RAM).
+2. **EL RÉCORD NUEVO: `φ ≥ α/(1−ρ) = 0,462781724930…`** — bloques de
+   largo `≤ 34`, sin cap, enteros exactos + `Fraction`. La escalera
+   entera: 0,435658 (`a(32)/2^32`) → 0,443061 (cap, 8ª) → 0,450341
+   (sin cap, L=28) → **0,462781** (sin cap, L=34). El argumento es el
+   mismo del récord viejo, intacto: todo subconteo sólo BAJA la cota.
+3. **Las cinco comprobaciones con `SystemExit`**: C0 el barrido viejo
+   re-corrido reproduce el 0,443061 dígito a dígito; C1 la
+   conservación SUBE de `≤ 1` a **igualdad exacta de racionales**
+   (sin cap nada se descarta: `ρ + α + viva == 1`); C2 la cota
+   mejora nivel a nivel (monotonía); **C3 el censo de pares enteros
+   REALES** — 2^20 clases, las dos órbitas caminadas a pelo con el
+   mapa del atajo, sin llamar a `transicion()`, representantes
+   `2^20·2^10 + r` para que el ciclo terminal sea inalcanzable y
+   toda igualdad sea fusión de coeficientes — **clava `R(t)` y
+   `A(t)` celda a celda, t = 1…20, 0 fallos** (la misma clase de
+   verificación que la 8ª le hizo al récord viejo); C4 el veredicto.
+4. **El cotejo con la 8ª, gratis**: el parcial sin cap a L=28 da
+   0,450341 exacto — el adversario de la 8ª había medido ~0,4503 en
+   float por su cuenta. Dos derivaciones, dos códigos, mismo número.
+5. **Etiqueta honesta**: la extensión (sin cap, L=34) pasó capa 1 +
+   censo independiente propio; **revisión externa pendiente** — el
+   número revisado por la 8ª sigue siendo el 0,443061 y así queda
+   dicho en `paper_cota_renovacion.txt` (§5 actualizado: la mejora
+   pasa de «pendiente» a «cobrada», con su etiqueta).
+
+Registro: `recordsincap.py` (76º `.py`), afirmación nueva en la base
+(**191 · 63 · 20**), conteos del `CLAUDE.md` al día, fila nueva en la
+tabla. Pendiente que deja: la revisión externa de la extensión cuando
+toque ronda, y los P1–P3/P5–P7 del paper siguen en cola (P1, el lema
+L3 vía AGKV, es el siguiente por orden de valor).
+
+---
+
 # ⇢ 11-08-2026 — LA JORNADA SATELITAL: EL MURO ES DE UN METRO, Y TIENE DOS PUERTAS
 
 **El plan lo dictó el usuario** («estamos muy cerrados; hay que mirar

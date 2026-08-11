@@ -1,0 +1,42 @@
+COMPROBACION 0 OK: el barrido viejo (z <= 12, L <= 28) reproduce
+el record publicado phi >= 0.443061 digito a digito.
+
+COMPROBACION 1 OK: rho + alfa + masa_viva == 1 como IGUALDAD de
+racionales (sin cap nada se descarta; el fichero viejo solo
+podia comprobar <= 1). Estados vivos al final: 7709946 (pico 7709946).
+
+la serie de la cota (parciales hasta L, sin cap):
+   L    rho_L      alfa_L     viva_L      phi_trunc
+  20  0.418168   0.250336   0.331496    0.430254
+  22  0.425016   0.250534   0.324449    0.435724
+  24  0.431242   0.250749   0.318009    0.440872
+  26  0.436956   0.250971   0.312074    0.445739
+  28  0.442222   0.251191   0.306587    0.450342
+  30  0.447098   0.251406   0.301496    0.454702
+  32  0.451631   0.251615   0.296754    0.458842
+  34  0.455862   0.251817   0.292321    0.462782
+COMPROBACION 2 OK: la cota mejora (no-decreciente) nivel a nivel.
+
+cotejo con la 8a revision (midio ~0,4503 en float, sin cap, a 28):
+  phi_trunc(28) sin cap, exacto = 0.450341
+
+COMPROBACION 3 OK: el censo de pares enteros REALES (2^20 clases,
+dos orbitas caminadas a pelo, sin transicion()) clava R(t) y A(t)
+celda a celda, t = 1..20 -- la gramatica sin cap cuenta lo real.
+
+COMPROBACION 4 OK -- EL RECORD NUEVO DE LA COTA INFERIOR DE phi:
+
+  phi >= alfa/(1 - rho) = 0.462781724930...
+
+  (bloques de largo <= 34, SIN cap de ceros, enteros exactos +
+  resumacion geometrica; rho = 0.45586205..., alfa = 0.25181709...)
+
+  la escalera de records del repo:
+    a(32)/2^32 (fuerza bruta a 2^32)          0.435658
+    renovacion, cap z <= 12, L <= 28 (8a)     0.443061
+    renovacion, sin cap, L <= 28              0.450341
+    renovacion, sin cap, L <= 34  ESTE        0.462781
+
+  El cap z <= 12 descartaba el 25,77% de la masa (hallazgo de la
+  8a); quitarlo cobra esa masa y la profundidad extra hace el
+  resto. La cota sigue siendo cota: todo subconteo solo baja.

@@ -96,10 +96,15 @@ verifico como IGUALDAD DE ENTEROS en todas las celdas t <= 20.
 - Consistencia externa: todos los a(k)/2^k conocidos son < 0,4431,
   como corresponde a una sucesion creciente hacia phi; prediccion
   falsable: a(k)/2^k cruzara 0,4431 hacia k ~ 36-40.
-- Mejora pendiente (senalada por el adversario): el cap de ceros
-  descarta el 25,77% de la masa de bloques -- subirlo mejora la
-  cota gratis (una corrida sin cap, en flotante, da ~0,4503; la
-  version exacta es el paso P4 del programa).
+- Mejora COBRADA (11-08 (2), recordsincap.py -- el paso P4 del
+  programa): sin cap de ceros y con L0 = 34, en aritmetica exacta,
+  phi >= 0,462781. El parcial sin cap a L0 = 28 da 0,450341 y
+  clava el ~0,4503 en float que este adversario midio por su
+  cuenta. Verificacion propia: reproduccion del 0,443061 digito a
+  digito, conservacion como IGUALDAD de racionales, y censo de
+  pares enteros reales (2^20 clases, sin la cadena simbolica)
+  clavando R(t) y A(t) celda a celda. Etiqueta: esa extension aun
+  NO paso revision externa; el numero del titulo es el revisado.
 
 ---------------------------------------------------------------------
 6. QUE NO DICE (etiqueta de la casa)

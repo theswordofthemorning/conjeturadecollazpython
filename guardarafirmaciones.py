@@ -3009,6 +3009,25 @@ AFIRMACIONES = [
          "cota. C4 exige el record con SystemExit. phi = 1 <=> "
          "alfa = 1 - rho <=> la gramatica no deja escapar masa: el "
          "criterio en forma de renovacion pura."),
+
+    fila("EL RECORD SIN CAP: phi >= alfa/(1-rho) = 0,462781 (bloques "
+         "de largo <= 34, SIN cap de ceros, enteros exactos + "
+         "resumacion geometrica) -- la mejora gratis que anoto la 8a "
+         "(el cap z <= 12 descartaba el 25,77% de la masa), cobrada "
+         "en aritmetica exacta y con seis niveles mas de profundidad; "
+         "sobre el 0,443061 del record con cap y el 0,435658 de "
+         "a(32)/2^32. El parcial sin cap a L = 28 da 0,450341: clava "
+         "el ~0,4503 en float que el adversario de la 8a midio por "
+         "su cuenta",
+         "clase_residual", "demostrado", "recordsincap.py", "propio",
+         "11-08-2026 (2). P4 del paper del programa, cobrado. C0 "
+         "reproduce el 0,443061 digito a digito; C1 la conservacion "
+         "sube a IGUALDAD de racionales (sin cap nada se descarta); "
+         "C2 monotonia nivel a nivel; C3 el censo de pares enteros "
+         "REALES (2^20 clases, dos orbitas caminadas a pelo, sin "
+         "transicion()) clava R(t) y A(t) celda a celda t = 1..20; "
+         "C4 el veredicto con SystemExit. Etiqueta: capa 1 + censo "
+         "independiente propio; sin revision externa todavia."),
 ]
 
 
