@@ -3082,6 +3082,40 @@ AFIRMACIONES = [
          "PUMAS/ZORRAS (menores anidados, retornoslambda.py). "
          "Computo determinista (sin semillas): la segunda corrida "
          "reproduce identica."),
+
+    fila("L3 ES TEOREMA Y EL TEOREMA V2 QUEDA AUTOCONTENIDO (la "
+         "pieza analitica del programa, escrita entera en "
+         "teoremav2.txt): (i) el limite local de la reversion = "
+         "LEMA D de comparacion de densidades -- P(sufijo | tau=t) "
+         "= P~+(sufijo revertido) * D(t,r,y) con D -> 1 (r fijo) y "
+         "sup_{r<=t/2} D <= C (el peor caso teorico 2^(3/2) = "
+         "2,8284; medido EXACTO por DP: 2,823) -- desde el LLT del "
+         "paseo perezoso absorbido, DEMOSTRADO tambien (reflexion + "
+         "CLT local + reloj binomial; c0 = 4/sqrt(pi) = 2,2568, "
+         "medido 2,255 por DP); (ii) la serie revertida converge "
+         "(ya demostrada); (iii) el trasvase: sufijo/medio/primera "
+         "mitad, con el LEMA DEL MAXIMO elemental (Hoeffding + "
+         "ruina del jugador + LLT-b: P(max k >= 2 sqrt(t log t) | "
+         "tau = t) -> 0) y el aniquilamiento de la primera mitad "
+         "(medido: mediana e-14 -> e-63 -> e-265). CONCLUSION: "
+         "phi_V2(x) >= c/sqrt(log x) con ventana K = M + 1 "
+         "universal -- L-A DEMOSTRADO PARA V2, autocontenido "
+         "modulo Stirling",
+         "todo_n", "demostrado", "trasvasel3.py", "propio",
+         "11-08-2026 (2), la tercera pasada de la tarde. El texto "
+         "entero en teoremav2.txt (LLT incluido, ya sin cita "
+         "externa); las verificaciones: DP exacto (perfil (y-1) a "
+         "<2%, D y su sup, c0 a 0,1%) + MC (primera mitad, "
+         "truncamiento err_640 = 0,000 estable en T). HALLAZGO DE "
+         "TASA registrado: eta_R decae gaussiano-con-deriva "
+         "(-0,057R +- 0,6 sqrt(R)) -- exponencial recien desde "
+         "R ~ 300; al teorema no le afecta (R -> inf antes que T) "
+         "pero toda version cuantitativa en x pagara ese sqrt(R). "
+         "PENDIENTE: revision externa de la tanda entera, y la "
+         "transferencia a la cadena real (P2) que es otro teorema. "
+         "NO dice nada de Collatz por si solo: es el modelo "
+         "autonomo V2 (la diana que la prueba de circularidad "
+         "legitimo)."),
 ]
 
 

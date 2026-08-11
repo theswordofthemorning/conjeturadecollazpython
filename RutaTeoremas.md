@@ -158,6 +158,22 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 
 **EMPEZAR POR AQUÍ.** Todo lo de abajo es historia; esto es el frente.
 
+> **⇢ 11-08 (2) — EL SALTO DE LA SESIÓN (bitácora manda, resumen
+> aquí): L3 QUEDÓ TEOREMA módulo UN lema clásico citado.** AGKV
+> 2005 leído entero (`fichaagkv.txt`); el mecanismo es la REVERSIÓN
+> temporal en la absorción con `h(k) = k−1` explícita; las piezas
+> (ii) [serie revertida], (i) [lema D de comparación, sup medido
+> 2,823 vs 2^{3/2} = 2,8284 teórico] y (iii) [el trasvase] están
+> escritas con todas las letras en `teoremav2.txt` — lo único
+> citado es el LLT del paseo perezoso absorbido (clásico,
+> Vatutin–Wachtel 2009). **⟹ el TEOREMA V2 (φ_V2 ≥ c/√log x, la
+> forma de L-A en el modelo autónomo) está completo módulo ese
+> lema y la revisión externa.** La mediana universal medida
+> (`medianauniversal.py`): 17,50 (V2a) / 17,60 (V2b — casi
+> invariante al reloj: la pata de P2). Récords del día: `φ ≥
+> 0,462781` (renovación sin cap, `recordsincap.py`) y `λ ≥
+> 1,989042` CERTIFICADO (escalón 10, `certificadocw.py`).
+
 ## ⇢ LA SUB-TEORÍA DE LA MADRIGUERA (09-08 (6)–(7), manda sobre lo de abajo)
 
 Tres piezas encajadas y **YA PASADAS por la 5ª revisión externa

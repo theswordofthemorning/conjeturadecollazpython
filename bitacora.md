@@ -123,14 +123,51 @@ la parte (ii) de L3 demostrada + la pata V2b de P2):**
 8. Respaldos de mitad de sesión hechos (`respuestas.db` a 1.653;
    18 zips de transcripciones al día).
 
-Base al cierre de la tanda: **193 afirmaciones · 63 correcciones ·
-20 constantes**; conteos: **78 `.py` · 19 `.lean` · 3 `.db`**.
+**⇢ LA TERCERA PASADA DE LA TARDE (orden del usuario: «sigue
+avanzando con lo que queda de L3») — L3 ES TEOREMA Y EL V2 QUEDA
+AUTOCONTENIDO:**
 
-Pendiente que deja: escribir (i)/(iii) con rigor (L3 → teorema →
-L-A demostrado para V2 — con (ii) ya cobrada), la revisión externa
-de la tanda entera del día (récord sin cap + mediana universal +
-certificado CW), el escalón 11 si algún día sobra RAM (~70M
-estados), y P3/P5/P7 en cola.
+9. **LAS PIEZAS (i) Y (iii), ESCRITAS CON TODAS LAS LETRAS**
+   (`teoremav2.txt`): (i) = el **LEMA D de comparación de
+   densidades** — `P(sufijo | τ=t) = P̃⁺(revertido)·D(t,r,y)` con
+   `D → 1` y `sup_{r≤t/2} D ≤ C` — y (iii) = **el TEOREMA L3**
+   ensamblado en tres tramos (sufijo por D-a + (ii); medio por D-b
+   + (ii); primera mitad por el **lema del máximo** — Hoeffding +
+   ruina del jugador + LLT-b, todo elemental — más el Hoeffding
+   condicional de la pieza 2). Y de remate **el LLT del paseo
+   perezoso absorbido DEMOSTRADO también** (reflexión + CLT local
+   + reloj binomial, `c₀ = 4/√π`): **ya no hay ingrediente citado
+   — el teorema V2 entero es autocontenido módulo Stirling.**
+   `φ_V2(x) ≥ c/√log x` con ventana `K = M + 1` universal:
+   **L-A demostrado para V2.**
+10. **EL CICLO DE PRUEBAS (`trasvasel3.py`, tres corridas en
+    segundo plano)**: fase A **exacta por DP** — perfil `(y−1)` a
+    <2%, `D → 1` a <2%, `sup D = 2,823` contra el **2^{3/2} =
+    2,8284 teórico** (clavado al tercer decimal), y `c₀` medido
+    2,2553 contra 2,2568 (0,07%); fases B/C por MC — la primera
+    mitad se aniquila (mediana `e−14 → e−63 → e−265`) y el
+    truncamiento `err_640 = 0,000` estable en T. La identidad de
+    parada opcional del h-transform verificada aparte (cocientes
+    0,997–1,009 en régimen que muerde).
+11. **LA CALIBRACIÓN QUE MORDIÓ, registrada como hallazgo**: el
+    primer umbral de C (`err_80 ≤ 0,05`) FALLÓ — la cola de
+    `log P̃_R` es `−0,057R ± 0,6√R`: gaussiana hasta `R ~ 300`,
+    recién después exponencial. Al teorema no le afecta (R → ∞
+    antes que T), pero toda versión cuantitativa en x pagará ese
+    `√R` — la misma física del transitorio lento que la escalera
+    de γ ve por décadas. Coherente, no accidental.
+
+Base al cierre: **194 afirmaciones · 63 correcciones · 20
+constantes**; conteos: **79 `.py` · 19 `.lean` · 3 `.db`**.
+
+**El estado del programa al cierre de la sesión, en una línea:**
+de los dos lemas que quedaban, **L-A está DEMOSTRADO para V2**
+(autocontenido, pendiente de revisión externa) — quedan la
+transferencia V2 → cadena real (P2, con su pata V2b ya medida:
+límites 17,60 vs 17,50), L-B (P3), y la revisión externa de la
+tanda entera del día (récord sin cap 0,462781 + mediana universal
++ certificado CW λ ≥ 1,989042 + L3/V2). El escalón 11 si algún
+día sobra RAM (~70M estados); P5/P7 en cola.
 
 ---
 

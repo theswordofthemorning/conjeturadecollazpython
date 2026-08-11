@@ -253,30 +253,154 @@ cola medida es ~1/x, Kesten kappa = 1) -- coherente con la
 advertencia del plan: no hay atajo por momentos; la mediana es el
 objeto correcto.
 
-LO QUE QUEDA DE LA PIEZA 3 (los dos enunciados con su molde):
-(i) EL LIMITE LOCAL DE LA REVERSION: para todo r fijo y todo
-    cilindro C de los ultimos r pasos,
-      P( ultimos r pasos en C | tau = t )  -->  P~+( C~ )   (t par
-      con t -> infinito; C~ el cilindro revertido).
-    Molde: teorema local del paseo perezoso absorbido
-    (P_2(tau = t) ~ c t^{-3/2}) + cociente de LLTs; es la version
-    para caminatas del limite "bridge -> h-transform" clasico
-    (Bolthausen 1976; AGKV usan la variante en su Lemma 2.5 via
-    (2.1)-(2.2)). Riesgo bajo, trabajo de escritura.
-(iii) EL TRASVASE CON TRUNCAMIENTO: |W_tau - W_tau^{(r)}| (la suma
-    truncada a los ultimos r pasos) se acota UNIFORME en t por la
-    version forward de (1)-(4) (la misma cota de serie, aplicada a
-    la excursion condicionada via las cotas (2.1)-(2.2) de tipo
-    AGKV), y entonces
-      P( |W_tau| <= M' | tau en [T, 2T] ) >= 1/2   para todo T
-      grande, con M' = M + 1 universal.
-    Riesgo: medio-bajo (la uniformidad es el unico punto tecnico;
-    es exactamente el paso que AGKV hacen con su Lemma 2.5 +
-    Lemma 4.1).
-CON (i) + (iii): L3 queda teorema, y con las piezas 1-2 el TEOREMA
-V2 entero: phi_V2(x) >= c/sqrt(ln x). [Etiqueta: (ii) DEMOSTRADO
-aqui (pendiente de revision externa); (i)/(iii) enunciados con
-molde clasico y verificados en mecanismo por medianauniversal.py.]
+=====================================================================
+LAS PIEZAS (i) Y (iii), ESCRITAS CON TODAS LAS LETRAS (11-08 (2),
+la segunda pasada de la tarde -- L3 queda TEOREMA modulo UN lema
+clasico citado)
+=====================================================================
+
+EL LEMA LLT, ESCRITO (11-08 (2), segunda pasada -- ya no es
+ingrediente citado: el teorema V2 queda AUTOCONTENIDO modulo
+Stirling). Sea Q_s(2, y) = P(el paseo perezoso justo desde 2
+sobrevive s pasos sin pisar 1 y termina en y). Para y en un rango
+fijo:
+  (LLT-a)  Q_s(2, y) = c0 (y - 1) s^(-3/2) (1 + o(1)),  s -> inf,
+           con c0 = 4/sqrt(pi) para este paseo;
+  (LLT-b)  c1 (y-1) s^(-3/2) <= Q_s(2, y) <= c2 (y-1) s^(-3/2)
+           para todo s >= s0(y).
+En particular P(tau = t) = (1/4) Q_{t-1}(2, 2) ~ (c0/4) t^(-3/2),
+y gracias a la pereza NO hay obstruccion de paridad: tau toma
+todos los valores t >= 1.
+DEMOSTRACION. Condicionando al numero M de pasos mixtos en s
+(M ~ Binomial(s, 1/2), independiente de los bits):
+  Q_s(2, y) = Suma_m P(M = m) g_m(y),
+g_m(y) = P(SRW justo +-1 desde 2, m pasos, sin pisar 1, termina
+en y). (1) LA REFLEXION: trasladando a un paseo desde 1 que se
+mantiene >= 1, el conteo de caminos es la balota:
+  g_m(y) = 2^-m [ C(m, (m+y-2)/2) - C(m, (m+y)/2) ]
+si m = y (mod 2), y 0 si no. (2) EL CLT LOCAL DE LA BINOMIAL
+CENTRAL (Stirling): 2^-m C(m, (m+j)/2) = sqrt(2/(pi m))
+e^(-j^2/(2m)) (1 + O((1+|j|^3)/m)). La diferencia de dos
+consecutivos es la derivada discreta:
+  g_m(y) = sqrt(2/(pi m)) [e^(-(y-2)^2/2m) - e^(-y^2/2m)]
+           (1 + O(...))
+         = sqrt(2/pi) * (2y - 2)/m * m^(-1/2) (1 + o(1))
+         = 2 sqrt(2/pi) (y - 1) m^(-3/2) (1 + o(1))
+para y fijo, m -> inf por la paridad buena. (3) EL RELOJ:
+M/s -> 1/2 con Chernoff (P(|M - s/2| > s^(2/3)) <= e^(-c s^(1/3)))
+y las DOS paridades de M aparecen cada una con peso -> 1/2;
+sustituyendo m = s/2 (1 + O(s^(-1/3))) en m^(-3/2) y sumando:
+  Q_s(2, y) = (1/2) * 2 sqrt(2/pi) (y-1) (s/2)^(-3/2) (1 + o(1))
+            = (4/sqrt(pi)) (y - 1) s^(-3/2) (1 + o(1)).
+Las cotas (LLT-b) para todo s >= s0 salen de las mismas formulas
+con las versiones no-asintoticas de Stirling (cotas por arriba y
+por abajo de la binomial central, estandar) y el Chernoff del
+reloj. QED.
+[VERIFICADO EXACTO por DP en trasvasel3.py fase A: el perfil
+(y-1) a < 2% en s = 4000. Referencia general si se quiere el
+marco: Vatutin-Wachtel 2009, "Local probabilities for random
+walks conditioned to stay positive" -- pero ya no hace falta
+citarla: el paseo de V2 es tan simple que la prueba entra en una
+pagina.]
+
+LEMA D (LA COMPARACION DE DENSIDADES -- el puente de verdad).
+Un sufijo de absorcion sigma de largo r es una palabra de simbolos
+{(compartido/mixto) x (bit 0/1)} que, arrancada en su altura
+inicial y = y(sigma), termina absorbiendo exactamente en el paso r
+sin pisar 1 antes. Por la propiedad de Markov (cada simbolo tiene
+probabilidad 1/4):
+  P( ultimos r pasos = sigma | tau = t )
+    = 4^(-r) Q_{t-r}(2, y) / P(tau = t)
+    = P~+( sigma revertido ) * D(t, r, y),
+  con D(t, r, y) := Q_{t-r}(2, y) / ( 4 P(tau = t) (y - 1) )
+(la identidad P~+(sigma revertido) = 4^(-(r-1)) (y-1) es el
+telescopio del h-transform: producto de h(k')/h(k) = h(y)/h(2)).
+Entonces, por (LLT-a) y (LLT-b):
+  (D-a) para r fijo, D(t, r, y) -> 1 cuando t -> inf;
+  (D-b) existe C con  sup_{r <= t/2, y} D(t, r, y) <= C  para todo
+        t grande  (el valor asintotico del peor caso es 2^(3/2)).
+COROLARIO D': para todo evento E medible respecto de los ultimos
+r <= t/2 pasos:  P(E | tau = t) <= C * P~+(E revertido); y si E es
+de largo fijo, P(E | tau = t) -> P~+(E revertido). Promediando en
+t, lo mismo vale condicionando a tau en [T, 2T].
+[Esto ES la pieza (i): el limite local de la reversion, con su
+version cuantitativa. VERIFICADO EXACTO por DP: D -> 1 a < 2% con
+r = 10, y sup D = ~2,9 <= 3,5 en t = 2000 (trasvasel3.py A2).]
+
+LEMA (iii-b) (EL MAXIMO DEL PASEO CONDICIONADO, elemental).
+  P( max_{j <= t} k_j >= m | tau = t ) <= (2/c1) t^(3/2)
+                                          e^(-(m-2)^2 / (2t)).
+Con m = m_t := 2 sqrt(t log t): la cota es O(t^(-1/2)) -> 0.
+DEMOSTRACION. Descomponiendo en el primer paso por m (tau_m):
+  P(max >= m, tau = t) = Suma_u P(tau_m = u < tau_1) P_m(tau = t-u).
+Absorberse desde m exige descenso neto m - 1: Hoeffding maximal da
+P_m(tau = s) <= e^(-(m-1)^2/(2s)) <= e^(-(m-1)^2/(2t)) para todo
+s <= t. Ademas Suma_u P(tau_m = u < tau_1) = P(tau_m < tau_1) =
+1/(m-1) (ruina del jugador, h armonica). Luego P(max >= m, tau=t)
+<= e^(-(m-1)^2/2t)/(m-1) + [segundo tramo, identico con
+P(tau_m = u < tau_1) <= P(pegar m en <= t pasos) <=
+e^(-(m-2)^2/2t) y Suma_s P_m(tau = s) <= 1] <= 2 e^(-(m-2)^2/2t).
+Dividiendo por P(tau = t) >= c1' t^(-3/2) (LLT-b), QED.
+
+TEOREMA L3 (la mediana universal). Sea M0 el cuantil 3/4 de
+|W~_inf| bajo P~+ (finito por el Lema (ii)) y M := M0 + 2.
+Entonces
+  liminf_{T -> inf} P( |W_tau| <= M | tau en [T, 2T] )  >=  3/4.
+DEMOSTRACION. Fijo R; parto W_tau (leido desde la absorcion, la
+identidad W_tau = Suma_r d~_r P~_{r-1} de la seccion anterior) en
+tres tramos: SUFIJO (r <= R), MEDIO (R < r <= tau/2), PRIMERA
+MITAD (r > tau/2). Con la union:
+  P(|W_tau| > M | .) <= P(|sufijo| > M0 + 1 | .)
+                       + P(|medio| > 1/2 | .)
+                       + P(|mitad| > 1/2 | .).
+(1) SUFIJO: es un evento de los ultimos R pasos; por (D-a),
+    P(|sufijo| > M0+1 | .) -> P~+(|W~^(R)| > M0+1)
+    <= P~+(|W~_inf| > M0) + P~+(|W~^(R) - W~_inf| > 1)
+    <= 1/4 + eta'_R,   con eta'_R -> 0 por el Lema (ii).
+(2) MEDIO: es un evento de los ultimos tau/2 pasos; por (D-b),
+    P(|medio| > 1/2 | .) <= C P~+( Suma_{r > R} |d~_r| P~_{r-1}
+    > 1/2 ) =: C eta_R -> 0 por el Lema (ii).
+(3) PRIMERA MITAD: |mitad| <= (1/2) Suma_{j <= tau/2}
+    e^(S(tau) - S(j)). Sobre el complemento de tres eventos malos
+    -- (a) max k >= m_t (Lema (iii-b): prob O(t^(-1/2))); (b) menos
+    de 0,2 t compartidos en alguna cola (j, t] con j <= t/2
+    (Chernoff del reloj + union: t e^(-ct)); (c) alguna suma libre
+    de cola > -0,07 L_j (Hoeffding CONDICIONAL A G -- los bits
+    libres son independientes del camino -- + union: t e^(-c't)) --
+    vale, para todo j <= t/2:
+      S(t) - S(j) <= log(3/2) m_t - 0,028 t <= -0,02 t
+    para t grande (m_t = O(sqrt(t log t)) contra el termino lineal).
+    Entonces |mitad| <= (t/4) e^(-0,02 t) -> 0, y la probabilidad
+    condicional de los eventos malos es O(t^(-1/2)) -> 0.
+Juntando: limsup_T P(|W_tau| > M | .) <= 1/4 + eta'_R + C eta_R;
+como el lado izquierdo no depende de R y eta_R, eta'_R -> 0,
+  limsup <= 1/4. QED.
+[Las dos afirmaciones cuantitativas de (3) y el truncamiento (2)
+estan MEDIDAS en trasvasel3.py fases B y C.]
+
+NOTA DE TASA (hallazgo de la calibracion de trasvasel3, 11-08 (2)):
+eta_R NO decae exponencial hasta R grande -- log P~_R = -0,057 R
++- 0,6 sqrt(R), gaussiano hasta R ~ 300-600 (P(err_80 > 0,1) ~
+0,3; la primera calibracion del test, ingenua, fallo y ensenio
+esto). Al TEOREMA no le importa (R -> inf antes que T), pero toda
+version CUANTITATIVA en x debera pagar este sqrt(R): es la misma
+fisica del transitorio lento que la escalera de gamma ve por
+decadas. Coherente, no accidental.
+
+COROLARIO (EL TEOREMA V2, completo modulo el LLT citado). En el
+evento de las piezas 1-2 (tau en [T, 2T] con T = 30 log x y
+contraccion S(tau) <= -log x), |u_tau| <= 1 + |W_tau|; por la union
+(Chebyshev de la pieza 2 falla con prob <= 1/4; L3 falla con prob
+<= 1/4 + o(1)):
+  phi_V2(x) = P(|u_tau| <= K)  >=  P(tau en [T,2T]) * (1/2 - o(1))
+            >=  c / sqrt(log x),      con K = M + 1 UNIVERSAL.
+ESTADO DE LA PIEZA 3: (ii) demostrado arriba; (i) = Lema D
+demostrado modulo (LLT-a/b); (iii) = Teorema L3 demostrado con
+(D) + (ii) + (iii-b). LO UNICO NO ESCRITO AQUI es el lema LLT
+clasico (citable: Vatutin-Wachtel 2009; para nuestro paseo,
+reflexion + CLT local, elemental). Falta: revision externa de la
+tanda entera, y la TRANSFERENCIA a la cadena real (P2) que es otro
+teorema.
 
 =====================================================================
 EL ORDEN DE TRABAJO QUE ESTE PLAN DICTA

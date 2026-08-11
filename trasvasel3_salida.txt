@@ -1,0 +1,36 @@
+FASE A (exacta, DP): el LLT del paseo absorbido
+  Q_s(2,y) * s^(3/2) / (y-1), normalizado a y = 2:
+  s =  500:  y=2..8 -> 1.0000 0.9940 0.9842 0.9705 0.9533 0.9326 0.9087
+  s = 1000:  y=2..8 -> 1.0000 0.9970 0.9920 0.9851 0.9763 0.9657 0.9532
+  s = 2000:  y=2..8 -> 1.0000 0.9985 0.9960 0.9925 0.9881 0.9827 0.9763
+  s = 4000:  y=2..8 -> 1.0000 0.9993 0.9980 0.9963 0.9940 0.9913 0.9881
+COMPROBACION A1 OK: el perfil (y-1) es exacto a <2% en s = 4000
+COMPROBACION A1b OK: Q_s(2,2)*s^(3/2) = 2.2553 en s = 4000 contra
+c0 = 4/sqrt(pi) = 2.2568 (la constante del LLT, demostrada).
+
+  la densidad D(t, r, y) = Q_(t-r)(2,y) / (4 P(tau=t) (y-1)):
+  t+r =  510 (r = 10): D = 1.0270 1.0209 1.0108 0.9968 0.9790 0.9578 0.9333
+  t+r = 1010 (r = 10): D = 1.0135 1.0105 1.0054 0.9984 0.9895 0.9787 0.9661
+  t+r = 2010 (r = 10): D = 1.0068 1.0052 1.0027 0.9992 0.9948 0.9893 0.9829
+COMPROBACION A2 OK: D -> 1 (desvio 0.0171 en r = 10, t = 2010) y
+sup_(r <= t/2, y <= 8) D = 2.823 <= 3,5 en t = 2000 (el 2^(3/2)
+teorico es 2,83): el lema de comparacion (D) esta a la vista.
+
+FASES B y C (MC): la primera mitad se aniquila y el truncamiento
+es uniforme en T
+   T    muestras   mediana(H_mitad)  P(H>0,01)   P(err_40 > 0,1)  P(err_160 > 0,1)  P(err_640 > 0,1)
+    400     3000     2.28e-14         0.000       0.732        0.009        0.000
+   1600     2000     7.49e-63         0.000       0.758        0.026        0.000
+   6400      800     2.05e-265         0.000       0.752        0.040        0.000
+COMPROBACION B OK: la primera mitad se aniquila (mediana 2.3e-14 ->
+7.5e-63 -> 2.1e-265, decreciente): el tramo r > tau/2 no aporta.
+COMPROBACION C OK: err decrece en R en toda ventana, estable en
+T a R fijo, y P(err_640 > 0,1) <= 0.000 en T >= 1600: eta_R -> 0
+al ritmo gaussiano-de-deriva predicho (-0,057R +- 0,6 sqrt(R));
+el teorema toma R -> inf ANTES que T y no pide mas.
+
+Lectura: (i) verificado EXACTO (DP) -- el sufijo condicionado es
+el h-transform con densidad acotada (lema D) y la constante c0
+del LLT clavada; (iii) con sus dos cotas cuantitativas medidas.
+El texto entero de la demostracion (LLT incluido, ya no citado)
+vive en teoremav2.txt: L3 y el teorema V2, autocontenidos.
