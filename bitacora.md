@@ -157,8 +157,36 @@ AUTOCONTENIDO:**
     `√R` — la misma física del transitorio lento que la escalera
     de γ ve por décadas. Coherente, no accidental.
 
-Base al cierre: **194 afirmaciones · 63 correcciones · 20
-constantes**; conteos: **79 `.py` · 19 `.lean` · 3 `.db`**.
+**⇢ LA CUARTA PASADA (el test de P2 en la cadena real +
+la pista LTE para P3):**
+
+12. **LA MEDIANA UNIVERSAL EXISTE EN LA CADENA REAL
+    (`medianareal.py`)**: la ley condicionada de `log₁₀|u|` a la
+    primera entrada al fondo (excursiones enteras exactas desde
+    `(2, c₀)`, bits de Terras, ventanas `T = 30 ln c₀` — las del
+    teorema V2) es independiente del arranque: mediana +1,195 /
+    +1,213 / +1,263 para c₀ = 997 / 999.983 / 999.999.937 —
+    **deriva 0,07 décadas sobre seis décadas de c₀**, q10 clavado
+    en +0,56. Arranques primos no redondos (punto 8) con
+    `c₀ % 3 ≠ 0` (Cabras). **Y el regalo: la balota real da
+    `P(τ>T)·√T = 1,117–1,145 — la MISMA constante que V2
+    (1,12–1,14)**: el reloj endógeno no mueve ni la supervivencia.
+    El mecanismo de la transferencia P2, medido por su punta.
+13. **LA PISTA CERRADA PARA P3/P2 (capa 1 verificada)**:
+    `v₂(3^k − 1) = 1` (k impar) `/ 2 + v₂(k)` (k par) — LTE,
+    0 fallos en k ≤ 2000, `max A = 12` — así que las ventanas
+    heladas del mecanismo de L2 son **O(log k)**: el reloj real no
+    puede congelarse más que logarítmicamente. El lema de racha
+    que P2/P3 piden tiene forma cerrada esperándolo.
+14. **Capa 2 propia sobre L3 (commit `7beefb7`)**: el hueco de la
+    uniformidad en `y` de (LLT-b) cazado y cerrado (el tramo MEDIO
+    lo necesitaba; el sup de D sobre TODO y sigue en 2,823, peor
+    caso en y = 2), la convergencia del sufijo etiquetada como
+    variación total, y la ventana de la pieza 1 con asintótica
+    exacta desde el LLT.
+
+Base al cierre: **195 afirmaciones · 63 correcciones · 20
+constantes**; conteos: **80 `.py` · 19 `.lean` · 3 `.db`**.
 
 **El estado del programa al cierre de la sesión, en una línea:**
 de los dos lemas que quedaban, **L-A está DEMOSTRADO para V2**

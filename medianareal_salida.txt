@@ -1,0 +1,25 @@
+LA MEDIANA UNIVERSAL EN LA CADENA REAL (el test de P2)
+excursiones (2, c0) -> fondo k <= 1, condicionadas a
+tau en [T, 2T], T = 30 ln c0; se mide log10|u| a la entrada
+
+   c0          T     muestras  corridas  P(tau>T)sqrt(T)  cuantiles 10/25/50/75/90 de log10|u|
+         997   207     2500    111711      1.117        +0.56/+0.82/+1.19/+1.63/+2.11
+      999983   414     1500     94546      1.128        +0.56/+0.87/+1.21/+1.67/+2.15
+   999999937   622      900     65851      1.145        +0.56/+0.87/+1.26/+1.69/+2.22
+
+COMPROBACION 1 OK: la balota real aguanta en los tres arranques.
+
+la deriva de la mediana condicionada de log10|u|:
+  c0 =        997:  mediana = +1.195
+  c0 =     999983:  mediana = +1.213
+  c0 =  999999937:  mediana = +1.263
+COMPROBACION 2 OK -- EL VEREDICTO DE P2: la mediana condicionada
+deriva 0.07 decadas entre c0 = 997 y c0 = 999999937 (< 0,5): la ley de
+|u| a la entrada del fondo NO recuerda el arranque -- el objeto
+limite de la reversion existe tambien en la cadena real. Es la
+version condicionada-a-la-ventana del olvido que la mezcla del
+10-08 vio; la transferencia P2 tiene su mecanismo medido.
+
+Etiqueta: medicion, no teorema; el reloj real es endogeno (v2)
+y la dominacion por rachas geometricas (tortolas.lean) sigue
+siendo el paso analitico pendiente de P2.

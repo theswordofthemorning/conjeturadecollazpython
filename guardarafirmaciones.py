@@ -3116,6 +3116,30 @@ AFIRMACIONES = [
          "NO dice nada de Collatz por si solo: es el modelo "
          "autonomo V2 (la diana que la prueba de circularidad "
          "legitimo)."),
+
+    fila("LA MEDIANA UNIVERSAL EXISTE TAMBIEN EN LA CADENA REAL "
+         "(el mecanismo de la transferencia P2, medido): la ley "
+         "condicionada de log10|u| a la primera entrada al fondo "
+         "(excursiones (2, c0) -> k <= 1, dinamica entera exacta, "
+         "bits de Terras, tau en [T, 2T] con T = 30 ln c0) es "
+         "independiente del arranque -- mediana +1,195 / +1,213 / "
+         "+1,263 para c0 = 997 / 999.983 / 999.999.937 (deriva "
+         "0,07 decadas sobre SEIS decadas de c0; q10 clavado en "
+         "+0,56 en los tres). Y EL REGALO: la balota real "
+         "P(tau > T) sqrt(T) = 1,117-1,145 -- LA MISMA constante "
+         "que V2 (1,12-1,14): el reloj endogeno no mueve ni la "
+         "supervivencia",
+         "verificado_hasta", "medido", "medianareal.py", "propio",
+         "11-08-2026 (2), cuarta pasada. Arranques PRIMOS no "
+         "redondos con c0 % 3 != 0 (leccion del punto 8 + Cabras). "
+         "Es la version condicionada-a-la-ventana del olvido que "
+         "la mezcla del 10-08 (6d) vio sin condicionar. PENDIENTE "
+         "analitico de P2: la dominacion del reloj v2 por rachas "
+         "geometricas -- y la pista nueva con forma cerrada: "
+         "v2(3^k - 1) = 1 (k impar) / 2 + v2(k) (k par) por LTE "
+         "(verificada k <= 2000, max A = 12): las ventanas heladas "
+         "del mecanismo de L2 son O(log k) -- el reloj real NO "
+         "puede congelarse mas que logaritmicamente."),
 ]
 
 
