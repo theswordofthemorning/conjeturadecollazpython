@@ -1,0 +1,68 @@
+=====================================================================
+NOTA: LA DOMINACION DEL RELOJ REAL, REDUCIDA A EQUIDISTRIBUCION
+(11-08-2026 (2), sexta pasada -- el esquema analitico que cierra el
+lema de racha de la transferencia P2. ESQUEMA con dos piezas del
+repo ya demostradas y UNA equidistribucion por escribir; el estado
+medido esta en rachasreales.py: C_j = 0,92-0,97 <= 1.)
+=====================================================================
+
+1. EL OBJETO. En la cadena real (k, c), tras cada paso mixto la
+   racha de pasos compartidos que sigue dura mientras c sea par.
+   La transferencia P2 (V2b -> real) pide: P(racha >= j | pasado)
+   <= C 2^-j con C uniforme.
+
+2. PIEZA A (YA DEMOSTRADA -- la mecanica v2 del repo): con k
+   congelado entre mixtos y A = v2(3^k - 1), ambos bits bajan
+   v2(c) EXACTO en 1, salvo el bit 1 exactamente en v2 = A (el
+   aterrizaje de N2 en v2 = A - 1). [oscilacion.py L2,
+   aterrizajen2.lean -- teoremas del repo, 0 sorry.] Corolario:
+   el largo de la racha que arranca en un estado con v2(c) = v es
+   v, DETERMINISTA, salvo la recarga excepcional en v = A (que
+   alarga en a lo sumo A - 1 y solo puede dispararse una vez por
+   pasada, porque el aterrizaje cae DEBAJO de A).
+
+     racha  <=  v2(c_arranque) + (A - 1) * [se cruzo v = A]
+     con A = v2(3^k - 1) = 1 (k impar) / 2 + v2(k) (k par)  [LTE,
+     verificada k <= 2000] ==> A <= 2 + log2(k): el offset es
+     LOGARITMICO en la altura -- el reloj real no puede congelarse.
+
+3. PIEZA B (LA QUE FALTA -- equidistribucion de v2 tras un mixto):
+   bajo la medida de clases (bits de Terras), el estado c tras un
+   paso mixto tiene
+       P( v2(c) >= j | pasado grueso )  <=  C0 * 2^-j.
+   POR QUE debe ser cierta: c tras el mixto es una forma afin en
+   los bits frescos de la palabra (las seis leyes de Leonas), y
+   sus bits bajos quedan equidistribuidos por el mismo argumento
+   de biyeccion de Terras que da la moneda justa; v2 >= j es un
+   evento de j bits bajos. La VERSION MEDIDA: C_j = P(racha >= j)
+   * 2^j = 0,92-0,97 para todo j <= 12 con muestra (3,86 M de
+   rachas) -- no solo acotada: LIGERAMENTE POR DEBAJO de la
+   geometrica pura, consistente con C0 = 1 y la correccion
+   negativa del evento excepcional.
+
+4. LA COMPOSICION (el lema de racha, condicional a B):
+   A + B ==> P(racha >= j | pasado) <= C0 2^-(j - A) con A <= 2 +
+   log2(k) ==> el reloj real esta estocasticamente dominado por
+   rachas Geom(1/2) infladas solo en un offset O(log k). En las
+   ventanas del teorema V2 (k tipico ~ sqrt(T)), el offset total
+   por excursion es O(log T) contra largo T: la transferencia
+   V2b -> real paga a lo sumo un factor poly-log -- exactamente lo
+   que la tolerancia polylog de L-A absorbe.
+
+5. QUE FALTA PARA TEOREMA: (i) escribir B desde las leyes de
+   Leonas (el candidato: la biyeccion de Terras sobre los j bits
+   bajos del c nuevo -- misma tecnica que perrasconteo.lean);
+   (ii) el caso frontera k = 0 (las rachas alli son de la forma
+   {v, v+g} y el conteo es distinto -- en rachasreales.py la
+   frontera esta DENTRO de la muestra global y no infla nada);
+   (iii) la version condicionada a sobrevivir (la que P2 usa de
+   verdad) -- el h-transform solo toca los bits mixtos, y las
+   rachas son de bits compartidos: la dominacion deberia pasar
+   intacta, como en V2b.
+
+ETIQUETA: esquema con mediciones; las piezas A estan demostradas
+en el repo, B esta medida (C_j <= 0,97, mejor que lo pedido) y
+enunciada con su tecnica candidata. NO es teorema todavia.
+Ficheros: rachasreales.py, oscilacion.py, aterrizajen2.lean,
+tortolas.lean, medianareal.py.
+=====================================================================
