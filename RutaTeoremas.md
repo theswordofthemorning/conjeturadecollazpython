@@ -173,6 +173,28 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 > invariante al reloj: la pata de P2). Récords del día: `φ ≥
 > 0,462781` (renovación sin cap, `recordsincap.py`) y `λ ≥
 > 1,989042` CERTIFICADO (escalón 10, `certificadocw.py`).
+>
+> **LOS PRÓXIMOS PASOS, EN ORDEN (post-11-08 (2)):**
+> 1. **LA 9ª REVISIÓN EXTERNA de la tanda entera** (user-gated):
+>    récord sin cap + mediana universal + L3/teorema V2 + certificado
+>    CW + rachas/dominación. Ocho de ocho mordieron; va ANTES de
+>    apoyar nada encima (regla del ritmo).
+> 2. **La pieza B de `notadominacion.txt`** (el único hueco analítico
+>    de P2): la equidistribución ADAPTADA de `v₂(c)` tras un mixto —
+>    medida (`C_j ≤ 1,17` condicional, `rachasreales.py` C4), falta
+>    escribirla; ojo: el largo de racha es determinista dado el
+>    camino fino, así que el enunciado es sobre el pasado GRUESO y
+>    la aleatorización viene de los bits de rachas previas (mezcla
+>    multi-racha — la técnica candidata: biyección de Terras sobre
+>    los bits bajos, estilo `perrasconteo.lean`).
+> 3. **L-B como teorema (P3)**: con LTE (`A ≤ 2 + log₂k`) las
+>    ventanas heladas son `O(log k)`; la cola polinomial uniforme de
+>    las excursiones + Borel–Cantelli da `τ_i ≤ poly(i)` — mucho más
+>    que el `e^{o(i²)}` pedido.
+> 4. **La versión condicionada-a-sobrevivir de la dominación**
+>    (nota §5 (iii)) y el ensamblaje P2 completo: V2 → real.
+> 5. P5 (ley del borde a Lean/trío) y P7 (bautizos: la tanda del
+>    11-08 (2) entera está sin nombre de animal — user-gated).
 
 ## ⇢ LA SUB-TEORÍA DE LA MADRIGUERA (09-08 (6)–(7), manda sobre lo de abajo)
 
