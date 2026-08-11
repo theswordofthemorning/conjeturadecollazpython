@@ -1,0 +1,31 @@
+COMPROBACION 3 OK: 20000 corridas del reverso, P~ final maximo 1.0e-15,
+horizonte usado maximo 683 de 6000 pasos.
+
+|W~_inf| del reverso (h-transform, objeto limite):
+  cuantiles [10, 25, 50, 75, 90] = ['3.6123', '7.1171', '17.4950', '53.5532', '181.3844']
+  M (cuantil 75) = 53.5532   mediana = 17.4950
+
+forward V2a condicionado a tau en [T, 2T]:
+   T     muestras  corridas   P(tau>T)*sqrt(T)   cuantiles 10/25/50/75/90 de |W_tau|   P(|W|<=M)
+    100     4000    120818      1.122            3.208/5.827/12.814/32.993/91.891   0.838
+    400     4000    239436      1.140            3.540/6.828/16.140/49.103/149.477   0.769
+   1600     4000    484939      1.113            3.580/7.039/17.865/53.503/177.875   0.750
+   6400     1500    353995      1.135            3.630/7.087/17.832/55.651/189.692   0.740
+COMPROBACION 1 OK (signo) y 2 OK (balota) en todas las ventanas.
+
+la mediana por ventana contra el limite:
+  T =   100:  mediana fwd = 12.8143   (limite 17.4950, desvio 26.8%)
+  T =   400:  mediana fwd = 16.1396   (limite 17.4950, desvio 7.7%)
+  T =  1600:  mediana fwd = 17.8648   (limite 17.4950, desvio 2.1%)
+  T =  6400:  mediana fwd = 17.8323   (limite 17.4950, desvio 1.9%)
+COMPROBACION 4 OK: la mediana condicionada converge al objeto
+limite del reverso (desvio 1.9% en T = 6400).
+
+COMPROBACION 5 OK -- L3 A LA VISTA: con M = 53.5532 (cuantil 75 del
+limite), P(|W_tau| <= M | ventana) = 0.838, 0.769, 0.750, 0.740 en las ventanas: la
+mediana universal EXISTE y es la del h-transform de AGKV.
+
+Lectura honesta: esto verifica el MECANISMO (i)-(iii) de
+fichaagkv.txt seccion D por dos caminos sin codigo comun; el
+teorema L3 sigue pendiente de escribir (limite local de la
+reversion + trasvase tipo Lemma 2.5). Es medicion, no cota.

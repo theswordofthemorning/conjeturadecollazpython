@@ -42,11 +42,53 @@ Hecho en la sesión, con su verificación independiente propia
    dicho en `paper_cota_renovacion.txt` (§5 actualizado: la mejora
    pasa de «pendiente» a «cobrada», con su etiqueta).
 
-Registro: `recordsincap.py` (76º `.py`), afirmación nueva en la base
-(**191 · 63 · 20**), conteos del `CLAUDE.md` al día, fila nueva en la
-tabla. Pendiente que deja: la revisión externa de la extensión cuando
-toque ronda, y los P1–P3/P5–P7 del paper siguen en cola (P1, el lema
-L3 vía AGKV, es el siguiente por orden de valor).
+Registro: `recordsincap.py` (76º `.py`), afirmación nueva en la base,
+conteos del `CLAUDE.md` al día, fila nueva en la tabla.
+
+**⇢ LA CONTINUACIÓN DE LA SESIÓN: P1 ABIERTO EN CANAL — AGKV LEÍDO
+ENTERO Y EL MECANISMO DE L3 VERIFICADO POR DOS CAMINOS.** La orden
+del usuario: avanzar, documentar lo útil, y los ciclos de prueba en
+segundo plano. El saldo:
+
+1. **AGKV 2005 LEÍDO ENTERO** (arXiv math/0503657, texto íntegro;
+   `fichaagkv.txt` con los enunciados numerados — Teorema 1.1,
+   Lemmas 2.4–2.7, Proposición 3.1, la representación (4.10) de θ).
+   La pieza que L3 necesita es el par Lemma 2.5 (el trasvase de
+   funcionales acotados al h-transform) + Lemma 2.7 (la serie
+   `Σ η e^{−S_k} < ∞ P⁺`-c.s.). Bertoin–Doney queda [CITADO VIA
+   AGKV]: su armonicidad (1.5) es lo que se usa, y en nuestro caso
+   la función armónica es ELEMENTAL.
+2. **EL DESCUBRIMIENTO DE LA LECTURA — la reversión temporal.** En
+   vez de condicionar hacia adelante, revertir la excursión en la
+   absorción: `W_τ = Σ_r d̃_r P̃_{r−1}` con los productos de cola, y
+   la excursión condicionada leída desde el final converge al
+   h-transform con **`h(k) = k − 1` explícita** (el Bessel-3
+   discreto del paseo perezoso). La serie revertida converge
+   geométrico (`log P̃_r ≤ 0,406·√r − 0,058·r`): `W̃_∞` existe, es
+   finito c.s., y su ley es UN OBJETO FIJO simulable. Esqueleto
+   (i)-(iii) en la ficha, sección D; `teoremav2.txt` actualizado.
+3. **EL CICLO DE PRUEBA (`medianauniversal.py`, corrido en segundo
+   plano): el mecanismo VERIFICADO.** Forward V2a condicionado a
+   `τ ∈ [T, 2T]` contra la cadena revertida (dos caminos sin código
+   común): mediana 12,81 → 16,14 → 17,86 → 17,83 (T = 100…6400)
+   contra límite 17,50 — **desvío 1,9% y convergencia limpia**; y
+   `P(|W_τ| ≤ M75) = 0,750 / 0,740` en las dos ventanas hondas: el
+   0,75 del límite CLAVADO. Balota 1,12–1,14 constante (C2), cola
+   del reverso < 1e−15 (C3), signo invariante (C1). **La mediana
+   universal de L3 existe y es la del h-transform de AGKV.**
+4. **El regalo de la medición**: la cola de `|W̃_∞|` es pesada
+   (q90 ≈ 181 — la `1/x` de Kesten κ=1): los momentos crudos
+   divergen, o sea la sutileza que el plan dejó escrita («no hay
+   atajo por momentos») era exactamente correcta.
+
+Etiqueta honesta: (i)-(iii) siguen siendo ESQUEMA (falta el límite
+local de la reversión y el trasvase escritos con rigor — riesgo
+bajo: teoría clásica con h explícita); la medición es del mecanismo,
+no cota. Base: **192 · 63 · 20**; conteos: **77 `.py`**.
+
+Pendiente que deja: escribir (i)-(iii) con rigor (L3 → teorema →
+L-A demostrado para V2), la revisión externa de la tanda del día
+(récord sin cap + mediana universal), y P2–P3/P5–P7 en cola.
 
 ---
 

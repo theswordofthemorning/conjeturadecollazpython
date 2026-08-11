@@ -3028,6 +3028,30 @@ AFIRMACIONES = [
          "transicion()) clava R(t) y A(t) celda a celda t = 1..20; "
          "C4 el veredicto con SystemExit. Etiqueta: capa 1 + censo "
          "independiente propio; sin revision externa todavia."),
+
+    fila("LA MEDIANA UNIVERSAL DE L3 EXISTE Y ES LA DEL H-TRANSFORM "
+         "DE AGKV (el mecanismo de la pieza 3 del teorema V2, "
+         "verificado por dos caminos sin codigo comun): la excursion "
+         "V2a condicionada a tau en [T, 2T], leida desde la "
+         "absorcion, converge al limite W~_inf de la cadena "
+         "h-transformada con h(k) = k - 1 explicita (Bessel-3 "
+         "discreto del paseo perezoso) -- mediana forward 12,81 -> "
+         "16,14 -> 17,86 -> 17,83 (T = 100..6400) contra limite "
+         "17,50 (desvio 1,9%), y P(|W_tau| <= M75) -> 0,750/0,740: "
+         "el 0,75 del limite clavado. La cola de |W~_inf| es pesada "
+         "(q90 ~ 181: la 1/x de Kesten kappa = 1) -- los momentos "
+         "crudos divergen y la via de la mediana era la unica, como "
+         "el plan dejo escrito",
+         "verificado_hasta", "medido", "medianauniversal.py", "propio",
+         "11-08-2026 (2). P1 del paper, el mecanismo. AGKV 2005 "
+         "leido ENTERO (fichaagkv.txt: Teorema 1.1, Lemmas 2.4-2.7, "
+         "Prop 3.1, la representacion (4.10) de theta); el esqueleto "
+         "(i)-(iii) por REVERSION TEMPORAL en la absorcion esta en "
+         "la seccion D de la ficha y en teoremav2.txt. Balota "
+         "1,12-1,14 constante (C2); cola del reverso < 1e-15 (C3). "
+         "SIGUE SIENDO ESQUEMA: falta el limite local de la "
+         "reversion y el trasvase tipo Lemma 2.5 escritos con "
+         "rigor. Es medicion del mecanismo, no cota."),
 ]
 
 

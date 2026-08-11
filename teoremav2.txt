@@ -190,6 +190,27 @@ EL ORDEN DE TRABAJO QUE ESTE PLAN DICTA
    pagina mas, clasica.
 3. LA PIEZA 3 = leer AGKV 2005 de verdad (esta [ABSTRACT] en la
    ficha) y adaptar su Lemma de la funcional condicionada.
+   ⇢ HECHO EL 11-08 (2): AGKV LEIDO ENTERO (fichaagkv.txt, con los
+   enunciados numerados). EL ESQUELETO DE L3 QUE DEJO LA LECTURA
+   (seccion D de la ficha) -- POR REVERSION TEMPORAL EN LA
+   ABSORCION, que no estaba en este plan:
+     W_tau = Sigma_r d~_r P~_{r-1}  (P~_r = producto de los
+     ULTIMOS r multiplicadores), y la excursion condicionada leida
+     desde el final converge localmente a la cadena h-transformada
+     con h(k) = k - 1 EXPLICITA (Bessel-3 discreto del paseo
+     perezoso). Tres sub-piezas: (i) el limite local de la
+     reversion (clasico, h explicita); (ii) la serie revertida
+     converge P~+-c.s. -- el analogo del Lemma 2.7 de AGKV, con
+     margen: log P~_r <= log(3/2)*k~_r - 0,058*r y k~_r = O(sqrt):
+     geometrico abajo; (iii) el trasvase tipo Lemma 2.5 de AGKV:
+     P(|W_tau| <= M | tau en [T,2T]) -> P~+(|W~_inf| <= M) -- la
+     MEDIANA UNIVERSAL es la del objeto limite W~_inf, que se
+     simula DIRECTO (h explicita). Instrumento del mecanismo:
+     medianauniversal.py (forward por ventanas contra el reverso
+     h-transformado, dos caminos sin codigo comun). Los enunciados
+     (i)-(iii) siguen siendo ESQUEMA hasta escribirse con rigor;
+     el 0,29 estable del adversario 3 es la sombra medida de
+     P~+(exito) -- el theta de (4.10) en nuestro problema.
    ⇢ EL PLAN B QUEDO ROTO POR LA 8a REVISION (adv 3): el
    apareamiento "(3/4)^s (3/2)" es FALSO para las colas intermedias
    de W -- desde altura k_j hay k_j - 1 expansiones SIN pareja

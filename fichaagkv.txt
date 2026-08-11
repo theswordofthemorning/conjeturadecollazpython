@@ -1,0 +1,171 @@
+FICHA: AGKV 2005, LEIDO ENTERO (de [ABSTRACT] a texto completo)
+================================================================
+11-08-2026 (2), el paso P1 del paper del programa. Fuente: arXiv
+math/0503657 (= Ann. Probab. 33 (2005) 645-673), texto integro
+extraido y leido en la sesion. Esta ficha reemplaza la etiqueta
+[ABSTRACT] de fichaproblemashermanos.txt para AGKV; Bertoin-Doney
+1994 queda [CITADO VIA AGKV] -- su aporte (la armonicidad de la
+funcion de renovacion) esta enunciado y usado dentro de AGKV, y en
+NUESTRO caso la funcion armonica es elemental (ver seccion D).
+
+A. EL MARCO DE AGKV (con numeros de enunciado del paper)
+--------------------------------------------------------
+Proceso de ramificacion Z_n en entorno aleatorio iid Pi = (Q_1,
+Q_2, ...); el paseo asociado S_n = suma de X_i = log m(Q_i) (log de
+la media de hijos). Critico = S oscilante.
+
+- ASSUMPTION A1 (Spitzer): (1/n) Sigma_{m<=n} P(S_m > 0) -> rho en
+  (0,1). Para paseo de media 0 y varianza finita, rho = 1/2.
+- ASSUMPTION A2: momentos logaritmicos de la varianza truncada
+  zeta(a) del entorno: E(log+ zeta)^(1/rho + eps) < inf y
+  E[v(X) (log+ zeta)^(1+eps)] < inf. (Si el soporte de Q es
+  acotado, A2 es GRATIS -- ejemplo 1 del paper. Nuestro analogo:
+  los "delta" de la perpetuidad estan acotados por 1/2 SIEMPRE,
+  asi que la parte de momentos no muerde.)
+- v(x) = funcion de renovacion de las escaleras descendentes
+  estrictas (1.4); su propiedad fundamental (1.5): E v(x + X) =
+  v(x) para x >= 0 [Bertoin-Doney 1994, Kozlov 1976] -- v es
+  armonica para el paseo matado bajo 0.
+
+- TEOREMA 1.1: bajo A1+A2 (o B1+B2) existe theta en (0, inf) con
+      P(Z_n > 0)  ~  theta * P(min(S_1..S_n) >= 0),  n -> inf.
+  Con Lemma 2.1: P(L_n >= -x) ~ v(x) n^-(1-rho) l(n) (l lentamente
+  variante) => P(Z_n > 0) ~ theta n^-(1-rho) l(n). En rho = 1/2:
+  el n^-1/2 clasico.
+
+B. LA MAQUINARIA (lo que L3 necesita, pieza a pieza)
+----------------------------------------------------
+- LEMMA 2.4: v(S_n) I{L_n >= 0} es martingala bajo P. Con ella se
+  define P+ por dP+_n = v(S_n) I{L_n >= 0} dP (consistente); bajo
+  P+ el paseo es la cadena h-transformada con nucleo
+  P+(x, dy) = v(y)/v(x) P(x + X en dy) -- "el paseo condicionado a
+  no tocar el semieje negativo" (Doob h-transform).
+- LEMMA 2.5 (EL LEMA DEL TRASVASE -- el molde exacto de L3): si
+  Y_1, Y_2, ... es una sucesion UNIFORMEMENTE ACOTADA adaptada que
+  converge P+-c.s. a Y_inf, entonces
+      E[Y_n | L_n >= 0]  ->  E+ Y_inf.
+  (La demostracion: condicionar en F_k, la asintotica (2.1)-(2.2),
+  convergencia dominada, y el truco gamma>1 para pasar de k fijo a
+  Y_n movil.) ==> TODO funcional acotado del camino que estabiliza
+  bajo el h-transform tiene limite condicionado UNIVERSAL. Esto es
+  exactamente "la mediana universal de W" que L3 pide.
+- LEMMA 2.6 (Tanaka): bajo P+, el entorno se REGENERA en los
+  minimos prospectivos nu(j): los tramos entre minimos son iid; el
+  primer tramo tiene la ley de (iota, S_iota) bajo P. Consecuencia
+  (2.20)-(2.22): S_k >= c k^(rho - delta) eventualmente P+-c.s.,
+  o sea e^-S_k = O(e^-k^(rho-delta)) P+-c.s.
+- LEMMA 2.7 (LA SERIE CONVERGENTE -- el corazon tecnico):
+      Sigma_k eta_{k+1} e^-S_k  <  inf   P+-c.s.
+  (eta = varianza normalizada del entorno). Demostracion: la cota
+  de crecimiento de S_k bajo P+ (via Tanaka) + colas de eta bajo
+  P+ controladas re-escribiendo P+ con (2.16) y subaditividad de
+  v. LA LECCION DE METODO: para acotar colas de un funcional del
+  entorno BAJO P+, se vuelve a P con la densidad v(S_n) y se paga
+  v subaditiva -- (2.25) es la plantilla.
+- PROPOSITION 3.1: bajo P+ el proceso es "supercritico": la
+  supervivencia dado el entorno esta minorada por
+      P+(Z_n > 0 para todo n | Pi) >= (Sigma_j eta_{j+1} e^-S_j)^-1
+  (identidad de Jirina (3.3) + cota de Agresti (3.4)), > 0 c.s.
+  por Lemma 2.7. Ademas e^-S_n Z_n -> W+ P+-c.s. con {W+ > 0} =
+  {supervivencia}.
+- (4.10) LA REPRESENTACION DE theta:
+      theta = Sigma_k E[ P+_{Z_k}(supervivencia) ; tau_k = k ]
+  (tau_k = argmin del paseo hasta k): descomposicion en el MINIMO
+  del paseo + Lemma 2.5 aplicado a Y_n = I{Z_n > 0} + Lemma 4.1
+  (la version con suma sobre el minimo). theta > 0 por Prop 3.1.
+
+C. EL DICCIONARIO AGKV -> NUESTRA PIEZA 3 (L3 de teoremav2.txt)
+---------------------------------------------------------------
+  AGKV                          | V2 (nuestro)
+  ------------------------------+--------------------------------
+  paseo S_n oscilante           | paseo perezoso k_t desde 2
+  {L_n >= 0} (no toca negativo) | {tau > t} (no absorbido en k=1)
+  rho = 1/2 (media 0, var fin.) | rho = 1/2 (paseo justo +-1)
+  v(x), armonica, general       | h(k) = k - 1, ELEMENTAL (paseo
+                                |   justo: h armonica exacta con
+                                |   h(1) = 0; el Bessel-3 discreto)
+  P+ (h-transform)              | P+ perezoso: compartido w.p. 1/2;
+                                |   mixto: sube w.p. k/(2(k-1)),
+                                |   baja w.p. (k-2)/(2(k-1))
+  funcional: superviv. dado Pi  | funcional: W_tau (la perpetuidad
+                                |   de offsets)
+  Lemma 2.7: Sigma eta e^-S_k   | LA SERIE REVERTIDA: Sigma_r
+    < inf P+-c.s.               |   P~_r < inf P~+-c.s. (seccion D)
+  Lemma 2.5 (trasvase)          | P(|W_tau| <= M | tau en [T,2T])
+                                |   -> P~+(|W~_inf| <= M)
+  theta en (4.10)               | la MEDIANA UNIVERSAL M (y el
+                                |   exito 0,29 estable que midio
+                                |   el adversario 3 de la 8a)
+
+D. LA ADAPTACION: EL ESQUELETO DE L3 POR REVERSION TEMPORAL
+-----------------------------------------------------------
+El descubrimiento de la lectura (no esta en el plan previo de
+teoremav2.txt): en vez de condicionar hacia adelante, REVERTIR LA
+EXCURSION EN LA ABSORCION. Con d_j = -(1/2) 1{b_j = 1} y A_i el
+multiplicador (1/2 o 3/2),
+
+    W_tau = Sigma_j d_j Prod_{i>j} A_i
+          = Sigma_{r=1}^{tau} d~_r P~_{r-1},
+    P~_r = producto de los ULTIMOS r multiplicadores
+         (r = 1 es el paso de la absorcion).
+
+(i) EL LIMITE LOCAL REVERTIDO (analogo de P+): la excursion
+    condicionada a absorberse en tau, leida desde el final,
+    converge localmente (tau -> inf) a la cadena h-transformada
+    con h(k) = k - 1 (el paseo perezoso condicionado a no volver a
+    1: Bessel-3 discreto). En reverso, mixto con paso ARRIBA <=>
+    bit forward 1 <=> multiplicador 3/2.
+(ii) LA SERIE REVERTIDA CONVERGE P~+-c.s. (el analogo de Lemma
+    2.7, con margen de sobra): log P~_r = log(3/2)(k~_r - 1)
+    - log(4/3) * d_r + (parte libre de los compartidos), donde
+    k~_r - 1 = subidas - bajadas del paseo revertido y d_r sus
+    bajadas. Bajo P~+ el paseo crece como sqrt (Bessel-3):
+    k~_r = O(r^(1/2+delta)) c.s.; los compartidos son >= 0,4 r
+    eventualmente (Chernoff); la parte libre tiene media
+    -0,1438 por compartido. Luego log P~_r <= 0,406 r^(1/2+delta)
+    - 0,0575 r -> -inf geometrico ==> Sigma |d~_r| P~_{r-1}
+    converge absolutamente c.s. ==> W~_inf existe y es finito
+    c.s., y su ley NO depende de x (es un objeto fijo).
+(iii) EL TRASVASE (analogo de Lemma 2.5): para f acotada continua,
+    E[f(W_tau) | tau en [T, 2T]] -> E~+[f(W~_inf)]. Con M = un
+    cuantil alto de |W~_inf|: P(|W_tau| <= M | .) >= 1/2 para todo
+    x grande -- L3 CON M UNIVERSAL. La composicion con las piezas
+    1-2 (ya demostradas) da el TEOREMA V2 entero.
+
+LO QUE FALTA PARA QUE (i)-(iii) SEAN TEOREMA (por honestidad):
+  (a) el limite local de la reversion escrito con rigor (es
+      teoria clasica del h-transform / Doob reversal para el
+      paseo perezoso absorbido -- Bolthausen 1976 / Bertoin-Doney
+      1994 marco general; nuestro caso tiene h explicita);
+  (b) la version cuantitativa de (iii) con la uniformidad en el
+      camino (el Lemma 2.5 de AGKV la da via (2.1)-(2.2); para el
+      paseo perezoso las dos asintoticas son clasicas);
+  (c) el reloj: en V2a el reloj es iid moneda justa e
+      independiente, y la reversion lo conserva; en V2b (rachas)
+      entra la version Markov-dependiente (Grama-Lauvergnat-
+      Le Page, ya fichada).
+VERIFICACION NUMERICA: medianauniversal.py (la cadena revertida
+h-transformada SE PUEDE SIMULAR DIRECTO -- h es explicita -- y su
+W~_inf debe reproducir los cuantiles de W_tau condicionado del
+modelo forward a T creciente).
+
+E. LO QUE AGKV NO DA (etiquetas)
+--------------------------------
+- AGKV es annealed sobre entorno iid; nuestra cadena real tiene
+  reloj endogeno (v2): la TRANSFERENCIA V2 -> cadena real sigue
+  siendo P2 del programa, fuera de esta ficha.
+- El theta de AGKV es una constante global; nuestro L3 pide la
+  uniformidad EN EL CAMINO tipico ademas de en x -- el trasvase
+  (iii) la da en la version en probabilidad; la escritura fina
+  del cuantificador va en teoremav2.txt.
+- Nada de Collatz en AGKV (cero aritmetica): usarlo NO mete
+  circularidad -- es exactamente el terreno puro que la prueba de
+  circularidad legitimo como diana.
+
+REFERENCIA: V.I. Afanasyev, J. Geiger, G. Kersting, V.A. Vatutin,
+"Criticality for branching processes in random environment",
+Ann. Probab. 33 (2005) 645-673 (arXiv:math/0503657). Leido entero.
+Bertoin-Doney: J. Bertoin, R.A. Doney, "On conditioning a random
+walk to stay nonnegative", Ann. Probab. 22 (1994) 2152-2167
+[CITADO VIA AGKV: la armonicidad (1.5) y la lectura de P+ como
+condicionamiento].
