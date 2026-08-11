@@ -158,7 +158,19 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 
 **EMPEZAR POR AQUÍ.** Todo lo de abajo es historia; esto es el frente.
 
-> **⇢ 11-08 (2) — EL SALTO DE LA SESIÓN (bitácora manda, resumen
+> **⇢ 11-08 (2) — LA SUB-TEORÍA DE LURRUS** *(bautizada por el
+> usuario en sesión — «no basta con los números, tiene que tener
+> estilo»; los nombres de animal para los teoremas individuales
+> quedan para mañana, P7)*: el cuerpo nuevo de la sesión — la
+> reversión temporal en la absorción, el h-transform explícito
+> `h(k) = k−1`, la mediana universal como objeto, el teorema V2/L3,
+> y el mapa honesto del trasvase a la cadena real (las dos
+> equidistribuciones + δ + condicionada) — con sus tres
+> verificaciones exactas y su acta (la 9ª). Es la hermana de LA
+> SUB-TEORÍA DE LA MADRIGUERA (09-08): aquélla dio el criterio de
+> recurrencia; LURRUS da el piso por excursión.
+>
+> **EL SALTO DE LA SESIÓN (bitácora manda, resumen
 > aquí): L3 QUEDÓ TEOREMA módulo UN lema clásico citado.** AGKV
 > 2005 leído entero (`fichaagkv.txt`); el mecanismo es la REVERSIÓN
 > temporal en la absorción con `h(k) = k−1` explícita; las piezas
@@ -174,27 +186,46 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 > 0,462781` (renovación sin cap, `recordsincap.py`) y `λ ≥
 > 1,989042` CERTIFICADO (escalón 10, `certificadocw.py`).
 >
-> **LOS PRÓXIMOS PASOS, EN ORDEN (post-11-08 (2)):**
-> 1. **LA 9ª REVISIÓN EXTERNA de la tanda entera** (user-gated):
->    récord sin cap + mediana universal + L3/teorema V2 + certificado
->    CW + rachas/dominación. Ocho de ocho mordieron; va ANTES de
->    apoyar nada encima (regla del ritmo).
-> 2. **La pieza B de `notadominacion.txt`** (el único hueco analítico
->    de P2): la equidistribución ADAPTADA de `v₂(c)` tras un mixto —
->    medida (`C_j ≤ 1,17` condicional, `rachasreales.py` C4), falta
->    escribirla; ojo: el largo de racha es determinista dado el
->    camino fino, así que el enunciado es sobre el pasado GRUESO y
->    la aleatorización viene de los bits de rachas previas (mezcla
->    multi-racha — la técnica candidata: biyección de Terras sobre
->    los bits bajos, estilo `perrasconteo.lean`).
-> 3. **L-B como teorema (P3)**: con LTE (`A ≤ 2 + log₂k`) las
->    ventanas heladas son `O(log k)`; la cola polinomial uniforme de
->    las excursiones + Borel–Cantelli da `τ_i ≤ poly(i)` — mucho más
->    que el `e^{o(i²)}` pedido.
-> 4. **La versión condicionada-a-sobrevivir de la dominación**
->    (nota §5 (iii)) y el ensamblaje P2 completo: V2 → real.
-> 5. P5 (ley del borde a Lean/trío) y P7 (bautizos: la tanda del
->    11-08 (2) entera está sin nombre de animal — user-gated).
+> **LA RUTA PARA MAÑANA, EN ORDEN (post-9ª REVISIÓN — el acta
+> `actarevision1108c.txt` manda; la 9ª ya está HECHA y aplicada:
+> V2/L3 y los récords AGUANTARON, lo escrito mordió y está
+> reparado):**
+> 1. **LAS DOS EQUIDISTRIBUCIONES DE P2** (el corazón analítico que
+>    la 9ª dejó contado honesto — eran dos, no una):
+>    (a) `v₂(c)` tras un mixto, bajo la medida de clases / mezcla
+>    multi-racha — OJO al cuantificador que el adv 1 clavó: en un
+>    mixto NO entran bits frescos (c' es determinista del pasado);
+>    la aleatorización viene de los bits de rachas PREVIAS, y es
+>    falsa condicionada al pasado fino y falsa uniforme en c₀
+>    (contraejemplos: c₀ = 999983 fuerza rachas 1–2 = 0; c₀ ≡ −3⁻¹
+>    mod 2²¹ fuerza racha₁ = 20). Técnica candidata: biyección de
+>    Terras sobre los bits bajos, estilo `perrasconteo.lean`.
+>    (b) la cancelación de las RECARGAS (el caso `v₂ = A`, SIN
+>    `.lean`): el salto es ~Geom(1/2) sin techo y repetible — su
+>    geometría es la segunda equidistribución, mismo territorio.
+> 2. **MEDIR la dominación condicionada a sobrevivir** (barato,
+>    primero): la racha depende del bit de apertura (0,911/0,985,
+>    7σ) y el h-transform inclina a bit 0 — dirección FAVORABLE,
+>    pero es un cálculo por hacer, no un «debería» (nota §5(iii)).
+> 3. **CARGAR los δ de Arañas en el ensamblaje P2** (el adv 1 midió:
+>    corren el objeto límite ≤ ~5% en el sufijo k = 2,3; entran
+>    dominados por 2^{−k_j} en las colas largas — escribirlo).
+> 4. **El tramo inicial determinista de la versión quenched**:
+>    racha₁ ≤ v₂(c_i) ≤ log₂|c_i| contra T = 30 ln|c_i| — cabe,
+>    falta escribirlo (Lévy pide φ(c_i) por los c_i reales).
+> 5. **El paso Perron/SCC del puente espectral** (adv 3): heredar el
+>    RITMO ρ(M_T) — con eso la letra chica de `λ ≥ 1,989042` se va
+>    de verdad. La pinza [min,max] por Fraction del adversario es
+>    la técnica a adoptar.
+> 6. **L-B como teorema (P3)**: LTE (`A ≤ 2 + log₂k`) + cola
+>    polinomial uniforme de excursiones + Borel–Cantelli ⟹
+>    `τ_i ≤ poly(i)` — mucho más que el `e^{o(i²)}` pedido.
+> 7. User-gated: **bautizos** (la tanda entera del 11-08 (2) sin
+>    nombre de animal: el teorema V2/L3, la mediana universal, la
+>    dominación, el certificado CW) y P5 (ley del borde a
+>    Lean/trío). Y la **predicción falsable nueva** del adv 3 queda
+>    registrada para vigilar: `a(k)/2^k` cruzaría 0,462781 hacia
+>    k ≈ 45–50 (extrapolación declarada; sugiere φ ≈ 0,52).
 
 ## ⇢ LA SUB-TEORÍA DE LA MADRIGUERA (09-08 (6)–(7), manda sobre lo de abajo)
 

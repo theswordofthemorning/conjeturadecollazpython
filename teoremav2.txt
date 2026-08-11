@@ -162,13 +162,14 @@ Demostracion. Dado G, S(tau) = F + S_libre con:
   log x >= 60 (resolver la cuadratica en sqrt(L_c): el minimo del
   margen se da en el extremo inferior L_c = 12 log x, donde
   0,726 log x - 0,405 - 1,0986 sqrt(12 log x) >= 0, cuya raiz
-  exacta es sqrt(log x) = 5,347, o sea log x >= 28,6: BASTA
+  exacta es sqrt(log x) = 5,346 (9a revision: 5,3458; el
+  5,347 previo era redondeo), o sea log x >= 28,6: BASTA
   log x >= 29, x0 = e^29 ~ 4e12, y Chebyshev con dos desviaciones
   da el 3/4).  QED.
   [CORRECCION EN VIVO, capa 1 al releer para el usuario: el primer
   volcado decia "basta log x >= 28" con la raiz estimada en 5,25 --
-  la raiz verdadera es 5,347 y en log x = 28 la desigualdad falla
-  por 0,2. El enunciado asintotico no cambia; la constante si.]
+  la raiz verdadera es 5,346 y en log x = 28 la desigualdad falla
+  por 0,21 (afinado por la 9a). El enunciado asintotico no cambia; la constante si.]
   [Los x < x0 no son un hueco del programa: phi_V2(x) > 0 se
   comprueba finito ahi (y el MC lo da ~1); el teorema es asintotico.]
 
@@ -300,10 +301,19 @@ y las DOS paridades de M aparecen cada una con peso -> 1/2;
 sustituyendo m = s/2 (1 + O(s^(-1/3))) en m^(-3/2) y sumando:
   Q_s(2, y) = (1/2) * 2 sqrt(2/pi) (y-1) (s/2)^(-3/2) (1 + o(1))
             = (4/sqrt(pi)) (y - 1) s^(-3/2) (1 + o(1)).
-Las cotas (LLT-b) para todo s >= s0 salen de las mismas formulas
-con las versiones no-asintoticas de Stirling (cotas por arriba y
-por abajo de la binomial central, estandar) y el Chernoff del
-reloj. QED.
+Las cotas (LLT-b): la superior UNIFORME EN y sale de la identidad
+EXACTA de binomiales consecutivos (la reparacion de la 9a
+revision, adv 2 -- la version anterior de este parrafo apelaba a
+"Stirling no-asintotico" y NO demostraba la uniformidad: el
+termino de error (1+O(|j|^3/m)) explota en j ~ sqrt(m) y la resta
+de gaussianas no la sostiene): con k = (m+y-2)/2,
+    C(m,k) - C(m,k+1) = C(m,k) * (y-1)/(k+1),  o sea
+    g_m(y) = 2^(-m) C(m,(m+y-2)/2) * 2(y-1)/(m+y)
+(verificada: m=10, y=4: 210 - 120 = 90 = 210*6/14). Con la unica
+cota estandar 2^(-m) C(m,.) <= sqrt(2/(pi m)) (1 + 1/(4m)):
+    g_m(y) <= 2 sqrt(2/pi) (1 + 1/(4m)) (y-1) m^(-3/2)
+UNIFORME EN TODO y, sin gaussianas restadas. La inferior para y
+fijo sale de (LLT-a). El Chernoff del reloj como antes. QED.
 [VERIFICADO EXACTO por DP en trasvasel3.py fase A: el perfil
 (y-1) a < 2% en s = 4000. Referencia general si se quiere el
 marco: Vatutin-Wachtel 2009, "Local probabilities for random
@@ -345,7 +355,9 @@ Absorberse desde m exige descenso neto m - 1: Hoeffding maximal da
 P_m(tau = s) <= e^(-(m-1)^2/(2s)) <= e^(-(m-1)^2/(2t)) para todo
 s <= t. Ademas Suma_u P(tau_m = u < tau_1) = P(tau_m < tau_1) =
 1/(m-1) (ruina del jugador, h armonica). Luego P(max >= m, tau=t)
-<= e^(-(m-1)^2/2t)/(m-1) + [segundo tramo, identico con
+<= e^(-(m-1)^2/2t)/(m-1) + [segundo tramo -- que la 9a noto
+REDUNDANTE: el primero ya da cota mejor; se conserva por claridad --
+identico con
 P(tau_m = u < tau_1) <= P(pegar m en <= t pasos) <=
 e^(-(m-2)^2/2t) y Suma_s P_m(tau = s) <= 1] <= 2 e^(-(m-2)^2/2t).
 Dividiendo por P(tau = t) >= c1' t^(-3/2) (LLT-b), QED.
@@ -362,7 +374,7 @@ MITAD (r > tau/2). Con la union:
                        + P(|medio| > 1/2 | .)
                        + P(|mitad| > 1/2 | .).
 (1) SUFIJO: es un evento de los ultimos R pasos; para R fijo los
-    cilindros de largo R son FINITOS (alturas y <= R + 2), asi que
+    cilindros de largo R son FINITOS (alturas y <= R + 1), asi que
     (D-a) da convergencia EN VARIACION TOTAL de la ley condicional
     del sufijo -- sin cuestiones de continuidad en el borde:
     P(|sufijo| > M0+1 | .) -> P~+(|W~^(R)| > M0+1)
@@ -375,13 +387,27 @@ MITAD (r > tau/2). Con la union:
     e^(S(tau) - S(j)). Sobre el complemento de tres eventos malos
     -- (a) max k >= m_t (Lema (iii-b): prob O(t^(-1/2))); (b) menos
     de 0,2 t compartidos en alguna cola (j, t] con j <= t/2
-    (Chernoff del reloj + union: t e^(-ct)); (c) alguna suma libre
-    de cola > -0,07 L_j (Hoeffding CONDICIONAL A G -- los bits
-    libres son independientes del camino -- + union: t e^(-c't)) --
+    (Chernoff del reloj + union: t e^(-ct); y aqui hay que PAGAR el
+    condicionamiento -- el evento es del reloj, G-medible y
+    correlacionado con tau: condicionado a tau = t se multiplica
+    por 1/P(tau = t) = O(t^(3/2)) via (LLT-b), que la exponencial
+    absorbe [correccion de la 9a revision: la version anterior
+    afirmaba la probabilidad condicional con la cota incondicional
+    sin decirlo]); (c) alguna suma libre de cola > -0,07 L_j
+    (Hoeffding CONDICIONAL A G -- los bits libres son
+    independientes del camino, y tau es G-medible, asi que
+    condicionar por tau no los toca -- + union: t e^(-c't)) --
     vale, para todo j <= t/2:
-      S(t) - S(j) <= log(3/2) m_t - 0,028 t <= -0,02 t
-    para t grande (m_t = O(sqrt(t log t)) contra el termino lineal).
-    Entonces |mitad| <= (t/4) e^(-0,02 t) -> 0, y la probabilidad
+      S(t) - S(j) <= log(3/2) m_t - 0,07 * 0,2 t
+                  =  log(3/2) m_t - 0,014 t  <=  -0,01 t
+    para t grande (m_t = O(sqrt(t log t)) contra el termino lineal;
+    la cola mas corta, j = t/2, lleva >= 0,2t compartidos --
+    [correccion de la 9a, error aritmetico de factor 2: la version
+    anterior escribia -0,028 t copiando el 0,07*0,4 de la parte
+    (ii), donde la ventana es entera; en j = t/2 la esperanza de
+    compartidos es 0,25t y el umbral 0,4t seria exponencialmente
+    improbable -- la constante correcta es 0,07*0,2 = 0,014]).
+    Entonces |mitad| <= (t/4) e^(-0,01 t) -> 0, y la probabilidad
     condicional de los eventos malos es O(t^(-1/2)) -> 0.
 Juntando: limsup_T P(|W_tau| > M | .) <= 1/4 + eta'_R + C eta_R;
 como el lado izquierdo no depende de R y eta_R, eta'_R -> 0,
@@ -389,14 +415,23 @@ como el lado izquierdo no depende de R y eta_R, eta'_R -> 0,
 [Las dos afirmaciones cuantitativas de (3) y el truncamiento (2)
 estan MEDIDAS en trasvasel3.py fases B y C.]
 
-NOTA DE TASA (hallazgo de la calibracion de trasvasel3, 11-08 (2)):
-eta_R NO decae exponencial hasta R grande -- log P~_R = -0,057 R
-+- 0,6 sqrt(R), gaussiano hasta R ~ 300-600 (P(err_80 > 0,1) ~
-0,3; la primera calibracion del test, ingenua, fallo y ensenio
-esto). Al TEOREMA no le importa (R -> inf antes que T), pero toda
-version CUANTITATIVA en x debera pagar este sqrt(R): es la misma
-fisica del transitorio lento que la escalera de gamma ve por
-decadas. Coherente, no accidental.
+NOTA DE TASA (hallazgo de la calibracion de trasvasel3, 11-08 (2);
+CONSTANTES CORREGIDAS POR LA 9a REVISION, adv 2): eta_R NO decae
+exponencial hasta R grande. La version anterior de esta nota
+publicaba "log P~_R = -0,057R +- 0,6 sqrt(R), gaussiano hasta
+R ~ 300-600" -- FALSO en sus constantes: la medicion directa bajo
+P~+ (40.000 corridas del adversario) da pendiente media CRECIENTE
+de ~-0,046 (R=40) a ~-0,12 (R=640), camino del limite -0,1438 (la
+deriva por paso a k grande del propio h-transform), con sd ~ 0,47
+sqrt(R); el -0,057 era conflacion con la pendiente GARANTIZADA
+0,4 * 0,1438 = 0,0575 de la parte (ii), y la prediccion "P(err_640
+> 0,1) ~ 0,02-0,11" que esa formula daba quedo refutada por la
+propia fase C (0,000 medido -- que los numeros del adversario si
+predicen: media -76, sd 12, P ~ 1e-10). LO QUE SOBREVIVE: el
+transitorio es lento de verdad (la pendiente tarda cientos de
+pasos en llegar al limite) y toda version CUANTITATIVA en x debera
+pagar ese regimen -- la misma fisica del transitorio que la
+escalera de gamma ve por decadas. Coherente, no accidental.
 
 COROLARIO (EL TEOREMA V2, completo y autocontenido). Nota previa:
 con el LLT demostrado, la pieza 1 sale con ASINTOTICA EXACTA y en

@@ -13,12 +13,15 @@ la deriva de la mediana condicionada de log10|u|:
   c0 =        997:  mediana = +1.195
   c0 =     999983:  mediana = +1.213
   c0 =  999999937:  mediana = +1.263
-COMPROBACION 2 OK -- EL VEREDICTO DE P2: la mediana condicionada
-deriva 0.07 decadas entre c0 = 997 y c0 = 999999937 (< 0,5): la ley de
-|u| a la entrada del fondo NO recuerda el arranque -- el objeto
-limite de la reversion existe tambien en la cadena real. Es la
-version condicionada-a-la-ventana del olvido que la mezcla del
-10-08 vio; la transferencia P2 tiene su mecanismo medido.
+COMPROBACION 2 OK: la mediana condicionada deriva 0.07 decadas
+entre c0 = 997 y c0 = 999999937 (< 0,5).
+LECTURA HONESTA (corregida por la 9a, C-9 del adv 1): a
+T = 30 ln c0 el termino de memoria prod*x esta muerto DE ANTEMANO
+por el margen de la Pieza 2 para cualquier cadena de estos
+multiplicadores -- esa mitad del veredicto es del disenio, no de
+la cadena. El contenido discriminante es la estabilidad de la
+parte W, confirmada ademas a T EMPAREJADO por la malla 2x2 de la
+9a (real y V2b coinciden a +-0,03 en las cuatro celdas).
 
 Etiqueta: medicion, no teorema; el reloj real es endogeno (v2)
 y la dominacion por rachas geometricas (tortolas.lean) sigue

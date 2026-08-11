@@ -202,7 +202,10 @@ P4 (record): COBRADO Y SUPERADO -- phi >= 0,462781 (sin cap,
     L = 34, exacto, censo de pares reales; recordsincap.py).
 P6 (Collatz-Wielandt): COBRADO Y SUPERADO -- certificado en
     enteros para LOS DIEZ escalones + el escalon 10 jamas corrido:
-    lambda >= 1,989042 CERTIFICADO (certificadocw.py).
+    lambda_T >= 1,989042 CERTIFICADO PARA EL TRUNCADO
+    (certificadocw.py; 9a revision: el puente lambda >= lambda_T
+    tiene su paso Perron/SCC pendiente de escribir, y el valor del
+    10o quedo sin recomputacion independiente terminada).
 P5, P7: en cola, sin cambios.
 
 PENDIENTE MAYOR TRANSVERSAL: la revision externa adversarial de la

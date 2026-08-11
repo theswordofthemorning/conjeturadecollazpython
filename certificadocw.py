@@ -186,9 +186,14 @@ if final < PISO_FINAL:
     raise SystemExit("C3: el escalon 9 certifica %.6f < %.4f"
                      % (final, PISO_FINAL))
 print()
-print("COMPROBACION 3 OK -- LA COTA DE PUMAS, SIN LETRA CHICA:")
-print("  LAMBDA >= %.6f   CERTIFICADO (Collatz-Wielandt en enteros," % final)
-print("  ultimo escalon: K = %d, |c| <= %d, %d estados). La 'razon"
-      % (certificados[-1][0], certificados[-1][1], certificados[-1][2]))
-print("  convergida' de pumasescalera era estimacion; esto es teorema")
-print("  del truncado, y el puente a la cadena entera es el de PUMAS.")
+print("COMPROBACION 3 OK -- LA COTA DE PUMAS, CON SU LETRA DICHA:")
+print("  LAMBDA_T >= %.6f  CERTIFICADO PARA EL TRUNCADO (teorema:" % final)
+print("  Collatz-Wielandt en enteros; ultimo escalon K = %d,"
+      % certificados[-1][0])
+print("  |c| <= %d, %d estados). El puente lambda >= lambda_T"
+      % (certificados[-1][1], certificados[-1][2]))
+print("  es el de PUMAS (menores anidados, matriztransferencia.py);")
+print("  la 9a revision (adv 3) dejo dicho su paso fino pendiente:")
+print("  heredar el RITMO rho(M_T) pide el paso Perron/SCC sin")
+print("  escribir (evidencia: las razones de pumasescalera empatan")
+print("  estos certificados a ~1e-6 en todos los escalones).")

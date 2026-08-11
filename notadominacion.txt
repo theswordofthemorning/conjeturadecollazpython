@@ -1,74 +1,106 @@
 =====================================================================
-NOTA: LA DOMINACION DEL RELOJ REAL, REDUCIDA A EQUIDISTRIBUCION
-(11-08-2026 (2), sexta pasada -- el esquema analitico que cierra el
-lema de racha de la transferencia P2. ESQUEMA con dos piezas del
-repo ya demostradas y UNA equidistribucion por escribir; el estado
-medido esta en rachasreales.py: C_j = 0,92-0,97 <= 1.)
+NOTA: LA DOMINACION DEL RELOJ REAL, REDUCIDA A EQUIDISTRIBUCIONES
+(11-08-2026 (2), sexta pasada; REESCRITA TRAS LA 9a REVISION -- el
+adversario 1 rompio la version anterior de la Pieza A en tres
+afirmaciones y esta version incorpora sus correcciones C-1 a C-6.
+El estado medido esta en rachasreales.py y en revision9_adv1/:
+la dominacion como HECHO aguanto todo; el argumento escrito de la
+version previa NO. ESQUEMA, no teorema.)
 =====================================================================
 
 1. EL OBJETO. En la cadena real (k, c), tras cada paso mixto la
    racha de pasos compartidos que sigue dura mientras c sea par.
-   La transferencia P2 (V2b -> real) pide: P(racha >= j | pasado)
-   <= C 2^-j con C uniforme.
+   La transferencia P2 (V2b -> real) pide: P(racha >= j | pasado
+   grueso) <= C 2^-j con C uniforme.
 
-2. PIEZA A (YA DEMOSTRADA -- la mecanica v2 del repo): con k
-   congelado entre mixtos y A = v2(3^k - 1), ambos bits bajan
-   v2(c) EXACTO en 1, salvo el bit 1 exactamente en v2 = A (el
-   aterrizaje de N2 en v2 = A - 1). [oscilacion.py L2,
-   aterrizajen2.lean -- teoremas del repo, 0 sorry.] Corolario:
-   el largo de la racha que arranca en un estado con v2(c) = v es
-   v, DETERMINISTA, salvo la recarga excepcional en v = A (que
-   alarga en a lo sumo A - 1 y solo puede dispararse una vez por
-   pasada, porque el aterrizaje cae DEBAJO de A).
+2. PIEZA A (LA MECANICA v2 -- version corregida por la 9a; la
+   anterior atribuia al repo una cota que el repo nunca demostro).
+   Lo que los teoremas del repo SI dicen (oscilacion.py L2(a)-(c),
+   aterrizajen2.lean): con k congelado y A = v2(3^k - 1), (i) el
+   bit 0 baja v2 exacto en 1; (ii) el bit 1 con v2(c) < A baja
+   exacto en 1; (iii) el bit 1 con v2(c) > A ATERRIZA en A - 1
+   (baja MAS de 1: el crash); (iv) EL CASO v2(c) = A NO TIENE
+   .LEAN: alli 3c - (3^k - 1) = 2^A (impar - impar) = 2^A * par y
+   el v2 resultante es >= A SIN COTA determinista -- cuanto sube
+   lo deciden los bits altos de c (cancelacion): LA RECARGA.
+   Consecuencias medidas (adv 1, mismo stream, 3.860.014 rachas):
+   la recarga salta ~Geom(1/2) (max observado 21), PUEDE REPETIRSE
+   dentro de la misma racha (116.164 rachas con >= 2 recargas,
+   hasta 12: tras recargar a A+J, J bits 0 vuelven a pisar v2 = A),
+   y el exceso total racha - v2_entrada llego a 19 CON A = 1 (el
+   "techo A-1" de la version anterior de esta nota era falso en
+   todos los valores de A con muestra). La cota honesta es
+   ESTOCASTICA: racha dominada por v2_entrada + compuesto
+   subcritico de recargas -- y la geometria del salto de recarga
+   es una equidistribucion ADICIONAL (los bits de cancelacion de
+   c), hermana de la Pieza B y con su mismo estatus: POR ESCRIBIR.
+   El offset LTE (A <= 2 + log2 k) acota DONDE puede dispararse la
+   recarga, no cuanto salta.
 
-     racha  <=  v2(c_arranque) + (A - 1) * [se cruzo v = A]
-     con A = v2(3^k - 1) = 1 (k impar) / 2 + v2(k) (k par)  [LTE,
-     verificada k <= 2000] ==> A <= 2 + log2(k): el offset es
-     LOGARITMICO en la altura -- el reloj real no puede congelarse.
+3. PIEZA B (LA EQUIDISTRIBUCION QUE FALTA -- cuantificador
+   corregido por la 9a): bajo la medida de clases, la ley de
+   v2(c) tras un paso mixto debe estar dominada por una geometrica
+   EN EL SENTIDO ADAPTADO AL PASADO GRUESO. Dos precisiones que la
+   version anterior no tenia: (i) EN UN MIXTO NO ENTRAN BITS
+   FRESCOS -- c' es funcion determinista del pasado; la
+   aleatorizacion viene de los bits de rachas ANTERIORES (mezcla
+   multi-racha), y el enunciado solo puede ser cierto bajo la
+   medida de clases del arranque o con mezcla, NUNCA condicionado
+   al pasado fino (contraejemplos del adv 1: c0 = 999983 fuerza
+   racha_1 = racha_2 = 0 deterministas; todo c0 = -3^(-1) mod 2^21
+   fuerza racha_1 = 20 con probabilidad 1); (ii) la transferencia
+   necesita la version QUENCHED por c_i (Levy pide phi(c_i) para
+   los c_i que la cadena visita), tragandose un tramo inicial
+   determinista de largo <= v2-dependiente <= log2|c_i| -- cabe
+   contra T = 30 ln|c_i|, pero hay que escribirlo.
+   EL ESTADO MEDIDO: marginal C_j = 0,92-0,97 <= 1 (j <= 12);
+   PERO las colas CONDICIONADAS cruzan 1 (bit de apertura 1:
+   1,064; A = 7: 1,119; par de rachas anteriores: 1,104; franja
+   k >= 9: 1,041 -- adv 1): para la dominacion adaptada C0 > 1,
+   acotada (<= 1,2 en toda rebanada probada). "Consistente con
+   C0 = 1" solo describe la marginal.
 
-3. PIEZA B (LA QUE FALTA -- equidistribucion de v2 tras un mixto):
-   bajo la medida de clases (bits de Terras), el estado c tras un
-   paso mixto tiene
-       P( v2(c) >= j | pasado grueso )  <=  C0 * 2^-j.
-   POR QUE debe ser cierta: c tras el mixto es una forma afin en
-   los bits frescos de la palabra (las seis leyes de Leonas), y
-   sus bits bajos quedan equidistribuidos por el mismo argumento
-   de biyeccion de Terras que da la moneda justa; v2 >= j es un
-   evento de j bits bajos. La VERSION MEDIDA: C_j = P(racha >= j)
-   * 2^j = 0,92-0,97 para todo j <= 12 con muestra (3,86 M de
-   rachas) -- no solo acotada: LIGERAMENTE POR DEBAJO de la
-   geometrica pura, consistente con C0 = 1 y la correccion
-   negativa del evento excepcional.
+4. LA COMPOSICION (el lema de racha, condicional a A + B): el
+   reloj real queda dominado por rachas geometricas con constante
+   C medida <= 1,17 (adaptada) y <= 1,2 en toda rebanada probada
+   -- NO por un "offset O(log k)" determinista (la version
+   anterior lo afirmaba; el offset determinista NO EXISTE: lo que
+   hay es el compuesto de recargas de la Pieza A, cuya
+   subcriticidad depende de la equidistribucion adicional). En las
+   ventanas del teorema V2 la sobrecarga es acotada y la
+   tolerancia polylog de L-A la absorbe -- condicional a que las
+   DOS equidistribuciones se escriban.
 
-4. LA COMPOSICION (el lema de racha, condicional a B):
-   A + B ==> P(racha >= j | pasado) <= C0 2^-(j - A) con A <= 2 +
-   log2(k) ==> el reloj real esta estocasticamente dominado por
-   rachas Geom(1/2) infladas solo en un offset O(log k). En las
-   ventanas del teorema V2 (k tipico ~ sqrt(T)), el offset total
-   por excursion es O(log T) contra largo T: la transferencia
-   V2b -> real paga a lo sumo un factor poly-log -- exactamente lo
-   que la tolerancia polylog de L-A absorbe.
-
-5. QUE FALTA PARA TEOREMA: (i) escribir B desde las leyes de
-   Leonas (el candidato: la biyeccion de Terras sobre los j bits
-   bajos del c nuevo -- misma tecnica que perrasconteo.lean);
+5. QUE FALTA PARA TEOREMA: (i) escribir la Pieza B con su
+   cuantificador honesto (medida de clases / mezcla multi-racha;
+   candidato: la biyeccion de Terras sobre los bits bajos, estilo
+   perrasconteo.lean) MAS la equidistribucion de la cancelacion de
+   recargas (Pieza A, caso v2 = A);
    (ii) el caso frontera k = 0: RESUELTO EN VACUO para P2 -- las
    excursiones de la transferencia terminan en la PRIMERA entrada
-   al fondo (k <= 1), asi que la frontera no aparece nunca dentro
-   de ellas (verificado: la franja (0,0) de rachasreales.py da 0
-   rachas en 150.000 excursiones, y el conteo total no se movio al
-   incluirla). La frontera pertenece al regimen post-fondo, que es
-   territorio Doeblin/Liebres, no del lema de racha. (La mecanica
-   alli seria la misma de todos modos: con c par ambos bits bajan
-   v2 en 1 -- F1 da c/2, F2 da 3c/2 con 3 impar.);
-   (iii) la version condicionada a sobrevivir (la que P2 usa de
-   verdad) -- el h-transform solo toca los bits mixtos, y las
-   rachas son de bits compartidos: la dominacion deberia pasar
-   intacta, como en V2b.
+   al fondo (k <= 1) y la frontera no aparece dentro de ellas
+   (verificado: franja (0,0) con 0 rachas en 150.000 excursiones);
+   la frontera pertenece al regimen post-fondo (Doeblin/Liebres);
+   (iii) la version condicionada a sobrevivir -- CORREGIDA por la
+   9a: la version anterior decia "el h-transform solo toca los
+   bits mixtos y las rachas son de bits compartidos: deberia pasar
+   intacta", y LA PREMISA ES FALSA -- la ley de racha DEPENDE del
+   bit del mixto que la abre (medido: media 0,911 tras bit 0
+   contra 0,985 tras bit 1; 7 sigmas). Bajo el h-transform la
+   mezcla se inclina hacia bit 0 (rachas mas cortas: direccion
+   FAVORABLE), asi que probablemente la dominacion condicionada
+   mejora -- pero es un calculo POR HACER, no un "deberia".
 
-ETIQUETA: esquema con mediciones; las piezas A estan demostradas
-en el repo, B esta medida (C_j <= 0,97, mejor que lo pedido) y
-enunciada con su tecnica candidata. NO es teorema todavia.
+ETIQUETA: esquema con mediciones; la dominacion como hecho aguanto
+la 9a entera (marginal, adaptada, por A, por bit, por pares, con y
+sin censura: C <= 1,2); el argumento que la explica tiene DOS
+equidistribuciones por escribir (v2 tras mixto + cancelacion de
+recargas) y una version condicionada por medir. Los delta <=
+3^-k/2 de Aranas que V2 omite tambien deben cargarse en el
+ensamblaje final de P2 (calculo del adv 1: entran dominados por
+2^-k_j en las colas largas, pero en el SUFIJO k = 2, 3 son ~1/18
+por paso y CAMBIAN el objeto limite W~_inf en <= ~5% medido --
+chico, y ahora declarado). NO es teorema.
 Ficheros: rachasreales.py, oscilacion.py, aterrizajen2.lean,
-tortolas.lean, medianareal.py.
+tortolas.lean, medianareal.py, actarevision1108c_adv1.txt.
 =====================================================================

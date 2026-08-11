@@ -32,12 +32,13 @@
 #         no condicionalmente, la dominacion adaptada fallaria y
 #         hay que saberlo.
 #     C5  LA PIEZA A EN COMPOSICION (racha contra v2(c) de entrada):
-#         el largo realizado debe ser v2(c) salvo los dos eventos de
-#         aterrizajen2 -- el CRASH (bit 1 con v2 > A aterriza en
-#         A - 1: acorta) y la RECARGA (bit 1 exactamente en v2 = A:
-#         alarga). Se miden las tres fracciones; el exceso
-#         racha - v2 queda acotado por EXCESO_TOPE (la recarga es
-#         local: A <= 12 en las alturas alcanzables).
+#         el largo realizado debe ser v2(c) salvo los dos desvios --
+#         el CRASH (bit 1 con v2 > A aterriza en A - 1: acorta) y la
+#         RECARGA (bit 1 exactamente en v2 = A: salta ~Geom(1/2) SIN
+#         techo determinista y puede repetirse -- 9a revision, adv 1:
+#         116.164 rachas con >= 2 recargas, exceso hasta 19 con
+#         A = 1). Se miden las tres fracciones; EXCESO_TOPE es solo
+#         guardia de cordura contra un desboque, no una cota teorica.
 #
 #   Semilla fija; los largos se recogen de TODAS las excursiones
 #   (la dominacion del reloj no se condiciona a sobrevivir).
@@ -79,7 +80,12 @@ def transicion(k, c, bit):
 
 
 BUCKETS = [(0, 0), (1, 2), (3, 5), (6, 999)]
-EXCESO_TOPE = 24
+EXCESO_TOPE = 60           # GUARDIA DE CORDURA, NO TEOREMA (9a rev,
+                           # C-7): la recarga salta ~Geom(1/2) SIN
+                           # techo determinista y puede repetirse en
+                           # la misma racha (max observado 19 con 10
+                           # recargas encadenadas); el tope solo caza
+                           # un desboque del modelo, no una cota A-1
 
 
 def v2_de(n):
@@ -197,12 +203,18 @@ for f in FRANJAS:
     peores[f] = peor
     print("  k en [%d, %d]: %7d rachas, C_j maximo %.3f"
           % (f[0], f[1], n_f, peor))
-if peores[FRANJAS[2]] > 4.0 * max(peores[FRANJAS[0]], 0.5):
+# (9a revision, C-7 del adv 1: la version anterior comparaba por
+# error la franja (4,8) contra la frontera vacia (0,0) -- la franja
+# (9,99), la unica con C_j > 1, quedaba sin vigilar)
+if peores[FRANJAS[3]] > 4.0 * max(peores[FRANJAS[1]], 0.5):
     raise SystemExit("C2: el C_j de k >= 9 (%.2f) supera x4 al de "
-                     "k <= 3 (%.2f)" % (peores[FRANJAS[2]],
-                                        peores[FRANJAS[0]]))
-print("COMPROBACION 2 OK: el offset por altura es chico (LTE lo predice")
-print("logaritmico; las alturas tipicas llevan A <= 6).")
+                     "k <= 3 (%.2f)" % (peores[FRANJAS[3]],
+                                        peores[FRANJAS[1]]))
+print("COMPROBACION 2 OK: el C_j de la franja k >= 9 (%.3f) queda bajo"
+      % peores[FRANJAS[3]])
+print("x4 del de k <= 3 (%.3f); el condicionamiento fino del offset es"
+      % peores[FRANJAS[1]])
+print("por v2(k) (LTE), no por |k| -- ver el acta de la 9a, adv 1.")
 media = suma_largos / float(total_rachas)
 if not (0.5 <= media <= 2.5):
     raise SystemExit("C3: media de racha %.3f fuera de [0,5, 2,5]" % media)
@@ -219,8 +231,9 @@ if exceso_max > EXCESO_TOPE:
     raise SystemExit("C5: exceso %d > %d -- la recarga NO es local"
                      % (exceso_max, EXCESO_TOPE))
 print("COMPROBACION 5 OK: el largo de racha ES v2(c) salvo los dos")
-print("eventos de aterrizajen2 (crash acorta -- ayuda a la dominacion;")
-print("recarga alarga pero LOCAL: exceso <= %d <= %d)."
+print("desvios: crash (acorta -- ayuda a la dominacion) y recarga")
+print("(salto ~Geom(1/2) SIN techo determinista, repetible en la misma")
+print("racha -- 9a revision; exceso observado %d, guardia %d)."
       % (exceso_max, EXCESO_TOPE))
 print()
 print("la version ADAPTADA (C4): cola condicional al largo anterior")

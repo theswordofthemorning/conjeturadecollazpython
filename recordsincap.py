@@ -180,9 +180,13 @@ for L in range(1, PROF_BLOQUES + 1):
     if L == 28:
         phi_28 = phi_t
     if L % 2 == 0 and L >= 20:
-        print("  %2d  %.6f   %.6f   %.6f    %.6f"
+        # phi_t impreso TRUNCADO con decimales() -- la misma convencion
+        # que la escalera final (9a, adv 3: antes la serie redondeaba
+        # con %.6f y la escalera truncaba: 0.462782 vs 0.462781 para el
+        # mismo racional)
+        print("  %2d  %.6f   %.6f   %.6f    %s"
               % (L, float(rho_L), float(alfa_L),
-                 1 - float(rho_L) - float(alfa_L), float(phi_t)))
+                 1 - float(rho_L) - float(alfa_L), decimales(phi_t, 6)))
 print("COMPROBACION 2 OK: la cota mejora (no-decreciente) nivel a nivel.")
 print()
 print("cotejo con la 8a revision (midio ~0,4503 en float, sin cap, a 28):")
@@ -196,6 +200,10 @@ print()
 # ningun valor baja de M_CENSO en LC_CENSO pasos (x_t >= x0/2^t), asi
 # que el ciclo terminal {1, 2} es inalcanzable y toda igualdad x == y
 # es fusion de coeficientes (S igualada), no coalescencia del ciclo.
+# (9a revision, adv 3: el margen NO excluye por si solo que
+# |y - x| == 1 detecte un estado distinto de (0,1) -- la
+# identificacion no se supone: la VALIDA el empate celda a celda
+# contra la gramatica, que es exactamente lo que C3 comprueba.)
 # ---------------------------------------------------------------------------
 
 LC_CENSO = 20

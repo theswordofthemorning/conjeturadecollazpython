@@ -43,12 +43,15 @@
 #         en todas las ventanas, y DECRECE con T. (MC)
 #     C   el truncamiento: P(err_R > 0,1 | ventana) con err_R = la
 #         suma con j <= tau - R. LA CALIBRACION HONESTA (el primer
-#         umbral, R = 80 <= 0,05, FALLO y ensenio la fisica): la
-#         cola de log P~_R es -0,057 R +- 0,6 sqrt(R) -- gaussiana
-#         hasta R ~ 300-600, recien despues exponencial. El teorema
+#         umbral, R = 80 <= 0,05, FALLO y ensenio la fisica; las
+#         constantes las corrigio la 9a: la pendiente de log P~_R
+#         CRECE de ~-0,046 (R=40) a ~-0,12 (R=640) hacia el limite
+#         -0,1438, sd ~ 0,47 sqrt(R) -- ver teoremav2.txt NOTA DE
+#         TASA y actarevision1108c_adv2.txt). El teorema
 #         solo pide eta_R -> 0 (R va a infinito ANTES que T); el
 #         test pide (a) DECRECIENTE en R en toda ventana, (b)
-#         estable en T a R fijo (la cota C*limite del lema D), y
+#         ACOTADA en T a R fijo (la cota C*limite del lema D --
+#         "acotada", no "estable": err_160 sube 0,009->0,040, 9a), y
 #         (c) P(err_640 > 0,1) <= 0,10 en las ventanas con T >=
 #         1600 (la prediccion gaussiana da ~0,02-0,11 ahi). (MC)
 #
@@ -254,14 +257,17 @@ for T, objetivo in zip(VENTANAS_T, OBJETIVO):
         H = 0.0
         for j in bits1:
             if j <= tau // 2:
-                H += 0.5 * math.exp(S_tau - S_lista[j - 1])
+                # e^(S(tau) - S(j)) -- la 9a cazo que la version
+                # anterior usaba S_lista[j-1] (sobrecontaba el factor
+                # A_j = 3/2, direccion conservadora); corregido
+                H += 0.5 * math.exp(S_tau - S_lista[j])
         H_lista.append(H)
         for R in RECORTES:
             err = 0.0
             corte = tau - R
             for j in bits1:
                 if j <= corte:
-                    err += 0.5 * math.exp(S_tau - S_lista[j - 1])
+                    err += 0.5 * math.exp(S_tau - S_lista[j])
                 else:
                     break
             if err > 0.1:
@@ -299,15 +305,15 @@ for iT, T in enumerate(VENTANAS_T):
 for R in RECORTES:
     vals = p_err_por_T[R]
     if max(vals) > 1.6 * min(vals) + 0.05:
-        raise SystemExit("C-b: err_%d inestable en T: %s" % (R, vals))
+        raise SystemExit("C-b: err_%d no acotada en T: %s" % (R, vals))
 # (c) el nivel absoluto en el R profundo, ventanas grandes
 profundas = [p_err_por_T[RECORTES[-1]][iT]
              for iT, T in enumerate(VENTANAS_T) if T >= 1600]
 if max(profundas) > 0.10:
     raise SystemExit("C-c: P(err_%d > 0,1) = %.3f > 0,10 en T >= 1600"
                      % (RECORTES[-1], max(profundas)))
-print("COMPROBACION C OK: err decrece en R en toda ventana, estable en")
-print("T a R fijo, y P(err_%d > 0,1) <= %.3f en T >= 1600: eta_R -> 0"
+print("COMPROBACION C OK: err decrece en R en toda ventana, ACOTADA en")
+print("T a R fijo (sube dentro de la cota C*limite del lema D), y P(err_%d > 0,1) <= %.3f en T >= 1600: eta_R -> 0"
       % (RECORTES[-1], max(profundas)))
 print("al ritmo gaussiano-de-deriva predicho (-0,057R +- 0,6 sqrt(R));")
 print("el teorema toma R -> inf ANTES que T y no pide mas.")

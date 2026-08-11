@@ -148,13 +148,16 @@ for c0 in ARRANQUES:
 if deriva > 0.5:
     raise SystemExit("C2: la mediana deriva %.2f decadas entre arranques "
                      "(> 0,5): la ley condicionada RECUERDA c0" % deriva)
-print("COMPROBACION 2 OK -- EL VEREDICTO DE P2: la mediana condicionada")
-print("deriva %.2f decadas entre c0 = %d y c0 = %d (< 0,5): la ley de"
-      % (deriva, ARRANQUES[0], ARRANQUES[-1]))
-print("|u| a la entrada del fondo NO recuerda el arranque -- el objeto")
-print("limite de la reversion existe tambien en la cadena real. Es la")
-print("version condicionada-a-la-ventana del olvido que la mezcla del")
-print("10-08 vio; la transferencia P2 tiene su mecanismo medido.")
+print("COMPROBACION 2 OK: la mediana condicionada deriva %.2f decadas"
+      % deriva)
+print("entre c0 = %d y c0 = %d (< 0,5)." % (ARRANQUES[0], ARRANQUES[-1]))
+print("LECTURA HONESTA (corregida por la 9a, C-9 del adv 1): a")
+print("T = 30 ln c0 el termino de memoria prod*x esta muerto DE ANTEMANO")
+print("por el margen de la Pieza 2 para cualquier cadena de estos")
+print("multiplicadores -- esa mitad del veredicto es del disenio, no de")
+print("la cadena. El contenido discriminante es la estabilidad de la")
+print("parte W, confirmada ademas a T EMPAREJADO por la malla 2x2 de la")
+print("9a (real y V2b coinciden a +-0,03 en las cuatro celdas).")
 print()
 print("Etiqueta: medicion, no teorema; el reloj real es endogeno (v2)")
 print("y la dominacion por rachas geometricas (tortolas.lean) sigue")

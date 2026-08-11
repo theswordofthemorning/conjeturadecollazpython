@@ -168,10 +168,11 @@ la pista LTE para P3):**
     +1,213 / +1,263 para c₀ = 997 / 999.983 / 999.999.937 —
     **deriva 0,07 décadas sobre seis décadas de c₀**, q10 clavado
     en +0,56. Arranques primos no redondos (punto 8) con
-    `c₀ % 3 ≠ 0` (Cabras). **Y el regalo: la balota real da
-    `P(τ>T)·√T = 1,117–1,145 — la MISMA constante que V2
-    (1,12–1,14)**: el reloj endógeno no mueve ni la supervivencia.
-    El mecanismo de la transferencia P2, medido por su punta.
+    `c₀ % 3 ≠ 0` (Cabras). Y la balota real da `P(τ>T)·√T = 1,117–1,145` *(9ª revisión,
+    C-8: la constante es `2/√π = 1,1284`, universal de cualquier
+    paseo justo con tasa mixta ½ — verifica el RELOJ, no la
+    transferencia; la frase original «el mecanismo de P2 medido
+    por su punta» sobraba y queda retirada)*.
 13. **LA PISTA CERRADA PARA P3/P2 (capa 1 verificada)**:
     `v₂(3^k − 1) = 1` (k impar) `/ 2 + v₂(k)` (k par) — LTE,
     0 fallos en k ≤ 2000, `max A = 12` — así que las ventanas
@@ -198,6 +199,66 @@ la pista LTE para P3):**
 
 Base al cierre: **196 afirmaciones · 63 correcciones · 20
 constantes**; conteos: **81 `.py` · 19 `.lean` · 3 `.db`**.
+
+**⇢ LA 9ª REVISIÓN EXTERNA (orden del usuario, antes de cerrar; el
+encargo: ATACAR EL TRASVASE V2 → CADENA REAL). Acta:
+`actarevision1108c.txt`; informes íntegros en `_adv1/2/3.txt`;
+instrumentos de los adversarios en `revision9_adv1/2/3/`. NOVENA
+REVISIÓN, NOVENA MORDIDA — y el patrón de la casa otra vez: LO
+MEDIDO AGUANTA, LO ESCRITO MUERDE.**
+
+- **EL TEOREMA V2 / L3 AGUANTA** (adv 2: «el núcleo matemático
+  aguanta; ninguna mordida tumba el teorema») — telescopio del lema
+  D exacto en racionales (2.352 sufijos), identidad de parada
+  exacta en fracciones, `c₀` por tres caminos; y el regalo: la
+  balota 1,12–1,14 ES `c₀/2 = 1,1284`. Tres reparaciones aplicadas:
+  (LLT-b) reescrita con la **identidad de binomiales consecutivos**
+  (regalo del adversario — la versión «por Stirling» no demostraba
+  la uniformidad en y), el **factor 2** del tramo (3) corregido
+  (−0,014t, no −0,028t), y el **pago del condicionamiento**
+  declarado (O(t^{3/2}), absorbido). La NOTA DE TASA tenía las
+  constantes rotas (la pendiente CRECE de −0,046 a −0,12; la
+  predicción 0,02–0,11 estaba refutada por la propia fase C sin que
+  nadie lo notara) — corregida.
+- **LOS DOS RÉCORDS AGUANTAN EN LOS NÚMEROS** (adv 3): `φ ≥
+  0,462781` clavado a **12 decimales** por dos caminos propios
+  (censo L=24: 48 celdas, 0 discrepancias); la monotonía es teorema;
+  **la predicción falsable de la 8ª CONFIRMADA** (`a(36)/2^36 =
+  0,444069` cruza 0,4431 en k=36); predicción nueva declarada:
+  cruce de 0,462781 hacia k≈45–50, extrapolación φ≈0,52. El
+  certificado CW: **los DIEZ escalones recomputados 10/10** con
+  pinza exacta propia (el 10º: [1,989054, 1,989073], el publicado
+  válido por debajo del mínimo). `medianauniversal` reproducido
+  **byte a byte**. Mordidas de prosa: «sin letra chica» retirado
+  (el puente `λ ≥ λ_T` tiene su paso Perron/SCC sin escribir).
+- **LA DOMINACIÓN DEL RELOJ COMO HECHO AGUANTÓ TODO** (adv 1:
+  C ≤ 1,2 en marginal, adaptada, por A, por bit, por pares, con y
+  sin censura) — **pero la pieza A de `notadominacion.txt` estaba
+  ROTA tres veces** (la cota A−1 inventada — el caso `v₂ = A` no
+  tiene `.lean` y la recarga salta ~Geom(1/2) SIN techo, repetible:
+  116.164 rachas con ≥2 recargas, exceso 19 con A=1 — y el propio
+  `rachasreales.py` había medido la contradicción sin que la nota
+  se enterara). «Reducida a UNA equidistribución» contaba mal: son
+  DOS, más los δ de Arañas y la versión condicionada con premisa
+  falsa (la racha SÍ depende del bit de apertura, 7σ). La nota
+  REESCRITA entera; el bug del check C2 de `rachasreales.py`
+  arreglado. Regalo: la malla 2×2 real/V2b del adversario (±0,03
+  en las cuatro celdas a T EMPAREJADO) — mejor evidencia de P2 que
+  la publicada.
+- **Registro**: 7 correcciones nuevas con lección en la base
+  (**196 · 70 · 20**); los cinco `.py` afectados corregidos y
+  re-corridos; bitácora, paper y `RutaTeoremas` con las etiquetas
+  honestas. Ataques fallidos declarados por los tres (incluidos
+  dos falsos-rotos del adv 3 retirados por él mismo con capa 1, y
+  un error de capa 1 del adv 1 declarado por él).
+
+**⇢ EL BAUTIZO DEL CIERRE (el usuario): el cuerpo nuevo de la
+sesión — reversión + h-transform + mediana universal + teorema
+V2/L3 + el mapa del trasvase — queda bautizado LA SUB-TEORÍA DE
+LURRUS**, hermana de la de la madriguera: aquélla dio el criterio
+de recurrencia, Lurrus da el piso por excursión. («No basta con
+los números, tiene que tener estilo» — 2026.) Los nombres de
+animal para sus teoremas individuales quedan para mañana (P7).
 
 **El estado del programa al cierre de la sesión, en una línea:**
 de los dos lemas que quedaban, **L-A está DEMOSTRADO para V2**

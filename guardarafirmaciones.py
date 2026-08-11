@@ -3081,7 +3081,14 @@ AFIRMACIONES = [
          "del repo. El puente truncado -> cadena entera es el de "
          "PUMAS/ZORRAS (menores anidados, retornoslambda.py). "
          "Computo determinista (sin semillas): la segunda corrida "
-         "reproduce identica."),
+         "reproduce identica (en los numeros; el stdout difiere en "
+         "los tiempos -- precision de la 9a). 9a REVISION (adv 3): "
+         "LOS DIEZ escalones recomputados por implementacion propia "
+         "10/10 con pinza exacta [min,max] (el 10o: [1,989054, "
+         "1,989073], el publicado por debajo del minimo: valido, "
+         "suboptimo ~1,2e-5); la frase SIN LETRA CHICA retirada -- "
+         "el certificado es del TRUNCADO y el puente tiene su paso "
+         "Perron/SCC pendiente."),
 
     fila("L3 ES TEOREMA Y EL TEOREMA V2 QUEDA AUTOCONTENIDO (la "
          "pieza analitica del programa, escrita entera en "
@@ -3115,7 +3122,13 @@ AFIRMACIONES = [
          "transferencia a la cadena real (P2) que es otro teorema. "
          "NO dice nada de Collatz por si solo: es el modelo "
          "autonomo V2 (la diana que la prueba de circularidad "
-         "legitimo)."),
+         "legitimo). PASO LA 9a REVISION (adv 2): el nucleo aguanta "
+         "-- telescopio exacto en racionales (2.352 sufijos), parada "
+         "exacta en fracciones, c0 por tres caminos --, con tres "
+         "reparaciones aplicadas: (LLT-b) reescrita con la identidad "
+         "de binomiales consecutivos, el factor 2 del tramo (3) "
+         "corregido (-0,014t), y el pago del condicionamiento "
+         "declarado. Acta: actarevision1108c.txt."),
 
     fila("LA MEDIANA UNIVERSAL EXISTE TAMBIEN EN LA CADENA REAL "
          "(el mecanismo de la transferencia P2, medido): la ley "
@@ -3139,7 +3152,13 @@ AFIRMACIONES = [
          "v2(3^k - 1) = 1 (k impar) / 2 + v2(k) (k par) por LTE "
          "(verificada k <= 2000, max A = 12): las ventanas heladas "
          "del mecanismo de L2 son O(log k) -- el reloj real NO "
-         "puede congelarse mas que logaritmicamente."),
+         "puede congelarse mas que logaritmicamente. 9a REVISION "
+         "(adv 1): la medicion aguanta, el veredicto se corrigio -- "
+         "el olvido a T = 30 ln c0 es tautologia del disenio (Pieza "
+         "2); lo discriminante es la parte W, confirmada a T "
+         "EMPAREJADO por la malla 2x2 (real y V2b a +-0,03 en las 4 "
+         "celdas); y la balota es 2/sqrt(pi) del RELOJ, no evidencia "
+         "de la transferencia."),
 
     fila("LAS RACHAS REALES ESTAN DOMINADAS POR LA GEOMETRICA PURA "
          "CON CONSTANTE <= 1 (el input del lema de racha de P2, "
@@ -3162,7 +3181,11 @@ AFIRMACIONES = [
          "anterior es geometrica con C_j <= 1,17 en los cuatro "
          "buckets {0},{1-2},{3-5},{>=6} -- la dominacion que la "
          "transferencia pide es adaptada, no solo marginal, y "
-         "tambien esta medida. Y LA PIEZA A EN COMPOSICION (C5): "
+         "tambien esta medida (9a revision, adv 1: las colas "
+         "CONDICIONADAS cruzan 1 -- bit de apertura 1,064, A=7 "
+         "1,119, pares 1,104 -- C0 > 1 acotado <= 1,2; el hecho "
+         "aguanto TODO, el argumento escrito de la nota se "
+         "reescribio). Y LA PIEZA A EN COMPOSICION (C5): "
          "el largo de racha ES v2(c) de entrada en el 81,6% de los "
          "casos, con crash (acorta, 9,3%) y recarga (alarga, 9,1%, "
          "exceso maximo 19: LOCAL) como unicos desvios -- "
@@ -4004,6 +4027,96 @@ CORRECCIONES = [
      "los ejemplos de un enunciado se generan con el codigo, no se "
      "escriben de memoria: un ejemplo mal escrito en un documento de "
      "demostracion es una mina para el lector futuro"),
+
+    ("la recarga de racha alarga a lo sumo A-1 y solo puede dispararse "
+     "una vez por pasada (pieza A de notadominacion, 'YA DEMOSTRADA')",
+     "FALSA TRES VECES: la cota A-1 la invento la nota (el caso "
+     "v2 = A no tiene .lean: la resta 3c - (3^k-1) con ambos v2 = A "
+     "cancela SIN cota -- salto ~Geom(1/2), max observado 21); hay "
+     "recargas MULTIPLES (116.164 rachas con >= 2, hasta 12: el "
+     "descenso por bits 0 vuelve a pisar A); y el exceso llego a 19 "
+     "con A = 1 (techo declarado para k impar: CERO). El propio "
+     "rachasreales.py habia medido exceso 19 contra el techo 11 de la "
+     "nota y puso EXCESO_TOPE = 24 sin que nadie viera la "
+     "contradiccion. Adversario 1 de la 9a. 11-08-2026",
+     "una etiqueta 'YA DEMOSTRADA' se verifica contra el enunciado "
+     "EXACTO de los .lean que se citan, no contra el recuerdo de lo "
+     "que demuestran; y cuando el propio script contradice a la nota "
+     "que alimenta, uno de los dos miente"),
+
+    ("la transferencia P2 quedo reducida a UNA equidistribucion",
+     "son al menos DOS (v2 tras mixto + la cancelacion de las "
+     "recargas), mas los delta de Aranas sin cargar en ningun texto "
+     "(en el sufijo k = 2,3 mueven el objeto limite <= ~5%) y la "
+     "version condicionada a sobrevivir con premisa falsa (la racha "
+     "SI depende del bit del mixto que la abre: 0,911 contra 0,985, "
+     "7 sigmas -- el h-transform SI mueve la ley de rachas, direccion "
+     "favorable). Adversario 1 de la 9a. 11-08-2026",
+     "contar los huecos de una reduccion es parte del enunciado: "
+     "'reducido a X' con X incompleto es la forma mas cara de "
+     "optimismo, porque dirige el trabajo siguiente al sitio "
+     "equivocado"),
+
+    ("(LLT-b) uniforme en y sale de Stirling no-asintotico",
+     "el argumento escrito NO la demostraba: el error del CLT local "
+     "(1+O(|j|^3/m)) explota en j ~ sqrt(m) y la resta de gaussianas "
+     "casi iguales no sobrevive. La cota ES cierta y la reparacion es "
+     "una identidad exacta de binomiales consecutivos: g_m(y) = "
+     "2^(-m) C(m,(m+y-2)/2) * 2(y-1)/(m+y) -- regalo del adversario. "
+     "Adversario 2 de la 9a. 11-08-2026",
+     "'sale de Stirling' no es una demostracion cuando el paso "
+     "sensible es una RESTA de terminos casi iguales: ahi el error "
+     "relativo del sumando manda, y hay que buscar la identidad que "
+     "evite la resta"),
+
+    ("S(t) - S(j) <= log(3/2) m_t - 0,028 t en el tramo de la primera "
+     "mitad de L3",
+     "ERROR ARITMETICO DE FACTOR 2: el 0,028 = 0,07 x 0,4 estaba "
+     "copiado de la parte (ii) donde la ventana es entera; en la cola "
+     "j = t/2 los compartidos garantizados son 0,2t y la constante "
+     "correcta es 0,07 x 0,2 = 0,014. La conclusion sobrevive con "
+     "-0,01t. Ademas el evento del reloj pagaba probabilidad "
+     "condicional con cota incondicional (falta el factor "
+     "1/P(tau=t) = O(t^(3/2)), que la exponencial absorbe). "
+     "Adversario 2 de la 9a. 11-08-2026",
+     "las constantes no se COPIAN entre lemas: se rederivan en la "
+     "ventana del lema nuevo -- una desigualdad exhibida falsa en un "
+     "teorema 'demostrado' es exactamente lo que la capa 1 existe "
+     "para cazar"),
+
+    ("log P~_R = -0,057R +- 0,6 sqrt(R), gaussiano hasta R ~ 300-600",
+     "constantes FALSAS: la pendiente medida bajo P~+ CRECE de -0,046 "
+     "(R=40) a -0,12 (R=640) hacia el limite -0,1438, y la sd es "
+     "0,47 sqrt(R); el -0,057 era conflacion con la pendiente "
+     "GARANTIZADA 0,4 x 0,1438 de la parte (ii). Y la prediccion "
+     "'P(err_640 > 0,1) ~ 0,02-0,11' de esa formula habia sido "
+     "REFUTADA por la propia fase C (0,000 medido) sin que nadie lo "
+     "notara. Adversario 2 de la 9a. 11-08-2026",
+     "cuando una prediccion propia falla contra una medicion propia "
+     "EN EL MISMO FICHERO, el desacuerdo es un hallazgo que hay que "
+     "procesar, no una casilla verde mas"),
+
+    ("la balota real clava la constante de V2: el mecanismo de la "
+     "transferencia P2, medido por su punta",
+     "la constante es 2/sqrt(pi) = 1,1284 = c0/2, universal de "
+     "CUALQUIER paseo justo desde h=1 con tasa mixta 1/2: verifica el "
+     "RELOJ, no la transferencia -- cualquier perpetuidad pegada al "
+     "mismo paseo daria el mismo numero. Adversario 1 de la 9a (la "
+     "identificacion con c0/2 es del adversario 2). 11-08-2026",
+     "una coincidencia numerica solo es evidencia de X si es "
+     "SENSIBLE a X: la balota es insensible a todo lo que la "
+     "transferencia necesita (u, W, la perpetuidad)"),
+
+    ("la cota de Pumas certificada, SIN letra chica",
+     "la letra chica existe y es EL PUENTE: el certificado CW es del "
+     "TRUNCADO (teorema); lambda >= lambda_T va por menores anidados, "
+     "pero heredar el RITMO rho(M_T) pide el paso Perron/SCC sin "
+     "escribir (evidencia: las razones de pumasescalera empatan los "
+     "certificados a ~1e-6 -- evidencia, no lema). Adversario 3 de "
+     "la 9a. 11-08-2026",
+     "'sin letra chica' es una afirmacion sobre TODA la cadena "
+     "deductiva, no sobre el eslabon recien forjado: el certificado "
+     "blindo un eslabon y la frase se atribuyo la cadena"),
 ]
 
 

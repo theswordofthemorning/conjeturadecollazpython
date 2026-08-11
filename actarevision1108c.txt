@@ -1,0 +1,143 @@
+=====================================================================
+ACTA DE LA 9a REVISION EXTERNA ADVERSARIAL (11-08-2026 (2))
+Tres adversarios independientes contra la tanda entera del dia, con
+el encargo del usuario: ATACAR LA TRANSFERENCIA V2 -> CADENA REAL,
+"donde ahora vive todo el peso". Informes integros en
+actarevision1108c_adv1/2/3.txt; instrumentos de los adversarios en
+revision9_adv1/2/3/. NOVENA REVISION, NOVENA MORDIDA -- y el patron
+de la casa otra vez: LO MEDIDO AGUANTA, LO ESCRITO MUERDE.
+Correcciones aplicadas el mismo cierre (este fichero las lista).
+=====================================================================
+
+EL TITULAR
+----------
+1. EL TEOREMA V2 / L3 AGUANTA COMO MATEMATICA (adv 2: "el nucleo
+   matematico aguanta; ninguna mordida tumba el teorema") -- con el
+   telescopio del lema D verificado EXACTO en racionales sobre los
+   2.352 sufijos, la identidad de parada exacta en fracciones, c0 =
+   4/sqrt(pi) rederivada y cruzada por tres caminos, y el regalo:
+   la "balota" 1,12-1,14 ES c0/2 = 1,1284.
+2. LOS DOS RECORDS AGUANTAN EN LOS NUMEROS (adv 3): phi >= 0,462781
+   CLAVADO A 12 DECIMALES por dos caminos propios (censo real L=24:
+   48 celdas, 0 discrepancias; gramatica re-derivada a mano); la
+   monotonia es teorema de dos lineas; NINGUN a(k) conocido
+   contradice; y LA PREDICCION FALSABLE DE LA 8a SE CONFIRMA:
+   a(k)/2^k cruza 0,4431 exactamente en k = 36 (0,444069), dentro
+   de la ventana 36-40. El certificado CW: logica valida, enteros
+   de verdad, 9/9 escalones con pinza exacta propia [min, max].
+   La reproduccion de medianauniversal: byte a byte, total.
+3. LA DOMINACION DEL RELOJ REAL COMO HECHO AGUANTO TODO (adv 1:
+   marginal, adaptada, por A, por bit, por pares, con y sin
+   censura: C <= 1,2) -- PERO EL ARGUMENTO ESCRITO QUE LA EXPLICABA
+   ESTA ROTO: la Pieza A de notadominacion.txt era falsa tres veces
+   (la cota A-1 inventada, "una vez por pasada" falso -- 116.164
+   rachas con recargas multiples, hasta 12 --, y el caso v2 = A no
+   tiene .lean: la recarga salta ~Geom(1/2) SIN techo, exceso
+   observado 19 con A = 1). "Reducida a UNA equidistribucion"
+   contaba mal: son DOS (v2 tras mixto + cancelacion de recargas),
+   mas los delta de Aranas sin cargar y la version condicionada
+   con premisa falsa (la racha SI depende del bit de apertura, 7
+   sigmas).
+
+LO ROTO / EXAGERADO / MAL ESCRITO, APLICADO
+-------------------------------------------
+ADV 1 (C-1 a C-9, todas aplicadas):
+  - notadominacion.txt REESCRITA entera (pieza A honesta con la
+    recarga sin techo y las DOS equidistribuciones; pieza B con el
+    cuantificador corregido -- en un mixto NO entran bits frescos,
+    B es falsa condicionada al pasado fino y falsa uniforme en c0
+    (contraejemplos: c0 = 999983 fuerza rachas 1-2 = 0; c0 =
+    -3^(-1) mod 2^21 fuerza racha_1 = 20); la version condicionada
+    a sobrevivir queda POR MEDIR con la inclinacion del h-transform
+    puesta, direccion favorable).
+  - rachasreales.py: el BUG del check C2 arreglado (comparaba la
+    franja (4,8) contra la frontera vacia; la franja k >= 9, la
+    unica con C_j > 1, quedaba sin vigilar) y EXCESO_TOPE
+    re-etiquetado como guardia de cordura, no cota teorica.
+  - bitacora y paper: la balota real es 2/sqrt(pi) = 1,1284,
+    constante universal del RELOJ -- la frase "el mecanismo de P2
+    medido por su punta" retirada.
+  - medianareal.py: el veredicto C2 re-escrito honesto (el olvido
+    a T = 30 ln c0 es tautologia del disenio via Pieza 2; lo
+    discriminante es la estabilidad de W, confirmada a T EMPAREJADO
+    por la malla 2x2 del adversario: real y V2b a +-0,03 en las 4
+    celdas -- MEJOR evidencia que la publicada).
+ADV 2 (1-5, todas aplicadas):
+  - teoremav2.txt (LLT-b): la uniformidad en y NO estaba demostrada
+    (el error del CLT local explota en j ~ sqrt(m)); REPARADA con
+    la identidad exacta de binomiales consecutivos que el propio
+    adversario regalo: g_m(y) = 2^(-m) C(m,(m+y-2)/2) * 2(y-1)/(m+y).
+  - teoremav2.txt (L3, tramo 3): ERROR ARITMETICO DE FACTOR 2 --
+    la cota exhibida decia -0,028t (copiada de la parte (ii)); la
+    correcta en j = t/2 es 0,07*0,2 = -0,014t <= -0,01t. La
+    conclusion sobrevive; la desigualdad exhibida era falsa.
+  - teoremav2.txt (L3 (3)(b) y corolario): el PAGO DEL
+    CONDICIONAMIENTO anadido (el evento del reloj es G-medible y
+    correlacionado con tau: se paga 1/P(tau=t) = O(t^(3/2)), que la
+    exponencial absorbe -- antes se afirmaba probabilidad
+    condicional con cota incondicional).
+  - teoremav2.txt (NOTA DE TASA): CONSTANTES ROTAS y corregidas --
+    la pendiente de log P~_R no es -0,057 constante: CRECE de
+    -0,046 (R=40) a -0,12 (R=640) hacia -0,1438, sd 0,47 sqrt(R);
+    la prediccion "P(err_640) ~ 0,02-0,11" habia sido refutada por
+    la PROPIA fase C (0,000) sin que nadie lo notara.
+  - menores: raiz 5,346 (no 5,347), y <= R+1, segundo tramo de
+    (iii-b) redundante, trasvasel3 con el indice S_lista[j-1]
+    corregido a S_lista[j] (sobrecontaba 3/2, direccion
+    conservadora) y "estable en T" -> "acotada en T".
+ADV 3 (1-4, todas aplicadas):
+  - certificadocw.py y bitacora: "SIN LETRA CHICA" retirado -- el
+    certificado es DEL TRUNCADO (teorema); el puente lambda >=
+    lambda_T (menores anidados) tiene su paso fino pendiente:
+    heredar el RITMO rho(M_T) pide el paso Perron/SCC sin escribir
+    (evidencia: las razones de pumasescalera empatan los
+    certificados a ~1e-6).
+  - recordsincap.py: el comentario del censo C3 completado (la
+    identificacion |y-x| = 1 <=> (0,1) no se supone: la valida el
+    empate celda a celda) y la impresion unificada (la serie
+    redondeaba y la escalera truncaba el mismo racional).
+  - LIMITE DECLARADO Y COBRADO EL MISMO CIERRE: el escalon 10
+    RECOMPUTADO por implementacion propia del adv 3 -- estados y
+    soporte IDENTICOS, pinza exacta [1,989054, 1,989073] con el
+    publicado 1,989042 por debajo del minimo (cota valida,
+    suboptima en ~1,2e-5): LOS DIEZ ESCALONES, 10/10.
+
+LOS ATAQUES FALLIDOS (la otra mitad del acta, declarados por los
+tres: censura del censo -- estructuralmente nula, las abiertas son
+todas de largo 0 --, memoria de c0 a T fijo -- el propio adversario
+declaro su error de capa 1 --, el acoplamiento del reloj revertido
+-- esquivado por construccion via la densidad D --, off-by-one de
+la identidad de parada -- 5 pares exactos --, los 12 decimales del
+record, la monotonia como casualidad, floats en la cadena CW, la
+reproduccion byte a byte, y dos FALSOS ROTOS del adv 3 retirados
+por el mismo con capa 1.)
+
+REGALOS DE LA RONDA
+-------------------
+- La identidad de binomiales consecutivos (adv 2): (LLT-b) uniforme
+  en y en una linea -- entra al teorema.
+- balota = c0/2 (adv 2): la constante 1,1284 conecta la LLT con
+  las mediciones de todas las pasadas.
+- La malla 2x2 real/V2b (adv 1): coincidencia a +-0,03 en las
+  cuatro celdas A T EMPAREJADO -- la mejor evidencia de P2 hasta
+  la fecha, mejor que la que el repo habia publicado.
+- La prediccion de la 8a confirmada en k = 36 (adv 3) y la nueva
+  prediccion falsable declarada: el cruce de 0,462781 hacia
+  k ~ 45-50; la suma geometrica sugiere phi ~ 0,52.
+- La pinza [min, max] exacta por Fraction del certificado CW
+  (adv 3): tecnica para heredar (el maximo es cota superior de
+  lambda_T -- encierra, no solo minora).
+
+EL SALDO PARA EL PROGRAMA
+-------------------------
+El teorema V2 (L-A para el modelo autonomo) queda EN PIE con las
+reparaciones puestas -- las tres correcciones sustantivas eran de
+escritura, no de mecanismo, y el objeto (la mediana universal del
+h-transform) sobrevivio la verificacion exacta en racionales. La
+transferencia P2 queda con su mapa honesto: DOS equidistribuciones
+por escribir (no una), los delta de Aranas por cargar, la version
+condicionada por medir, y el paso Perron/SCC del puente espectral
+por escribir. Nada de eso retrocede lo medido: la dominacion, la
+mediana real y los records aguantaron enteros. NOVENA REVISION,
+NOVENA MORDIDA: la doctrina no falla.
+=====================================================================

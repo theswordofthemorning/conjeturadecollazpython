@@ -1,0 +1,58 @@
+======================================================================
+VARIANTE V2a (reloj moneda justa)
+======================================================================
+COMPROBACION 3 OK: 20000 corridas del reverso, P~ final max 1.0e-15,
+horizonte usado maximo 683 de 6000.
+|W~_inf| del reverso: cuantiles [10, 25, 50, 75, 90] = ['3.6123', '7.1171', '17.4950', '53.5532', '181.3844']
+  M (cuantil 75) = 53.5532   mediana = 17.4950
+
+forward V2a condicionado a tau en [T, 2T]:
+   T     muestras  corridas   P(tau>T)*sqrt(T)   cuantiles 10/25/50/75/90 de |W_tau|   P(|W|<=M)
+    100     4000    120818      1.122            3.208/5.827/12.814/32.993/91.891   0.838
+    400     4000    239436      1.140            3.540/6.828/16.140/49.103/149.477   0.769
+   1600     4000    484939      1.113            3.580/7.039/17.865/53.503/177.875   0.750
+   6400     1500    353995      1.135            3.630/7.087/17.832/55.651/189.692   0.740
+COMPROBACION 1 OK (signo) y 2 OK (balota) en las ventanas.
+
+  T =   100:  mediana fwd = 12.8143   (limite 17.4950, desvio 26.8%)
+  T =   400:  mediana fwd = 16.1396   (limite 17.4950, desvio 7.7%)
+  T =  1600:  mediana fwd = 17.8648   (limite 17.4950, desvio 2.1%)
+  T =  6400:  mediana fwd = 17.8323   (limite 17.4950, desvio 1.9%)
+COMPROBACION 4 OK: la mediana condicionada converge al limite
+del reverso (desvio 1.9% en T = 6400).
+COMPROBACION 5 OK: con M = 53.5532, P(|W_tau| <= M | ventana) = 0.838, 0.769, 0.750, 0.740
+
+======================================================================
+VARIANTE V2b (rachas Geometrica(1/2))
+======================================================================
+COMPROBACION 3 OK: 20000 corridas del reverso, P~ final max 1.0e-15,
+horizonte usado maximo 657 de 6000.
+|W~_inf| del reverso: cuantiles [10, 25, 50, 75, 90] = ['3.6710', '7.2550', '17.6037', '52.7421', '183.5315']
+  M (cuantil 75) = 52.7421   mediana = 17.6037
+
+forward V2b condicionado a tau en [T, 2T]:
+   T     muestras  corridas   P(tau>T)*sqrt(T)   cuantiles 10/25/50/75/90 de |W_tau|   P(|W|<=M)
+    100     4000    118485      1.137            3.427/6.129/13.577/36.041/105.540   0.820
+    400     4000    242410      1.116            3.544/6.947/15.936/46.798/144.649   0.767
+   1600     4000    481651      1.128            3.517/7.045/17.079/53.374/181.700   0.748
+   6400     1500    364159      1.132            3.653/7.475/17.816/55.605/159.872   0.737
+COMPROBACION 1 OK (signo) y 2 OK (balota) en las ventanas.
+
+  T =   100:  mediana fwd = 13.5774   (limite 17.6037, desvio 22.9%)
+  T =   400:  mediana fwd = 15.9364   (limite 17.6037, desvio 9.5%)
+  T =  1600:  mediana fwd = 17.0793   (limite 17.6037, desvio 3.0%)
+  T =  6400:  mediana fwd = 17.8161   (limite 17.6037, desvio 1.2%)
+COMPROBACION 4 OK: la mediana condicionada converge al limite
+del reverso (desvio 1.2% en T = 6400).
+COMPROBACION 5 OK: con M = 52.7421, P(|W_tau| <= M | ventana) = 0.820, 0.767, 0.748, 0.737
+
+VEREDICTO: la mediana universal EXISTE en las DOS variantes del
+reloj y es la del h-transform de AGKV correspondiente -- V2a es
+el mecanismo de L3; V2b (rachas) es la evidencia para la
+transferencia P2 (el reloj de rachas no rompe el objeto limite).
+
+Lectura honesta: esto verifica el MECANISMO (i)-(iii) de
+fichaagkv.txt seccion D por dos caminos sin codigo comun; el
+teorema L3 sigue pendiente de escribir (la parte (ii) ya esta
+demostrada en teoremav2.txt; (i)/(iii) con molde clasico).
+Es medicion, no cota.

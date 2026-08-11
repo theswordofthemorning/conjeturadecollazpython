@@ -1,0 +1,23 @@
+EL CERTIFICADO COLLATZ-WIELANDT DE LA ESCALERA DE PUMAS
+(v entero, minimo exacto sobre el soporte; el float solo busca)
+
+  K     C       estados    soporte    certificado   publicada   dif
+   2        12         20         19     1.739963     1.740000   -3.7e-05   
+   3        48        121        120     1.866657     1.866700   -4.3e-05   
+   5       192        734        728     1.933590     1.933600   -9.8e-06   
+   7       768       3717       3702     1.955595     1.955600   -4.8e-06   
+   9      3072      16361      15415     1.967467     1.967500   -3.3e-05   
+  11     12288      72835      68889     1.975447     1.975450   -3.4e-06   
+  13     49152     313672     288187     1.980748     1.980748   -3.1e-07   
+  15    196608    1312342    1178539     1.984415     1.984415   +2.1e-07   
+  17    786432    5338332    4712671     1.987045     1.987046   -8.5e-07   
+  [escalon 10 saltado: ESCALON_10 = False]
+
+COMPROBACIONES 1 y 2 OK: los nueve escalones certificados a menos
+de 5e-04 de lo publicado, y la escalera certificada es monotona.
+
+COMPROBACION 3 OK -- LA COTA DE PUMAS, SIN LETRA CHICA:
+  LAMBDA >= 1.987045   CERTIFICADO (Collatz-Wielandt en enteros,
+  ultimo escalon: K = 17, |c| <= 786432, 5338332 estados). La 'razon
+  convergida' de pumasescalera era estimacion; esto es teorema
+  del truncado, y el puente a la cadena entera es el de PUMAS.

@@ -1,0 +1,217 @@
+INFORME DEL ADVERSARIO 2 -- 9a REVISION EXTERNA (11-08-2026 (2))
+Encargo: romper el teorema L3 y el teorema V2 de teoremav2.txt.
+Ficheros leidos enteros: teoremav2.txt, fichaagkv.txt, trasvasel3.py
++ salida, medianauniversal.py + salida. Instrumentos propios en
+revision9_adv2/ (dp_indep.py -- DP propio del LLT, techo 500;
+exacto_fracciones.py -- verificacion EXACTA en fractions:
+telescopio, factorizacion de Markov, identidad de parada;
+reverso_indep.py -- reverso h-transformado con semilla 777 y codigo
+propio). Informe integro, transcrito sin editar (notacion ASCII).
+
+VEREDICTO GLOBAL: EL NUCLEO MATEMATICO AGUANTA, CON CUATRO MORDIDAS
+REALES -- dos huecos de escritura en pasos que se declaran
+demostrados (uno reparable con una identidad exacta que queda
+escrita), un error aritmetico de factor 2 en una desigualdad
+exhibida del teorema L3, y la NOTA DE TASA con constantes
+empiricamente falsas contradichas por los propios datos del repo.
+NINGUNA TUMBA EL TEOREMA. La novena revision tambien mordio.
+
+=====================================================================
+PIEZA A PIEZA
+=====================================================================
+
+1. EL LEMA LLT -- (LLT-a), c0 = 4/sqrt(pi): AGUANTA
+Rederivado desde cero: (a) la traduccion "desde 2 >= 2" <-> "desde
+1 >= 1" y los indices de la balota C(m,(m+y-2)/2) - C(m,(m+y)/2)
+con paridad m = y (mod 2) -- correctos. (b) El peso de cada paridad
+de M ~ Bin(s,1/2) no "tiende" a 1/2: ES exactamente 1/2 para todo
+s >= 1 (suma alternada de binomiales = 0); en la ventana de
+Chernoff el error es <= e^(-2 s^(1/3)). (c) La sustitucion m =
+s/2 (1+O(s^(-1/3))) en m^(-3/2): legitima. La cadena da
+(4/sqrt(pi))(y-1) s^(-3/2): LA CONSTANTE ES CORRECTA.
+Verificacion cruzada propia: DP independiente (techo 500) da c0
+medido 2,2553 en s = 4000 (cociente 0,99934), perfil (y-1)
+identico digito a digito, y P(tau en [T,2T]) sqrt(T) = 0,3305 =
+(c0/2)(1 - 2^(-1/2)) clavado a 4 decimales en tres ventanas.
+REGALO: la "balota" 1,12-1,14 de medianauniversal_salida.txt es
+c0/2 = 1,1284 -- consistencia cruzada que el repo no habia notado.
+
+2. (LLT-b), COTA SUPERIOR UNIFORME EN y: CLAIM VERDADERO,
+DEMOSTRACION MAL ESCRITA (la mordida principal)
+El texto despacha (LLT-b) con "las versiones no-asintoticas de
+Stirling". FALSO tal como esta escrito: su termino de error
+(1 + O((1+|j|^3)/m)) es basura relativa en cuanto j >~ m^(1/3) (en
+j ~ sqrt(m) vale O(sqrt(m))), y la resta de dos gaussianas casi
+iguales (tamanio relativo ~2y/m) no sobrevive esos errores: el
+argumento escrito NO produce el (y-1) uniforme que el tramo MEDIO
+de L3 necesita (y ~ sqrt(t)). "AUTOCONTENIDO modulo Stirling"
+apoyado en esa frase: AHI HAY UN AGUJERO.
+LA REPARACION EXACTA, DE UNA LINEA (verificada: m=10, y=4 ->
+210-120 = 90 = 210*6/14): con k = (m+y-2)/2,
+  C(m,k) - C(m,k+1) = C(m,k)*(y-1)/(k+1), o sea
+  g_m(y) = 2^(-m) C(m,(m+y-2)/2) * 2(y-1)/(m+y)
+identidad EXACTA de binomiales consecutivos. Con la unica cota
+estandar 2^(-m) C(m,.) <= sqrt(2/(pi m))(1+1/(4m)) sale
+g_m(y) <= 2 sqrt(2/pi) (1+1/(4m)) (y-1) m^(-3/2) UNIFORME EN TODO
+y, sin gaussianas restadas. DP propio confirma: sup D = 2,823
+sobre r <= t/2 y todo y <= 500 en t = 2000, alcanzado en (1000, 2),
+contra 2^(3/2) = 2,828 -- identico al del repo, insensible al
+techo.
+
+3. EL LEMA D (factorizacion + telescopio): AGUANTA -- verificado
+EXACTO, mas fuerte que su propio test
+En racionales, enumeracion completa: telescopio P~+(sigma
+revertido) = 4^(-(r-1))(y-1) EXACTO en los 2.352 sufijos de
+absorcion de r = 2..7, con suma 1 exacta en cada r; factorizacion
+de Markov: Suma_sigma 4^(-r) Q_{t-r}(2, y(sigma)) = P(tau = t) =
+52003/4194304 EXACTO en t = 12, r = 4; P(tau=t) = (1/4)Q_{t-1}(2,2)
+exacta.
+ATAQUE FALLIDO DECLARADO (el del encargo): "la reversion del reloj
+iid condicionado a tau = t, sigue iid?" NO LO ES, Y NO HACE FALTA:
+el Lema D nunca asume eso -- compara contra una cadena DEFINIDA
+(P~+) mediante una densidad exacta D(t,r,y), y el acoplamiento
+reloj-condicionamiento vive entero dentro de D, acotada por C. La
+trampa esta esquivada por construccion. El primer paso revertido
+(absorbente): la contabilidad 4^(-r) forward contra 4^(-(r-1))
+reverso cierra exacta -- el 1/4 sobrante lo absorbe D.
+
+4. EL LEMA (iii-b) DEL MAXIMO: AGUANTA
+La identidad de parada rederivada (martingala h(k_{n^tau1}) +
+parada opcional en tau_m ^ R ^ tau_1, tiempo acotado -- riguroso) y
+verificada EXACTA por DP racional en 5 pares (m,R): igualdad de
+fracciones, no de floats. Hoeffding maximal: e^{lambda(k_n - 2) -
+lambda^2 n/2} es supermartingala para incrementos en {-1,0,+1}
+centrados; Doob + lambda = (m-2)/R da la cota con esas constantes
+(conservadora: la varianza real del perezoso es 1/2). La
+descomposicion en dos tramos esta bien encadenada pero el segundo
+tramo SOBRA (el primero ya da cota mejor). Cosmetico.
+
+5. EL LEMA (ii): AGUANTA
+Descomposicion del log-producto: algebra exacta. Chernoff e^(-r/50)
+exacto. Hoeffding e^(-0,009 L_c) exacto (2 (0,14384-0,07)^2 /
+(log 3)^2 = 0,009024). Borel-Cantelli bien montados. El paso (4)
+por bloques R = 2^j da k~_r <= 2^(1/2+delta) r^(1/2+delta), se
+absorbe subiendo delta -- vale como esta enunciado. El paso (5)
+exige r >~ 2.600 (delta -> 0): "para r grande" es honesto. Reverso
+independiente: k~ medio 29,5 en r = 640 ~ 1,17 sqrt(r).
+
+6. EL TEOREMA L3: AGUANTA CON DOS REPARACIONES OBLIGATORIAS
+Ataques fallidos declarados: (a) {|medio| > 1/2} SI es medible
+respecto de los ultimos t/2 pasos (tau = t fijado: rango
+determinista, cada termino del sufijo); (b) los bits libres SI son
+independientes de G bajo el condicionamiento (tau es G-medible);
+(d) el orden de limites y los o(1) uniformes: correctos; la
+variacion total del sufijo evita el borde; (e) la union del
+corolario esquiva la dependencia como dice; |u| <= 1 + M, K = M+1
+cierra.
+MORDIDA C2 (ERROR ARITMETICO REAL, FACTOR 2): el evento bueno da
+>= 0,2t compartidos por cola y suma libre <= -0,07 L_j ==> S(t) -
+S(j) <= log(3/2) m_t - 0,014 t, NO el "-0,028 t" exhibido (el
+0,028 = 0,07*0,4 esta copiado de la parte (ii), donde la ventana es
+entera; en j = t/2 la cola tiene esperanza 0,25t y el umbral 0,4t
+seria exponencialmente improbable: el -0,028t es irreparable ahi).
+La conclusion sobrevive con -0,01t: |mitad| <= (t/4) e^(-0,01t) ->
+0 igual. Pero es una desigualdad exhibida FALSA en un teorema
+declarado demostrado.
+MORDIDA C3 (EL PRECIO DEL CONDICIONAMIENTO DEL RELOJ): el evento
+malo (b) es del RELOJ (G-medible, correlacionado con tau); su
+"t e^(-ct)" es la probabilidad INCONDICIONAL. Condicionada a tau=t
+hay que pagar 1/P(tau=t) = O(t^(3/2)) (LLT-b inferior).
+Exponencial mata polinomio y la conclusion no se mueve, pero el
+paso afirma probabilidad condicional con cota incondicional. (El
+evento (c) NO tiene este problema; el (a) lo paga explicito via
+(iii-b). Lo mismo el "exponencialmente raro" del corolario: falta
+el /P(A) ~ sqrt(T), igual de inofensivo e igual de no dicho.)
+
+7. EL COROLARIO (teorema V2 completo): AGUANTA modulo las
+reparaciones de arriba. La composicion P(A)(1/2 - o(1)) con P(A) ~
+(c0/2)(1-2^(-1/2)) T^(-1/2) y T = 30 log x da c/sqrt(log x) con
+K = M+1 universal. VERIFICADA ADEMAS LA PIEZA 2 ENTERA: la raiz de
+la cuadratica es 5,3458 (el texto dice 5,347 -- pelusa), en
+log x = 28 falla por 0,213 (el texto dice 0,2), log x >= 29 basta:
+LA CORRECCION EN VIVO DEL REPO ERA CORRECTA. Constantes mu, sigma,
+F <= log(3/2): todo cierra.
+
+8. LA NOTA DE TASA: ROTA EN SUS CONSTANTES (y contradicha por los
+propios datos del repo)
+Publicado: "log P~_R = -0,057R +- 0,6 sqrt(R), gaussiana hasta
+R ~ 300-600". Medicion directa bajo P~+ (40.000 corridas, semilla
+777): media/R = -0,046 (R=40), -0,095 (R=160), -0,119 (R=640) --
+LA PENDIENTE NO ES CONSTANTE EN NINGUN SUBRANGO: crece hacia el
+limite -0,1438 (la deriva a k grande del propio h-transform); y la
+sd es 0,47 sqrt(R), no 0,6 sqrt(R). El -0,057 coincide
+sospechosamente con la cota GARANTIZADA 0,4*0,1438 = 0,0575 de la
+ficha (ii): conflacion de la pendiente demostrada con la deriva
+medida. Y LO DECISIVO: la prediccion del propio repo con su formula
+("P(err_640 > 0,1) ~ 0,02-0,11") FUE REFUTADA POR SU PROPIA
+MEDICION (0,000 en las dos ventanas), mientras estos numeros la
+predicen bien (media -76, sd 12: P ~ 1e-10 ~ 0; y en R = 160 la
+curva da ~0,015 contra 0,009-0,040 medido). El mensaje cualitativo
+(transitorio lento, pagar sqrt(R)) sobrevive; los numeros no.
+
+9. LAS SALIDAS NUMERICAS RESTANTES: AGUANTAN
+Reverso independiente (777, 40.000): cuantiles 3,62/7,15/17,44/
+53,16/180,8 contra 3,61/7,12/17,50/53,55/181,4 -- ruido MC;
+P(|W~| <= 53,553) = 0,751. Forward T=400 propio: mediana 16,66
+(publicado 16,14), exito 0,763 (0,769). El sup 2,823: clavado
+exacto con techo distinto. El "0,750/0,740 -> 0,75" consistente
+(1 sigma con n = 1500).
+HALLAZGO MENOR en trasvasel3.py (fases B/C): el codigo usa
+S_lista[j-1] donde el comentario dice e^(S(tau)-S(j)) --
+sobrecuenta cada termino en el factor A_j = 3/2. Direccion
+CONSERVADORA (los tests pasan con mas margen del declarado), no
+invalida nada, pero comentario y codigo no dicen lo mismo. Y el
+check C-b "estable en T a R fijo": err_160 SUBE 0,009 -> 0,026 ->
+0,040 (x4,4) -- pasa por la tolerancia, pero la palabra honesta es
+"acotada", no "estable"; la celda T=400/R=640 es parcialmente
+vacua (err = 0 si tau < 640).
+
+=====================================================================
+CORRECCIONES PEDIDAS (numeradas, con reemplazo)
+=====================================================================
+
+1. teoremav2.txt, LLT-b: reemplazar "las versiones no-asintoticas
+   de Stirling" por la identidad exacta de binomiales consecutivos:
+   "g_m(y) = 2^(-m) C(m,(m+y-2)/2) * 2(y-1)/(m+y) (identidad
+   exacta: C(m,k)-C(m,k+1) = C(m,k)(y-1)/(k+1)); con
+   2^(-m) C(m,.) <= sqrt(2/(pi m))(1+1/(4m)) la cota superior es
+   uniforme en TODO y; la inferior para y fijo sale de (LLT-a)".
+2. teoremav2.txt, Teorema L3 (3): "- 0,028 t <= -0,02 t" ->
+   "- 0,014 t <= -0,01 t" (0,07*0,2 = 0,014), y "(t/4) e^(-0,02 t)"
+   -> "(t/4) e^(-0,01 t)".
+3. teoremav2.txt, Teorema L3 (3)(b) y corolario: aniadir el pago
+   del condicionamiento ("condicionado a tau = t se paga el factor
+   1/P(tau=t) = O(t^(3/2)) por (LLT-b), que la exponencial
+   absorbe"; idem el /P(A) ~ sqrt(T) del corolario).
+4. teoremav2.txt, NOTA DE TASA: retirar "-0,057R +- 0,6 sqrt(R),
+   gaussiano hasta R ~ 300-600"; escribir lo medido: pendiente
+   media de ~-0,046 (R=40) a ~-0,12 (R=640) hacia el limite
+   -0,1438, sd ~ 0,47 sqrt(R); el -0,057 es la pendiente
+   GARANTIZADA de la ficha (ii), no la empirica; la prediccion
+   0,02-0,11 para err_640 quedo refutada por la propia fase C.
+5. Menores: (iii-b) el segundo tramo sobra; "alturas y <= R+2" ->
+   R+1; "raiz exacta 5,347" -> 5,346; en trasvasel3.py anotar el
+   desfase comentario/codigo (factor 3/2 conservador) y cambiar
+   "estable en T" por "acotada en T", sin re-correr nada.
+
+=====================================================================
+ATAQUES FALLIDOS (intentados de verdad, declarados)
+=====================================================================
+El acoplamiento del reloj revertido (esquivado por construccion,
+verificado exacto); el primer paso revertido y su contabilidad;
+off-by-one temporal en la identidad de parada (5 pares exactos en
+racionales); sensibilidad al techo del DP (500 vs 420: identico);
+circularidad de c0 (rederivada a mano y cruzada por tres caminos);
+la medibilidad del tramo medio; la independencia de los bits libres
+bajo el condicionamiento; la dependencia entre las piezas 2 y 3 en
+la union final; los indices de la balota y la paridad (exacta); la
+cola del truncamiento del reverso en medianauniversal.py.
+
+RESUMEN PARA EL TRONCO: L3 y V2 quedan EN PIE como matematica, pero
+"demostrado y autocontenido" requiere las correcciones 1-3: tal
+como esta escrito, la cota clave uniforme en y no esta demostrada
+(aunque SI es cierta y la reparacion es de una linea), hay una
+desigualdad exhibida falsa por factor 2, y un paso afirma
+probabilidad condicional con cota incondicional. La NOTA DE TASA
+debe corregirse antes de que alguien construya encima de sus
+constantes. Ocho de ocho mordieron; van nueve de nueve.

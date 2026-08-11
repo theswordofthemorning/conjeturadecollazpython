@@ -1,0 +1,319 @@
+INFORME DEL ADVERSARIO 1 -- 9a REVISION EXTERNA (11-08-2026 (2))
+Encargo del usuario: ATACAR LA TRANSFERENCIA V2 -> CADENA REAL.
+Ficheros atacados: notadominacion.txt, rachasreales.py,
+medianareal.py, medianauniversal.py, teoremav2.txt (secciones
+nuevas), fichaagkv.txt. Instrumentos propios en revision9_adv1/
+(adv1_recargas.py, semilla 20260814 -- reproduce el stream del repo
+bit a bit, 3.860.014 rachas clavadas; adv1_confundido.py, semilla
+20260901). Informe integro, transcrito sin editar.
+
+=====================================================================
+
+PIEZA ATACADA 1: notadominacion.txt par.2 (Pieza A) -- ROTO (el
+enunciado; la dominacion medida sobrevive)
+
+La Pieza A dice: "racha <= v2(c_arranque) + (A-1)*[se cruzo v=A]",
+la recarga "alarga en a lo sumo A-1 y solo puede dispararse una vez
+por pasada, porque el aterrizaje cae DEBAJO de A". LAS TRES
+AFIRMACIONES SON FALSAS, y la etiqueta "YA DEMOSTRADA" atribuye al
+repo algo que el repo nunca demostro.
+
+La aritmetica. El bit 1 compartido es c -> (3c - (3^k-1))/2. En
+v2(c) = A = v2(3^k-1) la resta es 2^A*(impar - impar) = 2^A*par: el
+v2 resultante es >= A SIN COTA -- cuanto sube lo deciden los bits
+altos de c (cancelacion). aterrizajen2.lean demuestra los casos
+v2 > A (cae a A-1) y v2 < A (baja 1); EL CASO v2 = A NO ESTA EN
+NINGUN .LEAN: oscilacion.py L2(c) solo dice "la unica subida
+posible es bit 1 exactamente en v2 = A", sin acotar la subida. La
+cota A-1 la invento la nota.
+
+La medicion (adv1_recargas.py, misma dinamica, misma semilla,
+mismos 3.860.014 cierres que rachasreales_salida.txt):
+
+- Recargas multiples por racha: 116.164 (77.447 con 2, 25.825 con
+  3, ..., 1 con DOCE recargas en una sola racha). "Solo una vez por
+  pasada" no es un caso raro mal contado: es un evento de masa 3%.
+  El porque: tras recargar a A+J, un tramo de J bits 0 vuelve a
+  pisar v2 = A y el bit 1 recarga otra vez. La justificacion de la
+  nota ("el aterrizaje cae debajo de A") solo cubre la salida por
+  crash, no el descenso por bits 0.
+- Salto de UNA sola recarga: hasta 21, con histograma geometrico
+  limpio (262.593 / 132.945 / 64.173 / ... -- razon ~0,5 por
+  escalon). El techo declarado A-1 vale <= 7 en las alturas
+  realizadas (A maximo realizado = 8, k maximo visitado 81; el
+  "A <= 12" de la nota es el techo a k <= 2000, no el alcanzado).
+- El evento del exceso 19 que rachasreales_salida.txt ya tenia
+  impreso contradice la formula en su propia salida: v2_entrada =
+  1, racha = 20, A = 1 (k = 15, impar) -- techo de la nota para k
+  impar: CERO --, 10 recargas encadenadas, salto acumulado 19. Por
+  valor de A: exceso max 19 en A=1 (techo 0), 18 en A=4 (techo 3),
+  14 en A=3 (techo 2). La formula falla en TODOS los valores de A
+  con muestra.
+- La contradiccion interna que nadie miro: rachasreales.py puso
+  EXCESO_TOPE = 24 -- un tope arbitrario POR ENCIMA del 19 medido
+  pero incompatible con el A-1 <= 11 de la nota que ese mismo
+  fichero alimenta. El C5 "OK: la recarga es local" y la Pieza A no
+  pueden ser verdad a la vez; el script lo midio y la nota no se
+  entero.
+
+Lo que sobrevive, dicho con precision: la dominacion geometrica ES
+cierta como hecho medido (C_j <= 1,04 marginal; <= 1,17 adaptada)
+porque la recarga es un compuesto subcritico: entrar cuesta pisar
+v2 = A exacto con bit 1, y el salto es ~Geom(1/2). PERO el salto
+geometrico es a su vez una equidistribucion de los bits de
+cancelacion de c en el momento de recarga -- una SEGUNDA
+equidistribucion que la nota no declara. La reduccion del programa
+no es "UNA equidistribucion": son al menos dos (Pieza B mas la
+cancelacion de recargas), y la segunda vive exactamente en el mismo
+territorio no demostrado que la primera.
+
+PIEZA ATACADA 2: el censo de rachasreales.py (censura) -- AGUANTA
+(ataque fallido, declarado abajo con numeros)
+
+PIEZA ATACADA 3: C4, la dominacion "adaptada" -- EXAGERADO
+
+C4 condiciona SOLO al largo de la racha anterior. Medi mas lejos:
+
+- Por el PAR de rachas anteriores (buckets 0/1-2/3-5/>=6): C_j max
+  sube monotono con el pasado -- 1,003 tras (0,0) hasta 1,093 tras
+  (1-2, 3-5) con 143.866 rachas y 1,104 tras (3-5, 3-5).
+  Dependencia de mayor alcance que C4 no ve: existe, positiva,
+  acotada.
+- Por valor de A = v2(3^k-1) -- que NO es la franja por tamanio de
+  k de C2: A=7 da C_j max 1,119 y media 1,009. La franja k en
+  [9,99] de C2 mezcla A=1 (k impar) con A=7 (k=64): el
+  condicionamiento correcto para el offset LTE es v2(k), no |k|.
+- Por el BIT del mixto de apertura (ver pieza 6): C_j max 0,915
+  (bit 0) contra 1,064 (bit 1).
+
+Nada rompe la dominacion con C uniforme (todo <= 1,2 << 8), pero la
+frase de la nota par.3 "C_j = 0,92-0,97 ... LIGERAMENTE POR DEBAJO
+de la geometrica pura, consistente con C0 = 1" ES SOLO LA MARGINAL:
+todas las rebanadas condicionadas que corte cruzan 1. La version
+que el h-transform de P2 necesita es la condicionada, y ahi C0 > 1.
+
+Ademas, BUG DE CODIGO EN C2 (rachasreales.py): el check compara
+peores[FRANJAS[2]] -- que tras anadir la frontera es la franja
+(4,8) -- contra max(peores[FRANJAS[0]], 0.5) -- que es la FRONTERA
+(0,0), con 0 rachas --, mientras el mensaje habla de "k >= 9"
+contra "k <= 3". La franja (9,99), la unica con C_j > 1 (1,041), no
+esta vigilada por ningun SystemExit. El veredicto no cambia (1,041
+<= 4 x 0,699 tambien pasa), pero el check no comprueba lo que dice
+comprobar.
+
+PIEZA ATACADA 4: la lista de huecos V2 -> cadena real -- la
+reduccion es EXAGERADA ("reducida a una equidistribucion" cuenta
+mal los huecos)
+
+- (a) La equidistribucion de Pieza B, mal justificada y con
+  contraejemplo de cuantificador. La nota dice "c tras el mixto es
+  una forma afin en los bits FRESCOS de la palabra". EN UN MIXTO NO
+  ENTRAN BITS FRESCOS: c' es funcion determinista del pasado.
+  Hallazgo no buscado: para c0 = 999983 las dos primeras rachas son
+  DETERMINISTAS = 0 en ambas ramas de bits (la clave (ant2 vacio,
+  ant1 = 0) del censo cruzado: 74.907 rachas, media 0,000). Y se
+  puede fabricar el caso opuesto: cualquier c0 = -3^(-1) mod 2^21
+  (impar, = 5 mod 8) fuerza racha_1 = 20 determinista:
+  P(racha >= 20 | pasado) = 1 >> C0 * 2^-20. Conclusion: B es FALSA
+  condicionada al pasado fino y falsa uniformemente en el arranque;
+  solo puede ser cierta con un cuantificador de mezcla/promedio
+  ("salvo un tramo inicial de largo ~v2-dependiente", o bajo la
+  medida de clases del arranque) que TODAVIA NADIE ESCRIBIO -- y la
+  transferencia la necesita quenched por c_i (Levy pide phi(c_i)
+  para los c_i reales que la cadena visita).
+- (b) El reloj endogeno: cubierto por las piezas 1-3 -- la
+  dominacion aguanta medida, el mecanismo escrito esta roto
+  (recargas), y la segunda equidistribucion (cancelacion) sin
+  declarar.
+- (c) Los delta <= 3^-k/2 de Aranas que V2 omite: declarado en
+  sombraexogena.py pero AUSENTE de todo el plan escrito de la
+  transferencia (ni teoremav2.txt ni notadominacion.txt los
+  cargan). A favor (calculo propio, para el acta): el peor producto
+  de cola sin pareja desde altura k es (3/2)^k y 3^-k * (3/2)^k =
+  2^-k -- los delta entran dominados por 2^(-k_j) y la misma
+  maquinaria de tres tramos de L3 deberia absorberlos. En contra:
+  en el SUFIJO (k = 2, 3) los delta son ~1/18 por paso y CAMBIAN EL
+  OBJETO LIMITE W~_inf -- y delta depende del entero c exacto, no
+  de los bits: la universalidad de la mediana del objeto real
+  vuelve a pedir equidistribucion aritmetica. Empiricamente el
+  corrimiento es <= ~5% (mediana real 10^1,19-10^1,22 = 15,5-16,6
+  contra 17,5-17,6 del V2 puro) -- chico, pero NO escrito en
+  ninguna parte.
+- (d) La costura de absorcion: L3 da K = M+1 ~ 54,6, o sea |c| <=
+  ~164 en k=1; el certificado Doeblin exacto del repo es para
+  |c| <= 25 (eps >= 17887/131072) y la ventana de las gammas
+  medidas es |u| <= 25/3. Liebres acepta cualquier ventana finita
+  via Hormigas cualitativo, asi que la costura cierra para phi=1 --
+  pero LAS CONSTANTES MEDIDAS (gamma, 0,29, phi_min) Y LA K DEL
+  TEOREMA HABLAN DE VENTANAS DISTINTAS: prohibido compararlas
+  numero contra numero sin conversion.
+- (e) Quenched/annealed: L3 es un liminf condicionado a la ventana
+  [T, 2T] del MODELO; la reduccion pide phi(c_i) >= c/sqrt(log
+  |c_i|) por excursion real con Markov fuerte. El tramo inicial
+  determinista de (a) es exactamente lo que la version quenched
+  tiene que tragarse (una racha inicial de largo v2(c_i) <=
+  log2|c_i| contra T = 30 ln|c_i|: cabe, pero hay que escribirlo).
+- (f) La version condicionada a sobrevivir: ver la ultima pieza.
+
+PIEZA ATACADA 5: medianareal.py -- AGUANTA la medicion, EXAGERADO
+el veredicto
+
+El disenio confunde c0 con T: cada arranque se midio a SU T =
+30 ln c0 (207/414/622), y el propio V2 tiene transitorio en T
+(mediana 12,8 -> 17,8 entre T=100 y 6400). La deriva publicada
+(+0,07 decadas) es del orden del transitorio compartido. La malla
+cruzada 2x2 (adv1_confundido.py, n=1200 por celda, real Y modelo
+V2b con u0 = c0/9):
+
+  celda        REAL     V2b
+  (997, 207)   +1,19    +1,20
+  (997, 622)   +1,22    +1,23
+  (1e9, 207)   +1,17    +1,18
+  (1e9, 622)   +1,22    +1,20
+
+Mi prediccion adversarial (que a T=207 la celda de 1e9 recordaria
+c0) FALLO -- por un error mio de capa 1 que declaro: olvide la
+contraccion forzada de los mixtos (-19 nats a tau~270), que junto a
+la libre (-19) mata e^18,5 de sobra. Pero la malla deja dos
+verdades incomodas: (i) el "olvido de c0" a T = 30 ln c0 esta
+GARANTIZADO DE ANTEMANO por la Pieza 2 para cualquier cadena con
+estos multiplicadores (margen 8x) -- esa mitad del veredicto es
+tautologia del disenio, no propiedad descubierta de la cadena;
+(ii) el contenido discriminante real es la estabilidad de la parte
+W, y V2b la reproduce celda a celda a +-0,03 -- lo cual es MEJOR
+evidencia para P2 que la publicada, pero es otra frase. El evento
+"vortice = fondo (1,1)" mete masa en -0,48: por debajo del q10
+(+0,52), sesgo despreciable. Horizonte: el disenio T prop. ln c0
+esquiva la leccion del adv 3 de la 8a -- correcto.
+
+PIEZA ATACADA 6: "la balota real clava la constante de V2"
+(bitacora, paper_programa_densidad.txt) -- EXAGERADO
+
+La constante es 2/sqrt(pi) = 1,1284: la balota universal de
+CUALQUIER paseo justo desde h=1 con reloj de tasa mixta 1/2. Con la
+tasa real medida (media de racha 0,947 ==> rho = 0,514) la
+prediccion es sqrt(2/(pi*0,514)) = 1,113; lo medido real
+(1,117/1,128/1,145, con sigma ~ +-0,02: la subida con T NO es
+significativa) y lo medido V2 (1,113-1,140) caen ambos encima. HAY
+razon estructural, no coincidencia -- PERO la identidad solo
+verifica la marginal del paseo k y la tasa del reloj: es insensible
+a TODO lo que la transferencia de verdad necesita (el acoplamiento
+de u, W, la perpetuidad). Cualquier perpetuidad pegada al mismo
+paseo daria la misma constante. "El mecanismo de la transferencia
+P2, medido por su punta" sobra: es el mecanismo del RELOJ, medido
+por su punta.
+
+PAR. 5(iii) de la nota ("la dominacion deberia pasar intacta" bajo
+el h-transform) -- MAL ESCRITO (premisa falsa, direccion favorable)
+
+La justificacion "el h-transform solo toca los bits mixtos, y las
+rachas son de bits compartidos" tiene la premisa rota: LA RACHA
+ESTA CORRELACIONADA CON EL BIT DEL MIXTO QUE LA ABRE (medido:
+media 0,911 tras bit 0 contra 0,985 tras bit 1; P(racha >= 1) =
+0,4577 contra 0,4933 -- 7 sigmas con 2M por lado; C_j max 0,915
+contra 1,064). El h-transform inclina los bits mixtos, luego SI
+mueve la ley de rachas. La direccion va a favor (sobrevivir inclina
+a bit 0 = rachas mas cortas = reloj mas rapido), asi que
+probablemente la dominacion condicionada mejora -- pero eso es un
+calculo por hacer, no un "deberia" heredado de una independencia
+que no existe.
+
+=====================================================================
+ATAQUES FALLIDOS (declarados uno a uno)
+=====================================================================
+
+1. La censura del censo: FALLO. Las rachas abiertas al pisar el
+   fondo son 143.155 y TODAS de largo 0 -- estructural: k solo
+   cambia en mixtos, asi que el break en k <= 1 siempre ocurre con
+   la racha recien abierta; cero sesgo. Las censuradas por T_MAX
+   son 6.845 (0,18%), largo medio 0,977 contra 0,947, maximo 15;
+   incluirlas mueve C_12 de 0,972 a 0,973.
+2. La memoria de c0 a T fijo: FALLO, por error propio de capa 1
+   declarado (contabilice la contraccion libre y olvide la
+   forzada). Medido: (1e9, 207) = +1,17 ~ (997, 207) = +1,19.
+3. El sesgo del vortice-como-fondo en medianareal: FALLO -- masa en
+   -0,48, bajo el q10 en las tres decadas.
+4. La subida de la balota real con T (como senial de reloj no
+   dominado): FALLO -- diferencia 0,028 con sigma combinada ~0,024.
+5. Romper la dominacion adaptada con pasado mas largo: FALLO como
+   ruptura -- todas las rebanadas (pares de rachas, A, bit) quedan
+   bajo C = 1,2. Lo que quedo es la correccion de prosa (C0 > 1
+   condicional), no una grieta.
+
+=====================================================================
+CORRECCIONES PEDIDAS (C-1 a C-9)
+=====================================================================
+
+C-1 (notadominacion.txt par.2): borrar "racha <= v2 + (A-1)*[...]"
+    y "solo puede dispararse una vez por pasada...". Reemplazo: "la
+    recarga (bit 1 exactamente en v2 = A) sube v2 a A+J con J >= 0
+    SIN COTA determinista (cancelacion de bits altos; salto medido
+    ~Geom(1/2), max 21) y puede repetirse dentro de la misma racha
+    (medido: 116.164 rachas con >= 2 recargas, hasta 12). La cota
+    honesta es estocastica: racha dominada por v2 + compuesto
+    subcritico de recargas, y la geometria del salto es una
+    equidistribucion ADICIONAL (los bits de cancelacion), hermana
+    de la Pieza B y con el mismo estatus: por escribir."
+C-2 (notadominacion.txt par.2): "ambos bits bajan v2 EXACTO en 1,
+    salvo..." no es lo que el repo demuestra (bit 1 con v2 > A cae
+    a A-1: baja MAS de 1). Citar L2(a)-(c) tal como esta en
+    oscilacion.py y decir explicito que el caso v2 = A no tiene
+    .lean.
+C-3 (notadominacion.txt par.4): "infladas solo en un offset
+    O(log k)" es falso como determinismo. Reemplazo: "dominadas con
+    constante C medida <= 1,17 (adaptada) y <= 1,2 en toda rebanada
+    probada; el offset determinista no existe -- lo que hay es un
+    compuesto de recargas cuya subcriticidad depende de la
+    equidistribucion de C-1".
+C-4 (notadominacion.txt par.3): tras "C_j = 0,92-0,97" aniadir:
+    "MARGINAL; las colas condicionadas cruzan 1 (bit de apertura 1:
+    1,064; A = 7: 1,119; par de rachas: 1,104; franja k >= 9:
+    1,041) -- para la dominacion adaptada C0 > 1".
+C-5 (notadominacion.txt par.3): borrar "forma afin en los bits
+    frescos" (en un mixto no entran bits frescos). Enunciar B bajo
+    la medida de clases del arranque o con mezcla asintotica, con
+    la excepcion explicita del tramo inicial determinista (c0 =
+    999983 fuerza racha_1 = racha_2 = 0; c0 = -3^(-1) mod 2^21
+    fuerza racha_1 = 20): B es falsa condicionada al pasado fino y
+    falsa uniforme en c0.
+C-6 (notadominacion.txt par.5(iii)): reemplazar "el h-transform
+    solo toca los bits mixtos... deberia pasar intacta" por "la ley
+    de racha DEPENDE del bit del mixto de apertura (0,911/0,985
+    medido); bajo el h-transform la mezcla se inclina hacia bit 0
+    (direccion favorable); la dominacion condicionada a sobrevivir
+    queda POR MEDIR con esa inclinacion puesta".
+C-7 (rachasreales.py): (i) arreglar el check C2 (compara la franja
+    (4,8) contra la frontera vacia (0,0); la franja (9,99), la
+    unica con C_j > 1, esta sin vigilar); (ii) EXCESO_TOPE = 24
+    contradice en silencio el techo A-1 <= 11 de la nota --
+    sustituir por el modelo honesto (salto geometrico, sin techo
+    determinista).
+C-8 (bitacora 11-08 (12) y paper_programa_densidad.txt): la
+    constante de la balota es 2/sqrt(pi) = 1,1284, universal del
+    paseo justo con tasa mixta 1/2 -- verifica el RELOJ, no la
+    transferencia; quitar "el mecanismo de la transferencia P2,
+    medido por su punta".
+C-9 (medianareal.py prosa de C2): aniadir "a T = 30 ln c0 el
+    termino de memoria prod*x esta muerto por el margen de la Pieza
+    2 para cualquier cadena de estos multiplicadores: el contenido
+    discriminante es la estabilidad de la parte W, confirmada
+    tambien a T emparejado (malla 2x2 de la 9a: real y V2b
+    coinciden a +-0,03 en las cuatro celdas)".
+
+=====================================================================
+VEREDICTO GLOBAL DEL ADVERSARIO 1
+=====================================================================
+
+La dominacion del reloj real, como HECHO MEDIDO, aguanto todo (C <=
+1,2 en marginal, adaptada, por A, por bit, por pares, con y sin
+censura) -- genuinamente bueno para P2. Lo ROTO es el argumento
+escrito que pretende explicarla: la Pieza A de notadominacion.txt
+es falsa tres veces (cota A-1, "una vez por pasada", "ambos bits
+bajan 1") y su etiqueta "YA DEMOSTRADA" es atribucion indebida --
+los .lean demuestran otra cosa y dejan el caso v2 = A sin tocar. Y
+"reducida a UNA equidistribucion" cuenta mal: son al menos DOS
+(v2 tras mixto + cancelacion de recargas), mas los delta de Aranas
+sin cargar en ningun texto, mas la version condicionada a
+sobrevivir que descansa en una independencia medida falsa. Octava
+vez que la casa comprueba su regla: lo medido aguanta, lo escrito
+muerde.

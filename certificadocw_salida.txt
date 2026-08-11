@@ -8,16 +8,20 @@ EL CERTIFICADO COLLATZ-WIELANDT DE LA ESCALERA DE PUMAS
    7       768       3717       3702     1.955595     1.955600   -4.8e-06   (0 s)
    9      3072      16361      15415     1.967467     1.967500   -3.3e-05   (0 s)
   11     12288      72835      68889     1.975447     1.975450   -3.4e-06   (1 s)
-  13     49152     313672     288187     1.980748     1.980748   -3.1e-07   (4 s)
-  15    196608    1312342    1178539     1.984415     1.984415   +2.1e-07   (21 s)
-  17    786432    5338332    4712671     1.987045     1.987046   -8.5e-07   (99 s)
-  19   3145728   22536304   20228710     1.989042     PRIMERA CORRIDA       (492 s)
+  13     49152     313672     288187     1.980748     1.980748   -3.1e-07   (5 s)
+  15    196608    1312342    1178539     1.984415     1.984415   +2.1e-07   (29 s)
+  17    786432    5338332    4712671     1.987045     1.987046   -8.5e-07   (134 s)
+  19   3145728   22536304   20228710     1.989042     PRIMERA CORRIDA       (710 s)
 
 COMPROBACIONES 1 y 2 OK: los nueve escalones certificados a menos
 de 5e-04 de lo publicado, y la escalera certificada es monotona.
 
-COMPROBACION 3 OK -- LA COTA DE PUMAS, SIN LETRA CHICA:
-  LAMBDA >= 1.989042   CERTIFICADO (Collatz-Wielandt en enteros,
-  ultimo escalon: K = 19, |c| <= 3145728, 22536304 estados). La 'razon
-  convergida' de pumasescalera era estimacion; esto es teorema
-  del truncado, y el puente a la cadena entera es el de PUMAS.
+COMPROBACION 3 OK -- LA COTA DE PUMAS, CON SU LETRA DICHA:
+  LAMBDA_T >= 1.989042  CERTIFICADO PARA EL TRUNCADO (teorema:
+  Collatz-Wielandt en enteros; ultimo escalon K = 19,
+  |c| <= 3145728, 22536304 estados). El puente lambda >= lambda_T
+  es el de PUMAS (menores anidados, matriztransferencia.py);
+  la 9a revision (adv 3) dejo dicho su paso fino pendiente:
+  heredar el RITMO rho(M_T) pide el paso Perron/SCC sin
+  escribir (evidencia: las razones de pumasescalera empatan
+  estos certificados a ~1e-6 en todos los escalones).
