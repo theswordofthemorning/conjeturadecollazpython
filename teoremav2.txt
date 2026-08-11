@@ -181,6 +181,104 @@ universal. Las piezas 1-2 quedan DEMOSTRADAS (a falta de revision
 externa); la 3 sigue con su molde AGKV y su plan B de apareamiento.
 
 =====================================================================
+LA PIEZA 3, PARTE (ii), ESCRITA CON TODAS LAS LETRAS (11-08 (2))
+=====================================================================
+
+EL OBJETO. La cadena revertida P~+ (la que el esqueleto (i) declara
+como limite local de la excursion condicionada, leida desde la
+absorcion; fichaagkv.txt seccion D): estado k~ >= 2 arrancando en
+k~_1 = 2 tras el paso absorbente (r = 1: d~_1 = -1/2, A~_1 = 3/2);
+en cada paso r >= 2, con moneda justa independiente:
+  - COMPARTIDO (prob 1/2): bit libre justo; A~ = 3/2 (bit 1) o
+    1/2 (bit 0); k~ no se mueve.
+  - MIXTO (prob 1/2): k~ sube con prob k/(2(k-1)) [bit forward 1,
+    A~ = 3/2], baja con prob (k-2)/(2(k-1)) [bit forward 0,
+    A~ = 1/2]  -- el h-transform del paseo justo con h(k) = k - 1.
+P~_r = A~_1 ... A~_r;  W~ = Sigma_r d~_r P~_{r-1}, d~_r = -(1/2)
+por cada bit forward 1.
+
+LEMA (ii) [la serie revertida converge -- el analogo del Lemma 2.7
+de AGKV]. Bajo P~+, existe c > 0 con P~_r <= e^{-c r} eventualmente
+c.s.; en particular Sigma_r |d~_r| P~_{r-1} < infinito c.s., W~_inf
+esta bien definido y |W~_inf| < infinito c.s. Su ley es un objeto
+FIJO (no depende de nada externo).
+
+DEMOSTRACION.
+(1) La descomposicion del log-producto. Sean a_r / d_r las subidas/
+    bajadas mixtas hasta r, L_c(r) los compartidos, S_f(r) la suma
+    de log A~ de los compartidos. Como k~_r = 2 + a_r - d_r >= 2,
+      log P~_r = log(3/2) a_r - log 2 d_r + S_f(r) + log(3/2)
+               = log(3/2)(k~_r - 2) - log(4/3) d_r + S_f(r)
+                 + log(3/2)
+      <= 0,406 (k~_r - 2) + S_f(r) + 0,406        [d_r >= 0].
+(2) Los compartidos abundan: L_c(r) ~ Binomial(r-1, 1/2) (el reloj
+    es iid por construccion), Chernoff: P(L_c(r) < 0,4 r) <=
+    e^{-r/50}; Borel-Cantelli: L_c(r) >= 0,4 r eventualmente c.s.
+(3) La parte libre contrae: dados los compartidos, sus log A~ son
+    iid con media mu = -(1/2) log(4/3) = -0,1438 y rango log 3.
+    Hoeffding: P( S_f(r) > -0,07 L_c(r) ) <= exp(-2 (0,0738)^2
+    L_c(r) / (log 3)^2 ) <= e^{-0,009 L_c(r)}. Con (2) y
+    Borel-Cantelli: S_f(r) <= -0,07 * 0,4 r = -0,028 r
+    eventualmente c.s.
+(4) El paseo condicionado no trepa mas que sqrt: para todo
+    delta > 0,  k~_r <= r^{1/2 + delta} eventualmente c.s.
+    Prueba: h(k~_{n ^ tau_1}) es martingala del paseo original, y
+    por parada opcional el h-transform satisface, para m >= 3,
+      P~+( tau_m <= R ) = (m - 1) P_2( tau_m <= R, tau_m < tau_1 )
+    donde P_2 es el paseo perezoso justo original desde 2 y tau_m
+    su primer paso por m. El maximo de un paseo justo de
+    incrementos acotados por 1 cumple (martingala exponencial +
+    desigualdad maximal de Doob)
+      P_2( tau_m <= R ) <= exp( -(m - 2)^2 / (2R) ).
+    Con m = R^{1/2+delta}: P~+( max_{r <= R} k~_r >= R^{1/2+delta} )
+    <= R^{1/2+delta} exp( -R^{2 delta}/2 + o(1) ), sumable en R
+    (basta por potencias R = 2^j); Borel-Cantelli da (4).
+    [Capa 1, 11-08 (2): la identidad de parada opcional verificada
+    por MC en regimen que muerde -- (m, R) = (6,12), (9,20),
+    (9,40), (12,40), probabilidades 0,19-0,60, cocientes
+    P~+/(m-1)P_2 = 0,997-1,009, todo dentro del ruido de N=6e5.]
+(5) Composicion: log P~_r <= 0,406 r^{1/2+delta} - 0,028 r + O(1)
+    <= -0,02 r  para r grande, c.s. QED.
+
+COROLARIO (la mediana universal EXISTE). |W~_inf| es finita c.s.,
+asi que todo cuantil suyo es finito: M := cuantil 3/4 de |W~_inf|
+es una constante ABSOLUTA del modelo. [Verificado por simulacion
+directa del objeto: medianauniversal.py -- mediana 17,50, M = 53,55;
+y el forward condicionado converge a el (desvio 1,9% en T = 6400,
+P(|W_tau| <= M) -> 0,750/0,740: el 0,75 del limite clavado.]
+
+NOTA DE COLA PESADA. E[A~] > 1 en los mixtos de k~ chico (el
+h-transform sesga hacia 3/2): los MOMENTOS de W~_inf divergen (la
+cola medida es ~1/x, Kesten kappa = 1) -- coherente con la
+advertencia del plan: no hay atajo por momentos; la mediana es el
+objeto correcto.
+
+LO QUE QUEDA DE LA PIEZA 3 (los dos enunciados con su molde):
+(i) EL LIMITE LOCAL DE LA REVERSION: para todo r fijo y todo
+    cilindro C de los ultimos r pasos,
+      P( ultimos r pasos en C | tau = t )  -->  P~+( C~ )   (t par
+      con t -> infinito; C~ el cilindro revertido).
+    Molde: teorema local del paseo perezoso absorbido
+    (P_2(tau = t) ~ c t^{-3/2}) + cociente de LLTs; es la version
+    para caminatas del limite "bridge -> h-transform" clasico
+    (Bolthausen 1976; AGKV usan la variante en su Lemma 2.5 via
+    (2.1)-(2.2)). Riesgo bajo, trabajo de escritura.
+(iii) EL TRASVASE CON TRUNCAMIENTO: |W_tau - W_tau^{(r)}| (la suma
+    truncada a los ultimos r pasos) se acota UNIFORME en t por la
+    version forward de (1)-(4) (la misma cota de serie, aplicada a
+    la excursion condicionada via las cotas (2.1)-(2.2) de tipo
+    AGKV), y entonces
+      P( |W_tau| <= M' | tau en [T, 2T] ) >= 1/2   para todo T
+      grande, con M' = M + 1 universal.
+    Riesgo: medio-bajo (la uniformidad es el unico punto tecnico;
+    es exactamente el paso que AGKV hacen con su Lemma 2.5 +
+    Lemma 4.1).
+CON (i) + (iii): L3 queda teorema, y con las piezas 1-2 el TEOREMA
+V2 entero: phi_V2(x) >= c/sqrt(ln x). [Etiqueta: (ii) DEMOSTRADO
+aqui (pendiente de revision externa); (i)/(iii) enunciados con
+molde clasico y verificados en mecanismo por medianauniversal.py.]
+
+=====================================================================
 EL ORDEN DE TRABAJO QUE ESTE PLAN DICTA
 =====================================================================
 

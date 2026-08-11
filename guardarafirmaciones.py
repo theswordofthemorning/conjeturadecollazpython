@@ -3041,7 +3041,11 @@ AFIRMACIONES = [
          "el 0,75 del limite clavado. La cola de |W~_inf| es pesada "
          "(q90 ~ 181: la 1/x de Kesten kappa = 1) -- los momentos "
          "crudos divergen y la via de la mediana era la unica, como "
-         "el plan dejo escrito",
+         "el plan dejo escrito. Y LA PATA DE LA TRANSFERENCIA (P2): "
+         "la variante V2b (reloj de rachas Geometrica(1/2)) converge "
+         "a SU limite con desvio 1,2% en T = 6400, y los dos limites "
+         "casi coinciden (mediana 17,60 contra 17,50: 0,6%) -- la "
+         "mediana es casi invariante al reloj",
          "verificado_hasta", "medido", "medianauniversal.py", "propio",
          "11-08-2026 (2). P1 del paper, el mecanismo. AGKV 2005 "
          "leido ENTERO (fichaagkv.txt: Teorema 1.1, Lemmas 2.4-2.7, "
@@ -3049,9 +3053,35 @@ AFIRMACIONES = [
          "(i)-(iii) por REVERSION TEMPORAL en la absorcion esta en "
          "la seccion D de la ficha y en teoremav2.txt. Balota "
          "1,12-1,14 constante (C2); cola del reverso < 1e-15 (C3). "
-         "SIGUE SIENDO ESQUEMA: falta el limite local de la "
-         "reversion y el trasvase tipo Lemma 2.5 escritos con "
-         "rigor. Es medicion del mecanismo, no cota."),
+         "La parte (ii) -- la serie revertida converge P~+-c.s., el "
+         "analogo del Lemma 2.7 -- quedo DEMOSTRADA con todas las "
+         "letras en teoremav2.txt la misma tarde (Hoeffding + parada "
+         "opcional del h-transform + Borel-Cantelli; la identidad de "
+         "parada verificada por MC, cocientes 0,997-1,009 en regimen "
+         "que muerde). Las partes (i) y (iii) siguen como enunciados "
+         "con molde clasico. Es medicion del mecanismo, no cota."),
+
+    fila("LA COTA DE PUMAS CERTIFICADA Y EXTENDIDA: lambda >= "
+         "1,989042 por el ESCALON 10 (K = 19, |c| <= 3145728, "
+         "22.536.304 estados, jamas corrido antes), con certificado "
+         "Collatz-Wielandt en enteros exactos para LOS DIEZ "
+         "escalones de la escalera (v entero, minimo exacto de "
+         "(v[suc0]+v[suc1])/v[i] sobre el soporte; el float solo "
+         "busca el vector, no decide). Los nueve previos certifican "
+         "a menos de 5e-5 de lo publicado (los tres altos a menos "
+         "de 1e-6): la 'razon convergida' de pumasescalera sube a "
+         "cota demostrada del truncado. La razon de gaps sigue "
+         "subiendo hacia 1: 0,809 -> 0,831 -> 0,846 -- un escalon "
+         "mas consistente con lambda = 2",
+         "todo_n", "demostrado", "certificadocw.py", "propio",
+         "11-08-2026 (2). P6 del paper cobrado y superado (pedia "
+         "certificar 6-9; se certifico 1-10 y se subio el escalon "
+         "10). La recomendacion C-3 del adversario 2 de la 8a "
+         "(su adv2_cw.py no quedo en git) convertida en fichero "
+         "del repo. El puente truncado -> cadena entera es el de "
+         "PUMAS/ZORRAS (menores anidados, retornoslambda.py). "
+         "Computo determinista (sin semillas): la segunda corrida "
+         "reproduce identica."),
 ]
 
 

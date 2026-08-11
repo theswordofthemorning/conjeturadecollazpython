@@ -214,7 +214,7 @@ parece.
 
 ## Instalación [historia y avisos: D-03]
 
-`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 11-08-2026 (2): **77 `.py` · 19 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
+`pip install -r requirements.txt` (numpy, matplotlib, plotly). Lean 4 aparte (elan — ver LEAN 4 arriba). **`jq` NO está**: usar `python -c`. No hay tests, ni linter, ni `pyproject`, ni CI: no buscarlos. CONTEOS al 11-08-2026 (2): **78 `.py` · 19 `.lean` · 3 `.db`** — la regla: quien añade un fichero actualiza el conteo EN EL MISMO COMMIT (ya se desfasó cuatro veces).
 
 ## Cómo está repartido el repo [detalle: D-04]
 
@@ -367,7 +367,8 @@ for a in sorted(glob.glob('*.py')):
 | **`actarevision0908b.txt`** | El acta de la 5ª revisión externa (tres adversarios contra la terna de la madriguera): LIEBRES aguantó, CEBRAS partida en dos, URRACAS entera |
 | **`cabras.lean`** | El 16º: el invariante mod 3 de la torre (la puerta de CABRAS por la cadena entera) — `c % 3 ≠ 0` para todo alcanzado con `k ≥ 1`, corolario `torre_sin_ceros`; el regalo de la 5ª revisión, formalizado |
 | **`aterrizajen2.lean`** | El 17º: el aterrizaje de N2 — la pieza 2-ádica con signo de Golondrinas (`v₂(c) > A ⟹` el bit 1 aterriza EXACTO en `v₂ = A−1`; `c = 0` ídem; `v₂(c) < A ⟹` baja exacto 1), testigos sin división, cotejado en 42.196 instancias |
-| **`pumasescalera.py`** | Los escalones 7–9 del acorralado: los truncados publicados reproducidos + `K=13`, `K=15` y **`K=17` (5,3M estados, 11-08)** ⟹ **`λ ≥ 1,9870`**; gaps ×0,78 → ×0,81 → ×0,83 subiendo — consistente con λ = 2. El 8º y el 9º tras las banderas `ESCALON_8`/`ESCALON_9` (~10 min / ~15 min) |
+| **`pumasescalera.py`** | Los escalones 7–9 del acorralado: los truncados publicados reproducidos + `K=13`, `K=15` y **`K=17` (5,3M estados, 11-08)** ⟹ `λ ≥ 1,9870`; gaps ×0,78 → ×0,81 → ×0,83 subiendo — consistente con λ = 2. El 8º y el 9º tras las banderas `ESCALON_8`/`ESCALON_9` (~10 min / ~15 min). ⇢ **Superado por `certificadocw.py`** (11-08 (2)): la razón convergida subió a certificado y la escalera al escalón 10 |
+| **`certificadocw.py`** | **EL CERTIFICADO COLLATZ–WIELANDT DE LA ESCALERA ENTERA + EL ESCALÓN 10** (11-08 (2), P6 cobrado y superado): `v` entero, mínimo exacto de `(v[suc0]+v[suc1])/v[i]` sobre el soporte (el float sólo busca el vector) — los nueve escalones certificados a `< 5e-5` de lo publicado (los tres altos a `< 1e-6`), y **el escalón 10, jamás corrido (`K=19`, `\|c\| ≤ 3145728`, 22,5M estados): `λ ≥ 1,989042` CERTIFICADO** — el récord de Pumas sin letra chica. Gaps ×0,809 → ×0,831 → ×0,846 hacia 1: consistente con λ = 2. Determinista (reproducción exacta); ~10 min con `ESCALON_10 = True`, ~100 s sin él. Salida en `certificadocw_salida.txt` |
 | **`rondadeltronco.py`** | **La 6ª revisión (la ronda del tronco)**: Leonas contra 50.000 pares reales (12,5 M de pasos, 0 fallos de forma; el censo de las coalescencias del ciclo `{1,4}→2`) y Moscas extendida a la cadena modificada. Acta: `actarevision0908c.txt` |
 | **`conejas.lean`** | El 18º: CONEJAS formalizada — `(2^j−2, 2^j−1)` llega al mismo `x = 3t+2` en exactamente `j+2` pasos para todo `j` par (peldaño + escalera por inducción, testigo `3^{j−1} = 4t+3`, vórtice en el repunit); `b(j+2) ≥ 1` con núcleo detrás |
 | **`actarevision0908c.txt`** | El acta de la 6ª revisión (la ronda del tronco): Leonas con dos frases corregidas (clase vs instancia; el ancla), Arañas con dos adjetivos («sumable», «diminuta»), Tigresas intacta, Moscas reforzada |

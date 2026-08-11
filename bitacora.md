@@ -86,9 +86,51 @@ local de la reversión y el trasvase escritos con rigor — riesgo
 bajo: teoría clásica con h explícita); la medición es del mecanismo,
 no cota. Base: **192 · 63 · 20**; conteos: **77 `.py`**.
 
-Pendiente que deja: escribir (i)-(iii) con rigor (L3 → teorema →
-L-A demostrado para V2), la revisión externa de la tanda del día
-(récord sin cap + mediana universal), y P2–P3/P5–P7 en cola.
+**⇢ LA TANDA SIGUIENTE DE LA MISMA SESIÓN (P6 cobrado y superado +
+la parte (ii) de L3 demostrada + la pata V2b de P2):**
+
+5. **LA PARTE (ii) DE L3, DEMOSTRADA CON TODAS LAS LETRAS**
+   (`teoremav2.txt`): la serie revertida converge `P̃⁺`-c.s. — el
+   análogo del Lemma 2.7 de AGKV — por (1) la descomposición del
+   log-producto con el balance `k̃_r − 2`, (2) Chernoff del reloj,
+   (3) Hoeffding de la parte libre, (4) **la cota `k̃_r ≤ r^{1/2+δ}`
+   vía parada opcional del h-transform** (la identidad
+   `P̃⁺(τ_m ≤ R) = (m−1)·P₂(τ_m ≤ R, τ_m < τ₁)` verificada por MC
+   en régimen que muerde: cocientes 0,997–1,009). Corolario: la
+   mediana universal EXISTE como constante absoluta del modelo.
+   Quedan (i) el límite local y (iii) el trasvase, enunciados con
+   molde clásico.
+6. **LA PATA V2b DE LA TRANSFERENCIA (P2), MEDIDA**
+   (`medianauniversal.py` extendido a las dos variantes; V2a
+   reproduce byte a byte la corrida committeada — el stream se
+   restauró a propósito tras un refactor que lo cambiaba: la
+   lección de la semilla salada, aplicada en vivo): V2b (rachas
+   `Geom(1/2)`) converge a SU límite con desvío 1,2% en T = 6400,
+   y los dos límites casi coinciden (mediana 17,60 contra 17,50 —
+   0,6%): **la mediana es casi invariante al reloj**, que es
+   exactamente lo que P2 necesita.
+7. **P6 COBRADO Y SUPERADO (`certificadocw.py`)**: el certificado
+   Collatz–Wielandt en enteros exactos (`v` entero, mínimo exacto
+   sobre el soporte; el float sólo busca) para LOS DIEZ escalones —
+   los nueve previos a `< 5e-5` de lo publicado (los tres altos a
+   `< 1e-6`), la recomendación C-3 del adversario 2 convertida en
+   fichero del repo — **y EL ESCALÓN 10, jamás corrido: `K = 19`,
+   22.536.304 estados ⟹ `λ ≥ 1,989042` CERTIFICADO** — el récord
+   de Pumas nuevo, sin letra chica. Gaps ×0,809 → ×0,831 → ×0,846
+   hacia 1: un escalón más consistente con λ = 2. (Con numpy en la
+   fase de búsqueda, el certificado de la escalera 1–9 corre en
+   ~100 s — lo que antes era una hora.)
+8. Respaldos de mitad de sesión hechos (`respuestas.db` a 1.653;
+   18 zips de transcripciones al día).
+
+Base al cierre de la tanda: **193 afirmaciones · 63 correcciones ·
+20 constantes**; conteos: **78 `.py` · 19 `.lean` · 3 `.db`**.
+
+Pendiente que deja: escribir (i)/(iii) con rigor (L3 → teorema →
+L-A demostrado para V2 — con (ii) ya cobrada), la revisión externa
+de la tanda entera del día (récord sin cap + mediana universal +
+certificado CW), el escalón 11 si algún día sobra RAM (~70M
+estados), y P3/P5/P7 en cola.
 
 ---
 
