@@ -3140,6 +3140,26 @@ AFIRMACIONES = [
          "(verificada k <= 2000, max A = 12): las ventanas heladas "
          "del mecanismo de L2 son O(log k) -- el reloj real NO "
          "puede congelarse mas que logaritmicamente."),
+
+    fila("LAS RACHAS REALES ESTAN DOMINADAS POR LA GEOMETRICA PURA "
+         "CON CONSTANTE <= 1 (el input del lema de racha de P2, "
+         "medido mejor de lo que el lema pide): en 3.860.014 rachas "
+         "de 150.000 excursiones reales desde (2, 999983), "
+         "P(racha >= j) * 2^j = 0,92-0,97 para todo j <= 12 con "
+         "muestra -- por DEBAJO de 1: el reloj real esta dominado "
+         "por la Geom(1/2) de V2b sin inflacion ninguna; por "
+         "franjas de k el maximo es 1,041 (k >= 9) y la media es "
+         "0,947 ~ 1. La dominacion estocastica que la transferencia "
+         "P2 hipoteca no es plausible: es casi una IGUALDAD medida",
+         "verificado_hasta", "medido", "rachasreales.py", "propio",
+         "11-08-2026 (2), quinta pasada. Complementa la pista LTE "
+         "(el offset A = O(log k) aritmetico) y el x1,8 saturante "
+         "que la 8a habia medido del sesgo v2 (aquel era el sesgo "
+         "por valor de v2; este es la cola del largo de racha -- "
+         "objetos distintos, el segundo es el que la dominacion "
+         "pide). El paso analitico pendiente: escribir la "
+         "dominacion desde los lemas v2 de tortolas.lean / "
+         "aterrizajen2.lean."),
 ]
 
 

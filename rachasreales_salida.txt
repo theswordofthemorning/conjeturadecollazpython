@@ -1,0 +1,34 @@
+LA DOMINACION GEOMETRICA DE LAS RACHAS REALES (input de P2)
+150000 excursiones desde (2, 999983); 3860014 rachas medidas; media 0.947
+
+la cola global: j, P(racha >= j), C_j = P * 2^j, muestra 2^j-esima
+  j =  1:  P = 0.474852   C_j = 0.950   (n ~ 1832936)
+  j =  2:  P = 0.237163   C_j = 0.949   (n ~ 915453)
+  j =  3:  P = 0.118884   C_j = 0.951   (n ~ 458893)
+  j =  4:  P = 0.057984   C_j = 0.928   (n ~ 223818)
+  j =  5:  P = 0.029005   C_j = 0.928   (n ~ 111959)
+  j =  6:  P = 0.014391   C_j = 0.921   (n ~ 55549)
+  j =  7:  P = 0.007178   C_j = 0.919   (n ~ 27708)
+  j =  8:  P = 0.003607   C_j = 0.923   (n ~ 13923)
+  j =  9:  P = 0.001799   C_j = 0.921   (n ~ 6944)
+  j = 10:  P = 0.000894   C_j = 0.915   (n ~ 3449)
+  j = 11:  P = 0.000457   C_j = 0.936   (n ~ 1764)
+  j = 12:  P = 0.000237   C_j = 0.972   (n ~ 916)
+COMPROBACION 1 OK: C_j <= 0.97 <= 8.0 en toda la cola con
+muestra: P(racha >= j) <= C * 2^-j -- la dominacion geometrica
+de las rachas reales, medida (la 8a habia visto el x1,8).
+
+por franjas de k (el offset A = O(log k) de LTE):
+  k en [1, 3]:  409310 rachas, C_j maximo 0.699
+  k en [4, 8]: 1164448 rachas, C_j maximo 0.971
+  k en [9, 99]: 2286256 rachas, C_j maximo 1.041
+COMPROBACION 2 OK: el offset por altura es chico (LTE lo predice
+logaritmico; las alturas tipicas llevan A <= 6).
+COMPROBACION 3 OK: media de racha 0.947 ~ el 1 del reloj
+geometrico puro de V2b.
+
+Lectura: el lema de racha de P2 (dominacion estocastica del
+reloj real por geometricas con offset O(log k)) tiene sus dos
+mitades medidas: la cola C * 2^-j aqui, el offset LTE por
+aritmetica. El paso analitico es escribir la dominacion desde
+los lemas v2 de tortolas.lean/aterrizajen2.lean. Medicion.

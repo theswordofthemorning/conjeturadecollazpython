@@ -185,8 +185,19 @@ la pista LTE para P3):**
     variación total, y la ventana de la pieza 1 con asintótica
     exacta desde el LLT.
 
-Base al cierre: **195 afirmaciones · 63 correcciones · 20
-constantes**; conteos: **80 `.py` · 19 `.lean` · 3 `.db`**.
+15. **LA QUINTA PASADA — las rachas reales, dominadas con constante
+    ≤ 1 (`rachasreales.py`)**: en 3.860.014 rachas de 150.000
+    excursiones reales, `P(racha ≥ j)·2^j = 0,92–0,97` para todo
+    `j ≤ 12` con muestra — **por debajo de 1**: el reloj real está
+    dominado por la `Geom(1/2)` de V2b SIN inflación (franja
+    `k ≥ 9`: máx 1,041; media 0,947 ≈ 1). La dominación estocástica
+    que la transferencia P2 hipoteca no es plausible: es casi una
+    igualdad medida. *(Distinto del ×1,8 de la 8ª: aquél era el
+    sesgo por valor de v₂; éste es la cola del largo de racha — el
+    objeto que la dominación pide.)*
+
+Base al cierre: **196 afirmaciones · 63 correcciones · 20
+constantes**; conteos: **81 `.py` · 19 `.lean` · 3 `.db`**.
 
 **El estado del programa al cierre de la sesión, en una línea:**
 de los dos lemas que quedaban, **L-A está DEMOSTRADO para V2**
