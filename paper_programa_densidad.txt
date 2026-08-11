@@ -175,6 +175,42 @@ CON P1 + P2 + P3 (+ el esquema beta): phi = 1 -- la conjetura de
 Gao-Wu en densidad -- quedaria demostrada. Ese es el arbol entero.
 
 ---------------------------------------------------------------------
+4b. ADDENDUM 11-08 (2) -- EL ESTADO DE P1-P7 TRAS LA SESION SIGUIENTE
+    (la que corrio detras de este paper; detalle en bitacora.md)
+---------------------------------------------------------------------
+
+P1 (L3 via AGKV): COBRADO PARA V2 -- AGKV leido entero
+    (fichaagkv.txt); el mecanismo resulto ser la REVERSION temporal
+    en la absorcion con h(k) = k - 1 explicita; L3 es TEOREMA y el
+    teorema V2 quedo AUTOCONTENIDO (LLT propio incluido, c0 =
+    4/sqrt(pi)): phi_V2(x) >= c/sqrt(log x) con ventana universal
+    -- L-A DEMOSTRADO PARA V2 (teoremav2.txt; trasvasel3.py;
+    pendiente SOLO revision externa).
+P2 (transferencia): mecanismo MEDIDO por las dos puntas -- la
+    mediana universal existe en V2b (rachas; limite 17,60 vs 17,50
+    de V2a) Y en la cadena real (deriva 0,07 decadas sobre seis de
+    c0; la balota real clava la constante de V2: 1,117-1,145 vs
+    1,12-1,14) -- y el lema de racha reducido a UNA
+    equidistribucion (notadominacion.txt): el largo de racha ES
+    v2(c) (determinista, teoremas del repo), el offset es
+    O(log k) por LTE (v2(3^k-1) = 1 / 2 + v2(k)), y la cola
+    medida es C_j = 0,92-0,97 <= 1 (mejor que lo pedido).
+P3 (L-B): la pista LTE de arriba acota las ventanas heladas a
+    O(log k): el reloj real no puede congelarse -- el camino al
+    teorema quedo mas corto.
+P4 (record): COBRADO Y SUPERADO -- phi >= 0,462781 (sin cap,
+    L = 34, exacto, censo de pares reales; recordsincap.py).
+P6 (Collatz-Wielandt): COBRADO Y SUPERADO -- certificado en
+    enteros para LOS DIEZ escalones + el escalon 10 jamas corrido:
+    lambda >= 1,989042 CERTIFICADO (certificadocw.py).
+P5, P7: en cola, sin cambios.
+
+PENDIENTE MAYOR TRANSVERSAL: la revision externa adversarial de la
+tanda entera (record sin cap + mediana universal + L3/V2 +
+certificado CW + rachas) -- ocho de ocho revisiones han mordido;
+esta no deberia ser excepcion.
+
+---------------------------------------------------------------------
 5. EL TECHO, DECLARADO (para que nadie se lo infle)
 ---------------------------------------------------------------------
 
