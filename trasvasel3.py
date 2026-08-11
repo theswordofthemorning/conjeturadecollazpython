@@ -156,11 +156,13 @@ if peor_conv > 0.02:
 # el sup de la densidad en r <= t/2, t = T_DENSIDAD: aqui si hace
 # falta Q_{t-r} para todo r -- segundo DP hasta t guardando Q_s(2,y)
 # para y <= Y_TOPE en todos los s
+# el sup se toma sobre TODO y (no solo y <= Y_TOPE): un sufijo de
+# largo r ~ t/2 puede arrancar en altura y ~ sqrt(t), y la cota
+# (LLT-b) que el tramo MEDIO de L3 usa tiene que ser uniforme en y
+# (capa 2 propia: el primer barrido solo miraba y <= 8)
 Qb = [0.0] * (K_MAX + 2)
 Qb[2] = 1.0
-q_por_s = {0: [0.0] * (Y_TOPE + 1)}
-q_por_s[0][2] = 1.0
-q2_por_s = {0: 1.0}
+q_por_s = {0: list(Qb)}
 for s in range(1, T_DENSIDAD + 1):
     nuevo = [0.0] * (K_MAX + 2)
     for k in range(2, K_MAX + 1):
@@ -172,23 +174,29 @@ for s in range(1, T_DENSIDAD + 1):
             if k - 1 >= 2:
                 nuevo[k - 1] += 0.25 * q
     Qb = nuevo
-    q_por_s[s] = [Qb[y] if 2 <= y <= Y_TOPE else 0.0
-                  for y in range(0, Y_TOPE + 1)]
-    q2_por_s[s] = Qb[2]
-p_tau_t = 0.25 * q2_por_s[T_DENSIDAD - 1]
+    q_por_s[s] = list(Qb)
+p_tau_t = 0.25 * q_por_s[T_DENSIDAD - 1][2]
 sup_D = 0.0
+sup_donde = (0, 0)
 for r in range(1, T_DENSIDAD // 2 + 1):
     qs = q_por_s[T_DENSIDAD - r]
-    for y in range(2, Y_TOPE + 1):
-        D = qs[y] / (4 * p_tau_t * (y - 1))
-        sup_D = max(sup_D, D)
+    for y in range(2, K_MAX + 1):
+        if qs[y] > 0.0:
+            D = qs[y] / (4 * p_tau_t * (y - 1))
+            if D > sup_D:
+                sup_D = D
+                sup_donde = (r, y)
 if sup_D > 3.5:
-    raise SystemExit("A2b: sup D = %.3f > 3,5 en r <= t/2" % sup_D)
+    raise SystemExit("A2b: sup D = %.3f > 3,5 (en r = %d, y = %d)"
+                     % (sup_D, sup_donde[0], sup_donde[1]))
 print("COMPROBACION A2 OK: D -> 1 (desvio %.4f en r = 10, t = 2010) y"
       % peor_conv)
-print("sup_(r <= t/2, y <= %d) D = %.3f <= 3,5 en t = %d (el 2^(3/2)"
-      % (Y_TOPE, sup_D, T_DENSIDAD))
-print("teorico es 2,83): el lema de comparacion (D) esta a la vista.")
+print("sup sobre r <= t/2 y TODO y (2..%d) de D = %.3f <= 3,5 en"
+      % (K_MAX, sup_D))
+print("t = %d, alcanzado en (r = %d, y = %d); el 2^(3/2) teorico del"
+      % (T_DENSIDAD, sup_donde[0], sup_donde[1]))
+print("peor caso y-chico es 2,83: la cota superior de (LLT-b) es")
+print("UNIFORME en y -- el gaussiano solo ayuda, como dice el texto.")
 print()
 
 # ---------------------------------------------------------------------------

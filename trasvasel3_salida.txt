@@ -13,8 +13,10 @@ c0 = 4/sqrt(pi) = 2.2568 (la constante del LLT, demostrada).
   t+r = 1010 (r = 10): D = 1.0135 1.0105 1.0054 0.9984 0.9895 0.9787 0.9661
   t+r = 2010 (r = 10): D = 1.0068 1.0052 1.0027 0.9992 0.9948 0.9893 0.9829
 COMPROBACION A2 OK: D -> 1 (desvio 0.0171 en r = 10, t = 2010) y
-sup_(r <= t/2, y <= 8) D = 2.823 <= 3,5 en t = 2000 (el 2^(3/2)
-teorico es 2,83): el lema de comparacion (D) esta a la vista.
+sup sobre r <= t/2 y TODO y (2..420) de D = 2.823 <= 3,5 en
+t = 2000, alcanzado en (r = 1000, y = 2); el 2^(3/2) teorico del
+peor caso y-chico es 2,83: la cota superior de (LLT-b) es
+UNIFORME en y -- el gaussiano solo ayuda, como dice el texto.
 
 FASES B y C (MC): la primera mitad se aniquila y el truncamiento
 es uniforme en T

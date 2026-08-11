@@ -266,8 +266,16 @@ sobrevive s pasos sin pisar 1 y termina en y). Para y en un rango
 fijo:
   (LLT-a)  Q_s(2, y) = c0 (y - 1) s^(-3/2) (1 + o(1)),  s -> inf,
            con c0 = 4/sqrt(pi) para este paseo;
-  (LLT-b)  c1 (y-1) s^(-3/2) <= Q_s(2, y) <= c2 (y-1) s^(-3/2)
-           para todo s >= s0(y).
+  (LLT-b)  c1 (y-1) s^(-3/2) <= Q_s(2, y)   para y fijo, s >= s0(y);
+           y LA COTA SUPERIOR ES UNIFORME EN y:
+           Q_s(2, y) <= c2 (y-1) s^(-3/2)   para TODO y >= 2, s >= s0
+           (el factor gaussiano e^(-y^2/2s) del perfil solo ayuda --
+           y la uniformidad en y es la que el tramo MEDIO del
+           teorema L3 necesita, porque un sufijo de largo r ~ t/2
+           puede arrancar en altura y ~ sqrt(t); capa 2 propia del
+           11-08 (2): el primer texto decia "y en rango fijo" y el
+           DP solo habia mirado y <= 8 -- hueco cerrado, DP
+           extendido a TODO y).
 En particular P(tau = t) = (1/4) Q_{t-1}(2, 2) ~ (c0/4) t^(-3/2),
 y gracias a la pereza NO hay obstruccion de paridad: tau toma
 todos los valores t >= 1.
@@ -353,7 +361,10 @@ MITAD (r > tau/2). Con la union:
   P(|W_tau| > M | .) <= P(|sufijo| > M0 + 1 | .)
                        + P(|medio| > 1/2 | .)
                        + P(|mitad| > 1/2 | .).
-(1) SUFIJO: es un evento de los ultimos R pasos; por (D-a),
+(1) SUFIJO: es un evento de los ultimos R pasos; para R fijo los
+    cilindros de largo R son FINITOS (alturas y <= R + 2), asi que
+    (D-a) da convergencia EN VARIACION TOTAL de la ley condicional
+    del sufijo -- sin cuestiones de continuidad en el borde:
     P(|sufijo| > M0+1 | .) -> P~+(|W~^(R)| > M0+1)
     <= P~+(|W~_inf| > M0) + P~+(|W~^(R) - W~_inf| > 1)
     <= 1/4 + eta'_R,   con eta'_R -> 0 por el Lema (ii).
@@ -387,10 +398,16 @@ version CUANTITATIVA en x debera pagar este sqrt(R): es la misma
 fisica del transitorio lento que la escalera de gamma ve por
 decadas. Coherente, no accidental.
 
-COROLARIO (EL TEOREMA V2, completo modulo el LLT citado). En el
-evento de las piezas 1-2 (tau en [T, 2T] con T = 30 log x y
-contraccion S(tau) <= -log x), |u_tau| <= 1 + |W_tau|; por la union
-(Chebyshev de la pieza 2 falla con prob <= 1/4; L3 falla con prob
+COROLARIO (EL TEOREMA V2, completo y autocontenido). Nota previa:
+con el LLT demostrado, la pieza 1 sale con ASINTOTICA EXACTA y en
+la ventana que L3 usa -- P(tau en [T, 2T]) = Suma_{t} P(tau = t)
+~ (c0/2)(1 - 2^(-1/2)) T^(-1/2) -- asi que el Lema 1 (que solo
+daba P(tau >= T) >= c1/sqrt(T)) queda superado y la ventana no
+necesita el "factor constante" heuristico del plan. En el evento
+de las piezas 1-2 (tau en [T, 2T] con T = 30 log x y contraccion
+S(tau) <= -log x), |u_tau| <= 1 + |W_tau|; por la union (Chebyshev
+de la pieza 2 falla con prob <= 1/4 condicionado al camino bueno,
+cuyo complemento es exponencialmente raro; L3 falla con prob
 <= 1/4 + o(1)):
   phi_V2(x) = P(|u_tau| <= K)  >=  P(tau en [T,2T]) * (1/2 - o(1))
             >=  c / sqrt(log x),      con K = M + 1 UNIVERSAL.
