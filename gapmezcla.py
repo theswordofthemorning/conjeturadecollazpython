@@ -389,3 +389,111 @@ print("    conteo en un enunciado sobre la MEDIDA que el DP realiza,")
 print("    no sobre el operador que la mueve -- y es, otra vez y con")
 print("    mas fuerza, la leccion de 3-bis.vi: el teorema es sobre la")
 print("    orbita, no sobre el operador suelto.")
+print()
+
+# ---------------------------------------------------------------
+# G6  ENTONCES, DONDE PONE MASA LA ORBITA?
+# ---------------------------------------------------------------
+print("G6  entonces, DONDE pone masa la orbita? (la pregunta que G5")
+print("    deja abierta, medida sobre el DP real)")
+print("    Si el operador no contrae pero la cadena si, la salida es")
+print("    que la ley del DP no cargue los bloques malos. Aqui se")
+print("    identifica el bloque PEOR de cada escala y se mide su")
+print("    cuota de masa espectral en la ley real, contra la cuota")
+print("    que le tocaria a ciegas (dim del bloque / (N-1)).")
+print()
+
+M_BITS_DP = 12
+T_MAXDP = 25
+T_MED = 24
+
+
+def dp_correr(c0):
+    # duplicado deliberado (la casa no importa ficheros: los ejecuta)
+    M = T_MAXDP + M_BITS_DP
+    estados = {(2, c0 % (2 ** M)): 1}
+    historia = {}
+    for t in range(T_MAXDP + 1):
+        historia[t] = estados
+        if t == T_MAXDP:
+            break
+        Q = 2 ** (M - t)
+        Q2 = Q // 2
+        nuevos = {}
+        for (k, cm), n in estados.items():
+            if cm % 2 == 0:
+                h0 = (k, (cm // 2) % Q2)
+                v = (3 * cm + 1 - pot3(k)) % Q
+                h1 = (k, (v // 2) % Q2)
+                nuevos[h0] = nuevos.get(h0, 0) + n
+                nuevos[h1] = nuevos.get(h1, 0) + n
+            else:
+                v = (3 * cm + 1) % Q
+                h0 = (k + 1, (v // 2) % Q2)
+                nuevos[h0] = nuevos.get(h0, 0) + n
+                if k >= 3:
+                    w = (cm - pot3(k - 1)) % Q
+                    h1 = (k - 1, (w // 2) % Q2)
+                    nuevos[h1] = nuevos.get(h1, 0) + n
+        estados = nuevos
+    return historia
+
+
+ARRANQUES = [(999983, "A"), (999999937, "B"),
+             ((2 ** 21) - ((2 ** 21 + 1) // 3), "ADV")]
+print("      m   bloque peor      a ciegas    cuota REAL (A/B/ADV)")
+for m in (6, 7):
+    N = 2 ** m
+    s3 = s_de_k(3) % N
+    vistos = set()
+    orbitas = []
+    for j in range(1, N):
+        if j in vistos:
+            continue
+        o, x = [], j
+        while x not in vistos:
+            vistos.add(x)
+            o.append(x)
+            x = (3 * x) % N
+        orbitas.append(o)
+    peor, peor_o = -1.0, None
+    for o in orbitas:
+        v = norma_bloque(o, [s3], N, iters=600)
+        if v > peor:
+            peor, peor_o = v, o
+    dim = len(peor_o)
+    ciegas = dim / float(N - 1)
+    cuotas = []
+    for c0, nom in ARRANQUES:
+        estados = dp_correr(c0)[T_MED]
+        cuenta = {}
+        for (kk, cm), n in estados.items():
+            if 2 <= kk <= 5 and cm % 2 == 0:
+                u = (cm // 2) % N
+                cuenta[u] = cuenta.get(u, 0) + n
+        masa = sum(cuenta.values())
+        vec = [cuenta.get(u, 0) for u in range(N)]
+        f = [N * x - masa for x in vec]
+        F = []
+        for j in range(N):
+            s = 0j
+            for u, x in enumerate(f):
+                if x:
+                    s += x * cmath.exp(-2j * cmath.pi * j * u / N)
+            F.append(s)
+        tot = sum(abs(F[j]) ** 2 for j in range(1, N))
+        mala = sum(abs(F[j]) ** 2 for j in peor_o)
+        cuotas.append(mala / tot if tot > 0 else 0.0)
+    print("     %2d   norma %.4f dim %2d   %.4f      %.4f  %.4f  %.4f"
+          % (m, peor, dim, ciegas, cuotas[0], cuotas[1], cuotas[2]))
+print()
+print("    LECTURA: si la cuota REAL queda por DEBAJO de la cuota a")
+print("    ciegas, la ley del DP EVITA el bloque malo y ahi esta el")
+print("    mecanismo -- el enunciado final seria 'la orbita del DP no")
+print("    carga las orbitas de frecuencia invariantes'. Si queda por")
+print("    ENCIMA, ni siquiera eso: la contraccion vendria de la")
+print("    mezcla ENTRE fibras (los pesos w y las corrientes A/D), y")
+print("    no del reparto espectral dentro de una fibra.")
+print("    MEDICION a horizonte finito sobre el zocalo k = 2..5, dos")
+print("    escalas, tres arranques. No es teorema: es la sonda que")
+print("    dice por donde seguir.")

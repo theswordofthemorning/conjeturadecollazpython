@@ -109,3 +109,26 @@ G5  LA DISCREPANCIA, RESUELTA POR BLOQUES (capa 1: G3 dio
     no sobre el operador que la mueve -- y es, otra vez y con
     mas fuerza, la leccion de 3-bis.vi: el teorema es sobre la
     orbita, no sobre el operador suelto.
+
+G6  entonces, DONDE pone masa la orbita? (la pregunta que G5
+    deja abierta, medida sobre el DP real)
+    Si el operador no contrae pero la cadena si, la salida es
+    que la ley del DP no cargue los bloques malos. Aqui se
+    identifica el bloque PEOR de cada escala y se mide su
+    cuota de masa espectral en la ley real, contra la cuota
+    que le tocaria a ciegas (dim del bloque / (N-1)).
+
+      m   bloque peor      a ciegas    cuota REAL (A/B/ADV)
+      6   norma 1.0000 dim  2   0.0317      0.0006  0.0001  0.0152
+      7   norma 1.0000 dim  2   0.0157      0.0006  0.0001  0.0067
+
+    LECTURA: si la cuota REAL queda por DEBAJO de la cuota a
+    ciegas, la ley del DP EVITA el bloque malo y ahi esta el
+    mecanismo -- el enunciado final seria 'la orbita del DP no
+    carga las orbitas de frecuencia invariantes'. Si queda por
+    ENCIMA, ni siquiera eso: la contraccion vendria de la
+    mezcla ENTRE fibras (los pesos w y las corrientes A/D), y
+    no del reparto espectral dentro de una fibra.
+    MEDICION a horizonte finito sobre el zocalo k = 2..5, dos
+    escalas, tres arranques. No es teorema: es la sonda que
+    dice por donde seguir.

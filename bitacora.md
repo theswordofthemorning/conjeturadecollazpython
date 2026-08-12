@@ -201,6 +201,21 @@ es un enunciado sobre **la medida que el DP realiza**, no sobre el
 operador que la mueve: otra vez, y con más fuerza, la lección de
 3-bis.vi.
 
+**15. Y LA RESPUESTA A LA PREGUNTA QUE ESO ABRE — DÓNDE PONE MASA LA
+ÓRBITA (G6).** Si el operador no contrae pero la cadena sí, la ley del
+DP tiene que **evitar los bloques malos**. Medido: el bloque peor
+(norma 1 exacta, dimensión 2) recibiría a ciegas el **3,17%** de la
+masa espectral en m=6 y el **1,57%** en m=7; la ley real le da
+**0,06% / 0,01% / 1,52%** (A/B/ADV) en m=6 y **0,06% / 0,01% / 0,67%**
+en m=7. **La órbita evita el bloque malo por factores de 50 a 150×.**
+⇒ El mecanismo de la contracción está localizado: *la órbita del DP no
+carga las órbitas de frecuencia invariantes*. Ése es el enunciado
+candidato final del teorema de conteo. *(Medición a horizonte finito,
+zócalo k = 2…5, dos escalas, tres arranques — sonda que dice por dónde
+seguir, no teorema. Y el ADV, que es el arranque adversarial, es el
+que más carga el bloque malo: coherente con que sea el diseñado para
+hacer daño.)*
+
 **Etiquetas honestas:** son TEOREMA (exactos en racionales/enteros) la
 identidad de polarización, la estructura de ciclos, el contraejemplo y
 la identidad de traslación del punto 8; son MEDICIÓN a horizonte
