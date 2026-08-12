@@ -207,7 +207,14 @@ DP tiene que **evitar los bloques malos**. Medido: el bloque peor
 (norma 1 exacta, dimensión 2) recibiría a ciegas el **3,17%** de la
 masa espectral en m=6 y el **1,57%** en m=7; la ley real le da
 **0,06% / 0,01% / 1,52%** (A/B/ADV) en m=6 y **0,06% / 0,01% / 0,67%**
-en m=7. **La órbita evita el bloque malo por factores de 50 a 150×.**
+en m=7. **La órbita evita el bloque malo — pero el factor NO es
+uniforme: 26–157× en A y B, y sólo 2,1× en ADV** *(corrección de capa
+1, 12-08 (3): el titular original decía «factores de 50 a 150×», que
+era el rango de A y B con el arranque ADVERSARIAL ignorado — muestra
+buena tomada por constante, el modo de fallo nº 5. El enunciado honesto
+es que la evitación existe en los tres arranques y su magnitud depende
+del arranque; el ADV, diseñado para hacer daño, es el que menos evita
+— exactamente donde el teorema tendría que trabajar.)*
 ⇒ El mecanismo de la contracción está localizado: *la órbita del DP no
 carga las órbitas de frecuencia invariantes*. Ése es el enunciado
 candidato final del teorema de conteo. *(Medición a horizonte finito,

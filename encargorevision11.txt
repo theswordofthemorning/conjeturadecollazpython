@@ -1,0 +1,211 @@
+=====================================================================
+EL ENCARGO DE LA 11a REVISION ADVERSARIAL -- LA TANDA POST-10a
+(preparado el 12-08-2026 por el asistente, ANTES de la revision.
+La regla de la casa: DIEZ de diez revisiones mordieron. Esta
+tambien va a morder, y mejor que muerda donde el autor ya declaro
+la carne blanda. Formato heredado de encargorevision10.txt.)
+=====================================================================
+
+QUE SE REVISA. Dos tandas que nadie de fuera ha mirado:
+
+ (A) EL RESTO DEL 12-08 (2), post-10a: conteoconjunto.py
+     (BALLENAS, el funcional condicional e_cond y rho_cond < 1/2),
+     unionpalabras.lean (LORAS, el 21o) + union_cruce.py,
+     corrienteszocalo.py (las cuatro corrientes), el wedge escrito
+     en notaensamblajep2.txt P2-a, y los cinco bautizos.
+
+ (B) LA TANDA DEL 12-08 (3) -- ENTERA Y SIN REVISAR:
+     correlacionafin.py (el 90o) + notacorrelacionafin.txt +
+     notaequidistribucion 3-bis.ix, y gapmezcla.py (el 91o).
+     Seis commits: 12452c0, ead1a5b, 2bb6acd, e71266c, cb07102,
+     10a9e9b. Contexto: RutaTeoremas.md (puntos 1-13 del bloque
+     12-08 (3)), bitacora.md (entrada 12-08 (3)).
+
+EL AVISO DE RITMO, declarado: la tanda (B) se apilo encima de (A)
+SIN revision externa de por medio -- exactamente lo que la regla
+del ritmo prohibe. Si (A) cae, parte de (B) cae con ella. Atacar
+en ese orden.
+
+---------------------------------------------------------------------
+REPARTO SUGERIDO (tres adversarios, como la 8a, 9a y 10a)
+---------------------------------------------------------------------
+
+ADVERSARIO 1 -- LA MATEMATICA EXACTA (los cuatro "teoremas" de (B)):
+
+ a1. EL CONTRAEJEMPLO (C3) CONTRA EL ENUNCIADO REAL DEL COFRE.
+     ESTE ES EL PUNTO MAS ATACABLE DE TODA LA TANDA Y EL AUTOR LO
+     SABE. El cofre (notaequidistribucion 3-bis.viii(c)) pedia
+     literalmente "Sigma p(r) p(tau r) <= gamma C2(p), gamma < 1"
+     -- SIN centrar. El autor refuta la version CENTRADA y
+     argumenta que "es la que la recursion usa" (porque los E_ij
+     son excesos sobre el piso). PREGUNTA: es legitimo ese cambio
+     de enunciado, o el autor refuto un enunciado propio y no el
+     del cofre? Si la version literal es la buena, lo unico que el
+     autor demostro es que era VACUA (gamma <= 1 gratis por C1) --
+     que sigue siendo un resultado, pero es OTRO. Exigir que la
+     nota diga cual de las dos cosas hizo.
+
+ b1. LA IDENTIFICACION c' = c - 1 DE C8(a). El "par malo es una
+     TRASLACION PURA" depende de emparejar el padre impar de la
+     fibra k-1 con el padre par de la fibra k via c' = c - 1. Esa
+     identificacion es una ELECCION del autor: los dos conjuntos
+     son disjuntos y nada en la cadena los relaciona asi. ATAQUE:
+     con otra identificacion (c' = c + 1, o la que la dinamica
+     real induzca) el mapa relativo YA NO es una traslacion, y la
+     explicacion "el par bueno mezcla, el par malo desplaza" se
+     cae como MECANISMO aunque el numero 0,905 siga ahi.
+
+ c1. LA ESTRUCTURA DE CICLOS (C2). "k impar => exactamente dos
+     ciclos de largo 2^(m-1)" esta ENUMERADO en m = 4..10 y la
+     razon (v2(3^n - 1) >= m+1 pide n = 2^(m-1)) esta ESBOZADA en
+     un comentario, no demostrada. Cerrarla o romperla; y revisar
+     el caso k PAR, que el fichero censa (2m-1 ciclos, largos
+     1..2^(m-2)) pero no usa -- si el cofre vive tambien en fibras
+     pares, el contraejemplo NO las cubre.
+
+ d1. G5 NO REFUTA LO QUE DICE REFUTAR. El autor concluye "la via
+     de expansion esta muerta" midiendo la norma del producto de
+     M_3 y M_5 -- DOS FIBRAS. Pero el operador de mezcla real es
+     Sigma_i w_i P_i sobre las CUATRO corrientes (N0, N1, A, D), y
+     A y D NO son imagenes de la misma ley padre: no son
+     permutaciones del mismo espacio. ATAQUE: el objeto que el
+     autor midio no es el operador cuya norma el punto 9 de la
+     nota proponia acotar. Si es asi, la "reparacion retirada"
+     esta MAL retirada.
+
+ADVERSARIO 2 -- LOS NUMEROS (reproduccion independiente, sin abrir
+los .py del repo; la dinamica esta en las cabeceras y en CLAUDE.md):
+
+ a2. Reproducir el DP y el gamma realizado de C5/C7 con codigo
+     propio: los doce valores (+0,099 / -0,138 / -0,259 / -0,259 y
+     sus analogos en B y ADV) a t = 24, m = 8. El autor afirma que
+     coinciden a 12 cifras con E_N0N1/E_N0N0 calculado por la otra
+     definicion -- verificar las DOS y su igualdad.
+
+ b2. LA CONTABILIDAD C9 Y LA COTA C-S. Reproducir
+     rho_ms = Sigma_ij w_i w_j E_ij / E00 (debe CERRAR) y la
+     columna cotaCS. El autor afirma que la C-S cruda SUPERA 1
+     (peor 1,156) -- si eso es cierto es el negativo mas fuerte de
+     la tanda; si esta mal calculado (p.ej. E_ii mal normalizado o
+     mal emparejado con su masa), la conclusion "ninguna cota en
+     valor absoluto puede servir" se cae entera.
+
+ c2. G6 Y SU TITULAR. El autor identifico "el bloque peor" con
+     power iteration a 600 iteraciones sobre bloques de dimension
+     2 y midio su cuota espectral. ATAQUES: (i) es ESE el bloque
+     que importa, o hay bloques de norma ~1 con mas dimension y
+     mas masa? (ii) el titular original decia "factores de 50 a
+     150x" y el propio autor lo corrigio en vivo al ver que el
+     arranque ADV da 2,1x -- comprobar que la correccion es
+     suficiente y que no queda el numero viejo en ningun fichero.
+     (iii) tres arranques y dos escalas: es muestra?
+
+ d2. EL CAMBIO DE SIGNO POR ESCALA (C10). El autor RETIRA su
+     propia propuesta porque gamma cambia de signo entre m = 7 y
+     m = 8. ATAQUE: y si el cambio de signo es un ARTEFACTO de que
+     a m chico la ley tiene pocas clases y el centrado se vuelve
+     ruidoso? Medir el error de muestreo por celda. Si el signo a
+     m <= 7 no es significativo, la retirada fue prematura y el
+     enunciado con signo sigue vivo.
+
+ADVERSARIO 3 -- LA LETRA (cuantificadores, etiquetas, prosa):
+
+ a3. "EL COFRE APUNTABA AL PAR EQUIVOCADO". Es justo? El texto del
+     cofre decia dos cosas: (i) "N0 vs N1 son la misma ley padre
+     por dos mapas afines" -- que es CORRECTO -- y (ii) "medido en
+     ~0,5" -- que es el numero mal atribuido. La frase del autor
+     puede estar cobrandole a (i) el pecado de (ii). Ajustar.
+
+ b3. Las etiquetas TEOREMA / MEDICION de los 15 puntos de
+     notacorrelacionafin.txt, una por una, contra lo que el .py
+     realmente computa y con que rango. En particular: C0 dice
+     "m = 3..11, k = 0..7, TODO u" -- verificar que el barrido es
+     exhaustivo y no muestreado; y C1 dice "24 casos" con pesos
+     pseudoaleatorios de un LCG propio: eso es muestra, no
+     demostracion, aunque la identidad SI sea un teorema de una
+     linea.
+
+ c3. LOS DOS NEGATIVOS COMO "RESTRICCIONES DE FORMA". El autor
+     escribe que "ninguna demostracion que acote las cruzadas en
+     valor absoluto puede servir" y que "el teorema no puede
+     apoyarse en el signo". Son afirmaciones sobre TODAS las
+     demostraciones posibles -- cuantificador universal sobre
+     metodos, no sobre numeros. Exigir que se reescriban acotadas
+     a lo que la medicion sostiene (p.ej. "la cota C-S cruda, tal
+     como se computa aqui, no alcanza en el rango medido").
+
+ d3. El blanco reescrito (punto 15, la desigualdad de norma):
+     verificar que ES equivalente al enunciado anterior y no una
+     version mas debil o mas fuerte disfrazada; y que
+     ||f_N0|| = ||f_N1|| se usa donde corresponde.
+
+---------------------------------------------------------------------
+LO QUE EL AUTOR YA SABE QUE ESTA BLANDO (para no gastar polvora)
+---------------------------------------------------------------------
+
+ . El cambio de enunciado literal -> centrado (a1) es el punto mas
+   discutible de la tanda y esta declarado arriba.
+ . La identificacion c' = c - 1 (b1) es una convencion del autor.
+ . G5 mide dos fibras, no el operador de mezcla completo (d1).
+ . El titular de G6 ya fue corregido en vivo por el propio autor
+   (de "50 a 150x" a "26-157x en A/B y 2,1x en ADV") -- si queda
+   algun rastro del viejo, es error de aplicacion, no de hallazgo.
+ . TODO lo de (B) es horizonte finito: t <= 25, m <= 10, tres
+   arranques. Nada asintotico esta demostrado.
+ . El teorema de conteo NO existe. Sigue sin existir despues de
+   esta tanda: lo unico que la tanda hizo es MOVER el cofre y
+   matar tres vias. Si algun texto sugiere avance hacia phi = 1,
+   es exageracion y hay que cazarla.
+
+---------------------------------------------------------------------
+ADDENDUM DEL USUARIO (12-08, dictado con los agentes ya lanzados y
+transmitido a los tres en vuelo). TRES EXIGENCIAS CONCRETAS:
+---------------------------------------------------------------------
+
+ U1. REPRODUCIR "NO HAY GAP" DESDE CERO. Es la conclusion mas CARA
+     de la tanda -- cierra una via entera -- y en esa misma
+     medicion hubo DOS sustos de instrumento la misma noche: un
+     testigo mal construido que daba sqrt(2)/2 (estaba mal
+     construido, no mal por poco) y una discrepancia entre dos
+     metodos (power iteration global contra bloques de orbita)
+     resuelta a mano por el autor. Que alguien la mida SIN MIRAR
+     ESE CODIGO. Asignado al ADVERSARIO 2 (el unico con la
+     prohibicion de abrir gapmezcla.py ya vigente).
+     [HUECO DEL ENCARGO ORIGINAL, reconocido: ningun adversario
+     tenia el mandato de reproducir G1/G5 desde cero -- el adv 1
+     solo tenia que auditar si G5 mide el objeto correcto.]
+
+ U2. ATACAR LA CONCLUSION POSITIVA, NO SOLO LAS NEGATIVAS. "La
+     contraccion viene de que la orbita evita las frecuencias
+     malas" salio POR ELIMINACION -- porque murieron las otras
+     tres vias. Una conclusion deducida de tres negativos es justo
+     donde se cuela una CUARTA POSIBILIDAD que nadie enumero. El
+     encargo es enumerarla: listar los mecanismos posibles de la
+     contraccion medida y comprobar que el conjunto {valor
+     absoluto, signo, expansion del operador, evitacion espectral}
+     es EXHAUSTIVO -- o exhibir el cuarto. Asignado al
+     ADVERSARIO 1.
+
+ U3. EL FACTOR 50-150x (hoy corregido a 26-157x en A/B y 2,1x en
+     ADV) ES UN NUMERO MEDIDO EN UNA VENTANA. Y van DOS veces que
+     un margen medido resulta ser de la VENTANA y no del OBJETO:
+     el "margen 13%" que la 10a bajo a 4%, y el signo de la
+     cruzada que cambiaba con la escala. Que se barra la ventana
+     ENTERA (mas escalas, mas tiempos, mas arranques -- incluidos
+     estructurados para hacer dano) ANTES de que ese factor
+     sostenga nada. Asignado a los ADVERSARIOS 2 (c2) y 3
+     (barrido transversal), reforzado.
+
+---------------------------------------------------------------------
+EL PREMIO
+---------------------------------------------------------------------
+
+Si (B) aguanta: el teorema de conteo queda con su enunciado en
+forma de norma (una desigualdad de Gram sobre cuatro vectores),
+con tres vias muertas documentadas y el mecanismo localizado en
+"la orbita no carga las orbitas de frecuencia invariantes" -- que
+es lo que la 12a tendria que atacar.
+Si muerde: mejor ahora, antes de que la sesion siguiente construya
+encima. Es exactamente lo que la regla del ritmo estaba pidiendo y
+esta tanda se salto.
+=====================================================================
