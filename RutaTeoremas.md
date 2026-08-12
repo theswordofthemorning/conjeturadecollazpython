@@ -282,10 +282,16 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    constantes L2 por rehacer, β = 0 es medición.
 > 7. **Bautizos** ⇢ la tanda del 12-08 BAUTIZADA por orden del
 >    usuario (VÍBORAS, AVISPAS, EFÍMERAS, PIRAÑAS, TORTUGAS,
->    LANGOSTAS — ver el ZOOLÓGICO); sigue user-gated la tanda del
->    11-08 (2) (el teorema V2/L3, la mediana universal, la
->    dominación; el certificado CW ya vive bajo PUMAS) y P5 (ley
->    del borde a Lean/trío). Y la **predicción falsable nueva** del adv 3 queda
+>    LANGOSTAS — ver el ZOOLÓGICO); **y la tanda restante BAUTIZADA
+>    el 12-08 (2) por delegación del usuario** («tenemos un
+>    diccionario... para que hagas los bautizos»; el diccionario de
+>    22 del CLAUDE.md ya estaba agotado — nombres nuevos en el mismo
+>    espíritu): **LORAS** (la unión por palabras, el 21º lean),
+>    **BALLENAS** (el funcional condicional del conteo), **TRUCHAS**
+>    (el teorema V2/L3 por reversión temporal), **GRULLAS** (la
+>    mediana universal), **CIGARRAS** (la dominación del reloj
+>    real). El certificado CW ya vive bajo PUMAS/LANGOSTAS. Sigue
+>    user-gated P5 (ley del borde a Lean/trío). Y la **predicción falsable nueva** del adv 3 queda
 >    registrada para vigilar: `a(k)/2^k` cruzaría 0,462781 hacia
 >    k ≈ 45–50 (extrapolación declarada; sugiere φ ≈ 0,52).
 
@@ -838,6 +844,11 @@ descriptivo entre paréntesis.)*
 | **TORTUGAS** | teorema condicional | el reloj polinomial: `τ_i ≤ i^{2+ε}` c.s. condicional a la dominación (D) — reflexión + Chernoff adaptado + presupuesto quenched + Borel–Cantelli; supera el `e^{o(i²)}` pedido con margen infinito. La hermana de fábula de LIEBRES: la tortuga llega a tiempo | condicional a (D); piezas clásicas escritas; η = 2,082 medido de respaldo | `notalb.txt`, `arranquesporvisita.py` |
 | **LANGOSTAS** | teorema por escalón | la pinza de dos tenazas: en cada caja truncada hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) = ρ(S*)` (Perron aplica), y CW min/max en enteros lo PINZA por ambos lados — ancho ≤ 1e-5 en los escalones 1–9 y `ρ(M_T) ∈ [1,989042, 1,989176]` en el 10 (22,5M estados): la letra chica del ritmo del récord, pagada ENTERA en el truncado | demostrado por cómputo exacto (los DIEZ escalones, K ≤ 19) | `pinzacw.py`, `certificadocw.py` |
 | **URRACAS** | teorema | la contabilidad del sesgo: `exp − contr = 2V + (Ee−E0) + k0 − k_t` EXACTO por palabra (libro mayor de nueve tipos); corolario: `⟺` en la sombra IFS con umbral 0,26186, umbral EFECTIVO ~0,2446 en la cadena (error del modelo medido); sin condicionar `Σ(Ee−E0) = 0` — el h-transform aislado en UNA moneda condicionada | demostrado (Lean 0 sorry); **AGUANTÓ ENTERA la 5ª revisión** (tabla rederivada, 200.000 palabras, Lean cotejado a máquina, circularidad rota con 59.990 pares reales) | `urracas.py`, `urracas.lean`, `actarevision0908b.txt` |
+| **LORAS** | teorema | leen la palabra entera: «racha ≥ j con palabra u tras el mixto» es A LO SUMO UNA clase mod 2^{j+1}, para TODA palabra (división lineal directa; recarga por `tres_inyectivo`; q libre por paso — más fuerte que lo que la cadena usa) — la unicidad que la unión por palabras necesita: `P(racha_total ≥ j) ≤ √C₂·2^{−(j+1)/2}`, el reemplazo del compuesto roto por la 10ª | demostrado (Lean, el 21º, 0 sorry); cruce 1.260 combinaciones: EXACTAMENTE una clase (existencia medida, unicidad teorema) | `unionpalabras.lean`, `union_cruce.py` |
+| **BALLENAS** | medición + reformulación | filtran por fibra: el funcional definitivo del conteo es el exceso CONDICIONAL `e_cond = Σ_k P(k)·(C2_k − 1)` (el piso móvil de k DIVIDIDO, no restado — las barbas de la ballena); domina a la marginal por el puente C-S (una línea), inmune al contraejemplo naif, y `ρ_cond < 1/2` en toda la ventana (peor 0,460, margen 8%); el absoluto queda DESCARTADO con negativo registrado (ρ ~ 0,9: carga la difusión de k) | medido exacto (78 celdas × 3 arranques; cruce 2^14 en enteros); el teorema ABIERTO — es EL enunciado a demostrar | `conteoconjunto.py`, `notaequidistribucion.txt` §3-bis.vii |
+| **TRUCHAS** | teorema (en V2) | nadan contra la corriente: el teorema V2/L3 por REVERSIÓN TEMPORAL en la absorción — el h-transform explícito `h(k) = k−1` (Bessel-3 discreto), la serie revertida convergente, el lema D de comparación (sup 2,823 vs 2^{3/2}) y el LLT autocontenido ⟹ `φ_V2(x) ≥ c/√log x` con ventana universal | teorema autocontenido en el modelo V2 (`teoremav2.txt`); **AGUANTÓ la 9ª revisión** (verificación exacta en racionales; 3 reparaciones de escritura) | `teoremav2.txt`, `trasvasel3.py`, `fichaagkv.txt` |
+| **GRULLAS** | hallazgo medido | migran todas al mismo punto: la MEDIANA UNIVERSAL — la ley de `log\|u\|` a la entrada del fondo, condicionada a `τ ∈ [T, 2T]`, es independiente del arranque (mediana límite 17,50 en V2a / 17,60 en V2b, desvío 1,9%; en la CADENA REAL deriva 0,07 décadas sobre seis órdenes de c₀) y es la del h-transform de AGKV; la balota real 1,117–1,145 = la constante de V2 | medido por dos caminos sin código común (forward condicionado vs cadena revertida); es mecanismo, no cota | `medianauniversal.py`, `medianareal.py` |
+| **CIGARRAS** | hallazgo medido | el reloj que canta a ritmo: la dominación del reloj real — `P(racha ≥ j)·2^j = 0,92–0,97` para todo j ≤ 12 con muestra (3,86M rachas de 150k excursiones reales), POR DEBAJO de 1: el reloj real dominado por la Geom(1/2) de V2b sin inflación, casi una igualdad medida | medido (la formulación con «offset O(log k)» de su salida fue RETIRADA por la 9ª — la dominación como hecho aguanta); el teorema es (D), el conteo pendiente | `rachasreales.py`, `dominacioncondicionada.py` |
 
 ## Dónde está cada cosa
 

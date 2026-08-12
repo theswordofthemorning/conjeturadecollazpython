@@ -1,10 +1,12 @@
 -- unionpalabras.lean
 --
--- LA UNION POR PALABRAS -- el sub-lema (a) del teorema de conteo,
--- nacido de la 10a revision adversarial (acta actarevision1208.txt,
--- M1): el compuesto de recargas via E[2^salto] estaba roto desde
--- siempre, y este lema lo reemplaza. Bautizo pendiente (user-gated).
--- El 21o .lean del repo; nucleo puro, sin Mathlib, 0 sorryAx.
+-- LA UNION POR PALABRAS -- TEOREMA DE LORAS (leen la palabra
+-- entera; bautizado el 12-08-2026 por delegacion del usuario) --
+-- el sub-lema (a) del teorema de conteo, nacido de la 10a revision
+-- adversarial (acta actarevision1208.txt, M1): el compuesto de
+-- recargas via E[2^salto] estaba roto desde siempre, y este lema
+-- lo reemplaza. El 21o .lean del repo; nucleo puro, sin Mathlib,
+-- 0 sorryAx.
 --
 -- QUE DICE. Tras un mixto, la racha de pasos compartidos avanza con
 -- SOLO DOS leyes (la cadena (k, c) con c par en todo el tramo):

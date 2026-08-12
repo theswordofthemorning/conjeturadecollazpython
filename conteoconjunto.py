@@ -1,5 +1,8 @@
 # conteoconjunto.py
 #
+# BALLENAS (filtran por fibra; bautizado el 12-08-2026 por
+# delegacion del usuario): el funcional condicional e_cond.
+#
 # EL BLANCO DEL TEOREMA DE CONTEO, MEDIDO SOBRE EL OBJETO CORRECTO
 # (12-08-2026, tras la 10a revision y el contraejemplo naif de
 # notaequidistribucion 3-bis.vi: la desigualdad multi-escala con el
