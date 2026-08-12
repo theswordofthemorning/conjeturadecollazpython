@@ -1,0 +1,86 @@
+=====================================================================
+NOTA: L-B COMO TEOREMA CONDICIONAL -- EL RELOJ POLINOMIAL DE LAS
+EXCURSIONES (tau_i <= i^(2+eps) c.s., mucho mas que el e^(o(i^2))
+que la reduccion pide)
+(12-08-2026; el punto 6 de la ruta post-9a. TEOREMA CONDICIONAL a
+la dominacion del reloj (D); las demas piezas son clasicas y estan
+escritas con todas las letras. Medido contra eta = 2,082 de
+arranquesporvisita.py: el exponente real es ~2.)
+=====================================================================
+
+0. QUE PIDE LA REDUCCION (13). La cadena de excursiones de Levy
+   visita arranques (2, c_i); L-B es la condicion de reloj:
+   tau_i <= e^(o(i^2)) para que el Borel-Cantelli del ensamblaje
+   phi = 1 cierre. AQUI se demuestra (condicional a (D)):
+     tau_i <= i^(2+eps) eventualmente c.s., para todo eps > 0.
+
+1. LA HIPOTESIS (D) -- el unico eslabon no clasico: la dominacion
+   adaptada del reloj real, P(racha >= j | pasado grueso) <=
+   C rho^j con rho < 1 (la version L-infinito tiene rho = 1/2; la
+   version L2 de notaequidistribucion 3.iv, rho = 2^(-1/2): AMBAS
+   sirven aqui -- solo cambia la constante del Chernoff). Estado:
+   reduccion demostrada + medicion exacta (C ~ 1); el teorema de
+   conteo abierto. TODO lo que sigue es incondicional.
+
+2. LAS PIEZAS CLASICAS:
+
+   (a) EL PASEO DE k EN LOS MIXTOS ES EL PEREZOSO CRITICO: cada
+       mixto mueve k en +-1 con moneda justa (Tigresas / el bit de
+       Terras); la excursion muere cuando k <= 1. Por reflexion
+       (clasico), desde k0 = 2:
+         P(el paseo sobrevive M mixtos) <= c_a / sqrt(M),
+       con c_a absoluta (k0 = 2 SIEMPRE: el arranque de excursion
+       es fijo -- aqui no hay quenched).
+
+   (b) EL RELOJ (Chernoff sobre (D)): el tiempo de T pasos reparte
+       en mixtos y rachas; con (D), E[z^racha | pasado] <= C' para
+       todo z < 1/rho, y por el metodo de Chernoff adaptado
+       (supermartingala del producto):
+         P(menos de T/4 mixtos en T pasos) <= e^(-c_b T),
+       c_b > 0 explicito en (C, rho). [Con rho = 2^(-1/2) el
+       margen del T/4 se recalibra: T/4 mixtos exigen media de
+       racha 3 > E[racha] <= C Sigma rho^j = C rho/(1-rho) ~ 2,41
+       -- sigue habiendo hueco, la constante c_b encoge. CUENTA
+       POR REHACER si el conteo entrega solo L2: declarado.]
+
+   (c) LA COLA POLINOMIAL, quenched: para la excursion i con
+       arranque c_i, el prefijo determinista come <= ~log2|c_i|
+       pasos (notaensamblajep2.txt P2-b, cota exacta por racha);
+       despues,
+         P(tau_i > T) <= e^(-c_b (T - L_i)) + 2 c_a / sqrt(T - L_i)
+                      <= C'' / sqrt(T)    para T >= 2 L_i,
+       con L_i = log2|c_i|. El cualificador quenched: hace falta
+       L_i << i^2, o sea log|c_i| = o(i^2) -- que vale con margen
+       enorme: beta = 0 MEDIDO (arranquesporvisita.py: los |c_i|
+       PLANOS, mediana ~2^4, p90 ~2^7 hasta i = 1325), y hasta un
+       crecimiento log|c_i| ~ i^delta con delta < 2 serviria.
+       [El unico modo de romperlo seria |c_i| doblemente
+       exponencial en i -- contra lo medido y contra Moscas.]
+
+   (d) BOREL-CANTELLI: con T_i = i^(2+eps),
+         Sigma_i P(tau_i > i^(2+eps)) <= Sigma_i C'' / i^(1+eps/2)
+       converge, asi que tau_i <= i^(2+eps) eventualmente c.s.
+       QED (condicional a (D) y al cualificador de (c)).
+
+3. CONTRA LO MEDIDO: arranquesporvisita.py dio eta = 2,082 (tau_i
+   ~ i^2 en la practica): el teorema entrega i^(2+eps), el techo
+   verdadero parece i^2 exacto -- coherente, sin sorpresas. Y la
+   supervivencia ~1/sqrt(T) de (c) esta clavada en la cadena real
+   (dominacioncondicionada.py S4: razon 1,947 ~ 2 entre T = 50 y
+   T = 200).
+
+4. QUE NO DICE: nada incondicional -- (D) es el teorema de conteo
+   pendiente; la pieza (b) con L2 tiene su cuenta por rehacer; y
+   el cualificador de (c) es una medicion (beta = 0), no un
+   teorema (su version teorema es notamoscasinducida, con su
+   cualificador propio).
+
+ETIQUETA: teorema CONDICIONAL con las piezas clasicas escritas
+((a) reflexion, (b) Chernoff adaptado, (d) B-C) y dos
+cualificadores declarados ((b) constantes L2, (c) beta = 0
+medido). El e^(o(i^2)) de la reduccion queda superado por
+i^(2+eps): margen infinito. Sin revision externa aun.
+Ficheros: arranquesporvisita.py, notadominacion.txt,
+notaequidistribucion.txt, notaensamblajep2.txt,
+dominacioncondicionada.py, oscilacion.py.
+=====================================================================

@@ -225,9 +225,14 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    RITMO ρ(M_T) — con eso la letra chica de `λ ≥ 1,989042` se va
 >    de verdad. La pinza [min,max] por Fraction del adversario es
 >    la técnica a adoptar.
-> 6. **L-B como teorema (P3)**: LTE (`A ≤ 2 + log₂k`) + cola
->    polinomial uniforme de excursiones + Borel–Cantelli ⟹
->    `τ_i ≤ poly(i)` — mucho más que el `e^{o(i²)}` pedido.
+> 6. ~~**L-B como teorema (P3)**~~ ⇢ **ESCRITO COMO TEOREMA
+>    CONDICIONAL (12-08, `notalb.txt`)**: `τ_i ≤ i^{2+ε}` c.s.
+>    condicional a la dominación (D) — reflexión (clásico) +
+>    Chernoff adaptado sobre (D) + presupuesto quenched (`L_i =
+>    log₂|c_i|`, β = 0 medido) + Borel–Cantelli. Supera el
+>    `e^{o(i²)}` con margen infinito; coherente con η = 2,082
+>    medido. Cualificadores declarados: (D) = el conteo pendiente,
+>    constantes L2 por rehacer, β = 0 es medición.
 > 7. User-gated: **bautizos** (la tanda entera del 11-08 (2) sin
 >    nombre de animal: el teorema V2/L3, la mediana universal, la
 >    dominación, el certificado CW) y P5 (ley del borde a
