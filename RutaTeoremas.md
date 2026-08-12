@@ -236,8 +236,24 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    cotas en valor absoluto (9) ni en el signo de una cruzada (10).
 >    Lo único estable es el BRANCHING de las propias** (`Σw² ≤ 0,37`,
 >    estructural, demostrable por conteo de masas) **más una acotación
->    CONJUNTA del resto** — no término a término. *Bautizo pendiente
->    (user-gated).*
+>    CONJUNTA del resto** — no término a término.
+> 11. **⇢ Y EL BLANCO, REESCRITO EN LA FORMA QUE SOBREVIVE A LOS DOS
+>    NEGATIVOS** (identidad exacta, `SystemExit` en 36 celdas). Con
+>    `f_i = 2^m·p_i − 1` el vector centrado de cada corriente:
+>    `E_ij = ⟨f_i,f_j⟩/2^m`, luego
+>    **`ρ_ms = ‖Σ_i w_i f_i‖² / ‖f_N0‖²`** — el numerador es un
+>    **cuadrado**. **El teorema de conteo es, exactamente:
+>    `‖Σ_i w_i f_i‖ ≤ (1/√2)·‖f_N0‖`** sobre las leyes que el DP
+>    realiza, con **`‖f_N0‖ = ‖f_N1‖` exacto** (VÍBORAS/LORAS,
+>    igualdad de enteros en las 36 celdas). *Por qué esta forma:*
+>    es una **norma de una combinación convexa** — no hay signos que
+>    dependan de la escala (10) ni valores absolutos que suban de 1
+>    (9); deja el teorema como una desigualdad de tipo
+>    **Gram/paralelogramo** donde el branching y la no-alineación
+>    entran **juntos**; y hace explícito el enunciado sobre la cadena:
+>    *los cuatro vectores centrados no pueden estar simultáneamente
+>    alineados*. **⇢ ÉSE es el enunciado con el que arranca la
+>    próxima sesión.** *Bautizo pendiente (user-gated).*
 >
 > **⇢ 12-08 (2) — LA 10ª REVISIÓN ADVERSARIAL, HECHA Y APLICADA**
 > (acta `actarevision1208.txt`; informes `_adv1/2/3.txt`): **la

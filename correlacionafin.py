@@ -987,6 +987,92 @@ print("    s y el termino cambia de signo. Ahi vive el teorema que")
 print("    la proxima sesion necesita (E_N0N1 <= 0 en la orbita).")
 print()
 
+# ---------------------------------------------------------------
+# C11 EL BLANCO, EN SU FORMA GEOMETRICA (la que queda en pie)
+# ---------------------------------------------------------------
+print("C11 el blanco reescrito: una desigualdad de NORMA")
+print("    Con f_i = 2^m p_i - 1 el vector centrado de la corriente i,")
+print("    la identidad E_ij = <f_i, f_j> / 2^m es inmediata, luego")
+print("      e_hija = Sigma_ij w_i w_j E_ij = || Sigma_i w_i f_i ||^2")
+print("               / 2^m")
+print("    -- un CUADRADO, positivo por construccion -- y")
+print("      rho_ms = || Sigma_i w_i f_i ||^2 / || f_N0 ||^2 .")
+print("    EL TEOREMA DE CONTEO ES ENTONCES, EXACTAMENTE:")
+print("      || Sigma_i w_i f_i ||  <=  (1/sqrt(2)) * || f_N0 ||")
+print("    para las leyes que el DP realiza. Una desigualdad sobre")
+print("    la COMBINACION CONVEXA de cuatro vectores, con")
+print("    ||f_N0|| = ||f_N1|| exacto (VIBORAS/LORAS) -- no sobre")
+print("    productos escalares sueltos, que es justo lo que C9 y C10")
+print("    demostraron insuficiente.")
+print()
+malos = 0
+for c0, nombre in ARRANQUES:
+    hist = dp_correr(c0)
+    llegadas = descomponer(hist[T_MEDIDA], T_MEDIDA)
+    for k in range(2, K_ZOCALO + 1):
+        for m in (6, 7, 8):
+            N = 2 ** m
+            porcor, masas = {}, {}
+            for cor in CORRIENTES:
+                d = llegadas.get((k, cor), {})
+                red = {}
+                for x, n in d.items():
+                    r = x % N
+                    red[r] = red.get(r, 0) + n
+                porcor[cor] = red
+                masas[cor] = sum(red.values())
+            mtot = sum(masas.values())
+            if mtot == 0 or not masas['N0']:
+                continue
+            # el vector suma, en enteros escalados por mtot
+            suma = [0] * N
+            for cor in CORRIENTES:
+                if not masas[cor]:
+                    continue
+                for r in range(N):
+                    suma[r] += porcor[cor].get(r, 0)
+            fs = [N * x - mtot for x in suma]
+            izq = sum(x * x for x in fs) / float(mtot) ** 2 / N
+            fn0 = [N * porcor['N0'].get(r, 0) - masas['N0']
+                   for r in range(N)]
+            der = sum(x * x for x in fn0) / float(masas['N0']) ** 2 / N
+            e_h = N * sum(v * v for v in
+                          [suma[r] for r in range(N)]) \
+                / float(mtot) ** 2 - 1
+            if abs(izq - e_h) > 1e-9 * max(1.0, abs(e_h)):
+                malos += 1
+            # y ||f_N0|| = ||f_N1|| (VIBORAS), en enteros
+            if masas['N1']:
+                fn1 = [N * porcor['N1'].get(r, 0) - masas['N1']
+                       for r in range(N)]
+                if (sum(x * x for x in fn0) !=
+                        sum(x * x for x in fn1)):
+                    raise SystemExit(
+                        "C11: ||f_N0|| != ||f_N1|| en k'=%d m=%d"
+                        % (k, m))
+if malos:
+    raise SystemExit("C11: la identidad de norma falla (%d celdas)"
+                     % malos)
+print("    IDENTIDAD VERIFICADA (SystemExit armado, 36 celdas): el")
+print("    e_hija medido ES ||Sigma w_i f_i||^2 / 2^m, y ||f_N0|| =")
+print("    ||f_N1|| como ENTEROS en todas -- VIBORAS/LORAS otra vez,")
+print("    ahora en forma de norma.")
+print()
+print("    POR QUE ESTA FORMA ES LA BUENA (y no es cosmetica):")
+print("    1. el lado izquierdo es una NORMA de una combinacion")
+print("       convexa: no hay signos sueltos que dependan de la")
+print("       escala (la enfermedad de C10) ni valores absolutos que")
+print("       tiren la cota por encima de 1 (la de C9);")
+print("    2. deja el teorema en terreno conocido: una desigualdad")
+print("       de tipo Gram / paralelogramo, donde el branching")
+print("       (Sigma w^2) y la no-alineacion entran JUNTOS y no como")
+print("       dos estimaciones separadas que hay que sumar;")
+print("    3. y hace explicito lo que hay que demostrar de la")
+print("       cadena: que los cuatro vectores centrados de las")
+print("       corrientes NO pueden estar simultaneamente alineados")
+print("       -- con ||f_N0|| = ||f_N1|| exacto de regalo.")
+print()
+
 print("ETIQUETA: C0-C3 son TEOREMA (enteros y racionales exactos);")
 print("C4 es aritmetica de autovalores de un ciclo (numerico")
 print("controlado); C5 y C6 son MEDICION sobre la orbita del DP a")

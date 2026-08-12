@@ -142,6 +142,30 @@ propias** (`Σw² ≤ 0,37`, estructural y demostrable por conteo de masas)
 **más una acotación CONJUNTA del resto**, no término a término. Es una
 forma más estrecha —mejor definida— que la de ayer.
 
+**13. EL BLANCO, REESCRITO EN LA FORMA QUE SOBREVIVE A LOS DOS
+NEGATIVOS** (identidad exacta, `SystemExit` en 36 celdas). Con
+`f_i = 2^m·p_i − 1` el vector **centrado** de cada corriente, la
+identidad `E_ij = ⟨f_i, f_j⟩/2^m` da
+**`ρ_ms = ‖Σ_i w_i f_i‖² / ‖f_N0‖²`** — el numerador es un
+**cuadrado**, positivo por construcción. Luego el teorema de conteo
+es, exactamente:
+
+> **`‖ Σ_i w_i f_i ‖ ≤ (1/√2) · ‖ f_N0 ‖`**
+
+sobre las leyes que el DP realiza, con **`‖f_N0‖ = ‖f_N1‖` exacto**
+(VÍBORAS/LORAS, igualdad de **enteros** en las 36 celdas). *Por qué
+esta forma y no otra —no es cosmética, es lo que queda tras los dos
+negativos—:* (a) el lado izquierdo es una **norma de una combinación
+convexa**, así que no hay signos sueltos que dependan de la escala
+(punto 12) ni valores absolutos que empujen la cota por encima de 1
+(punto 11); (b) deja el teorema en terreno conocido —una desigualdad
+de tipo **Gram/paralelogramo**— donde el **branching** (`Σw²`) y la
+**no-alineación** entran **juntos** y no como dos estimaciones que
+después hay que sumar; (c) hace explícito el enunciado sobre la
+cadena: *los cuatro vectores centrados de las corrientes no pueden
+estar simultáneamente alineados*. **Ése es el enunciado con el que
+arranca la próxima sesión.**
+
 **Etiquetas honestas:** son TEOREMA (exactos en racionales/enteros) la
 identidad de polarización, la estructura de ciclos, el contraejemplo y
 la identidad de traslación del punto 8; son MEDICIÓN a horizonte

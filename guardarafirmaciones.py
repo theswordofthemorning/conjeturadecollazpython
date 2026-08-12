@@ -3325,6 +3325,76 @@ AFIRMACIONES = [
          "e_t/e_(t-1) > 1 (t = 17, 23 en A): la geometria es de "
          "TENDENCIA. El teorema de conteo sigue ABIERTO: esto es "
          "su blanco, no su demostracion."),
+
+    ("EL TAU DEL COFRE, IDENTIFICADO: escribiendo el padre par de la "
+     "fibra k como c = 2u, las dos corrientes compartidas son "
+     "N0(u) = u y N1(u) = 3u + s_k con s_k = (1 - 3^k)/2, luego el "
+     "mapa relativo es tau_k(u) = 3u + s_k EXACTO; y como "
+     "v2(s_k) = v2(3^k - 1) - 1, s_k es IMPAR si y solo si k es "
+     "IMPAR (la misma alternancia de TORTOLAS)",
+     "clase_residual", "demostrado", "correlacionafin.py", "propio",
+     "12-08-2026 (3), C0. Comprobado en enteros contra las leyes del "
+     "DP para m = 3..11, k = 0..7 y TODO u, sin suponer la forma."),
+
+    ("LA POLARIZACION DE LA CORRELACION AFIN: para TODA biyeccion "
+     "tau de Z/2^m y TODA p, Sigma_r p(r) p(tau r) = C2(p) - (1/2) "
+     "Sigma_r (p(r) - p(tau r))^2. COROLARIO: gamma := "
+     "Sigma p p(tau) / C2(p) <= 1 SIEMPRE (gratis, sin hipotesis), "
+     "con IGUALDAD exactamente cuando p es constante en cada ciclo "
+     "de tau",
+     "todo_n", "demostrado", "correlacionafin.py", "propio",
+     "12-08-2026 (3), C1. Igualdad de RACIONALES (Fraction) en 24 "
+     "casos. La consecuencia de metodo: 'gamma <= 1' NO era el "
+     "teorema que el cofre pedia -- todo el contenido esta en el "
+     "estricto."),
+
+    ("EL CONTRAEJEMPLO AL ENUNCIADO DEL COFRE: para k IMPAR, "
+     "tau_k(u) = 3u + s_k tiene EXACTAMENTE dos ciclos de largo "
+     "2^(m-1) sobre Z/2^m; luego con chi = +1 en un ciclo y -1 en "
+     "el otro, p_eps = (1 + eps*chi)/2^m es probabilidad legitima, "
+     "tiene exceso e = eps^2 ARBITRARIAMENTE CHICO y da "
+     "gamma_CENTRADO = 1 EXACTO. El enunciado universal "
+     "'Sigma p p(tau) <= gamma C2 con gamma < 1 para tau afin impar "
+     "no trivial' es FALSO en la forma centrada, que es la que la "
+     "recursion usa",
+     "todo_n", "demostrado", "correlacionafin.py", "propio",
+     "12-08-2026 (3), C2-C3. Ciclos enumerados m = 4..10; el "
+     "contraejemplo verificado como igualdad de racionales en "
+     "m = 6, 8, 10 y eps = 1/10, 1/100, 1/1000. Y sin gap que lo "
+     "rescate: ortogonal al obstructor el siguiente autovalor es "
+     "cos(2 pi / 2^(m-1)) = 1 - O(4^-m). Refuta el pendiente No 1 "
+     "tal como estaba enunciado en notaequidistribucion "
+     "3-bis.viii(c)."),
+
+    ("LA ANATOMIA DEL PAR MALO: A(c) - N1(c-1) = (3 + 3^k)/2 "
+     "CONSTANTE, es decir bajo la identificacion c' = c-1 de los "
+     "dos padres las corrientes A y N1 difieren por una TRASLACION "
+     "PURA (mismo multiplicador 3), no por un afin de multiplicador "
+     "3 como el par N0-N1. El par bueno MEZCLA (dos ciclos que "
+     "barren medio espacio); el par malo solo DESPLAZA",
+     "clase_residual", "demostrado", "correlacionafin.py", "propio",
+     "12-08-2026 (3), C8(a). Enteros, m = 4..11, k = 2..7, todo c "
+     "impar. Explica por mecanismo por que el par que carga el "
+     "exceso es el cruza-fibra y no el compartido."),
+
+    ("LA FORMA QUE LE QUEDA AL TEOREMA DE CONTEO, POR DOS "
+     "NEGATIVOS MEDIDOS: (a) la cota Cauchy-Schwarz CRUDA "
+     "(Sigma_i w_i sqrt(E_ii))^2 / E00 -- lo peor posible si toda "
+     "cruzada saturara C-S con signo + -- SUPERA 1 (peor 1,156 en "
+     "m = 6..9), luego ninguna demostracion que acote las cruzadas "
+     "en VALOR ABSOLUTO puede servir; (b) el signo de la cruzada "
+     "del par bueno CAMBIA con la escala m (A k'=4: +0,127 / "
+     "+0,103 / +0,115 / -0,259 / -0,125 en m = 5..9), luego tampoco "
+     "sirve apoyarse en el signo. Lo unico estable es el BRANCHING "
+     "de las corrientes propias (Sigma w^2 <= 0,37) mas una "
+     "acotacion CONJUNTA del resto",
+     "verificado_hasta", "medido", "correlacionafin.py", "propio",
+     "12-08-2026 (3), C9-C10. Contabilidad exacta rho_ms = "
+     "Sigma_ij w_i w_j E_ij / E00 con SystemExit sobre su cierre en "
+     "las 12 celdas; barrido de escala m = 5..9, t = 24, tres "
+     "arranques. De regalo: rho_ms se mantiene en 0,23-0,43 en TODA "
+     "escala m = 6..9 -- el blanco de 3-bis.vii con una dimension "
+     "mas de evidencia. MEDICION a horizonte finito, no teorema."),
 ]
 
 
@@ -3336,6 +3406,35 @@ AFIRMACIONES = [
 # mundo repite las mismas busquedas.
 
 CORRECCIONES = [
+
+    ("el cofre del teorema de conteo es la correlacion del par N0-N1 "
+     "-- 'la misma ley padre por dos mapas afines' -- 'medido en "
+     "~0,5' (notaequidistribucion 3-bis.viii(c), cierre del 12-08)",
+     "el ~0,5 era el peor |E_cruz|/E_ii de corrienteszocalo, y ese "
+     "peor era el par D-N0, que CRUZA FIBRA. Al redactar el "
+     "enunciado se le atribuyo al par N0-N1, que era el par sobre el "
+     "que se estaba razonando. Medido aparte (correlacionafin.py "
+     "C5/C7), N0-N1 vale 0,19 y es NEGATIVO en k >= 3: es el par "
+     "BUENO. El que carga es A-N1, con 0,905 (12-08-2026 (3))",
+     "numero medido de un objeto, escrito como si fuera de otro. Es "
+     "el modo de fallo del ANDAMIO: lo que no sostiene nada -- aqui "
+     "la frase que resume una tabla -- hay que auditarlo A "
+     "PROPOSITO, porque no se delata solo al fallar. Antes de "
+     "escribir 'medido en X', comprobar que X es de ESE objeto"),
+
+    ("el teorema de conteo tiene que usar el signo: el enunciado "
+     "util es E_N0N1 <= 0 sobre la orbita (propuesto al cerrar el "
+     "commit ead1a5b, 12-08-2026 (3))",
+     "el signo de esa cruzada CAMBIA con la escala m: el mismo par y "
+     "la misma celda dan +0,127 / +0,103 / +0,115 / -0,259 / -0,125 "
+     "en m = 5..9 (arranque A, k' = 4). El 'gamma < 0 en k >= 3' era "
+     "una lectura de UNA escala (m = 8). Retirado en la misma sesion "
+     "en que se propuso, antes de que nada se apoyara encima",
+     "el primo del modo de fallo del ANDAMIO: numero de UNA ESCALA "
+     "leido como estructural. Un DP que intercambia tiempo por "
+     "escala obliga a barrer m ANTES de enunciar cualquier cosa con "
+     "signo -- y lo que sobrevive al barrido (aqui: rho_ms bajo 1/2, "
+     "y la cota C-S por encima de 1) es lo unico que se escribe"),
 
     ("el coral de Harriss con 16 y -8 grados no encima NUNCA dos ramas (0%)",
      "solo se habian mirado 3.000 semillas. Hay choques EXACTOS -resto cero "

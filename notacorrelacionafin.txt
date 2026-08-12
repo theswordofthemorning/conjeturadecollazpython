@@ -241,6 +241,36 @@ sesion anterior: notaequidistribucion 3-bis.viii(c).)
    termino a termino. Esa es la forma que le queda al teorema, y es
    mas estrecha (mejor definida) que la de ayer.
 
+15. EL BLANCO, REESCRITO EN LA FORMA QUE SOBREVIVE A TODO LO ANTERIOR
+   (C15 -- identidad exacta, con SystemExit armado en 36 celdas). Sea
+   f_i = 2^m p_i - 1 el vector CENTRADO de la corriente i. Entonces
+
+     E_ij = <f_i, f_j> / 2^m       (inmediato)
+     e_hija = Sigma_ij w_i w_j E_ij = || Sigma_i w_i f_i ||^2 / 2^m
+     rho_ms = || Sigma_i w_i f_i ||^2 / || f_N0 ||^2
+
+   -- el numerador es un CUADRADO, positivo por construccion. Luego
+   el teorema de conteo es, exactamente:
+
+     || Sigma_i w_i f_i ||  <=  (1/sqrt(2)) * || f_N0 ||
+
+   sobre las leyes que el DP realiza, con || f_N0 || = || f_N1 ||
+   EXACTO (VIBORAS/LORAS, verificado como igualdad de enteros en las
+   36 celdas). Una desigualdad sobre la COMBINACION CONVEXA de cuatro
+   vectores.
+
+   POR QUE ESTA FORMA Y NO OTRA (no es cosmetica -- es lo que queda
+   despues de los dos negativos): (1) el lado izquierdo es una NORMA,
+   asi que no hay signos sueltos que dependan de la escala (la
+   enfermedad del punto 14) ni valores absolutos que empujen la cota
+   por encima de 1 (la del punto 13); (2) deja el teorema en terreno
+   conocido -- una desigualdad de tipo Gram/paralelogramo -- donde el
+   BRANCHING (Sigma w^2) y la NO-ALINEACION entran juntos, y no como
+   dos estimaciones separadas que despues hay que sumar; (3) hace
+   explicito el enunciado sobre la cadena que hay que demostrar: los
+   cuatro vectores centrados de las corrientes no pueden estar
+   simultaneamente alineados.
+
 QUE NO DICE. Los puntos 5, 6, 7, 8, 11, 12, 13 y 14 son MEDICION a
 horizonte finito sobre la orbita del DP, no teoremas: el gamma < 0,
 el crecimiento del par malo, el reparto del rho y la cota C-S estan

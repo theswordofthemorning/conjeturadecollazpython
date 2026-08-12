@@ -1,4 +1,4 @@
-EL COFRE ABIERTO: LA CORRELACION AFIN Sigma p(r) p(tau r)
+﻿EL COFRE ABIERTO: LA CORRELACION AFIN Sigma p(r) p(tau r)
 el pendiente No 1 -- notaequidistribucion 3-bis.viii(c)
 
 C0  el tau del cofre, identificado contra las leyes del DP
@@ -99,7 +99,7 @@ C6  la reparacion -- el subespacio invariante COMUN
     la MEZCLA. Un f sobrevive a la mezcla solo si sobrevive a
     TODAS las corrientes a la vez. Los tau_k de fibras
     distintas tienen desplazamientos s_k distintos (AVISPAS):
-    �comparten invariantes?
+    ¿comparten invariantes?
 
       m    invariantes comunes de tau_k, k en el zocalo
        4   1 clase(s) -- dimension del invariante comun
@@ -339,6 +339,40 @@ C10 el cofre nuevo: POR QUE E_N0N1 < 0 (analisis en Fourier)
     impar: para j impar la fase gira medio giro por unidad de
     s y el termino cambia de signo. Ahi vive el teorema que
     la proxima sesion necesita (E_N0N1 <= 0 en la orbita).
+
+C11 el blanco reescrito: una desigualdad de NORMA
+    Con f_i = 2^m p_i - 1 el vector centrado de la corriente i,
+    la identidad E_ij = <f_i, f_j> / 2^m es inmediata, luego
+      e_hija = Sigma_ij w_i w_j E_ij = || Sigma_i w_i f_i ||^2
+               / 2^m
+    -- un CUADRADO, positivo por construccion -- y
+      rho_ms = || Sigma_i w_i f_i ||^2 / || f_N0 ||^2 .
+    EL TEOREMA DE CONTEO ES ENTONCES, EXACTAMENTE:
+      || Sigma_i w_i f_i ||  <=  (1/sqrt(2)) * || f_N0 ||
+    para las leyes que el DP realiza. Una desigualdad sobre
+    la COMBINACION CONVEXA de cuatro vectores, con
+    ||f_N0|| = ||f_N1|| exacto (VIBORAS/LORAS) -- no sobre
+    productos escalares sueltos, que es justo lo que C9 y C10
+    demostraron insuficiente.
+
+    IDENTIDAD VERIFICADA (SystemExit armado, 36 celdas): el
+    e_hija medido ES ||Sigma w_i f_i||^2 / 2^m, y ||f_N0|| =
+    ||f_N1|| como ENTEROS en todas -- VIBORAS/LORAS otra vez,
+    ahora en forma de norma.
+
+    POR QUE ESTA FORMA ES LA BUENA (y no es cosmetica):
+    1. el lado izquierdo es una NORMA de una combinacion
+       convexa: no hay signos sueltos que dependan de la
+       escala (la enfermedad de C10) ni valores absolutos que
+       tiren la cota por encima de 1 (la de C9);
+    2. deja el teorema en terreno conocido: una desigualdad
+       de tipo Gram / paralelogramo, donde el branching
+       (Sigma w^2) y la no-alineacion entran JUNTOS y no como
+       dos estimaciones separadas que hay que sumar;
+    3. y hace explicito lo que hay que demostrar de la
+       cadena: que los cuatro vectores centrados de las
+       corrientes NO pueden estar simultaneamente alineados
+       -- con ||f_N0|| = ||f_N1|| exacto de regalo.
 
 ETIQUETA: C0-C3 son TEOREMA (enteros y racionales exactos);
 C4 es aritmetica de autovalores de un ciclo (numerico
