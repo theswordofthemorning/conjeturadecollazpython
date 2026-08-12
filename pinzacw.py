@@ -47,6 +47,20 @@
 import time
 import numpy as np
 
+# LA SERIE DE CAJAS DE LA ESCALERA (documentada el 12-08-2026 pagando
+# la deuda de la 10a revision, actarevision1208.txt III -- el
+# adversario 2 tuvo que deducirla). Cada escalon s = 1..10 trunca la
+# cadena a  k <= K,  |c| <= C,  con:
+#
+#     escalon 1:       K = 2        C = 12 = 3*2^K
+#     escalones 2-10:  K = 2s-1     C = 3*2^(K+1)
+#
+# o, en UNA sola formula valida para los diez:  C_s = 3*4^s
+# (C cuadruplica por escalon: 12, 48, 192, 768, 3072, 12288, 49152,
+# 196608, 786432, 3145728) y K sube 2 -> 3 y de ahi de a 2 (impar).
+# Es la MISMA ESCALERA de pumasescalera.py y certificadocw.py
+# (verificado identico, 12-08-2026); el tercer campo es la lambda_T
+# publicada que P2 exige reproducir.
 ESCALERA = [
     (2, 12, 1.7400),
     (3, 48, 1.8667),

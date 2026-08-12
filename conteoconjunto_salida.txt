@@ -1,0 +1,56 @@
+EL EXCESO CONJUNTO (k, c) Y SU RAZON MULTI-ESCALA -- el blanco
+del teorema de conteo sobre el objeto CORRECTO (post 3-bis.vi)
+DP exacto, M = 37 bits; escalas m = 5..10; filtro declarado:
+rho solo si E_t(m+1) > 1e-09 (excluidas contadas)
+
+Z2 OK: piso exacto en el uniforme-por-fibra (exceso 0 en los
+dos funcionales) y el contraejemplo naif de 3-bis.vi VISTO
+por ambos (NUM = 8, e_cond = 1 > 0 con marginal de c
+uniforme); puente C2_marg <= C2_cond OK en el sintetico.
+
+=== arranque A (el de rachasreales) ===
+  t =  8: vivos      81  e_cond(8) = 25.5495 (zocalo 40%)  C2_marg 4.6432 <= C2_cond 26.5495  E_abs 1.25e-02 (zocalo 62%)
+  t = 12: vivos    1114  e_cond(8) = 3.4218 (zocalo 42%)  C2_marg 1.6499 <= C2_cond 4.4218  E_abs 1.44e-03 (zocalo 65%)
+  t = 16: vivos   16057  e_cond(8) = 0.6459 (zocalo 63%)  C2_marg 1.1674 <= C2_cond 1.6459  E_abs 2.98e-04 (zocalo 73%)
+  t = 20: vivos  235631  e_cond(8) = 0.2210 (zocalo 74%)  C2_marg 1.0689 <= C2_cond 1.2210  E_abs 1.02e-04 (zocalo 74%)
+  t = 24: vivos 3502466  e_cond(8) = 0.1362 (zocalo 82%)  C2_marg 1.0424 <= C2_cond 1.1362  E_abs 5.83e-05 (zocalo 78%)
+  rho_COND: peor 0.454 (t=20, m=10) en 78 celdas (0 excluidas)
+  rho_abs (negativo registrado): peor 0.895 (t=20, m=10) en 78 celdas (0 excl.)
+  Z3 OK: cruce exhaustivo 2^14 identico en enteros (4233 vivas)
+
+=== arranque B (el de medianareal) ===
+  t =  8: vivos      95  e_cond(8) = 16.9242 (zocalo 52%)  C2_marg 4.4534 <= C2_cond 17.9242  E_abs 1.12e-02 (zocalo 75%)
+  t = 12: vivos    1262  e_cond(8) = 2.6652 (zocalo 51%)  C2_marg 1.6743 <= C2_cond 3.6652  E_abs 1.44e-03 (zocalo 71%)
+  t = 16: vivos   17749  e_cond(8) = 0.6893 (zocalo 65%)  C2_marg 1.2521 <= C2_cond 1.6893  E_abs 3.76e-04 (zocalo 75%)
+  t = 20: vivos  256445  e_cond(8) = 0.3431 (zocalo 81%)  C2_marg 1.1296 <= C2_cond 1.3431  E_abs 1.80e-04 (zocalo 82%)
+  t = 24: vivos 3769952  e_cond(8) = 0.1190 (zocalo 79%)  C2_marg 1.0384 <= C2_cond 1.1190  E_abs 5.63e-05 (zocalo 77%)
+  rho_COND: peor 0.456 (t=24, m=10) en 78 celdas (0 excluidas)
+  rho_abs (negativo registrado): peor 0.894 (t=24, m=10) en 78 celdas (0 excl.)
+  Z3 OK: cruce exhaustivo 2^14 identico en enteros (4706 vivas)
+
+=== arranque ADV (-3^(-1) mod 2^21) ===
+  t =  8: vivos      93  e_cond(8) = 15.4088 (zocalo 65%)  C2_marg 6.2453 <= C2_cond 16.4088  E_abs 1.22e-02 (zocalo 71%)
+  t = 12: vivos    1232  e_cond(8) = 4.4193 (zocalo 64%)  C2_marg 2.6993 <= C2_cond 5.4193  E_abs 2.67e-03 (zocalo 75%)
+  t = 16: vivos   17400  e_cond(8) = 0.8709 (zocalo 70%)  C2_marg 1.3206 <= C2_cond 1.8709  E_abs 4.72e-04 (zocalo 78%)
+  t = 20: vivos  251994  e_cond(8) = 0.4202 (zocalo 83%)  C2_marg 1.1654 <= C2_cond 1.4202  E_abs 2.18e-04 (zocalo 83%)
+  t = 24: vivos 3719136  e_cond(8) = 0.1261 (zocalo 80%)  C2_marg 1.0393 <= C2_cond 1.1261  E_abs 5.93e-05 (zocalo 77%)
+  rho_COND: peor 0.460 (t=19, m=10) en 78 celdas (0 excluidas)
+  rho_abs (negativo registrado): peor 0.910 (t=19, m=10) en 78 celdas (0 excl.)
+  Z3 OK: cruce exhaustivo 2^14 identico en enteros (4615 vivas)
+
+Z4 OK: rho_COND <= 0.460 < 0.50 en toda celda computada
+(peor: t=19, m=10 en ADV (-3^(-1) mod 2^21)), escalera t = 12..24, tres arranques.
+
+Lectura, en tres lineas:
+(1) EL NEGATIVO, REGISTRADO: el exceso conjunto ABSOLUTO no
+    contrae bajo 1/2 (peor 0.910, t=19, m=10 en ADV (-3^(-1) mod 2^21)) -- carga la colision de
+    la marginal de k, que decae difusiva (K_eff ~ sqrt(t)),
+    nunca geometrica: ese funcional queda descartado.
+(2) EL BLANCO BUENO: el exceso CONDICIONAL e_cond = 
+    Sigma_k P(k) (C2_k - 1) contrae multi-escala bajo 1/2 en
+    toda la ventana, y domina a la marginal por el puente C-S
+    (Z5, verificado): si un teorema entrega rho_cond < 1/2
+    para la transicion del DP sobre su orbita, la Pieza B
+    entera cae via L2. Inmune al contraejemplo naif (Z2).
+(3) MEDICION EXACTA a horizonte finito (t <= 24), no teorema;
+    filtro del denominador declarado y contado.

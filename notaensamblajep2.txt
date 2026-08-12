@@ -26,6 +26,37 @@ piezas medidas y UN hueco analitico nombrado.)
      CONTEO abierto (notaequidistribucion.txt 3 -- el UNICO hueco
      analitico de esta pieza).
 
+     EL ENUNCIADO HONESTO, CON EL WEDGE (post-10a, el sub-lema (b)
+     del conteo -- escrito; el (a) ya es teorema:
+     unionpalabras.lean). LEMA DE RACHA (condicional al conteo):
+     sea rho < 1/2 la razon multi-escala del teorema de conteo
+     pendiente y alfa = log2(1/(2 rho)) > 0. Entonces para el mixto
+     del paso t y todo j:
+       (reg. L2, j + 1 <= alfa t): P(racha_total >= j) <=
+         K_imp * sqrt(C2(j+1)) * 2^-(j+1)/2,
+         via la union por palabras: cada palabra u de largo j
+         define A LO SUMO UNA clase mod 2^(j+1)
+         (una_clase_palabra_bit0/bit1) y L2 acota el peso de cada
+         clase por Cauchy-Schwarz; K_imp = 1/P(impar|vivo) ~ 2 es
+         el pago del condicionamiento al mixto. La condicion
+         j + 1 <= alfa t es EL WEDGE: el DP pierde un bit de
+         modulo por paso, asi que C2 a escala j+1 solo esta
+         controlada uniforme desde t >= (j+1)/alfa (~5,5 j con el
+         rho = 0,44 medido).
+       (reg. quenched, j + 1 > alfa t): manda el cap determinista
+         del FORZADO (P2-b.i): la racha forzada por c_t nunca
+         excede 1 + log2|c_t| -- y ese tramo es exactamente el
+         prefijo quenched que la ventana T = 20,8 log2|c_i|
+         absorbe con margen ~20x (P2-b.iii). Lo realizado por
+         encima del forzado en este regimen lo paga el conteo,
+         igual que en (P2-b).
+     La subcriticidad total del reloj sale de pegar los dos
+     regimenes: colas 2^-(j+1)/2 en el bulk (razon 2^(-1/2), la
+     que la reescala de ventana absorbe -- c/sqrt(log x)
+     invariante) y prefijo acotado quenched. QUE FALTA: solo el
+     conteo (rho_ms < 1/2 sobre la orbita) -- este enunciado no
+     agrega hipotesis nuevas.
+
    (P2-b) EL TRAMO INICIAL DETERMINISTA (quenched), ESCRITO
      [REESCRITO POR LA 10a (adv 1, d1; acta M2): la version
      anterior vendia (i) como identidad y (ii) como cota de lo

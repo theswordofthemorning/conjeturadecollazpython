@@ -278,6 +278,42 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         teorema es sobre la orbita del DP, no sobre el operador
         suelto. Esta precision va ANTES de que la 10a la cobre.
 
+   (vii) EL FUNCIONAL DEFINITIVO, ENCONTRADO Y MEDIDO (12-08,
+        tras la 10a -- conteoconjunto.py, la iteracion que el
+        contraejemplo de (vi) exigia): DOS candidatos medidos
+        exactos sobre la orbita del DP, con veredicto opuesto.
+        (a) NEGATIVO REGISTRADO: el exceso conjunto ABSOLUTO
+            E_t(m) = P_col(k,c) - Sigma_k P(k)^2 2^-m NO contrae
+            bajo 1/2 (peor rho_ms = 0,895/0,894/0,910 en A/B/ADV,
+            todos en m = 10) -- la fisica: ese funcional carga la
+            colision de la marginal de k, que decae DIFUSIVA
+            (K_eff ~ sqrt(t), la sonda de 3-bis.v), nunca
+            geometrica. Descartado.
+        (b) EL BLANCO BUENO: el exceso CONDICIONAL
+              e_cond(t, m) = Sigma_k P(k) (C2_k(m) - 1)
+            (pesos P(k), no P(k)^2: el piso movil de k DIVIDIDO,
+            no restado). Tres propiedades, las dos primeras
+            demostrables ya: (i) DOMINA a la marginal por
+            Cauchy-Schwarz con pesos P(k) -- C2_marg <= C2_cond,
+            una linea, verificada en todos los puntos (Z5); (ii)
+            es INMUNE al contraejemplo naif de (vi) (alli
+            e_cond = 1 > 0: denominador bien planteado, Z2); (iii)
+            MEDIDO sobre la orbita: rho_cond(t,m) =
+            e_cond_(t+1)(m)/e_cond_t(m+1) < 1/2 en las 78 celdas
+            x 3 arranques de la escalera (t = 12..24, m = 5..10,
+            0 excluidas por el filtro declarado) -- peor
+            0,454/0,456/0,460, TODOS en el borde m = 10 de la
+            ventana: margen 8%, declarado con su ventana (la
+            leccion M6 de la 10a). La geografia confirmada sobre
+            el funcional bueno: el zocalo k <= 4 lleva ~80% del
+            exceso a t = 24. Cruce: C2_marg(8) a t = 24 en A da
+            1,0424 -- clava el 1,042 del erratum de la 10a.
+        EL ENUNCIADO A DEMOSTRAR QUEDA FIJADO: rho_cond < 1/2 para
+        la transicion del DP sobre su orbita; el telescopio
+        e_t(m) <= 2^m (2 rho)^t y el puente C-S hacen caer la
+        Pieza B entera via L2 (3.iv). Salida en
+        conteoconjunto_salida.txt.
+
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
    asintotico en t (el DP es horizonte finito; la tendencia a 1 es

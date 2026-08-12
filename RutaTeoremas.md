@@ -177,10 +177,29 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 > `una_clase_palabra_bit0/bit1`, con q libre por paso; 0 `sorryAx`;
 > cruce `union_cruce.py`: 1.260 combinaciones, EXACTAMENTE una
 > clase en todas — unicidad teorema, existencia medida; bautizo
-> pendiente) — y (b) el wedge escala-tiempo (la cota rige desde
-> t ~ 5,5·j), por escribir.
-> Deuda de documentación anotada: las seis leyes completas fuera de
-> `cadenakc.lean` y la serie de cajas de la escalera.
+> pendiente) — y (b) el wedge escala-tiempo — **TAMBIÉN ESCRITO la
+> misma tarde** (`notaensamblajep2.txt` P2-a: el lema de racha
+> honesto con sus dos regímenes, L2 en el bulk y quenched en el
+> prefijo).
+> Deuda de documentación **PAGADA**: las seis leyes en la subsección
+> nueva de este documento; la serie de cajas en `pinzacw.py`
+> (regalo: `C_s = 3·4^s` unifica los diez escalones).
+>
+> **⇢ Y EL FUNCIONAL DEFINITIVO DEL CONTEO, FIJADO Y MEDIDO**
+> (`conteoconjunto.py`, la misma tarde): el exceso conjunto ABSOLUTO
+> queda **descartado con negativo registrado** (no contrae bajo 1/2:
+> carga la difusión de k), y el blanco definitivo es el **exceso
+> CONDICIONAL** `e_cond = Σ_k P(k)·(C2_k − 1)` — domina a la
+> marginal por Cauchy-Schwarz (el puente, demostrable en una línea),
+> es inmune al contraejemplo naif de 3-bis.vi, y **contrae bajo 1/2
+> en toda la ventana medida** (peor 0,460, margen 8%, ventana
+> declarada). EL ENUNCIADO A DEMOSTRAR: `ρ_cond < 1/2` para la
+> transición del DP sobre su órbita — `notaequidistribucion.txt`
+> 3-bis.vii. Los siguientes pasos naturales: (1) el puente C-S a
+> Lean (o declarar por qué no se puede sin Mathlib), (2) el zócalo
+> k ≤ 4 (donde vive el ~80% del exceso: la contabilidad fina de los
+> ocho mapas τ en alturas bajas), (3) la 11ª revisión cuando la
+> tanda post-10ª tenga masa.
 
 > **⇢ 11-08 (2) — LA SUB-TEORÍA DE LURRUS** *(bautizada por el
 > usuario en sesión — «no basta con los números, tiene que tener
@@ -539,6 +558,53 @@ crítica κ=1) → **Arañas** (en `u = c/3^k` la torre desaparece: IFS
 `{u/2, (3u−1)/2}` + perturbación sumable) → **Moscas** (la tensión
 transferida: masa viva con `|u| > x` ≤ `B_θ/x^θ`, **uniforme en t**,
 autocontenido). **Queda UNA pieza: el piso de absorción por visita.**
+
+### LAS SEIS LEYES EXACTAS (referencia rápida; la fuente es `cadenakc.lean`)
+
+El estado es un par vivo `{v, 3^k·v + c}` (`k ≥ 1`, núcleo; `c ∈ Z`,
+puede ser negativo) o `{v, v + g}` (`k = 0`, frontera; gap `g ≥ 1`).
+El bit de Terras es **la paridad del ancla `v`** (bit 0 ⟺ `v` par —
+corrección de la 6ª: el ancla, no «el menor»), y la ley de la moneda
+(`ley_moneda`) dice que el gap `(3^k−1)·v + c` tiene la paridad de `c`:
+**paso mixto ⟺ `c` impar**. Cotejado rama a rama contra `transicion()`
+de `rachasreales.py` / `pinzacw.py` / `certificadocw.py` (idénticas).
+
+**Núcleo `k ≥ 1`, `c` PAR (paso compartido — la torre quieta):**
+
+1. **N1** (bit 0): `(k, c) → (k, c/2)` — `ley_N1`; vale para TODO
+   coeficiente `p` (la paridad de `p` no hace falta).
+2. **N2** (bit 1): `(k, c) → (k, (3c + 1 − 3^k)/2)` — `ley_N2`; `p`
+   impar arbitrario.
+
+**Núcleo `k ≥ 1`, `c` IMPAR (paso mixto — la torre se mueve):**
+
+3. **N3** (bit 0): `(k, c) → (k+1, (3c+1)/2)` — ASCIENDE, deuda `+1`
+   (`ley_N3`; el mayor gana el impar).
+4. **N4** (bit 1, `k ≥ 2`): `(k, c) → (k−1, (c − 3^{k−1})/2)` —
+   COMPENSA, deuda `−1` (`ley_N4`; el menor gana el impar).
+5. **N4 EN EL PISO (`k = 1`, bit 1) — EL ABS que a la 10ª le faltó**:
+   `g' = (c−1)/2`, y hay dos salidas:
+   - `g' = 0` (⟺ `c = 1`): **FUSIÓN** — el vórtice `(1,1)`-bit 1, la
+     única absorción de la cadena (`vortice_fusion`);
+   - `g' ≠ 0`: `(1, c) → (0, |g'|)` — **el valor absoluto es
+     obligatorio**: la frontera `{v, v+g}` es un par SIN orden y con
+     `c < 1` el gap sale negativo; se guarda `|g'|`.
+6. **F4 (frontera `k = 0`, `g` impar, bit 1) — EL VUELCO, el otro que
+   faltaba**: `(0, g) → (1, (1−3g)/2)` — `ley_F4`: el que era menor
+   pasa a ser el ancla y el par reentra al núcleo con
+   `c' = (1−3g)/2 < 0` (torre negativa).
+
+**El resto de la frontera NO son leyes nuevas**: son las leyes 1–3 con
+coeficiente `p = 3^0 = 1` — **F1** (bit 0, `g` par): `(0,g) → (0, g/2)`
+es N1; **F2** (bit 1, `g` par): `(0,g) → (0, 3g/2)` es N2 con `3^k = 1`;
+**F3** (bit 0, `g` impar): `(0,g) → (1, (3g+1)/2)` es N3 (reentra al
+núcleo). Por eso `cadenakc.lean` demuestra N1–N3 con `p` impar GENERAL
+y sus seis teoremas de transición son exactamente los seis de arriba:
+`ley_N1`, `ley_N2`, `ley_N3`, `ley_N4`, `vortice_fusion` y `ley_F4`
+(0 `sorryAx`).
+
+*(Subsección añadida el 12-08-2026 pagando la deuda de documentación de
+la 10ª — `actarevision1208.txt` III.)*
 
 ## LA ÚLTIMA PIEZA, enunciada con precisión
 

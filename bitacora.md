@@ -68,6 +68,28 @@ medida, unicidad teorema). Conteos: 87 `.py` · 21 `.lean` · 3 `.db`.
 Queda del conteo: el wedge (j,t) por escribir y el teorema grande
 (ρ_ms < 1/2 sobre la órbita). Bautizo del 21º: user-gated.
 
+**⇢ El cierre de la tarde — tres piezas más:** (1) **el wedge
+escrito** (`notaensamblajep2.txt` P2-a: el lema de racha honesto con
+sus dos regímenes — L2 en el bulk desde t ~ 5,5·j, quenched en el
+prefijo; no agrega hipótesis: sólo el conteo). (2) **La deuda de
+documentación pagada** (las seis leyes en `RutaTeoremas.md`; la serie
+de cajas en `pinzacw.py`, con regalo: `C_s = 3·4^s` unifica los diez
+escalones). (3) **EL FUNCIONAL DEFINITIVO DEL CONTEO, FIJADO Y
+MEDIDO** (`conteoconjunto.py`, el 88º): el exceso conjunto ABSOLUTO
+**descartado con negativo registrado** (ρ ~ 0,9: carga la colisión de
+la marginal de k, que decae difusiva `K_eff ~ √t` — un funcional que
+cobra concentración de k no puede contraer geométrico), y el blanco
+definitivo es el **exceso CONDICIONAL** `e_cond = Σ_k P(k)·(C2_k−1)`:
+domina a la marginal por el puente C-S (una línea, verificado Z5),
+inmune al contraejemplo naif (Z2), cruce exhaustivo en enteros (Z3),
+y **ρ_cond < 1/2 en las 78 celdas × 3 arranques** — peor
+0,454/0,456/0,460, todos en el borde m=10, margen 8% con ventana
+declarada (las lecciones M5/M6 de la 10ª aplicadas de nacimiento). El
+zócalo k≤4 lleva ~80% del exceso: la geografía confirmada en el
+objeto bueno. **El enunciado a demostrar queda fijado:** ρ_cond < 1/2
+para la transición del DP sobre su órbita (`notaequidistribucion.txt`
+3-bis.vii).
+
 ---
 
 # ⇢ 12-08-2026 — LA RUTA POST-9ª, COBRADA EN SIETE AVANCES: LAS DOS EQUIDISTRIBUCIONES SON UNA, Y EL ÁRBOL DE P2 QUEDA CON UN SOLO HUECO NOMBRADO
