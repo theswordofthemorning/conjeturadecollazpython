@@ -78,9 +78,19 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
    MEDIDA, no demostrada); y el teorema de conteo (3.ii) NO esta
    escrito -- esta nota es el mapa, no la demostracion.
 
+5. LA UNIFICACION (12-08, mismo dia): la "segunda equidistribucion"
+   de la nota de dominacion (el salto de recarga, Pieza A caso
+   v2 = A) es LA MISMA lectura: salto >= s <=> c en UNA clase mod
+   2^(A+1+s) (lectura_recarga + una_clase_recarga en
+   lecturaracha.lean), y recargaexacta.py la mide exacta: C_s ~ 1
+   (la Geom(1/2) que la 9a predijo), cruce independiente en
+   enteros. QUEDA UN SOLO TEOREMA DE CONTEO, no dos.
+
 ETIQUETA: reduccion DEMOSTRADA (Lean, nucleo puro) + medicion
 EXACTA con cruce independiente en enteros; el teorema de conteo de
-colisiones ABIERTO. Sin revision externa aun.
+colisiones ABIERTO (uno solo para racha + recarga). Sin revision
+externa aun.
 Ficheros: lecturaracha.lean, equidistribucionmixto.py,
-notadominacion.txt, tortolas.lean, firmaacoplamiento.py.
+recargaexacta.py, notadominacion.txt, tortolas.lean,
+firmaacoplamiento.py.
 =====================================================================

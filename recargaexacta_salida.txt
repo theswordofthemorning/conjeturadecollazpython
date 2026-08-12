@@ -1,0 +1,49 @@
+LA GEOMETRIA DEL SALTO DE RECARGA (Pieza A caso v2 = A, exacta)
+la unificacion: salto >= s <=> c en UNA clase mod 2^(A+1+s)
+(lecturaracha.lean); DP con conteos enteros, M = 36
+
+=== arranque A (c0 = 999983) ===
+  t =  8: vivos      81, premisa     11 (0.3056 de pares)  C_s s=1: 0.545*  s=2: 0.364*  s=4: 0.000*  s=6: 0.000*  s=8: 0.000*
+          premisa como clase, P*2^(A+1) por A: A=1: 1.222
+  t = 12: vivos    1114, premisa    168 (0.2902 de pares)  C_s s=1: 1.155  s=2: 1.095  s=4: 1.905  s=6: 2.667*  s=8: 3.048*
+          premisa como clase, P*2^(A+1) por A: A=1: 0.960   A=3: 0.553   A=4: 0.442   A=5: 0.111
+  t = 16: vivos   16057, premisa   2264 (0.2839 de pares)  C_s s=1: 0.919  s=2: 0.845  s=4: 0.770  s=6: 0.509  s=8: 0.113
+          premisa como clase, P*2^(A+1) por A: A=1: 0.944   A=3: 0.502   A=4: 0.445   A=5: 0.160
+  t = 20: vivos  235631, premisa  34596 (0.2918 de pares)  C_s s=1: 1.000  s=2: 0.983  s=4: 0.864  s=6: 0.860  s=8: 0.444
+          premisa como clase, P*2^(A+1) por A: A=1: 0.978   A=3: 0.550   A=4: 0.338   A=5: 0.152   A=6: 0.001
+
+=== arranque B (c0 = 999999937) ===
+  t =  8: vivos      95, premisa     17 (0.3864 de pares)  C_s s=1: 0.941*  s=2: 0.941*  s=4: 0.000*  s=6: 0.000*  s=8: 0.000*
+          premisa como clase, P*2^(A+1) por A: A=1: 1.364   A=3: 0.727
+  t = 12: vivos    1262, premisa    196 (0.3177 de pares)  C_s s=1: 0.980  s=2: 0.939  s=4: 1.224  s=6: 0.980*  s=8: 2.612*
+          premisa como clase, P*2^(A+1) por A: A=1: 1.115   A=3: 0.415   A=4: 0.415
+  t = 16: vivos   17749, premisa   2631 (0.2959 de pares)  C_s s=1: 1.032  s=2: 0.879  s=4: 0.645  s=6: 0.268  s=8: 0.292
+          premisa como clase, P*2^(A+1) por A: A=1: 1.010   A=3: 0.484   A=4: 0.392   A=5: 0.050
+  t = 20: vivos  256445, premisa  37370 (0.2914 de pares)  C_s s=1: 1.030  s=2: 1.070  s=4: 0.946  s=6: 0.839  s=8: 0.589
+          premisa como clase, P*2^(A+1) por A: A=1: 0.977   A=3: 0.534   A=4: 0.373   A=5: 0.132
+
+=== arranque ADV (c0 = 1398101) ===
+  t =  8: vivos      93, premisa     12 (0.2500 de pares)  C_s s=1: 0.833*  s=2: 0.667*  s=4: 1.333*  s=6: 0.000*  s=8: 0.000*
+          premisa como clase, P*2^(A+1) por A: A=1: 0.833   A=3: 0.667
+  t = 12: vivos    1232, premisa    180 (0.2917 de pares)  C_s s=1: 1.244  s=2: 1.356  s=4: 2.044  s=6: 0.000*  s=8: 0.000*
+          premisa como clase, P*2^(A+1) por A: A=1: 0.940   A=3: 0.622   A=4: 0.571
+  t = 16: vivos   17400, premisa   2403 (0.2779 de pares)  C_s s=1: 1.155  s=2: 1.139  s=4: 1.545  s=6: 1.065  s=8: 0.426
+          premisa como clase, P*2^(A+1) por A: A=1: 0.928   A=3: 0.533   A=4: 0.337   A=5: 0.133
+  t = 20: vivos  251994, premisa  35401 (0.2823 de pares)  C_s s=1: 0.955  s=2: 0.969  s=4: 1.107  s=6: 1.479  s=8: 0.412
+          premisa como clase, P*2^(A+1) por A: A=1: 0.955   A=3: 0.500   A=4: 0.331   A=5: 0.119
+
+R3 OK: C_s <= 2.044 <= 3.0 en toda celda con peso (t >= 12,
+tres arranques): el salto de recarga esta dominado por la
+geometrica que la 9a predijo (~Geom(1/2) <=> C_s ~ 1).
+
+el cruce independiente (t = 14, 2^14 palabras, enteros):
+  c0 = 999983: R2 OK (ge/den identicos como enteros; premisa 621 de 4233 vivas)
+  c0 = 999999937: R2 OK (ge/den identicos como enteros; premisa 691 de 4706 vivas)
+  c0 = 1398101: R2 OK (ge/den identicos como enteros; premisa 627 de 4615 vivas)
+
+Lectura: la 'segunda equidistribucion' de la nota de dominacion
+no existia como objeto aparte -- el salto de recarga es la misma
+lectura de bits bajos que la racha (lecturaracha.lean), y su
+cola medida es la geometrica con C_s ~ 1 que la 9a predijo. Lo
+que queda abierto es UN solo teorema de conteo (notaequi-
+distribucion.txt, 3.ii), no dos. Medicion exacta, no teorema.

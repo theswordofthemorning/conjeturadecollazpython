@@ -33,7 +33,13 @@ version previa NO. ESQUEMA, no teorema.)
    ESTOCASTICA: racha dominada por v2_entrada + compuesto
    subcritico de recargas -- y la geometria del salto de recarga
    es una equidistribucion ADICIONAL (los bits de cancelacion de
-   c), hermana de la Pieza B y con su mismo estatus: POR ESCRIBIR.
+   c), hermana de la Pieza B. ⇢ 12-08: YA NO ES UN OBJETO APARTE
+   -- lecturaracha.lean (lectura_recarga + una_clase_recarga)
+   demuestra que "salto >= s" es UNA clase de c mod 2^(A+1+s),
+   la MISMA lectura de bits bajos que la racha: las dos
+   equidistribuciones SON UNA, y recargaexacta.py la mide exacta
+   (C_s <= 2,04 en celdas con peso, ~1 -- la Geom(1/2) predicha;
+   cruce independiente en enteros, tres arranques).
    El offset LTE (A <= 2 + log2 k) acota DONDE puede dispararse la
    recarga, no cuanto salta.
 
@@ -71,11 +77,13 @@ version previa NO. ESQUEMA, no teorema.)
    tolerancia polylog de L-A la absorbe -- condicional a que las
    DOS equidistribuciones se escriban.
 
-5. QUE FALTA PARA TEOREMA: (i) escribir la Pieza B con su
-   cuantificador honesto (medida de clases / mezcla multi-racha;
-   candidato: la biyeccion de Terras sobre los bits bajos, estilo
-   perrasconteo.lean) MAS la equidistribucion de la cancelacion de
-   recargas (Pieza A, caso v2 = A);
+5. QUE FALTA PARA TEOREMA: (i) el TEOREMA DE CONTEO de la
+   equidistribucion de c mod 2^m -- que tras el 12-08 es UNO solo
+   (racha y recarga unificadas por lecturaracha.lean; la reduccion
+   esta DEMOSTRADA, la medicion exacta hecha en
+   equidistribucionmixto.py y recargaexacta.py, y la ruta --
+   inyeccion de bits por Delta de Tortolas + esquema telescopico --
+   esta en notaequidistribucion.txt 3);
    (ii) el caso frontera k = 0: RESUELTO EN VACUO para P2 -- las
    excursiones de la transferencia terminan en la PRIMERA entrada
    al fondo (k <= 1) y la frontera no aparece dentro de ellas

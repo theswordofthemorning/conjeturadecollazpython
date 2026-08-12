@@ -129,6 +129,37 @@ theorem una_clase_bit1 (c c' p d d' : Int) (n : Nat)
     omega⟩
 
 -- ---------------------------------------------------------------------
+-- LA RECARGA ES LA MISMA LECTURA (la segunda equidistribucion de la
+-- nota de dominacion ES la primera): en el paso compartido bit 1
+-- (c par) el hijo cumple 2h = 3c + 1 - 3^k, y "el salto de recarga
+-- sube s" es v2(h) >= A + s, o sea 2^(A+s+1) | 3c + 1 - 3^k --
+-- otra vez UNA clase de c, por el mismo tres_inyectivo. Las "DOS
+-- equidistribuciones POR ESCRIBIR" de notadominacion.txt son UN
+-- SOLO objeto: la equidistribucion de c mod 2^m.
+-- ---------------------------------------------------------------------
+
+-- q sera 3^k; la lectura es la generica con n = 3c + 1 - q
+theorem lectura_recarga_ida (c h q d : Int) (j : Nat)
+    (hh : 2 * h = 3 * c + 1 - q) (hd : 3 * c + 1 - q = pot2 (j + 1) * d) :
+    h = pot2 j * d :=
+  mitad_lee_ida (3 * c + 1 - q) h d j hh hd
+
+theorem lectura_recarga_vuelta (c h q d : Int) (j : Nat)
+    (hh : 2 * h = 3 * c + 1 - q) (hd : h = pot2 j * d) :
+    3 * c + 1 - q = pot2 (j + 1) * d :=
+  mitad_lee_vuelta (3 * c + 1 - q) h d j hh hd
+
+-- y la unicidad: dos c con salto >= s comparten clase mod 2^n
+theorem una_clase_recarga (c c' q d d' : Int) (n : Nat)
+    (h1 : 3 * c + 1 - q = pot2 n * d) (h2 : 3 * c' + 1 - q = pot2 n * d') :
+    ∃ u, c - c' = pot2 n * u := by
+  have h3 : 3 * (c - c') = pot2 n * (d - d') := by
+    have hm : pot2 n * (d - d') = pot2 n * d - pot2 n * d' :=
+      Int.mul_sub (pot2 n) d d'
+    omega
+  exact tres_inyectivo n (c - c') (d - d') h3
+
+-- ---------------------------------------------------------------------
 -- INSTANCIAS POR EL NUCLEO (decide, no #eval):
 --   el contraejemplo del adv 1: c = 1398101, 3c+1 = 4194304 = 2^22
 --   (la racha forzada >= 21 tras bit 0: el hijo es 2^21);
@@ -151,9 +182,16 @@ theorem caso_bit1 : (11 : Int) - pot3 2 = pot2 1 * 1 ∧
     2 * (1 : Int) = 11 - pot3 2 := by
   decide
 
+-- instancia de recarga con el repo (k = 2, A = v2(3^2-1) = 3):
+-- c = 8: v2 = 3 = A, hijo h = (3*8 + 1 - 9)/2 = 8, v2(h) = 3 = A + 0
+theorem caso_recarga : 2 * (8 : Int) = 3 * 8 + 1 - pot3 2 ∧
+    (8 : Int) = pot2 3 * 1 := by decide
+
 #print axioms mitad_lee_ida
 #print axioms mitad_lee_vuelta
 #print axioms tres_inyectivo
 #print axioms una_clase_bit0
 #print axioms una_clase_bit1
+#print axioms lectura_recarga_ida
+#print axioms una_clase_recarga
 #print axioms caso_adversarial

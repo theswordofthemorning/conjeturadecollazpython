@@ -190,19 +190,19 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 > `actarevision1108c.txt` manda; la 9ª ya está HECHA y aplicada:
 > V2/L3 y los récords AGUANTARON, lo escrito mordió y está
 > reparado):**
-> 1. **LAS DOS EQUIDISTRIBUCIONES DE P2** (el corazón analítico que
->    la 9ª dejó contado honesto — eran dos, no una):
->    (a) `v₂(c)` tras un mixto, bajo la medida de clases / mezcla
->    multi-racha — OJO al cuantificador que el adv 1 clavó: en un
->    mixto NO entran bits frescos (c' es determinista del pasado);
->    la aleatorización viene de los bits de rachas PREVIAS, y es
->    falsa condicionada al pasado fino y falsa uniforme en c₀
->    (contraejemplos: c₀ = 999983 fuerza rachas 1–2 = 0; c₀ ≡ −3⁻¹
->    mod 2²¹ fuerza racha₁ = 20). Técnica candidata: biyección de
->    Terras sobre los bits bajos, estilo `perrasconteo.lean`.
->    (b) la cancelación de las RECARGAS (el caso `v₂ = A`, SIN
->    `.lean`): el salto es ~Geom(1/2) sin techo y repetible — su
->    geometría es la segunda equidistribución, mismo territorio.
+> 1. ~~**LAS DOS EQUIDISTRIBUCIONES DE P2**~~ ⇢ **UNIFICADAS Y
+>    MEDIDAS EXACTAS (12-08)**: la reducción es TEOREMA
+>    (`lecturaracha.lean`, el 20º — racha ≥ j Y salto de recarga
+>    ≥ s son cada uno UNA clase de c mod 2^m; unicidad por
+>    `tres_inyectivo`), y la equidistribución está medida EXACTA
+>    con conteos enteros + cruce independiente
+>    (`equidistribucionmixto.py`: C_j ≤ 2,95 → ~1, adaptada al
+>    k-camino ≤ 1,000, contraejemplos del adv 1 reproducidos y
+>    muertos; `recargaexacta.py`: C_s ~ 1, la Geom(1/2) predicha).
+>    **QUEDA UN SOLO TEOREMA DE CONTEO** — la ruta (inyección de
+>    bits por Δ de Tórtolas: k impar inyecta un bit fresco exacto;
+>    esquema telescópico autoconsistente) está en
+>    `notaequidistribucion.txt` §3. Ése es ahora EL pendiente 1.
 > 2. ~~**MEDIR la dominación condicionada a sobrevivir**~~ ⇢ **HECHO
 >    (12-08, `dominacioncondicionada.py`)**: la dependencia del bit
 >    de apertura era TRANSITORIA (el 7σ vivía en el tramo inicial
