@@ -186,6 +186,17 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
           factor ~1/18: ese factor -- el desalineo de los tau
           entre alturas DISTINTAS (las constantes 3^k distintas de
           AVISPAS) -- es el corazon cuantitativo que queda.
+        Y EL MAPA DEL EXCESO RESIDUAL (ultima sonda de la noche,
+          t = 24, m = 8): la correlacion de clases c ENTRE alturas
+          R(k,k')/piso decae a 1 rapido -- alturas k >= 5 quedan
+          decorrelacionadas a <= 1,02 del piso aleatorio (el
+          desalineo AVISPAS entre alturas, APOYADO por los
+          numeros) -- y el exceso que sobrevive se CONCENTRA en
+          las alturas bajas (k = 2: 1,72; k = 3: 1,33 sobre el
+          piso): la estructura residual vive en la frontera del
+          fondo, donde el paseo de k pisa la absorcion. El teorema
+          de conteo tiene entonces geografia: gap facil arriba,
+          trabajo real en el zocalo k <= 4.
 
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
