@@ -313,6 +313,20 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         e_t(m) <= 2^m (2 rho)^t y el puente C-S hacen caer la
         Pieza B entera via L2 (3.iv). Salida en
         conteoconjunto_salida.txt.
+        [EL PUENTE Y LEAN -- el por que, declarado (regla de la
+        casa: si Lean no puede formalizar, el por que es el
+        entregable): el puente es C-S con pesos sobre las ~30
+        fibras vivas -- su forma entera limpia de denominadores
+        para n fibras lleva productos Pi x_j de grado creciente, y
+        el nucleo sin Mathlib no tiene ring ni racionales: la
+        induccion no es viable en nucleo puro. El ingrediente no
+        lineal de DOS fibras -- (a+b)^2 xy <= (x+y)(a^2 y + b^2 x),
+        equivalente a (ay - bx)^2 >= 0 -- SI es formalizable
+        (sondeado: d*d >= 0 compila por casos con Int.mul_nonneg)
+        pero cuesta ~100 lineas de expansion manual de grado 4 sin
+        ring, y no cubre el caso general: no paga. El puente queda
+        como teorema de papel (una linea) + verificacion numerica
+        en todos los puntos (Z5).]
 
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
