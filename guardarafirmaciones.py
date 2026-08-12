@@ -3195,6 +3195,133 @@ AFIRMACIONES = [
          "primera entrada al fondo). El paso analitico pendiente: "
          "escribir la equidistribucion adaptada (pieza B de "
          "notadominacion.txt; mezcla multi-racha)."),
+
+    # --------------------------------------------------- la tanda del 12-08
+    # (post-9a revision; SIN revision externa aun -- el encargo de la
+    # 10a esta en encargorevision10.txt y va antes de apoyar nada)
+
+    fila("VIBORAS (la lectura): la racha que sigue a un mixto y el "
+         "salto de recarga LEEN los bits bajos de c -- para todo c "
+         "impar y todo j, racha >= j <=> 2^(j+1) | 3c+1 (bit 0) / "
+         "2^(j+1) | c - 3^(k-1) (bit 1, k >= 3); y en el compartido "
+         "bit 1 con v2(c) = A, salto >= s <=> 2^(A+1+s) | 3c+1-3^k. "
+         "Cada evento es UNA SOLA clase de c (x3 es inyectivo mod "
+         "2^n, por induccion). Consecuencia: las 'dos equidistribu"
+         "ciones' de la 9a son UN objeto: c mod 2^m",
+         "todo_n", "demostrado", "lecturaracha.lean", "propio",
+         "12-08-2026. Nucleo puro, 0 sorryAx; testigos sin division "
+         "estilo tortolas.lean; instancia adversarial de la 9a por "
+         "decide (3*1398101+1 = 2^22). El cuantificador k >= 3 del "
+         "bit 1 vive en el parametro p del teorema, no en su "
+         "enunciado: cotejo Lean <-> cadena en el encargo de la "
+         "10a (a1)."),
+
+    fila("AVISPAS (el aguijon): en el paso compartido desde (k, c "
+         "par) con k IMPAR, la mitad m de 3^k = 2m+1 es impar y los "
+         "dos hijos a y 3a-m difieren mod 2 -- el bit de la palabra "
+         "se inyecta como bit fresco en la posicion 0 de c; con k "
+         "PAR los hijos comparten paridad (sin inyeccion inmediata)",
+         "todo_n", "demostrado", "lecturaracha.lean", "propio",
+         "12-08-2026. pot3_mod4 con testigo (3^k mod 4 alterna, la "
+         "version Int de borde_alterna de perrasconteo); es la "
+         "mitad 3.i del mecanismo del teorema de conteo."),
+
+    fila("EFIMERAS (viven un dia): la dependencia del bit de "
+         "apertura de la racha -- el hecho de 7 sigmas del adv 1 de "
+         "la 9a (0,911 tras bit 0 vs 0,985 tras bit 1) -- es "
+         "TRANSITORIA: en las rachas tardias (cierre >= 100) se "
+         "anula en los dos arranques probados (z = -0,2/-0,4) y en "
+         "el arranque 999999937 el signo global se INVIERTE "
+         "(z = -16): era artefacto del tramo inicial determinista "
+         "de c0. Y la ley de racha CONDICIONADA a sobrevivir "
+         "converge a la geometrica neutra: C_j condicionado en "
+         "[0,88, 1,06] en toda la escalera T = 50..414, ambos "
+         "arranques -- la dominacion condicionada aguanta con C ~ 1",
+         "verificado_hasta", "medido", "dominacioncondicionada.py",
+         "propio",
+         "12-08-2026. Ventana emparejada [0,T) contra el artefacto "
+         "de horizonte (leccion de sombraexogena); 200.000 + 60.000 "
+         "excursiones; regalo: supervivencia ~1/sqrt(T) clavada "
+         "(razon 1,947 ~ 2 entre T=50 y 200). Cierra el 5(iii) de "
+         "notadominacion.txt."),
+
+    fila("LA EQUIDISTRIBUCION DE c mod 2^m, MEDIDA EXACTA (la Pieza "
+         "B convertida en numeros): por DP de conteos ENTEROS de "
+         "palabras sobre (k, c mod 2^(M-t)), C_j <= 2,95 en toda "
+         "celda con peso esperado >= 8 (t = 12..24, ambos bits, "
+         "tres arranques incluido c0 = -3^(-1) mod 2^21) tendiendo "
+         "a ~1; la version ADAPTADA al k-camino da C_j <= 1,000 en "
+         "celdas gruesas; la constante de colision L2 (m=8) es "
+         "1,038-1,039 a t=24 (piso uniforme = 1); y el salto de "
+         "recarga da C_s <= 2,04 rondando 1 (la Geom(1/2) que la 9a "
+         "predijo). El transitorio adversarial (racha_1 forzada >= "
+         "20) reproducido y muerto a t >= 12",
+         "verificado_hasta", "medido",
+         "equidistribucionmixto.py", "propio",
+         "12-08-2026. El salto de recarga en recargaexacta.py "
+         "(mismo DP, premisa v2 = A). Cruce independiente (regla "
+         "de los tres): "
+         "enumeracion exhaustiva 2^14 sin codigo comun, igualdad "
+         "COMO ENTEROS en los tres arranques (E1/R2). Horizonte "
+         "finito t <= 24: nada asintotico. Las celdas de "
+         "granularidad (peso < 8) se reportan sin exigir: alli "
+         "habla el residuo determinista del c0."),
+
+    fila("TORTUGAS (el reloj polinomial): tau_i <= i^(2+eps) "
+         "eventualmente c.s. para todo eps > 0 -- CONDICIONAL a la "
+         "dominacion (D) del reloj (el teorema de conteo pendiente, "
+         "en version L-infinito o L2). Reflexion del paseo critico "
+         "desde k0 = 2 + Chernoff adaptado sobre (D) + presupuesto "
+         "quenched (prefijo <= log2|c_i|) + Borel-Cantelli. Supera "
+         "el e^(o(i^2)) que la reduccion (13) pide con margen "
+         "infinito",
+         "casi_todo_n", "conjeturado", "notalb.txt", "propio",
+         "12-08-2026. CONDICIONAL: el eslabon (D) no esta "
+         "demostrado; la cuenta L2 del Chernoff esta POR REHACER "
+         "(declarado); el cualificador log|c_i| = o(i^2) descansa "
+         "en beta = 0 MEDIDO (arranquesporvisita). Coherente con "
+         "eta = 2,082 medido. El estado 'conjeturado' es por el "
+         "condicional: las piezas clasicas (a),(c),(d) si estan "
+         "escritas."),
+
+    fila("LANGOSTAS (la pinza de dos tenazas): en las DIEZ cajas "
+         "truncadas de la escalera de Pumas (K = 2..19, hasta "
+         "22.536.304 estados) hay EXACTAMENTE UNA componente "
+         "fuertemente conexa no trivial y cero lazos propios "
+         "sueltos, asi que rho(M_T) = rho(S*) y Perron-Frobenius "
+         "aplica; la pinza Collatz-Wielandt min/max en aritmetica "
+         "entera (min = CW, max = subinvarianza con v > 0) da ancho "
+         "<= 1e-5 en los escalones 1-9 y rho(M_T) en [1,989042, "
+         "1,989176] en el escalon 10 -- la letra chica del ritmo "
+         "del record lambda >= 1,989042, pagada en el truncado",
+         "verificado_hasta", "demostrado", "pinzacw.py", "propio",
+         "12-08-2026. Tarjan iterativo + iteracion hacia atras "
+         "(el float solo busca el vector; las comparaciones que "
+         "deciden son enteras a*d < b*c). El puente truncado -> "
+         "cadena entera sigue siendo el de Pumas (menores "
+         "anidados), aparte. El parrafo final de pinzacw_salida10 "
+         "es anterior a la bandera del escalon 10: los datos "
+         "mandan."),
+
+    fila("PIRANAS (se comen el exceso) + EL BLANCO MULTI-ESCALA: el "
+         "telescopio de primer desvio del teorema de conteo es "
+         "CRITICO EXACTO (Sigma 2^-i = 1: cero holgura -- la "
+         "obstruccion nombrada), pero el exceso de colision e_t = "
+         "C2(t) - 1 se contrae GEOMETRICO ~0,7 por paso a escala "
+         "fija (de 255 a 0,025 en 26 pasos, uniforme en tres "
+         "arranques), y la razon MULTI-ESCALA e_(t+1)(m)/e_t(m+1) "
+         "-- el objeto correcto, porque el DP intercambia tiempo "
+         "por escala -- queda en [0,15, 0,44] en toda celda medida "
+         "(t >= 12, m = 6..9): BAJO el umbral critico 1/2 con "
+         "margen 13%. Un teorema de UNA transicion con rho < 1/2 "
+         "cerraria el telescopio solo: e_t <= 2^m (2 rho)^t -> 0",
+         "verificado_hasta", "medido", "excesocolision.py", "propio",
+         "12-08-2026. X1-X4 con SystemExit; los umbrales t >= 12 y "
+         "m = 6..9 son ELECCION del autor (declarado en el encargo "
+         "de la 10a, d2); a escala fija hay celdas con "
+         "e_t/e_(t-1) > 1 (t = 17, 23 en A): la geometria es de "
+         "TENDENCIA. El teorema de conteo sigue ABIERTO: esto es "
+         "su blanco, no su demostracion."),
 ]
 
 
