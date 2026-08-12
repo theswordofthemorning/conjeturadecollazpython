@@ -225,8 +225,10 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    LOS ESCALONES 1–9 (12-08, `pinzacw.py` — LANGOSTAS)**: en cada
 >    caja hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) =
 >    ρ(S*)` con Perron aplicable, y la pinza CW min/max en enteros
->    da ancho ≤ 1e-5 hasta K = 17. Falta sólo la corrida del
->    escalón 10 (22,5M estados) con la misma técnica.
+>    da ancho ≤ 1e-5 hasta K = 17 — **y el ESCALÓN 10 CORRIDO la
+>    misma tarde** (22,5M estados, |S*| = 20,2M, 892 s): `ρ(M_T) ∈
+>    [1,989042, 1,989176]`, inferior = certificado. La letra chica
+>    del récord, pagada ENTERA en el truncado.
 > 6. ~~**L-B como teorema (P3)**~~ ⇢ **ESCRITO COMO TEOREMA
 >    CONDICIONAL (12-08, `notalb.txt`)**: `τ_i ≤ i^{2+ε}` c.s.
 >    condicional a la dominación (D) — reflexión (clásico) +
@@ -744,7 +746,7 @@ descriptivo entre paréntesis.)*
 | **EFÍMERAS** | hallazgo medido | viven un día: la dependencia del bit de apertura (el «7σ» del adv 1) es TRANSITORIA — en rachas tardías se anula (z ≈ 0, ambos arranques) y el signo global se invierte en B; la ley condicionada a sobrevivir converge a la geométrica NEUTRA (C ~ 1) | medido (dos arranques, ventana emparejada); cierra el §5(iii) de la nota de dominación | `dominacioncondicionada.py` |
 | **PIRAÑAS** | medición + reformulación | se comen el exceso: `e_t = C²(t) − 1` decae GEOMÉTRICO ~0,7/paso uniforme en arranques (adversarial incluido) — la ganancia estricta que el telescopio crítico (Σ2^{−i} = 1) necesita EXISTE; el conteo queda reducido a `ρ < 1` de UNA transición del DP | medido exacto (t = 0…26, tres arranques); el teorema ABIERTO | `excesocolision.py`, `notaequidistribucion.txt` §3-bis |
 | **TORTUGAS** | teorema condicional | el reloj polinomial: `τ_i ≤ i^{2+ε}` c.s. condicional a la dominación (D) — reflexión + Chernoff adaptado + presupuesto quenched + Borel–Cantelli; supera el `e^{o(i²)}` pedido con margen infinito. La hermana de fábula de LIEBRES: la tortuga llega a tiempo | condicional a (D); piezas clásicas escritas; η = 2,082 medido de respaldo | `notalb.txt`, `arranquesporvisita.py` |
-| **LANGOSTAS** | teorema por escalón | la pinza de dos tenazas: en cada caja truncada hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) = ρ(S*)` (Perron aplica), y CW min/max en enteros lo PINZA por ambos lados — ancho ≤ 1e-5 en los escalones 1–9; la letra chica del ritmo, pagada hasta K = 17 | demostrado por cómputo exacto (escalones 1–9); escalón 10 pendiente de corrida | `pinzacw.py`, `certificadocw.py` |
+| **LANGOSTAS** | teorema por escalón | la pinza de dos tenazas: en cada caja truncada hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) = ρ(S*)` (Perron aplica), y CW min/max en enteros lo PINZA por ambos lados — ancho ≤ 1e-5 en los escalones 1–9 y `ρ(M_T) ∈ [1,989042, 1,989176]` en el 10 (22,5M estados): la letra chica del ritmo del récord, pagada ENTERA | demostrado por cómputo exacto (los DIEZ escalones, K ≤ 19) | `pinzacw.py`, `certificadocw.py` |
 | **URRACAS** | teorema | la contabilidad del sesgo: `exp − contr = 2V + (Ee−E0) + k0 − k_t` EXACTO por palabra (libro mayor de nueve tipos); corolario: `⟺` en la sombra IFS con umbral 0,26186, umbral EFECTIVO ~0,2446 en la cadena (error del modelo medido); sin condicionar `Σ(Ee−E0) = 0` — el h-transform aislado en UNA moneda condicionada | demostrado (Lean 0 sorry); **AGUANTÓ ENTERA la 5ª revisión** (tabla rederivada, 200.000 palabras, Lean cotejado a máquina, circularidad rota con 59.990 pares reales) | `urracas.py`, `urracas.lean`, `actarevision0908b.txt` |
 
 ## Dónde está cada cosa

@@ -1,0 +1,21 @@
+LA PINZA DE DOS LADOS + PERRON/SCC (escalones 1-9 de Pumas)
+
+  K      estados   SCCs   no-triv  |S*|      pinza inferior  superior   ancho    publicada
+   2         20       2     1          19     1.739963      1.739963   0.00000   1.740000   (0 s)
+   3        121       2     1         120     1.866657      1.866657   0.00000   1.866700   (0 s)
+   5        734       7     1         728     1.933590      1.933590   0.00000   1.933600   (0 s)
+   7       3717      16     1        3702     1.955595      1.955595   0.00000   1.955600   (0 s)
+   9      16361     947     1       15415     1.967467      1.967467   0.00000   1.967500   (0 s)
+  11      72835    3947     1       68889     1.975447      1.975447   0.00000   1.975450   (1 s)
+  13     313672   25486     1      288187     1.980748      1.980748   0.00000   1.980748   (8 s)
+  15    1312342   133804     1     1178539     1.984415      1.984417   0.00000   1.984415   (43 s)
+  17    5338332   625662     1     4712671     1.987045      1.987050   0.00001   1.987046   (190 s)
+  19   22536304   2307595     1     20228710     1.989042      1.989176   0.00013   1.989042   (892 s)
+
+P1-P4 OK EN LOS NUEVE ESCALONES: una sola SCC no trivial y cero
+lazos sueltos (asi que rho(M_T) = rho(S*), Perron aplica), la
+publicada dentro de la pinza, el ancho bajo el tope, y el lado
+inferior empata el certificado. LA LETRA CHICA DEL RITMO, para
+estos escalones, esta pagada: rho(M_T) esta PINZADO por dos
+lados en enteros y vive en la SCC unica. El escalon 10 (22,5M
+estados) queda para una corrida aparte con la misma tecnica.

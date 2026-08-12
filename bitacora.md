@@ -51,9 +51,22 @@ vía L² como blanco rebajado).** Pendientes: ese conteo (1), Perron/SCC
 (5), y los user-gated (7: bautizos — toda la tanda del 12-08 sin nombre
 de animal — y la 10ª revisión adversarial ANTES de apoyar nada encima).
 
-Registro: 84 `.py` (+3), 20 `.lean` (+1), 4 notas nuevas/actualizadas;
-salidas `*_salida.txt` en el repo; `respuestas.db` al día a mitad de
-sesión.
+**⇢ La continuación de la tarde (avances 8–11):** PIRAÑAS (la
+obstrucción del telescopio nombrada — Σ2^{−i} = 1 crítico exacto — y
+la contracción del exceso medida: ~0,7/paso uniforme), el BAUTIZO de
+la tanda por orden del usuario (VÍBORAS, AVISPAS, EFÍMERAS, PIRAÑAS,
+TORTUGAS, LANGOSTAS — seis filas nuevas en el ZOOLÓGICO), y
+**LANGOSTAS completa: los DIEZ escalones** — el 10 (K=19, 22,5M
+estados, |S*| = 20,2M, 892 s) dio `ρ(M_T) ∈ [1,989042, 1,989176]` con
+el inferior clavando el certificado: **la letra chica del ritmo del
+récord, pagada entera en el truncado**.
+
+Registro: 86 `.py` (+5), 20 `.lean` (+1), 5 notas nuevas/actualizadas;
+salidas `*_salida.txt` en el repo; `respuestas.db` y los 19 zips al
+día a mitad de sesión. **Lo que espera a la 10ª revisión adversarial
+(regla del ritmo: va ANTES de apoyar nada encima): la tanda entera del
+12-08.** Lo abierto de verdad: el teorema de conteo (ρ < 1 de una
+transición) y los bautizos user-gated del 11-08 (2).
 
 ---
 

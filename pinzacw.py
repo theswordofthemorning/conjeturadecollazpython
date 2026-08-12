@@ -57,6 +57,11 @@ ESCALERA = [
     (15, 196608, 1.984415),
     (17, 786432, 1.987046),
 ]
+ESCALON_10 = True          # (19, 3145728): 22,5M estados, ~20-40 min
+                           # y ~8-10 GB de RAM; el certificado de
+                           # certificadocw.py dio 1,989042
+if ESCALON_10:
+    ESCALERA.append((19, 3145728, 1.989042))
 ITERACIONES = 1200
 ESCALA = 10 ** 12
 ANCHO_TOPE = 0.02
@@ -239,10 +244,10 @@ for (K, C, publicada) in ESCALERA:
              ancho, publicada, time.time() - t0), flush=True)
 
 print()
-print("P1-P4 OK EN LOS NUEVE ESCALONES: una sola SCC no trivial y cero")
+print("P1-P4 OK EN LOS %d ESCALONES: una sola SCC no trivial y cero"
+      % len(ESCALERA))
 print("lazos sueltos (asi que rho(M_T) = rho(S*), Perron aplica), la")
 print("publicada dentro de la pinza, el ancho bajo el tope, y el lado")
-print("inferior empata el certificado. LA LETRA CHICA DEL RITMO, para")
-print("estos escalones, esta pagada: rho(M_T) esta PINZADO por dos")
-print("lados en enteros y vive en la SCC unica. El escalon 10 (22,5M")
-print("estados) queda para una corrida aparte con la misma tecnica.")
+print("inferior empata el certificado. LA LETRA CHICA DEL RITMO esta")
+print("pagada para toda la escalera corrida: rho(M_T) esta PINZADO por")
+print("dos lados en enteros y vive en la SCC unica.")
