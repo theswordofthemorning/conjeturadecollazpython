@@ -1,6 +1,7 @@
 # excesocolision.py
 #
-# EL EXCESO DE COLISION Y SU CONTRACCION GEOMETRICA (12-08-2026;
+# PIRANAS (bautizado 12-08: se comen el exceso a razon ~0,7 por
+# paso). EL EXCESO DE COLISION Y SU CONTRACCION GEOMETRICA (12-08-2026;
 # el instrumento del ataque por pares al teorema de conteo --
 # notaequidistribucion.txt 3-bis).
 #

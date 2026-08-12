@@ -1,6 +1,9 @@
 -- lecturaracha.lean
 --
--- LA LECTURA DE LA RACHA (12-08-2026; el 20o .lean del repo).
+-- LA LECTURA DE LA RACHA -- TEOREMA DE VIBORAS (la lectura: leen
+-- con la lengua los bits bajos) + TEOREMA DE AVISPAS (el aguijon:
+-- k impar inyecta el bit fresco). Bautizados por orden del usuario
+-- el 12-08-2026; el 20o .lean del repo.
 -- El nucleo aritmetico de la reduccion de equidistribucionmixto.py:
 -- la racha de pasos compartidos que sigue a un mixto LEE los bits
 -- bajos de c en el momento del mixto, y la condicion "racha >= j"

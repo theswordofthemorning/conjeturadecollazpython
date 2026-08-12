@@ -1,6 +1,7 @@
 =====================================================================
-NOTA: LA PIEZA B COMO EQUIDISTRIBUCION DE c mod 2^m -- LA REDUCCION,
-LO MEDIDO EXACTO Y LA RUTA AL TEOREMA
+NOTA: LA PIEZA B COMO EQUIDISTRIBUCION DE c mod 2^m -- LA REDUCCION
+(TEOREMA DE VIBORAS), EL AGUIJON (TEOREMA DE AVISPAS), LA
+CONTRACCION (PIRANAS) Y LA RUTA AL TEOREMA DE CONTEO
 (12-08-2026; el punto 1(a) de la ruta post-9a. ESQUEMA con la
 reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
 (equidistribucionmixto.py); el teorema de conteo sigue abierto.)

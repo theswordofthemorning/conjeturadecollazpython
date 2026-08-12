@@ -221,10 +221,12 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    bits ≤ log₂|c_i| contra T = 20,8·log₂|c_i| — cabe con margen
 >    ~20×; la contabilidad del gasto de bits es parte del MISMO
 >    teorema de conteo del punto 1, no un hueco nuevo.
-> 5. **El paso Perron/SCC del puente espectral** (adv 3): heredar el
->    RITMO ρ(M_T) — con eso la letra chica de `λ ≥ 1,989042` se va
->    de verdad. La pinza [min,max] por Fraction del adversario es
->    la técnica a adoptar.
+> 5. ~~**El paso Perron/SCC del puente espectral**~~ ⇢ **PAGADO PARA
+>    LOS ESCALONES 1–9 (12-08, `pinzacw.py` — LANGOSTAS)**: en cada
+>    caja hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) =
+>    ρ(S*)` con Perron aplicable, y la pinza CW min/max en enteros
+>    da ancho ≤ 1e-5 hasta K = 17. Falta sólo la corrida del
+>    escalón 10 (22,5M estados) con la misma técnica.
 > 6. ~~**L-B como teorema (P3)**~~ ⇢ **ESCRITO COMO TEOREMA
 >    CONDICIONAL (12-08, `notalb.txt`)**: `τ_i ≤ i^{2+ε}` c.s.
 >    condicional a la dominación (D) — reflexión (clásico) +
@@ -233,10 +235,12 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    `e^{o(i²)}` con margen infinito; coherente con η = 2,082
 >    medido. Cualificadores declarados: (D) = el conteo pendiente,
 >    constantes L2 por rehacer, β = 0 es medición.
-> 7. User-gated: **bautizos** (la tanda entera del 11-08 (2) sin
->    nombre de animal: el teorema V2/L3, la mediana universal, la
->    dominación, el certificado CW) y P5 (ley del borde a
->    Lean/trío). Y la **predicción falsable nueva** del adv 3 queda
+> 7. **Bautizos** ⇢ la tanda del 12-08 BAUTIZADA por orden del
+>    usuario (VÍBORAS, AVISPAS, EFÍMERAS, PIRAÑAS, TORTUGAS,
+>    LANGOSTAS — ver el ZOOLÓGICO); sigue user-gated la tanda del
+>    11-08 (2) (el teorema V2/L3, la mediana universal, la
+>    dominación; el certificado CW ya vive bajo PUMAS) y P5 (ley
+>    del borde a Lean/trío). Y la **predicción falsable nueva** del adv 3 queda
 >    registrada para vigilar: `a(k)/2^k` cruzaría 0,462781 hacia
 >    k ≈ 45–50 (extrapolación declarada; sugiere φ ≈ 0,52).
 
@@ -735,6 +739,12 @@ descriptivo entre paréntesis.)*
 | **GOLONDRINAS** | teorema | en la CADENA MODIFICADA (vórtice rebotado; `φ = 1 ⟺ (1,1)` recurrente), la masa visita el fondo `k ≤ 1` INFINITAS veces c.s.: `k` es martingala exacta con empuje sólo en el borde (tabla de derivas, 28.436 estados), L2 (infinitos mixtos) sale del descenso determinista de `v₂` con `A = v₂(3^k−1)`, y la oscilación de martingalas fuerza `A → ∞` — siempre vuelven | demostrado (L2 con 60.010 instancias exactas + frontera determinista); queda el empalme por visita | `lamperti.py`, `oscilacion.py` |
 | **LIEBRES** | teorema | basta con volver a la madriguera: `φ = 1 ⟺ Σ_t P(X_t ∈ C) = ∞` para TODA ventana finita `C` con `(1,1)` dentro — Green + clase recurrente cerrada + Doeblin EXACTO sobre conjunto finito (`ε ≥ 17887/131072`; para `C` arbitrario, accesibilidad = HORMIGAS cualitativo) | demostrado; **AGUANTÓ la 5ª revisión externa** (Doeblin reproducido, aperiodicidad gcd = 1; correcciones: cita de Hormigas, lectura del alfa degradada — la ventana grande no muerde a PROF 30) | `liebres.py`, `actarevision0908b.txt` |
 | **CEBRAS** | lema | el sesgo se lee en las rayas: clasificación afín exacta (`u' = rama + δ`, `\|δ\| ≤ 3^{−k}/2`, rama expansiva clasificada, frontera incluida) y el umbral `q1 < log 2/log 3` como EXPONENTE DE LYAPUNOV de los multiplicadores (hipótesis de Kesten de Arañas) | **PARTIDA por la 5ª revisión**: la clasificación y el umbral-Lyapunov aguantan (100.398 transiciones independientes); la lectura «deriva de `log\|u\|` de la cadena» ROTA y RETIRADA (deriva real del fondo +0,02; `\|u\| ≥ 1/3` allí) | `liebres.py`, `actarevision0908b.txt` |
+| **VÍBORAS** | teorema | la lectura: racha ≥ j y salto de recarga ≥ s LEEN los bits bajos de c — cada evento es UNA clase mod 2^m (unicidad por `tres_inyectivo`, ×3 inyectivo mod 2^n); las «dos equidistribuciones» de la 9ª son UN objeto | demostrado (Lean, el 20º, 0 sorry); instancia adversarial `3·1398101+1 = 2^22` por kernel | `lecturaracha.lean`, `equidistribucionmixto.py`, `recargaexacta.py` |
+| **AVISPAS** | teorema | el aguijón: en el paso compartido con `k` IMPAR la mitad `m` de `3^k = 2m+1` es impar y los dos hijos difieren mod 2 — el bit de la palabra se INYECTA como bit fresco en la posición 0; `k` par no inyecta (`v2(Δ) = 1 + v2(a − m/2)`) | demostrado (Lean, misma pieza; `pot3_mod4` con testigo) | `lecturaracha.lean` |
+| **EFÍMERAS** | hallazgo medido | viven un día: la dependencia del bit de apertura (el «7σ» del adv 1) es TRANSITORIA — en rachas tardías se anula (z ≈ 0, ambos arranques) y el signo global se invierte en B; la ley condicionada a sobrevivir converge a la geométrica NEUTRA (C ~ 1) | medido (dos arranques, ventana emparejada); cierra el §5(iii) de la nota de dominación | `dominacioncondicionada.py` |
+| **PIRAÑAS** | medición + reformulación | se comen el exceso: `e_t = C²(t) − 1` decae GEOMÉTRICO ~0,7/paso uniforme en arranques (adversarial incluido) — la ganancia estricta que el telescopio crítico (Σ2^{−i} = 1) necesita EXISTE; el conteo queda reducido a `ρ < 1` de UNA transición del DP | medido exacto (t = 0…26, tres arranques); el teorema ABIERTO | `excesocolision.py`, `notaequidistribucion.txt` §3-bis |
+| **TORTUGAS** | teorema condicional | el reloj polinomial: `τ_i ≤ i^{2+ε}` c.s. condicional a la dominación (D) — reflexión + Chernoff adaptado + presupuesto quenched + Borel–Cantelli; supera el `e^{o(i²)}` pedido con margen infinito. La hermana de fábula de LIEBRES: la tortuga llega a tiempo | condicional a (D); piezas clásicas escritas; η = 2,082 medido de respaldo | `notalb.txt`, `arranquesporvisita.py` |
+| **LANGOSTAS** | teorema por escalón | la pinza de dos tenazas: en cada caja truncada hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) = ρ(S*)` (Perron aplica), y CW min/max en enteros lo PINZA por ambos lados — ancho ≤ 1e-5 en los escalones 1–9; la letra chica del ritmo, pagada hasta K = 17 | demostrado por cómputo exacto (escalones 1–9); escalón 10 pendiente de corrida | `pinzacw.py`, `certificadocw.py` |
 | **URRACAS** | teorema | la contabilidad del sesgo: `exp − contr = 2V + (Ee−E0) + k0 − k_t` EXACTO por palabra (libro mayor de nueve tipos); corolario: `⟺` en la sombra IFS con umbral 0,26186, umbral EFECTIVO ~0,2446 en la cadena (error del modelo medido); sin condicionar `Σ(Ee−E0) = 0` — el h-transform aislado en UNA moneda condicionada | demostrado (Lean 0 sorry); **AGUANTÓ ENTERA la 5ª revisión** (tabla rederivada, 200.000 palabras, Lean cotejado a máquina, circularidad rota con 59.990 pares reales) | `urracas.py`, `urracas.lean`, `actarevision0908b.txt` |
 
 ## Dónde está cada cosa

@@ -1,5 +1,7 @@
 # dominacioncondicionada.py
 #
+# EFIMERAS (hallazgo, bautizado 12-08: la dependencia del bit de
+# apertura vive un dia -- es transitoria y se anula en el bulk).
 # LA DOMINACION CONDICIONADA A SOBREVIVIR -- el pendiente 5(iii) de
 # notadominacion.txt, medido (12-08-2026; punto 2 de la ruta post-9a
 # revision, el "calculo POR HACER, no un deberia").

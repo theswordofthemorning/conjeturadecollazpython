@@ -1,5 +1,7 @@
 =====================================================================
-NOTA: L-B COMO TEOREMA CONDICIONAL -- EL RELOJ POLINOMIAL DE LAS
+NOTA: TEOREMA DE TORTUGAS (bautizado 12-08 -- la hermana de fabula
+de LIEBRES: la tortuga llega a tiempo al Borel-Cantelli).
+L-B COMO TEOREMA CONDICIONAL -- EL RELOJ POLINOMIAL DE LAS
 EXCURSIONES (tau_i <= i^(2+eps) c.s., mucho mas que el e^(o(i^2))
 que la reduccion pide)
 (12-08-2026; el punto 6 de la ruta post-9a. TEOREMA CONDICIONAL a
