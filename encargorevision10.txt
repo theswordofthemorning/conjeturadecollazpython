@@ -1,0 +1,97 @@
+=====================================================================
+EL ENCARGO DE LA 10a REVISION ADVERSARIAL -- LA TANDA DEL 12-08
+(preparado el 12-08-2026 por el asistente, ANTES de la revision,
+con las superficies de ataque que el propio autor ve; la regla:
+nueve de nueve revisiones mordieron -- esta tambien va a morder,
+y mejor que muerda donde el autor ya declaro la carne blanda.)
+=====================================================================
+
+QUE SE REVISA (12 avances, commits c0df040..4a94636 + 021fa0b):
+la tanda entera del 12-08 -- EFIMERAS, VIBORAS, AVISPAS, el
+ensamblaje P2, PIRANAS + la reduccion L2, TORTUGAS, LANGOSTAS, y
+el blanco multi-escala del conteo. Ficheros nuevos:
+dominacioncondicionada.py, equidistribucionmixto.py,
+lecturaracha.lean, recargaexacta.py, excesocolision.py, pinzacw.py,
+notaequidistribucion.txt, notaensamblajep2.txt, notalb.txt, y las
+salidas *_salida*.txt. Contexto: notadominacion.txt (reescrita),
+RutaTeoremas.md (ruta + ZOOLOGICO), bitacora.md.
+
+REPARTO SUGERIDO (tres adversarios, como las 8a y 9a):
+
+ADVERSARIO 1 -- LA MATEMATICA Y EL LEAN (lecturaracha.lean + las
+reducciones):
+  a1. Lean garantiza demostracion <-> enunciado, NO enunciado <->
+      objeto: cotejar que mitad_lee/lectura_* corresponden a las
+      transiciones REALES de la cadena (transicion() de
+      rachasreales.py), caso por caso -- en particular el bit 1
+      con k = 2 (que va al fondo, no a lectura_bit1: el .lean pide
+      k >= 3 via el parametro p = 3^(k-1), pero el cuantificador
+      vive en el comentario, no en el teorema).
+  b1. tres_inyectivo: la induccion usa z % 2 = 0 y z / 2 de Int en
+      Lean -- verificar que emod/ediv con negativos no esconden un
+      caso (el testigo del caso base ya fue un lapsus que la
+      compilacion cazo).
+  c1. La REDUCCION L2 (notaequidistribucion 3.iv): Cauchy-Schwarz
+      da P(clase) <= sqrt(C2) 2^(-m/2) -- PERO el compuesto de
+      recargas con razon 2^(-1/2) esta declarado POR REHACER:
+      hacer la cuenta o romperla (E[2^salto] con cola 2^(-s/2)
+      DIVERGE: el argumento del compuesto debe reescribirse con el
+      MGF correcto z < sqrt(2); el autor cree que cierra con
+      margen chico -- comprobarlo es el punto).
+  d1. El presupuesto de bits (notaensamblajep2 P2-b.ii): "racha
+      >= j consume j+1 bits" -- el gasto NO esta formalizado; el
+      ataque es un c0 que re-use bits (doble conteo). El autor
+      cree que la biyeccion de Terras lo impide; es un ESQUEMA.
+
+ADVERSARIO 2 -- LOS NUMEROS (reproduccion independiente, sin abrir
+los .py del repo):
+  a2. Reproducir el DP de equidistribucionmixto.py con codigo
+      propio (la reduccion esta en la cabecera; la dinamica en
+      CLAUDE.md): C_j a t = 24, los tres arranques, y la constante
+      L2 (1,038/1,038/1,039). Cualquier discrepancia de enteros es
+      sangre.
+  b2. Reproducir la pinza de LANGOSTAS en UN escalon mediano (K =
+      13: 313.672 estados) con SCC y CW propios; verificar la
+      unica-SCC y el ancho 0. Y auditar el paso del escalon 10:
+      el bump w[i] <= 0 -> 1 en S* ("solo ensancha") -- probar
+      que no puede FALSEAR el lado superior.
+  c2. dominacioncondicionada.py: la ventana emparejada [0, T) y la
+      censura de la racha en curso -- medir con OTRA convencion
+      (p.ej. rachas ABIERTAS antes de T) y ver si el veredicto
+      (transitoriedad del bit, C ~ 1) se mueve.
+  d2. excesocolision.py X4: los umbrales t >= 12, m = 6..9 y
+      den > 1e-6 son ELECCIONES del autor -- barrer otras ventanas
+      (t >= 8? m = 5..11? cuarto arranque estructurado?) y ver si
+      rho_ms cruza 1/2 en alguna celda con masa real. El autor
+      declara: hay celdas con e_t/e_(t-1) > 1 a escala fija (t =
+      17, 23 en A) -- la geometria es de TENDENCIA; el ataque
+      es si la version multi-escala tambien tiene picos > 1/2.
+
+ADVERSARIO 3 -- LA LETRA (cuantificadores, etiquetas, prosa):
+  a3. Los seis bautizos y sus filas del ZOOLOGICO: que cada "que
+      dice" corresponda a lo demostrado/medido y no mas (en
+      particular TORTUGAS: es CONDICIONAL a (D) y el cualificador
+      beta = 0 es medicion -- que ninguna frase lo olvide).
+  b3. notaensamblajep2: el "cabe con margen 20x" mezcla log2 y ln
+      -- verificar la aritmetica (T = 30 ln|c| = 20,8 log2|c|) y
+      que el 5% de los delta tenga su cualificador en TODAS las
+      menciones.
+  c3. La salida pinzacw_salida10.txt lleva un parrafo final
+      ANTERIOR a la bandera del escalon 10 (declarado en el
+      commit): verificar que ningun otro fichero de salida tenga
+      prosa desactualizada respecto de sus datos.
+  d3. Las celdas de granularidad (MIN_ESPERADO = 8) y los topes
+      (C_TOPE = 3, ANCHO_TOPE = 0,02): elecciones sin derivacion
+      -- o se justifican o se etiquetan como convencion.
+
+LO QUE EL AUTOR YA SABE QUE ESTA BLANDO (para que no se gaste
+polvora en descubrirlo): el teorema de conteo NO existe (solo el
+blanco rho_ms < 1/2 con 13% de margen medido); TORTUGAS (b) con L2
+esta por rehacer; P2-b.ii es esquema; la densidad cerca de M
+(P2-c) es medida; y las salidas de los DP son a horizonte finito
+t <= 26 -- nada asintotico esta demostrado.
+
+EL PREMIO: si la tanda aguanta, el arbol de P2 queda con UN
+eslabon (rho_ms < 1/2, una transicion) y el record lambda >=
+1,989042 sin letra chica de ritmo. Si muerde, mejor ahora.
+=====================================================================
