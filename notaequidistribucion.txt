@@ -174,6 +174,18 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
           conteo = cuantificar el producto de los dos desalineos
           (k y x). Blanco medido: 0,44; el umbral que cierra: 1/2;
           la ruta trivial se queda en K_eff.
+        LAS DOS MITADES, PESADAS (sonda de la misma noche, m = 8):
+          K_eff = 6,4-8,4 en la escalera t = 8..24, creciendo
+          ~sqrt(t) (el paseo de k se esparce), en los tres
+          arranques; y la colision CONJUNTA (k y c a la vez, a
+          escala m+1) cae a ~1/K_eff (0,16-0,18 a t = 24, contra
+          el 1 del uniforme-en-c): la decoherencia en k es real y
+          esta medida -- reparte la masa del socio entre ~8
+          alturas. Para que el producto de a 0,44 partiendo del
+          techo trivial K_eff ~ 8, el gap en x debe aportar un
+          factor ~1/18: ese factor -- el desalineo de los tau
+          entre alturas DISTINTAS (las constantes 3^k distintas de
+          AVISPAS) -- es el corazon cuantitativo que queda.
 
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
