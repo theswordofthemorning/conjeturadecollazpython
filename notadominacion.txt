@@ -81,26 +81,41 @@ version previa NO. ESQUEMA, no teorema.)
    al fondo (k <= 1) y la frontera no aparece dentro de ellas
    (verificado: franja (0,0) con 0 rachas en 150.000 excursiones);
    la frontera pertenece al regimen post-fondo (Doeblin/Liebres);
-   (iii) la version condicionada a sobrevivir -- CORREGIDA por la
-   9a: la version anterior decia "el h-transform solo toca los
-   bits mixtos y las rachas son de bits compartidos: deberia pasar
-   intacta", y LA PREMISA ES FALSA -- la ley de racha DEPENDE del
-   bit del mixto que la abre (medido: media 0,911 tras bit 0
-   contra 0,985 tras bit 1; 7 sigmas). Bajo el h-transform la
-   mezcla se inclina hacia bit 0 (rachas mas cortas: direccion
-   FAVORABLE), asi que probablemente la dominacion condicionada
-   mejora -- pero es un calculo POR HACER, no un "deberia".
+   (iii) la version condicionada a sobrevivir -- MEDIDA el
+   12-08-2026 (dominacioncondicionada.py, punto 2 de la ruta
+   post-9a), y el resultado REESCRIBE la cuestion dos veces:
+   (a) LA DEPENDENCIA DEL BIT DE APERTURA ES TRANSITORIA: en las
+   rachas tardias (cierre >= 100) se ANULA en los dos arranques
+   probados (z = -0,2 / -0,4; medias 1,0029/1,0027 y
+   1,0045/1,0036) -- el "7 sigmas" del adv 1 (0,911 vs 0,985)
+   vivia ENTERO en el tramo inicial determinista de c0, el mismo
+   tramo que la version quenched de 3(ii) ya se traga; el signo
+   incluso se INVIERTE en el arranque B (z = -16 global), prueba
+   de que era artefacto de los bits bajos de c0 y no estructura.
+   (b) El condicionamiento a tau >= T (escalera T = 50..414,
+   ventana emparejada [0,T) contra el artefacto de horizonte)
+   inclina la mezcla a bit 0 (+0,02..+0,04, la direccion que el
+   h-transform predice) pero ese canal es IRRELEVANTE en el bulk
+   por (a); el efecto real es del RELOJ: la ley de racha
+   condicionada converge a la geometrica NEUTRA -- media hacia 1
+   desde abajo en el arranque A (0,86 -> 0,98), desde arriba en el
+   B (1,02 -> 1,00), C_j condicionado en [0,88, 1,06] en toda la
+   escalera y ambos arranques, C_j tardio 1,010/1,036. LA
+   DOMINACION CONDICIONADA A SOBREVIVIR AGUANTA CON C ~ 1 --
+   medicion, no teorema; lo que queda para teorema es (i).
 
 ETIQUETA: esquema con mediciones; la dominacion como hecho aguanto
 la 9a entera (marginal, adaptada, por A, por bit, por pares, con y
-sin censura: C <= 1,2); el argumento que la explica tiene DOS
-equidistribuciones por escribir (v2 tras mixto + cancelacion de
-recargas) y una version condicionada por medir. Los delta <=
+sin censura: C <= 1,2) y la version CONDICIONADA A SOBREVIVIR ya
+esta medida (12-08: C ~ 1, bit de apertura transitorio -- ver
+5(iii)); el argumento que la explica tiene DOS equidistribuciones
+por escribir (v2 tras mixto + cancelacion de recargas). Los delta <=
 3^-k/2 de Aranas que V2 omite tambien deben cargarse en el
 ensamblaje final de P2 (calculo del adv 1: entran dominados por
 2^-k_j en las colas largas, pero en el SUFIJO k = 2, 3 son ~1/18
 por paso y CAMBIAN el objeto limite W~_inf en <= ~5% medido --
 chico, y ahora declarado). NO es teorema.
-Ficheros: rachasreales.py, oscilacion.py, aterrizajen2.lean,
-tortolas.lean, medianareal.py, actarevision1108c_adv1.txt.
+Ficheros: rachasreales.py, dominacioncondicionada.py,
+oscilacion.py, aterrizajen2.lean, tortolas.lean, medianareal.py,
+actarevision1108c_adv1.txt.
 =====================================================================

@@ -1,0 +1,69 @@
+=== arranque A: c0 = 999983, 200000 excursiones, T_MAX = 900 ===
+global: 6425694 rachas, media 0.9577, C_j max 0.962
+        apertura bit 0: n = 3309210, media 0.9270
+        apertura bit 1: n = 3116484, media 0.9903   (z de la diferencia: 57.5)
+S1 OK: el objeto reproduce rachasreales (media y cola).
+S2 OK: media tras bit 0 < media tras bit 1 (z = 57.5) -- el hecho del adv 1, en este stream.
+TARDIAS (cierre >= 100): bit 0 n = 2268380 media 1.0029; bit 1 n = 2253730 media 1.0027 (z = -0.2); C_j max 1.010
+
+la escalera de horizontes (ventana emparejada [0, T)):
+  T    ensemble    rachas   frac.apertura bit0   media|b0   media|b1   media   C_j max
+   50  todas      1255977        0.5676          0.6475     0.9226    0.7665   0.787
+   50  sobrevive   777223        0.6092          0.7775     0.9856    0.8588   0.876
+       (sobreviven 30756 de 200000 excursiones)
+  100  todas      1903584        0.5468          0.7615     0.9578    0.8505   0.861
+  100  sobrevive  1116152        0.5798          0.8807     0.9967    0.9295   0.938
+       (sobreviven 22201 de 200000 excursiones)
+  200  todas      2827117        0.5328          0.8377     0.9747    0.9017   0.910
+  200  sobrevive  1583655        0.5585          0.9381     0.9978    0.9645   0.969
+       (sobreviven 15793 de 200000 excursiones)
+  414  todas      4226610        0.5225          0.8908     0.9851    0.9358   0.942
+  414  sobrevive  2312636        0.5411          0.9693     0.9999    0.9834   0.985
+       (sobreviven 11160 de 200000 excursiones)
+
+S4 OK: P(tau >= 50)/P(tau >= 200) = 1.947 ~ 2 = sqrt(200/50):
+la supervivencia decae como el LLT del paseo critico pide.
+
+EL VEREDICTO (arranque A):
+  T =  50: frac bit0 0.5676 -> 0.6092 (+0.0416); media 0.7665 -> 0.8588 (+0.0923); C_j 0.787 -> 0.876
+  T = 100: frac bit0 0.5468 -> 0.5798 (+0.0330); media 0.8505 -> 0.9295 (+0.0790); C_j 0.861 -> 0.938
+  T = 200: frac bit0 0.5328 -> 0.5585 (+0.0257); media 0.9017 -> 0.9645 (+0.0628); C_j 0.910 -> 0.969
+  T = 414: frac bit0 0.5225 -> 0.5411 (+0.0186); media 0.9358 -> 0.9834 (+0.0476); C_j 0.942 -> 0.985
+=== arranque B: c0 = 999999937, 60000 excursiones, T_MAX = 900 ===
+global: 1872379 rachas, media 1.0176, C_j max 1.024
+        apertura bit 0: n = 964285, media 1.0340
+        apertura bit 1: n = 908094, media 1.0002   (z de la diferencia: -16.4)
+S1 OK: el objeto reproduce rachasreales (media y cola).
+(S2 no se exige en este arranque: la dependencia del bit es arranque-dependiente -- hallazgo de la primera corrida)
+TARDIAS (cierre >= 100): bit 0 n = 662743 media 1.0045; bit 1 n = 659105 media 1.0036 (z = -0.4); C_j max 1.036
+
+la escalera de horizontes (ventana emparejada [0, T)):
+  T    ensemble    rachas   frac.apertura bit0   media|b0   media|b1   media   C_j max
+   50  todas       354051        0.5704          1.1371     0.9740    1.0671   1.111
+   50  sobrevive   220345        0.6132          1.0541     0.9673    1.0205   1.053
+       (sobreviven 9478 de 60000 excursiones)
+  100  todas       550531        0.5477          1.0987     0.9912    1.0501   1.075
+  100  sobrevive   322381        0.5815          1.0307     0.9914    1.0142   1.028
+       (sobreviven 6695 de 60000 excursiones)
+  200  todas       827669        0.5325          1.0708     0.9979    1.0367   1.052
+  200  sobrevive   460237        0.5584          1.0197     0.9971    1.0097   1.014
+       (sobreviven 4695 de 60000 excursiones)
+  414  todas      1238282        0.5221          1.0494     1.0001    1.0258   1.036
+  414  sobrevive   662302        0.5414          1.0097     0.9980    1.0044   1.024
+       (sobreviven 3230 de 60000 excursiones)
+
+Lectura (el veredicto medido, que NO es el 'deberia' de la
+premisa vieja): (1) la dependencia del bit de apertura es
+TRANSITORIA -- en las rachas tardias (cierre >= 100) se anula
+en los dos arranques (z ~ 0, medias ~ 1,003): el 7 sigma del
+adv 1 vivia entero en el tramo inicial determinista de c0, el
+mismo tramo que la version quenched ya se traga (nota 3(ii)).
+(2) El condicionamiento a sobrevivir SI inclina la mezcla a
+bit 0 (+0,02..+0,04), pero ese canal es irrelevante en el
+bulk (por (1)); lo que hace el reloj es empujar la ley de
+racha hacia la geometrica NEUTRA: en A la media sube hacia 1
+desde abajo, en B baja hacia 1 desde arriba, y el C_j
+condicionado queda en [0,88, 1,06] en toda la escalera --
+dentro del C <= 1,2 de toda rebanada de la 9a. La dominacion
+condicionada a sobrevivir AGUANTA con C ~ 1. Medicion, no
+teorema.

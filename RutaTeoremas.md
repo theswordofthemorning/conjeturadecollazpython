@@ -203,10 +203,13 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    (b) la cancelación de las RECARGAS (el caso `v₂ = A`, SIN
 >    `.lean`): el salto es ~Geom(1/2) sin techo y repetible — su
 >    geometría es la segunda equidistribución, mismo territorio.
-> 2. **MEDIR la dominación condicionada a sobrevivir** (barato,
->    primero): la racha depende del bit de apertura (0,911/0,985,
->    7σ) y el h-transform inclina a bit 0 — dirección FAVORABLE,
->    pero es un cálculo por hacer, no un «debería» (nota §5(iii)).
+> 2. ~~**MEDIR la dominación condicionada a sobrevivir**~~ ⇢ **HECHO
+>    (12-08, `dominacioncondicionada.py`)**: la dependencia del bit
+>    de apertura era TRANSITORIA (el 7σ vivía en el tramo inicial
+>    determinista de c₀; en rachas tardías z ≈ 0 y en el arranque B
+>    el signo global se invierte) y la ley condicionada converge a
+>    la geométrica NEUTRA: `C_j` condicionado ∈ [0,88, 1,06], C ~ 1.
+>    La dominación condicionada AGUANTA — nota §5(iii) actualizada.
 > 3. **CARGAR los δ de Arañas en el ensamblaje P2** (el adv 1 midió:
 >    corren el objeto límite ≤ ~5% en el sufijo k = 2,3; entran
 >    dominados por 2^{−k_j} en las colas largas — escribirlo).
