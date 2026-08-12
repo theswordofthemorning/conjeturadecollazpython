@@ -90,6 +90,25 @@ objeto bueno. **El enunciado a demostrar queda fijado:** ρ_cond < 1/2
 para la transición del DP sobre su órbita (`notaequidistribucion.txt`
 3-bis.vii).
 
+**⇢ La noche — los bautizos y el mecanismo abierto por dentro:**
+(1) **Bautizos por delegación del usuario** (el diccionario de 22
+agotado): LORAS (unión por palabras), BALLENAS (funcional
+condicional), TRUCHAS (V2/L3), GRULLAS (mediana universal), CIGARRAS
+(dominación del reloj) — cinco filas nuevas en el ZOOLÓGICO. (2)
+**LAS CORRIENTES DEL ZÓCALO** (`corrienteszocalo.py`, el 89º — etapa
+1 del ataque al conteo): la recursión de cada fibra hija descompuesta
+EXACTA por sus cuatro corrientes afines, biyección por corriente
+comprobada en enteros. **El mecanismo, identificado con su matiz**:
+el branching es estructural (`Σw² ∈ [0,25, 0,37]`, `w_N0 = w_N1`
+siempre; k'=2 es la peor fibra porque la absorción le quita la
+corriente A — la geografía del exceso EXPLICADA), las cruzadas NO son
+cero (~0,5 de E_ii: la decorrelación pura FALSA como hipótesis, pero
+sub-C-S) y el total queda bajo el umbral (ρ_efec ∈ [0,14, 0,49]).
+**El cofre final: el teorema reducido a UN funcional concreto** — la
+correlación entre imágenes afines de la misma ley, `Σ p(r)p(τ(r)) ≤
+γ·C2(p)` con γ < 1 para τ afín impar no trivial (el desalineo AVISPAS
+hecho funcional), medido en ~0,5. Conteos: 89 `.py` · 21 `.lean`.
+
 ---
 
 # ⇢ 12-08-2026 — LA RUTA POST-9ª, COBRADA EN SIETE AVANCES: LAS DOS EQUIDISTRIBUCIONES SON UNA, Y EL ÁRBOL DE P2 QUEDA CON UN SOLO HUECO NOMBRADO

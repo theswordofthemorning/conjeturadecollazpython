@@ -313,6 +313,44 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         e_t(m) <= 2^m (2 rho)^t y el puente C-S hacen caer la
         Pieza B entera via L2 (3.iv). Salida en
         conteoconjunto_salida.txt.
+   (viii) LAS CORRIENTES DEL ZOCALO -- EL MECANISMO, ABIERTO POR
+        DENTRO (12-08, noche -- corrienteszocalo.py, etapa 1 del
+        ataque; la recursion de BALLENAS descompuesta EXACTA por
+        las cuatro corrientes de entrada de cada fibra hija: N0
+        compartido-bit0, N1 recarga, A ascenso desde k-1, D
+        descenso desde k+1 -- cada una UN mapa afin, con la
+        biyeccion VIBORAS/LORAS por corriente COMPROBADA en
+        enteros: E_ii a escala m ES el subconjunto padre a escala
+        m+1, y la identidad de mezcla e_hija = Sigma w_i w_j E_ij
+        cierra exacta). TRES hallazgos:
+        (a) EL BRANCHING ES ESTRUCTURAL Y ALCANZA: Sigma w_i^2 en
+            [0,25, 0,37] en todo el zocalo (w_N0 = w_N1 SIEMPRE --
+            el par de leyes compartidas reparte identico; k' = 2 es
+            la peor fibra, 0,36-0,37, porque NO TIENE corriente A:
+            la frontera de absorcion le quita una corriente de
+            mezcla -- la geografia del exceso, EXPLICADA por el
+            mecanismo).
+        (b) LAS CRUZADAS NO SON CERO (el matiz honesto): |E_cruz|
+            llega a ~0,5 de E_ii (peor 0,507/0,508/0,491 en
+            A/B/ADV) -- la decorrelacion pura entre corrientes es
+            FALSA como hipotesis; pero las cruzadas son
+            estrictamente sub-Cauchy-Schwarz (C-S permitiria ~1) y
+            el total queda igual bajo el umbral: rho_efec por fibra
+            = e_hija(m)/max_i E_ii(m) en [0,14, 0,49], peor 0,491
+            (B, t = 16, k' = 2, transitorio; a t = 24 el peor baja
+            a 0,42) -- consistente con el 0,46 global de BALLENAS.
+        (c) EL COFRE QUE QUEDA: el teorema se reduce a acotar la
+            CORRELACION ENTRE IMAGENES AFINES DE LA MISMA
+            DISTRIBUCION -- p.ej. N0 vs N1 son la MISMA ley padre
+            por dos mapas afines distintos (u y 3u + s: el
+            desalineo AVISPAS hecho funcional): el enunciado que
+            falta es Sigma_r p(r) p(tau(r)) <= gamma * C2(p) con
+            gamma < 1 para tau afin impar no trivial, propagado
+            como invariante por la orbita. Un solo funcional
+            concreto, medido en ~0,5.
+        Salida en corrienteszocalo_salida.txt. MEDICION exacta a
+        horizonte finito; las identidades S1-S4 son enteras.
+
         [EL PUENTE Y LEAN -- el por que, declarado (regla de la
         casa: si Lean no puede formalizar, el por que es el
         entregable): el puente es C-S con pesos sobre las ~30
