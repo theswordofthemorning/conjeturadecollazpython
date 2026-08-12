@@ -198,6 +198,23 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
           de conteo tiene entonces geografia: gap facil arriba,
           trabajo real en el zocalo k <= 4.
 
+   (vi) EL CONTRAEJEMPLO A LA FORMA NAIF, ENCONTRADO POR EL AUTOR
+        (cierre del 12-08 -- tercera mordida propia de la noche):
+        la desigualdad e_(t+1)(m) <= rho e_t(m+1) CON EL EXCESO DE
+        LA MARGINAL DE c es FALSA para distribuciones arbitrarias
+        -- una distribucion con marginal de c uniforme a escala
+        m+1 pero k CORRELACIONADO con x (masa de k = 2 en una sola
+        clase, k = 3 en el complemento) da denominador 0 y
+        numerador > 0 (verificado numerico: 0 contra 0,0038, m =
+        4). CONSECUENCIA: el enunciado correcto del teorema de
+        conteo debe llevar el funcional CONJUNTO (k, c) -- o
+        propagar como invariante la decorrelacion k-x, que la
+        cadena real SI mantiene (la sonda de alturas: R(k,k')
+        decae al piso). El rho_ms medido en [0,15, 0,44] es de las
+        distribuciones QUE LA CADENA REALIZA, no de todas: el
+        teorema es sobre la orbita del DP, no sobre el operador
+        suelto. Esta precision va ANTES de que la 10a la cobre.
+
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
    asintotico en t (el DP es horizonte finito; la tendencia a 1 es

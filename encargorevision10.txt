@@ -85,7 +85,11 @@ ADVERSARIO 3 -- LA LETRA (cuantificadores, etiquetas, prosa):
       -- o se justifican o se etiquetan como convencion.
 
 LO QUE EL AUTOR YA SABE QUE ESTA BLANDO (para que no se gaste
-polvora en descubrirlo): el teorema de conteo NO existe (solo el
+polvora en descubrirlo): el contraejemplo a la forma NAIF de la
+desigualdad multi-escala YA ESTA ENCONTRADO por el autor
+(notaequidistribucion 3-bis.vi: marginal uniforme + k
+correlacionado da denominador 0 y numerador > 0) -- el ataque
+util es a la formulacion CONJUNTA, no a la naif; el teorema de conteo NO existe (solo el
 blanco rho_ms < 1/2 con 13% de margen medido); TORTUGAS (b) con L2
 esta por rehacer; P2-b.ii es esquema; la densidad cerca de M
 (P2-c) es medida; y las salidas de los DP son a horizonte finito
