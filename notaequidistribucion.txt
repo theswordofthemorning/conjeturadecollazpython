@@ -116,7 +116,7 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         inyeccion de bits (3.i): la fraccion de masa que pasa por
         pasos compartidos con k impar parte cada colision
         potencial en dos clases de paridad opuesta.
-   (iii) MEDIDO (sonda sobre el DP, m = 8, t = 0..26, tres
+   (iii) MEDIDO (excesocolision.py, m = 8, t = 0..26, tres
         arranques): e_t decae GEOMETRICO con razon ~0,7 por paso,
         UNIFORME en los tres arranques -- de 255 a 0,025 en 26
         pasos, razon media 0,69; el adversarial converge igual
@@ -124,6 +124,23 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         contraccion estricta EXISTE y es medible; el teorema
         pendiente es exactamente demostrar rho < 1 para el paso
         del DP -- un enunciado de UNA transicion, no asintotico.
+   (iv) EL BLANCO AFILADO (misma tarde, X4 de excesocolision.py):
+        la recursion de verdad intercambia TIEMPO POR ESCALA (el
+        DP pierde un bit de modulo por paso), asi que el objeto
+        correcto es la razon multi-escala
+          rho_ms(t, m) = e_(t+1)(m) / e_t(m + 1),
+        y su umbral critico es 1/2: si un teorema entrega
+        e_(t+1)(m) <= rho e_t(m+1) con rho < 1/2 para UNA
+        transicion, el telescopio cierra solo -- e_t(m) <=
+        e_0(m+t) rho^t <= 2^m (2 rho)^t -> 0 geometrico, y con el
+        e_t -> 0 cae TODA la Pieza B (via L2, 3.iv). MEDIDO:
+        rho_ms en [0,15, 0,44] en toda celda (t >= 12, m = 6..9,
+        tres arranques; peor 0,436) -- BAJO el umbral con margen
+        13%. El candidato estructural del 1/2 es el reparto de
+        ramas (cada estado abre dos hijos con peso 1/2 y las
+        relaciones de colision a escala m+1 son grafos de
+        biyeccion por la unicidad de VIBORAS); la contabilidad
+        fina de paridad/factibilidad es lo que falta escribir.
 
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada

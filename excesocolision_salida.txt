@@ -19,6 +19,7 @@ arranque A (c0 = 999983):
   t = 25  C2 =    1.0440   e_t =   0.04398
   t = 26  C2 =    1.0254   e_t =   0.02540
   razon media de contraccion (t = 8..26): 0.759
+  razon MULTI-ESCALA peor (t >= 12, m = 6..9): 0.428
 
 arranque B (c0 = 999999937):
   t =  0  C2 =  256.0000   e_t = 255.00000
@@ -38,6 +39,7 @@ arranque B (c0 = 999999937):
   t = 25  C2 =    1.0443   e_t =   0.04435
   t = 26  C2 =    1.0309   e_t =   0.03090
   razon media de contraccion (t = 8..26): 0.769
+  razon MULTI-ESCALA peor (t >= 12, m = 6..9): 0.425
 
 arranque ADV (c0 = 1398101):
   t =  0  C2 =  256.0000   e_t = 255.00000
@@ -57,13 +59,19 @@ arranque ADV (c0 = 1398101):
   t = 25  C2 =    1.0396   e_t =   0.03962
   t = 26  C2 =    1.0270   e_t =   0.02698
   razon media de contraccion (t = 8..26): 0.746
+  razon MULTI-ESCALA peor (t >= 12, m = 6..9): 0.436
 
 X1 OK (exceso final <= 0.06), X2 OK (contraccion geometrica
 <= 0.85; medida ~0,7), X3 OK (el adversarial contrae igual
 que A: 0.746 vs 0.759).
 
+X4 OK: la razon multi-escala peor es 0.436 < 0.5.
+
 Lectura: la GANANCIA ESTRICTA que el telescopio critico del
-conteo necesita EXISTE y es geometrica (~0,7 por paso, uniforme
-en arranques, adversarial incluido). El teorema pendiente es
-demostrar rho < 1 para UNA transicion del DP. Medicion, no
-teorema.
+conteo necesita EXISTE y es geometrica (~0,7 por paso a escala
+fija, uniforme en arranques, adversarial incluido). Y EL BLANCO
+AFILADO: la razon multi-escala e_(t+1)(m)/e_t(m+1) queda BAJO
+EL UMBRAL CRITICO 1/2 en toda celda medida (peor ~0,44, margen
+13%): un teorema de UNA transicion con rho < 1/2 cierra el
+telescopio tiempo-por-escala solo (e_t <= 2^m (2rho)^t -> 0).
+Medicion, no teorema.

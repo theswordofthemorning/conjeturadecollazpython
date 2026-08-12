@@ -26,15 +26,24 @@
 #         (la medida da ~0,7).
 #     X3  el arranque adversarial NO es especial: su razon media
 #         difiere de la del arranque A en menos de 0,1.
+#     X4  LA RAZON MULTI-ESCALA (el blanco afilado del teorema):
+#         rho_ms(t, m) = e_(t+1)(m) / e_t(m+1) < 0,5 en toda celda
+#         con t >= 12, m = 6..9, tres arranques. Si un teorema
+#         entrega rho < 1/2 para UNA transicion, el telescopio
+#         tiempo-por-escala cierra solo:
+#         e_t(m) <= e_0(m+t) rho^t <= 2^m (2 rho)^t -> 0.
+#         La medida da peor caso ~0,44: margen 13%.
 #
 #   Capa 1: mapa = cadena (k, c) del atajo; medida de clases;
 #   condicionado a vivo; m = 8 fijo y declarado; horizonte finito.
 
-M_BITS = 12
+M_BITS = 13
 T_MAXDP = 26
 M8 = 8
+ESCALAS = [6, 7, 8, 9, 10]     # para X4 (m y m+1 adyacentes)
 E_FINAL_TOPE = 0.06
 RAZON_TOPE = 0.85
+RHO_MS_TOPE = 0.5              # el umbral critico del telescopio
 
 ARRANQUES = [
     (999983, "A"),
@@ -53,15 +62,20 @@ def dp_excesos(c0):
     M = T_MAXDP + M_BITS
     estados = {(2, c0 % (2 ** M)): 1}
     filas = []
+    excesos = {}               # (t, m) -> e_t(m), para X4
     for t in range(T_MAXDP + 1):
         Q = 2 ** (M - t)
         vivos = sum(estados.values())
-        pesos = {}
-        for (k, cm), n in estados.items():
-            r = cm % (2 ** M8)
-            pesos[r] = pesos.get(r, 0) + n
-        l2 = sum(p * p for p in pesos.values()) * (2 ** M8) \
-            / float(vivos) ** 2
+        for m in ESCALAS:
+            pesos_m = {}
+            mm = 2 ** m
+            for (k, cm), n in estados.items():
+                r = cm % mm
+                pesos_m[r] = pesos_m.get(r, 0) + n
+            l2m = sum(p * p for p in pesos_m.values()) * mm \
+                / float(vivos) ** 2
+            excesos[(t, m)] = l2m - 1.0
+        l2 = excesos[(t, M8)] + 1.0
         filas.append((t, vivos, l2))
         if t == T_MAXDP:
             break
@@ -83,15 +97,16 @@ def dp_excesos(c0):
                     h1 = (k - 1, (w // 2) % Q2)
                     nuevos[h1] = nuevos.get(h1, 0) + n
         estados = nuevos
-    return filas
+    return filas, excesos
 
 
 print("EL EXCESO DE COLISION e_t = C2(t) - 1 Y SU CONTRACCION")
 print("(el kernel de la renovacion del teorema de conteo; m = %d)" % M8)
 print()
 razones = {}
+peor_ms_global = 0.0
 for c0, nombre in ARRANQUES:
-    filas = dp_excesos(c0)
+    filas, excesos = dp_excesos(c0)
     print("arranque %s (c0 = %d):" % (nombre, c0))
     for (t, vivos, l2) in filas:
         if t % 2 == 0 or t >= 22:
@@ -109,6 +124,19 @@ for c0, nombre in ARRANQUES:
     if razon > RAZON_TOPE:
         raise SystemExit("X2: razon %.3f > %.2f en el arranque %s"
                          % (razon, RAZON_TOPE, nombre))
+    peor_ms = 0.0
+    for t in range(12, T_MAXDP):
+        for m in ESCALAS[:-1]:
+            den = excesos[(t, m + 1)]
+            if den > 1e-6:
+                peor_ms = max(peor_ms, excesos[(t + 1, m)] / den)
+    peor_ms_global = max(peor_ms_global, peor_ms)
+    print("  razon MULTI-ESCALA peor (t >= 12, m = 6..9): %.3f"
+          % peor_ms)
+    if peor_ms >= RHO_MS_TOPE:
+        raise SystemExit("X4: rho_ms = %.3f >= %.1f en el arranque %s "
+                         "-- el telescopio tiempo-por-escala NO cierra"
+                         % (peor_ms, RHO_MS_TOPE, nombre))
     print()
 
 if abs(razones["ADV"] - razones["A"]) > 0.1:
@@ -120,8 +148,14 @@ print("<= %.2f; medida ~0,7), X3 OK (el adversarial contrae igual" %
       RAZON_TOPE)
 print("que A: %.3f vs %.3f)." % (razones["ADV"], razones["A"]))
 print()
+print("X4 OK: la razon multi-escala peor es %.3f < %.1f."
+      % (peor_ms_global, RHO_MS_TOPE))
+print()
 print("Lectura: la GANANCIA ESTRICTA que el telescopio critico del")
-print("conteo necesita EXISTE y es geometrica (~0,7 por paso, uniforme")
-print("en arranques, adversarial incluido). El teorema pendiente es")
-print("demostrar rho < 1 para UNA transicion del DP. Medicion, no")
-print("teorema.")
+print("conteo necesita EXISTE y es geometrica (~0,7 por paso a escala")
+print("fija, uniforme en arranques, adversarial incluido). Y EL BLANCO")
+print("AFILADO: la razon multi-escala e_(t+1)(m)/e_t(m+1) queda BAJO")
+print("EL UMBRAL CRITICO 1/2 en toda celda medida (peor ~0,44, margen")
+print("13%): un teorema de UNA transicion con rho < 1/2 cierra el")
+print("telescopio tiempo-por-escala solo (e_t <= 2^m (2rho)^t -> 0).")
+print("Medicion, no teorema.")
