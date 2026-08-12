@@ -1,0 +1,114 @@
+=====================================================================
+NOTA: EL ENSAMBLAJE DE P2 -- LA TRANSFERENCIA V2 -> CADENA REAL,
+PIEZA POR PIEZA, CON LO ESCRITO EL 12-08
+(12-08-2026; cierra en el papel los puntos 3 y 4 de la ruta
+post-9a -- los delta de Aranas y el tramo inicial quenched -- y
+deja el mapa de lo que falta. ESQUEMA con piezas demostradas,
+piezas medidas y UN hueco analitico nombrado.)
+=====================================================================
+
+0. EL ENUNCIADO OBJETIVO (P2). Para la cadena real (k, c) con la
+   medida de clases: phi(x) >= c/sqrt(log x) con ventana universal
+   -- la forma de L-A que el teorema V2 (teoremav2.txt) ya tiene
+   demostrada en el modelo autonomo, trasladada al reloj endogeno
+   real. La traduccion es QUENCHED: Levy pide phi(c_i) para los
+   c_i que la cadena de excursiones visita de verdad.
+
+1. LAS PIEZAS Y SU ESTADO (post-12-08):
+
+   (P2-a) LA DOMINACION DEL RELOJ (el lema de racha).
+     P(racha >= j | pasado grueso) <= C 2^-j. Estado: la reduccion
+     DEMOSTRADA (lecturaracha.lean: racha y recarga son cada una
+     UNA clase de c mod 2^m -- las dos equidistribuciones de la 9a
+     unificadas); la equidistribucion MEDIDA EXACTA con cruce en
+     enteros (equidistribucionmixto.py, recargaexacta.py: C ~ 1;
+     adaptada al k-camino <= 1,0 en celdas gruesas); el TEOREMA DE
+     CONTEO abierto (notaequidistribucion.txt 3 -- el UNICO hueco
+     analitico de esta pieza).
+
+   (P2-b) EL TRAMO INICIAL DETERMINISTA (quenched), ESCRITO:
+     (i) La cota individual, EXACTA: para c impar, racha_1 tras
+         bit 0 es v2((3c+1)/2) y |3c+1| <= 4|c|, asi que
+           racha_1 <= v2(3c+1) - 1 <= log2|3c+1| - 1
+                   <= 1 + log2|c|
+         (v2(n) <= log2|n| para n != 0: el 2-adico no supera el
+         tamano). Identico para bit 1 con |c - 3^(k-1)|: el largo
+         forzado por un c_i CONCRETO nunca excede ~log2|c_i| en
+         una racha.
+     (ii) EL PRESUPUESTO DE BITS (esquema): "racha >= j" consume
+         j+1 bits bajos de c (la clase mod 2^(j+1), lecturaracha);
+         el arranque c_i trae log2|c_i| bits deterministas y cada
+         racha leida los gasta -- el SURPLUS determinista total de
+         la excursion esta acotado por ~log2|c_i| pasos (los
+         contraejemplos del adv 1 son exactamente este presupuesto
+         concentrado: racha_1 = 20 cuesta 21 bits de c0 ~ 2^21).
+         La contabilidad formal del gasto (que bits quedan
+         "frescos" tras cada lectura) es parte del teorema de
+         conteo de (P2-a): mismo hueco, no uno nuevo.
+     (iii) CONTRA LA VENTANA: T = 30 ln|c_i| = 20,8 log2|c_i|;
+         el tramo determinista <= ~log2|c_i| CABE CON MARGEN ~20x,
+         y las sondas de dominacioncondicionada.py lo confirman en
+         los numeros: la dependencia del bit de apertura (el unico
+         rastro medible del tramo) se ANULA en las rachas tardias
+         (cierre >= 100) en los dos arranques probados.
+
+   (P2-c) LOS DELTA DE ARANAS, CARGADOS (el calculo del adv 1 de
+     la 9a, ahora en el papel):
+     (i) El objeto: V2 usa el IFS puro {u/2, (3u-1)/2}; la cadena
+         real lleva perturbacion |delta_j| <= 3^(-k_j)/2 por paso
+         (Aranas). En la serie revertida de L3 (W~ = Sigma d~_r
+         P~_(r-1)), los delta entran multiplicados por el producto
+         P~ y quedan dominados por 2^(-k_j) en las colas largas:
+         sumables contra el margen geometrico del Lemma 2.7-analogo
+         (log P~_r <= log(3/2) k~_r - 0,058 r).
+     (ii) El sufijo k = 2, 3 (donde el delta NO es chico: ~1/18
+         por paso): el adv 1 midio que mueve el objeto limite
+         W~_inf en <= ~5%. La CARGA en el teorema: la ventana de
+         L3 pide P(|W~| <= M) >= 3/4; un corrimiento de <= 5% del
+         objeto se absorbe tomando M' = M + 1 en la ventana
+         universal (la constante K = M + 1 del teorema V2 ya tiene
+         ese holgura declarada) SI la densidad del limite cerca de
+         M esta acotada -- que es un hecho MEDIDO
+         (medianauniversal.py: la ley limite es la 1/x de Kesten
+         kappa = 1, densidad finita y decreciente en la cola), no
+         demostrado: cualificador declarado.
+     (iii) Lo que NO se carga: nada mas -- los delta no tocan ni
+         el reloj (rachas: puro v2, exacto) ni el LLT del paseo de
+         k (que es exogeno en V2 y dominado en real via (P2-a)).
+
+   (P2-d) LA VERSION CONDICIONADA A SOBREVIVIR: MEDIDA
+     (dominacioncondicionada.py, 12-08): la ley de racha
+     condicionada converge a la geometrica NEUTRA (C_j en
+     [0,88, 1,06], ambos arranques); el canal del bit de apertura
+     es transitorio. La version teorema espera al conteo de
+     (P2-a); la direccion y la magnitud ya no son hipotesis.
+
+   (P2-e) LA MEDIANA UNIVERSAL EN LA CADENA REAL: MEDIDA
+     (medianareal.py, 11-08 (2)): ley de entrada independiente del
+     arranque (deriva 0,07 decadas sobre 6 ordenes de c0), balota
+     real 1,117-1,145 = la constante de V2.
+
+2. EL ORDEN DEL ENSAMBLAJE (cuando el conteo caiga):
+   conteo (P2-a) ==> dominacion adaptada con C explicita
+   ==> + (P2-b): el reloj real domina al geometrico en toda la
+       ventana salvo el prefijo que cabe 20x
+   ==> + (P2-c): W~ real = W~ V2 + corrimiento <= 5% absorbido en
+       M + 1
+   ==> + LLT de V2 (teoremav2, ya autocontenido) ==> phi(c_i) >=
+       c/sqrt(log c_i) para los c_i de Levy ==> con Golondrinas +
+       Liebres: phi = 1.
+   El unico eslabon sin escribir en toda la cadena es EL TEOREMA
+   DE CONTEO. Los cualificadores vivos: densidad del limite cerca
+   de M (medida), beta = 0 (notamoscasinducida, con su
+   cualificador), y la revision externa de la tanda del 12-08.
+
+ETIQUETA: esquema de ensamblaje; (P2-b.i) es aritmetica exacta,
+(P2-b.ii) y (P2-c) escritos con sus cualificadores declarados;
+las mediciones citadas son exactas o con cruce. NO es teorema:
+es el arbol con UN hueco nombrado.
+Ficheros: teoremav2.txt, notadominacion.txt,
+notaequidistribucion.txt, lecturaracha.lean,
+equidistribucionmixto.py, recargaexacta.py,
+dominacioncondicionada.py, medianareal.py, medianauniversal.py,
+fichaagkv.txt, actarevision1108c.txt.
+=====================================================================

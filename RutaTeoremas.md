@@ -210,12 +210,17 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    el signo global se invierte) y la ley condicionada converge a
 >    la geométrica NEUTRA: `C_j` condicionado ∈ [0,88, 1,06], C ~ 1.
 >    La dominación condicionada AGUANTA — nota §5(iii) actualizada.
-> 3. **CARGAR los δ de Arañas en el ensamblaje P2** (el adv 1 midió:
->    corren el objeto límite ≤ ~5% en el sufijo k = 2,3; entran
->    dominados por 2^{−k_j} en las colas largas — escribirlo).
-> 4. **El tramo inicial determinista de la versión quenched**:
->    racha₁ ≤ v₂(c_i) ≤ log₂|c_i| contra T = 30 ln|c_i| — cabe,
->    falta escribirlo (Lévy pide φ(c_i) por los c_i reales).
+> 3. ~~**CARGAR los δ de Arañas en el ensamblaje P2**~~ ⇢ **ESCRITO
+>    (12-08, `notaensamblajep2.txt` P2-c)**: dominados por 2^{−k_j}
+>    en colas largas; el sufijo k = 2,3 corre W̃_∞ ≤ 5% y se absorbe
+>    en la holgura M+1 de la ventana (cualificador declarado: la
+>    densidad del límite cerca de M es medida, no demostrada).
+> 4. ~~**El tramo inicial determinista quenched**~~ ⇢ **ESCRITO
+>    (12-08, `notaensamblajep2.txt` P2-b)**: cota individual exacta
+>    `racha ≤ 1 + log₂|c|` (v2 no supera el tamaño), presupuesto de
+>    bits ≤ log₂|c_i| contra T = 20,8·log₂|c_i| — cabe con margen
+>    ~20×; la contabilidad del gasto de bits es parte del MISMO
+>    teorema de conteo del punto 1, no un hueco nuevo.
 > 5. **El paso Perron/SCC del puente espectral** (adv 3): heredar el
 >    RITMO ρ(M_T) — con eso la letra chica de `λ ≥ 1,989042` se va
 >    de verdad. La pinza [min,max] por Fraction del adversario es
