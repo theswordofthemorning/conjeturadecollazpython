@@ -5,6 +5,58 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 12-08-2026 — LA RUTA POST-9ª, COBRADA EN SIETE AVANCES: LAS DOS EQUIDISTRIBUCIONES SON UNA, Y EL ÁRBOL DE P2 QUEDA CON UN SOLO HUECO NOMBRADO
+
+**La orden del usuario: avanzar con la ruta hasta nuevo aviso, dejando
+pantallazos para la revisión adversarial (la 10ª).** Siete commits, en
+el orden de la ruta:
+
+1. **La dominación condicionada a sobrevivir, MEDIDA** (punto 2;
+   `dominacioncondicionada.py`): el «7σ» del bit de apertura del adv 1
+   era **TRANSITORIO** (en rachas tardías z ≈ 0 en ambos arranques; en
+   el arranque B el signo global se INVIERTE — artefacto de los bits
+   bajos de c₀), y la ley condicionada converge a la geométrica NEUTRA
+   (`C_j ∈ [0,88, 1,06]`, C ~ 1). Regalo: supervivencia `~1/√T` clavada.
+2. **La Pieza B, medida EXACTA** (punto 1(a); `equidistribucionmixto.py`):
+   la reducción — racha ≥ j ⟺ c en UNA clase mod 2^{j+1} — y el DP de
+   conteos ENTEROS con cruce independiente: C_j ≤ 2,95 → ~1, adaptada
+   al k-camino ≤ 1,000, contraejemplos del adv 1 reproducidos y muertos.
+3. **`lecturaracha.lean` (el 20º)**: la reducción DEMOSTRADA (lectura +
+   unicidad por `tres_inyectivo`; el contraejemplo del adv 1 como
+   teorema de kernel: `3·1398101+1 = 2^22`).
+4. **LA UNIFICACIÓN** (punto 1(b); `recargaexacta.py`): el salto de
+   recarga es LA MISMA lectura (`salto ≥ s` ⟺ una clase mod 2^{A+1+s})
+   — las «dos equidistribuciones por escribir» de la 9ª son **UN SOLO
+   teorema de conteo**; el salto medido exacto: C_s ~ 1, la Geom(1/2)
+   predicha.
+5. **El ensamblaje P2 escrito** (puntos 3+4; `notaensamblajep2.txt`):
+   el tramo determinista quenched (cota exacta `racha ≤ 1 + log₂|c|`,
+   presupuesto de bits, cabe 20×) y los δ de Arañas cargados (≤ 5%
+   absorbido en M+1, cualificador declarado).
+6. **La inyección de bits formalizada + LA REDUCCIÓN L²**
+   (`lecturaracha.lean` crece: k impar inyecta un bit fresco exacto —
+   `pot3_mod4`/`inyeccion_bit`; y para el lema de racha BASTA el
+   segundo momento: colas `2^{−j/2}`, misma forma). **Medido: la
+   constante de colisión L² = 1,038–1,039 a t=24 en los TRES arranques
+   — a 4% del piso uniforme.**
+7. **L-B como teorema condicional** (punto 6; `notalb.txt`):
+   `τ_i ≤ i^{2+ε}` c.s. condicional a la dominación (D) — supera el
+   `e^{o(i²)}` pedido con margen infinito.
+
+**El estado tras la sesión: TODO el árbol de P2 (φ ≥ c/√log x en la
+cadena real, quenched, → φ = 1 vía Golondrinas + Liebres) cuelga de UN
+solo hueco analítico nombrado: el teorema de conteo de la
+equidistribución de c mod 2^m (`notaequidistribucion.txt` §3, con la
+vía L² como blanco rebajado).** Pendientes: ese conteo (1), Perron/SCC
+(5), y los user-gated (7: bautizos — toda la tanda del 12-08 sin nombre
+de animal — y la 10ª revisión adversarial ANTES de apoyar nada encima).
+
+Registro: 84 `.py` (+3), 20 `.lean` (+1), 4 notas nuevas/actualizadas;
+salidas `*_salida.txt` en el repo; `respuestas.db` al día a mitad de
+sesión.
+
+---
+
 # ⇢ 11-08-2026 (2) — P4 COBRADO: EL RÉCORD SIN CAP, `φ ≥ 0,462781` EN ARITMÉTICA EXACTA
 
 **La orden del usuario: «P4 primero, la mejora gratis del récord».**
