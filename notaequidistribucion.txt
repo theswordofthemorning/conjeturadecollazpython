@@ -142,6 +142,34 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         biyeccion por la unicidad de VIBORAS); la contabilidad
         fina de paridad/factibilidad es lo que falta escribir.
 
+   (v)  LA IDENTIDAD DE UN PASO Y LO QUE YA SE PUEDE DEMOSTRAR
+        (12-08, noche -- ESQUEMA con derivacion, k a cuestas
+        pendiente): la colision a escala m en t+1 se descompone
+        EXACTA en OCHO mapas: dos bits del primero x dos bits del
+        segundo x dos paridades del socio -- para cada estado x
+        (clase mod 2^(m+1)) y cada combinacion, el socio que
+        colisiona es UNA clase por paridad (la preimagen del hijo
+        objetivo bajo cada mapa afin es una biyeccion de clases:
+        VIBORAS otra vez), asi que
+          P_col(t+1, m) = (1/4) Sigma_{b,b'} Sigma_x p_x
+                          (p_{socio par}(x) + p_{socio impar}(x)),
+        ocho sumas de la forma Sigma p_x p_tau(x) con tau
+        biyeccion. (Control de cordura: con p uniforme la identidad
+        devuelve 2^-m exacto.) DOS consecuencias:
+        - por Cauchy-Schwarz en cada suma, P_col(t+1, m) <= 2
+          P_col(t, m+1), o sea e_(t+1)(m) <= e_t(m+1): LA
+          MONOTONIA DIAGONAL (rho_ms <= 1) es demostrable ya --
+          modulo la contabilidad de k (los mapas dependen del par
+          (k, k') y la absorcion condiciona: por escribir);
+        - el 1/2 es un GAP ESPECTRAL del operador de pares: la
+          igualdad en C-S pide p alineado con tau, y los OCHO tau
+          difieren entre si por corrimientos tipo AVISPAS -- p no
+          puede alinearse con todos a la vez. La cuantificacion de
+          ese desalineo (la norma del operador promedio de los 8
+          mapas sobre el complemento de la uniforme) ES el teorema
+          de conteo. Blanco medido: 0,44; trivial demostrable: 1;
+          el hueco es el gap.
+
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
    asintotico en t (el DP es horizonte finito; la tendencia a 1 es
