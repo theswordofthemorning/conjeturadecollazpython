@@ -1,0 +1,172 @@
+=====================================================================
+NOTA: EL COFRE DEL TEOREMA DE CONTEO, ABIERTO -- LA CORRELACION
+AFIN. El enunciado universal REFUTADO (con contraejemplo exacto),
+la identidad que lo parte en dos, y el cofre MOVIDO DE SITIO.
+(12-08-2026 tarde; fichero correlacionafin.py, el 90o .py, salida
+en correlacionafin_salida.txt. Ataca el PENDIENTE No 1 que dejo la
+sesion anterior: notaequidistribucion 3-bis.viii(c).)
+=====================================================================
+
+0. LO QUE SE PEDIA. El cierre del 12-08 dejo el teorema de conteo
+   reducido a "UN solo funcional concreto, medido en ~0,5":
+
+     Sigma_r p(r) p(tau(r))  <=  gamma * C2(p)   con gamma < 1,
+     para tau afin impar no trivial, propagado como invariante
+     por la orbita.
+
+   La justificacion escrita era: "N0 vs N1 son la MISMA ley padre
+   por dos mapas afines distintos (u y 3u + s: el desalineo
+   AVISPAS hecho funcional)".
+
+1. EL TAU, IDENTIFICADO (C0, enteros, sin suponerlo). Escribiendo
+   el padre par como c = 2u con u mod 2^m, las dos corrientes
+   compartidas de la fibra k son
+
+     N0:  u -> u                          (el hijo c/2)
+     N1:  u -> 3u + s_k ,  s_k = (1-3^k)/2   (el hijo (3c+1-3^k)/2)
+
+   luego  tau_k(u) = 3u + s_k  exacto, comprobado contra las leyes
+   del DP para m = 3..11, k = 0..7 y todo u. Y como
+   v2(s_k) = v2(3^k - 1) - 1:
+
+     s_k es IMPAR  <=>  k es IMPAR
+
+   -- la misma alternancia de TORTOLAS (3.i de la nota madre). La
+   geografia del cofre y la de la inyeccion de bits son la misma.
+
+2. LA IDENTIDAD QUE LO PARTE EN DOS (C1, TEOREMA, exacta en
+   racionales). Para TODA biyeccion tau de Z/2^m y TODA p:
+
+     Sigma_r p(r) p(tau r) = C2(p) - (1/2) Sigma_r (p(r) - p(tau r))^2
+
+   (polarizacion; usa solo que tau es biyeccion). CONSECUENCIAS:
+
+   (a) gamma <= 1 es GRATIS -- una linea, sin hipotesis. Luego la
+       mitad "facil" del enunciado del cofre no era el teorema.
+   (b) La igualdad se da EXACTAMENTE cuando p es constante en cada
+       ciclo de tau. Todo el contenido esta en el ESTRICTO, y el
+       estricto se decide por la estructura de ciclos.
+
+3. LA ESTRUCTURA DE CICLOS (C2, enumerada m = 4..10). Para k IMPAR
+   (s impar) tau_k tiene EXACTAMENTE DOS ciclos, cada uno de largo
+   2^(m-1): medio espacio cada uno, sin puntos fijos. (Razon:
+   tau^n(u) = u equivale a 2^(d-1)(2u + s) = 0 mod 2^m con
+   d = v2(3^n - 1); con s impar el factor 2u+s es impar y hace
+   falta d >= m+1, cuyo minimo n es 2^(m-1).) Para k PAR (s par) el
+   censo es distinto: 2m-1 ciclos de largos 1, 2, 4, ..., 2^(m-2).
+
+4. EL CONTRAEJEMPLO -- EL ENUNCIADO UNIVERSAL ES FALSO (C3, exacto
+   en racionales, con SystemExit armado). La version que la
+   recursion usa es la CENTRADA: los E_ij de corrienteszocalo son
+   excesos sobre el piso uniforme, o sea el cociente de Rayleigh
+   de f = 2^m p - 1 (media cero). Tomese
+
+     chi = +1 en un ciclo de tau_k, -1 en el otro     (k impar)
+     p_eps = (1 + eps * chi) / 2^m
+
+   Es una probabilidad legitima para |eps| <= 1, su exceso es
+   e = eps^2 -- TAN CHICO COMO SE QUIERA -- y
+
+     gamma_centrado(p_eps) = 1   EXACTO
+
+   porque chi es tau-invariante por construccion. Verificado como
+   igualdad de racionales en m = 6, 8, 10, k = 3, 5, con
+   eps = 1/10, 1/100, 1/1000.
+
+   ==> El enunciado del cofre NO falla por poco ni en un rincon
+   degenerado: falla POR IGUALDAD y con exceso arbitrariamente
+   chico, es decir DENTRO del regimen exacto donde vive la cadena
+   (e ~ 0,04 medido). En su forma BRUTA (sin centrar) el enunciado
+   es cierto pero VACIO: el punto 2(a) lo da gratis, con igualdad
+   en el mismo p.
+
+5. Y NO HAY GAP QUE LO RESCATE (C4). La parte simetrica del
+   operador Pf = f o tau tiene, sobre un ciclo de largo L, los
+   autovalores cos(2 pi j / L). Aun restringiendo a los f
+   ORTOGONALES al obstructor chi, el mayor autovalor restante es
+   cos(2 pi / L) con L = 2^(m-1), o sea 1 - O(4^-m): a m = 8 es
+   0,9988. Ninguna hipotesis de "suavidad" o de "exceso chico"
+   salva un enunciado sobre UN SOLO tau. Si hay gap, es de la
+   MEZCLA.
+
+6. LO QUE LA CADENA REALIZA -- Y LA SORPRESA (C5 + C7, medicion
+   exacta sobre el DP, t = 24, m = 8, tres arranques). El gamma
+   realizado por las leyes de la orbita, fibra a fibra:
+
+     k' = 2 :  +0,099 / +0,191 / +0,141   (A / B / ADV)
+     k' = 3 :  -0,138 / -0,016 / -0,065
+     k' = 4 :  -0,259 / -0,332 / -0,195
+     k' = 5 :  -0,259 / -0,312 / -0,184
+
+   EL PAR N0-N1 ESTA ANTICORRELACIONADO en todo el zocalo salvo la
+   fibra k' = 2. Peor valor realizado: +0,191.
+
+   CRUCE (C7(a), con SystemExit): este gamma -- calculado como
+   Rayleigh centrado de la ley del PADRE bajo tau_k -- coincide a
+   12 cifras con E_N0N1/E_N0N0 calculado como en corrienteszocalo
+   -- sobre las leyes de las corrientes HIJAS -- en las 12 celdas.
+   Son el mismo objeto por dos definiciones distintas.
+
+7. EL COFRE SE MUEVE DE SITIO (C7(b) -- el hallazgo). Repartiendo
+   el exceso de la fibra hija entre los SEIS pares de corrientes:
+
+     peor N0-N1 relativo  = 0,191  (B, k' = 2)
+     peor par CRUZA-FIBRA = 0,905  (A-N1, arranque A, k' = 3)
+
+   El par que la nota madre senalaba como el problema -- N0 vs N1,
+   "la misma ley padre por dos mapas afines" -- es el par BUENO. Lo
+   que carga el exceso son los pares que CRUZAN FIBRA (A-N1, D-N0):
+   leyes de padres DISTINTOS (k-1 y k+1), no dos imagenes de la
+   misma ley.
+
+   DE DONDE SALIO EL ERROR (leccion, va a la base): el "~0,5" que
+   el cofre citaba era el peor |E_cruz|/E_ii de corrienteszocalo, y
+   ese peor era D-N0 (k'=2) -- un par cruza-fibra. Al escribir el
+   enunciado se le atribuyo a N0-N1, que es el par sobre el que se
+   estaba razonando. Numero medido de un objeto, atribuido a otro
+   al redactar el enunciado: el modo de fallo del ANDAMIO (lo que
+   no sostiene nada hay que auditarlo a proposito).
+
+8. EL MECANISMO, EN UNA LINEA (y por que esto es buena noticia).
+   Como w_N0 = w_N1 SIEMPRE (hallazgo (a) de corrienteszocalo), si
+   la fibra recibiera SOLO las dos corrientes compartidas:
+
+     e_hija(m) = (1 + gamma)/2 * e_padre(m+1)     exacto,
+
+   o sea rho_ms = (1 + gamma)/2, y el umbral 1/2 del telescopio
+   equivale EXACTAMENTE a  gamma < 0. La cadena da gamma < 0 en
+   k' >= 3 y gamma ~ +0,1..+0,2 solo en k' = 2 -- la fibra sin
+   corriente A, la frontera de absorcion: la misma geografia que
+   BALLENAS y las corrientes ya habian marcado como la peor.
+
+9. EL ENUNCIADO REPARADO (lo que hay que demostrar ahora). No es
+   sobre un tau: es sobre la MEZCLA.
+
+     || Sigma_i w_i P_i ||  restringido a media cero  <  1
+
+   para el operador de mezcla de las corrientes de la fibra. Su
+   UNICA obstruccion posible es el subespacio invariante COMUN de
+   todas las corrientes -- y C6 lo mide TRIVIAL (una sola clase, o
+   sea solo las constantes = el piso uniforme) en m = 4, 6, 8 con
+   las fibras del zocalo juntas. El obstructor chi de una fibra
+   sola no sobrevive a la mezcla: los s_k de fibras distintas lo
+   rompen (AVISPAS). La forma del teorema es entonces de EXPANSION
+   (norma de un promedio de permutaciones afines de Z/2^m), no de
+   correlacion de dos mapas.
+
+QUE NO DICE. C5, C6 y C7 son MEDICION a horizonte finito sobre la
+orbita del DP, no teoremas: el gamma < 0 esta medido, no
+demostrado, y el invariante comun trivial esta medido en m <= 8.
+La refutacion del punto 4 SI es teorema (racionales exactos), y la
+identidad del punto 2 tambien. Nada de esto demuestra rho < 1/2 ni
+cierra la Pieza B: mueve el cofre y refuta el enunciado que habia
+dentro.
+
+ETIQUETA: puntos 2, 3 y 4 TEOREMA (exactos); 5 aritmetica de
+autovalores; 6, 7, 8, 9 MEDICION con cruce de definiciones
+(SystemExit). Sin revision externa aun -- y la regla del ritmo
+dice que la 11a revision va ANTES de apoyar nada encima de esto.
+Ficheros: correlacionafin.py, correlacionafin_salida.txt,
+corrienteszocalo.py, notaequidistribucion.txt (3-bis.viii),
+conteoconjunto.py, tortolas.lean.
+=====================================================================

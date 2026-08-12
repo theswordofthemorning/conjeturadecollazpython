@@ -158,6 +158,52 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 
 **EMPEZAR POR AQUÍ.** Todo lo de abajo es historia; esto es el frente.
 
+> **⇢ 12-08 (3) — EL COFRE ABIERTO: EL ENUNCIADO DEL PENDIENTE Nº 1,
+> REFUTADO, Y EL COFRE MOVIDO DE SITIO** (`correlacionafin.py`, el
+> 90º; nota autocontenida `notacorrelacionafin.txt`;
+> `notaequidistribucion.txt` 3-bis.ix). El pendiente que dejó la
+> sesión anterior era «un solo funcional concreto»:
+> `Σ p(r)·p(τ(r)) ≤ γ·C2(p)` con `γ < 1` para τ afín impar.
+> **Atacado por capa 1 —buscar el contraejemplo antes de demostrar—
+> y el contraejemplo EXISTE:**
+> 1. **El τ, identificado en enteros**: con el padre par `c = 2u`,
+>    las corrientes compartidas son `N0: u ↦ u` y `N1: u ↦ 3u + s_k`
+>    con `s_k = (1−3^k)/2` — y `s_k` es impar ⟺ `k` impar: **la
+>    geografía del cofre ES la de TÓRTOLAS**.
+> 2. **La identidad que lo parte en dos** (teorema, racionales):
+>    `Σ p·p∘τ = C2(p) − ½Σ(p(r)−p(τr))²` para toda biyección ⟹
+>    **`γ ≤ 1` es GRATIS** (no era el teorema) e igualdad ⟺ `p`
+>    constante en cada ciclo de τ.
+> 3. **EL CONTRAEJEMPLO** (teorema, racionales exactos): para `k`
+>    impar τ tiene exactamente **dos ciclos de largo `2^{m−1}`**
+>    (enumerado m = 4…10), así que `p = (1 + ε·χ)/2^m` con χ = ±1 por
+>    ciclo es probabilidad legítima, tiene exceso `ε²` **tan chico
+>    como se quiera** y da **`γ_centrado = 1` EXACTO**. El enunciado
+>    universal es **FALSO — por igualdad, y en el régimen donde vive
+>    la cadena** (`e ~ 0,04`). Y no hay gap que lo rescate: ortogonal
+>    al obstructor, el siguiente autovalor es `1 − O(4^{−m})`.
+> 4. **LA SORPRESA, MEDIDA CON CRUCE**: el γ que la órbita realiza es
+>    **negativo en todo `k' ≥ 3`** (hasta −0,33) y sólo `+0,10…+0,19`
+>    en `k' = 2`. **El par que la nota señalaba (N0-N1) es el par
+>    BUENO**; lo que carga el exceso son los pares que **cruzan
+>    fibra** (peor **A-N1 = 0,905**; el `D-N0 = 0,507` fue el «~0,5»
+>    mal atribuido — número medido de un objeto, escrito de otro:
+>    el modo de fallo del ANDAMIO). Cruce con `SystemExit`: Rayleigh
+>    centrado del padre = `E_N0N1/E_N0N0` de `corrienteszocalo` a 12
+>    cifras en las 12 celdas.
+> 5. **EL MECANISMO**: como `w_N0 = w_N1` siempre, con sólo las dos
+>    compartidas sería `e_hija(m) = (1+γ)/2 · e_padre(m+1)` exacto —
+>    **el umbral 1/2 del telescopio equivale a `γ < 0`**, que es
+>    justo lo que la cadena da en `k' ≥ 3`. El resto es `k' = 2`, la
+>    fibra sin corriente A: la frontera de absorción otra vez.
+> 6. **EL ENUNCIADO REPARADO**: no es sobre un τ, es sobre la
+>    **mezcla** — `‖Σ_i w_i P_i‖ < 1` en media cero, cuya única
+>    obstrucción es el **invariante COMÚN** de las corrientes,
+>    **medido trivial** (una sola clase, m = 4, 6, 8). La forma del
+>    teorema es de **EXPANSIÓN** (norma de un promedio de
+>    permutaciones afines de `Z/2^m`), no de correlación de dos
+>    mapas. *Bautizo pendiente (user-gated).*
+>
 > **⇢ 12-08 (2) — LA 10ª REVISIÓN ADVERSARIAL, HECHA Y APLICADA**
 > (acta `actarevision1208.txt`; informes `_adv1/2/3.txt`): **la
 > estructura de la tanda del 12-08 AGUANTÓ ENTERA** (enteros

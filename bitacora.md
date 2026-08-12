@@ -5,6 +5,91 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 12-08-2026 (3) — EL COFRE ABIERTO: EL PENDIENTE Nº 1, REFUTADO POR CAPA 1, Y EL COFRE MOVIDO DE SITIO
+
+**El cierre anterior dejó el teorema de conteo reducido a «un solo
+funcional concreto»**: `Σ_r p(r)·p(τ(r)) ≤ γ·C2(p)` con `γ < 1` para τ
+afín impar no trivial, «medido en ~0,5». Se atacó con la capa 1 por
+delante —buscar el contraejemplo ANTES de gastar horas demostrando— y
+**el contraejemplo existe**. Fichero: `correlacionafin.py` (el 90º),
+nota autocontenida `notacorrelacionafin.txt`, salida grabada.
+
+**1. El τ, identificado en enteros (C0).** Escribiendo el padre par
+como `c = 2u`, las dos corrientes compartidas son `N0: u ↦ u` y
+`N1: u ↦ 3u + s_k` con `s_k = (1−3^k)/2` — comprobado contra las leyes
+del DP en m = 3…11, k = 0…7, todo u. Y `v2(s_k) = v2(3^k−1) − 1` da
+**`s_k` impar ⟺ `k` impar**: la geografía del cofre **es** la de
+TÓRTOLAS.
+
+**2. La identidad que lo parte en dos (teorema, racionales).**
+`Σ p·p∘τ = C2(p) − ½·Σ(p(r) − p(τr))²` para toda biyección τ. Luego
+**`γ ≤ 1` es gratis** —no era el teorema— y la igualdad se da
+**exactamente** cuando `p` es constante en cada ciclo de τ. Todo el
+contenido estaba en el estricto.
+
+**3. EL CONTRAEJEMPLO (teorema, racionales exactos).** Para `k` impar
+τ tiene **exactamente dos ciclos de largo `2^{m−1}`** (enumerado
+m = 4…10; razón: `τⁿ(u) = u` pide `d = v2(3ⁿ−1) ≥ m+1`). Con
+`χ = ±1` por ciclo, **`p_ε = (1 + ε·χ)/2^m`** es probabilidad legítima,
+tiene exceso `e = ε²` **arbitrariamente chico** y da
+**`γ_centrado = 1` EXACTO** (χ es τ-invariante). Verificado en
+racionales, m = 6, 8, 10, ε = 1/10, 1/100, 1/1000. **El enunciado
+universal es FALSO: no por poco, por IGUALDAD, y con exceso dentro del
+régimen exacto donde vive la cadena (`e ~ 0,04`).** Y **no hay gap que
+lo rescate**: ortogonal al obstructor, el siguiente autovalor de la
+parte simétrica es `cos(2π/2^{m−1}) = 1 − O(4^{−m})` (0,9988 a m = 8).
+Ninguna hipótesis de «suavidad» salva un enunciado sobre UN solo τ.
+
+**4. LA SORPRESA, MEDIDA Y CRUZADA (C5 + C7).** El γ que la órbita
+**realiza** es `+0,099/+0,191/+0,141` en `k' = 2` y **NEGATIVO en todo
+`k' ≥ 3`** (hasta −0,33): las dos corrientes compartidas están
+**anticorrelacionadas**. Repartiendo el exceso entre los seis pares:
+peor **N0-N1 = 0,191**, peor par que **cruza fibra = 0,905** (A-N1,
+k'=3). **El cofre apuntaba al par equivocado**: el par que la nota
+señalaba —«la misma ley padre por dos mapas afines»— es el par bueno;
+lo que carga el exceso son los pares de padres **distintos**.
+*Cruce con `SystemExit`: el Rayleigh centrado de la ley del padre bajo
+τ coincide a 12 cifras con `E_N0N1/E_N0N0` calculado sobre las leyes
+hijas, en las 12 celdas — mismo objeto, dos definiciones.*
+
+**5. De dónde salió el error (corrección con lección).** El «~0,5» que
+el enunciado del cofre citaba era el peor `|E_cruz|/E_ii` de
+`corrienteszocalo`, y ese peor era **D-N0**, un par cruza-fibra. Al
+redactar se le atribuyó a N0-N1, que era el par sobre el que se estaba
+razonando. **Número medido de un objeto, escrito de otro** — el modo de
+fallo del ANDAMIO (lo que no sostiene nada hay que auditarlo a
+propósito). Fe de erratas puesta en `notaequidistribucion.txt`
+3-bis.viii(c), en el sitio.
+
+**6. El mecanismo, en una línea (y por qué es buena noticia).** Como
+`w_N0 = w_N1` SIEMPRE, con sólo las dos compartidas sería
+`e_hija(m) = (1+γ)/2 · e_padre(m+1)` **exacto**, o sea
+**`ρ_ms = (1+γ)/2`: el umbral 1/2 del telescopio equivale exactamente a
+`γ < 0`** — que es lo que la cadena da en `k' ≥ 3`. Lo que queda fuera
+es `k' = 2`, la fibra **sin corriente A**: la frontera de absorción,
+la misma geografía que BALLENAS y las corrientes ya marcaban.
+
+**7. El enunciado reparado.** No es sobre un τ: es sobre la **mezcla**
+— `‖Σ_i w_i P_i‖ < 1` restringido a media cero — y su única obstrucción
+posible es el **subespacio invariante COMÚN** de las corrientes, que
+C6 mide **trivial** (una sola clase = las constantes = el piso
+uniforme) en m = 4, 6, 8 con las fibras del zócalo juntas: el
+obstructor χ de una fibra sola **no sobrevive a la mezcla**, los `s_k`
+distintos lo rompen (AVISPAS). **La forma del teorema es de EXPANSIÓN**
+(norma de un promedio de permutaciones afines de `Z/2^m`), no de
+correlación de dos mapas.
+
+**Etiquetas honestas:** los puntos 2, 3 y la estructura de ciclos son
+TEOREMA (exactos en racionales/enteros); 4, 6 y 7 son MEDICIÓN a
+horizonte finito sobre la órbita del DP, con cruce de definiciones.
+**Nada de esto demuestra `ρ < 1/2` ni cierra la Pieza B**: refuta el
+enunciado que había dentro del cofre y mueve el cofre de sitio.
+**Pendiente inmediato (regla del ritmo): la 11ª revisión adversarial
+ANTES de apoyar nada encima** — la tanda post-10ª ya tenía masa y esto
+la aumenta. Bautizo del zoológico, user-gated.
+
+---
+
 # ⇢ 12-08-2026 (2) — LA 10ª REVISIÓN ADVERSARIAL: DÉCIMA REVISIÓN, DÉCIMA MORDIDA — Y LA PRIMERA CUYA MORDIDA GRANDE LLEGÓ CON REPARACIÓN
 
 **El encargo del cierre anterior, ejecutado: tres adversarios en

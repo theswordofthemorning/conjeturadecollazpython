@@ -348,6 +348,11 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
             gamma < 1 para tau afin impar no trivial, propagado
             como invariante por la orbita. Un solo funcional
             concreto, medido en ~0,5.
+            [REFUTADO Y CORREGIDO EL 12-08 TARDE -- ver (ix): el
+            enunciado universal es FALSO (contraejemplo exacto), y
+            el "~0,5" era del par D-N0, NO del par N0-N1 sobre el
+            que se estaba razonando: N0-N1 mide 0,19 y es NEGATIVO
+            en k >= 3.]
         Salida en corrienteszocalo_salida.txt. MEDICION exacta a
         horizonte finito; las identidades S1-S4 son enteras.
 
@@ -365,6 +370,57 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         ring, y no cubre el caso general: no paga. El puente queda
         como teorema de papel (una linea) + verificacion numerica
         en todos los puntos (Z5).]
+
+   (ix) EL COFRE ABIERTO -- EL ENUNCIADO UNIVERSAL, REFUTADO, Y EL
+        COFRE MOVIDO DE SITIO (12-08, tarde -- correlacionafin.py,
+        el 90o .py; nota autocontenida notacorrelacionafin.txt).
+        Atacando el pendiente No 1 de (viii)(c), tres resultados
+        exactos y una sorpresa medida:
+        (a) EL TAU, IDENTIFICADO EN ENTEROS: escrito el padre par
+            como c = 2u, las corrientes compartidas son N0: u -> u
+            y N1: u -> 3u + s_k con s_k = (1-3^k)/2, luego
+            tau_k(u) = 3u + s_k exacto (m = 3..11, k = 0..7, todo
+            u) -- y s_k es IMPAR si y solo si k es IMPAR: la
+            geografia del cofre ES la de TORTOLAS (3.i).
+        (b) LA IDENTIDAD QUE LO PARTE EN DOS (teorema, racionales):
+            Sigma p(r)p(tau r) = C2(p) - (1/2)Sigma(p(r)-p(tau r))^2
+            para toda biyeccion tau. Luego gamma <= 1 es GRATIS
+            (no era el teorema) y la igualdad se da EXACTAMENTE
+            cuando p es constante en cada ciclo de tau.
+        (c) EL CONTRAEJEMPLO (teorema, racionales exactos): para k
+            impar tau_k tiene exactamente DOS ciclos de largo
+            2^(m-1) (enumerado m = 4..10), asi que con chi = +-1
+            por ciclo, p_eps = (1 + eps*chi)/2^m es probabilidad
+            legitima, tiene exceso e = eps^2 ARBITRARIAMENTE CHICO
+            y da gamma_centrado = 1 EXACTO. El enunciado universal
+            del cofre es FALSO -- no por poco: por IGUALDAD, y en
+            el regimen exacto donde vive la cadena (e ~ 0,04). Y no
+            hay gap que lo rescate: ortogonal al obstructor, el
+            siguiente autovalor es cos(2 pi / 2^(m-1)) = 1-O(4^-m).
+        (d) LA SORPRESA MEDIDA, CON CRUCE: el gamma que la orbita
+            realiza es +0,099/+0,191/+0,141 en k' = 2 y NEGATIVO en
+            todo k' >= 3 (hasta -0,33). El par N0-N1 -- el que
+            (viii)(c) senalaba como el problema -- es el par BUENO;
+            lo que carga el exceso son los pares que CRUZAN FIBRA
+            (peor: A-N1 con 0,905 en k'=3; D-N0 con 0,507 fue el
+            "~0,5" mal atribuido). Cruce con SystemExit: el
+            Rayleigh centrado de la ley del padre coincide a 12
+            cifras con E_N0N1/E_N0N0 de corrienteszocalo en las 12
+            celdas -- mismo objeto, dos definiciones.
+        (e) EL MECANISMO: como w_N0 = w_N1 siempre, con solo las
+            dos compartidas seria e_hija(m) = (1+gamma)/2 *
+            e_padre(m+1) EXACTO, o sea el umbral 1/2 del telescopio
+            equivale a gamma < 0 -- que es lo que la cadena da en
+            k' >= 3. El resto (k' = 2, sin corriente A) es la
+            frontera de absorcion, la misma geografia de siempre.
+        (f) EL ENUNCIADO REPARADO: no es sobre un tau, es sobre la
+            MEZCLA -- ||Sigma_i w_i P_i|| < 1 en media cero, cuya
+            unica obstruccion es el subespacio invariante COMUN de
+            las corrientes, MEDIDO TRIVIAL (una sola clase) en
+            m = 4, 6, 8 con las fibras del zocalo juntas. La forma
+            del teorema es de EXPANSION (norma de un promedio de
+            permutaciones afines de Z/2^m), no de correlacion de
+            dos mapas.
 
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
