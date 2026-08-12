@@ -1,0 +1,273 @@
+=====================================================================
+ACTA DE LA 10a REVISION ADVERSARIAL -- ADVERSARIO 1 (LA MATEMATICA
+Y EL LEAN): lecturaracha.lean + las reducciones (tareas a1-d1)
+(12-08-2026. Instrumentos en revision10_adv1/: coteja_transiciones.py,
+test_negativos.lean, compuesto_l2.py, presupuesto_bits.py. Toolchain:
+Lean 4.32.2. Encargo: encargorevision10.txt, seccion ADVERSARIO 1.)
+=====================================================================
+
+RESUMEN DE VEREDICTOS (por severidad):
+
+  c1  la razon 2^(-1/2) del COMPUESTO ......... ROTO Y REPARADO
+      (el compuesto declarado no la alcanza: da 0,855; pero el
+      compuesto es INNECESARIO -- la union por palabras la da
+      directa; cierre estructural, no "margen chico")
+  d1  el presupuesto de bits (P2-b.ii) ........ ATAQUE FALLIDO,
+      PERO SOBRE-AFIRMADO EN LA LETRA (P2-b.i incluida: la
+      identidad "racha_1 = v2(h)" es falsa en el 9,1% de las
+      rachas realizadas, exceso hasta 17)
+  a1  lectura_* contra la cadena real ......... AGUANTA CON MATICES
+      (0 fallos de identidad en 40.034 casos; el cuantificador
+      k >= 3 de la prosa no es el k >= 2 de la cadena; k = 1 y
+      fondo-bit-1 fuera de cobertura, no reclamados)
+  b1  tres_inyectivo con negativos ............ AGUANTA
+      (convencion ediv/emod confirmada por decide; instancias
+      negativas certificadas; ningun caso escondido)
+
+Y la compilacion base: lecturaracha.lean compila limpio en 4.32.2,
+los 11 #print axioms sin sorryAx. Detalle menor: pot3_mod4 y
+mitad_impar dependen de Classical.choice ademas de propext y
+Quot.sound (los demas solo de estos dos) -- es un axioma legitimo
+del nucleo (lo introduce la maquinaria de omega/refine), no un
+agujero, pero si el repo presume de "nucleo puro" conviene saber
+cuales lo llevan.
+
+---------------------------------------------------------------------
+TAREA a1 -- ENUNCIADO <-> OBJETO: lectura_* contra transicion()
+---------------------------------------------------------------------
+QUE HICE. Extraje transicion() VERBATIM de rachasreales.py (con ast,
+sin ejecutar el modulo) y paso_entero() de equidistribucionmixto.py,
+y coteje las cuatro lecturas del .lean caso por caso sobre
+k = 0..6, c en [-2001, 2001] (negativos incluidos), ambos bits:
+40.034 identidades comprobadas + el diff exacto DP/cadena real +
+las 4 instancias del .lean contra la cadena.
+
+HALLAZGOS.
+(i) CERO fallos de identidad donde la prosa reclama: bit 0 mixto
+    (2h = 3c+1) vale para TODO k >= 0 (14.014 casos); bit 1 mixto
+    (2h = c - 3^(k-1)) vale para todo k >= 2 (10.010); compartido
+    bit 1 (2h = 3c+1-3^k, la recarga) para todo k >= 1 (12.006).
+(ii) EL CUANTIFICADOR DESALINEADO (correcto con matiz): la prosa
+    (.lean linea 14, notaequidistribucion 1., cabecera de
+    equidistribucionmixto) dice "k >= 3"; la cadena real aplica la
+    MISMA formula ya en k = 2 (2.002 casos verificados). No es
+    incoherencia de los instrumentos -- el DP ABSORBE en k = 2 bit 1
+    (convencion excursion: k <= 1 es fondo, y el mixto k=2->1
+    termina la excursion), asi que la racha que seguiria a ese mixto
+    no se mide en ningun lado. Pero el teorema lectura_bit1 tiene p
+    LIBRE: nada en el .lean impide instanciarlo en k = 2, k = 1 o
+    p arbitrario. El k >= 3 vive solo en comentarios. RECOMENDACION:
+    o el comentario dice "k >= 2 en la cadena; el DP corta en k = 2
+    por convencion de excursion", o el teorema gana una hipotesis.
+(iii) EL CASO k = 1 (el abs): la premisa 2h = c - 1 es FALSA en
+    1.001 de 2.001 casos (los c < 1: h = |g| = (1-c)/2) -- el
+    teorema los cubre EN VACUO. La lectura de divisibilidad
+    sobrevive por paridad del signo (v2(h) = v2(c-1) - 1 en
+    2001/2001), pero la IGUALDAD del .lean no. Ni el .lean ni la
+    prosa reclaman k = 1: sin sangre, pero que nadie lo instancie.
+(iv) EL FONDO BIT 1 NO ESTA CUBIERTO Y ES LA CLASE OPUESTA: en
+    k = 0, c impar, bit 1 la cadena da 2h = 1 - 3c, o sea racha >= j
+    <=> 3c = +1 mod 2^(j+1) -- el SIGNO CONTRARIO a la clase del
+    bit 0 (3c = -1). Quien aplicara la lectura bit 0 al fondo
+    usaria la clase erronea. Para P2 es irrelevante (las excursiones
+    terminan al entrar al fondo), pero es una mina enterrada para
+    el regimen post-fondo (Doeblin/Liebres) si alguien recicla la
+    reduccion alli sin mirar.
+(v) El diff DP/real es EXACTAMENTE el declarado: (k,impar,bit1) con
+    k <= 2 (absorcion) y nada mas. Las 4 instancias del .lean
+    (caso_adversarial, caso_chico, caso_bit1, caso_recarga)
+    coinciden con transicion().
+
+VEREDICTO a1: AGUANTA CON MATICES ((ii)-(iv) son letra, no sangre).
+
+---------------------------------------------------------------------
+TAREA b1 -- tres_inyectivo Y LOS NEGATIVOS DE Int
+---------------------------------------------------------------------
+QUE HICE. test_negativos.lean (compila limpio, 0 sorryAx): sondas
+por decide de la convencion del nucleo, instancias negativas de
+tres_inyectivo y una_clase_bit0 (copiados verbatim para compilar
+solos), y el punto exacto donde la induccion podria cojear.
+
+HALLAZGOS.
+(i) La convencion de / y % sobre Int en este toolchain es
+    ediv/emod, certificado por el nucleo: (-7)/2 = -4 y (-7)%2 = 1
+    (decide) -- NO la truncada (-3 y -1). Con emod, z % 2 = 0 para
+    todo par NEGATIVO tambien ((-6)%2 = 0, decide), y para z par
+    la division es exacta con cualquier signo (2*((-10)/2) = -10,
+    etc.). El unico uso de / y % en la induccion es sobre z YA
+    DEMOSTRADO par (hz), donde ediv y la division exacta coinciden:
+    NO HAY CASO ESCONDIDO. (Si la convencion fuera la truncada,
+    omega ni siquiera la soporta y el fichero no compilaria: la
+    compilacion misma es el testigo.)
+(ii) Instancias negativas certificadas: 2^3 | -8 desde
+    3*(-8) = 2^3*(-3); 2^22 | -4194304; y una_clase_bit0 con
+    c = -11, c' = 21 (racha >= 4 en ambos, -11 - 21 = -32 = 2^5*(-1)).
+(iii) El testigo del caso base (el lapsus que cazo la compilacion)
+    esta bien en la version actual: <z, ...> con pot2 0 = 1.
+
+VEREDICTO b1: AGUANTA. La sospecha del encargo (emod/ediv con
+negativos) no muerde: la induccion solo divide pares.
+
+---------------------------------------------------------------------
+TAREA c1 -- LA REDUCCION L2 Y EL COMPUESTO DE RECARGAS (el punto
+central del encargo)
+---------------------------------------------------------------------
+QUE HICE. La cuenta entera, en tres partes (compuesto_l2.py).
+
+PARTE 1 -- LA DIVERGENCIA, CONFIRMADA Y AMPLIADA. Con cola
+P(S >= s) <= K 2^(-s/2) (la que da Cauchy-Schwarz desde C2),
+E[2^S] diverge (parciales 32 -> 1e3 -> 1e6 -> 1e12 al subir el
+truncamiento). Y EL HALLAZGO EXTRA: diverge TAMBIEN en L-infinito
+(cola exacta C 2^-s: cada termino aporta ~C constante). O sea: el
+argumento viejo "cada recarga cuesta un bit" via E[2^salto] no es
+que se rompa al pasar a L2 -- estaba roto DESDE SIEMPRE; solo que
+en L-infinito el MGF correcto (z < 2) deja mas sitio.
+
+PARTE 2 -- EL COMPUESTO, REHECHO CON EL MGF CORRECTO (z < sqrt(2)).
+Modelo conservador de la Pieza A medida: racha_total T = X0 + N +
+Sigma S_i, con X0 y cada salto S_i de cola K 2^(-s/2) (K =
+sqrt(C2)) y N (numero de recargas) dominado por P(N >= n) <= 2^-n
+-- esto ultimo es EXACTO (cada recarga consume un bit justo de la
+palabra: no necesita equidistribucion). MGF del salto: phi_S(z) <=
+1 + (z-1)K/(sqrt2 - z), finito solo para z < sqrt2. Cierre del
+compuesto: z*phi_S(z) < 2. Resultado:
+  - CIERRA PARA TODO K FINITO: phi_S(1) = 1 < 2 y por continuidad
+    siempre hay z > 1. El "margen chico" que el autor temia NO
+    EXISTE como problema: el cierre es ESTRUCTURAL. Con K =
+    sqrt(1,038) = 1,019 (lo medido a t = 24): z* = 1,1700.
+  - PERO LA RAZON RESULTANTE ES 1/z* = 0,855, NO 2^(-1/2) = 0,707.
+    En z -> sqrt2 el MGF del salto diverge y la ramificacion de N
+    corta antes: EL COMPUESTO NO PUEDE ENTREGAR LA RAZON 2^(-1/2)
+    QUE LA NOTA LE ATRIBUYE (notaequidistribucion 3.iv: "las colas
+    de racha/recarga salen geometricas de razon 2^(-1/2)"). La
+    frase es verdadera para UNA lectura suelta; para la racha
+    compuesta, tal como el argumento declarado la arma, es falsa.
+    Barrido K = 1,02..10: razon 0,855..0,966, siempre < 1.
+  - Control Monte Carlo del modelo frontera: la cota Chernoff
+    optimizada nunca queda por debajo (peor cociente 0,251).
+
+PARTE 3 -- LA REPARACION (el hallazgo positivo de esta acta): EL
+COMPUESTO ES INNECESARIO. La racha compuesta ENTERA (recargas y
+crashes incluidos) es una union sobre las palabras u de sus bits:
+  LEMA (verificado exhaustivo, 1.016 combinaciones: k = 3..6,
+  ambos bits del mixto, j = 1..7, TODAS las u): para (b, u, j)
+  fijos, { c impar : la racha tras el mixto bit b con palabra u
+  dura >= j } es EXACTAMENTE UNA clase mod 2^(j+1) -- cada paso
+  pide "hijo par", una condicion afin de coeficiente impar que
+  fija UN bit nuevo de c: la misma maquinaria de tres_inyectivo,
+  formalizable en el estilo de lecturaracha.lean.
+  CONSECUENCIA:  P(racha_total >= j | mixto)
+    = (1/2) Sigma_b 2^-(j-1) Sigma_u P(clase_{b,u})
+    <= max_clase <= sqrt(C2(j+1)) * 2^-(j+1)/2.
+  RAZON 2^(-1/2) EXACTA para la racha TOTAL, directa de la
+  equidistribucion L2, sin E[2^S], sin compuesto, y sin el problema
+  que el compuesto tenia escondido y que nadie habia nombrado: el
+  salto de recarga CONDICIONADO a v2 = A es un cociente de
+  probabilidades de clase, y L2 solo da cotas SUPERIORES -- el
+  denominador necesitaba una cota inferior que C2 no proporciona.
+  La union por palabras esquiva el condicionamiento por completo.
+LO QUE LA CUENTA DEJA ESCRITO: la dominacion que sale de L2 es
+P(racha >= j) <= sqrt(C2) 2^-(j+1)/2 -- cola MAS GORDA que la
+Geom(1/2) del reloj V2 (razon 0,707 > 0,5). Es la forma que la nota
+ya declara absorbible (reescala de la ventana T por constante;
+c/sqrt(log x) invariante), y con C2 = 1,038 la constante es 1,019:
+los numeros del blanco no cambian.
+
+DOS PIEZAS DE LETRA CHICA QUE LA NOTA NO DICE (correcto con matiz):
+  (a) EL WEDGE ESCALA-TIEMPO: sqrt(C2(j+1)) tiene que ser uniforme
+      EN LA ESCALA, y el DP a tiempo t solo controla escalas
+      m <~ t log2(1/(2 rho_ms)) (con rho_ms = 0,44: m <~ 0,18 t).
+      La cota de racha a escala j solo rige desde t ~ 5,5 j; antes
+      manda el cap determinista de P2-b.i. El enunciado honesto del
+      lema de racha lleva ese wedge (j, t) escrito.
+  (b) EL FACTOR DEL CONDICIONAMIENTO AL MIXTO: C2 se mide sobre
+      TODOS los vivos; la clase de la racha vive dentro de los c
+      IMPARES: la constante final carga un 1/P(impar|vivo) ~ 2
+      (medido). No cambia la forma; cambia la constante que algun
+      dia se escriba.
+
+VEREDICTO c1: la sospecha del encargo era correcta (E[2^salto]
+diverge y el compuesto declarado no da 2^(-1/2)) pero la conclusion
+del autor tambien ("cierra"): cierra ESTRUCTURALMENTE, no con
+margen chico, y ademas cierra MEJOR por la via directa, que
+restaura la razon 2^(-1/2) para la racha total y elimina el
+compuesto del arbol. QUE REESCRIBIR: notaequidistribucion 3.iv debe
+(1) retirar la razon 2^(-1/2) DEL COMPUESTO, (2) adoptar la union
+por palabras (un lema nuevo, hermano de VIBORAS, con su .lean
+pendiente), (3) anotar el wedge (j, t) y el factor 1/P(impar).
+
+---------------------------------------------------------------------
+TAREA d1 -- EL PRESUPUESTO DE BITS (P2-b.ii): EL DOBLE CONTEO
+---------------------------------------------------------------------
+QUE HICE. Intente construir el c0 que re-usa bits, por las dos
+unicas vias posibles, y las dos estan cerradas (presupuesto_bits.py):
+
+(P1) DENTRO DE UNA PALABRA: para palabra de Terras FIJA, el mapa
+  c0 mod 2^T -> traza de paridades es BIYECCION exacta en la cadena
+  (k, c) de la excursion, absorcion incluida (12 palabras, T = 13,
+  los 2^13 residuos: cada traza viva tiene EXACTAMENTE 1 residuo;
+  cada traza muerta en t, exactamente 2^(T-1-t); y la traza es
+  funcion de c0 mod 2^T -- control con c0 + 7919*2^T). Cada paso
+  consume UN bit fresco, sin excepciones: las rachas leen tramos
+  DISJUNTOS de la traza y el doble conteo es imposible. (La unica
+  gotera teorica del argumento afin -- el abs de k = 1, que solo
+  conserva la clase modulo signo -- no existe dentro de la
+  excursion: la absorcion llega antes.)
+(P2) ENTRE RAMAS DEL MIXTO: forzar racha >= j en LAS DOS ramas a la
+  vez exige 3c = -1 y c = 3^(k-1) simultaneamente, o sea
+  3^k = -1 mod 2^(j+1); como 3^k mod 8 esta en {1, 3}, es IMPOSIBLE
+  para j >= 2 (exhaustivo j = 1..8, k = 3..9: cero soluciones desde
+  j = 2). EL FORZADO WORD-INDEPENDENT MUERE EN RACHA <= 1: regalo
+  duro para la version formal del presupuesto -- nadie puede
+  re-usar bits entre ramas ni siquiera una vez.
+
+EL ATAQUE DEL ENCARGO, POR TANTO, FALLA: la biyeccion de Terras si
+lo impide, y ya no es un esquema -- esta verificada para esta
+cadena y es formalizable con las piezas existentes (afin impar +
+tres_inyectivo + "un paso, un bit").
+
+PERO LA LETRA DEL PRESUPUESTO NO SOBREVIVE TAL CUAL (sobre-afirmado
+en dos frases):
+  (i) P2-b.i dice "racha_1 tras bit 0 ES v2((3c+1)/2)" y lo llama
+      "cota individual, EXACTA". FALSO como identidad de lo
+      realizado: la recarga puede caer DENTRO de la primera racha y
+      alargarla mas alla de v2(h) -- medido: 9,12% de 423.299
+      rachas realizadas superan v2(h), exceso maximo 17. La
+      identidad solo vale para la racha FORZADA (para toda palabra):
+      la palabra 0...0 corta exactamente en v2(h), asi que el
+      forzado nunca excede v2(h) <= 1 + log2|c| -- ESO es lo exacto.
+  (ii) P2-b.ii ("el surplus determinista total de la excursion
+      <= ~log2|c_i|") solo puede leerse como FORZADO CON PROB 1.
+      Como cota de lo realizado es FALSA y la magnitud ni siquiera
+      es la moneda correcta: una racha a altura k puede leer hasta
+      ~k log2 3 bits que NO vinieron de c0 (los inyectan los 3^k) --
+      demostrado con c0 = 5 (cap naif 3,3): racha realizada de 20 a
+      altura 6 con |c| ~ 2^10 al abrirla, y sumas de racha por
+      excursion de 229. LA MONEDA CORRECTA ES DENSIDAD DE CLASE:
+      exigir un perfil de rachas de peso total W dentro de una
+      palabra = UNA clase mod 2^(>= W) (P1), probabilidad 2^-W bajo
+      la medida de clases. Lo realizado mas alla del prefijo es del
+      TEOREMA DE CONTEO, exactamente como la nota ya declara
+      ("mismo hueco, no uno nuevo") -- la declaracion es correcta;
+      las dos frases de arriba, no.
+
+VEREDICTO d1: ATAQUE FALLIDO (el doble conteo no existe: P1 + P2
+lo prueban por las dos vias), SOBRE-AFIRMADO en la letra de P2-b.i
+y P2-b.ii (reescribir con "forzado" y con la moneda de densidad de
+clase). El presupuesto como MECANISMO queda mas fuerte que antes:
+la obstruccion mod 8 le pone un techo duro (racha <= 1) al forzado
+entre ramas que el autor no tenia.
+
+---------------------------------------------------------------------
+CAPA 1 SOBRE ESTA ACTA (la lista, pasada a mis propios calculos):
+mapa = cadena (k, c) del atajo en las cuatro tareas (transicion()
+verbatim via ast en a1; re-escrita y declarada en c1/d1); todo lo
+que decide son COTAS o identidades exactas, no promedios (los MC
+son solo controles de dique); sin circularidad (el .lean se coteja
+contra transicion(), no contra si mismo; C2 = 1,038 entra como
+PARAMETRO barrido 1,02..10, no como verdad); cuantificadores: la
+verificacion "una clase por palabra" es FINITA (k = 3..6, j <= 7) y
+el lema general queda COMO LEMA A FORMALIZAR, no como verificado;
+limites no redondos (T = 13, rangos -2001..2001, j <= 7) y donde el
+modulo es el objeto (mod 8, mod 2^(j+1)) el barrido es exhaustivo.
+=====================================================================

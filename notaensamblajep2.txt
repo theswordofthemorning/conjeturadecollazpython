@@ -26,25 +26,43 @@ piezas medidas y UN hueco analitico nombrado.)
      CONTEO abierto (notaequidistribucion.txt 3 -- el UNICO hueco
      analitico de esta pieza).
 
-   (P2-b) EL TRAMO INICIAL DETERMINISTA (quenched), ESCRITO:
-     (i) La cota individual, EXACTA: para c impar, racha_1 tras
-         bit 0 es v2((3c+1)/2) y |3c+1| <= 4|c|, asi que
-           racha_1 <= v2(3c+1) - 1 <= log2|3c+1| - 1
-                   <= 1 + log2|c|
-         (v2(n) <= log2|n| para n != 0: el 2-adico no supera el
-         tamano). Identico para bit 1 con |c - 3^(k-1)|: el largo
-         forzado por un c_i CONCRETO nunca excede ~log2|c_i| en
-         una racha.
-     (ii) EL PRESUPUESTO DE BITS (esquema): "racha >= j" consume
-         j+1 bits bajos de c (la clase mod 2^(j+1), lecturaracha);
-         el arranque c_i trae log2|c_i| bits deterministas y cada
-         racha leida los gasta -- el SURPLUS determinista total de
-         la excursion esta acotado por ~log2|c_i| pasos (los
-         contraejemplos del adv 1 son exactamente este presupuesto
-         concentrado: racha_1 = 20 cuesta 21 bits de c0 ~ 2^21).
-         La contabilidad formal del gasto (que bits quedan
-         "frescos" tras cada lectura) es parte del teorema de
-         conteo de (P2-a): mismo hueco, no uno nuevo.
+   (P2-b) EL TRAMO INICIAL DETERMINISTA (quenched), ESCRITO
+     [REESCRITO POR LA 10a (adv 1, d1; acta M2): la version
+     anterior vendia (i) como identidad y (ii) como cota de lo
+     REALIZADO -- las dos eran falsas asi leidas; lo exacto es el
+     FORZADO]:
+     (i) La cota del FORZADO, exacta: para c impar, la racha
+         FORZADA PARA TODA PALABRA tras bit 0 es v2((3c+1)/2) --
+         la palabra 0...0 corta exactamente ahi -- y |3c+1| <=
+         4|c|, asi que
+           racha_forzada <= v2(3c+1) - 1 <= 1 + log2|c|
+         (v2(n) <= log2|n|: el 2-adico no supera el tamano).
+         Identico para bit 1 con |c - 3^(k-1)|. LO QUE NO ES: una
+         identidad de lo realizado -- la recarga puede caer DENTRO
+         de la primera racha y alargarla (medido por la 10a: 9,12%
+         de 423.299 rachas realizadas superan v2(h), exceso hasta
+         17). Lo realizado por encima del forzado lo paga el
+         teorema de conteo, no esta cota.
+     (ii) EL PRESUPUESTO DE BITS (esquema; la moneda corregida por
+         la 10a): "racha >= j" consume j+1 bits bajos de c (la
+         clase mod 2^(j+1), lecturaracha) y la moneda correcta es
+         DENSIDAD DE CLASE, no magnitud: exigir un perfil de rachas
+         de peso total W dentro de una palabra es UNA clase mod
+         2^(>= W) -- probabilidad 2^-W bajo la medida de clases. El
+         doble conteo es IMPOSIBLE, ya no como esquema sino
+         verificado por dos vias (10a, adv 1): la biyeccion
+         c0 mod 2^T <-> traza es exacta palabra a palabra (cada
+         traza viva tiene EXACTAMENTE 1 residuo; cada paso consume
+         un bit fresco; las rachas leen tramos disjuntos), y la
+         OBSTRUCCION MOD 8 (regalo nuevo): forzar racha >= 2 en
+         LAS DOS ramas del mixto exige 3^k = -1 mod 2^(j+1),
+         imposible porque 3^k mod 8 esta en {1,3} -- el forzado
+         entre ramas muere en racha <= 1. CUIDADO CON LA MAGNITUD:
+         lo realizado puede exceder cualquier cota en log2|c_i|
+         (c0 = 5 realiza racha 20 a altura 6: los 3^k inyectan
+         magnitud); por eso la moneda es la clase. La contabilidad
+         formal del gasto es parte del teorema de conteo de
+         (P2-a): mismo hueco, no uno nuevo.
      (iii) CONTRA LA VENTANA: T = 30 ln|c_i| = 20,8 log2|c_i|;
          el tramo determinista <= ~log2|c_i| CABE CON MARGEN ~20x,
          y las sondas de dominacioncondicionada.py lo confirman en
@@ -79,7 +97,9 @@ piezas medidas y UN hueco analitico nombrado.)
    (P2-d) LA VERSION CONDICIONADA A SOBREVIVIR: MEDIDA
      (dominacioncondicionada.py, 12-08): la ley de racha
      condicionada converge a la geometrica NEUTRA (C_j en
-     [0,88, 1,06], ambos arranques); el canal del bit de apertura
+     [0,87, 1,06], ambos arranques; intervalo redondeado hacia
+     afuera por la 10a, y convencion-dependiente: sin censura
+     ~[0,94, 1,05]); el canal del bit de apertura
      es transitorio. La version teorema espera al conteo de
      (P2-a); la direccion y la magnitud ya no son hipotesis.
 
@@ -102,7 +122,8 @@ piezas medidas y UN hueco analitico nombrado.)
    de M (medida), beta = 0 (notamoscasinducida, con su
    cualificador), y la revision externa de la tanda del 12-08.
 
-ETIQUETA: esquema de ensamblaje; (P2-b.i) es aritmetica exacta,
+ETIQUETA: esquema de ensamblaje; (P2-b.i) es aritmetica exacta
+DEL FORZADO (no de lo realizado -- 10a),
 (P2-b.ii) y (P2-c) escritos con sus cualificadores declarados;
 las mediciones citadas son exactas o con cruce. NO es teorema:
 es el arbol con UN hueco nombrado.

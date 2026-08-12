@@ -5,6 +5,57 @@ diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 
 ---
 
+# ⇢ 12-08-2026 (2) — LA 10ª REVISIÓN ADVERSARIAL: DÉCIMA REVISIÓN, DÉCIMA MORDIDA — Y LA PRIMERA CUYA MORDIDA GRANDE LLEGÓ CON REPARACIÓN
+
+**El encargo del cierre anterior, ejecutado: tres adversarios en
+paralelo sobre la tanda entera del 12-08** (encargo en
+`encargorevision10.txt`; actas íntegras `actarevision1208_adv1/2/3.txt`;
+síntesis y correcciones aplicadas: `actarevision1208.txt`).
+
+**LA ESTRUCTURA AGUANTÓ ENTERA**: reproducción independiente total con
+leyes reconstruidas desde los enunciados — 15 conteos de vivos del DP
+**idénticos en enteros**, LANGOSTAS clavada en K=13 con Tarjan/CW
+propios (pinza de ancho 2,7·10⁻⁷) y el bump del escalón 10 torturado
+sin poder falsear; `lecturaracha.lean` cotejado contra `transicion()`
+en 40.034 identidades con 0 fallos; el doble conteo de bits IMPOSIBLE
+por dos vías (biyección palabra-a-palabra verificada + **obstrucción
+mod 8 nueva**: forzar racha ≥ 2 en ambas ramas exige 3^k ≡ −1 mod 8,
+imposible); TORTUGAS con la letra ejemplar; ningún estatus del
+ZOOLÓGICO inflado. **Sin cruces de 1/2 en ~500 celdas × 5 arranques**
+(dos estructurados diseñados para hacer daño).
+
+**LO QUE MORDIÓ (aplicado el mismo día):** (M1) el compuesto de
+recargas estaba **roto desde siempre** (E[2^salto] diverge ya en
+L-infinito) — y el propio adversario entregó la vía mejor: la **unión
+por palabras** da `P(racha_total ≥ j) ≤ √C₂·2^{−(j+1)/2}` directa,
+razón 2^{−1/2} exacta, sin compuesto (lema nuevo por formalizar,
+hermano de VÍBORAS; con su letra chica: wedge escala-tiempo t ~ 5,5·j
+y factor 1/P(impar) ~ 2); (M2) P2-b sobre-afirmado — «racha₁ ES v₂(h),
+EXACTA» es falsa en lo REALIZADO (9,12% la superan): lo exacto es el
+FORZADO, y la moneda del presupuesto es DENSIDAD DE CLASE, no
+magnitud; (M3) el «decae geométrico ~0,7 POR PASO» era razón MEDIA
+(picos ×1,38 impresos post-transitorio); (M4) la L2 del arranque A es
+**1,042**, no 1,038 (transcripción del de B, propagada hasta el propio
+encargo); (M5) el filtro `den > 1e-6` invisible en «toda celda» — y
+las celdas excluidas son la geografía del contraejemplo naif; (M6) el
+«margen 13%» era de la ventana: el peor con masa real es **0,480 en
+m=10 (margen 4%)**; (M7) el intervalo condicionado honesto es
+[0,87, 1,06] y es convención-dependiente. Seis correcciones con
+lección a la base; fe de erratas de los commits 506e3b4 y 351812e.
+
+**El saldo: el árbol de P2 sale MÁS LIMPIO — un eslabón podrido fuera
+(el compuesto), su reemplazo mejor (la unión por palabras), la
+obstrucción mod 8 de regalo, y el pendiente nº 1 intacto y más
+honesto: el teorema de conteo (ρ_ms < 1/2 sobre la órbita del DP,
+margen real 4%), con dos sub-lemas nombrados para formalizar.**
+Deuda de documentación anotada (adv 2): las seis leyes completas no
+viven fuera de `cadenakc.lean`; la serie de cajas de la escalera sin
+escribir. Aparte: `ARSENAL.md` de zootheorem actualizado (H(k) ≡
+c-reducida del piso h con offset 3, confirmado; +e8/e10/e12: ~15
+balas OEIS).
+
+---
+
 # ⇢ 12-08-2026 — LA RUTA POST-9ª, COBRADA EN SIETE AVANCES: LAS DOS EQUIDISTRIBUCIONES SON UNA, Y EL ÁRBOL DE P2 QUEDA CON UN SOLO HUECO NOMBRADO
 
 **La orden del usuario: avanzar con la ruta hasta nuevo aviso, dejando
@@ -16,7 +67,8 @@ el orden de la ruta:
    era **TRANSITORIO** (en rachas tardías z ≈ 0 en ambos arranques; en
    el arranque B el signo global se INVIERTE — artefacto de los bits
    bajos de c₀), y la ley condicionada converge a la geométrica NEUTRA
-   (`C_j ∈ [0,88, 1,06]`, C ~ 1). Regalo: supervivencia `~1/√T` clavada.
+   (`C_j ∈ [0,87, 1,06]` — corregido por la 10ª, A3-6, C ~ 1). Regalo:
+   supervivencia `~1/√T` clavada.
 2. **La Pieza B, medida EXACTA** (punto 1(a); `equidistribucionmixto.py`):
    la reducción — racha ≥ j ⟺ c en UNA clase mod 2^{j+1} — y el DP de
    conteos ENTEROS con cruce independiente: C_j ≤ 2,95 → ~1, adaptada
@@ -37,7 +89,8 @@ el orden de la ruta:
    (`lecturaracha.lean` crece: k impar inyecta un bit fresco exacto —
    `pot3_mod4`/`inyeccion_bit`; y para el lema de racha BASTA el
    segundo momento: colas `2^{−j/2}`, misma forma). **Medido: la
-   constante de colisión L² = 1,038–1,039 a t=24 en los TRES arranques
+   constante de colisión L² = 1,042/1,038/1,039 a t=24 en los tres
+   arranques (el «1,038» de A era transcripción del de B — 10ª, A3-4)
    — a 4% del piso uniforme.**
 7. **L-B como teorema condicional** (punto 6; `notalb.txt`):
    `τ_i ≤ i^{2+ε}` c.s. condicional a la dominación (D) — supera el
@@ -53,7 +106,8 @@ de animal — y la 10ª revisión adversarial ANTES de apoyar nada encima).
 
 **⇢ La continuación de la tarde (avances 8–11):** PIRAÑAS (la
 obstrucción del telescopio nombrada — Σ2^{−i} = 1 crítico exacto — y
-la contracción del exceso medida: ~0,7/paso uniforme), el BAUTIZO de
+la contracción del exceso medida: razón MEDIA ~0,7, de tendencia — la
+10ª precisó que no es monótona por paso), el BAUTIZO de
 la tanda por orden del usuario (VÍBORAS, AVISPAS, EFÍMERAS, PIRAÑAS,
 TORTUGAS, LANGOSTAS — seis filas nuevas en el ZOOLÓGICO), y
 **LANGOSTAS completa: los DIEZ escalones** — el 10 (K=19, 22,5M

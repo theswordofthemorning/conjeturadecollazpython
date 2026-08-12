@@ -48,7 +48,7 @@ T_MAXDP = 20               # M = 36, mismo coste que equidistribucionmixto
 ESCALERA = [8, 12, 16, 20]
 S_MAX = 8                  # cola del salto hasta aqui
 T_CRUCE = 14
-C_TOPE = 3.0
+C_TOPE = 3.0               # convencion de gate, sin derivacion
 MIN_ESPERADO = 8.0
 
 ARRANQUES = [

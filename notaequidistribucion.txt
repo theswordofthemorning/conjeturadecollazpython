@@ -14,6 +14,16 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
        2^j | h  <=>  2^(j+1) | 3c + 1     (mitad_lee ida/vuelta)
      mixto bit 1 (c impar, k >= 3): hijo h con 2h = c - 3^(k-1), y
        2^j | h  <=>  2^(j+1) | c - 3^(k-1)
+   [CUANTIFICADOR PRECISADO POR LA 10a (adv 1, a1): la cadena real
+   aplica la MISMA formula ya en k = 2 (2.002 casos, 0 fallos); el
+   DP absorbe en k = 2 bit 1 por convencion de excursion, asi que
+   la racha posterior no se mide. El teorema Lean tiene p LIBRE:
+   el k >= 3 vive en comentarios, no en el enunciado -- nadie lo
+   instancie en k = 1 (el abs: la igualdad 2h = c - 1 es falsa en
+   los c < 1, cubiertos solo en vacuo). Y LA MINA DEL FONDO: en
+   k = 0 bit 1 la clase es LA OPUESTA (2h = 1 - 3c: racha >= j <=>
+   3c = +1 mod 2^(j+1)) -- quien recicle esta lectura en el regimen
+   post-fondo (Doeblin/Liebres) debe cambiar el signo.]
    Y la UNICIDAD: "racha >= j" es UNA SOLA clase mod 2^(j+1) --
    para el bit 0 requiere la inyectividad de x3 mod 2^n
    (tres_inyectivo, por induccion; el unico ingrediente no lineal),
@@ -29,7 +39,8 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
    (i)   marginal: C_j <= 2,95 en toda celda con peso esperado >= 8
          (t = 12..24, ambos bits, tres arranques incluido el
          contraejemplo del adv 1), tendiendo a ~1 al crecer t;
-         el residuo peor a m = 8 baja 9,5 -> 1,6 MONOTONO en t.
+         el residuo peor a m = 8 baja 9,5 -> 1,6 MONOTONO en t
+         (arranque A; B y ADV analogos: 10,8 -> 1,5 / 13,8 -> 1,6).
    (ii)  el transitorio adversarial (c0 = -3^(-1) mod 2^21, racha_1
          forzada >= 20) REPRODUCIDO por el instrumento y MUERTO a
          t >= 12: es el tramo determinista que la version quenched
@@ -82,15 +93,42 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
          razon 2^(-1/2): PEOR constante, MISMA forma -- y la
          tolerancia polylog de L-A absorbe el cambio (la ventana T
          se reescala por constante; c/sqrt(log x) es invariante).
-         [Cuidado declarado: las cuentas del compuesto de recargas
-         con razon 2^(-1/2) hay que REHACERLAS -- la subcriticidad
-         se conserva en la forma pero las constantes no estan
-         re-derivadas.] Y EL SEGUNDO MOMENTO ES CONTABLE POR PARES:
+         [EL COMPUESTO DE RECARGAS, COBRADO POR LA 10a (adv 1, c1;
+         acta actarevision1208.txt M1): el argumento viejo "cada
+         recarga cuesta un bit" via E[2^salto] estaba ROTO DESDE
+         SIEMPRE (diverge ya en L-infinito, no solo con cola
+         2^(-s/2)). Rehecho con el MGF correcto (z < sqrt(2)) el
+         compuesto CIERRA ESTRUCTURALMENTE para todo C2 finito
+         (phi(1) = 1 < 2; con C2 = 1,042 sale z* = 1,17) pero su
+         razon es 0,855, NO 2^(-1/2). LA VIA BUENA: el compuesto es
+         INNECESARIO -- "racha >= j con palabra u tras el mixto" es
+         UNA clase mod 2^(j+1) (verificado exhaustivo, 1.016
+         combinaciones; formalizable con la maquinaria de
+         tres_inyectivo -- LEMA PENDIENTE, hermano de VIBORAS), y
+         la union sobre palabras da directo
+           P(racha_total >= j | mixto) <= sqrt(C2(j+1)) * 2^-(j+1)/2
+         -- razon 2^(-1/2) EXACTA para la racha TOTAL, recargas y
+         crashes incluidos, sin E[2^S]. Y esquiva un hueco que el
+         compuesto escondia sin nombre: el salto condicionado a
+         v2 = A es cociente de probabilidades de clase, y L2 solo
+         da cotas SUPERIORES (el denominador pedia una inferior).
+         LETRA CHICA de la via buena: (a) el WEDGE escala-tiempo --
+         sqrt(C2(j+1)) uniforme en la escala solo esta controlado
+         por el DP para m <~ 0,18 t (con rho_ms = 0,44): la cota de
+         racha a escala j rige desde t ~ 5,5 j, antes manda el cap
+         determinista de P2-b; (b) el factor 1/P(impar|vivo) ~ 2 en
+         la constante (C2 se mide sobre TODOS los vivos, la clase
+         vive en los impares).] Y EL SEGUNDO MOMENTO ES CONTABLE
+         POR PARES:
          E[colision] es una suma sobre pares de palabras con primer
          desvio en i -- el esquema telescopico de (ii) aplicado a
          PARES, sin max sobre clases. MEDIDO (equidistribucionmixto
-         con la constante L2): C2(8) = 1,038 / 1,038 / 1,039 en los
-         tres arranques a t = 24 (el minimo teorico es 1 =
+         con la constante L2): C2(8) = 1,042 / 1,038 / 1,039 en los
+         tres arranques a t = 24 [el 1,038 de A que llevaba esta
+         nota era transcripcion del de B -- 10a, A3-4; la salida
+         grabada, la reproduccion independiente del adv 2 y el
+         instrumento aparte de excesocolision coinciden en 1,042]
+         (el minimo teorico es 1 =
          uniforme; el adversarial baja 1,165 -> 1,039): el objeto
          que el conteo debe acotar esta A 4% DEL PISO UNIFORME y
          converge mas rapido y mas parejo que la L-infinito
@@ -117,13 +155,18 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         pasos compartidos con k impar parte cada colision
         potencial en dos clases de paridad opuesta.
    (iii) MEDIDO (excesocolision.py, m = 8, t = 0..26, tres
-        arranques): e_t decae GEOMETRICO con razon ~0,7 por paso,
-        UNIFORME en los tres arranques -- de 255 a 0,025 en 26
-        pasos, razon media 0,69; el adversarial converge igual
-        (0,377-0,85 por paso una vez muerto el transitorio). La
-        contraccion estricta EXISTE y es medible; el teorema
-        pendiente es exactamente demostrar rho < 1 para el paso
-        del DP -- un enunciado de UNA transicion, no asintotico.
+        arranques): e_t se contrae con razon MEDIA ~0,7 (X2:
+        (e_26/e_8)^(1/18) = 0,746/0,769/0,746 en A/B/ADV; sobre la
+        ventana completa 0..26 del arranque A la media es 0,7016)
+        -- de 255 a 0,025 en 26 pasos (arranque A; B y ADV
+        analogos: 0,031 / 0,027). LA SERIE A ESCALA FIJA NO ES
+        MONOTONA PASO A PASO (10a, A3-1): hay picos > 1 posteriores
+        al transitorio (A t=22->23: x1,38; ADV t=18->20: x1,12 por
+        paso) -- la contraccion a escala fija es de TENDENCIA; el
+        objeto monotono medido es la razon multi-escala de (iv).
+        La contraccion EXISTE y es medible; el teorema pendiente es
+        exactamente demostrar rho < 1 para el paso del DP -- un
+        enunciado de UNA transicion, no asintotico.
    (iv) EL BLANCO AFILADO (misma tarde, X4 de excesocolision.py):
         la recursion de verdad intercambia TIEMPO POR ESCALA (el
         DP pierde un bit de modulo por paso), asi que el objeto
@@ -134,9 +177,21 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
         transicion, el telescopio cierra solo -- e_t(m) <=
         e_0(m+t) rho^t <= 2^m (2 rho)^t -> 0 geometrico, y con el
         e_t -> 0 cae TODA la Pieza B (via L2, 3.iv). MEDIDO:
-        rho_ms en [0,15, 0,44] en toda celda (t >= 12, m = 6..9,
-        tres arranques; peor 0,436) -- BAJO el umbral con margen
-        13%. El candidato estructural del 1/2 es el reparto de
+        rho_ms en [0,15, 0,44] en toda celda CON e_t(m+1) > 1e-6
+        (t >= 12, m = 6..9, tres arranques; peor 0,436) -- las
+        celdas de denominador ~0 quedan EXCLUIDAS POR CONSTRUCCION,
+        y son exactamente el regimen del contraejemplo naif de
+        (vi): alli el enunciado correcto es el conjunto (k, c)
+        [10a, A3-11]. El 0,15 del extremo inferior es de una sonda
+        de sesion sin registro en salida (la salida imprime solo el
+        peor por arranque: 0,428/0,425/0,436). Y EL MARGEN ES DE LA
+        VENTANA (10a, adv 2 d2): el barrido independiente con
+        ventanas mas anchas (t >= 8, m = 5..11, CINCO arranques
+        incluidos dos estructurados disenados para hacer dano) no
+        encontro NINGUN cruce de 1/2 en ~500 celdas, pero el peor
+        rho_ms con masa real es 0,480 (m = 10, ADV t = 17): el
+        margen honesto es 4%, no 13%. El candidato estructural del
+        1/2 es el reparto de
         ramas (cada estado abre dos hijos con peso 1/2 y las
         relaciones de colision a escala m+1 son grafos de
         biyeccion por la unicidad de VIBORAS); la contabilidad

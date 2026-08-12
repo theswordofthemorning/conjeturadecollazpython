@@ -4,8 +4,9 @@
 # LA PINZA DE DOS LADOS + EL PASO PERRON/SCC DEL CERTIFICADO CW
 # (12-08-2026; el punto 5 de la ruta post-9a -- "heredar el RITMO
 # rho(M_T)", la tecnica del adversario 3 de la 9a adoptada como
-# fichero del repo, sobre los escalones 1-9; el escalon 10 (22,5M
-# estados) queda para una corrida aparte).
+# fichero del repo, sobre la escalera entera de Pumas; el escalon 10
+# (22,5M estados, bandera ESCALON_10) YA CORRIO: su salida esta en
+# pinzacw_salida10.txt).
 #
 #   EL PROBLEMA. certificadocw.py da la cota INFERIOR
 #   rho(M_T) >= min_i (Mv)_i/v_i (Collatz-Wielandt, enteros). La
@@ -64,7 +65,7 @@ if ESCALON_10:
     ESCALERA.append((19, 3145728, 1.989042))
 ITERACIONES = 1200
 ESCALA = 10 ** 12
-ANCHO_TOPE = 0.02
+ANCHO_TOPE = 0.02          # convencion de gate, sin derivacion
 DIF_CERT_TOPE = 2e-3
 TOPE_ESTADOS = 25 * 10 ** 6
 
@@ -170,7 +171,8 @@ def tarjan_scc(n, s0, s1):
     return etiqueta, tam
 
 
-print("LA PINZA DE DOS LADOS + PERRON/SCC (escalones 1-9 de Pumas)")
+print("LA PINZA DE DOS LADOS + PERRON/SCC (escalones 1-%d de Pumas)"
+      % len(ESCALERA))
 print()
 print("  K      estados   SCCs   no-triv  |S*|      pinza inferior  "
       "superior   ancho    publicada")

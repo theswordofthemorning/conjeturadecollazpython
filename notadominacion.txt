@@ -58,7 +58,8 @@ version previa NO. ESQUEMA, no teorema.)
    necesita la version QUENCHED por c_i (Levy pide phi(c_i) para
    los c_i que la cadena visita), tragandose un tramo inicial
    determinista de largo <= v2-dependiente <= log2|c_i| -- cabe
-   contra T = 30 ln|c_i|, pero hay que escribirlo.
+   contra T = 30 ln|c_i|, pero hay que escribirlo. ⇢ escrito
+   (notaensamblajep2 P2-b).
    EL ESTADO MEDIDO: marginal C_j = 0,92-0,97 <= 1 (j <= 12);
    PERO las colas CONDICIONADAS cruzan 1 (bit de apertura 1:
    1,064; A = 7: 1,119; par de rachas anteriores: 1,104; franja
@@ -75,7 +76,9 @@ version previa NO. ESQUEMA, no teorema.)
    subcriticidad depende de la equidistribucion adicional). En las
    ventanas del teorema V2 la sobrecarga es acotada y la
    tolerancia polylog de L-A la absorbe -- condicional a que las
-   DOS equidistribuciones se escriban.
+   DOS equidistribuciones se escriban. ⇢ 12-08: unificadas
+   (lecturaracha.lean + notaequidistribucion 5); queda UN teorema
+   de conteo.
 
 5. QUE FALTA PARA TEOREMA: (i) el TEOREMA DE CONTEO de la
    equidistribucion de c mod 2^m -- que tras el 12-08 es UNO solo
@@ -107,7 +110,12 @@ version previa NO. ESQUEMA, no teorema.)
    por (a); el efecto real es del RELOJ: la ley de racha
    condicionada converge a la geometrica NEUTRA -- media hacia 1
    desde abajo en el arranque A (0,86 -> 0,98), desde arriba en el
-   B (1,02 -> 1,00), C_j condicionado en [0,88, 1,06] en toda la
+   B (1,02 -> 1,00), C_j condicionado en [0,87, 1,06] (convencion
+   de censura: sin censurar la racha en curso sube a ~[0,94, 1,05];
+   el z tardio es residuo minusculo dependiente de semilla --
+   publicado -0,2/-0,4, reproduccion independiente -2,2/-2,3; la
+   transitoriedad del bit y C ~ 1 aguantan en las tres convenciones
+   -- 10a, adv 2) en toda la
    escalera y ambos arranques, C_j tardio 1,010/1,036. LA
    DOMINACION CONDICIONADA A SOBREVIVIR AGUANTA CON C ~ 1 --
    medicion, no teorema; lo que queda para teorema es (i).
@@ -117,7 +125,9 @@ la 9a entera (marginal, adaptada, por A, por bit, por pares, con y
 sin censura: C <= 1,2) y la version CONDICIONADA A SOBREVIVIR ya
 esta medida (12-08: C ~ 1, bit de apertura transitorio -- ver
 5(iii)); el argumento que la explica tiene DOS equidistribuciones
-por escribir (v2 tras mixto + cancelacion de recargas). Los delta <=
+por escribir (v2 tras mixto + cancelacion de recargas) ⇢ 12-08:
+unificadas (lecturaracha.lean + notaequidistribucion 5); queda UN
+teorema de conteo. Los delta <=
 3^-k/2 de Aranas que V2 omite tambien deben cargarse en el
 ensamblaje final de P2 (calculo del adv 1: entran dominados por
 2^-k_j en las colas largas, pero en el SUFIJO k = 2, 3 son ~1/18

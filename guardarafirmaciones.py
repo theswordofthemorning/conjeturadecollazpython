@@ -3235,7 +3235,7 @@ AFIRMACIONES = [
          "(z = -16): era artefacto del tramo inicial determinista "
          "de c0. Y la ley de racha CONDICIONADA a sobrevivir "
          "converge a la geometrica neutra: C_j condicionado en "
-         "[0,88, 1,06] en toda la escalera T = 50..414, ambos "
+         "[0,87, 1,06] en toda la escalera T = 50..414, ambos "
          "arranques -- la dominacion condicionada aguanta con C ~ 1",
          "verificado_hasta", "medido", "dominacioncondicionada.py",
          "propio",
@@ -3307,9 +3307,12 @@ AFIRMACIONES = [
          "telescopio de primer desvio del teorema de conteo es "
          "CRITICO EXACTO (Sigma 2^-i = 1: cero holgura -- la "
          "obstruccion nombrada), pero el exceso de colision e_t = "
-         "C2(t) - 1 se contrae GEOMETRICO ~0,7 por paso a escala "
-         "fija (de 255 a 0,025 en 26 pasos, uniforme en tres "
-         "arranques), y la razon MULTI-ESCALA e_(t+1)(m)/e_t(m+1) "
+         "C2(t) - 1 se contrae con razon MEDIA ~0,7 (t = 8..26; la "
+         "serie a escala fija NO es monotona paso a paso -- picos "
+         "> 1: A t=22->23 x1,38 --, contraccion de TENDENCIA; el "
+         "objeto monotono es la razon multi-escala; de 255 a 0,025 "
+         "en 26 pasos, uniforme en tres arranques), y la razon "
+         "MULTI-ESCALA e_(t+1)(m)/e_t(m+1) "
          "-- el objeto correcto, porque el DP intercambia tiempo "
          "por escala -- queda en [0,15, 0,44] en toda celda medida "
          "(t >= 12, m = 6..9): BAJO el umbral critico 1/2 con "
@@ -4244,6 +4247,54 @@ CORRECCIONES = [
      "'sin letra chica' es una afirmacion sobre TODA la cadena "
      "deductiva, no sobre el eslabon recien forjado: el certificado "
      "blindo un eslabon y la frase se atribuyo la cadena"),
+
+    ("el compuesto de recargas via E[2^salto] cierra la subcriticidad "
+     "de la Pieza A",
+     "estaba roto desde siempre: diverge ya en L-infinito. La union "
+     "por palabras lo reemplaza con razon 2^(-1/2) exacta. "
+     "Adversario 1 de la 10a. 12-08-2026",
+     "un eslabon declarado 'por rehacer' puede estar podrido de raiz, "
+     "no solo sin constantes -- rehacerlo ANTES de citar su forma"),
+
+    ("racha_1 ES v2(h), EXACTA",
+     "era falsa como identidad de lo REALIZADO (9,12% de 423.299 "
+     "rachas la superan, exceso hasta 17): lo exacto es el FORZADO "
+     "para toda palabra. Adversario 1 de la 10a. 12-08-2026",
+     "forzado vs realizado es la misma trampa que cota vs promedio -- "
+     "declarar cual de los dos es"),
+
+    ("el exceso de colision decae GEOMETRICO ~0,7 por paso",
+     "era razon MEDIA: la serie impresa sube en pasos concretos "
+     "posteriores al transitorio (A t=22->23 x1,38; ADV t=18->20 "
+     "x1,12/paso). Adversario 3 de la 10a. 12-08-2026",
+     "una razon media no es decaimiento por paso; el estimador y la "
+     "ventana van con el numero"),
+
+    ("la constante L2 de colision a t=24 es 1,038/1,038/1,039 en los "
+     "tres arranques (commit 506e3b4 y notaequidistribucion 3.iv)",
+     "fe de erratas del commit 506e3b4 y de notaequidistribucion "
+     "3.iv: la constante L2 del arranque A es 1,042 (impreso y "
+     "reproducido), no 1,038 (transcripcion del de B). Adversario 3 "
+     "de la 10a. 12-08-2026",
+     "los trios copiados a mano se cotejan contra la salida grabada "
+     "numero a numero"),
+
+    ("razon media de contraccion 0,746 / 0,73 / 0,759 en A/B/ADV "
+     "(commit 351812e)",
+     "fe de erratas del commit 351812e: las razones medias A/ADV "
+     "estaban permutadas (A = 0,759, B = 0,769, ADV = 0,746; el "
+     "'0,73' no corresponde a ningun arranque). Adversario 3 de la "
+     "10a. 12-08-2026",
+     "los commits no se editan; fe de erratas a la base"),
+
+    ("rho_ms bajo el umbral critico 'en toda celda' (X4 de "
+     "excesocolision)",
+     "el filtro den > 1e-6 de X4 era invisible en la prosa 'en toda "
+     "celda' -- y las celdas excluidas son exactamente la geografia "
+     "del contraejemplo naif de 3-bis.vi (denominador 0, numerador "
+     "> 0). Adversario 3 de la 10a. 12-08-2026",
+     "toda exclusion de construccion se declara donde se cita el "
+     "resultado"),
 ]
 
 

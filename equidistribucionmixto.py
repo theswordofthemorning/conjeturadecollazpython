@@ -76,8 +76,11 @@ T_MAXDP = 24               # pasos del DP  (modulo inicial 2^36)
 ESCALERA = [8, 12, 16, 20, 24]
 J_MAX = 10                 # cola de racha hasta aqui
 T_CRUCE = 14               # enumeracion exhaustiva 2^14 (E1 + adaptada)
-C_TOPE = 3.0               # veredicto E4 (el marginal real ronda 1)
-MIN_ESPERADO = 8.0         # E4 exige solo si impares * 2^-j >= esto
+C_TOPE = 3.0               # veredicto E4 (el marginal real ronda 1);
+                           # convencion de gate, sin derivacion
+MIN_ESPERADO = 8.0         # E4 exige solo si impares * 2^-j >= esto;
+                           # el 8 es convencion (granularidad); el
+                           # veredicto es robusto a moverlo
 MIN_GRUPO_LOG2 = 2         # grupo adaptado: n >= 2^(j + MIN_GRUPO_LOG2)
 
 INV3_NEG_2_21 = (2 ** 21) - ((2 ** 21 + 1) // 3)   # -3^(-1) mod 2^21
@@ -249,9 +252,14 @@ for c0, nombre in ARRANQUES:
                 if impares_k3 * 2.0 ** (-j) >= MIN_ESPERADO:
                     peor_t = max(peor_t, Cj1)
             if j in (1, 4, 8, 10):
-                marca = "" if impares * 2.0 ** (-j) >= MIN_ESPERADO \
+                # la marca de granularidad es POR BIT (10a, A3-13):
+                # cada bit tiene su propio peso esperado
+                marca0 = "" if impares * 2.0 ** (-j) >= MIN_ESPERADO \
                     else "*"
-                detalle.append("j=%d: %.3f/%.3f%s" % (j, Cj0, Cj1, marca))
+                marca1 = "" if impares_k3 * 2.0 ** (-j) >= MIN_ESPERADO \
+                    else "*"
+                detalle.append("j=%d: %.3f%s/%.3f%s"
+                               % (j, Cj0, marca0, Cj1, marca1))
         res8, col8 = residuo_peor(estados, 8)
         print("  t = %2d: vivos %7d/2^%d  P(impar) %.4f  C_j "
               "(bit0/bit1) %s  residuo peor (m=8) %.3f  colision L2 "
@@ -290,6 +298,7 @@ print("E4 OK: C_j <= %.3f <= %.1f en toda celda con peso esperado >= %g"
       % (peor_global, C_TOPE, MIN_ESPERADO))
 print("de la escalera t >= 12, los dos bits, los tres arranques")
 print("(contraejemplo adversarial incluido; * = celda de granularidad,")
+print("POR BIT -- el asterisco va junto al valor del bit eximido --,")
 print("reportada sin exigir: alli habla el residuo del c0, no la")
 print("equidistribucion).")
 print()

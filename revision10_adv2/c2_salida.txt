@@ -1,0 +1,76 @@
+LA DOMINACION CONDICIONADA CON OTRAS CONVENCIONES (adversario 2)
+ALT1 = rachas ABIERTAS antes de T con largo completo (sin censura)
+ALT2 = censura dura en T (la racha en curso entra truncada)
+
+=== arranque A: c0 = 999983, 200000 excursiones, T_MAX = 900, semilla 101208 ===
+global: 6456038 rachas, media 0.9586, C_j max 0.975, frac bit0 0.5150
+        media|b0 0.9294  media|b1 0.9897  (z de la diferencia: 54.9)
+TARDIAS (cierre >= 100): n 4536033  media|b0 1.0051  media|b1 1.0019  z -2.3  C_j max 1.026
+TARDIAS (apertura >= 100): n 4524792  media|b0 1.0000  media|b1 0.9971  z -2.2  C_j max 0.999
+
+  T    conv  ensemble    rachas  frac.b0   media|b0  media|b1  media    C_j max
+   50  PUB   todas      1274488  0.5669    0.6517    0.9256   0.7703    0.791
+   50  PUB   sobrevive   787152  0.6083    0.7800    0.9874   0.8612    0.880
+   50  ALT1  todas      1289998  0.5662    0.6774    0.9541   0.7974    0.914
+   50  ALT1  sobrevive   802662  0.6064    0.8165    1.0364   0.9031    1.061
+   50  ALT2  todas      1305031  0.5655    0.6599    0.9282   0.7764    0.796
+   50  ALT2  sobrevive   817695  0.6045    0.7882    0.9891   0.8676    0.885
+       (sobreviven 30543 de 200000)
+  100  PUB   todas      1920005  0.5467    0.7654    0.9578   0.8526    0.870
+  100  PUB   sobrevive  1129791  0.5793    0.8856    0.9948   0.9315    0.972
+  100  ALT1  todas      1931246  0.5464    0.7775    0.9706   0.8651    0.959
+  100  ALT1  sobrevive  1141032  0.5786    0.9040    1.0177   0.9519    1.120
+  100  ALT2  todas      1942275  0.5462    0.7680    0.9583   0.8544    0.869
+  100  ALT2  sobrevive  1152061  0.5779    0.8878    0.9950   0.9331    0.967
+       (sobreviven 22270 de 200000)
+  200  PUB   todas      2850115  0.5323    0.8406    0.9739   0.9029    0.926
+  200  PUB   sobrevive  1605833  0.5574    0.9411    0.9975   0.9661    1.051
+  200  ALT1  todas      2858063  0.5322    0.8462    0.9798   0.9087    0.975
+  200  ALT1  sobrevive  1613781  0.5571    0.9503    1.0083   0.9760    1.137
+  200  ALT2  todas      2866060  0.5322    0.8414    0.9740   0.9034    0.920
+  200  ALT2  sobrevive  1621778  0.5568    0.9416    0.9975   0.9664    1.041
+       (sobreviven 15945 de 200000)
+  414  PUB   todas      4258714  0.5225    0.8936    0.9832   0.9364    0.996
+  414  PUB   sobrevive  2327986  0.5412    0.9722    0.9985   0.9842    1.049
+  414  ALT1  todas      4264320  0.5225    0.8963    0.9860   0.9391    1.037
+  414  ALT1  sobrevive  2333592  0.5411    0.9768    1.0038   0.9892    1.116
+  414  ALT2  todas      4269926  0.5225    0.8939    0.9832   0.9366    1.001
+  414  ALT2  sobrevive  2339198  0.5410    0.9723    0.9986   0.9843    1.058
+       (sobreviven 11212 de 200000)
+
+=== arranque B: c0 = 999999937, 60000 excursiones, T_MAX = 900, semilla 201208 ===
+global: 1919825 rachas, media 1.0184, C_j max 1.040, frac bit0 0.5154
+        media|b0 1.0355  media|b1 1.0002  (z de la diferencia: -17.3)
+TARDIAS (cierre >= 100): n 1361611  media|b0 1.0077  media|b1 1.0025  z -2.2  C_j max 1.072
+TARDIAS (apertura >= 100): n 1358269  media|b0 1.0025  media|b1 0.9975  z -2.1  C_j max 1.043
+
+  T    conv  ensemble    rachas  frac.b0   media|b0  media|b1  media    C_j max
+   50  PUB   todas       361139  0.5701    1.1377    0.9754   1.0679    1.111
+   50  PUB   sobrevive   225403  0.6124    1.0587    0.9698   1.0243    1.054
+   50  ALT1  todas       365935  0.5693    1.1595    1.0066   1.0936    1.123
+   50  ALT1  sobrevive   230199  0.6102    1.0923    1.0247   1.0660    1.165
+   50  ALT2  todas       370648  0.5685    1.1347    0.9770   1.0666    1.108
+   50  ALT2  sobrevive   234912  0.6080    1.0569    0.9728   1.0239    1.053
+       (sobreviven 9509 de 60000)
+  100  PUB   todas       558214  0.5478    1.0977    0.9942   1.0509    1.075
+  100  PUB   sobrevive   325758  0.5819    1.0315    0.9936   1.0156    1.028
+  100  ALT1  todas       561556  0.5476    1.1087    1.0075   1.0629    1.081
+  100  ALT1  sobrevive   329100  0.5812    1.0498    1.0181   1.0365    1.083
+  100  ALT2  todas       564915  0.5474    1.0967    0.9945   1.0504    1.074
+  100  ALT2  sobrevive   332459  0.5806    1.0310    0.9943   1.0156    1.027
+       (sobreviven 6701 de 60000)
+  200  PUB   todas       838613  0.5334    1.0714    0.9973   1.0368    1.051
+  200  PUB   sobrevive   475169  0.5590    1.0198    0.9952   1.0089    1.034
+  200  ALT1  todas       841037  0.5334    1.0766    1.0034   1.0424    1.101
+  200  ALT1  sobrevive   477593  0.5587    1.0287    1.0064   1.0189    1.132
+  200  ALT2  todas       843434  0.5332    1.0711    0.9972   1.0366    1.051
+  200  ALT2  sobrevive   479990  0.5584    1.0197    0.9950   1.0088    1.024
+       (sobreviven 4821 de 60000)
+  414  PUB   todas      1259761  0.5227    1.0507    0.9986   1.0258    1.035
+  414  PUB   sobrevive   683141  0.5419    1.0112    0.9956   1.0041    1.022
+  414  ALT1  todas      1261445  0.5227    1.0532    1.0011   1.0283    1.037
+  414  ALT1  sobrevive   684825  0.5418    1.0159    1.0005   1.0088    1.044
+  414  ALT2  todas      1263084  0.5227    1.0506    0.9985   1.0257    1.035
+  414  ALT2  sobrevive   686464  0.5417    1.0114    0.9955   1.0041    1.023
+       (sobreviven 3323 de 60000)
+

@@ -1,0 +1,12 @@
+LA PINZA, REPRODUCIDA POR EL ADVERSARIO 2 (codigo propio)
+caja: 0 <= k <= K, |c| <= 3*2^(K+1), alcanzable desde (0,1)
+
+K= 2 estados      43 (pub      20)  SCCs       1  no-triv 1  lazos-sueltos 0  |S*|      43 (pub      19)  pinza [1.780034, 1.780034] (pub 1.739963)   <<< DISCREPANCIA  (0 s)
+K= 3 estados     121 (pub     121)  SCCs       2  no-triv 1  lazos-sueltos 0  |S*|     120 (pub     120)  pinza [1.866657, 1.866657] (pub 1.866657)  (0 s)
+K= 5 estados     734 (pub     734)  SCCs       7  no-triv 1  lazos-sueltos 0  |S*|     728 (pub     728)  pinza [1.933590, 1.933590] (pub 1.933590)  (0 s)
+K= 7 estados    3717 (pub    3717)  SCCs      16  no-triv 1  lazos-sueltos 0  |S*|    3702 (pub    3702)  pinza [1.955595, 1.955595] (pub 1.955595)  (0 s)
+K= 9 estados   16361 (pub   16361)  SCCs     947  no-triv 1  lazos-sueltos 0  |S*|   15415 (pub   15415)  pinza [1.967467, 1.967467] (pub 1.967467)  (1 s)
+K=11 estados   72835 (pub   72835)  SCCs    3947  no-triv 1  lazos-sueltos 0  |S*|   68889 (pub   68889)  pinza [1.975446, 1.975447] (pub 1.975447)  (8 s)
+K=13 estados  313672 (pub  313672)  SCCs   25486  no-triv 1  lazos-sueltos 0  |S*|  288187 (pub  288187)  pinza [1.980748, 1.980748] (pub 1.980748)  (50 s)
+
+VEREDICTO PRELIMINAR: HAY DISCREPANCIAS

@@ -1,0 +1,309 @@
+=====================================================================
+ACTA DE LA 10a REVISION ADVERSARIAL -- ADVERSARIO 2: LOS NUMEROS
+(12-08-2026. Reproduccion INDEPENDIENTE, codigo propio en
+revision10_adv2/. REGLA DE INDEPENDENCIA CUMPLIDA: no se abrio
+NINGUN .py del repo que implemente la cadena (k,c) --
+equidistribucionmixto.py, dominacioncondicionada.py,
+excesocolision.py, recargaexacta.py, pinzacw.py, certificadocw.py,
+pumasescalera.py, rachasreales.py, paseodeladeuda.py quedaron
+cerrados. Las leyes se reconstruyeron desde los ENUNCIADOS:
+cadenakc.lean (teoremas N1-N4/F4/vortice, que son enunciado y no
+implementacion), notaequidistribucion.txt (la lectura del mixto),
+bitacora.md (los hijos de la moneda y el unico abs) y el ZOOLOGICO
+de RutaTeoremas.md (LOBAS: unica absorcion (1,1)-bit1). Las salidas
+*_salida*.txt se usaron SOLO como blanco a atacar.)
+=====================================================================
+
+CERO. LA RECONSTRUCCION DE LA DINAMICA (previa a todo)
+------------------------------------------------------
+Las seis leyes derivadas a mano desde {v, 3^k v + c} + paridad del
+ancla, y VALIDADAS por fuerza bruta contra pares enteros reales
+(199.962 estados aleatorios k = 0..9, |c| <= 3000, evolucion por el
+atajo T sobre los DOS miembros del par): 0 fallos; los casos con
+nombre del repo (caso_gatas, caso_garner, caso_P1, vortice_fusion)
+clavados. Fichero: revision10_adv2/leyes_adv2.py.
+
+HALLAZGO DE DOCUMENTACION (menor): la dinamica NO es reproducible
+solo con CLAUDE.md + RutaTeoremas.md. Las cuatro leyes del nucleo
+si se pueden armar desde notaequidistribucion.txt + la bitacora,
+pero (i) la ley de la frontera k = 0 con c impar y ancla impar (F4)
+y (ii) el abs de la salida k = 1 impar bit 1 solo estan completos
+en cadenakc.lean y en una entrada de bitacora del 10-08. Quien
+quiera reproducir sin el Lean no puede. Sugerencia: una seccion
+"las seis leyes, en una tabla" en RutaTeoremas.md.
+
+a2. EL DP DE EQUIDISTRIBUCION MIXTA ------------------- AGUANTA
+----------------------------------------------------------------
+Metodo: DP propio sobre (k, c mod 2^(M-t)), M = 36, conteos
+ENTEROS de palabras, arranque (2, c0), absorcion en la primera
+entrada al fondo (k <= 1). Ficheros: revision10_adv2/dp_adv2.py +
+a2_equidistribucion.py. Blanco: equidistribucionmixto_salida.txt.
+
+Resultado, los tres arranques (999983 / 999999937 / 1398101), la
+escalera entera t = 8, 12, 16, 20, 24:
+
+  - los QUINCE conteos de vivos, IDENTICOS EN ENTEROS
+    (81/1114/16057/235631/3502466; 95/1262/17749/256445/3769952;
+    93/1232/17400/251994/3719136). Cero sangre.
+  - P(impar), los ocho C_j por celda (j = 1,4,8,10 x bit0/bit1),
+    el residuo peor (m=8) y la colision L2 (m=8): TODOS los
+    decimales impresos reproducidos; peor discrepancia 0,0005
+    (redondeo de impresion).
+  - L2 a t = 24: 1,042 / 1,038 / 1,039. La salida impresa dice lo
+    mismo. >>> PERO notaequidistribucion.txt 3.iv y el encargo de
+    la 10a citan "1,038 / 1,038 / 1,039": el valor del arranque A
+    esta MAL CITADO en la nota (es 1,042, no 1,038). Confirmado
+    ademas por el coordinador en vivo (hallazgo paralelo del
+    adversario de la letra). Erratum de prosa, no de calculo: la
+    lectura "a ~4% del piso uniforme" sigue valiendo.
+
+Convenciones que tuve que adivinar y que resultaron ser las del
+autor (quedan documentadas aqui): C_j(bit0) normaliza sobre TODA la
+masa impar; C_j(bit1) normaliza sobre la masa impar con k >= 3 (el
+k = 2 va al fondo y no abre racha); el residuo y la L2 son sobre
+TODA la masa viva (par e impar) mod 2^8.
+
+VEREDICTO a2: AGUANTA (reproduccion exacta en enteros, 15/15
+celdas, 3/3 arranques) + 1 ERRATUM en la nota (el 1,038 de A).
+
+b2. LA PINZA DE LANGOSTAS + EL BUMP DEL ESCALON 10 ---- AGUANTA
+----------------------------------------------------------------
+Metodo: BFS propio de la caja (semilla (0,1), 0 <= k <= K,
+|c| <= 3*2^(K+1)), Tarjan ITERATIVO propio, power iteration propia
+y certificado Collatz-Wielandt de dos lados EN ENTEROS (cocientes
+por cross-multiplication exacta, fractions). Ficheros:
+revision10_adv2/b2_pinza.py + b2_bump.py. Blanco:
+pinzacw_salida.txt / pinzacw_salida10.txt.
+
+Resultado K = 3, 5, 7, 9, 11, 13 (el encargo pedia el 13; di los
+seis por el mismo precio):
+
+  K   estados    SCCs   no-triv  |S*|     pinza propia
+   3      121       2      1        120   [1.866657, 1.866657]
+   5      734       7      1        728   [1.933590, 1.933590]
+   7     3717      16      1       3702   [1.955595, 1.955595]
+   9    16361     947      1      15415   [1.967467, 1.967467]
+  11    72835    3947      1      68889   [1.975446, 1.975447]
+  13   313672   25486      1     288187   [1.980748, 1.980748]
+
+TODOS los conteos (estados, SCCs, no-triviales, |S*|) IDENTICOS en
+enteros a los publicados; cero lazos sueltos en todos; la pinza
+K = 13 propia: [1,980747626, 1,980747899], ancho 2,7e-7, con la
+publicada (1,980748) DENTRO. La estructura Perron/SCC verificada
+con instrumentos que no comparten una linea de codigo.
+
+DISCREPANCIA MENOR (de documentacion, no de calculo): el ESCALON 1
+(K = 2) no obedece la caja |c| <= 3*2^(K+1) de los demas: con ella
+salen 43 estados y pinza 1,780034, no los 20/19/1,739963
+publicados. La caja que SI los reproduce exactos es |c| <= 12
+(= 3*2^K; todo cap en [10, 12] da lo mismo). La serie de cajas por
+escalon no esta escrita en ningun documento de contexto -- la
+deduje de los |c| publicados para los escalones 7 y 10, y el
+primer escalon resulto tener OTRA formula. No toca ningun numero
+publicado (los publicados son consistentes con su propia caja);
+toca la REPRODUCIBILIDAD: documentar la lista de (K, cap) por
+escalon.
+
+EL BUMP DEL ESCALON 10 (w[i] <= 0 -> 1 "solo ensancha"):
+CORRECTO, con el argumento analitico completo y su condicion:
+
+  TEOREMA (estandar): para TODA matriz no negativa A y TODO vector
+  w estrictamente positivo, rho(A) <= max_i (Aw)_i / w_i.
+  Prueba: con D = diag(w), rho(A) = rho(D^-1 A D) <= ||D^-1 A D||_inf
+  = max_i (Aw)_i / w_i. NO pide irreducibilidad, NO pide que w sea
+  autovector, NO pide que A sea la matriz de una SCC.
+
+  Corolario: bumpear las entradas w[i] <= 0 a 1 PRESERVA w > 0, y
+  el maximo de cocientes recomputado con el w bumpeado es una cota
+  superior VALIDA de rho: puede ser mas ancha (y mucho), nunca
+  falsa. El escalon 10 con ancho 0,00013 es exactamente eso.
+
+  LA LETRA CHICA QUE SI HAY QUE EXIGIR (unico modo de fallo): los
+  cocientes deben recomputarse con el w bumpeado en TODAS las
+  filas de S* -- incluidas las filas VECINAS de las bumpeadas
+  (su (Aw)_i cambio) -- y el maximo debe tomarse sobre todas. Si
+  el codigo usara productos pre-bump o saltara filas, la cota
+  podria salir falsa. No puedo auditar esa linea sin abrir
+  pinzacw.py (prohibido); queda como condicion declarada para el
+  adversario 1 o el autor.
+
+  Tortura numerica (K = 9): bumpeos artificiales del 0,1% al 50%
+  de S* -- la cota superior EXPLOTA hacia arriba (~1,9e12: un w=1
+  al lado de entradas ~1e12) y NUNCA cae bajo el rho verdadero;
+  bump del 100% da la cota trivial 2 (el grado maximo). "Solo
+  ensancha" confirmado en el peor caso construible.
+
+VEREDICTO b2: AGUANTA (reproduccion exacta K=3..13 + argumento del
+bump demostrado); 1 hueco de documentacion (la caja del escalon 1)
+y 1 condicion declarada (recomputo post-bump, no auditable sin
+abrir el fichero).
+
+d2. EL EXCESO DE COLISION Y LA VENTANA DE X4 ---------- AGUANTA,
+    PERO EL "MARGEN 13%" ES DE LA VENTANA ELEGIDA
+----------------------------------------------------------------
+Metodo: el mismo DP propio; e_t(m) = C2(t,m) - 1 para m = 5..13,
+t = 0..26; rho_ms(t,m) = e_(t+1)(m) / e_t(m+1). Fichero:
+revision10_adv2/d2_exceso.py. Blanco: excesocolision_salida.txt.
+
+REPRODUCCION: las tres series e_t (m=8, t=0..26) clavadas EN TODOS
+los decimales impresos (A: 255,00000 ... 0,02540; B: ... 0,03090;
+ADV: ... 0,02698); razones medias 0,759 / 0,769 / 0,746 identicas;
+la ventana publicada (t >= 12, m = 6..9, den > 1e-6) da peor
+rho_ms 0,428 / 0,425 / 0,436 -- los MISMOS numeros y en las MISMAS
+celdas ((t=23,m=7) / (t=18,m=7) / (t=20,m=7)).
+
+EL ATAQUE (ventanas del adversario):
+  - t >= 8 en vez de 12: NO cambia nada (el peor vive en t altos).
+  - den > 1e-9 en vez de 1e-6: NO cambia nada.
+  - ESCALAS MAS FINAS m = 10..13 (el telescopio tiempo-por-escala
+    las pisa: la recursion sube de escala con t, asi que el
+    enunciado final las necesita): el peor rho_ms SUBE --
+      A: 0,460 (t=20, m=10); B: 0,448 (t=24, m=10);
+      ADV: 0,480 (t=17, m=10)
+    con denominadores GRANDES (den ~ 0,8-2,3: masa real, no ruido).
+    Ningun cruce de 1/2 en ninguna celda (0 de ~500 celdas
+    barridas), pero el margen del peor caso pasa de 13% a 4%.
+  - CUARTO Y QUINTO ARRANQUE ESTRUCTURADOS (eleccion propia):
+    (i) c0 = 17*3^(-1) mod 2^22 -- fuerza la racha del BIT 1 del
+    segundo mixto >= 20 (el ataque simetrico al del adv 1, que
+    forzaba bit 0 del primero); (ii) el adversarial RETRASADO --
+    c0 tal que el hijo del primer mixto cae en la clase
+    -3^(-1) mod 2^21 (la racha bit 0 forzada aparece un nivel mas
+    adentro). Resultado: contraen igual (peor multi-escala 0,466 y
+    0,469 en m=10; ventana publicada 0,435 y 0,438). El transitorio
+    forzado muere igual que el del adv 1.
+
+LECTURA HONESTA QUE EL TXT DEBERIA LLEVAR: "rho_ms < 1/2 con
+margen 13%" es verdad SOLO en la ventana m = 6..9. En m = 10 el
+margen medido es 4% (0,480 en el arranque adversarial, con masa
+real). La tendencia con m es CRECIENTE en toda la banda medida
+(0,436 -> 0,480 de m<=9 a m=10; en m = 11..13 vuelve a bajar
+porque el conteo de vivos domina). Si el teorema de conteo
+pendiente pretende rho < 1/2 UNIFORME en la escala -- y el
+telescopio lo necesita en las diagonales (t, m+t) enteras -- el
+margen real a demostrar es el de m = 10, no el 13% publicado. No
+es refutacion (nada cruza 1/2); es el margen honesto.
+
+VEREDICTO d2: AGUANTA (reproduccion exacta + sin cruces de 1/2 en
+~500 celdas x 5 arranques), con DISCREPANCIA DE LECTURA: el margen
+al umbral es 4% (m=10, arranque ADV), no 13%; el 13% es de la
+ventana m = 6..9 que eligio el autor.
+
+c2. LA DOMINACION CONDICIONADA CON OTRAS CONVENCIONES - AGUANTA;
+    EL RANGO "[0,88, 1,06]" ES DE LA CONVENCION, no del objeto
+----------------------------------------------------------------
+Metodo: simulador propio de la cadena real (dinamica entera exacta,
+leyes validadas), 200.000 excursiones A (c0 = 999983) + 60.000 B
+(c0 = 999999937), T_MAX = 900, bits i.i.d., semillas propias.
+Convenciones: PUB (la publicada: rachas con cierre < T, censura de
+la racha en curso), ALT1 (rachas ABIERTAS antes de T con su largo
+COMPLETO, sin censura) y ALT2 (censura dura: la racha en curso a T
+entra truncada). Ficheros: revision10_adv2/c2_condicionada.py,
+salida en revision10_adv2/c2_salida.txt.
+
+VALIDACION DEL SIMULADOR (convencion PUB contra
+dominacioncondicionada_salida.txt, semilla distinta): todo dentro
+del ruido MC -- A global media 0,9586 vs 0,9577, z del bit +54,9
+vs +57,5, sobrevivientes 30543/22270/15945/11212 vs
+30756/22201/15793/11160; B global 1,0184 vs 1,0176, z -17,3 vs
+-16,4; la escalera entera a <= 0,005 de la publicada.
+
+(1) LA TRANSITORIEDAD DEL BIT DE APERTURA: CONFIRMADA. El z global
+    +54,9 (A) / -17,3 (B) -- signo INVERTIDO entre arranques, como
+    publico EFIMERAS -- cae en las tardias (cierre >= 100) a
+    z = -2,3 (A) / -2,2 (B) con ~4,5M de rachas. Matiz honesto: mi
+    z tardio es -2,2/-2,3, no el -0,2/-0,4 publicado -- con n
+    identico, sugiere un residuo NEGATIVO minusculo (~0,003 de
+    media, bit 1 apenas mas corto) que el stream del autor no vio;
+    es la direccion INOFENSIVA (bit 1 mas corto ayuda a la
+    dominacion) y no toca el veredicto. Por apertura >= 100 (otra
+    definicion de tardia): z = -2,2, media|b0 1,0000 -- igual.
+
+(2) C ~ 1 CONDICIONADO: AGUANTA, y la convencion publicada lo
+    SUBESTIMA un poco. La censura de la racha en curso (PUB) corta
+    preferentemente rachas LARGAS: deprime C_j en ~0,01-0,06 por
+    celda. Con ALT1 (sin censura), a muestras comparables
+    (j <= 12, n >= ~240):
+      A sobrevive: C_j pasa de ~0,88-0,97 (PUB) a ~0,94-1,03
+      (ALT1; peor 1,029 en T=414, j=11);
+      B sobrevive: de ~1,02-1,05 a ~1,04-1,17 (peor 1,165 en
+      T=50 -- transitorio de c0 aun vivo; a T=414 baja a 1,044).
+    Los "C_j max" de mi tabla que superan 1,1 en A viven TODOS en
+    j = 14 con n ~ 80-160 (ruido +-15%, declarado). Conclusion:
+    el rango publicado "[0,88, 1,06]" es un artefacto parcial de
+    la censura; el objeto sin censura esta MAS cerca de la
+    geometrica neutra (~1,00) y sigue holgado bajo el C <= 1,2 de
+    la 9a. La dominacion condicionada a sobrevivir AGUANTA en las
+    dos convenciones; la frase que habria que ajustar es el rango
+    entre corchetes, que deberia llevar su convencion al lado.
+
+(3) ALT2 ~ PUB en todo (la racha truncada aporta masa corta):
+    el veredicto es insensible a ESA eleccion.
+
+VEREDICTO c2: AGUANTA (las dos conclusiones publicadas --
+transitoriedad del bit y C ~ 1 -- sobreviven al cambio de
+convencion), con DOS matices para la nota: el rango [0,88, 1,06]
+es convencion-dependiente (sin censura sube a ~[0,94, 1,05] en A
+con celdas en 1,03), y el z tardio no es 0 exacto: hay un residuo
+-2,2 sigma inofensivo con 4,5M de rachas.
+
+=====================================================================
+RESUMEN POR SEVERIDAD (adversario 2, los numeros)
+=====================================================================
+
+SANGRE (discrepancias de enteros): NINGUNA. Los 15 conteos de
+vivos del DP, los 6 escalones de la pinza (estados, SCCs, |S*|),
+las series e_t completas y la escalera de dominacion: todo
+reproducido con codigo que no comparte una linea con el repo.
+
+DISCREPANCIA DE LECTURA (a corregir en las notas):
+ 1. [d2] El "margen 13%" del blanco multi-escala es DE LA VENTANA
+    m = 6..9. En m = 10 (masa real, den ~ 0,8-2,3) el peor rho_ms
+    medido es 0,480 (arranque ADV, t=17): margen 4%. Sin cruces de
+    1/2 en ~500 celdas x 5 arranques (dos estructurados propios) --
+    el blanco AGUANTA, el margen publicado no es el honesto si el
+    teorema pendiente necesita rho < 1/2 uniforme en escala (y el
+    telescopio pisa las diagonales (t, m+t) enteras).
+ 2. [a2] notaequidistribucion.txt 3.iv y el encargo citan L2 =
+    "1,038/1,038/1,039"; la salida impresa y mi reproduccion dan
+    1,042 para el arranque A. Erratum de prosa (confirmado en
+    paralelo por el adversario de la letra).
+ 3. [c2] El rango "[0,88, 1,06]" del C_j condicionado depende de
+    la censura de la racha en curso; sin censura: ~[0,94, 1,05] en
+    A con celdas a 1,03, y el z tardio es -2,2, no 0. Nada de esto
+    amenaza C <= 1,2 ni el veredicto de EFIMERAS.
+
+DOCUMENTACION (reproducibilidad):
+ 4. [0] Las seis leyes NO estan completas en CLAUDE.md +
+    RutaTeoremas.md (falta F4 y el abs de k=1-bit1 fuera de
+    cadenakc.lean / bitacora 10-08).
+ 5. [b2] La caja del ESCALON 1 es |c| <= 12 = 3*2^K, no la
+    3*2^(K+1) de los demas escalones; la serie de cajas no esta
+    escrita en ningun documento. Deducirla costo un barrido.
+ 6. [b2] El bump del escalon 10 es CORRECTO (rho <= max_i (Aw)_i /
+    w_i para todo w > 0, teorema estandar sin irreducibilidad;
+    torturado ademas con bumpeos del 0,1% al 100% en K=9: nunca
+    falsea, solo ensancha) CONDICIONADO a que los cocientes se
+    recomputen post-bump en todas las filas -- esa linea no la
+    puedo auditar sin abrir pinzacw.py (prohibido): queda
+    declarada para el autor o el adversario 1.
+
+AGUANTA ENTERO: a2 (DP exacto, 15/15 celdas en enteros), b2 (seis
+escalones clavados + pinza propia K=13 ancho 2,7e-7 + bump
+demostrado), d2 (series e_t identicas, sin cruces de 1/2, dos
+arranques adversariales propios que contraen igual), c2 (el
+veredicto sobrevive al cambio de convencion).
+
+Capa 1 aplicada: mapa = el atajo en las DOS implementaciones (la
+cadena ES del atajo); todo lo reproducido es MEDICION a horizonte
+finito, no cota (los propios txt lo declaran); sin verificacion
+circular (leyes re-derivadas y validadas contra pares enteros
+reales antes de usarlas); arranques no redondos (primos y clases
+2-adicas construidas), y los estructurados nuevos elegidos por
+dano, no por comodidad.
+
+Ficheros del adversario: revision10_adv2/{leyes_adv2.py,
+dp_adv2.py, a2_equidistribucion.py, b2_pinza.py, b2_bump.py,
+d2_exceso.py, c2_condicionada.py, a2_salida.txt, b2_salida.txt,
+c2_salida.txt}.
+=====================================================================

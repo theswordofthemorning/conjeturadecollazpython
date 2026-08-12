@@ -47,7 +47,10 @@ arranquesporvisita.py: el exponente real es ~2.)
 
    (c) LA COLA POLINOMIAL, quenched: para la excursion i con
        arranque c_i, el prefijo determinista come <= ~log2|c_i|
-       pasos (notaensamblajep2.txt P2-b, cota exacta por racha);
+       pasos (notaensamblajep2.txt P2-b: cota exacta POR RACHA y
+       DEL FORZADO -- P2-b.i; el TOTAL del prefijo por el
+       presupuesto de bits P2-b.ii, esquema cuya contabilidad es
+       parte del mismo conteo de (D));
        despues,
          P(tau_i > T) <= e^(-c_b (T - L_i)) + 2 c_a / sqrt(T - L_i)
                       <= C'' / sqrt(T)    para T >= 2 L_i,
@@ -72,10 +75,11 @@ arranquesporvisita.py: el exponente real es ~2.)
    T = 200).
 
 4. QUE NO DICE: nada incondicional -- (D) es el teorema de conteo
-   pendiente; la pieza (b) con L2 tiene su cuenta por rehacer; y
-   el cualificador de (c) es una medicion (beta = 0), no un
+   pendiente; la pieza (b) con L2 tiene su cuenta por rehacer; el
+   cualificador de (c) es una medicion (beta = 0), no un
    teorema (su version teorema es notamoscasinducida, con su
-   cualificador propio).
+   cualificador propio); y el total del prefijo quenched descansa
+   en P2-b.ii (esquema), no en una cota exacta.
 
 ETIQUETA: teorema CONDICIONAL con las piezas clasicas escritas
 ((a) reflexion, (b) Chernoff adaptado, (d) B-C) y dos

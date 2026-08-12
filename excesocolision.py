@@ -1,7 +1,11 @@
 # excesocolision.py
 #
-# PIRANAS (bautizado 12-08: se comen el exceso a razon ~0,7 por
-# paso). EL EXCESO DE COLISION Y SU CONTRACCION GEOMETRICA (12-08-2026;
+# PIRANAS (bautizado 12-08: se comen el exceso -- razon MEDIA de
+# contraccion ~0,7 en t = 8..26 (X2); la serie a escala fija NO es
+# monotona paso a paso (picos > 1: A t=22->23 x1,38): la contraccion
+# a escala fija es de TENDENCIA, y el objeto monotono medido es la
+# razon multi-escala (X4) -- precision de la 10a, A3-1).
+# EL EXCESO DE COLISION Y SU CONTRACCION (12-08-2026;
 # el instrumento del ataque por pares al teorema de conteo --
 # notaequidistribucion.txt 3-bis).
 #
@@ -41,8 +45,8 @@ M_BITS = 13
 T_MAXDP = 26
 M8 = 8
 ESCALAS = [6, 7, 8, 9, 10]     # para X4 (m y m+1 adyacentes)
-E_FINAL_TOPE = 0.06
-RAZON_TOPE = 0.85
+E_FINAL_TOPE = 0.06            # convencion de gate, sin derivacion
+RAZON_TOPE = 0.85              # convencion de gate, sin derivacion
 RHO_MS_TOPE = 0.5              # el umbral critico del telescopio
 
 ARRANQUES = [
@@ -125,14 +129,27 @@ for c0, nombre in ARRANQUES:
         raise SystemExit("X2: razon %.3f > %.2f en el arranque %s"
                          % (razon, RAZON_TOPE, nombre))
     peor_ms = 0.0
+    min_ms = None
+    peor_celda = None
     for t in range(12, T_MAXDP):
         for m in ESCALAS[:-1]:
             den = excesos[(t, m + 1)]
+            # celdas de denominador ~0 excluidas: son el regimen del
+            # contraejemplo naif (notaequidistribucion 3-bis.vi)
             if den > 1e-6:
-                peor_ms = max(peor_ms, excesos[(t + 1, m)] / den)
+                r_ms = excesos[(t + 1, m)] / den
+                if r_ms > peor_ms:
+                    peor_ms = r_ms
+                    peor_celda = (t, m)
+                if min_ms is None or r_ms < min_ms:
+                    min_ms = r_ms
     peor_ms_global = max(peor_ms_global, peor_ms)
-    print("  razon MULTI-ESCALA peor (t >= 12, m = 6..9): %.3f"
-          % peor_ms)
+    if peor_celda is not None:
+        print("  razon MULTI-ESCALA peor (t >= 12, m = 6..9): %.3f "
+              "(celda t=%d, m=%d); minima: %.3f"
+              % (peor_ms, peor_celda[0], peor_celda[1], min_ms))
+    else:
+        print("  razon MULTI-ESCALA: sin celdas con denominador > 1e-6")
     if peor_ms >= RHO_MS_TOPE:
         raise SystemExit("X4: rho_ms = %.3f >= %.1f en el arranque %s "
                          "-- el telescopio tiempo-por-escala NO cierra"
@@ -142,7 +159,7 @@ for c0, nombre in ARRANQUES:
 if abs(razones["ADV"] - razones["A"]) > 0.1:
     raise SystemExit("X3: el adversarial contrae distinto (%.3f vs %.3f)"
                      % (razones["ADV"], razones["A"]))
-print("X1 OK (exceso final <= %.2f), X2 OK (contraccion geometrica" %
+print("X1 OK (exceso final <= %.2f), X2 OK (razon media de contraccion" %
       E_FINAL_TOPE)
 print("<= %.2f; medida ~0,7), X3 OK (el adversarial contrae igual" %
       RAZON_TOPE)
@@ -152,8 +169,11 @@ print("X4 OK: la razon multi-escala peor es %.3f < %.1f."
       % (peor_ms_global, RHO_MS_TOPE))
 print()
 print("Lectura: la GANANCIA ESTRICTA que el telescopio critico del")
-print("conteo necesita EXISTE y es geometrica (~0,7 por paso a escala")
-print("fija, uniforme en arranques, adversarial incluido). Y EL BLANCO")
+print("conteo necesita EXISTE: razon MEDIA de contraccion ~0,7 en")
+print("t = 8..26 (X2), uniforme en arranques, adversarial incluido;")
+print("la serie a escala fija NO es monotona paso a paso (picos > 1:")
+print("A t=22->23 x1,38) -- contraccion de TENDENCIA; el objeto")
+print("monotono es la razon multi-escala (X4). Y EL BLANCO")
 print("AFILADO: la razon multi-escala e_(t+1)(m)/e_t(m+1) queda BAJO")
 print("EL UMBRAL CRITICO 1/2 en toda celda medida (peor ~0,44, margen")
 print("13%): un teorema de UNA transicion con rho < 1/2 cierra el")

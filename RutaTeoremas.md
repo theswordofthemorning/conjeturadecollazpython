@@ -154,9 +154,28 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 
 ---
 
-# ⇢ EL ESTADO Y LOS PRÓXIMOS PASOS (actualizado 09-08-2026)
+# ⇢ EL ESTADO Y LOS PRÓXIMOS PASOS (actualizado 12-08-2026, post-10ª)
 
 **EMPEZAR POR AQUÍ.** Todo lo de abajo es historia; esto es el frente.
+
+> **⇢ 12-08 (2) — LA 10ª REVISIÓN ADVERSARIAL, HECHA Y APLICADA**
+> (acta `actarevision1208.txt`; informes `_adv1/2/3.txt`): **la
+> estructura de la tanda del 12-08 AGUANTÓ ENTERA** (enteros
+> idénticos en la reproducción independiente; Lean↔objeto 0 fallos
+> en 40.034 casos; el doble conteo IMPOSIBLE — biyección verificada
+> + obstrucción mod 8 nueva; el bump del escalón 10 no puede
+> falsear; sin cruces de 1/2 en ~500 celdas × 5 arranques). Mordió
+> la letra: el compuesto de recargas estaba ROTO desde siempre y su
+> reemplazo es MEJOR (la **unión por palabras**: razón 2^{−1/2}
+> exacta directa de L2), P2-b reescrito con FORZADO vs realizado,
+> la razón media, el 1,042, el filtro declarado, el margen honesto
+> **4%** (peor 0,480 en m=10). **EL PENDIENTE Nº 1 SIGUE SIENDO EL
+> TEOREMA DE CONTEO** (ρ_ms < 1/2 sobre la órbita del DP), ahora
+> con dos sub-lemas nombrados listos para formalizar: (a) la unión
+> por palabras (hermano de VÍBORAS, maquinaria de `tres_inyectivo`)
+> y (b) el wedge escala-tiempo (la cota rige desde t ~ 5,5·j).
+> Deuda de documentación anotada: las seis leyes completas fuera de
+> `cadenakc.lean` y la serie de cajas de la escalera.
 
 > **⇢ 11-08 (2) — LA SUB-TEORÍA DE LURRUS** *(bautizada por el
 > usuario en sesión — «no basta con los números, tiene que tener
@@ -208,7 +227,7 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    de apertura era TRANSITORIA (el 7σ vivía en el tramo inicial
 >    determinista de c₀; en rachas tardías z ≈ 0 y en el arranque B
 >    el signo global se invierte) y la ley condicionada converge a
->    la geométrica NEUTRA: `C_j` condicionado ∈ [0,88, 1,06], C ~ 1.
+>    la geométrica NEUTRA: `C_j` condicionado ∈ [0,87, 1,06], C ~ 1.
 >    La dominación condicionada AGUANTA — nota §5(iii) actualizada.
 > 3. ~~**CARGAR los δ de Arañas en el ensamblaje P2**~~ ⇢ **ESCRITO
 >    (12-08, `notaensamblajep2.txt` P2-c)**: dominados por 2^{−k_j}
@@ -741,12 +760,12 @@ descriptivo entre paréntesis.)*
 | **GOLONDRINAS** | teorema | en la CADENA MODIFICADA (vórtice rebotado; `φ = 1 ⟺ (1,1)` recurrente), la masa visita el fondo `k ≤ 1` INFINITAS veces c.s.: `k` es martingala exacta con empuje sólo en el borde (tabla de derivas, 28.436 estados), L2 (infinitos mixtos) sale del descenso determinista de `v₂` con `A = v₂(3^k−1)`, y la oscilación de martingalas fuerza `A → ∞` — siempre vuelven | demostrado (L2 con 60.010 instancias exactas + frontera determinista); queda el empalme por visita | `lamperti.py`, `oscilacion.py` |
 | **LIEBRES** | teorema | basta con volver a la madriguera: `φ = 1 ⟺ Σ_t P(X_t ∈ C) = ∞` para TODA ventana finita `C` con `(1,1)` dentro — Green + clase recurrente cerrada + Doeblin EXACTO sobre conjunto finito (`ε ≥ 17887/131072`; para `C` arbitrario, accesibilidad = HORMIGAS cualitativo) | demostrado; **AGUANTÓ la 5ª revisión externa** (Doeblin reproducido, aperiodicidad gcd = 1; correcciones: cita de Hormigas, lectura del alfa degradada — la ventana grande no muerde a PROF 30) | `liebres.py`, `actarevision0908b.txt` |
 | **CEBRAS** | lema | el sesgo se lee en las rayas: clasificación afín exacta (`u' = rama + δ`, `\|δ\| ≤ 3^{−k}/2`, rama expansiva clasificada, frontera incluida) y el umbral `q1 < log 2/log 3` como EXPONENTE DE LYAPUNOV de los multiplicadores (hipótesis de Kesten de Arañas) | **PARTIDA por la 5ª revisión**: la clasificación y el umbral-Lyapunov aguantan (100.398 transiciones independientes); la lectura «deriva de `log\|u\|` de la cadena» ROTA y RETIRADA (deriva real del fondo +0,02; `\|u\| ≥ 1/3` allí) | `liebres.py`, `actarevision0908b.txt` |
-| **VÍBORAS** | teorema | la lectura: racha ≥ j y salto de recarga ≥ s LEEN los bits bajos de c — cada evento es UNA clase mod 2^m (unicidad por `tres_inyectivo`, ×3 inyectivo mod 2^n); las «dos equidistribuciones» de la 9ª son UN objeto | demostrado (Lean, el 20º, 0 sorry); instancia adversarial `3·1398101+1 = 2^22` por kernel | `lecturaracha.lean`, `equidistribucionmixto.py`, `recargaexacta.py` |
+| **VÍBORAS** | teorema | la lectura: racha ≥ j y salto de recarga ≥ s LEEN los bits bajos de c — cada evento es UNA clase mod 2^m (unicidad por `tres_inyectivo`, ×3 inyectivo mod 2^n); las «dos equidistribuciones» de la 9ª son UN objeto (bit 1: k ≥ 3 en la prosa; la cadena aplica desde k = 2 y el DP absorbe ahí — cuantificador precisado por la 10ª) | demostrado (Lean, el 20º, 0 sorry); instancia adversarial `3·1398101+1 = 2^22` por kernel | `lecturaracha.lean`, `equidistribucionmixto.py`, `recargaexacta.py` |
 | **AVISPAS** | teorema | el aguijón: en el paso compartido con `k` IMPAR la mitad `m` de `3^k = 2m+1` es impar y los dos hijos difieren mod 2 — el bit de la palabra se INYECTA como bit fresco en la posición 0; `k` par no inyecta (`v2(Δ) = 1 + v2(a − m/2)`) | demostrado (Lean, misma pieza; `pot3_mod4` con testigo) | `lecturaracha.lean` |
 | **EFÍMERAS** | hallazgo medido | viven un día: la dependencia del bit de apertura (el «7σ» del adv 1) es TRANSITORIA — en rachas tardías se anula (z ≈ 0, ambos arranques) y el signo global se invierte en B; la ley condicionada a sobrevivir converge a la geométrica NEUTRA (C ~ 1) | medido (dos arranques, ventana emparejada); cierra el §5(iii) de la nota de dominación | `dominacioncondicionada.py` |
-| **PIRAÑAS** | medición + reformulación | se comen el exceso: `e_t = C²(t) − 1` decae GEOMÉTRICO ~0,7/paso uniforme en arranques (adversarial incluido) — la ganancia estricta que el telescopio crítico (Σ2^{−i} = 1) necesita EXISTE; el conteo queda reducido a `ρ < 1` de UNA transición del DP | medido exacto (t = 0…26, tres arranques); el teorema ABIERTO | `excesocolision.py`, `notaequidistribucion.txt` §3-bis |
+| **PIRAÑAS** | medición + reformulación | se comen el exceso: `e_t = C²(t) − 1` se contrae con razón MEDIA ~0,7 (t = 8…26), uniforme en arranques (adversarial incluido); la serie a escala fija NO es monótona paso a paso (picos >1: A t=22→23 ×1,38) — contracción de TENDENCIA; el objeto monótono es la razón multi-escala (X4) — la ganancia estricta que el telescopio crítico (Σ2^{−i} = 1) necesita EXISTE; el conteo queda reducido a `ρ < 1` de UNA transición del DP (sobre la órbita del DP — 3-bis.vi) | medido exacto (t = 0…26, tres arranques); el teorema ABIERTO | `excesocolision.py`, `notaequidistribucion.txt` §3-bis |
 | **TORTUGAS** | teorema condicional | el reloj polinomial: `τ_i ≤ i^{2+ε}` c.s. condicional a la dominación (D) — reflexión + Chernoff adaptado + presupuesto quenched + Borel–Cantelli; supera el `e^{o(i²)}` pedido con margen infinito. La hermana de fábula de LIEBRES: la tortuga llega a tiempo | condicional a (D); piezas clásicas escritas; η = 2,082 medido de respaldo | `notalb.txt`, `arranquesporvisita.py` |
-| **LANGOSTAS** | teorema por escalón | la pinza de dos tenazas: en cada caja truncada hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) = ρ(S*)` (Perron aplica), y CW min/max en enteros lo PINZA por ambos lados — ancho ≤ 1e-5 en los escalones 1–9 y `ρ(M_T) ∈ [1,989042, 1,989176]` en el 10 (22,5M estados): la letra chica del ritmo del récord, pagada ENTERA | demostrado por cómputo exacto (los DIEZ escalones, K ≤ 19) | `pinzacw.py`, `certificadocw.py` |
+| **LANGOSTAS** | teorema por escalón | la pinza de dos tenazas: en cada caja truncada hay UNA SCC no trivial y cero lazos sueltos ⟹ `ρ(M_T) = ρ(S*)` (Perron aplica), y CW min/max en enteros lo PINZA por ambos lados — ancho ≤ 1e-5 en los escalones 1–9 y `ρ(M_T) ∈ [1,989042, 1,989176]` en el 10 (22,5M estados): la letra chica del ritmo del récord, pagada ENTERA en el truncado | demostrado por cómputo exacto (los DIEZ escalones, K ≤ 19) | `pinzacw.py`, `certificadocw.py` |
 | **URRACAS** | teorema | la contabilidad del sesgo: `exp − contr = 2V + (Ee−E0) + k0 − k_t` EXACTO por palabra (libro mayor de nueve tipos); corolario: `⟺` en la sombra IFS con umbral 0,26186, umbral EFECTIVO ~0,2446 en la cadena (error del modelo medido); sin condicionar `Σ(Ee−E0) = 0` — el h-transform aislado en UNA moneda condicionada | demostrado (Lean 0 sorry); **AGUANTÓ ENTERA la 5ª revisión** (tabla rederivada, 200.000 palabras, Lean cotejado a máquina, circularidad rota con 59.990 pares reales) | `urracas.py`, `urracas.lean`, `actarevision0908b.txt` |
 
 ## Dónde está cada cosa

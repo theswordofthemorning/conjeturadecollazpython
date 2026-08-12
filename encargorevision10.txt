@@ -50,6 +50,8 @@ los .py del repo):
       CLAUDE.md): C_j a t = 24, los tres arranques, y la constante
       L2 (1,038/1,038/1,039). Cualquier discrepancia de enteros es
       sangre.
+      [FE DE ERRATAS POST-REVISION: el de A es 1,042 -- ver
+      actarevision1208.txt M4; el adv 2 fue avisado en vuelo.]
   b2. Reproducir la pinza de LANGOSTAS en UN escalon mediano (K =
       13: 313.672 estados) con SCC y CW propios; verificar la
       unica-SCC y el ancho 0. Y auditar el paso del escalon 10:

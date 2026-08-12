@@ -1,0 +1,195 @@
+=====================================================================
+EL ACTA DE LA 10a REVISION ADVERSARIAL -- LA TANDA DEL 12-08
+(12-08-2026. Tres adversarios sobre encargorevision10.txt; informes
+integros en actarevision1208_adv1/2/3.txt; instrumentos en
+revision10_adv1/ y revision10_adv2/. DECIMA REVISION, DECIMA
+MORDIDA -- y la primera cuya mordida grande llego CON REPARACION.)
+=====================================================================
+
+VEREDICTO GLOBAL EN CUATRO LINEAS. La ESTRUCTURA de la tanda entera
+aguanta: cero discrepancias de enteros en la reproduccion
+independiente total, el Lean compila y corresponde al objeto donde
+lo reclama, el doble conteo de bits es IMPOSIBLE (probado por dos
+vias, una nueva), y el bump del escalon 10 no puede falsear. Lo que
+mordio es LA LETRA: un argumento auxiliar roto desde siempre (y
+reparado por una via mejor), dos frases de P2-b sobre-afirmadas,
+una razon media vendida como decaimiento por paso, un numero
+transcrito mal que se propago (1,038 -> 1,042), y un filtro
+invisible exactamente donde vive el contraejemplo conocido.
+
+---------------------------------------------------------------------
+I. LO QUE SE ROMPIO Y COMO QUEDO (por severidad)
+---------------------------------------------------------------------
+
+M1 (adv 1, c1) -- EL COMPUESTO DE RECARGAS: ROTO Y REPARADO.
+  El argumento "cada recarga cuesta un bit" via E[2^salto] estaba
+  roto DESDE SIEMPRE (diverge ya en L-infinito, no solo en L2). El
+  compuesto rehecho con el MGF correcto (z < sqrt(2)) CIERRA
+  ESTRUCTURALMENTE para todo C2 finito (no "con margen chico": el
+  margen chico no existe como problema) pero entrega razon 0,855,
+  NO el 2^(-1/2) = 0,707 que la nota le atribuia. LA REPARACION
+  (mejor que lo roto): el compuesto es INNECESARIO -- "racha >= j
+  con palabra u tras el mixto" es UNA clase mod 2^(j+1) (verificado
+  exhaustivo, 1.016 combinaciones; formalizable con la maquinaria
+  de tres_inyectivo), y la union sobre palabras da directamente
+    P(racha_total >= j | mixto) <= sqrt(C2(j+1)) * 2^(-(j+1)/2)
+  -- razon 2^(-1/2) EXACTA para la racha TOTAL, recargas y crashes
+  incluidos, sin E[2^S] y sin compuesto. Y esquiva un hueco que
+  NADIE habia nombrado: el salto condicionado a v2 = A es cociente
+  de probabilidades de clase y L2 solo da cotas SUPERIORES (el
+  denominador pedia una inferior que C2 no da). Letra chica nueva
+  declarada: el wedge escala-tiempo (la cota rige desde t ~ 5,5 j;
+  antes manda el cap determinista) y el factor 1/P(impar|vivo) ~ 2
+  en la constante. APLICADO: notaequidistribucion 3.iv reescrita.
+  PENDIENTE NUEVO: el lema de la union por palabras a Lean (hermano
+  de VIBORAS).
+
+M2 (adv 1, d1) -- P2-b SOBRE-AFIRMADO EN DOS FRASES (el mecanismo,
+  MAS FUERTE). El ataque del doble conteo FALLO por las dos vias:
+  (P1) la biyeccion palabra-a-palabra c0 mod 2^T <-> traza es
+  exacta (cada traza viva tiene EXACTAMENTE 1 residuo; cada paso
+  consume un bit fresco, las rachas leen tramos disjuntos); (P2)
+  OBSTRUCCION MOD 8 NUEVA: forzar racha >= 2 en ambas ramas del
+  mixto exige 3^k = -1 mod 2^(j+1), imposible (3^k mod 8 esta en
+  {1,3}) -- el forzado entre ramas muere en racha <= 1. PERO:
+  (i) "racha_1 ES v2(h), EXACTA" es FALSA como identidad de lo
+  realizado (9,12% de 423.299 rachas la superan, exceso hasta 17:
+  la recarga puede caer dentro de la racha) -- vale solo como
+  FORZADO (para toda palabra); (ii) "surplus <= log2|c_i|" es falsa
+  como cota de lo realizado (c0 = 5: racha realizada 20 contra cap
+  3,3 -- los 3^k inyectan magnitud) y la moneda correcta es DENSIDAD
+  DE CLASE (perfil de peso W = una clase mod 2^(>=W), prob 2^-W),
+  no magnitud. Lo realizado mas alla del forzado es del teorema de
+  conteo -- como la nota YA declaraba ("mismo hueco, no uno nuevo"):
+  la declaracion era correcta, las dos frases no. APLICADO:
+  notaensamblajep2 P2-b.i/ii reescritas con "forzado" y la moneda
+  de clase; la obstruccion mod 8 anotada como regalo.
+
+M3 (adv 3, A3-1; confirmado por adv 2, d2) -- "DECAE GEOMETRICO
+  ~0,7 POR PASO": SOBRE-AFIRMADO. Es razon MEDIA entre t = 8 y 26;
+  la serie impresa SUBE en pasos concretos (A t=22->23: x1,38; ADV
+  t=18->20: x1,12/paso -- posteriores al transitorio declarado
+  muerto). La contraccion a escala fija es de TENDENCIA; el objeto
+  monotono es la razon multi-escala. APLICADO en las siete
+  menciones (salida, .py, nota, PIRANAS, bitacora, CLAUDE.md,
+  afirmacion).
+
+M4 (adv 3, A3-4; confirmado por adv 2, a2) -- EL 1,042. La constante
+  L2 del arranque A es 1,042 (salida grabada + reproduccion
+  independiente + corroboracion de instrumento aparte); el "1,038"
+  de nota/bitacora/commit 506e3b4/encargo era transcripcion del de
+  B. El "a 4% del piso" sobrevive. APLICADO donde vive; fe de
+  erratas del commit a la base.
+
+M5 (adv 3, A3-11) -- EL FILTRO INVISIBLE (la mas seria de la
+  letra): rho_ms solo se computa si e_t(m+1) > 1e-6, pero salida/
+  nota/afirmacion dicen "en toda celda" -- y las celdas de
+  denominador ~0 excluidas son EXACTAMENTE la geografia del
+  contraejemplo naif de 3-bis.vi. APLICADO: la exclusion declarada
+  en las tres menciones con el puntero al contraejemplo.
+
+M6 (adv 2, d2) -- EL "MARGEN 13%" ERA DE LA VENTANA ELEGIDA. En
+  m = 10 (masa real, den 0,8-2,3) el peor rho_ms es 0,480 (ADV,
+  t=17): margen 4%, no 13%. SIN CRUCES de 1/2 en ~500 celdas x 5
+  arranques (incluidos dos estructurados disenados para hacer dano,
+  que contraen igual): el blanco AGUANTA, la frase del margen lleva
+  ahora su ventana. APLICADO en nota y afirmacion.
+
+M7 (adv 2, c2; adv 3, A3-6) -- LA DOMINACION CONDICIONADA:
+  AGUANTA EN LAS TRES CONVENCIONES, con dos ajustes de letra: el
+  intervalo honesto es [0,87, 1,06] (el 0,876 impreso quedaba
+  recortado) y es CONVENCION-DEPENDIENTE (sin censura sube a
+  ~[0,94, 1,05]); el z tardio reproducido da -2,2/-2,3 (no
+  -0,2/-0,4): residuo minusculo pero no cero -- la TRANSITORIEDAD
+  del bit (z +55/-17 -> ~0, signo invertido en B) y C ~ 1 aguantan
+  en todas. APLICADO: intervalo corregido en las seis menciones,
+  convencion anotada.
+
+M8 (adv 3, A3-3/A3-5/A3-8/A3-9/A3-10) -- LA FAMILIA DESACTUALIZADA:
+  pinzacw.py titulo y docstring aun decian "escalones 1-9" (el
+  commit solo corrigio el parrafo final) -- titulo dinamico
+  APLICADO; notadominacion 4/etiqueta/3(ii) aun decian "DOS
+  equidistribuciones" contra su propio 5(i) -- parcheado con la
+  flecha 12-08; rachasreales_salida cita el "offset O(log k)"
+  RETIRADO por la 9a -- advertencia en su fila de CLAUDE.md;
+  commit 351812e permuto A<->ADV (fe de erratas a la base); el
+  "razon media 0,69" sin ventana -- declarada.
+
+M9 (adv 3, A3-12/13/14/15/16/17/18) -- LAS ETIQUETAS: el 0,15 de
+  "[0,15, 0,44]" es sonda sin registro (etiquetado); la marca * de
+  granularidad se computa solo con el bit 0 y exime celdas del bit
+  1 sin marcar (4,974 impreso sin asterisco) -- marca por bit para
+  futuras corridas; MIN_ESPERADO = 8 / ANCHO_TOPE = 0,02 /
+  E_FINAL_TOPE / RAZON_TOPE etiquetados convencion (RHO_MS_TOPE =
+  0,5 SI esta derivado; VEREDICTO d3: el modo de fallo no 5 NO
+  esta activado hoy -- las etiquetas son para que no se active
+  manana); "cabe 20x" gana la palabra ESQUEMA en los resumenes;
+  VIBORAS gana su cuantificador en la fila; PIRANAS gana "(sobre
+  la orbita del DP -- 3-bis.vi)"; los numeros de un solo arranque
+  ganan "(arranque A; B y ADV analogos)".
+
+---------------------------------------------------------------------
+II. LO QUE AGUANTO ENTERO (atacado en serio y no roto)
+---------------------------------------------------------------------
+
+R1 (adv 2, a2) -- LA REPRODUCCION TOTAL DEL DP: leyes reconstruidas
+  desde los enunciados (validadas contra 200k pares enteros reales,
+  0 fallos), 15 conteos de vivos IDENTICOS EN ENTEROS, las series
+  e_t completas digito a digito. La reduccion y la medicion son lo
+  que dicen ser.
+
+R2 (adv 2, b2) -- LANGOSTAS: el escalon K = 13 reproducido con
+  Tarjan y CW propios (313672/25486/288187 clavados; pinza propia
+  de ancho 2,7e-7), unica-SCC confirmada, y el bump del escalon 10
+  TORTURADO (bumpeos 0,1%-100%: nunca falsea, solo ensancha) --
+  correcto porque rho <= max_i (Aw)_i/w_i vale para TODO w > 0.
+  La condicion que el adv 2 no podia auditar sin abrir el fichero
+  (cocientes recomputados post-bump) queda VERIFICADA en esta
+  sintesis: el bump (lineas 208-211) precede al bucle de cocientes
+  (213-226), que lee w ya bumpeado en todas las filas de S*.
+
+R3 (adv 1, a1/b1) -- LECTURARACHA: 40.034 identidades contra
+  transicion() verbatim, 0 fallos donde la prosa reclama; ediv/emod
+  con negativos sin caso escondido (la induccion solo divide pares
+  ya demostrados); instancias negativas certificadas por decide.
+  Matices de cobertura anotados en la nota: el bit 1 aplica desde
+  k = 2 en la cadena (el DP absorbe ahi por convencion de
+  excursion; el k >= 3 vivia en comentarios), k = 1 cubierto solo
+  en vacuo, y EL FONDO BIT 1 ES LA CLASE OPUESTA (3c = +1 mod
+  2^(j+1)) -- mina enterrada para quien recicle la lectura en el
+  regimen post-fondo (Doeblin/Liebres): DEJADO ESCRITO.
+
+R4 (adv 3, A3-19/20/21/22) -- LA LETRA GRUESA: la aritmetica del
+  20x correcta (30 ln 2 = 20,794); TORTUGAS ejemplar (el
+  condicional a (D) y el beta = 0 medicion en TODAS las menciones,
+  base incluida); ningun estatus del ZOOLOGICO inflado; el <= 5%
+  con cualificador en todas las menciones.
+
+---------------------------------------------------------------------
+III. EL SALDO PARA EL PROGRAMA
+---------------------------------------------------------------------
+
+El arbol de P2 sale de la 10a MAS LIMPIO que como entro: el
+compuesto de recargas (un eslabon auxiliar podrido) esta fuera del
+arbol y su reemplazo (la union por palabras) da la razon 2^(-1/2)
+exacta con UNA sola premisa de equidistribucion L2; el presupuesto
+de bits tiene ahora biyeccion verificada + obstruccion mod 8 (techo
+duro al forzado entre ramas); y el blanco del teorema de conteo
+queda con su margen honesto declarado (4% en la ventana peor con
+masa, sin ningun cruce de 1/2 en ~500 celdas x 5 arranques). EL
+PENDIENTE NUMERO 1 SIGUE SIENDO EL MISMO: el teorema de conteo
+(rho_ms < 1/2 sobre la orbita del DP), ahora con dos sub-lemas
+nombrados para formalizar (la union por palabras y el wedge (j,t)).
+
+Deuda de documentacion (adv 2, item 6): las seis leyes completas
+NO estan fuera de cadenakc.lean (falta F4 y el abs de k=1-bit1 en
+los docs de contexto), y la serie de cajas de la escalera (escalon
+1: |c| <= 12 = 3*2^K, no 3*2^(K+1)) no esta escrita -- ANOTADO como
+tarea de agente.
+
+DECIMA REVISION, DECIMA MORDIDA. La carne blanda declarada por el
+autor era real y estaba donde dijo; lo que el autor NO declaro y
+los adversarios encontraron: el compuesto roto desde siempre (M1),
+la identidad de racha_1 falsa en lo realizado (M2), el "por paso"
+sin corregir (M3), el 1,042 (M4) y el filtro invisible (M5).
+=====================================================================
