@@ -158,6 +158,107 @@ C7  el cruce con corrienteszocalo y el reparto por PARES
     gamma < 0 en k >= 3 y gamma ~ +0,1..0,2 solo en k' = 2 --
     la fibra sin corriente A, otra vez la frontera del fondo.
 
+C8  el par que SI carga (A-N1), abierto por dentro
+    Si el par malo tuviera la misma forma que el bueno (dos
+    imagenes de UNA ley por mapas de multiplicador 3), el
+    analisis de C1-C4 se le aplicaria igual. NO la tiene: sus
+    padres son conjuntos distintos (impares de k-1 contra
+    pares de k). Pero hay una identificacion que los alinea.
+
+    (a) IDENTIDAD (enteros, m = 4..11, k = 2..7, todo c impar):
+        A(c) - N1(c-1) = (3 + 3^k)/2   CONSTANTE.
+        Es decir: bajo la identificacion c' = c - 1 de los dos
+        padres, A y N1 NO difieren por un afin con
+        multiplicador 3 -- difieren por una TRASLACION PURA.
+        Los dos mapas llevan el MISMO factor 3; lo unico que
+        los separa es el desplazamiento 3^k/2 de la torre.
+        v2 de la traslacion por k:  k=2:v2=1 k=3:impar k=4:v2=1 k=5:impar k=6:v2=1
+        ==> POR ESO carga: una traslacion no rompe la forma de
+        la ley, solo la corre; el multiplicador 3 de N0-N1 SI
+        la reordena (dos ciclos que barren medio espacio).
+        El par bueno mezcla; el par malo solo desplaza.
+
+    (b) LA SERIE EN t (la pregunta que decide): el par malo
+        relativo, fibra a fibra, a lo largo del tiempo.
+
+      arranque  k'    t=12    t=14    t=16    t=18    t=20    t=22    t=24
+      A          2     ---     ---     ---     ---     ---     ---     ---
+      A          3   0.395   0.672   0.682   0.778   0.853   0.932   0.905
+      A          4   0.180   0.395   0.599   0.613   0.643   0.828   0.809
+      A          5   0.164   0.282   0.332   0.376   0.555   0.584   0.634
+      B          2     ---     ---     ---     ---     ---     ---     ---
+      B          3   0.317   0.638   0.800   0.779   0.718   0.833   0.836
+      B          4   0.156   0.338   0.704   0.542   0.621   0.718   0.796
+      B          5   0.122   0.291   0.350   0.338   0.307   0.439   0.485
+      ADV        2     ---     ---     ---     ---     ---     ---     ---
+      ADV        3   0.659   0.728   0.750   0.766   0.840   0.839   0.802
+      ADV        4   0.536   0.700   0.762   0.640   0.682   0.670   0.706
+      ADV        5   0.218   0.332   0.365   0.381   0.565   0.446   0.401
+
+    LECTURA de (b): si la columna crece o se estabiliza alta,
+    el par malo es ESTRUCTURAL y es el cofre nuevo; si decae,
+    el 0,905 era transitorio y el telescopio se salva solo.
+    (Medicion a horizonte finito: el DP pierde un bit de
+    modulo por paso, asi que t grande y m = 8 es el borde de
+    la ventana -- el mismo wedge escala-tiempo de siempre.)
+
+C9  la contabilidad PONDERADA (la leccion de C8(b))
+    C8(b) da un negativo: el par malo NO decae, CRECE (0,39 ->
+    0,90 en k'=3). Y sin embargo rho_ms BAJA (0,42 -> 0,33).
+    Las dos cosas solo caben juntas si la contraccion es un
+    BALANCE con pesos, no una dominacion termino a termino:
+    el par malo pesa w_A*w_N1 ~ 0,04 y hay pares NEGATIVOS.
+    La identidad exacta es rho_ms = Sigma_ij w_i w_j E_ij / E00,
+    y aqui se reparte el rho entre sus diez sumandos.
+
+      arranque k'  rho_ms |  propias  N0-N1   A-N1    D-N0    A-D    resto | cotaCS
+      A         2   0.424 |   0.258   0.014   0.000   0.126   0.000   0.025 |  0.763
+      A         3   0.394 |   0.234  -0.019   0.071   0.070   0.019   0.019 |  0.927
+      A         4   0.335 |   0.257  -0.035   0.086   0.040   0.006  -0.019 |  1.001
+      A         5   0.316 |   0.296  -0.035   0.079   0.021  -0.002  -0.043 |  1.102
+      B         2   0.424 |   0.259   0.027   0.000   0.107   0.000   0.031 |  0.765
+      B         3   0.372 |   0.228  -0.002   0.066   0.064   0.005   0.011 |  0.902
+      B         4   0.325 |   0.265  -0.044   0.088   0.037   0.005  -0.027 |  1.025
+      B         5   0.292 |   0.289  -0.042   0.065   0.017   0.013  -0.049 |  1.078
+      ADV       2   0.397 |   0.251   0.020   0.000   0.101   0.000   0.026 |  0.743
+      ADV       3   0.355 |   0.227  -0.009   0.060   0.059   0.003   0.015 |  0.895
+      ADV       4   0.309 |   0.249  -0.026   0.077   0.036  -0.003  -0.023 |  0.972
+      ADV       5   0.314 |   0.291  -0.025   0.053   0.015   0.019  -0.039 |  1.089
+
+    (la contabilidad CIERRA en las 12 celdas: SystemExit
+     armado sobre rho_ms = suma de los diez sumandos.)
+
+    LECTURA -- el mecanismo REAL de la contraccion, en orden:
+    1. las PROPIAS ya pagan casi todo el trabajo: valen
+       Sigma w_i^2 (~0,25-0,36, el branching estructural de
+       corrienteszocalo) por el exceso del padre, y eso solo
+       ya esta por debajo de 1/2;
+    2. el par BUENO (N0-N1) RESTA en k' >= 3: la unica
+       cruzada con signo negativo sistematico -- el par que
+       el cofre acusaba es el que ayuda;
+    3. el par MALO (A-N1) suma, y su peso es chico (w_A*w_N1
+       ~ 0,04): aunque su E relativo suba a 0,9, aporta ~0,07
+       al rho. POR ESO el rho baja mientras el par malo sube.
+    ==> EL TEOREMA NO PUEDE SER 'todas las cruzadas son
+    chicas' (falso y creciendo). La forma candidata es
+    BRANCHING (Sigma w^2 <= 0,37, estructural y demostrable
+    por conteo de masas) + CRUZADAS ACOTADAS POR C-S CON SU
+    PESO. Y LA COTA C-S CRUDA, MEDIDA (no razonada -- la
+    columna cotaCS es (Sigma_i w_i sqrt(E_ii))^2 / E00, el
+    peor que puede pasar si TODA cruzada saturara C-S con
+    signo +):  peor = 1.102.
+    ==> NO ALCANZA SOLA (queda sobre 1/2): la cota que
+    ignora los signos no basta, y lo que falta es
+    exactamente el signo NEGATIVO del par bueno. El cofre
+    definitivo seria entonces demostrar E_N0N1 < 0 en la
+    orbita -- el ANTI-alineamiento de las dos imagenes por
+    multiplicador 3 de la misma ley: la version CON SIGNO
+    del enunciado que 3-bis.viii(c) pedia sin signo.
+    (Nota de capa 1: E_ii NO es el mismo para las cuatro
+    corrientes -- VIBORAS iguala N0 y N1 con el padre PAR de
+    la fibra, pero A y D vienen de los IMPARES de k-1 y k+1,
+    que son otras leyes. Por eso la cota se MIDE.)
+
 ETIQUETA: C0-C3 son TEOREMA (enteros y racionales exactos);
 C4 es aritmetica de autovalores de un ciclo (numerico
 controlado); C5 y C6 son MEDICION sobre la orbita del DP a

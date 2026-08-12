@@ -583,6 +583,214 @@ print("    telescopio equivale EXACTAMENTE a gamma < 0. La cadena da")
 print("    gamma < 0 en k >= 3 y gamma ~ +0,1..0,2 solo en k' = 2 --")
 print("    la fibra sin corriente A, otra vez la frontera del fondo.")
 print()
+# ---------------------------------------------------------------
+# C8  LA ANATOMIA DEL PAR MALO -- A-N1 es una TRASLACION
+# ---------------------------------------------------------------
+print("C8  el par que SI carga (A-N1), abierto por dentro")
+print("    Si el par malo tuviera la misma forma que el bueno (dos")
+print("    imagenes de UNA ley por mapas de multiplicador 3), el")
+print("    analisis de C1-C4 se le aplicaria igual. NO la tiene: sus")
+print("    padres son conjuntos distintos (impares de k-1 contra")
+print("    pares de k). Pero hay una identificacion que los alinea.")
+print()
+# (a) la identidad de traslacion, en enteros
+fallos = 0
+for m in range(4, 12):
+    Q = 2 ** (m + 1)
+    Qh = 2 ** m
+    for k in range(2, 8):
+        delta = ((3 + pot3(k)) // 2) % Qh
+        for c in range(1, Q, 2):            # c impar: el padre de A
+            a = (((3 * c + 1) % Q) // 2) % Qh
+            # el mismo c corrido en 1 es par: el padre de N1
+            cp = (c - 1) % Q
+            n1 = (((3 * cp + 1 - pot3(k)) % Q) // 2) % Qh
+            if (a - n1) % Qh != delta:
+                fallos += 1
+if fallos:
+    raise SystemExit("C8: la identidad de traslacion falla (%d)"
+                     % fallos)
+print("    (a) IDENTIDAD (enteros, m = 4..11, k = 2..7, todo c impar):")
+print("        A(c) - N1(c-1) = (3 + 3^k)/2   CONSTANTE.")
+print("        Es decir: bajo la identificacion c' = c - 1 de los dos")
+print("        padres, A y N1 NO difieren por un afin con")
+print("        multiplicador 3 -- difieren por una TRASLACION PURA.")
+print("        Los dos mapas llevan el MISMO factor 3; lo unico que")
+print("        los separa es el desplazamiento 3^k/2 de la torre.")
+print("        v2 de la traslacion por k:  " + " ".join(
+    "k=%d:%s" % (k, "impar" if ((3 + pot3(k)) // 2) % 2
+                 else "v2=%d" % v2((3 + pot3(k)) // 2))
+    for k in range(2, 7)))
+print("        ==> POR ESO carga: una traslacion no rompe la forma de")
+print("        la ley, solo la corre; el multiplicador 3 de N0-N1 SI")
+print("        la reordena (dos ciclos que barren medio espacio).")
+print("        El par bueno mezcla; el par malo solo desplaza.")
+print()
+# (b) la serie en t: transitorio o estructural
+print("    (b) LA SERIE EN t (la pregunta que decide): el par malo")
+print("        relativo, fibra a fibra, a lo largo del tiempo.")
+print()
+print("      arranque  k'    t=12    t=14    t=16    t=18    t=20"
+      "    t=22    t=24")
+TS = [12, 14, 16, 18, 20, 22, 24]
+for c0, nombre in ARRANQUES:
+    hist = dp_correr(c0)
+    for k in range(2, K_ZOCALO + 1):
+        fila = []
+        for t in TS:
+            llegadas = descomponer(hist[t], t)
+            m = M_FOCO
+            Qh = 2 ** m
+            porcor, masas = {}, {}
+            for cor in CORRIENTES:
+                d = llegadas.get((k, cor), {})
+                red = {}
+                for x, n in d.items():
+                    r = x % Qh
+                    red[r] = red.get(r, 0) + n
+                porcor[cor] = red
+                masas[cor] = sum(red.values())
+
+            def exc(i, j):
+                if not masas[i] or not masas[j]:
+                    return None
+                s = sum(n * porcor[j].get(r, 0)
+                        for r, n in porcor[i].items())
+                return Qh * s / float(masas[i] * masas[j]) - 1
+            e00 = exc('N0', 'N0')
+            v = exc('A', 'N1')
+            if e00 and abs(e00) > 1e-9 and v is not None:
+                fila.append("%7.3f" % (v / e00))
+            else:
+                fila.append("    ---")
+        print("      %-8s  %2d %s" % (nombre.split()[0], k,
+                                      " ".join(fila)))
+print()
+print("    LECTURA de (b): si la columna crece o se estabiliza alta,")
+print("    el par malo es ESTRUCTURAL y es el cofre nuevo; si decae,")
+print("    el 0,905 era transitorio y el telescopio se salva solo.")
+print("    (Medicion a horizonte finito: el DP pierde un bit de")
+print("    modulo por paso, asi que t grande y m = 8 es el borde de")
+print("    la ventana -- el mismo wedge escala-tiempo de siempre.)")
+print()
+
+# ---------------------------------------------------------------
+# C9  LA CONTABILIDAD COMPLETA -- quien paga el rho, con pesos
+# ---------------------------------------------------------------
+print("C9  la contabilidad PONDERADA (la leccion de C8(b))")
+print("    C8(b) da un negativo: el par malo NO decae, CRECE (0,39 ->")
+print("    0,90 en k'=3). Y sin embargo rho_ms BAJA (0,42 -> 0,33).")
+print("    Las dos cosas solo caben juntas si la contraccion es un")
+print("    BALANCE con pesos, no una dominacion termino a termino:")
+print("    el par malo pesa w_A*w_N1 ~ 0,04 y hay pares NEGATIVOS.")
+print("    La identidad exacta es rho_ms = Sigma_ij w_i w_j E_ij / E00,")
+print("    y aqui se reparte el rho entre sus diez sumandos.")
+print()
+peor_cs = [0.0]
+print("      arranque k'  rho_ms |  propias  N0-N1   A-N1    D-N0"
+      "    A-D    resto | cotaCS")
+for c0, nombre in ARRANQUES:
+    hist = dp_correr(c0)
+    t = T_MEDIDA
+    llegadas = descomponer(hist[t], t)
+    for k in range(2, K_ZOCALO + 1):
+        m = M_FOCO
+        Qh = 2 ** m
+        porcor, masas = {}, {}
+        for cor in CORRIENTES:
+            d = llegadas.get((k, cor), {})
+            red = {}
+            for x, n in d.items():
+                r = x % Qh
+                red[r] = red.get(r, 0) + n
+            porcor[cor] = red
+            masas[cor] = sum(red.values())
+        masa = sum(masas.values())
+        if masa == 0:
+            continue
+        w = {c: masas[c] / float(masa) for c in CORRIENTES}
+
+        def exc2(i, j):
+            if not masas[i] or not masas[j]:
+                return 0.0
+            s = sum(n * porcor[j].get(r, 0)
+                    for r, n in porcor[i].items())
+            return Qh * s / float(masas[i] * masas[j]) - 1
+        e00 = exc2('N0', 'N0')
+        if abs(e00) < 1e-9:
+            continue
+        contrib = {}
+        total = 0.0
+        for i in CORRIENTES:
+            for j in CORRIENTES:
+                v = w[i] * w[j] * exc2(i, j) / e00
+                contrib[(i, j)] = v
+                total += v
+        hija = {}
+        for cor in CORRIENTES:
+            for r, n in porcor[cor].items():
+                hija[r] = hija.get(r, 0) + n
+        col = sum(v * v for v in hija.values())
+        rho = (Qh * col / float(masa) ** 2 - 1) / e00
+        if abs(total - rho) > 1e-9:
+            raise SystemExit(
+                "C9: la contabilidad no cierra en k'=%d (%.9f vs %.9f)"
+                % (k, total, rho))
+        propias = sum(contrib[(c, c)] for c in CORRIENTES)
+        par = lambda i, j: contrib[(i, j)] + contrib[(j, i)]
+        resto = (total - propias - par('N0', 'N1') - par('A', 'N1')
+                 - par('D', 'N0') - par('A', 'D'))
+        # la cota Cauchy-Schwarz cruda: |E_ij| <= sqrt(E_ii E_jj)
+        cs = sum(w[c] * math.sqrt(max(exc2(c, c), 0.0))
+                 for c in CORRIENTES) ** 2 / e00
+        print("      %-8s %2d  %6.3f | %7.3f %7.3f %7.3f %7.3f %7.3f"
+              " %7.3f | %6.3f"
+              % (nombre.split()[0], k, rho, propias, par('N0', 'N1'),
+                 par('A', 'N1'), par('D', 'N0'), par('A', 'D'), resto,
+                 cs))
+        peor_cs[0] = max(peor_cs[0], cs)
+print()
+print("    (la contabilidad CIERRA en las 12 celdas: SystemExit")
+print("     armado sobre rho_ms = suma de los diez sumandos.)")
+print()
+print("    LECTURA -- el mecanismo REAL de la contraccion, en orden:")
+print("    1. las PROPIAS ya pagan casi todo el trabajo: valen")
+print("       Sigma w_i^2 (~0,25-0,36, el branching estructural de")
+print("       corrienteszocalo) por el exceso del padre, y eso solo")
+print("       ya esta por debajo de 1/2;")
+print("    2. el par BUENO (N0-N1) RESTA en k' >= 3: la unica")
+print("       cruzada con signo negativo sistematico -- el par que")
+print("       el cofre acusaba es el que ayuda;")
+print("    3. el par MALO (A-N1) suma, y su peso es chico (w_A*w_N1")
+print("       ~ 0,04): aunque su E relativo suba a 0,9, aporta ~0,07")
+print("       al rho. POR ESO el rho baja mientras el par malo sube.")
+print("    ==> EL TEOREMA NO PUEDE SER 'todas las cruzadas son")
+print("    chicas' (falso y creciendo). La forma candidata es")
+print("    BRANCHING (Sigma w^2 <= 0,37, estructural y demostrable")
+print("    por conteo de masas) + CRUZADAS ACOTADAS POR C-S CON SU")
+print("    PESO. Y LA COTA C-S CRUDA, MEDIDA (no razonada -- la")
+print("    columna cotaCS es (Sigma_i w_i sqrt(E_ii))^2 / E00, el")
+print("    peor que puede pasar si TODA cruzada saturara C-S con")
+print("    signo +):  peor = %.3f." % peor_cs[0])
+if peor_cs[0] < 0.5:
+    print("    ==> ALCANZA SOLA: por debajo del umbral 1/2 sin usar")
+    print("    ningun signo. La contraccion seria consecuencia de que")
+    print("    las corrientes A y D traen MENOS exceso que el padre")
+    print("    par (E_AA, E_DD < E00), no de cancelaciones.")
+else:
+    print("    ==> NO ALCANZA SOLA (queda sobre 1/2): la cota que")
+    print("    ignora los signos no basta, y lo que falta es")
+    print("    exactamente el signo NEGATIVO del par bueno. El cofre")
+    print("    definitivo seria entonces demostrar E_N0N1 < 0 en la")
+    print("    orbita -- el ANTI-alineamiento de las dos imagenes por")
+    print("    multiplicador 3 de la misma ley: la version CON SIGNO")
+    print("    del enunciado que 3-bis.viii(c) pedia sin signo.")
+print("    (Nota de capa 1: E_ii NO es el mismo para las cuatro")
+print("    corrientes -- VIBORAS iguala N0 y N1 con el padre PAR de")
+print("    la fibra, pero A y D vienen de los IMPARES de k-1 y k+1,")
+print("    que son otras leyes. Por eso la cota se MIDE.)")
+print()
+
 print("ETIQUETA: C0-C3 son TEOREMA (enteros y racionales exactos);")
 print("C4 es aritmetica de autovalores de un ciclo (numerico")
 print("controlado); C5 y C6 son MEDICION sobre la orbita del DP a")

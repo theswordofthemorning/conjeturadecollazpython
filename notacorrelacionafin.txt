@@ -154,18 +154,78 @@ sesion anterior: notaequidistribucion 3-bis.viii(c).)
    (norma de un promedio de permutaciones afines de Z/2^m), no de
    correlacion de dos mapas.
 
-QUE NO DICE. C5, C6 y C7 son MEDICION a horizonte finito sobre la
-orbita del DP, no teoremas: el gamma < 0 esta medido, no
-demostrado, y el invariante comun trivial esta medido en m <= 8.
-La refutacion del punto 4 SI es teorema (racionales exactos), y la
-identidad del punto 2 tambien. Nada de esto demuestra rho < 1/2 ni
-cierra la Pieza B: mueve el cofre y refuta el enunciado que habia
-dentro.
+10. LA ANATOMIA DEL PAR MALO (C8(a), identidad en enteros, m = 4..11,
+   k = 2..7, todo c impar):
 
-ETIQUETA: puntos 2, 3 y 4 TEOREMA (exactos); 5 aritmetica de
-autovalores; 6, 7, 8, 9 MEDICION con cruce de definiciones
-(SystemExit). Sin revision externa aun -- y la regla del ritmo
-dice que la 11a revision va ANTES de apoyar nada encima de esto.
+     A(c) - N1(c-1) = (3 + 3^k)/2     CONSTANTE
+
+   Es decir: bajo la identificacion c' = c - 1 de los dos padres, A y
+   N1 NO difieren por un afin con multiplicador 3 -- difieren por una
+   TRASLACION PURA. Los dos mapas llevan el MISMO factor 3; lo unico
+   que los separa es el desplazamiento 3^k/2 de la torre. POR ESO
+   carga: una traslacion no reordena la ley, solo la corre; el
+   multiplicador 3 del par bueno SI la reordena (dos ciclos que
+   barren medio espacio). El par bueno MEZCLA; el par malo solo
+   DESPLAZA.
+
+11. EL NEGATIVO REGISTRADO (C8(b)): el par malo NO es transitorio --
+   CRECE con t. Relativo a E00, en k' = 3: 0,395 -> 0,672 -> 0,682 ->
+   0,778 -> 0,853 -> 0,932 -> 0,905 (t = 12..24, arranque A; B y ADV
+   analogos, y el patron se repite en k' = 4 y 5 mas bajo). Y sin
+   embargo rho_ms BAJA en la misma ventana (0,42 -> 0,33). Las dos
+   cosas solo caben juntas si la contraccion es un BALANCE con pesos.
+
+12. LA CONTABILIDAD COMPLETA (C9, identidad exacta rho_ms =
+   Sigma_ij w_i w_j E_ij / E00, con SystemExit armado sobre el cierre
+   en las 12 celdas). El reparto del rho a t = 24:
+
+     propias (branching)  0,23 - 0,30    <- casi todo el trabajo
+     par BUENO N0-N1     -0,04 a +0,03   <- RESTA en k' >= 3
+     par MALO  A-N1      +0,05 a +0,09   <- pesa poco (w_A w_N1 ~0,04)
+     D-N0                +0,02 a +0,13   <- el grueso en k' = 2
+     A-D y resto          |.| <= 0,05
+
+   ==> EL MECANISMO REAL: las corrientes propias (el branching
+   estructural Sigma w^2 <= 0,37 de corrienteszocalo) ya pagan casi
+   todo; el par que el cofre acusaba AYUDA (signo negativo); y el par
+   malo, aunque su E relativo suba a 0,9, aporta ~0,07 porque su peso
+   es 0,04. Por eso el rho baja mientras el par malo sube.
+
+13. Y EL SEGUNDO NEGATIVO, EL QUE MAS RESTRINGE (C9, columna cotaCS
+   -- MEDIDO, no razonado): la cota Cauchy-Schwarz cruda
+   (Sigma_i w_i sqrt(E_ii))^2 / E00 -- lo peor que puede pasar si
+   toda cruzada saturara C-S con signo + -- vale 0,743 / 0,90 / 1,00 /
+   1,10 en k' = 2/3/4/5. **Supera 1**: no solo no alcanza el umbral
+   1/2, ni siquiera demuestra contraccion.
+
+   CONSECUENCIA PARA LA FORMA DEL TEOREMA: cualquier demostracion que
+   acote las cruzadas EN VALOR ABSOLUTO esta condenada, por buena que
+   sea la cota. El teorema de conteo TIENE que usar los SIGNOS -- en
+   concreto, el signo negativo del par bueno. El enunciado que
+   3-bis.viii(c) pedia sin signo ("|E_01| <= gamma E00 con gamma < 1")
+   era ademas insuficiente aunque fuera cierto: el enunciado util es
+   CON SIGNO, E_N0N1 <= 0 en la orbita.
+   [Capa 1 declarada: E_ii NO es el mismo para las cuatro corrientes
+   -- VIBORAS iguala N0 y N1 con el padre PAR de la fibra, pero A y D
+   vienen de los IMPARES de k-1 y k+1, que son otras leyes con mas
+   exceso. Por eso la cota se mide y no se supone.]
+
+QUE NO DICE. Los puntos 5, 6, 7, 8, 11, 12 y 13 son MEDICION a
+horizonte finito sobre la orbita del DP, no teoremas: el gamma < 0,
+el crecimiento del par malo, el reparto del rho y la cota C-S estan
+MEDIDOS, no demostrados; el invariante comun trivial esta medido en
+m <= 8. SON TEOREMA (exactos en enteros o racionales): la identidad
+de polarizacion (2), la estructura de ciclos (3), el contraejemplo
+(4) y la identidad de traslacion (10). Nada de esto demuestra
+rho < 1/2 ni cierra la Pieza B: refuta el enunciado que habia dentro
+del cofre, mueve el cofre de sitio, y RESTRINGE LA FORMA que el
+teorema puede tener (punto 13).
+
+ETIQUETA: 2, 3, 4 y 10 TEOREMA (exactos); 5 aritmetica de
+autovalores de un ciclo; 6, 7, 8, 9, 11, 12, 13 MEDICION con cruce de
+definiciones (SystemExit en el cruce y en el cierre de la
+contabilidad). Sin revision externa aun -- y la regla del ritmo dice
+que la 11a revision va ANTES de apoyar nada encima de esto.
 Ficheros: correlacionafin.py, correlacionafin_salida.txt,
 corrienteszocalo.py, notaequidistribucion.txt (3-bis.viii),
 conteoconjunto.py, tortolas.lean.

@@ -79,9 +79,47 @@ distintos lo rompen (AVISPAS). **La forma del teorema es de EXPANSIÓN**
 (norma de un promedio de permutaciones afines de `Z/2^m`), no de
 correlación de dos mapas.
 
-**Etiquetas honestas:** los puntos 2, 3 y la estructura de ciclos son
-TEOREMA (exactos en racionales/enteros); 4, 6 y 7 son MEDICIÓN a
-horizonte finito sobre la órbita del DP, con cruce de definiciones.
+**8. LA ANATOMÍA DEL PAR MALO (teorema, enteros).** `A(c) − N1(c−1) =
+(3+3^k)/2` **constante** (m = 4…11, k = 2…7, todo `c` impar): bajo la
+identificación `c' = c−1` de los dos padres, A y N1 **no** difieren
+por un afín con multiplicador 3 — difieren por una **traslación
+pura**. Los dos mapas llevan el mismo factor 3; lo único que los
+separa es el desplazamiento `3^k/2` de la torre. **Por eso carga:
+el par bueno MEZCLA (dos ciclos que barren medio espacio), el par
+malo sólo DESPLAZA.**
+
+**9. EL NEGATIVO: el par malo no decae, CRECE.** Relativo a `E00`, en
+`k' = 3`: `0,395 → 0,672 → 0,682 → 0,778 → 0,853 → 0,932 → 0,905`
+(t = 12…24). Y sin embargo `ρ_ms` **baja** en la misma ventana
+(0,42 → 0,33). Sólo caben juntas si la contracción es un **balance con
+pesos**, no una dominación término a término.
+
+**10. La contabilidad completa** (identidad exacta
+`ρ_ms = Σ_ij w_i w_j E_ij / E00`, con `SystemExit` sobre su cierre en
+las 12 celdas): **propias (branching) 0,23–0,30** — casi todo el
+trabajo; **par BUENO N0-N1 negativo** (−0,04) en `k' ≥ 3`; **par MALO
+A-N1 sólo +0,05…+0,09** porque su peso es `w_A·w_N1 ≈ 0,04`; D-N0
++0,02…+0,13 (el grueso en `k' = 2`). *Por eso el ρ baja mientras el
+par malo sube.*
+
+**11. Y EL NEGATIVO QUE MÁS RESTRINGE (medido, no razonado).** La cota
+Cauchy-Schwarz cruda `(Σ_i w_i·√E_ii)²/E00` — lo peor posible si toda
+cruzada saturara C-S con signo + — vale **0,74 / 0,90 / 1,00 / 1,10**
+en `k' = 2/3/4/5: **supera 1**. No sólo no alcanza el umbral 1/2:
+**ni siquiera demuestra contracción.** ⇒ **Cualquier demostración del
+teorema de conteo que acote las cruzadas EN VALOR ABSOLUTO está
+condenada, por buena que sea la cota.** El teorema tiene que usar los
+**signos** — y el enunciado útil no es `|E_01| ≤ γ·E00` con `γ < 1`
+(insuficiente aunque fuera cierto) sino **`E_N0N1 ≤ 0` en la órbita**.
+*(Capa 1 declarada: `E_ii` no es igual para las cuatro corrientes —
+VÍBORAS iguala N0/N1 con el padre par, pero A y D vienen de los
+impares de `k∓1`, otras leyes con más exceso. Por eso se mide.)*
+
+**Etiquetas honestas:** son TEOREMA (exactos en racionales/enteros) la
+identidad de polarización, la estructura de ciclos, el contraejemplo y
+la identidad de traslación del punto 8; son MEDICIÓN a horizonte
+finito sobre la órbita del DP —con cruce de definiciones y `SystemExit`
+en los cierres— los puntos 4, 6, 7, 9, 10 y 11.
 **Nada de esto demuestra `ρ < 1/2` ni cierra la Pieza B**: refuta el
 enunciado que había dentro del cofre y mueve el cofre de sitio.
 **Pendiente inmediato (regla del ritmo): la 11ª revisión adversarial

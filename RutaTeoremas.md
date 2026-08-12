@@ -202,7 +202,29 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    **medido trivial** (una sola clase, m = 4, 6, 8). La forma del
 >    teorema es de **EXPANSIÓN** (norma de un promedio de
 >    permutaciones afines de `Z/2^m`), no de correlación de dos
->    mapas. *Bautizo pendiente (user-gated).*
+>    mapas.
+> 7. **LA ANATOMÍA DEL PAR MALO** (teorema, enteros):
+>    `A(c) − N1(c−1) = (3+3^k)/2` **constante** — bajo la
+>    identificación `c' = c−1`, A y N1 difieren por una **traslación
+>    pura**, no por un afín con multiplicador 3. **El par bueno
+>    MEZCLA; el par malo sólo DESPLAZA** — ésa es la razón mecánica de
+>    quién carga el exceso.
+> 8. **EL NEGATIVO**: el par malo **no decae, CRECE** (0,395 → 0,905
+>    en `k'=3`, t = 12…24) mientras `ρ_ms` **baja** (0,42 → 0,33). La
+>    contracción es un **balance con pesos**: la contabilidad exacta
+>    (`ρ_ms = Σ_ij w_i w_j E_ij/E00`, cierre con `SystemExit`) reparte
+>    **propias 0,23–0,30** (el branching hace casi todo), **N0-N1
+>    negativo**, y el par malo sólo `+0,05…+0,09` porque pesa 0,04.
+> 9. **⇢ LA RESTRICCIÓN QUE MÁS IMPORTA PARA LA PRÓXIMA SESIÓN**
+>    (medida, no razonada): la cota **Cauchy-Schwarz cruda**
+>    `(Σ_i w_i√E_ii)²/E00` vale **0,74 / 0,90 / 1,00 / 1,10** en
+>    `k' = 2/3/4/5` — **supera 1**: ni siquiera demuestra contracción.
+>    ⇒ **toda demostración del teorema de conteo que acote las
+>    cruzadas en VALOR ABSOLUTO está condenada**, por buena que sea la
+>    cota. El teorema tiene que usar los **signos**, y el enunciado
+>    útil no es `|E_01| ≤ γE00` con `γ<1` —insuficiente aunque fuera
+>    cierto— sino **`E_N0N1 ≤ 0` sobre la órbita**. *Ahí está el cofre
+>    nuevo.* *Bautizo pendiente (user-gated).*
 >
 > **⇢ 12-08 (2) — LA 10ª REVISIÓN ADVERSARIAL, HECHA Y APLICADA**
 > (acta `actarevision1208.txt`; informes `_adv1/2/3.txt`): **la
