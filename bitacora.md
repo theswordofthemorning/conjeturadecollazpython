@@ -115,6 +115,33 @@ condenada, por buena que sea la cota.** El teorema tiene que usar los
 VÍBORAS iguala N0/N1 con el padre par, pero A y D vienen de los
 impares de `k∓1`, otras leyes con más exceso. Por eso se mide.)*
 
+**12. Y LA AUTOCORRECCIÓN, EN LA MISMA SESIÓN — la capa 1 aplicada al
+propio hallazgo.** La salida natural del punto 11 era «entonces el
+teorema tiene que usar el signo: demostrar `E_N0N1 ≤ 0` sobre la
+órbita». **Se propuso y se retiró la misma tarde**: barrida la escala
+`m = 5…9`, **el γ del par bueno cambia de signo** (A k'=4:
+`+0,127 / +0,103 / +0,115 / −0,259 / −0,125`; B k'=5:
+`+0,096 / +0,112 / +0,198 / −0,312 / −0,209`). **El signo no es un
+invariante** — el «γ < 0 en k ≥ 3» era una lectura de una sola escala
+(m = 8), y como tal queda. *Lección: el mismo modo de fallo del punto
+5 (número de un objeto leído como de otro) tiene un primo — número de
+una escala leído como estructural; el antídoto es el mismo, barrer
+antes de enunciar.*
+
+**Lo que SÍ aguanta el barrido** (y por eso queda como el hecho duro):
+(a) **`ρ_ms` se mantiene en 0,23–0,43 en toda escala `m = 6…9`** y en
+las 12 celdas — siempre bajo 1/2: el blanco de 3-bis.vii sigue en pie
+con una dimensión más de evidencia; (b) la cota C-S cruda **supera 1
+en todas las escalas** (peor **1,156**) — ese negativo **no** era
+artefacto de m = 8.
+
+**⇒ ESTADO DEL COFRE, HONESTO:** el teorema de conteo no puede
+apoyarse **ni en cotas en valor absoluto** (11) **ni en el signo de una
+cruzada** (12). Lo único estable es el **branching de las corrientes
+propias** (`Σw² ≤ 0,37`, estructural y demostrable por conteo de masas)
+**más una acotación CONJUNTA del resto**, no término a término. Es una
+forma más estrecha —mejor definida— que la de ayer.
+
 **Etiquetas honestas:** son TEOREMA (exactos en racionales/enteros) la
 identidad de polarización, la estructura de ciclos, el contraejemplo y
 la identidad de traslación del punto 8; son MEDICIÓN a horizonte

@@ -221,10 +221,23 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    `k' = 2/3/4/5` — **supera 1**: ni siquiera demuestra contracción.
 >    ⇒ **toda demostración del teorema de conteo que acote las
 >    cruzadas en VALOR ABSOLUTO está condenada**, por buena que sea la
->    cota. El teorema tiene que usar los **signos**, y el enunciado
->    útil no es `|E_01| ≤ γE00` con `γ<1` —insuficiente aunque fuera
->    cierto— sino **`E_N0N1 ≤ 0` sobre la órbita**. *Ahí está el cofre
->    nuevo.* *Bautizo pendiente (user-gated).*
+>    cota. *(Medido en m = 6…9: peor **1,156** — no es artefacto de
+>    una escala.)*
+> 10. **⇢ Y LA AUTOCORRECCIÓN DE LA MISMA TARDE, ANTES DE QUE NADIE SE
+>    APOYE ENCIMA** (C10): la salida natural de 9 —«entonces el
+>    teorema tiene que usar el signo: demostrar `E_N0N1 ≤ 0` sobre la
+>    órbita»— **se propuso y se RETIRÓ en la misma sesión**. Barrida
+>    la escala `m = 5…9`, **el γ del par bueno CAMBIA DE SIGNO con
+>    `m`** (A k'=4: `+0,127 / +0,103 / +0,115 / −0,259 / −0,125`): el
+>    signo **no es un invariante**, era una lectura de una sola
+>    escala. Lo que **sí** aguanta el barrido es `ρ_ms`, en
+>    **0,23–0,43 en toda escala `m = 6…9`** — siempre bajo 1/2.
+>    **Estado del cofre, honesto: el teorema no puede apoyarse ni en
+>    cotas en valor absoluto (9) ni en el signo de una cruzada (10).
+>    Lo único estable es el BRANCHING de las propias** (`Σw² ≤ 0,37`,
+>    estructural, demostrable por conteo de masas) **más una acotación
+>    CONJUNTA del resto** — no término a término. *Bautizo pendiente
+>    (user-gated).*
 >
 > **⇢ 12-08 (2) — LA 10ª REVISIÓN ADVERSARIAL, HECHA Y APLICADA**
 > (acta `actarevision1208.txt`; informes `_adv1/2/3.txt`): **la

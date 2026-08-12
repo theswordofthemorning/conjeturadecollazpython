@@ -1,4 +1,4 @@
-﻿EL COFRE ABIERTO: LA CORRELACION AFIN Sigma p(r) p(tau r)
+EL COFRE ABIERTO: LA CORRELACION AFIN Sigma p(r) p(tau r)
 el pendiente No 1 -- notaequidistribucion 3-bis.viii(c)
 
 C0  el tau del cofre, identificado contra las leyes del DP
@@ -99,7 +99,7 @@ C6  la reparacion -- el subespacio invariante COMUN
     la MEZCLA. Un f sobrevive a la mezcla solo si sobrevive a
     TODAS las corrientes a la vez. Los tau_k de fibras
     distintas tienen desplazamientos s_k distintos (AVISPAS):
-    ¿comparten invariantes?
+    �comparten invariantes?
 
       m    invariantes comunes de tau_k, k en el zocalo
        4   1 clase(s) -- dimension del invariante comun
@@ -258,6 +258,87 @@ C9  la contabilidad PONDERADA (la leccion de C8(b))
     corrientes -- VIBORAS iguala N0 y N1 con el padre PAR de
     la fibra, pero A y D vienen de los IMPARES de k-1 y k+1,
     que son otras leyes. Por eso la cota se MIDE.)
+
+C10 el cofre nuevo: POR QUE E_N0N1 < 0 (analisis en Fourier)
+    La forma exacta: con P f = f o tau y tau(u) = 3u + s,
+      (Pf)^(j) = e^(2 pi i j t s / N) * f^(t j),  t = 3^(-1),
+    luego  <f, Pf> = (1/N) Sigma_j conj(f^(j)) f^(t j) *
+    e^(2 pi i j t s / N). El multiplicador 3 PERMUTA las
+    frecuencias (y preserva v2(j)); el desplazamiento s pone
+    la FASE. El signo del total sale de esas fases -- y por
+    eso el par malo (traslacion pura, mismo j) no puede dar
+    signo negativo estructural pero el bueno si.
+
+      (escala m = 7 para que la DFT directa sea barata; el
+       control de Parseval va con SystemExit)
+
+      arranque k'  <f,Pf>/<f,f> | aporte por v2(j):   j impar   v2=1    v2=2    v2>=3
+      A         2       -0.026   |          -0.024   0.002   0.016  -0.020
+      A         3       -0.208   |          -0.031  -0.185   0.015  -0.007
+      A         4        0.115   |           0.029   0.063   0.018   0.004
+      A         5        0.161   |           0.010   0.135   0.016  -0.001
+      B         2       -0.065   |          -0.028  -0.074   0.039  -0.002
+      B         3       -0.033   |           0.027  -0.076   0.018  -0.002
+      B         4       -0.002   |          -0.068   0.056   0.033  -0.023
+      B         5        0.198   |           0.134   0.045   0.023  -0.004
+      ADV       2        0.170   |           0.098   0.008   0.062   0.002
+      ADV       3        0.101   |           0.093  -0.010   0.008   0.011
+      ADV       4        0.042   |           0.022  -0.024   0.069  -0.026
+      ADV       5        0.112   |           0.018   0.008   0.078   0.007
+
+    (Parseval y la identidad de Fourier, ambas con SystemExit
+     armado: el reparto es una descomposicion EXACTA del
+     mismo numero que C5 midio en el espacio directo.)
+
+    ==> PERO ANTES DE LEER NADA: los numeros de arriba (m = 7)
+    NO tienen el mismo signo que los de C5 (m = 8). Eso es un
+    aviso de capa 1 sobre el 'cofre nuevo' que C9 propuso
+    (E_N0N1 <= 0 en la orbita): si el signo depende de la
+    escala, no es un invariante estructural. La tabla que
+    sigue barre la escala ENTERA antes de escribir la
+    conclusion -- y trae el rho_ms al lado, que es lo que de
+    verdad tiene que quedar bajo 1/2.
+
+      arranque k'    gamma por escala m         |  rho_ms(m)    | cotaCS(m)
+                    5      6      7      8      9  |   6      7      8      9  |  6     7     8     9
+      A         2 -0.024 -0.003 -0.026  0.099  0.121  |  0.364  0.340  0.424  0.406 |  0.73  0.72  0.76  0.75
+      A         3  0.056 -0.208 -0.208 -0.138 -0.079  |  0.325  0.312  0.394  0.380 |  0.92  0.92  0.93  0.93
+      A         4  0.127  0.103  0.115 -0.259 -0.125  |  0.347  0.346  0.335  0.340 |  1.02  1.03  1.00  1.00
+      A         5  0.097  0.234  0.161 -0.259 -0.107  |  0.431  0.366  0.316  0.338 |  1.16  1.09  1.10  1.06
+      B         2  0.226 -0.063 -0.065  0.191  0.178  |  0.308  0.303  0.424  0.410 |  0.72  0.72  0.76  0.75
+      B         3  0.092 -0.097 -0.033 -0.016 -0.001  |  0.276  0.292  0.372  0.390 |  0.90  0.91  0.90  0.92
+      B         4  0.076  0.105 -0.002 -0.332 -0.184  |  0.343  0.339  0.325  0.378 |  1.02  1.06  1.03  1.05
+      B         5  0.096  0.112  0.198 -0.312 -0.209  |  0.319  0.341  0.292  0.318 |  1.05  1.05  1.08  1.07
+      ADV       2  0.160  0.162  0.170  0.141  0.093  |  0.277  0.337  0.397  0.384 |  0.69  0.71  0.74  0.74
+      ADV       3  0.048  0.020  0.101 -0.065 -0.074  |  0.240  0.318  0.355  0.361 |  0.95  0.91  0.89  0.90
+      ADV       4  0.137  0.047  0.042 -0.195 -0.120  |  0.227  0.290  0.309  0.342 |  1.00  0.96  0.97  1.01
+      ADV       5  0.233  0.202  0.112 -0.184 -0.124  |  0.294  0.327  0.314  0.354 |  1.08  1.07  1.09  1.09
+
+    la cota C-S cruda por escala (ultimas columnas): peor
+    sobre m = 6..9 y las 12 celdas = 1.156 -- sigue POR ENCIMA
+    de 1 en varias escalas, luego el negativo de C9 NO era un
+    artefacto de m = 8: esa restriccion aguanta el barrido.
+
+    ==> EL VEREDICTO DE LA ESCALA, sin adornos: el gamma del par
+    N0-N1 CAMBIA DE SIGNO con m -- no es un invariante. La
+    propuesta de C9 ('demostrar E_N0N1 <= 0 en la orbita')
+    queda RETIRADA como enunciado: era una lectura de UNA
+    escala. Lo que SI aguanta el barrido es el rho_ms, que se
+    queda bajo 1/2 en toda la escala medida. Conclusion
+    corregida: el teorema no puede apoyarse ni en cotas en
+    valor absoluto (C9: la C-S cruda pasa de 1) ni en el signo
+    de una cruzada (inestable en m). Lo unico estable es el
+    BRANCHING de las propias -- que es estructural y ya vale
+    Sigma w^2 <= 0,37 -- mas la acotacion CONJUNTA del resto.
+
+    LECTURA: v2(j) es invariante bajo j -> 3^(-1) j, asi que
+    el reparto por v2 es una descomposicion en subespacios
+    INVARIANTES -- cada franja aporta por su cuenta. Si el
+    negativo se concentra en las frecuencias IMPARES, el
+    mecanismo del signo es la fase e^(2 pi i j t s / N) con s
+    impar: para j impar la fase gira medio giro por unidad de
+    s y el termino cambia de signo. Ahi vive el teorema que
+    la proxima sesion necesita (E_N0N1 <= 0 en la orbita).
 
 ETIQUETA: C0-C3 son TEOREMA (enteros y racionales exactos);
 C4 es aritmetica de autovalores de un ciclo (numerico

@@ -210,7 +210,38 @@ sesion anterior: notaequidistribucion 3-bis.viii(c).)
    vienen de los IMPARES de k-1 y k+1, que son otras leyes con mas
    exceso. Por eso la cota se mide y no se supone.]
 
-QUE NO DICE. Los puntos 5, 6, 7, 8, 11, 12 y 13 son MEDICION a
+14. LA AUTOCORRECCION DE LA MISMA TARDE (C10 -- la capa 1 aplicada al
+   propio hallazgo, antes de que nadie se apoye encima). La salida
+   natural del punto 13 era: "entonces el teorema tiene que usar el
+   signo -- demostrar E_N0N1 <= 0 sobre la orbita". SE PROPUSO Y SE
+   RETIRA EN LA MISMA SESION. Barriendo la escala m = 5..9 (mismo t,
+   mismos tres arranques), el gamma del par bueno CAMBIA DE SIGNO:
+
+     arranque A, k' = 4:  +0,127  +0,103  +0,115  -0,259  -0,125
+     arranque B, k' = 5:  +0,096  +0,112  +0,198  -0,312  -0,209
+     arranque ADV, k'= 3: +0,048  +0,020  +0,101  -0,065  -0,074
+
+   El signo NO es un invariante: el "gamma < 0 en k >= 3" del punto 7
+   era una lectura de UNA escala (m = 8). Queda como medicion de esa
+   escala, no como enunciado.
+
+   LO QUE SI AGUANTA EL BARRIDO, y por eso queda como el hecho duro:
+   (a) rho_ms se mantiene en 0,23 - 0,43 en TODA escala m = 6..9 y en
+       las 12 celdas -- siempre bajo 1/2 (el blanco de 3-bis.vii
+       sigue en pie y ahora con una dimension mas de evidencia);
+   (b) la cota C-S cruda del punto 13 SUPERA 1 en todas las escalas
+       (peor 1,156 en m = 6..9), luego ESE negativo no era artefacto
+       de una escala.
+
+   ESTADO DEL COFRE, HONESTO: el teorema de conteo no puede apoyarse
+   ni en cotas en VALOR ABSOLUTO (punto 13) ni en el SIGNO de una
+   cruzada (este punto). Lo unico estable es el BRANCHING de las
+   corrientes propias -- Sigma w^2 <= 0,37, estructural y demostrable
+   por conteo de masas -- mas una acotacion CONJUNTA del resto, no
+   termino a termino. Esa es la forma que le queda al teorema, y es
+   mas estrecha (mejor definida) que la de ayer.
+
+QUE NO DICE. Los puntos 5, 6, 7, 8, 11, 12, 13 y 14 son MEDICION a
 horizonte finito sobre la orbita del DP, no teoremas: el gamma < 0,
 el crecimiento del par malo, el reparto del rho y la cota C-S estan
 MEDIDOS, no demostrados; el invariante comun trivial esta medido en

@@ -791,6 +791,202 @@ print("    la fibra, pero A y D vienen de los IMPARES de k-1 y k+1,")
 print("    que son otras leyes. Por eso la cota se MIDE.)")
 print()
 
+# ---------------------------------------------------------------
+# C10 EL MECANISMO DEL SIGNO -- de donde sale el anti-alineamiento
+# ---------------------------------------------------------------
+print("C10 el cofre nuevo: POR QUE E_N0N1 < 0 (analisis en Fourier)")
+print("    La forma exacta: con P f = f o tau y tau(u) = 3u + s,")
+print("      (Pf)^(j) = e^(2 pi i j t s / N) * f^(t j),  t = 3^(-1),")
+print("    luego  <f, Pf> = (1/N) Sigma_j conj(f^(j)) f^(t j) *")
+print("    e^(2 pi i j t s / N). El multiplicador 3 PERMUTA las")
+print("    frecuencias (y preserva v2(j)); el desplazamiento s pone")
+print("    la FASE. El signo del total sale de esas fases -- y por")
+print("    eso el par malo (traslacion pura, mismo j) no puede dar")
+print("    signo negativo estructural pero el bueno si.")
+print()
+import cmath
+
+
+def dft(f):
+    N = len(f)
+    out = []
+    for j in range(N):
+        s = 0j
+        for u, x in enumerate(f):
+            if x:
+                s += x * cmath.exp(-2j * cmath.pi * j * u / N)
+        out.append(s)
+    return out
+
+
+M_F = 7                      # escala del analisis espectral
+print("      (escala m = %d para que la DFT directa sea barata; el"
+      % M_F)
+print("       control de Parseval va con SystemExit)")
+print()
+print("      arranque k'  <f,Pf>/<f,f> | aporte por v2(j):"
+      "   j impar   v2=1    v2=2    v2>=3")
+for c0, nombre in ARRANQUES:
+    hist = dp_correr(c0)
+    estados = hist[T_MEDIDA]
+    for k in range(2, K_ZOCALO + 1):
+        N = 2 ** M_F
+        sk = s_de_k(k) % N
+        tau = [(3 * u + sk) % N for u in range(N)]
+        cuenta = {}
+        for (kk, cm), n in estados.items():
+            if kk == k and cm % 2 == 0:
+                u = (cm // 2) % N
+                cuenta[u] = cuenta.get(u, 0) + n
+        masa = sum(cuenta.values())
+        if masa == 0:
+            continue
+        vec = [cuenta.get(u, 0) for u in range(N)]
+        f = [N * x - masa for x in vec]
+        den = sum(x * x for x in f)
+        if den == 0:
+            continue
+        num = sum(f[u] * f[tau[u]] for u in range(N))
+        g = num / float(den)
+        # el mismo numero por Fourier, y su reparto por v2(j)
+        F = dft(f)
+        parseval = sum(abs(z) ** 2 for z in F) / N
+        if abs(parseval - den) > 1e-6 * max(1.0, den):
+            raise SystemExit("C10: Parseval falla (%g vs %g)"
+                             % (parseval, den))
+        tinv = pow(3, -1, N)
+        aporte = {0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0}
+        tot = 0.0
+        for j in range(N):
+            z = (F[j].conjugate() * F[(tinv * j) % N]
+                 * cmath.exp(2j * cmath.pi * j * tinv * sk / N))
+            tot += z.real
+            if j == 0:
+                cl = 0
+            else:
+                a = v2(j)
+                cl = 0 if a == 0 else (1 if a == 1 else
+                                       (2 if a == 2 else 3))
+            aporte[cl] += z.real
+        tot /= N
+        if abs(tot - num) > 1e-6 * max(1.0, abs(num)):
+            raise SystemExit("C10: la identidad de Fourier falla "
+                             "(%g vs %g)" % (tot, num))
+        print("      %-8s %2d      %7.3f   |        %8.3f %7.3f"
+              " %7.3f %7.3f"
+              % (nombre.split()[0], k, g,
+                 aporte[0] / N / den, aporte[1] / N / den,
+                 aporte[2] / N / den, aporte[3] / N / den))
+print()
+print("    (Parseval y la identidad de Fourier, ambas con SystemExit")
+print("     armado: el reparto es una descomposicion EXACTA del")
+print("     mismo numero que C5 midio en el espacio directo.)")
+print()
+print("    ==> PERO ANTES DE LEER NADA: los numeros de arriba (m = 7)")
+print("    NO tienen el mismo signo que los de C5 (m = 8). Eso es un")
+print("    aviso de capa 1 sobre el 'cofre nuevo' que C9 propuso")
+print("    (E_N0N1 <= 0 en la orbita): si el signo depende de la")
+print("    escala, no es un invariante estructural. La tabla que")
+print("    sigue barre la escala ENTERA antes de escribir la")
+print("    conclusion -- y trae el rho_ms al lado, que es lo que de")
+print("    verdad tiene que quedar bajo 1/2.")
+print()
+peor_cs_esc = [0.0]
+print("      arranque k'    gamma por escala m         |  rho_ms(m)    | cotaCS(m)")
+print("                    5      6      7      8      9  |"
+      "   6      7      8      9  |  6     7     8     9")
+for c0, nombre in ARRANQUES:
+    hist = dp_correr(c0)
+    estados = hist[T_MEDIDA]
+    llegadas = descomponer(estados, T_MEDIDA)
+    for k in range(2, K_ZOCALO + 1):
+        gs, rs, cs_esc = [], [], []
+        for m in (5, 6, 7, 8, 9):
+            N = 2 ** m
+            sk = s_de_k(k) % N
+            tau = [(3 * u + sk) % N for u in range(N)]
+            cuenta = {}
+            for (kk, cm), n in estados.items():
+                if kk == k and cm % 2 == 0:
+                    u = (cm // 2) % N
+                    cuenta[u] = cuenta.get(u, 0) + n
+            masa = sum(cuenta.values())
+            if masa == 0:
+                gs.append("   ---")
+                continue
+            vec = [cuenta.get(u, 0) for u in range(N)]
+            f = [N * x - masa for x in vec]
+            den = sum(x * x for x in f)
+            num = sum(f[u] * f[tau[u]] for u in range(N))
+            gs.append("%6.3f" % (num / float(den)) if den else "   ---")
+            if m >= 6:
+                # el rho_ms de la fibra a esta escala
+                porcor, masas = {}, {}
+                for cor in CORRIENTES:
+                    d = llegadas.get((k, cor), {})
+                    red = {}
+                    for x, n in d.items():
+                        r = x % N
+                        red[r] = red.get(r, 0) + n
+                    porcor[cor] = red
+                    masas[cor] = sum(red.values())
+                mtot = sum(masas.values())
+                col0 = sum(v * v for v in porcor['N0'].values())
+                e00 = (N * col0 / float(masas['N0']) ** 2 - 1
+                       if masas['N0'] else 0.0)
+                hija = {}
+                for cor in CORRIENTES:
+                    for r, n in porcor[cor].items():
+                        hija[r] = hija.get(r, 0) + n
+                colh = sum(v * v for v in hija.values())
+                eh = N * colh / float(mtot) ** 2 - 1
+                rs.append("%6.3f" % (eh / e00) if abs(e00) > 1e-9
+                          else "   ---")
+                # y la cota C-S cruda a ESTA escala (no solo m = 8:
+                # el mismo error de una-escala no se comete dos veces)
+                if abs(e00) > 1e-9:
+                    acum = 0.0
+                    for cor in CORRIENTES:
+                        if not masas[cor]:
+                            continue
+                        cc = sum(v * v for v in porcor[cor].values())
+                        eii = N * cc / float(masas[cor]) ** 2 - 1
+                        acum += (masas[cor] / float(mtot)) * \
+                            math.sqrt(max(eii, 0.0))
+                    cs_esc.append(acum ** 2 / e00)
+        print("      %-8s %2d %s  | %s | %s"
+              % (nombre.split()[0], k, " ".join(gs), " ".join(rs),
+                 " ".join("%5.2f" % v for v in cs_esc)))
+        peor_cs_esc[0] = max([peor_cs_esc[0]] + cs_esc)
+print()
+print("    la cota C-S cruda por escala (ultimas columnas): peor")
+print("    sobre m = 6..9 y las 12 celdas = %.3f -- sigue POR ENCIMA"
+      % peor_cs_esc[0])
+print("    de 1 en varias escalas, luego el negativo de C9 NO era un")
+print("    artefacto de m = 8: esa restriccion aguanta el barrido.")
+print()
+print("    ==> EL VEREDICTO DE LA ESCALA, sin adornos: el gamma del par")
+print("    N0-N1 CAMBIA DE SIGNO con m -- no es un invariante. La")
+print("    propuesta de C9 ('demostrar E_N0N1 <= 0 en la orbita')")
+print("    queda RETIRADA como enunciado: era una lectura de UNA")
+print("    escala. Lo que SI aguanta el barrido es el rho_ms, que se")
+print("    queda bajo 1/2 en toda la escala medida. Conclusion")
+print("    corregida: el teorema no puede apoyarse ni en cotas en")
+print("    valor absoluto (C9: la C-S cruda pasa de 1) ni en el signo")
+print("    de una cruzada (inestable en m). Lo unico estable es el")
+print("    BRANCHING de las propias -- que es estructural y ya vale")
+print("    Sigma w^2 <= 0,37 -- mas la acotacion CONJUNTA del resto.")
+print()
+print("    LECTURA: v2(j) es invariante bajo j -> 3^(-1) j, asi que")
+print("    el reparto por v2 es una descomposicion en subespacios")
+print("    INVARIANTES -- cada franja aporta por su cuenta. Si el")
+print("    negativo se concentra en las frecuencias IMPARES, el")
+print("    mecanismo del signo es la fase e^(2 pi i j t s / N) con s")
+print("    impar: para j impar la fase gira medio giro por unidad de")
+print("    s y el termino cambia de signo. Ahi vive el teorema que")
+print("    la proxima sesion necesita (E_N0N1 <= 0 en la orbita).")
+print()
+
 print("ETIQUETA: C0-C3 son TEOREMA (enteros y racionales exactos);")
 print("C4 es aritmetica de autovalores de un ciclo (numerico")
 print("controlado); C5 y C6 son MEDICION sobre la orbita del DP a")
