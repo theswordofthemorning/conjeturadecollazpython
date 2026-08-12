@@ -154,21 +154,26 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
           P_col(t+1, m) = (1/4) Sigma_{b,b'} Sigma_x p_x
                           (p_{socio par}(x) + p_{socio impar}(x)),
         ocho sumas de la forma Sigma p_x p_tau(x) con tau
-        biyeccion. (Control de cordura: con p uniforme la identidad
-        devuelve 2^-m exacto.) DOS consecuencias:
-        - por Cauchy-Schwarz en cada suma, P_col(t+1, m) <= 2
-          P_col(t, m+1), o sea e_(t+1)(m) <= e_t(m+1): LA
-          MONOTONIA DIAGONAL (rho_ms <= 1) es demostrable ya --
-          modulo la contabilidad de k (los mapas dependen del par
-          (k, k') y la absorcion condiciona: por escribir);
-        - el 1/2 es un GAP ESPECTRAL del operador de pares: la
-          igualdad en C-S pide p alineado con tau, y los OCHO tau
-          difieren entre si por corrimientos tipo AVISPAS -- p no
-          puede alinearse con todos a la vez. La cuantificacion de
-          ese desalineo (la norma del operador promedio de los 8
-          mapas sobre el complemento de la uniforme) ES el teorema
-          de conteo. Blanco medido: 0,44; trivial demostrable: 1;
-          el hueco es el gap.
+        biyeccion POR CADA PAR (k, k') de alturas. (Control de
+        cordura: con p uniforme la identidad devuelve 2^-m
+        exacto.) DOS consecuencias, con la correccion de capa 1
+        hecha la misma noche:
+        - la ruta trivial NO da rho <= 1: el C-S por cada par
+          (k, k') entrega Sigma_{k,k'} sqrt(P2_k P2_k') =
+          (Sigma_k sqrt(P2_k))^2 <= K_eff * Sigma_k P2_k -- un
+          factor K_eff (numero efectivo de alturas vivas) que la
+          version anterior de este parrafo llamaba "contabilidad
+          por escribir" y ES el corazon: la DECOHERENCIA EN k (la
+          masa del socio repartida entre alturas) no es
+          bookkeeping, es la mitad del teorema. Lo unico trivial
+          es rho <= K_eff.
+        - la otra mitad es el GAP ESPECTRAL en x: la igualdad en
+          C-S pide p alineado con tau, y los ocho tau (por (k,k')
+          fijo) difieren entre si por corrimientos tipo AVISPAS --
+          p no puede alinearse con todos a la vez. El teorema de
+          conteo = cuantificar el producto de los dos desalineos
+          (k y x). Blanco medido: 0,44; el umbral que cierra: 1/2;
+          la ruta trivial se queda en K_eff.
 
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
