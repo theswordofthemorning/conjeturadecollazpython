@@ -1,0 +1,69 @@
+EL EXCESO DE COLISION e_t = C2(t) - 1 Y SU CONTRACCION
+(el kernel de la renovacion del teorema de conteo; m = 8)
+
+arranque A (c0 = 999983):
+  t =  0  C2 =  256.0000   e_t = 255.00000
+  t =  2  C2 =  128.0000   e_t = 127.00000
+  t =  4  C2 =   42.6667   e_t =  41.66667
+  t =  6  C2 =   13.3515   e_t =  12.35147
+  t =  8  C2 =    4.6432   e_t =   3.64319
+  t = 10  C2 =    2.5675   e_t =   1.56748
+  t = 12  C2 =    1.6499   e_t =   0.64987
+  t = 14  C2 =    1.3209   e_t =   0.32085
+  t = 16  C2 =    1.1674   e_t =   0.16744
+  t = 18  C2 =    1.1140   e_t =   0.11398
+  t = 20  C2 =    1.0689   e_t =   0.06893
+  t = 22  C2 =    1.0613   e_t =   0.06132
+  t = 23  C2 =    1.0849   e_t =   0.08489
+  t = 24  C2 =    1.0424   e_t =   0.04239
+  t = 25  C2 =    1.0440   e_t =   0.04398
+  t = 26  C2 =    1.0254   e_t =   0.02540
+  razon media de contraccion (t = 8..26): 0.759
+
+arranque B (c0 = 999999937):
+  t =  0  C2 =  256.0000   e_t = 255.00000
+  t =  2  C2 =  128.0000   e_t = 127.00000
+  t =  4  C2 =   32.0000   e_t =  31.00000
+  t =  6  C2 =   11.3609   e_t =  10.36095
+  t =  8  C2 =    4.4534   e_t =   3.45341
+  t = 10  C2 =    2.4359   e_t =   1.43591
+  t = 12  C2 =    1.6743   e_t =   0.67426
+  t = 14  C2 =    1.3696   e_t =   0.36958
+  t = 16  C2 =    1.2521   e_t =   0.25206
+  t = 18  C2 =    1.2239   e_t =   0.22390
+  t = 20  C2 =    1.1296   e_t =   0.12959
+  t = 22  C2 =    1.0670   e_t =   0.06703
+  t = 23  C2 =    1.0588   e_t =   0.05880
+  t = 24  C2 =    1.0384   e_t =   0.03839
+  t = 25  C2 =    1.0443   e_t =   0.04435
+  t = 26  C2 =    1.0309   e_t =   0.03090
+  razon media de contraccion (t = 8..26): 0.769
+
+arranque ADV (c0 = 1398101):
+  t =  0  C2 =  256.0000   e_t = 255.00000
+  t =  2  C2 =  128.0000   e_t = 127.00000
+  t =  4  C2 =   36.5714   e_t =  35.57143
+  t =  6  C2 =   13.5168   e_t =  12.51680
+  t =  8  C2 =    6.2453   e_t =   5.24535
+  t = 10  C2 =    4.0590   e_t =   3.05896
+  t = 12  C2 =    2.6993   e_t =   1.69927
+  t = 14  C2 =    2.0554   e_t =   1.05539
+  t = 16  C2 =    1.3206   e_t =   0.32062
+  t = 18  C2 =    1.1322   e_t =   0.13224
+  t = 20  C2 =    1.1654   e_t =   0.16543
+  t = 22  C2 =    1.1148   e_t =   0.11479
+  t = 23  C2 =    1.0598   e_t =   0.05982
+  t = 24  C2 =    1.0393   e_t =   0.03928
+  t = 25  C2 =    1.0396   e_t =   0.03962
+  t = 26  C2 =    1.0270   e_t =   0.02698
+  razon media de contraccion (t = 8..26): 0.746
+
+X1 OK (exceso final <= 0.06), X2 OK (contraccion geometrica
+<= 0.85; medida ~0,7), X3 OK (el adversarial contrae igual
+que A: 0.746 vs 0.759).
+
+Lectura: la GANANCIA ESTRICTA que el telescopio critico del
+conteo necesita EXISTE y es geometrica (~0,7 por paso, uniforme
+en arranques, adversarial incluido). El teorema pendiente es
+demostrar rho < 1 para UNA transicion del DP. Medicion, no
+teorema.

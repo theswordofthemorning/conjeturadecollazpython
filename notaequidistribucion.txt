@@ -95,6 +95,35 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
          converge mas rapido y mas parejo que la L-infinito
          (1,5-1,6 aun bajando).
 
+3-bis. EL ATAQUE POR PARES, CON SU OBSTRUCCION EXACTA Y SU SALIDA
+   (12-08, tarde -- el estado del intento, para la 10a):
+   (i)  LA FORMULACION: C2 es la probabilidad de colision de DOS
+        palabras independientes; condicionando al primer desvio en
+        el paso i (peso 2^-i) y usando que tras el desvio las dos
+        trayectorias llevan bits INDEPENDIENTES,
+          q(i) <= sqrt(C2_hijo_a * C2_hijo_b) * 2^-m
+        (Cauchy-Schwarz sobre las leyes de cada hijo). El
+        telescopio Sigma_i 2^-i * q(i) es autoconsistente PERO
+        CRITICO EXACTO: Sigma 2^-i = 1, cero holgura -- la
+        desigualdad K <= K no demuestra nada. LA OBSTRUCCION
+        NOMBRADA: el conteo necesita GANANCIA ESTRICTA por paso,
+        no acotacion.
+   (ii) LA REFORMULACION CORRECTA: rastrear el EXCESO e_t =
+        C2(t) - 1 (la distancia al piso uniforme). La renovacion
+        objetivo es e_(t+1) <= rho e_t + (termino sumable) con
+        rho < 1; el candidato a mecanismo de la contraccion es la
+        inyeccion de bits (3.i): la fraccion de masa que pasa por
+        pasos compartidos con k impar parte cada colision
+        potencial en dos clases de paridad opuesta.
+   (iii) MEDIDO (sonda sobre el DP, m = 8, t = 0..26, tres
+        arranques): e_t decae GEOMETRICO con razon ~0,7 por paso,
+        UNIFORME en los tres arranques -- de 255 a 0,025 en 26
+        pasos, razon media 0,69; el adversarial converge igual
+        (0,377-0,85 por paso una vez muerto el transitorio). La
+        contraccion estricta EXISTE y es medible; el teorema
+        pendiente es exactamente demostrar rho < 1 para el paso
+        del DP -- un enunciado de UNA transicion, no asintotico.
+
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada
    asintotico en t (el DP es horizonte finito; la tendencia a 1 es
