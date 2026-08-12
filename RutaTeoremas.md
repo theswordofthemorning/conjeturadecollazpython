@@ -171,9 +171,14 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 > la razón media, el 1,042, el filtro declarado, el margen honesto
 > **4%** (peor 0,480 en m=10). **EL PENDIENTE Nº 1 SIGUE SIENDO EL
 > TEOREMA DE CONTEO** (ρ_ms < 1/2 sobre la órbita del DP), ahora
-> con dos sub-lemas nombrados listos para formalizar: (a) la unión
-> por palabras (hermano de VÍBORAS, maquinaria de `tres_inyectivo`)
-> y (b) el wedge escala-tiempo (la cota rige desde t ~ 5,5·j).
+> con dos sub-lemas nombrados: (a) la unión por palabras — **YA
+> FORMALIZADA la misma tarde** (`unionpalabras.lean`, el 21º:
+> `corre_comparte` por inducción sobre la palabra +
+> `una_clase_palabra_bit0/bit1`, con q libre por paso; 0 `sorryAx`;
+> cruce `union_cruce.py`: 1.260 combinaciones, EXACTAMENTE una
+> clase en todas — unicidad teorema, existencia medida; bautizo
+> pendiente) — y (b) el wedge escala-tiempo (la cota rige desde
+> t ~ 5,5·j), por escribir.
 > Deuda de documentación anotada: las seis leyes completas fuera de
 > `cadenakc.lean` y la serie de cajas de la escalera.
 

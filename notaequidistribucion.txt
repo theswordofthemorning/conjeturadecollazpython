@@ -102,10 +102,18 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
          (phi(1) = 1 < 2; con C2 = 1,042 sale z* = 1,17) pero su
          razon es 0,855, NO 2^(-1/2). LA VIA BUENA: el compuesto es
          INNECESARIO -- "racha >= j con palabra u tras el mixto" es
-         UNA clase mod 2^(j+1) (verificado exhaustivo, 1.016
-         combinaciones; formalizable con la maquinaria de
-         tres_inyectivo -- LEMA PENDIENTE, hermano de VIBORAS), y
-         la union sobre palabras da directo
+         UNA clase mod 2^(j+1) [DEMOSTRADO el mismo 12-08, horas
+         despues de la 10a: unionpalabras.lean (el 21o .lean, nucleo
+         puro, 0 sorryAx) -- corre_comparte por induccion sobre la
+         palabra (division lineal directa; recarga por
+         tres_inyectivo) + las dos puertas del mixto
+         (una_clase_palabra_bit0/bit1), con q libre por paso (MAS
+         fuerte que lo que la cadena usa); el .lean da "A LO SUMO
+         una clase" para TODA palabra y largo; el cruce sin codigo
+         comun (union_cruce.py, 1.260 combinaciones k=2..6 j<=6
+         ambos bits) da ademas EXACTAMENTE una en todo el rango --
+         la existencia es medida, la unicidad es teorema. Bautizo
+         pendiente], y la union sobre palabras da directo
            P(racha_total >= j | mixto) <= sqrt(C2(j+1)) * 2^-(j+1)/2
          -- razon 2^(-1/2) EXACTA para la racha TOTAL, recargas y
          crashes incluidos, sin E[2^S]. Y esquiva un hueco que el

@@ -54,6 +54,20 @@ escribir. Aparte: `ARSENAL.md` de zootheorem actualizado (H(k) ≡
 c-reducida del piso h con offset 3, confirmado; +e8/e10/e12: ~15
 balas OEIS).
 
+**⇢ La misma tarde, el primer fruto de la reparación: EL SUB-LEMA
+(a) DEL CONTEO, DEMOSTRADO** (`unionpalabras.lean`, el 21º — 0
+`sorryAx`, sólo `propext/Quot.sound`): la corrida de la racha como
+lista de leyes (división / recarga con q libre por paso, MÁS fuerte
+que lo que la cadena usa) y `corre_comparte` por inducción sobre la
+palabra ⟹ «racha ≥ j con palabra u» es **a lo sumo UNA clase mod
+2^{j+1}** por las dos puertas del mixto — la unicidad exacta que la
+unión por palabras necesita para `P(racha_total ≥ j) ≤
+√C₂·2^{−(j+1)/2}`. Cruce sin código común (`union_cruce.py`): 1.260
+combinaciones, **exactamente una** clase en todas (existencia
+medida, unicidad teorema). Conteos: 87 `.py` · 21 `.lean` · 3 `.db`.
+Queda del conteo: el wedge (j,t) por escribir y el teorema grande
+(ρ_ms < 1/2 sobre la órbita). Bautizo del 21º: user-gated.
+
 ---
 
 # ⇢ 12-08-2026 — LA RUTA POST-9ª, COBRADA EN SIETE AVANCES: LAS DOS EQUIDISTRIBUCIONES SON UNA, Y EL ÁRBOL DE P2 QUEDA CON UN SOLO HUECO NOMBRADO
