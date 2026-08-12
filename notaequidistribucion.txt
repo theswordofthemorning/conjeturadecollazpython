@@ -1,0 +1,86 @@
+=====================================================================
+NOTA: LA PIEZA B COMO EQUIDISTRIBUCION DE c mod 2^m -- LA REDUCCION,
+LO MEDIDO EXACTO Y LA RUTA AL TEOREMA
+(12-08-2026; el punto 1(a) de la ruta post-9a. ESQUEMA con la
+reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
+(equidistribucionmixto.py); el teorema de conteo sigue abierto.)
+=====================================================================
+
+1. LA REDUCCION (TEOREMA, lecturaracha.lean -- el 20o .lean, nucleo
+   puro, 0 sorryAx). La racha que sigue a un mixto lee los bits
+   bajos de c en el momento del mixto:
+     mixto bit 0 (c impar):         hijo h con 2h = 3c + 1, y
+       2^j | h  <=>  2^(j+1) | 3c + 1     (mitad_lee ida/vuelta)
+     mixto bit 1 (c impar, k >= 3): hijo h con 2h = c - 3^(k-1), y
+       2^j | h  <=>  2^(j+1) | c - 3^(k-1)
+   Y la UNICIDAD: "racha >= j" es UNA SOLA clase mod 2^(j+1) --
+   para el bit 0 requiere la inyectividad de x3 mod 2^n
+   (tres_inyectivo, por induccion; el unico ingrediente no lineal),
+   para el bit 1 es lineal. CONSECUENCIA: la Pieza B de
+   notadominacion.txt ("P(racha >= j | pasado grueso) <= C 2^-j")
+   equivale a la equidistribucion de c_t mod 2^m en los mixtos:
+   cada clase mod 2^m con peso <= C 2^-m  ==>  racha dominada con
+   la misma C. El objeto pendiente ya no es una ley de v2: es UNA
+   congruencia por nivel.
+
+2. LO MEDIDO EXACTO (equidistribucionmixto.py; DP con conteos
+   ENTEROS de palabras + enumeracion independiente, E1 en enteros):
+   (i)   marginal: C_j <= 2,95 en toda celda con peso esperado >= 8
+         (t = 12..24, ambos bits, tres arranques incluido el
+         contraejemplo del adv 1), tendiendo a ~1 al crecer t;
+         el residuo peor a m = 8 baja 9,5 -> 1,6 MONOTONO en t.
+   (ii)  el transitorio adversarial (c0 = -3^(-1) mod 2^21, racha_1
+         forzada >= 20) REPRODUCIDO por el instrumento y MUERTO a
+         t >= 12: es el tramo determinista que la version quenched
+         (nota de dominacion, 3(ii)) ya se traga.
+   (iii) la version ADAPTADA (fibras por k-camino entero, el pasado
+         grueso de verdad): C_j <= 1,000 en toda celda gruesa de
+         t = 14, tres arranques.
+   (iv)  la sonda de inyectividad DESINFLA la biyeccion exacta: las
+         colisiones dentro de fibra (multiplicidad <= 2 en ~mitad
+         de las fibras a modulo 2n) son la estadistica de
+         CUMPLEANOS de valores uniformes -- ni biyeccion, ni
+         obstruccion: las fibras se comportan como uniformes
+         ideales. (El C = 1,000 exacto de (iii) es el equilibrio de
+         una celda gruesa, no magia -- capa 1 contra el propio
+         entusiasmo.)
+
+3. LA RUTA AL TEOREMA (lo que queda, en orden de ataque):
+   (i)   el mecanismo de inyeccion de bits: en un paso compartido
+         los dos hijos difieren en Delta = 2d + s_k (tortolas.lean,
+         delta_hijos); si k es IMPAR, s_k = (1-3^k)/2 es impar y
+         Delta es IMPAR: el paso inyecta un bit fresco EXACTO en la
+         posicion 0 de c. Si k es par, v2(Delta) = 1 + v2(d + s_k/2)
+         depende de d: la inyeccion es condicional. El conteo de
+         colisiones del mapa palabra -> c_t mod 2^m se reduce a
+         cuantos pasos compartidos con inyeccion efectiva tiene
+         cada par de palabras (el descenso v2(Delta) baja 1 por
+         paso, tortolas.lean, cierra la contabilidad).
+   (ii)  el esquema telescopico: para dos palabras que difieren por
+         primera vez en el paso i, colision mod 2^m en t exige
+         v2(Delta_i) >= m + (t - i); sumando sobre i,
+         P(colision) <= suma_i P(v2(Delta_i) >= m + t - i) -- y si
+         la equidistribucion vale hasta t-1 (induccion), cada
+         termino es <= C 2^-(m+t-i): la suma geometrica da
+         P <= C' 2^-m con C' acotado. LA INDUCCION SE CIERRA SOLA
+         si se arranca: el enunciado es autoconsistente y el
+         arranque es el tramo determinista quenched. (Cuidado
+         declarado: las "dos excepciones nombradas" de Tortolas --
+         vortice asimetrico y signo mixto -- rompen el descenso
+         exacto y hay que pagarlas como en la 9a.)
+   (iii) la mezcla multi-racha del enunciado honesto de la nota de
+         dominacion (medida de clases del arranque, NUNCA pasado
+         fino) queda automaticamente: el DP ES esa medida.
+
+4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
+   es dominacioncondicionada.py, medido aparte: C ~ 1); nada
+   asintotico en t (el DP es horizonte finito; la tendencia a 1 es
+   MEDIDA, no demostrada); y el teorema de conteo (3.ii) NO esta
+   escrito -- esta nota es el mapa, no la demostracion.
+
+ETIQUETA: reduccion DEMOSTRADA (Lean, nucleo puro) + medicion
+EXACTA con cruce independiente en enteros; el teorema de conteo de
+colisiones ABIERTO. Sin revision externa aun.
+Ficheros: lecturaracha.lean, equidistribucionmixto.py,
+notadominacion.txt, tortolas.lean, firmaacoplamiento.py.
+=====================================================================
