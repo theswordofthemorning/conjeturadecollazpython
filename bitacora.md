@@ -105,11 +105,24 @@ par malo sube.*
 **11. Y EL NEGATIVO QUE MÁS RESTRINGE (medido, no razonado).** La cota
 Cauchy-Schwarz cruda `(Σ_i w_i·√E_ii)²/E00` — lo peor posible si toda
 cruzada saturara C-S con signo + — vale **0,74 / 0,90 / 1,00 / 1,10**
-en `k' = 2/3/4/5: **supera 1**. No sólo no alcanza el umbral 1/2:
-**ni siquiera demuestra contracción.** ⇒ **Cualquier demostración del
-teorema de conteo que acote las cruzadas EN VALOR ABSOLUTO está
-condenada, por buena que sea la cota.** El teorema tiene que usar los
-**signos** — y el enunciado útil no es `|E_01| ≤ γ·E00` con `γ < 1`
+en `k' = 2/3/4/5: **supera 1**. Esa cota, tal como se computa, no
+alcanza. **⇠ 11ª REVISIÓN — LA CONCLUSIÓN QUE SE SACÓ DE AHÍ ESTABA
+ROTA:** se escribió «cualquier demostración que acote las cruzadas EN
+VALOR ABSOLUTO está condenada, por buena que sea la cota», y eso es
+**falso sobre la propia tabla**. Sustituyendo cada cruzada por su
+`|E_ij|` **realizado** —ninguna cota puede ser mejor que el valor
+absoluto real— las 12 celdas de `t = 24, m = 8` dan **máximo 0,4767:
+bajo 1/2**, o sea que en esa ventana una cota en valor absoluto
+suficientemente fina **cerraría el teorema con 4,6% de margen**.
+*(Verificado con código propio.)* Lo condenado es la **C-S SATURADA**
+(constante 1), no toda cota: **la restricción honesta es de CALIBRE,
+no de forma** — hace falta una cota en valor absoluto con constante
+estrictamente menor que la de Cauchy-Schwarz, y no se ha exhibido
+ninguna. *(El adversario añade que al ampliar a 624 celdas `ρ_abs`
+pasa de 1/2 en nueve, peor 0,5332: la conclusión sobrevive, pero por
+una ventana que el autor no midió y un cálculo que no estaba en el
+fichero.)* Lo que el punto 12 muestra es que tampoco se puede usar el
+**signo** — y el enunciado útil no es `|E_01| ≤ γ·E00` con `γ < 1`
 (insuficiente aunque fuera cierto) sino **`E_N0N1 ≤ 0` en la órbita**.
 *(Capa 1 declarada: `E_ii` no es igual para las cuatro corrientes —
 VÍBORAS iguala N0/N1 con el padre par, pero A y D vienen de los
@@ -128,12 +141,23 @@ invariante** — el «γ < 0 en k ≥ 3» era una lectura de una sola escala
 una escala leído como estructural; el antídoto es el mismo, barrer
 antes de enunciar.*
 
-**Lo que SÍ aguanta el barrido** (y por eso queda como el hecho duro):
-(a) **`ρ_ms` se mantiene en 0,23–0,43 en toda escala `m = 6…9`** y en
-las 12 celdas — siempre bajo 1/2: el blanco de 3-bis.vii sigue en pie
-con una dimensión más de evidencia; (b) la cota C-S cruda **supera 1
-en todas las escalas** (peor **1,156**) — ese negativo **no** era
-artefacto de m = 8.
+**Lo que aguanta el barrido EN LA ESCALA** (y lo que NO aguanta el
+barrido en el TIEMPO — ⇠ **11ª revisión, la mordida grande**):
+(a) `ρ_ms` se mantiene en 0,23–0,43 en `m = 6…9` y en las 12 celdas
+**a `t = 24` FIJO**. **La dirección `t` no se barrió, y al barrerla el
+enunciado CAE**: sobre `t = 10…24 × m = 6…9 × k' = 2…5 × 3 arranques`
+(720 celdas) `ρ_ms` **cruza 1/2 en cuatro celdas** — peor **0,5151**
+(ADV, t=20, m=7, k'=5, masa 87.791) — y supera el 0,43 del titular en
+el **11,7%** de las celdas. *Verificado con código propio antes de
+aceptarlo: las cuatro celdas y sus masas, dígito a dígito.* **La frase
+«siempre bajo 1/2» era FALSA fuera de `t = 24`, y la cláusula «ahora
+con una dimensión más de evidencia» ofrecía como respaldo justo la
+dimensión que no se había mirado.** *(Matiz honesto: `ρ_ms` no es
+`ρ_cond`, el funcional del blanco de 3-bis.vii, que se mide aparte —
+peor 0,460. Esto no mata el blanco: mata la frase que lo respaldaba.)*
+(b) la cota C-S cruda supera 1 en las escalas medidas (peor **1,156**)
+— eso sigue en pie, pero **la conclusión que se sacó de ello NO**: ver
+el punto 11 corregido.
 
 **⇒ ESTADO DEL COFRE, HONESTO:** el teorema de conteo no puede
 apoyarse **ni en cotas en valor absoluto** (11) **ni en el signo de una
