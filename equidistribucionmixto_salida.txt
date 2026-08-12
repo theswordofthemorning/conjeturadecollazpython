@@ -2,25 +2,25 @@ LA EQUIDISTRIBUCION DE v2 TRAS EL MIXTO (Pieza B, exacta)
 DP sobre (k, c mod 2^(M-t)), M = 36; conteos enteros de palabras
 
 === arranque A (el de rachasreales) ===
-  t =  8: vivos      81/2^8  P(impar) 0.5556  C_j (bit0/bit1) j=1: 0.844/1.000  j=4: 0.711/1.333*  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 9.481
-  t = 12: vivos    1114/2^12  P(impar) 0.4803  C_j (bit0/bit1) j=1: 1.050/0.996  j=4: 1.077/0.852  j=8: 1.914/0.000*  j=10: 5.742/0.000*  residuo peor (m=8) 3.907
-  t = 16: vivos   16057/2^16  P(impar) 0.5033  C_j (bit0/bit1) j=1: 0.989/0.968  j=4: 1.045/1.047  j=8: 0.697/0.699  j=10: 0.000/0.559*  residuo peor (m=8) 2.232
-  t = 20: vivos  235631/2^20  P(impar) 0.4968  C_j (bit0/bit1) j=1: 0.997/0.989  j=4: 0.976/0.980  j=8: 0.682/0.659  j=10: 0.201/0.655  residuo peor (m=8) 1.803
-  t = 24: vivos 3502466/2^24  P(impar) 0.4979  C_j (bit0/bit1) j=1: 1.001/1.000  j=4: 1.079/0.986  j=8: 1.045/0.756  j=10: 0.614/0.938  residuo peor (m=8) 1.639
+  t =  8: vivos      81/2^8  P(impar) 0.5556  C_j (bit0/bit1) j=1: 0.844/1.000  j=4: 0.711/1.333*  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 9.481  colision L2 (m=8) 4.643
+  t = 12: vivos    1114/2^12  P(impar) 0.4803  C_j (bit0/bit1) j=1: 1.050/0.996  j=4: 1.077/0.852  j=8: 1.914/0.000*  j=10: 5.742/0.000*  residuo peor (m=8) 3.907  colision L2 (m=8) 1.650
+  t = 16: vivos   16057/2^16  P(impar) 0.5033  C_j (bit0/bit1) j=1: 0.989/0.968  j=4: 1.045/1.047  j=8: 0.697/0.699  j=10: 0.000/0.559*  residuo peor (m=8) 2.232  colision L2 (m=8) 1.167
+  t = 20: vivos  235631/2^20  P(impar) 0.4968  C_j (bit0/bit1) j=1: 0.997/0.989  j=4: 0.976/0.980  j=8: 0.682/0.659  j=10: 0.201/0.655  residuo peor (m=8) 1.803  colision L2 (m=8) 1.069
+  t = 24: vivos 3502466/2^24  P(impar) 0.4979  C_j (bit0/bit1) j=1: 1.001/1.000  j=4: 1.079/0.986  j=8: 1.045/0.756  j=10: 0.614/0.938  residuo peor (m=8) 1.639  colision L2 (m=8) 1.042
 
 === arranque B (el de medianareal) ===
-  t =  8: vivos      95/2^8  P(impar) 0.5368  C_j (bit0/bit1) j=1: 1.098/1.158  j=4: 1.569/0.421*  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 10.779
-  t = 12: vivos    1262/2^12  P(impar) 0.5111  C_j (bit0/bit1) j=1: 1.014/1.016  j=4: 1.464/1.009  j=8: 0.397/0.461*  j=10: 0.000/0.000*  residuo peor (m=8) 5.274
-  t = 16: vivos   17749/2^16  P(impar) 0.4991  C_j (bit0/bit1) j=1: 1.004/1.011  j=4: 0.885/1.007  j=8: 0.347/0.323  j=10: 0.231/0.516  residuo peor (m=8) 2.740
-  t = 20: vivos  256445/2^20  P(impar) 0.4999  C_j (bit0/bit1) j=1: 0.995/0.991  j=4: 1.097/0.994  j=8: 0.647/0.813  j=10: 0.383/1.114  residuo peor (m=8) 2.048
-  t = 24: vivos 3769952/2^24  P(impar) 0.5013  C_j (bit0/bit1) j=1: 1.003/1.012  j=4: 0.995/1.000  j=8: 0.871/0.838  j=10: 1.673/0.609  residuo peor (m=8) 1.516
+  t =  8: vivos      95/2^8  P(impar) 0.5368  C_j (bit0/bit1) j=1: 1.098/1.158  j=4: 1.569/0.421*  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 10.779  colision L2 (m=8) 4.453
+  t = 12: vivos    1262/2^12  P(impar) 0.5111  C_j (bit0/bit1) j=1: 1.014/1.016  j=4: 1.464/1.009  j=8: 0.397/0.461*  j=10: 0.000/0.000*  residuo peor (m=8) 5.274  colision L2 (m=8) 1.674
+  t = 16: vivos   17749/2^16  P(impar) 0.4991  C_j (bit0/bit1) j=1: 1.004/1.011  j=4: 0.885/1.007  j=8: 0.347/0.323  j=10: 0.231/0.516  residuo peor (m=8) 2.740  colision L2 (m=8) 1.252
+  t = 20: vivos  256445/2^20  P(impar) 0.4999  C_j (bit0/bit1) j=1: 0.995/0.991  j=4: 1.097/0.994  j=8: 0.647/0.813  j=10: 0.383/1.114  residuo peor (m=8) 2.048  colision L2 (m=8) 1.130
+  t = 24: vivos 3769952/2^24  P(impar) 0.5013  C_j (bit0/bit1) j=1: 1.003/1.012  j=4: 0.995/1.000  j=8: 0.871/0.838  j=10: 1.673/0.609  residuo peor (m=8) 1.516  colision L2 (m=8) 1.038
 
 === arranque ADV (c0 = -3^(-1) mod 2^21: fuerza racha_1 = 20) ===
-  t =  8: vivos      93/2^8  P(impar) 0.4839  C_j (bit0/bit1) j=1: 0.933/1.027  j=4: 0.711/1.297*  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 13.763
-  t = 12: vivos    1232/2^12  P(impar) 0.4992  C_j (bit0/bit1) j=1: 1.011/0.960  j=4: 1.171/1.055  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 6.649
-  t = 16: vivos   17400/2^16  P(impar) 0.5030  C_j (bit0/bit1) j=1: 1.006/0.976  j=4: 1.093/0.918  j=8: 0.644/2.258  j=10: 0.234/4.974  residuo peor (m=8) 2.840
-  t = 20: vivos  251994/2^20  P(impar) 0.5023  C_j (bit0/bit1) j=1: 1.000/0.977  j=4: 0.905/0.979  j=8: 1.715/0.702  j=10: 0.202/0.567  residuo peor (m=8) 2.622
-  t = 24: vivos 3719136/2^24  P(impar) 0.5014  C_j (bit0/bit1) j=1: 0.999/0.996  j=4: 0.950/0.995  j=8: 0.669/1.006  j=10: 0.873/0.875  residuo peor (m=8) 1.560
+  t =  8: vivos      93/2^8  P(impar) 0.4839  C_j (bit0/bit1) j=1: 0.933/1.027  j=4: 0.711/1.297*  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 13.763  colision L2 (m=8) 6.245
+  t = 12: vivos    1232/2^12  P(impar) 0.4992  C_j (bit0/bit1) j=1: 1.011/0.960  j=4: 1.171/1.055  j=8: 0.000/0.000*  j=10: 0.000/0.000*  residuo peor (m=8) 6.649  colision L2 (m=8) 2.699
+  t = 16: vivos   17400/2^16  P(impar) 0.5030  C_j (bit0/bit1) j=1: 1.006/0.976  j=4: 1.093/0.918  j=8: 0.644/2.258  j=10: 0.234/4.974  residuo peor (m=8) 2.840  colision L2 (m=8) 1.321
+  t = 20: vivos  251994/2^20  P(impar) 0.5023  C_j (bit0/bit1) j=1: 1.000/0.977  j=4: 0.905/0.979  j=8: 1.715/0.702  j=10: 0.202/0.567  residuo peor (m=8) 2.622  colision L2 (m=8) 1.165
+  t = 24: vivos 3719136/2^24  P(impar) 0.5014  C_j (bit0/bit1) j=1: 0.999/0.996  j=4: 0.950/0.995  j=8: 0.669/1.006  j=10: 0.873/0.875  residuo peor (m=8) 1.560  colision L2 (m=8) 1.039
   E3 OK: racha_1 tras bit 0 forzada >= 19 (el transitorio
   del adv 1, reproducido) y a t >= 12 la cola ya esta
   dominada: el transitorio es determinista y MUERE.

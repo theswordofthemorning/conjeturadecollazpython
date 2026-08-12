@@ -71,6 +71,29 @@ reduccion DEMOSTRADA (lecturaracha.lean) y la medicion EXACTA
    (iii) la mezcla multi-racha del enunciado honesto de la nota de
          dominacion (medida de clases del arranque, NUNCA pasado
          fino) queda automaticamente: el DP ES esa medida.
+   (iv)  LA REDUCCION L2 (12-08, tarde -- baja la vara del teorema
+         un escalon entero): para el lema de racha NO hace falta la
+         equidistribucion L-infinito (cada clase <= C 2^-m). BASTA
+         LA L2: si C2(m) := 2^m Sigma_r P(r)^2 <= C (la constante
+         de COLISION de dos palabras independientes), entonces por
+         Cauchy-Schwarz P(clase) <= sqrt(C2 * 2^-m) = sqrt(C) *
+         2^-m/2, y las colas de racha/recarga salen geometricas de
+         razon 2^(-1/2): PEOR constante, MISMA forma -- y la
+         tolerancia polylog de L-A absorbe el cambio (la ventana T
+         se reescala por constante; c/sqrt(log x) es invariante).
+         [Cuidado declarado: las cuentas del compuesto de recargas
+         con razon 2^(-1/2) hay que REHACERLAS -- la subcriticidad
+         se conserva en la forma pero las constantes no estan
+         re-derivadas.] Y EL SEGUNDO MOMENTO ES CONTABLE POR PARES:
+         E[colision] es una suma sobre pares de palabras con primer
+         desvio en i -- el esquema telescopico de (ii) aplicado a
+         PARES, sin max sobre clases. MEDIDO (equidistribucionmixto
+         con la constante L2): C2(8) = 1,038 / 1,038 / 1,039 en los
+         tres arranques a t = 24 (el minimo teorico es 1 =
+         uniforme; el adversarial baja 1,165 -> 1,039): el objeto
+         que el conteo debe acotar esta A 4% DEL PISO UNIFORME y
+         converge mas rapido y mas parejo que la L-infinito
+         (1,5-1,6 aun bajando).
 
 4. QUE NO DICE: nada sobre la cadena condicionada a sobrevivir (eso
    es dominacioncondicionada.py, medido aparte: C ~ 1); nada

@@ -182,6 +182,72 @@ theorem caso_bit1 : (11 : Int) - pot3 2 = pot2 1 * 1 ∧
     2 * (1 : Int) = 11 - pot3 2 := by
   decide
 
+-- ---------------------------------------------------------------------
+-- EL MECANISMO DE INYECCION DE BITS (la otra mitad del conteo, la
+-- 3.i de notaequidistribucion.txt): en un paso compartido desde
+-- (k, c par), los dos hijos son a y 3a - m con 3^k = 2m + 1
+-- (tortolas.lean, delta_hijos). La paridad de m DECIDE:
+--   k IMPAR:  m impar  ==> los hijos difieren mod 2 -- el bit de
+--             la palabra aterriza como bit FRESCO en la posicion 0
+--   k PAR:    m par    ==> los hijos comparten paridad: sin
+--             inyeccion inmediata (v2(Delta) = 1 + v2(a - m/2))
+-- La alternancia de la paridad de m es 3^k mod 4 = 1, 3, 1, 3, ...
+-- (la misma identidad que borde_alterna de perrasconteo.lean, aqui
+-- sobre Int y con el testigo explicito).
+-- ---------------------------------------------------------------------
+
+-- 3^k mod 4, con testigo: k par -> 4e+1, k impar -> 4e+3
+theorem pot3_mod4 (k : Nat) :
+    (k % 2 = 0 ∧ ∃ e, pot3 k = 4 * e + 1) ∨
+    (k % 2 = 1 ∧ ∃ e, pot3 k = 4 * e + 3) := by
+  induction k with
+  | zero => exact Or.inl ⟨rfl, ⟨0, rfl⟩⟩
+  | succ n ih =>
+      cases ih with
+      | inl h =>
+          cases h.2 with
+          | intro e he =>
+              refine Or.inr ⟨by omega, ⟨3 * e, ?_⟩⟩
+              show 3 * pot3 n = 4 * (3 * e) + 3
+              omega
+      | inr h =>
+          cases h.2 with
+          | intro e he =>
+              refine Or.inl ⟨by omega, ⟨3 * e + 2, ?_⟩⟩
+              show 3 * pot3 n = 4 * (3 * e + 2) + 1
+              omega
+
+-- k impar: la mitad m de 3^k = 2m+1 es IMPAR
+theorem mitad_impar (k : Nat) (hk : k % 2 = 1) :
+    ∃ m, pot3 k = 2 * m + 1 ∧ m % 2 = 1 := by
+  cases pot3_mod4 k with
+  | inl h => exfalso; omega
+  | inr h =>
+      cases h.2 with
+      | intro e he => exact ⟨2 * e + 1, by omega, by omega⟩
+
+-- k par: la mitad m es PAR
+theorem mitad_par (k : Nat) (hk : k % 2 = 0) :
+    ∃ m, pot3 k = 2 * m + 1 ∧ m % 2 = 0 := by
+  cases pot3_mod4 k with
+  | inl h =>
+      cases h.2 with
+      | intro e he => exact ⟨2 * e, by omega, by omega⟩
+  | inr h => exfalso; omega
+
+-- la inyeccion: m impar ==> los hijos a y 3a - m difieren mod 2
+theorem inyeccion_bit (a m : Int) (hm : m % 2 = 1) :
+    (3 * a - m) % 2 ≠ a % 2 := by omega
+
+-- y su negacion: m par ==> misma paridad (sin bit fresco)
+theorem sin_inyeccion (a m : Int) (hm : m % 2 = 0) :
+    (3 * a - m) % 2 = a % 2 := by omega
+
+-- instancias por el nucleo: k = 1 (m = 1, inyecta), k = 2 (m = 4,
+-- no inyecta), k = 3 (m = 13, inyecta)
+theorem casos_inyeccion : pot3 1 = 2 * 1 + 1 ∧ pot3 2 = 2 * 4 + 1 ∧
+    pot3 3 = 2 * 13 + 1 := by decide
+
 -- instancia de recarga con el repo (k = 2, A = v2(3^2-1) = 3):
 -- c = 8: v2 = 3 = A, hijo h = (3*8 + 1 - 9)/2 = 8, v2(h) = 3 = A + 0
 theorem caso_recarga : 2 * (8 : Int) = 3 * 8 + 1 - pot3 2 ∧
@@ -194,4 +260,7 @@ theorem caso_recarga : 2 * (8 : Int) = 3 * 8 + 1 - pot3 2 ∧
 #print axioms una_clase_bit1
 #print axioms lectura_recarga_ida
 #print axioms una_clase_recarga
+#print axioms pot3_mod4
+#print axioms mitad_impar
+#print axioms inyeccion_bit
 #print axioms caso_adversarial

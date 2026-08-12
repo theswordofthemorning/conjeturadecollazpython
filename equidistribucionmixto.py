@@ -167,13 +167,17 @@ def cola_racha(estados, Q, j_tope):
 
 
 def residuo_peor(estados, j):
-    # max_r P(c = r mod 2^j | vivo) * 2^j, exacto en racionales
+    # max_r P(c = r mod 2^j | vivo) * 2^j (la constante L-infinito) y
+    # 2^j * suma_r P(r)^2 (la constante L2, de COLISION: la que basta
+    # para la version debil del lema de racha), exactas en racionales
     vivos = sum(estados.values())
     pesos = {}
     for (k, cm), n in estados.items():
         r = cm % (2 ** j)
         pesos[r] = pesos.get(r, 0) + n
-    return max(pesos.values()) * (2 ** j) / float(vivos)
+    linf = max(pesos.values()) * (2 ** j) / float(vivos)
+    l2 = sum(p * p for p in pesos.values()) * (2 ** j) / float(vivos) ** 2
+    return linf, l2
 
 
 # ----- la enumeracion exhaustiva (E1 + adaptada), OTRO codigo -----
@@ -248,11 +252,12 @@ for c0, nombre in ARRANQUES:
                 marca = "" if impares * 2.0 ** (-j) >= MIN_ESPERADO \
                     else "*"
                 detalle.append("j=%d: %.3f/%.3f%s" % (j, Cj0, Cj1, marca))
-        res8 = residuo_peor(estados, 8)
+        res8, col8 = residuo_peor(estados, 8)
         print("  t = %2d: vivos %7d/2^%d  P(impar) %.4f  C_j "
-              "(bit0/bit1) %s  residuo peor (m=8) %.3f"
+              "(bit0/bit1) %s  residuo peor (m=8) %.3f  colision L2 "
+              "(m=8) %.3f"
               % (t, vivos, t, impares / float(vivos), "  ".join(detalle),
-                 res8))
+                 res8, col8))
         if t >= 12:
             peor_global = max(peor_global, peor_t)
     # E3: el contraejemplo del adv 1, visto por el instrumento
