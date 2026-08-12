@@ -252,8 +252,29 @@ del 03-08). Lo que pasó después, en orden (detalle en `bitacora.md`):
 >    **Gram/paralelogramo** donde el branching y la no-alineación
 >    entran **juntos**; y hace explícito el enunciado sobre la cadena:
 >    *los cuatro vectores centrados no pueden estar simultáneamente
->    alineados*. **⇢ ÉSE es el enunciado con el que arranca la
->    próxima sesión.** *Bautizo pendiente (user-gated).*
+>    alineados*.
+> 12. **⇢ Y EL TERCER NEGATIVO, QUE MATA LA REPARACIÓN DEL PUNTO 6:
+>    NO HAY GAP DE MEZCLA** (`gapmezcla.py`, el 91º). Con
+>    `M_k = (I+P_k)/2`: **G1** (enteros) da `χ` invariante **exacto**
+>    ⟹ un paso **no contrae**; y **G5** da norma **1,000000 para uno,
+>    dos y tres pasos** en `m = 5…9`, por **dos métodos
+>    independientes** (power iteration en dimensión `2^m` y bloques
+>    exactos de órbita de frecuencia). *Por qué:* `P` manda
+>    `e_j ↦ fase·e_{3j}`, luego las órbitas de `j ↦ 3j` son bloques
+>    invariantes **para todas las fibras a la vez**, y hay órbitas con
+>    producto de fases 1 — **invariante común exacto en el espectro**;
+>    el union-find de C6 miraba el espacio **directo**, no el
+>    espectro. **La vía de expansión queda RETIRADA.**
+> 13. **⇢ EL ESTADO CON EL QUE ARRANCA LA PRÓXIMA SESIÓN.** La
+>    contracción que la cadena **sí** exhibe (`ρ_ms` 0,23–0,43, toda
+>    escala) **no puede venir del operador** — el operador no
+>    contrae —, así que **viene de que la órbita del DP no pone masa
+>    en las frecuencias malas**. El teorema de conteo es un enunciado
+>    sobre **la medida que el DP realiza**, no sobre el operador que
+>    la mueve (la lección de 3-bis.vi, ahora con base cuantitativa), y
+>    su forma limpia es la del punto 11:
+>    **`‖Σ_i w_i f_i‖ ≤ (1/√2)·‖f_N0‖`** sobre esas leyes.
+>    *Bautizo pendiente (user-gated).*
 >
 > **⇢ 12-08 (2) — LA 10ª REVISIÓN ADVERSARIAL, HECHA Y APLICADA**
 > (acta `actarevision1208.txt`; informes `_adv1/2/3.txt`): **la

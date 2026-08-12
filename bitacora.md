@@ -166,6 +166,41 @@ cadena: *los cuatro vectores centrados de las corrientes no pueden
 estar simultáneamente alineados*. **Ése es el enunciado con el que
 arranca la próxima sesión.**
 
+**14. Y EL TERCER NEGATIVO, QUE MATA LA ÚLTIMA REPARACIÓN PROPIA:
+NO HAY GAP DE MEZCLA** (`gapmezcla.py`, el 91º). El punto 7 de esta
+entrada proponía que la forma del teorema sería de **expansión**
+(`‖Σ w_i P_i‖ < 1`), apoyado en que el invariante común medido era
+trivial. **Se midió y es falso.** Con `M_k = (I + P_k)/2`:
+- **G1** (enteros): `χ` es invariante **exacto** de `M_k` en toda
+  escala ⟹ **un paso no contrae**, `‖M_k‖ = 1` en media cero — el
+  contraejemplo del punto 3, visto como operador.
+- **G5** (bloques exactos, tras calibrar el instrumento contra un
+  espectro conocido en G2): la norma de **uno, dos y tres pasos es
+  1,000000** en `m = 5…9`, por **dos métodos independientes que
+  coinciden** (power iteration en dimensión `2^m` y bloques de órbita
+  de frecuencia).
+- **Por qué**: `P` manda `e_j ↦ fase·e_{3j}`, así que las órbitas de
+  `j ↦ 3j` son bloques invariantes **para todas las fibras a la vez**
+  (todas comparten el multiplicador 3), y hay órbitas cuyo producto
+  de fases es 1 — **invariante común exacto en el ESPECTRO**. La
+  sonda de union-find de C6 no lo veía porque miraba particiones del
+  **espacio directo**, no del espectro.
+- **Capa 1 en vivo, dos veces**: el primer testigo explícito (un
+  carácter suelto) dio `√2/2` exacto — estaba **mal construido**
+  (`P e_j ⊥ e_j`); el segundo (autovector sobre la órbita) reprodujo
+  `cos(π/2L)` clavado a 6 cifras. Y la discrepancia G3 vs G4 se
+  resolvió **antes** de escribir conclusión: no había contradicción,
+  G4 medía **un** bloque y G5 el máximo sobre todos.
+
+**⇒ LO QUE ESTO DEJA, y es lo importante:** la contracción que la
+cadena **sí** exhibe (`ρ_ms` en 0,23–0,43, toda escala) **no puede
+venir del operador** — ningún argumento sobre `Z/2^m` puede darla,
+porque el operador **no contrae**. Tiene que venir de que **la órbita
+del DP no pone masa en las frecuencias malas**. El teorema de conteo
+es un enunciado sobre **la medida que el DP realiza**, no sobre el
+operador que la mueve: otra vez, y con más fuerza, la lección de
+3-bis.vi.
+
 **Etiquetas honestas:** son TEOREMA (exactos en racionales/enteros) la
 identidad de polarización, la estructura de ciclos, el contraejemplo y
 la identidad de traslación del punto 8; son MEDICIÓN a horizonte

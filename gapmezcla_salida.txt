@@ -1,0 +1,111 @@
+﻿EL GAP DE LA MEZCLA: hay expansion o no?
+la ultima reparacion en pie (correlacionafin C6, nota punto 9)
+puesta a prueba -- MEDICION SOBRE OPERADORES, no sobre la
+cadena
+
+G1  un paso NO contrae: chi es invariante exacto
+    (I + P_k)/2 deja chi FIJO y chi tiene media cero, en toda
+    escala m = 5..9 y toda fibra impar: ||M_k|| = 1 EXACTO en
+    media cero. UN PASO NO CONTRAE -- el contraejemplo de
+    correlacionafin C3, visto como operador.
+
+G2  calibracion del instrumento (control con espectro conocido)
+    m = 5 :  medido 0.995185   teorico |cos(pi/N)| 0.995185  OK
+    m = 6 :  medido 0.998788   teorico |cos(pi/N)| 0.998795  OK
+    m = 7 :  medido 0.998867   teorico |cos(pi/N)| 0.999699  OK
+    el instrumento reproduce un espectro conocido a 1e-3.
+
+G3  LA MEDICION QUE DECIDE: norma del producto por escala
+    (media cero; k = 3 y 5 son las fibras impares del zocalo,
+     que son las que traen obstructor)
+
+      m     1 paso (k=3)   2 pasos (3,5)   3 pasos (3,5,3)   1-norma
+      5       1.000000        1.000000          1.000000   0.00e+00
+      6       0.999999        1.000000          1.000000   0.00e+00
+      7       0.999715        1.000000          1.000000   0.00e+00
+      8       0.999660        1.000000          1.000000   0.00e+00
+      9       0.999700        1.000000          1.000000   0.00e+00
+
+G4  EL TESTIGO EXPLICITO (sin power iteration -- capa 1: un
+    1,000000 de un metodo iterativo no se cree sin testigo)
+    EL PORQUE, en una linea de teoria: P manda caracteres a
+    caracteres, (P e_j)(u) = e^(2 pi i j s / N) * e_(3j)(u),
+    asi que M = (I+P)/2 actua sobre la ORBITA de j bajo
+    j -> 3j como (I + shift con fases)/2. En una orbita de
+    largo L ese operador tiene autovalores (1+w)/2 con w^L
+    fijo, luego alguno esta a angulo <= 2 pi / L de 1 y su
+    modulo es >= cos(pi/L). Y los ciclos de j -> 3j miden
+    ~2^(m-2): el gap es O(4^-m) POR CONSTRUCCION.
+
+    [CAPA 1, EN VIVO: el primer testigo que se probo aqui fue
+     UN caracter suelto, y dio 0,707107 EXACTO en toda escala
+     -- justo lo que tenia que dar, porque P manda e_j a
+     e_(3j), que le es ORTOGONAL: ||e_j + fase e_3j||/2 =
+     sqrt(2)/2. El testigo no era malo por poco: estaba mal
+     construido. El casi-invariante es la COMBINACION sobre
+     la orbita entera, con los coeficientes del autovector.]
+
+      m    L    cos(pi/2L)   testigo de orbita: 1 paso  2 pasos
+      5     8   0.98078528           0.980785  0.781741
+      6    16   0.99518473           0.995185  0.703702
+      7    32   0.99879546           0.998795  0.706255
+      8    64   0.99969882           0.999699  0.706894
+      9   128   0.99992470           0.999925  0.707054
+
+    Testigos CONSTRUIDOS (autovector sobre la orbita de
+    frecuencias, sin iteracion): sobreviven a un paso con
+    razon > 0,9 en toda escala, y la razon SUBE con m. La
+    ausencia de gap NO es un artefacto del metodo iterativo:
+    tiene testigo explicito y razon teorica (cos(pi/2L) con
+    L ~ 2^(m-2)).
+
+G5  LA DISCREPANCIA, RESUELTA POR BLOQUES (capa 1: G3 dio
+    1,000000 para dos pasos y el testigo de G4 solo 0,707 --
+    una de las dos esta mal, y no se publica ninguna hasta
+    saber cual)
+    LA VIA EXACTA: los DOS operadores usan el MISMO permutador
+    de frecuencias (j -> 3j; solo cambian las fases), asi que
+    las orbitas de frecuencia son bloques invariantes para los
+    dos a la vez. La norma del producto es entonces el MAXIMO
+    de las normas de bloques de tamano L -- cada uno chico y
+    con power iteration que si converge.
+
+      m   bloques   ||1 paso||   ||2 pasos||   ||3 pasos||
+      5        8     1.000000      1.000000      1.000000
+      6       10     1.000000      1.000000      1.000000
+      7       12     1.000000      1.000000      1.000000
+      8       14     1.000000      1.000000      1.000000
+      9       16     1.000000      1.000000      1.000000
+
+    LA DISCREPANCIA, EXPLICADA (y sin contradiccion): G4 midio
+    UN bloque -- el de la frecuencia j = 1, donde el testigo
+    de un paso da cos(pi/2L) clavado y el de dos pasos cae a
+    0,707 --, mientras G5 toma el MAXIMO sobre TODOS los
+    bloques. El peor bloque es otro, y ahi la norma es 1
+    EXACTA: hay orbitas de frecuencia cuyo producto de fases
+    es 1 (Sigma de la orbita = 0 mod N), y entonces el
+    autovalor lambda = 1 es alcanzable para los DOS
+    operadores a la vez -- un INVARIANTE COMUN EXACTO que la
+    sonda de union-find de correlacionafin C6 no veia porque
+    miraba particiones del espacio directo, no del espectro.
+
+    ==> VEREDICTO: LA VIA DE EXPANSION ESTA MUERTA. No hay
+    gap para uno, dos ni tres pasos, en ninguna escala, por
+    DOS metodos independientes que coinciden (power iteration
+    en dimension 2^m y bloques exactos de orbita). El
+    'invariante comun trivial' de C6 era una lectura del
+    espacio directo; en el espectro el invariante comun
+    EXISTE. La reparacion que correlacionafin proponia en su
+    punto 9 -- ||Sigma w_i P_i|| < 1 como teorema de
+    expansion -- queda RETIRADA.
+
+    LO QUE ESTO DEJA EN PIE, que es lo importante: la
+    contraccion que la cadena SI exhibe (rho_ms en 0,23-0,43,
+    toda escala) NO PUEDE VENIR DEL OPERADOR -- ningun
+    argumento sobre Z/2^m puede darla, porque el operador no
+    contrae. Tiene que venir de que la ORBITA DEL DP no pone
+    masa en las frecuencias malas. Eso convierte el teorema de
+    conteo en un enunciado sobre la MEDIDA que el DP realiza,
+    no sobre el operador que la mueve -- y es, otra vez y con
+    mas fuerza, la leccion de 3-bis.vi: el teorema es sobre la
+    orbita, no sobre el operador suelto.
