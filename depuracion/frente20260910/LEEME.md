@@ -35,6 +35,13 @@ No se ha probado el teorema de conteo, P2, densidad uno ni Collatz.
 El punto d1 de `encargorevision11.txt` ya sospechaba el cambio de operador;
 esta sesion resuelve una parte concreta de esa sospecha.
 
+**Cierre documental:** el resultado Gacelas quedo usado solo como avance
+parcial. El siguiente cuello matematico sigue siendo conjunto: controlar
+`W_tau` al mismo tiempo que el producto `Pi_tau` en la salida real. En paralelo,
+`../zootheorem/drafts/` recibio cinco borradores OEIS de reserva para material
+ya verificado (`G`, `H`, `e8`, `e10`, `e12`), excluyendo las entradas
+A398792--A398795 ya aprobadas.
+
 ## 1. La obligacion que necesita el telescopio
 
 **Actualizacion Erizas:** la condicion suficiente expuesta aqui sigue

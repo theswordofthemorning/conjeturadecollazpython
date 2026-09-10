@@ -1018,3 +1018,18 @@ descriptivo entre paréntesis.)*
 | el mapa de dependencias y su regla | `guardarafirmaciones.py` → `afirmaciones.db` (tablas `nodos`, `dependencias`) |
 | el registro por sesión | `bitacora.md` (03-08-2026, cinco bloques) |
 | la palanca CST (rama aparte, congelada esta semana) | `atacacst.py/.lean`, `paradacoef.py` |
+
+---
+
+## Cierre operativo 10-09-2026
+
+La tanda de Gacelas deja un avance parcial: la parte multiplicativa de la
+excursion tiene un piso de orden `1/sqrt(log x)` en el evento controlado, pero
+P2 sigue abierto porque falta controlar conjuntamente `W_tau` y `Pi_tau` en la
+salida real. No usar este resultado como cierre de densidad ni como prueba de
+Collatz.
+
+En paralelo, `../zootheorem/drafts/` queda con cinco borradores OEIS de reserva:
+`A398XXX1.txt` ... `A398XXX5.txt`. Cubren `G`, `H`, `e8`, `e10` y `e12`;
+excluyen A398792--A398795, ya aprobadas. Se verificaron con `identidadexacta.py`
+y `estratoscadena.py`, y la busqueda OEIS del 10-09-2026 no encontro resultados.
