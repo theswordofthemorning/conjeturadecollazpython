@@ -1,0 +1,31 @@
+CONTROL: 5680 pasos contra pares enteros positivos: OK
+VENTANA t=12..15, m=1..12; sin filtro numerico; umbral exacto=1/2
+  t=16 estados=3154 rho_lim_m=0.426089880 escala_inyectiva=19
+c0=1 bloque=1 peor=0.420803669 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=3172 rho_lim_m=0.429015558 escala_inyectiva=20
+c0=3 bloque=1 peor=0.422732475 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=3376 rho_lim_m=0.418590234 escala_inyectiva=23
+c0=5 bloque=1 peor=0.413668131 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=4230 rho_lim_m=0.425235991 escala_inyectiva=19
+c0=7 bloque=1 peor=0.418203836 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=3194 rho_lim_m=0.418296961 escala_inyectiva=21
+c0=9 bloque=1 peor=0.413337784 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=2722 rho_lim_m=0.428856014 escala_inyectiva=19
+c0=17 bloque=1 peor=0.423930748 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=3709 rho_lim_m=0.418976544 escala_inyectiva=22
+c0=27 bloque=1 peor=0.414527196 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=4294 rho_lim_m=0.422252924 escala_inyectiva=21
+c0=31 bloque=1 peor=0.416759583 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=4214 rho_lim_m=0.424228931 escala_inyectiva=20
+c0=63 bloque=1 peor=0.418725597 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=4577 rho_lim_m=0.435524723 escala_inyectiva=22
+c0=127 bloque=1 peor=0.429941298 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=4810 rho_lim_m=0.445462422 escala_inyectiva=21
+c0=255 bloque=1 peor=0.439112942 t=15 m=12 fallos=0 ceros=0
+  t=16 estados=6981 rho_lim_m=0.369418740 escala_inyectiva=30
+c0=999983 bloque=1 peor=0.374096262 t=13 m=1 fallos=0 ceros=0
+  t=16 estados=6471 rho_lim_m=0.391018740 escala_inyectiva=40
+c0=999999937 bloque=1 peor=0.396311915 t=15 m=10 fallos=0 ceros=0
+  t=16 estados=6531 rho_lim_m=0.395031785 escala_inyectiva=30
+c0=1398101 bloque=1 peor=0.401125591 t=15 m=12 fallos=0 ceros=0
+FIN: 0 celdas incumplen la contraccion estricta. Barrido finito, no prueba universal.

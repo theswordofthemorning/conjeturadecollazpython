@@ -1,5 +1,45 @@
 # CLAUDE.md
 
+> **Frente vigente, 10-09-2026:** ver
+> [depuracion/frente20260910/LEEME.md](depuracion/frente20260910/LEEME.md).
+> **Quinta tanda:** [Puente de las Gacelas](depuracion/frente20260910/Gacelas.md).
+> La masa h=k-1 es armónica en la cadena entera (todo tiempo en Lean).
+> Su cambio de medida conserva Mangostas, pero NO equivale automáticamente
+> a supervivencia futura o reversión. Contraejemplo condicionado: bit 0
+> pasa de 1/2 a 2/3. Prueba escrita directa: excursiones largas con parte
+> multiplicativa pequeña tienen piso del orden 1/sqrt(log x), sin trasladar
+> el reloj V2. Falta control CONJUNTO del término aditivo W en la salida;
+> no es P2 ni densidad. Ocho resultados Lean, controles exactos, sin revisión externa.
+> **Cuarta tanda:** [Reloj de las Mangostas](depuracion/frente20260910/Mangostas.md).
+> Racha compartida a altura fija: L=r si r<A; L=A+G si r=A,
+> r=min(v2(c),A), A=v2(3^k-1), G geométrica desde cero. No se necesita
+> modelar los saltos individuales de recarga para esta ley. Álgebra y
+> conteo universal del autómata en Lean; enlace global escrito y cruzado.
+> Control O(n log n) del reloj de pasos mixtos con error explícito,
+> NO de visitas al fondo. Revisión externa y transferencia P2 pendientes.
+> **Tercera tanda:** [Obstrucción de las Erizas](depuracion/frente20260910/Erizas.md).
+> Para cada semilla fija, la colisión entera tiene tasa exponencial cero:
+> es imposible un rho fijo <1/2 para todos los tiempos grandes y escalas.
+> También cae el control L2 uniforme en todo un wedge lineal escala-tiempo.
+> Demostración escrita, nueve ingredientes Lean y cruces exactos; faltan
+> formalización integral y revisión externa. P2 y densidad siguen abiertos.
+> Ese ataque se continúa en Mangostas, sin restaurar uniformidad L2 global.
+> **Segunda tanda:** [Balance de las Castoras](depuracion/frente20260910/Castoras.md).
+> Transferencia exacta con las cuatro corrientes, paridad y supervivencia;
+> álgebra y dos testigos sintéticos en Lean. Los testigos solos no refutaban
+> la ruta alcanzable; Erizas sí excluye el margen H uniforme global.
+> La conclusión general «no hay gap de mezcla» de G5 comparaba alturas
+> distintas de C6: `(3,5)` frente a `(2,3,4,5)`. El Lema de las Suricatas en Lean
+> demuestra que `(2,3)` sólo tiene invariantes comunes constantes en todo
+> módulo `2^m`. No demuestra gap uniforme ni el conteo de la cadena real.
+> Esta corrección acota las filas y conclusiones históricas sobre
+> `gapmezcla.py` y `correlacionafin.py` de este documento.
+> Metodología confirmada por el usuario: densidad como objetivo principal,
+> tanteo local sin agentes; revisión adversarial cuando haya un resultado
+> sustancial y el usuario la autorice. La tanda actual aún no la tiene.
+> Bautizos: el usuario autorizó nombrar los hallazgos sin consulta previa,
+> manteniendo animales en femenino y comprobando que el nombre esté libre.
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 # Conjetura de Collatz — laboratorio

@@ -1,0 +1,6 @@
+CONTROL: 5680 pasos contra pares enteros positivos: OK
+CONTROL: balota t=0..200; cola binomial t=0..400; umbral T=1024: OK.
+CONTROL: descomposicion u=producto*u0+W por pares: 1536 palabras: OK.
+c0=999999937: ley P y Q hasta t=20, puente r=6,T=12: OK; S12=631/2048
+ADV (2,0), tau>4: S4=3/4, P(bit0|tau>4)=2/3; bajo Q es 1/2.
+FIN: no se identifica Q con el limite condicionado ni se acota W en la salida.

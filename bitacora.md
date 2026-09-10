@@ -1,5 +1,122 @@
 # Bitácora
 
+## 10-09-2026 (5): Puente de las Gacelas
+
+Continuación sin agentes: `depuracion/frente20260910/Gacelas.md`.
+
+- h=k-1 es armónica sobre la cadena entera; masa ponderada a todo tiempo
+  demostrada en Lean. Su cambio Q conserva las monedas compartidas y
+  Mangostas, pero no se identifica con reversión ni con límite condicionado.
+- Puente exacto al horizonte futuro mediante S_(H-r)(k,c). Ejemplo desde
+  (2,0): sobrevivir cuatro pasos cambia P(bit 0) de 1/2 a 2/3, incluso
+  siendo compartido. Conteos completos del ejemplo en Lean.
+- Balota del paseo mixto da S_t>=1/sqrt(2t+3), uniforme en c0. Dividir
+  Mangostas por esa supervivencia da reloj condicionado con pago sqrt(H).
+- Prueba escrita directa, sin trasladar V2: la probabilidad de algún
+  producto Pi_t>(31/32)^t para t>=T es <=62(61/62)^T. Restándola de la
+  supervivencia se obtiene piso de orden 1/sqrt(log x) para excursiones
+  largas con Pi_tau*x<=1. NO controla W_tau ni el valor completo de salida.
+- Lean 4.32.2: ocho resultados sin `sorryAx`; no formalización integral
+  de las probabilidades. Python: seis semillas hasta t=16, otra hasta 20,
+  puente r=6,H=12; balota hasta 200, cola binomial hasta 400; 1.536
+  palabras por pares para la descomposición afín y 5.680 pasos locales.
+- Siguiente obligación: control conjunto de W_tau y el producto en la
+  ley real de salida, con ventana uniforme. Sin P2, nueva densidad ni
+  revisión externa; no se tocaron publicaciones ni registros de auditoría.
+
+## 10-09-2026 (4): Reloj de las Mangostas
+
+Ataque directo, sin agentes. Nota: `depuracion/frente20260910/Mangostas.md`.
+
+- A altura fija, truncar v2(c) en A=v2(3^k-1) cierra un autómata:
+  bajo A ambas ramas bajan uno; en A una permanece y otra baja a A-1.
+  Así L=r determinista bajo el umbral y L=A+G encima, con G geométrica
+  desde cero. Incluye c=0, signos y recargas repetidas; bits futuros justos.
+- Lean 4.32.2: once resultados, sin `sorryAx`, incluyendo el conteo para
+  toda longitud del autómata. Enlace global cadena-autómata escrito y
+  cruzado, no ensamblado en una formalización única. Sin revisión ciega.
+- Python: 33.371 celdas y cruce con pares positivos. Dieciséis mezclas
+  iniciales y cinco adicionales hasta t=24; cola integrada exactamente
+  por la ley, sin filtros. No se condiciona a supervivencia futura.
+- Corrección: (2,1398101) tras bit 0 entra en (3,2^21), pero NO fuerza
+  21 pasos compartidos. P(L>=21)=2^-20; un bit 1 inmediato acaba la racha.
+  Las congruencias de lecturaracha siguen válidas para v2 del hijo.
+- Reducción: las colas completas sólo necesitan clases hasta 2^A<=4k.
+  Corolario escrito: reloj de n pasos mixtos O(n log n) con error
+  <=n/(n+1)^3, uniforme en c0. NO es el reloj de visitas al fondo.
+- Pendiente: revisión, control bajo supervivencia futura y transferencia
+  del reloj a P2. No hay nueva cota de densidad ni cierre de Collatz.
+
+## 10-09-2026 (3): Obstrucción de las Erizas
+
+Tanda acotada, sin agentes. Nota completa: `depuracion/frente20260910/Erizas.md`.
+
+- Para la excursión desde CADA semilla entera fija, los momentos de la
+  altura absorbida y de |c|/3^k dejan media masa condicionada en una caja
+  de cardinalidad exp(O_c0(t^(3/4)+log(t+2))). La colisión entera A_t
+  cumple lim A_t^(1/t)=1: no puede tener decaimiento geométrico uniforme.
+- Consecuencia: no existen rho<1/2 y T que den contracción multiescala
+  para TODO t>=T y TODO m>=1. También quedan excluidos los bloques fijos
+  uniformes. Los testigos ahora son las leyes alcanzables, no sintéticas.
+- La misma caja impide C2 marginal uniformemente acotado en TODO
+  1<=m<=alpha*t. Afecta al control L2 propuesto en el ensamblaje de P2,
+  pero no refuta P2 ni las cotas de las clases especiales de racha.
+- Estado: demostración escrita; nueve ingredientes algebraicos en Lean
+  4.32.2 sin `sorryAx`, NO formalización integral. Python exacto: 126 leyes
+  iniciales y 29 en la ampliación c0=1, t<=28 (ventanas superpuestas),
+  más controles locales y contra pares reales. Sin revisión ciega.
+- Siguiente ataque: probabilidades de las clases especiales de racha y
+  recarga directamente; no seguir buscando el margen H uniforme global.
+  Castoras y Suricatas permanecen válidos. Sin nueva cota de densidad.
+
+## 10-09-2026 (2): Balance de las Castoras
+
+Se eligió continuar la investigación. Sin agentes ni envíos a OEIS.
+Detalle y siguiente obligación: `depuracion/frente20260910/Castoras.md`.
+
+- **Identidad derivada:** `(1-s)e' = E-Q-R-sU-Delta`; Q es el desequilibrio
+  de paridad, R su corrección firmada, sU la energía que sale, Delta la
+  reducción por mezclar corrientes. R puede ser negativo.
+- **Lean 4.32.2, sin `sorryAx`:** identidades algebraicas, equivalencia
+  del umbral y dos contraejemplos con transición y conteos concretos.
+  El ensamblaje general de todas las sumatorias está escrito y cruzado
+  en Python; no se presenta como formalización completa de la cadena.
+- **Negativos:** una ley sintética pasa de E=5/8 a e'=6/5 (`rho=48/25`);
+  otra, con paridad exactamente equilibrada, da E=e'=3. Ninguna se ha
+  identificado como ley alcanzable desde una semilla puntual.
+- **Mediciones:** 200 celdas iniciales y 234 de la ventana original;
+  todos los balances cierran exactamente. Son ventanas parcialmente
+  superpuestas, no 434 celdas distintas. En ambas, rho<1/2. Para la segunda,
+  H/E mínimo 0,038917 en c0=1398101, t=19, m=10; horizonte finito.
+  Los términos exactos de sus 234 celdas están en `balance_celdas.json`.
+- **Pendiente:** propiedad propagable de las leyes alcanzables que
+  controle H uniformemente; revisar la tanda antes de apoyarse en ella.
+  No hay nueva cota de densidad ni cierre de P2.
+
+## 10-09-2026: Lema de las Suricatas, invariantes de alturas 2 y 3
+
+Sesión local sin agentes. Objetivo acordado: densidad; Python exacto para
+atacar, Lean para demostrar, revisión adversarial posterior autorizada.
+Detalle, comandos y límites: `depuracion/frente20260910/LEEME.md`.
+Nombre registrado tras autorizar el usuario el bautizo de los hallazgos.
+
+- **Demostrado en Lean 4.32.2, sin `sorryAx`:** una función de período
+  `2^m` invariante bajo `3x-4` y `3x-13` es constante, para todo `m`.
+  El patrón `(1,-1,-1,1)` es invariante bajo las alturas 3 y 5, pero no 2.
+- **Corrección del diagnóstico:** C6 incluía alturas pares y G5 no.
+  El cambio de espacio directo a espectro no explica la discrepancia.
+  La sospecha ya figuraba en el encargo 11, d1; se resolvió este punto.
+- **Cruce:** componentes e identidades enteras hasta módulo `2^12`;
+  SVD del producto auxiliar `M2 M3` en `m=2..8`, normas de 0,707 a 0,931.
+  No prueba margen uniforme ni representa las cuatro corrientes reales.
+- **DP reproducido:** 234 celdas originales, peor `rho_cond=0,460165951`;
+  672 celdas del barrido adicional por defecto, cero cruces de `1/2`.
+  Fracciones exactas, sin filtro numérico; control contra pares reales.
+  Se leyó el código anterior: no es una revisión independiente ciega.
+- **Pendiente:** transferencia del exceso con las cuatro corrientes,
+  sus pesos y supervivencia; margen uniforme y condiciones de P2.
+  No se demostró densidad uno ni se envió nada a OEIS.
+
 Resumen corto por sesión. Lo detallado va en `CLAUDE.md`; esto es para saber en
 diez líneas qué pasó y por dónde se iba. La entrada más reciente arriba.
 

@@ -1,4 +1,15 @@
 =====================================================================
+ACTUALIZACION 10-09-2026: depuracion/frente20260910/Mangostas.md.
+Para bits futuros justos y altura fija, la racha completa tiene ley
+L=r si r<A y L=A+Geom(1/2) si r=A, con r=min(v2(c),A), A=v2(3^k-1)
+y geometrica desde cero. Se obtiene un offset ESTOCASTICO A uniforme
+en c, sin controlar saltos de recarga. No restaura la falsa cota
+DETERMINISTA L-v2(c)<=A-1. Algebra y automata en Lean, enlace escrito
+y controles; revision externa pendiente. Una constante geometrica
+uniforme en k y la supervivencia futura aun requieren otro argumento.
+El ejemplo c0=1398101 NO fuerza 21 pasos: P(L>=21)=2^-20 tras bit 0.
+El texto historico siguiente se conserva con estas correcciones.
+=====================================================================
 NOTA: LA DOMINACION DEL RELOJ REAL, REDUCIDA A EQUIDISTRIBUCIONES
 (11-08-2026 (2), sexta pasada; REESCRITA TRAS LA 9a REVISION -- el
 adversario 1 rompio la version anterior de la Pieza A en tres

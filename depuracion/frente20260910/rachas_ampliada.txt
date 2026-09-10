@@ -1,0 +1,12 @@
+CONTROL: 5680 pasos contra pares enteros positivos: OK
+CONTROL: 33371 celdas (k=2..16, signos, cero, recargas y alturas grandes): OK.
+CONTROL: 16 arranques x 1024 palabras, por pares positivos: OK.
+ADV: tras bit 0, h=2^21 a k=3; P(L>=21)=1/1048576, NO 1.
+MEZCLA: condicionada a c impar ahora y a la proxima rama mixta viva;
+no condicionada a supervivencia futura; fracciones exactas, sin filtro de granularidad.
+c0=999999937 t=8 entradas=89 Amax=4 C_cola=84/89 (~0.943820) max_C_j=1.123596 en j=1
+c0=999999937 t=12 entradas=1200 Amax=5 C_cola=201/200 (~1.005000) max_C_j=1.058333 en j=4
+c0=999999937 t=16 entradas=16789 Amax=5 C_cola=17090/16789 (~1.017928) max_C_j=1.017928 en j=5
+c0=999999937 t=20 entradas=244965 Amax=6 C_cola=48712/48993 (~0.994264) max_C_j=0.999000 en j=3
+c0=999999937 t=24 entradas=3631082 Amax=6 C_cola=1818035/1815541 (~1.001374) max_C_j=1.007469 en j=1
+FIN: ley de una racha verificada; los prefactores de mezclas son mediciones finitas.

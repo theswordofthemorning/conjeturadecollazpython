@@ -1,4 +1,34 @@
 =====================================================================
+QUINTA TANDA 10-09-2026: ver depuracion/frente20260910/Gacelas.md.
+El cambio armonico h=k-1 conserva las rachas de Mangostas, pero NO
+equivale sin prueba al condicionamiento futuro ni a la reversion.
+Control escrito DIRECTO de la parte multiplicativa: excursiones largas
+con Pi_tau*x<=1 tienen piso de orden 1/sqrt(log x), sin transferir V2.
+No basta para P2: falta W_tau acotado con masa CONJUNTA suficiente.
+Ni una mediana marginal ni el desplazamiento medido del 5% dan ese paso.
+El reloj condicionado tiene una cota con pago sqrt(H), no una ley
+geometrica uniforme ya demostrada. Ocho resultados Lean, controles;
+formalizacion integral y revision externa pendientes. Historia debajo.
+=====================================================================
+CONTINUACION 10-09-2026: ver depuracion/frente20260910/Mangostas.md.
+La ley de racha compartida se cierra por valuacion truncada: no hacen
+falta los saltos individuales de recarga para un control estocastico
+con offset A=v2(3^k-1). Se deriva una cota de reloj de pasos mixtos;
+falta comprobar su transferencia a P2 y supervivencia futura. El
+"forzado" de P2-b.i tampoco es v2(h) en general: desde (3,2^21), un
+solo bit 1 acaba la racha. La palabra de ceros no siempre la minimiza.
+Algebra y automata en Lean; enlace general escrito, revision pendiente.
+=====================================================================
+ACTUALIZACION 10-09-2026: ver depuracion/frente20260910/Erizas.md.
+El control L2 uniforme propuesto abajo para todo el wedge lineal no
+puede valer en la ley viva desde una semilla fija: una caja de masa
+>=1/2 y cardinalidad subexponencial impone C2 marginal creciente en
+escalas m proporcionales a t. Tambien excluye rho_ms<1/2 uniforme
+en todas las escalas. Prueba escrita, ingredientes Lean y controles;
+formalizacion integral y revision externa pendientes. No refuta P2
+ni las cotas directas de las clases especiales de racha. El esquema
+historico siguiente se conserva, pero su via L2 necesita reformulacion.
+=====================================================================
 NOTA: EL ENSAMBLAJE DE P2 -- LA TRANSFERENCIA V2 -> CADENA REAL,
 PIEZA POR PIEZA, CON LO ESCRITO EL 12-08
 (12-08-2026; cierra en el papel los puntos 3 y 4 de la ruta

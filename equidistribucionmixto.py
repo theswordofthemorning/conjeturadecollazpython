@@ -1,5 +1,11 @@
 # equidistribucionmixto.py
 #
+# ACTUALIZACION 10-09-2026: ver depuracion/frente20260910/Mangostas.md.
+# Este censo mide v2 del hijo del mixto, NO la duracion compartida
+# realizada o minima sobre los bits futuros. En el ejemplo ADV,
+# P(L>=21 | bit 0 inicial)=2^-20, no 1. Las cuentas de divisibilidad
+# se conservan; la ley de L requiere el automata de valuacion truncada.
+#
 # LA EQUIDISTRIBUCION DE v2 TRAS EL MIXTO, MEDIDA EXACTA (12-08-2026;
 # punto 1(a) de la ruta post-9a -- la Pieza B de notadominacion.txt,
 # el corazon analitico que la 9a dejo "POR ESCRIBIR").

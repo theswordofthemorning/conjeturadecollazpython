@@ -1,0 +1,18 @@
+CONTROL: 5680 pasos contra pares enteros positivos: OK
+VENTANA t=12..24, m=5..10; sin filtro numerico; umbral exacto=1/2
+  t=16 estados=6981 rho_lim_m=0.369418740 escala_inyectiva=30
+  t=20 estados=52066 rho_lim_m=0.424752063 escala_inyectiva=32
+  t=24 estados=354195 rho_lim_m=0.449308207 escala_inyectiva=34
+  t=25 estados=566383 rho_lim_m=0.450638970 escala_inyectiva=35
+c0=999983 bloque=1 peor=0.454093109 t=20 m=10 fallos=0 ceros=0
+  t=16 estados=6471 rho_lim_m=0.391018740 escala_inyectiva=40
+  t=20 estados=41708 rho_lim_m=0.428613941 escala_inyectiva=42
+  t=24 estados=260873 rho_lim_m=0.451834530 escala_inyectiva=44
+  t=25 estados=411303 rho_lim_m=0.452275008 escala_inyectiva=45
+c0=999999937 bloque=1 peor=0.456401954 t=24 m=10 fallos=0 ceros=0
+  t=16 estados=6531 rho_lim_m=0.395031785 escala_inyectiva=30
+  t=20 estados=42750 rho_lim_m=0.430158942 escala_inyectiva=33
+  t=24 estados=259026 rho_lim_m=0.448951151 escala_inyectiva=35
+  t=25 estados=403359 rho_lim_m=0.453452387 escala_inyectiva=36
+c0=1398101 bloque=1 peor=0.460165951 t=19 m=10 fallos=0 ceros=0
+FIN: 0 celdas incumplen la contraccion estricta. Barrido finito, no prueba universal.

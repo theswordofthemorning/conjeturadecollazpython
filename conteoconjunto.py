@@ -1,5 +1,12 @@
 # conteoconjunto.py
 #
+# ACTUALIZACION 10-09-2026: depuracion/frente20260910/Erizas.md da una
+# obstruccion escrita a rho_cond<1/2 UNIFORME en todo tiempo grande y
+# toda escala, incluso para cada semilla fija. Tambien excluye C2
+# uniforme en un wedge lineal. Los barridos finitos de este archivo
+# se conservan; no entregan ese teorema. Ingredientes Lean y controles
+# exactos disponibles; formalizacion integral y revision pendientes.
+#
 # BALLENAS (filtran por fibra; bautizado el 12-08-2026 por
 # delegacion del usuario): el funcional condicional e_cond.
 #

@@ -1,5 +1,11 @@
 -- lecturaracha.lean
 --
+-- ACTUALIZACION 10-09-2026: ver depuracion/frente20260910/Mangostas.md.
+-- Las congruencias aqui prueban divisibilidad del HIJO, no la duracion
+-- realizada ni minima de la racha para todos los bits futuros. Por
+-- ejemplo (3,2^21) tiene P(L>=21)=2^-20, no 1. Los teoremas aritmeticos
+-- se conservan; la duracion completa se trata con valuacion truncada.
+--
 -- LA LECTURA DE LA RACHA -- TEOREMA DE VIBORAS (la lectura: leen
 -- con la lengua los bits bajos) + TEOREMA DE AVISPAS (el aguijon:
 -- k impar inyecta el bit fresco). Bautizados por orden del usuario

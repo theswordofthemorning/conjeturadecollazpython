@@ -1,0 +1,13 @@
+CONTROL: 5680 pasos contra pares enteros positivos: OK
+CONTROL: 858 estados, cuatro cotas locales; 10000 raices enteras: OK.
+Decimales solo para presentar; todas las comparaciones usan enteros/Fraction.
+c0=1 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000
+c0=1 t=4 estados=8 S=0.500000 A=0.375000000 rho_lim_m=0.250000000 h=7 caja_masa=1.000000
+c0=1 t=8 estados=81 S=0.375000 A=0.077479658 rho_lim_m=0.356600935 h=10 caja_masa=1.000000
+c0=1 t=12 estados=534 S=0.311768 A=0.022885852 rho_lim_m=0.396847448 h=13 caja_masa=1.000000
+c0=1 t=16 estados=3154 S=0.269165 A=0.010455342 rho_lim_m=0.426089880 h=16 caja_masa=1.000000
+c0=1 t=20 estados=18302 S=0.241755 A=0.006486619 rho_lim_m=0.450421540 h=19 caja_masa=1.000000
+c0=1 t=24 estados=104088 S=0.221777 A=0.004552528 rho_lim_m=0.462011625 h=21 caja_masa=1.000000
+c0=1 t=28 estados=590042 S=0.206358 A=0.003457520 rho_lim_m=0.469285543 h=24 caja_masa=1.000000
+  OK: 29 leyes; momentos, supervivencia, caja y colision exactos.
+FIN: controles terminados; prueba asintotica escrita en Erizas.md, no barrido universal.

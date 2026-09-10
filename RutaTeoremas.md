@@ -1,5 +1,41 @@
 # RutaTeoremas.md — el camino a Perras y Gatas, y la ruta que sigue
 
+> **Actualización 10-09-2026: empezar por
+> [el frente de densidad](depuracion/frente20260910/LEEME.md).**
+> **Quinta tanda: [Puente de las Gacelas](depuracion/frente20260910/Gacelas.md).**
+> Cambio armónico de la cadena entera y sesgo explícito bajo supervivencia
+> futura. La contracción del producto se controla directamente bajo P:
+> piso de orden 1/sqrt(log x) para excursiones largas con contribución
+> inicial pequeña. NO controla el valor completo al salir ni prueba P2.
+> Falta controlar W conjuntamente con ese evento; no importar sin prueba
+> la reversión de V2. Prueba escrita, ocho resultados Lean y controles;
+> formalización probabilística integral y revisión externa pendientes.
+> **Cuarta tanda: [Reloj de las Mangostas](depuracion/frente20260910/Mangostas.md).**
+> Ley exacta de racha compartida: L=r bajo A, L=A+Geom(1/2) sobre A,
+> con r=min(v2(c),A), A=v2(3^k-1), geométrica desde cero. Lean demuestra
+> el álgebra y el conteo universal del autómata; enlace global escrito.
+> Se deriva un control O(n log n) del reloj de pasos MIXTOS, no visitas
+> al fondo. Falta revisión externa y comprobar la transferencia a P2.
+> **Tercera tanda: [Obstrucción de las Erizas](depuracion/frente20260910/Erizas.md).**
+> La colisión entera de cada semilla fija tiene tasa exponencial cero.
+> Queda excluida la contracción uniforme rho<1/2 en todas las escalas,
+> incluso sobre la órbita, y el control L2 uniforme en un wedge lineal.
+> Prueba escrita, ingredientes Lean y controles; sin formalización integral
+> ni revisión externa. Atacar las clases especiales de racha directamente.
+> **Segunda tanda: [Balance de las Castoras](depuracion/frente20260910/Castoras.md).**
+> La transferencia de las cuatro corrientes ya incluye paridad y
+> supervivencia. Dos leyes sintéticas comprobadas en Lean impiden extender
+> la contracción a distribuciones arbitrarias, incluso con paridad equilibrada.
+> El margen global alcanzable queda descartado por Erizas; el conteo sigue abierto.
+> C6 usa alturas 2–5; G5 usa solamente 3 y 5. La supuesta refutación del
+> invariante común trivial comparaba operadores distintos. Está demostrado
+> en Lean (Lema de las Suricatas) que los invariantes comunes de las
+> alturas 2 y 3 son constantes
+> para todo módulo `2^m`; el testigo de 3 y 5 no sobrevive a 2.
+> Esto no demuestra un margen uniforme ni `rho_cond < 1/2` para la cadena.
+> Los cierres históricos que retiran toda la vía de mezcla quedan acotados
+> por esta corrección. Sin revisión adversarial externa todavía.
+
 Escrito el 03-08-2026 al cierre de la sesión que los produjo. **Este fichero es
 el contexto de arranque de la próxima sesión**: qué se demostró, por qué rama
 del mapa de dependencias se llegó, y cuál es el siguiente movimiento. El mapa
@@ -921,6 +957,11 @@ descriptivo entre paréntesis.)*
 
 | nombre | tipo | qué dice, en una línea | estatus | fichero |
 |---|---|---|---|---|
+| **GACELAS** | puente parcial, prueba escrita | h=k-1 armónica en la cadena entera; Q conserva las rachas pero no es el condicionamiento finito; control directo de excursiones largas con producto pequeño, de orden 1/sqrt(log x) | ocho resultados Lean sin `sorryAx`, controles exactos; falta W conjunto en la salida, formalización integral y revisión; NO P2 | `depuracion/frente20260910/Gacelas.md`, `depuracion/frente20260910/transferencia.lean`, `depuracion/frente20260910/transferencia.py` |
+| **MANGOSTAS** | ley exacta de racha | con A=v2(3^k-1), r=min(v2(c),A): L=r si r<A; L=A+Geom(1/2) si r=A, geométrica desde cero; reloj de pasos mixtos O(n log n) con error explícito | álgebra y conteo del autómata en Lean sin `sorryAx`; enlace global y corolario probabilístico escritos, controles exactos; revisión y transferencia P2 pendientes | `depuracion/frente20260910/Mangostas.md`, `depuracion/frente20260910/rachas.lean`, `depuracion/frente20260910/rachas.py` |
+| **ERIZAS** | obstrucción, prueba escrita | cada semilla fija tiene colisión entera de tasa exponencial cero; excluye rho<1/2 global y L2 uniforme en un wedge lineal | nueve ingredientes Lean sin `sorryAx`, controles exactos; formalización integral y revisión externa pendientes | `depuracion/frente20260910/Erizas.md`, `depuracion/frente20260910/obstruccion.lean`, `depuracion/frente20260910/obstruccion.py` |
+| **CASTORAS** | identidad aplicada + contraejemplos | balance exacto `(1-s)e' = E-Q-R-sU-Delta`; una ley sintética da `rho=48/25`, otra con paridad equilibrada da `rho=1` | álgebra y testigos en Lean sin `sorryAx`; ensamblaje general escrito y cruzado en Python; margen global descartado por Erizas, revisión externa pendiente | `depuracion/frente20260910/Castoras.md`, `depuracion/frente20260910/balance.lean`, `depuracion/frente20260910/balance.py` |
+| **SURICATAS** | lema | toda función de período `2^m` invariante bajo `3x-4` y `3x-13` es constante; rigidez para las alturas 2 y 3 | demostrado en Lean, sin `sorryAx`; cruce Python; revisión adversarial pendiente; no implica gap uniforme | `depuracion/frente20260910/invariantes.lean`, `depuracion/frente20260910/LEEME.md` |
 | **PERRAS** | teorema | `\|M\|=2 ⟺ stems de Garner`, y el conteo exacto `2^{m−1}` con el borde resuelto | teorema; novedad verificada (Garner/E–T/LaTourette) | `teoremadeperras.txt`, `nuevasfusion.py` C15, `perrasconteo.lean` |
 | **GATAS** | teorema | contracción literal + reinicio uniforme + ecuación de renovación `f = 1/4 + f/4 + g/4 + h/4` | teorema; (a) en Lean | `teoremadegatas.txt`, `contracciondegatas.lean` |
 | **JIRAFAS** | lema-caracterización | fusión S-balanceada ⟺ evento de clase (ida + recíproco) | demostrado; C1 retirado | `teoremadejirafas.txt`, `zoologico.lean` |

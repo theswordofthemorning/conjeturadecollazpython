@@ -1,5 +1,12 @@
 # gapmezcla.py
 #
+# CORRECCION 10-09-2026: G3/G5 usan SOLO k=3,5; C6 de
+# correlacionafin.py usa k=2,3,4,5. No son el mismo operador.
+# invariantes comunes de k=2,3: SOLO constantes, para todo 2^m,
+# demostrado en depuracion/frente20260910/invariantes.lean.
+# La exposicion historica de abajo queda acotada por esa distincion.
+# Esto no prueba gap uniforme ni contraccion de la cadena real.
+#
 # EL GAP DE LA MEZCLA: ¿HAY EXPANSION O NO? (12-08-2026 (3), la
 # continuacion directa de correlacionafin.py C6/C11 -- y la prueba
 # de la ULTIMA reparacion que quedaba en pie.)
@@ -135,6 +142,8 @@ print("EL GAP DE LA MEZCLA: hay expansion o no?")
 print("la ultima reparacion en pie (correlacionafin C6, nota punto 9)")
 print("puesta a prueba -- MEDICION SOBRE OPERADORES, no sobre la")
 print("cadena")
+print("CORRECCION 10-09: los productos de G3/G5 usan solo k=3,5.")
+print("No refutan C6 con k=2..5 ni la mezcla completa de la cadena.")
 print()
 
 # ---------------------------------------------------------------
@@ -365,30 +374,21 @@ print("    bloques. El peor bloque es otro, y ahi la norma es 1")
 print("    EXACTA: hay orbitas de frecuencia cuyo producto de fases")
 print("    es 1 (Sigma de la orbita = 0 mod N), y entonces el")
 print("    autovalor lambda = 1 es alcanzable para los DOS")
-print("    operadores a la vez -- un INVARIANTE COMUN EXACTO que la")
-print("    sonda de union-find de correlacionafin C6 no veia porque")
-print("    miraba particiones del espacio directo, no del espectro.")
+print("    operadores k=3,5 a la vez. C6 incluyo TAMBIEN k=2,4:")
+print("    no hubo un invariante oculto por el cambio de base, sino")
+print("    un cambio de operadores. Con k=2,3 solo quedan constantes")
+print("    (Lean: depuracion/frente20260910/invariantes.lean).")
 print()
-print("    ==> VEREDICTO: LA VIA DE EXPANSION ESTA MUERTA. No hay")
-print("    gap para uno, dos ni tres pasos, en ninguna escala, por")
-print("    DOS metodos independientes que coinciden (power iteration")
-print("    en dimension 2^m y bloques exactos de orbita). El")
-print("    'invariante comun trivial' de C6 era una lectura del")
-print("    espacio directo; en el espectro el invariante comun")
-print("    EXISTE. La reparacion que correlacionafin proponia en su")
-print("    punto 9 -- ||Sigma w_i P_i|| < 1 como teorema de")
-print("    expansion -- queda RETIRADA.")
+print("    ==> VEREDICTO ACOTADO: los productos (3), (3,5),")
+print("    (3,5,3) tienen norma 1 en la ventana; el testigo comun")
+print("    explica exactamente por que. Esto NO decide el gap")
+print("    uniforme de mezclas con alturas pares, ni identifica")
+print("    estos productos con las cuatro corrientes de la cadena.")
 print()
-print("    LO QUE ESTO DEJA EN PIE, que es lo importante: la")
-print("    contraccion que la cadena SI exhibe (rho_ms en 0,23-0,43,")
-print("    toda escala) NO PUEDE VENIR DEL OPERADOR -- ningun")
-print("    argumento sobre Z/2^m puede darla, porque el operador no")
-print("    contrae. Tiene que venir de que la ORBITA DEL DP no pone")
-print("    masa en las frecuencias malas. Eso convierte el teorema de")
-print("    conteo en un enunciado sobre la MEDIDA que el DP realiza,")
-print("    no sobre el operador que la mueve -- y es, otra vez y con")
-print("    mas fuerza, la leccion de 3-bis.vi: el teorema es sobre la")
-print("    orbita, no sobre el operador suelto.")
+print("    SIGUE ABIERTO: la contraccion del funcional condicional")
+print("    con pesos y supervivencia. G6 mide la energia de la ley")
+print("    en un bloque malo para (3,5); no prueba que evitar ese")
+print("    bloque sea la unica fuente posible de contraccion.")
 print()
 
 # ---------------------------------------------------------------
