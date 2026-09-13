@@ -1,0 +1,62 @@
+EL CUADERNO DE LAS CONVERSACIONES
+
+  transcripciones encontradas: 2
+    e2adf52d-2bf8-4e89-bd1c-965b52d0b1e8.jsonl   2,412 KB
+    fa0e5be4-6336-423b-8381-15954e3f9a96.jsonl   5,497 KB
+
+  base: C:\Users\Home\Desktop\conjeturadecollazpython\respuestas.db   (ya existia)
+  mensajes leidos de las transcripciones: 131
+  entradas antes 1,957  ->  ahora 1,957   (nuevas: 0)
+
+COMPROBACION 1 -- vocabulario cerrado: 0 filas fuera de rango
+COMPROBACION 2 -- vacias 0 · (sesion,orden) repetidos 0 · sin fecha 0
+COMPROBACION 3 -- ida y vuelta literal: 131 mensajes, 0 fallos
+
+QUE HAY GUARDADO
+
+  sesion     de                   a                     usuario  asistente  sistema   caracteres
+  ---------- -------------------- -------------------- -------- ---------- -------- ------------
+  91033761   2026-07-29T14:55:00  2026-07-29T17:32:06        33         63        1       87,743
+  ada74998   2026-07-29T21:02:40  2026-07-30T00:01:52        34         74        9      397,012
+  b292bbe1   2026-07-30T15:04:16  2026-07-30T18:58:26        14        104        4      158,453
+  29a697f3   2026-07-30T19:20:56  2026-07-31T00:04:31        49        134       13      306,756
+  81719040   2026-07-31T00:50:38  2026-07-31T02:39:12        17         50        7      102,797
+  c33cf2bc   2026-08-01T19:27:06  2026-08-01T23:43:49        51        175        9    1,176,234
+  f53d6db6   2026-08-02T00:33:59  2026-08-02T02:03:38         6         67        6      135,718
+  429f4e04   2026-08-02T14:43:28  2026-08-02T19:05:02         7         22        6       66,873
+  071adcbb   2026-08-02T22:11:56  2026-08-02T23:56:35        13         30        4       50,352
+  1c239feb   2026-08-03T14:50:51  2026-08-03T23:16:09        81        163       10      315,492
+  c1f58615   2026-08-04T00:37:40  2026-08-04T02:49:03        22         32        4       37,437
+  f63dc65f   2026-08-09T12:58:06  2026-08-09T12:58:24         1          1        0          750
+  660d842c   2026-08-09T13:02:56  2026-08-09T17:52:29        33         53        4       95,047
+  d9e3308b   2026-08-09T22:49:50  2026-08-09T23:02:44         2          7        0        1,236
+  a78a6a48   2026-08-09T23:03:48  2026-08-10T01:50:51        16         35        9       72,203
+  aa6b725d   2026-08-10T14:28:22  2026-08-10T17:59:24        15         30       15       81,541
+  6b11861a   2026-08-10T19:55:37  2026-08-10T23:15:37        32         68       15      107,371
+  0fc0f033   2026-08-11T01:42:10  2026-08-11T04:37:20        16         48        7       68,771
+  977c55fc   2026-08-12T01:21:48  2026-08-12T03:05:11        12         23        2       33,163
+  35c77aaa   2026-08-12T15:08:30  2026-08-12T16:39:29        11         26        9       43,529
+  5ef9051c   2026-08-12T22:12:16  2026-08-12T22:37:00         2         19        1        4,221
+  e2adf52d   2026-08-17T00:01:21  2026-08-17T01:19:31        18         42        0       59,280
+  fa0e5be4   2026-08-24T00:24:00  2026-08-24T01:46:48        19         52        0       64,642
+
+  TOTAL: 504 preguntas · 1318 respuestas · 3,466,621 caracteres
+
+  Las diez respuestas mas largas (suelen ser las que traen el analisis):
+    c33cf2bc turno   61  2026-08-01T20:24:38    9,875 caracteres
+    e2adf52d turno   17  2026-08-17T00:14:49    7,498 caracteres
+    6b11861a turno   46  2026-08-10T21:32:16    7,350 caracteres
+    f53d6db6 turno   12  2026-08-02T00:47:04    7,083 caracteres
+    c33cf2bc turno   70  2026-08-01T20:39:55    6,488 caracteres
+    91033761 turno   76  2026-07-29T16:54:15    6,468 caracteres
+    f53d6db6 turno   79  2026-08-02T02:03:38    6,382 caracteres
+    81719040 turno   38  2026-07-31T01:56:30    6,361 caracteres
+    e2adf52d turno   23  2026-08-17T00:24:40    6,158 caracteres
+    81719040 turno   32  2026-07-31T01:46:17    6,130 caracteres
+
+  Respuestas sin clasificar (tipo IS NULL): 1318
+  Las columnas tipo, resumen, hallazgos, decisiones y ficheros se llenan
+  DESPUES, leyendo la fila. No se rellenan solas: eso seria inventar.
+
+La base esta en C:\Users\Home\Desktop\conjeturadecollazpython\respuestas.db. Es APPEND-ONLY: correr esto otra vez no
+duplica ni borra nada, solo añade las sesiones nuevas que aparezcan.

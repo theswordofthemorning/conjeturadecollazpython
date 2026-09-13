@@ -1,0 +1,35 @@
+Barridos simbolicos hasta nivel 20
+OK: estratos inferiores y contabilidad de los tres canales en el rango calculado.
+n e6 e8 e10 e12
+1 0 0 0 0
+2 0 0 0 0
+3 0 0 0 0
+4 0 0 0 0
+5 0 0 0 0
+6 0 0 0 0
+7 1 0 0 0
+8 2 0 0 0
+9 3 1 0 0
+10 6 3 0 0
+11 9 7 1 0
+12 13 15 4 0
+13 18 27 12 1
+14 24 45 30 5
+15 31 73 65 18
+16 39 111 131 52
+17 48 166 247 134
+18 58 237 447 315
+19 69 330 761 681
+20 81 451 1242 1393
+Formula propuesta de e8 del piso h: comprobada solo en 13..18.
+e6: 20 modelos probados, 428 omitidos por falta de datos; 10 ajustes exactos en la cola finita.
+  Primer ajuste (grado, periodo, inicio, coeficientes): (2, 1, 10, [Fraction(31, 1), Fraction(-15, 2), Fraction(1, 2)])
+e8: 20 modelos probados, 428 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+e10: 20 modelos probados, 428 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+e12: 20 modelos probados, 428 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+h_e10: 4 modelos probados, 444 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+h_e12: 4 modelos probados, 444 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+par_e8: 10 modelos probados, 438 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+par_e10: 10 modelos probados, 438 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+par_e12: 10 modelos probados, 438 omitidos por falta de datos; 0 ajustes exactos en la cola finita.
+La busqueda restringida no excluye cuasipolinomios generales ni leyes asintoticas.

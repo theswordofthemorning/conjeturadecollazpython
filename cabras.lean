@@ -11,8 +11,8 @@
 --
 -- Procedencia: regalo del informe 1 de la 5a revision externa
 -- (actarevision0908b.txt, punto 4) -- que resulto ser LA PUERTA MOD 3
--- DE CABRAS (subrenovacionc.py: directa -> clase 2, vuelco -> clase 1,
--- nunca 0) viajando por la cadena entera. Lo nuevo aqui: la ENTRADA a
+-- DE CABRAS: ambas puertas con c firmado entran en clase 2 modulo 3.
+-- La antigua clase 1 del vuelco usaba |c| (corregido 13-09-2026). La ENTRADA a
 -- la torre siempre da c ≡ 2 (los cuatro caminos: f_impar0, f_impar1,
 -- y dentro de la torre n_par1 y n_impar0 "resetean" a 2), los pasos
 -- internos solo alternan {1, 2}, y el todo queda formalizado con la

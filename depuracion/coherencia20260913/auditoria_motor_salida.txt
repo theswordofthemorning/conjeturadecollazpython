@@ -1,0 +1,1 @@
+OK: tope, prefijo verificado, CLI, dominio y 1001 trayectorias clasicas.

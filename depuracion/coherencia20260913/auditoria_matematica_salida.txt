@@ -1,0 +1,1 @@
+OK: Garner, puertas con signo, densidad, riesgos, reloj, ajuste y estratos n<=13.

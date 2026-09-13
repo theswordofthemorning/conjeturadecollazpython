@@ -1,0 +1,325 @@
+{
+  "fecha_utc": "2026-09-13T17:29:25.078072+00:00",
+  "resultados": [
+    {
+      "nombre": "auditoria_matematica",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\coherencia20260913\\verificar_matematica.py"
+      ],
+      "exit_code": 0,
+      "segundos": 0.819,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "auditoria_motor",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\coherencia20260913\\verificar_motor.py"
+      ],
+      "exit_code": 0,
+      "segundos": 0.214,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "auditoria_registro",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "depuracion\\coherencia20260913\\verificar_registro.py"
+      ],
+      "exit_code": 0,
+      "segundos": 0.341,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "estratos_simbolicos",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "estratoscadena.py",
+        "--prof",
+        "20"
+      ],
+      "exit_code": 0,
+      "segundos": 0.334,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_balance",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "depuracion/frente20260910/balance.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.995,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_cabras",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "cabras.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.379,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_cadenakc",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "cadenakc.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.46,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_conejas",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "conejas.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.386,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_espejo",
+      "repo": "zootheorem",
+      "comando": [
+        "lean",
+        "lean/mirror_theorem.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 5.567,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_invariantes",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "depuracion/frente20260910/invariantes.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.806,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_obstruccion",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "depuracion/frente20260910/obstruccion.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.312,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_rachas",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "depuracion/frente20260910/rachas.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.565,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_transferencia",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "depuracion/frente20260910/transferencia.lean"
+      ],
+      "exit_code": 0,
+      "segundos": 1.315,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "lean_version",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0,
+      "segundos": 0.122,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "python_balance",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "depuracion/frente20260910/balance.py"
+      ],
+      "exit_code": 0,
+      "segundos": 6.645,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "python_invariantes",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "depuracion/frente20260910/invariantes.py"
+      ],
+      "exit_code": 0,
+      "segundos": 1.341,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "python_obstruccion",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "depuracion/frente20260910/obstruccion.py"
+      ],
+      "exit_code": 0,
+      "segundos": 1.587,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "python_rachas",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "depuracion/frente20260910/rachas.py"
+      ],
+      "exit_code": 0,
+      "segundos": 1.564,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "python_transferencia",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "depuracion/frente20260910/transferencia.py"
+      ],
+      "exit_code": 0,
+      "segundos": 1.214,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "subrenovacion",
+      "repo": "conjeturadecollazpython",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "subrenovacionc.py",
+        "--prof",
+        "20"
+      ],
+      "exit_code": 0,
+      "segundos": 0.167,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "zoo_consistency",
+      "repo": "zootheorem",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "verify/verify_consistency.py"
+      ],
+      "exit_code": 0,
+      "segundos": 0.098,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "zoo_merging_classes",
+      "repo": "zootheorem",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "verify/verify_merging_classes.py"
+      ],
+      "exit_code": 0,
+      "segundos": 13.835,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "zoo_q_family",
+      "repo": "zootheorem",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "verify/verify_q_family.py"
+      ],
+      "exit_code": 0,
+      "segundos": 6.675,
+      "admite_sorry": false,
+      "correcto": true
+    },
+    {
+      "nombre": "zoo_strata",
+      "repo": "zootheorem",
+      "comando": [
+        "-B",
+        "-X",
+        "utf8",
+        "verify/verify_strata.py"
+      ],
+      "exit_code": 0,
+      "segundos": 9.768,
+      "admite_sorry": false,
+      "correcto": true
+    }
+  ]
+}

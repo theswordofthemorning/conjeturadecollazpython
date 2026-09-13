@@ -1,0 +1,62 @@
+{
+  "fecha": "2026-09-13",
+  "tipo": "instantaneas literales antes de reducir el contexto",
+  "archivos": [
+    {
+      "original": "AGENTS.md",
+      "copia": "archivo/contexto_20260913/AGENTS.md.txt",
+      "sha256": "3bedbefd0b18a94912400770d429e67aaa4fd3db84d714c4e630746344e4bfa9",
+      "bytes": 3312,
+      "palabras": 400,
+      "lineas": 63
+    },
+    {
+      "original": "CLAUDE.md",
+      "copia": "archivo/contexto_20260913/CLAUDE.md.txt",
+      "sha256": "9cdd80161a9a793c4061d6d56f356c55ae2a69de06542542b4bffe97ecb6e6f0",
+      "bytes": 63364,
+      "palabras": 9995,
+      "lineas": 459
+    },
+    {
+      "original": "ESTADO_INVESTIGACION.md",
+      "copia": "archivo/contexto_20260913/ESTADO_INVESTIGACION.md.txt",
+      "sha256": "4009710bb2729e3d693f31069b0b8b7b9272b8bbfa4c2dd27684062698e1a35a",
+      "bytes": 7480,
+      "palabras": 1091,
+      "lineas": 108
+    },
+    {
+      "original": "RutaTeoremas.md",
+      "copia": "archivo/contexto_20260913/RutaTeoremas.md.txt",
+      "sha256": "3c657853ed3ba57a8af717bfbb6ccc9468d97c4c3f797f626e106e561f19afe1",
+      "bytes": 79273,
+      "palabras": 12568,
+      "lineas": 1037
+    },
+    {
+      "original": "bitacora.md",
+      "copia": "archivo/contexto_20260913/bitacora.md.txt",
+      "sha256": "d7c038ddf4f5fc94336a197991aad07e40afb681dadaf621fd344897254224b8",
+      "bytes": 280913,
+      "palabras": 44918,
+      "lineas": 4606
+    },
+    {
+      "original": "derivados.md",
+      "copia": "archivo/contexto_20260913/derivados.md.txt",
+      "sha256": "8a24802e3f501264173ce063ae03a0823980e4063ac9668db5a6c783ab3454fe",
+      "bytes": 187221,
+      "palabras": 31336,
+      "lineas": 3177
+    },
+    {
+      "original": "inventario.md",
+      "copia": "archivo/contexto_20260913/inventario.md.txt",
+      "sha256": "036b2f83827b01f453205256ec767495cdf5ea12d6634849d7aedd5d1c775921",
+      "bytes": 5661,
+      "palabras": 825,
+      "lineas": 100
+    }
+  ]
+}

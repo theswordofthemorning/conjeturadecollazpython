@@ -1,0 +1,15 @@
+{
+  "fuentes": 2,
+  "leidos": 131,
+  "nuevos_previstos": 131,
+  "conflictos": 0,
+  "antes": [
+    1826,
+    "2026-08-12T22:37:00.789Z"
+  ],
+  "despues": [
+    1957,
+    "2026-08-24T01:46:48.837Z"
+  ],
+  "exit_code": 0
+}

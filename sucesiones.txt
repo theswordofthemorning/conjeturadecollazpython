@@ -262,8 +262,14 @@ y el teorema del espejo en Lean). El intercambio con los editores va
 en la bitacora (09-08 (2) y (4)).
 
 ---------------------------------------------------------------------------
-TRES SUCESIONES MAS QUE NO ESTAN EN OEIS: e8, e10, e12 (09-08-2026)
+ESTRATOS OEIS: A399819, A399820, A399821 (actualizado 13-09-2026)
 ---------------------------------------------------------------------------
+
+Estado: re-propuestos el 13-09-2026; aprobación pendiente en la última
+observación. Copias actuales y verificadores en ../zootheorem/drafts/ y
+../zootheorem/verify/verify_strata.py. Offsets: 9,2; 11,2; 13,2.
+La tabla histórica siguiente empieza en N=10: le precede e8(9)=1;
+e8,e10,e12 son cero para N=1..8. Términos N=10..20 recalculados sin discrepancias.
 
 Los estratos de las clases nuevas por la cadena (k, c): e_s(N) = clases
 nuevas del nivel N que funden con |M| = s (estratoscadena.py, barrido
@@ -280,13 +286,9 @@ CONSULTADO OEIS el 09-08-2026 (API, fmt=text, prefijos largos sin los
 ceros iniciales): "No results" para las tres. El control de la casa del
 30-07 (Fibonacci devuelve A000045) sigue valiendo para el metodo.
 
-Y LO QUE SE SABE DE SU FORMA (COMPROBACION 4 de estratoscadena.py):
-e2 = e4 = 1 y e6 = 3 + (N-7)(N-8)/2 son cerradas; e8, e10 y e12 NO
-admiten forma cuasi-polinomial (grado <= 8, periodo <= 8, arranque
-N1 <= 16, ajuste exacto con Fraction validado sobre toda la cola con
-al menos 6 puntos retenidos; el control e6 SI se encuentra con grado
-2). LA ESCALERA DE FORMAS CERRADAS TERMINA EN e6: del estrato 8 en
-adelante las series llevan un ingrediente combinatorio no
-cuasi-polinomial -- la misma familia de crecimiento que b(k), que es
-la sospecha natural: los estratos altos heredan la combinatoria de
-las nuevas, no la geometria de la rejilla.
+FORMA: la búsqueda histórica sólo ensayaba P(N)+C(N mod p) sobre una
+cola FINITA y omitía los modelos sin seis puntos de validación. No
+excluye cuasipolinomios generales ni fórmulas eventuales. El script
+estratoscadena.py declara ahora cuántos modelos prueba y omite.
+Las formas inferiores llevan dominio: e2=1 desde N=3, e4=1 desde N=5,
+e6=3+(N-7)(N-8)/2 desde N=10. Se retira «la escalera termina en e6».

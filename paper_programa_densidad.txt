@@ -1,3 +1,10 @@
+ESTADO 13-09-2026: PAPER HISTORICO, NO PLAN VIGENTE.
+Leer ESTADO_INVESTIGACION.md y depuracion/coherencia20260913/Matematica.md.
+Se retiran las equivalencias phi=1 <=> b(k+1)/b(k)->2 y phi=d por
+monotonía; tampoco se excluye 1/sqrt(log) por un ajuste finito.
+Los planes de mezcla uniforme descartados por Erizas no se reactivan.
+El resto conserva el estado y las mediciones del 11-08, no una recertificación.
+
 =====================================================================
 EL PROGRAMA DE LA DENSIDAD DE FUSION: DE DONDE VENIMOS Y ADONDE VAMOS
 Documento de legado, autocontenido. 11-08-2026, al cierre de la

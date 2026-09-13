@@ -1,0 +1,8 @@
+'Gacelas.masa_armonica' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gacelas.pesos_mixtos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gacelas.certificado_balota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gacelas.certificado_raiz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gacelas.certificado_exponencial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gacelas.cola_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Gacelas.cola_inicial' does not depend on any axioms
+'Gacelas.sesgo_compartido' does not depend on any axioms

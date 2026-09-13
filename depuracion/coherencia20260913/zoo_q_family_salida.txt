@@ -1,0 +1,14 @@
+OK: q=5, a(1)..a(18) recomputed by brute force, all match.
+OK: q=7, a(1)..a(18) recomputed by brute force, all match.
+
+Densities at n = 22: q=5: 0.004387   q=7: 0.107272   (q=3 gives 0.409018)
+
+OK: (5x+3)/2 -- a(n) = 0 for n <= 14, as the obstruction theorem predicts.
+OK: (7x+3)/2 -- a(n) = 0 for n <= 14, as the obstruction theorem predicts.
+OK: (3x+5)/2 -- a(n) = 0 for n <= 14, as the obstruction theorem predicts.
+
+The one-line criticality statement (see papers/02): writing each
+shared step under the fresh-bit law as c -> m*c, the
+multiplier m is a fair coin on {1/2, q/2}, so E[m] = (1+q)/4.
+E[m] = 1 exactly iff q = 3: among all maps (qx+1)/2 the Collatz
+case uniquely has mean shared-step multiplier one. This is not a density theorem.

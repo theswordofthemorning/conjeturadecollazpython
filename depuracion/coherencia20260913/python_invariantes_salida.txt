@@ -1,0 +1,22 @@
+EXACTO: componentes comunes (3,5) frente a (2,3)
+  m= 2: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m= 3: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m= 4: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m= 5: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m= 6: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m= 7: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m= 8: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m= 9: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m=10: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m=11: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+  m=12: componentes=2,1; energia(M2 chi)/energia(chi)=1/2
+CONTROL: 8188 identidades de traslacion: OK
+MEDICION SVD: norma en media cero de M2 M3; no uniforme en m
+  m=2: 0.707106781187
+  m=3: 0.707106781187
+  m=4: 0.809016994375
+  m=5: 0.859922664586
+  m=6: 0.893466768280
+  m=7: 0.912600660726
+  m=8: 0.931140314243
+FIN: control exacto y SVD separados; no prueba rho_cond < 1/2.

@@ -1,0 +1,6 @@
+'peldano' depends on axioms: [propext, Quot.sound]
+'escalera' depends on axioms: [propext, Quot.sound]
+'tres_mod4' depends on axioms: [propext, Quot.sound]
+'conejas' depends on axioms: [propext, Quot.sound]
+'separados_antes' depends on axioms: [propext, Quot.sound]
+'caso_valores' does not depend on any axioms

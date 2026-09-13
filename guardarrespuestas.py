@@ -60,9 +60,10 @@ import sqlite3
 # Cambia esto aqui, guarda, y dale a Ctrl+B en Sublime.
 # ---------------------------------------------------------------------------
 
-ARCHIVO = "respuestas.db"
+RAIZ_PROYECTO = os.path.dirname(os.path.abspath(__file__))
+ARCHIVO = os.path.join(RAIZ_PROYECTO, "respuestas.db")
 
-# El SLUG se DEDUCE del directorio en que estas, no se escribe a mano. Claude
+# El SLUG se deduce del directorio del script, no del cwd del invocador. Claude
 # Code nombra la carpeta de transcripciones con la ruta del proyecto y le cambia
 # cada separador por un guion: C:\Users\Pepe\Desktop\x -> C--Users-Pepe-Desktop-x
 #
@@ -70,14 +71,14 @@ ARCHIVO = "respuestas.db"
 # el programa no arrancaba en una maquina cuyo usuario no fuera "Home": el 01-08
 # se descubrio que la regla del registro llevaba una sesion entera sin poder
 # cumplirse. Si lo vuelves a fijar a mano, se rompe en la siguiente maquina.
-SLUG = os.path.abspath(os.getcwd()).replace(":", "-").replace("\\", "-").replace("/", "-")
+SLUG = RAIZ_PROYECTO.replace(":", "-").replace("\\", "-").replace("/", "-")
 CARPETA = os.path.join(os.path.expanduser("~"), ".claude", "projects", SLUG)
 
 # Salida de emergencia: si Claude Code cambia como arma el nombre, se busca la
 # carpeta que termine igual que este proyecto en vez de rendirse.
 if not os.path.isdir(CARPETA):
     raiz = os.path.join(os.path.expanduser("~"), ".claude", "projects")
-    fin = "-" + os.path.basename(os.getcwd())
+    fin = "-" + os.path.basename(RAIZ_PROYECTO)
     if os.path.isdir(raiz):
         cand = [d for d in os.listdir(raiz) if d.endswith(fin)]
         if len(cand) == 1:
@@ -198,11 +199,18 @@ def abrir(archivo=ARCHIVO):
 
 
 def anotar(conexion, sesion, mensaje, origen="capturado"):
-    """Mete un mensaje. Si ya existe ese (sesion, orden), lo deja como estaba."""
+    """Añade un mensaje o acepta una repetición literal; rechaza conflictos."""
     if mensaje["rol"] not in ROLES:
         raise SystemExit(f"rol desconocido: {mensaje['rol']}")
     if origen not in ORIGENES:
         raise SystemExit(f"origen desconocido: {origen}")
+    anterior = conexion.execute(
+        "SELECT fecha_hora, rol, modelo, texto, largo, origen FROM respuestasclaude"
+        " WHERE sesion=? AND orden=?", (sesion, mensaje["orden"])).fetchone()
+    esperado = (mensaje["fecha_hora"], mensaje["rol"], mensaje.get("modelo"),
+                mensaje["texto"], len(mensaje["texto"]), origen)
+    if anterior is not None and anterior != esperado:
+        raise ValueError(f"Conflicto literal en sesión {sesion}, turno {mensaje['orden']}; no sobrescribir.")
     conexion.execute(
         "INSERT OR IGNORE INTO respuestasclaude"
         " (sesion, orden, fecha_hora, rol, modelo, texto, largo, origen)"
@@ -215,124 +223,129 @@ def anotar(conexion, sesion, mensaje, origen="capturado"):
 # A trabajar
 # ---------------------------------------------------------------------------
 
-print("EL CUADERNO DE LAS CONVERSACIONES\n")
+def main():
+    print("EL CUADERNO DE LAS CONVERSACIONES\n")
 
-if not os.path.isdir(CARPETA):
-    raise SystemExit(
-        f"No existe la carpeta de transcripciones:\n  {CARPETA}\n"
-        "Si Claude Code guarda las sesiones en otro sitio, cambia SLUG o CARPETA.")
+    if not os.path.isdir(CARPETA):
+        raise SystemExit(
+            f"No existe la carpeta de transcripciones:\n  {CARPETA}\n"
+            "Si Claude Code guarda las sesiones en otro sitio, cambia SLUG o CARPETA.")
 
-rutas = sorted(glob.glob(os.path.join(CARPETA, "*.jsonl")))
-if not rutas:
-    raise SystemExit(f"No hay ningun .jsonl en {CARPETA}. Nada que capturar.")
+    rutas = sorted(glob.glob(os.path.join(CARPETA, "*.jsonl")))
+    if not rutas:
+        raise SystemExit(f"No hay ningun .jsonl en {CARPETA}. Nada que capturar.")
 
-print(f"  transcripciones encontradas: {len(rutas)}")
-for ruta in rutas:
-    print(f"    {os.path.basename(ruta)}   {os.path.getsize(ruta) / 1024:,.0f} KB")
+    print(f"  transcripciones encontradas: {len(rutas)}")
+    for ruta in rutas:
+        print(f"    {os.path.basename(ruta)}   {os.path.getsize(ruta) / 1024:,.0f} KB")
 
-existia = os.path.exists(ARCHIVO)
-conexion = abrir()
-antes = conexion.execute("SELECT COUNT(*) FROM respuestasclaude").fetchone()[0]
+    existia = os.path.exists(ARCHIVO)
+    conexion = abrir()
+    antes = conexion.execute("SELECT COUNT(*) FROM respuestasclaude").fetchone()[0]
 
-leidos = 0
-for ruta in rutas:
-    sesion = os.path.splitext(os.path.basename(ruta))[0]
-    mensajes = leer_transcripcion(ruta)
-    leidos += len(mensajes)
-    for mensaje in mensajes:
-        anotar(conexion, sesion, mensaje)
-conexion.commit()
+    with conexion:  # Todo el lote se revierte si falla un control.
+        leidos = 0
+        for ruta in rutas:
+            sesion = os.path.splitext(os.path.basename(ruta))[0]
+            mensajes = leer_transcripcion(ruta)
+            leidos += len(mensajes)
+            for mensaje in mensajes:
+                anotar(conexion, sesion, mensaje)
 
-despues = conexion.execute("SELECT COUNT(*) FROM respuestasclaude").fetchone()[0]
-print(f"\n  base: {ARCHIVO}   {'(ya existia)' if existia else '(creada ahora)'}")
-print(f"  mensajes leidos de las transcripciones: {leidos:,}")
-print(f"  entradas antes {antes:,}  ->  ahora {despues:,}   (nuevas: {despues - antes:,})")
-
-
-# ------------------------------------- COMPROBACION 1: vocabulario cerrado
-
-malos = conexion.execute(
-    "SELECT COUNT(*) FROM respuestasclaude"
-    " WHERE rol NOT IN ('usuario','asistente','sistema')").fetchone()[0]
-malos += conexion.execute(
-    "SELECT COUNT(*) FROM respuestasclaude"
-    " WHERE origen NOT IN ('capturado','reconstruido')").fetchone()[0]
-print(f"\nCOMPROBACION 1 -- vocabulario cerrado: {malos} filas fuera de rango")
-if malos:
-    raise SystemExit("Hay roles u origenes fuera del vocabulario. No sigas.")
+        despues = conexion.execute("SELECT COUNT(*) FROM respuestasclaude").fetchone()[0]
+        print(f"\n  base: {ARCHIVO}   {'(ya existia)' if existia else '(creada ahora)'}")
+        print(f"  mensajes leidos de las transcripciones: {leidos:,}")
+        print(f"  entradas antes {antes:,}  ->  ahora {despues:,}   (nuevas: {despues - antes:,})")
 
 
-# ------------------------------------- COMPROBACION 2: nada vacio ni duplicado
+        # ------------------------------------- COMPROBACION 1: vocabulario cerrado
 
-vacias = conexion.execute(
-    "SELECT COUNT(*) FROM respuestasclaude"
-    " WHERE texto IS NULL OR TRIM(texto) = ''").fetchone()[0]
-duplicados = conexion.execute(
-    "SELECT COUNT(*) FROM (SELECT sesion, orden FROM respuestasclaude"
-    " GROUP BY 1,2 HAVING COUNT(*) > 1)").fetchone()[0]
-sin_fecha = conexion.execute(
-    "SELECT COUNT(*) FROM respuestasclaude WHERE fecha_hora = ''").fetchone()[0]
-print(f"COMPROBACION 2 -- vacias {vacias} · (sesion,orden) repetidos {duplicados}"
-      f" · sin fecha {sin_fecha}")
-if vacias or duplicados:
-    raise SystemExit("Hay filas vacias o duplicadas. No sigas.")
+        malos = conexion.execute(
+            "SELECT COUNT(*) FROM respuestasclaude"
+            " WHERE rol NOT IN ('usuario','asistente','sistema')").fetchone()[0]
+        malos += conexion.execute(
+            "SELECT COUNT(*) FROM respuestasclaude"
+            " WHERE origen NOT IN ('capturado','reconstruido')").fetchone()[0]
+        print(f"\nCOMPROBACION 1 -- vocabulario cerrado: {malos} filas fuera de rango")
+        if malos:
+            raise SystemExit("Hay roles u origenes fuera del vocabulario. No sigas.")
 
 
-# ------------------------------------- COMPROBACION 3: ida y vuelta literal
-#
-# Se relee una muestra del disco y se compara caracter a caracter contra la
-# transcripcion original. Si el texto no sale identico, la captura no sirve.
+        # ------------------------------------- COMPROBACION 2: nada vacio ni duplicado
 
-fallos = 0
-comprobados = 0
-for ruta in rutas:
-    sesion = os.path.splitext(os.path.basename(ruta))[0]
-    for mensaje in leer_transcripcion(ruta):
-        fila = conexion.execute(
-            "SELECT texto, rol, largo FROM respuestasclaude WHERE sesion=? AND orden=?",
-            (sesion, mensaje["orden"])).fetchone()
-        comprobados += 1
-        if (fila is None or fila[0] != mensaje["texto"]
-                or fila[1] != mensaje["rol"] or fila[2] != len(mensaje["texto"])):
-            fallos += 1
-print(f"COMPROBACION 3 -- ida y vuelta literal: {comprobados:,} mensajes, {fallos} fallos")
-if fallos:
-    raise SystemExit("Lo guardado no es identico a la transcripcion. No sirve.")
+        vacias = conexion.execute(
+            "SELECT COUNT(*) FROM respuestasclaude"
+            " WHERE texto IS NULL OR TRIM(texto) = ''").fetchone()[0]
+        duplicados = conexion.execute(
+            "SELECT COUNT(*) FROM (SELECT sesion, orden FROM respuestasclaude"
+            " GROUP BY 1,2 HAVING COUNT(*) > 1)").fetchone()[0]
+        sin_fecha = conexion.execute(
+            "SELECT COUNT(*) FROM respuestasclaude WHERE fecha_hora = ''").fetchone()[0]
+        print(f"COMPROBACION 2 -- vacias {vacias} · (sesion,orden) repetidos {duplicados}"
+              f" · sin fecha {sin_fecha}")
+        if vacias or duplicados:
+            raise SystemExit("Hay filas vacias o duplicadas. No sigas.")
 
 
-# ------------------------------------------------------------- el informe
+        # ------------------------------------- COMPROBACION 3: ida y vuelta literal
+        #
+        # Se relee una muestra del disco y se compara caracter a caracter contra la
+        # transcripcion original. Si el texto no sale identico, la captura no sirve.
 
-print("\nQUE HAY GUARDADO\n")
-print(f"  {'sesion':<10} {'de':<20} {'a':<20} {'usuario':>8} {'asistente':>10}"
-      f" {'sistema':>8} {'caracteres':>12}")
-print(f"  {'-'*10} {'-'*20} {'-'*20} {'-'*8} {'-'*10} {'-'*8} {'-'*12}")
-for sesion, desde, hasta, u, a, s, chars in conexion.execute("""
-        SELECT sesion, MIN(fecha_hora), MAX(fecha_hora),
-               SUM(rol='usuario'), SUM(rol='asistente'), SUM(rol='sistema'),
-               SUM(largo)
-        FROM respuestasclaude GROUP BY sesion ORDER BY MIN(fecha_hora)"""):
-    print(f"  {sesion[:8]:<10} {desde[:19]:<20} {hasta[:19]:<20}"
-          f" {u:>8} {a:>10} {s:>8} {chars:>12,}")
+        fallos = 0
+        comprobados = 0
+        for ruta in rutas:
+            sesion = os.path.splitext(os.path.basename(ruta))[0]
+            for mensaje in leer_transcripcion(ruta):
+                fila = conexion.execute(
+                    "SELECT texto, rol, largo FROM respuestasclaude WHERE sesion=? AND orden=?",
+                    (sesion, mensaje["orden"])).fetchone()
+                comprobados += 1
+                if (fila is None or fila[0] != mensaje["texto"]
+                        or fila[1] != mensaje["rol"] or fila[2] != len(mensaje["texto"])):
+                    fallos += 1
+        print(f"COMPROBACION 3 -- ida y vuelta literal: {comprobados:,} mensajes, {fallos} fallos")
+        if fallos:
+            raise SystemExit("Lo guardado no es identico a la transcripcion. No sirve.")
 
-total_u, total_a, total_c = conexion.execute(
-    "SELECT SUM(rol='usuario'), SUM(rol='asistente'), SUM(largo)"
-    " FROM respuestasclaude").fetchone()
-print(f"\n  TOTAL: {total_u} preguntas · {total_a} respuestas · "
-      f"{total_c:,} caracteres")
 
-print(f"\n  Las diez respuestas mas largas (suelen ser las que traen el analisis):")
-for sesion, orden, fecha, largo in conexion.execute(
-        "SELECT sesion, orden, fecha_hora, largo FROM respuestasclaude"
-        " WHERE rol='asistente' ORDER BY largo DESC LIMIT 10"):
-    print(f"    {sesion[:8]} turno {orden:>4}  {fecha[:19]}  {largo:>7,} caracteres")
+    # ------------------------------------------------------------- el informe
 
-pendientes = conexion.execute(
-    "SELECT COUNT(*) FROM respuestasclaude WHERE rol='asistente' AND tipo IS NULL"
-).fetchone()[0]
-print(f"\n  Respuestas sin clasificar (tipo IS NULL): {pendientes}")
-print(f"  Las columnas tipo, resumen, hallazgos, decisiones y ficheros se llenan")
-print(f"  DESPUES, leyendo la fila. No se rellenan solas: eso seria inventar.")
+    print("\nQUE HAY GUARDADO\n")
+    print(f"  {'sesion':<10} {'de':<20} {'a':<20} {'usuario':>8} {'asistente':>10}"
+          f" {'sistema':>8} {'caracteres':>12}")
+    print(f"  {'-'*10} {'-'*20} {'-'*20} {'-'*8} {'-'*10} {'-'*8} {'-'*12}")
+    for sesion, desde, hasta, u, a, s, chars in conexion.execute("""
+            SELECT sesion, MIN(fecha_hora), MAX(fecha_hora),
+                   SUM(rol='usuario'), SUM(rol='asistente'), SUM(rol='sistema'),
+                   SUM(largo)
+            FROM respuestasclaude GROUP BY sesion ORDER BY MIN(fecha_hora)"""):
+        print(f"  {sesion[:8]:<10} {desde[:19]:<20} {hasta[:19]:<20}"
+              f" {u:>8} {a:>10} {s:>8} {chars:>12,}")
 
-conexion.close()
-print(f"\nLa base esta en {ARCHIVO}. Es APPEND-ONLY: correr esto otra vez no")
-print(f"duplica ni borra nada, solo añade las sesiones nuevas que aparezcan.")
+    total_u, total_a, total_c = conexion.execute(
+        "SELECT SUM(rol='usuario'), SUM(rol='asistente'), SUM(largo)"
+        " FROM respuestasclaude").fetchone()
+    print(f"\n  TOTAL: {total_u} preguntas · {total_a} respuestas · "
+          f"{total_c:,} caracteres")
+
+    print(f"\n  Las diez respuestas mas largas (suelen ser las que traen el analisis):")
+    for sesion, orden, fecha, largo in conexion.execute(
+            "SELECT sesion, orden, fecha_hora, largo FROM respuestasclaude"
+            " WHERE rol='asistente' ORDER BY largo DESC LIMIT 10"):
+        print(f"    {sesion[:8]} turno {orden:>4}  {fecha[:19]}  {largo:>7,} caracteres")
+
+    pendientes = conexion.execute(
+        "SELECT COUNT(*) FROM respuestasclaude WHERE rol='asistente' AND tipo IS NULL"
+    ).fetchone()[0]
+    print(f"\n  Respuestas sin clasificar (tipo IS NULL): {pendientes}")
+    print(f"  Las columnas tipo, resumen, hallazgos, decisiones y ficheros se llenan")
+    print(f"  DESPUES, leyendo la fila. No se rellenan solas: eso seria inventar.")
+
+    conexion.close()
+    print(f"\nLa base esta en {ARCHIVO}. Es APPEND-ONLY: correr esto otra vez no")
+    print(f"duplica ni borra nada, solo añade las sesiones nuevas que aparezcan.")
+
+
+if __name__ == "__main__":
+    main()

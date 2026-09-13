@@ -1,0 +1,8 @@
+'ley_N1' depends on axioms: [propext, Quot.sound]
+'ley_N2' depends on axioms: [propext, Quot.sound]
+'ley_N3' depends on axioms: [propext, Quot.sound]
+'ley_N4' depends on axioms: [propext, Quot.sound]
+'ley_moneda' depends on axioms: [propext, Quot.sound]
+'vortice_fusion' depends on axioms: [propext, Quot.sound]
+'ley_F4' depends on axioms: [propext, Quot.sound]
+'piso_impar' depends on axioms: [propext, Quot.sound]

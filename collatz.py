@@ -20,6 +20,8 @@ def secuencia(n: int) -> list[int]:
 
 def altitud_maxima(n: int) -> int:
     """Valor mas alto que alcanza la trayectoria de n."""
+    if n < 1:
+        raise ValueError("la semilla debe ser >= 1")
     techo = n
     while n != 1:
         n = n >> 1 if n % 2 == 0 else 3 * n + 1
@@ -33,6 +35,8 @@ def tabla_de_pasos(limite: int) -> list[int]:
 
     tabla[0] no tiene sentido y queda en 0; tabla[1] == 0.
     """
+    if limite < 1:
+        raise ValueError("el limite debe ser >= 1")
     tabla = [0] * (limite + 1)
     for n in range(2, limite + 1):
         x, extra = n, 0
@@ -51,9 +55,13 @@ def verificar(limite: int, tope_pasos: int = 10_000_000) -> dict:
     fue verificado antes, asi que se puede cortar ahi. Eso convierte una
     busqueda cuadratica en algo casi lineal.
 
-    Devuelve un informe; `contraejemplo` es None si la conjetura aguanta.
+    Un tope agotado deja una semilla pendiente: no demuestra divergencia.
+    `limite_verificado` delimita el prefijo cuya convergencia se comprobo.
     """
-    contraejemplo = None
+    if limite < 1 or tope_pasos < 1:
+        raise ValueError("el limite y el tope de pasos deben ser >= 1")
+    pendiente = None
+    limite_verificado = 1
     pasos_totales = 0
     peor_altitud = (1, 1)  # (semilla, techo)
 
@@ -61,22 +69,27 @@ def verificar(limite: int, tope_pasos: int = 10_000_000) -> dict:
         x, pasos = n, 0
         techo = n
         while x >= n:
+            if pasos >= tope_pasos:
+                pendiente = n
+                break
             x = x >> 1 if x % 2 == 0 else 3 * x + 1
             pasos += 1
             if x > techo:
                 techo = x
-            if pasos > tope_pasos:
-                contraejemplo = n
-                break
         pasos_totales += pasos
         if techo > peor_altitud[1]:
             peor_altitud = (n, techo)
-        if contraejemplo is not None:
+        if pendiente is not None:
             break
+        limite_verificado = n
 
     return {
         "limite": limite,
-        "contraejemplo": contraejemplo,
+        "estado": "completo" if pendiente is None else "inconcluso",
+        "limite_verificado": limite_verificado,
+        "semilla_pendiente": pendiente,
+        # Compatibilidad de lectura; agotar el tope nunca certifica un contraejemplo.
+        "contraejemplo": None,
         "pasos_de_descenso": pasos_totales,
         "mayor_altitud": peor_altitud,
     }

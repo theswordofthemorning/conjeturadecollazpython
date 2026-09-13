@@ -1,0 +1,424 @@
+archivo	desde	hasta	titulo
+AGENTS.md.txt	1	2	# Repository Guidelines
+AGENTS.md.txt	3	14	## Project Structure & Module Organization
+AGENTS.md.txt	15	25	## Companion Repository: zootheorem
+AGENTS.md.txt	26	39	## Build, Test, and Development Commands
+AGENTS.md.txt	40	46	## Coding Style & Naming Conventions
+AGENTS.md.txt	47	55	## Testing Guidelines
+AGENTS.md.txt	56	63	## Commit & Pull Request Guidelines
+CLAUDE.md.txt	1	48	# CLAUDE.md
+CLAUDE.md.txt	49	106	# Conjetura de Collatz — laboratorio
+CLAUDE.md.txt	107	132	## REGLA CERO: REVISAR, REVISAR, REVISAR
+CLAUDE.md.txt	133	163	### Capa 1 — antes de enseñar cualquier número
+CLAUDE.md.txt	164	191	### Capa 2 — el adversarial, después
+CLAUDE.md.txt	192	200	## LEAN 4 — las reglas vivas [detalle íntegro: D-01 en derivados.md]
+CLAUDE.md.txt	201	204	## LA REGLA DE LOS TRES [detalle íntegro: D-02]
+CLAUDE.md.txt	205	212	## Prioridad y delegación vigentes
+CLAUDE.md.txt	213	237	## LO PRIMERO DE TODO: `git fetch` antes de tocar nada
+CLAUDE.md.txt	238	241	## Instalación [historia y avisos: D-03]
+CLAUDE.md.txt	242	245	## Cómo está repartido el repo [detalle: D-04]
+CLAUDE.md.txt	246	305	## Cómo se ejecuta
+CLAUDE.md.txt	306	436	## Los archivos
+CLAUDE.md.txt	437	440	## REGLA: el registro de las conversaciones [historia: D-05]
+CLAUDE.md.txt	441	444	## Lo que se estableció, con verificación [EL ARCHIVO: D-06]
+CLAUDE.md.txt	445	448	## La otra mitad de la auditoría y EL ANDAMIO [D-07]
+CLAUDE.md.txt	449	452	## Nada de esto es nuevo — el balance [D-08]
+CLAUDE.md.txt	453	456	## El proyecto de fondo y los filtros [D-09]
+CLAUDE.md.txt	457	459	## Siguiente sesión [FÓSIL HISTÓRICO: D-10]
+CLAUDE.md.txt	120	120	FICHA **1**
+CLAUDE.md.txt	121	121	FICHA **2**
+CLAUDE.md.txt	122	122	FICHA **3**
+CLAUDE.md.txt	314	314	FICHA **`atacacst.py`**
+CLAUDE.md.txt	315	315	FICHA **`atacacst.lean`**
+CLAUDE.md.txt	316	316	FICHA **`atacacst2.py`**
+CLAUDE.md.txt	317	317	FICHA **`cotatramos.lean`**
+CLAUDE.md.txt	318	318	FICHA **`cotatramos3n1.lean`**
+CLAUDE.md.txt	320	320	FICHA **`espejoak.lean`**
+CLAUDE.md.txt	322	322	FICHA **`pruebaresta.lean`**
+CLAUDE.md.txt	334	334	FICHA **`itinerarios.py`**
+CLAUDE.md.txt	335	335	FICHA **`identidadexacta.py`**
+CLAUDE.md.txt	336	336	FICHA **`masasdeclase.py`**
+CLAUDE.md.txt	337	337	FICHA **`nuevasfusion.py`**
+CLAUDE.md.txt	341	341	FICHA **`RutaTeoremas.md`**
+CLAUDE.md.txt	358	358	FICHA **`verificar_terras.py`**
+CLAUDE.md.txt	366	366	FICHA **`retorno11.py`**
+CLAUDE.md.txt	367	367	FICHA **`oscilacion.py`**
+CLAUDE.md.txt	368	368	FICHA **`lamperti.py`**
+CLAUDE.md.txt	369	369	FICHA **`minorizacion.py`**
+CLAUDE.md.txt	370	370	FICHA **`accesibilidad.py`**
+CLAUDE.md.txt	371	371	FICHA **`cadenaqnr.py`**
+CLAUDE.md.txt	372	372	FICHA **`diferenciales.py`**
+CLAUDE.md.txt	374	374	FICHA **`pisoporarranque.py`**
+CLAUDE.md.txt	375	375	FICHA **`arranquesporvisita.py`**
+CLAUDE.md.txt	376	376	FICHA **`sombraexogena.py`**
+CLAUDE.md.txt	377	377	FICHA **`gramaticaderetornos.py`**
+CLAUDE.md.txt	378	378	FICHA **`recordsincap.py`**
+CLAUDE.md.txt	379	379	FICHA **`fichaagkv.txt`**
+CLAUDE.md.txt	380	380	FICHA **`medianauniversal.py`**
+CLAUDE.md.txt	381	381	FICHA **`trasvasel3.py`**
+CLAUDE.md.txt	382	382	FICHA **`medianareal.py`**
+CLAUDE.md.txt	383	383	FICHA **`pinzacw.py`**
+CLAUDE.md.txt	384	384	FICHA **`excesocolision.py`**
+CLAUDE.md.txt	385	385	FICHA **`notalb.txt`**
+CLAUDE.md.txt	386	386	FICHA **`notaensamblajep2.txt`**
+CLAUDE.md.txt	387	387	FICHA **`recargaexacta.py`**
+CLAUDE.md.txt	388	388	FICHA **`lecturaracha.lean`**
+CLAUDE.md.txt	389	389	FICHA **`unionpalabras.lean`**
+CLAUDE.md.txt	391	391	FICHA **`conteoconjunto.py`**
+CLAUDE.md.txt	392	392	FICHA **`corrienteszocalo.py`**
+CLAUDE.md.txt	393	393	FICHA **`notaequidistribucion.txt`**
+CLAUDE.md.txt	394	394	FICHA **`equidistribucionmixto.py`**
+CLAUDE.md.txt	395	395	FICHA **`dominacioncondicionada.py`**
+CLAUDE.md.txt	396	396	FICHA **`rachasreales.py`**
+CLAUDE.md.txt	397	397	FICHA **`triangulodefusion.py`**
+CLAUDE.md.txt	398	398	FICHA **`monedacondicionada.py`**
+CLAUDE.md.txt	399	399	FICHA **`firmaacoplamiento.py`**
+CLAUDE.md.txt	400	400	FICHA **`tortolas.lean`**
+CLAUDE.md.txt	401	401	FICHA **`gaviotas.py`**
+CLAUDE.md.txt	402	402	FICHA **`hormigas.lean`**
+CLAUDE.md.txt	403	403	FICHA **`liebres.py`**
+CLAUDE.md.txt	404	404	FICHA **`urracas.py`**
+CLAUDE.md.txt	405	405	FICHA **`urracas.lean`**
+CLAUDE.md.txt	406	406	FICHA **`actarevision0908b.txt`**
+CLAUDE.md.txt	407	407	FICHA **`cabras.lean`**
+CLAUDE.md.txt	408	408	FICHA **`aterrizajen2.lean`**
+CLAUDE.md.txt	409	409	FICHA **`pumasescalera.py`**
+CLAUDE.md.txt	410	410	FICHA **`certificadocw.py`**
+CLAUDE.md.txt	411	411	FICHA **`rondadeltronco.py`**
+CLAUDE.md.txt	412	412	FICHA **`conejas.lean`**
+CLAUDE.md.txt	413	413	FICHA **`actarevision0908c.txt`**
+CLAUDE.md.txt	415	415	FICHA **`actarevision1108b.txt`**
+CLAUDE.md.txt	416	416	FICHA **`actarevision1108c.txt`**
+CLAUDE.md.txt	417	417	FICHA **`paper_programa_densidad.txt`**
+CLAUDE.md.txt	418	418	FICHA **`paper_cota_renovacion.txt`**
+CLAUDE.md.txt	419	419	FICHA **`correlacionafin.py`**
+CLAUDE.md.txt	420	420	FICHA **`gapmezcla.py`**
+ESTADO_INVESTIGACION.md.txt	1	8	# Estado de la investigación — 13-09-2026
+ESTADO_INVESTIGACION.md.txt	9	33	## Objetivo y convenciones
+ESTADO_INVESTIGACION.md.txt	34	53	## Qué se sostiene y qué sigue abierto
+ESTADO_INVESTIGACION.md.txt	54	90	## Plan de avance y criterio de cierre
+ESTADO_INVESTIGACION.md.txt	91	108	## Fuentes, reproducción e historia
+RutaTeoremas.md.txt	6	51	# RutaTeoremas.md — el camino a Perras y Gatas, y la ruta que sigue
+RutaTeoremas.md.txt	52	53	## Los dos teoremas, con sus etiquetas honestas
+RutaTeoremas.md.txt	54	71	### TEOREMA DE PERRAS (la mitad exacta del estrato 2)
+RutaTeoremas.md.txt	72	96	### TEOREMA DE GATAS (el reinicio uniforme y la ecuación de renovación)
+RutaTeoremas.md.txt	97	136	## El camino por el mapa de dependencias (cómo se llegó)
+RutaTeoremas.md.txt	137	165	## ⇢ ACTUALIZACIÓN AL CIERRE DEL 03-08-2026 (tres revisiones externas después)
+RutaTeoremas.md.txt	166	197	## ⇢ ACTUALIZACIÓN 04-08 (LA JORNADA DE JORNADAS + LA CADENA)
+RutaTeoremas.md.txt	198	456	# ⇢ EL ESTADO Y LOS PRÓXIMOS PASOS (actualizado 12-08-2026, post-10ª)
+RutaTeoremas.md.txt	457	639	## ⇢ LA SUB-TEORÍA DE LA MADRIGUERA (09-08 (6)–(7), manda sobre lo de abajo)
+RutaTeoremas.md.txt	640	665	## ⇢ EL PUENTE — lo que hay DESPUÉS de φ (esbozado por el usuario con Opus 5, 09-08 noche)
+RutaTeoremas.md.txt	666	717	## ⇢ LA REFORMULACIÓN DEL 09-08 (manda sobre lo de abajo)
+RutaTeoremas.md.txt	718	726	## Dónde está el programa, en cinco líneas
+RutaTeoremas.md.txt	727	773	### LAS SEIS LEYES EXACTAS (referencia rápida; la fuente es `cadenakc.lean`)
+RutaTeoremas.md.txt	774	782	## Corrección de la antigua «última pieza» — 13-09-2026
+RutaTeoremas.md.txt	783	804	## Los tres ataques, en orden de valor (con su porqué)
+RutaTeoremas.md.txt	805	839	## La retaguardia (barata, cierra flancos)
+RutaTeoremas.md.txt	840	890	## Los peligros anotados de esta línea (leer antes de seguir)
+RutaTeoremas.md.txt	891	921	## LA RUTA PARA LA PRÓXIMA SESIÓN (la orden del revisor, puntos 3–6)
+RutaTeoremas.md.txt	922	953	## LA RUTA TRAZADA para la próxima sesión (la original, superada por lo de arriba)
+RutaTeoremas.md.txt	954	1013	## EL ZOOLÓGICO — la tabla de teoremas, lemas y hallazgos con nombre
+RutaTeoremas.md.txt	1014	1025	## Dónde está cada cosa
+RutaTeoremas.md.txt	1026	1037	## Cierre operativo 10-09-2026
+RutaTeoremas.md.txt	962	962	FICHA **GACELAS**
+RutaTeoremas.md.txt	963	963	FICHA **MANGOSTAS**
+RutaTeoremas.md.txt	964	964	FICHA **ERIZAS**
+RutaTeoremas.md.txt	965	965	FICHA **CASTORAS**
+RutaTeoremas.md.txt	966	966	FICHA **SURICATAS**
+RutaTeoremas.md.txt	967	967	FICHA **PERRAS**
+RutaTeoremas.md.txt	968	968	FICHA **GATAS**
+RutaTeoremas.md.txt	969	969	FICHA **JIRAFAS**
+RutaTeoremas.md.txt	970	970	FICHA **PANDAS**
+RutaTeoremas.md.txt	971	971	FICHA **3 CHANCHITOS**
+RutaTeoremas.md.txt	972	972	FICHA **KOMODO 3**
+RutaTeoremas.md.txt	973	973	FICHA **LEONAS**
+RutaTeoremas.md.txt	974	974	FICHA **TIGRESAS**
+RutaTeoremas.md.txt	975	975	FICHA **CABRAS**
+RutaTeoremas.md.txt	976	976	FICHA **ZORRAS**
+RutaTeoremas.md.txt	977	977	FICHA **LOBAS**
+RutaTeoremas.md.txt	978	978	FICHA **PUMAS**
+RutaTeoremas.md.txt	979	979	FICHA **ARDILLAS**
+RutaTeoremas.md.txt	980	980	FICHA **NUTRIAS**
+RutaTeoremas.md.txt	981	981	FICHA **OVEJAS**
+RutaTeoremas.md.txt	982	982	FICHA **VACAS**
+RutaTeoremas.md.txt	983	983	FICHA **RATAS**
+RutaTeoremas.md.txt	984	984	FICHA **YEGUAS**
+RutaTeoremas.md.txt	985	985	FICHA **CONEJAS**
+RutaTeoremas.md.txt	986	986	FICHA **COMADREJAS**
+RutaTeoremas.md.txt	987	987	FICHA **PANTERAS**
+RutaTeoremas.md.txt	988	988	FICHA **CIERVAS**
+RutaTeoremas.md.txt	989	989	FICHA **OSAS**
+RutaTeoremas.md.txt	990	990	FICHA **ARAÑAS**
+RutaTeoremas.md.txt	991	991	FICHA **MOSCAS**
+RutaTeoremas.md.txt	992	992	FICHA **HORMIGAS**
+RutaTeoremas.md.txt	993	993	FICHA **ABEJAS**
+RutaTeoremas.md.txt	994	994	FICHA **PALOMAS**
+RutaTeoremas.md.txt	995	995	FICHA **ÁGUILAS**
+RutaTeoremas.md.txt	996	996	FICHA **LECHUZAS**
+RutaTeoremas.md.txt	997	997	FICHA **HALCONAS**
+RutaTeoremas.md.txt	998	998	FICHA **GOLONDRINAS**
+RutaTeoremas.md.txt	999	999	FICHA **LIEBRES**
+RutaTeoremas.md.txt	1000	1000	FICHA **CEBRAS**
+RutaTeoremas.md.txt	1001	1001	FICHA **VÍBORAS**
+RutaTeoremas.md.txt	1002	1002	FICHA **AVISPAS**
+RutaTeoremas.md.txt	1003	1003	FICHA **EFÍMERAS**
+RutaTeoremas.md.txt	1004	1004	FICHA **PIRAÑAS**
+RutaTeoremas.md.txt	1005	1005	FICHA **TORTUGAS**
+RutaTeoremas.md.txt	1006	1006	FICHA **LANGOSTAS**
+RutaTeoremas.md.txt	1007	1007	FICHA **URRACAS**
+RutaTeoremas.md.txt	1008	1008	FICHA **LORAS**
+RutaTeoremas.md.txt	1009	1009	FICHA **BALLENAS**
+RutaTeoremas.md.txt	1010	1010	FICHA **TRUCHAS**
+RutaTeoremas.md.txt	1011	1011	FICHA **GRULLAS**
+RutaTeoremas.md.txt	1012	1012	FICHA **CIGARRAS**
+bitacora.md.txt	6	7	# Bitácora
+bitacora.md.txt	8	31	## 10-09-2026 (5): Puente de las Gacelas
+bitacora.md.txt	32	54	## 10-09-2026 (4): Reloj de las Mangostas
+bitacora.md.txt	55	76	## 10-09-2026 (3): Obstrucción de las Erizas
+bitacora.md.txt	77	100	## 10-09-2026 (2): Balance de las Castoras
+bitacora.md.txt	101	129	## 10-09-2026: Lema de las Suricatas, invariantes de alturas 2 y 3
+bitacora.md.txt	130	384	# ⇢ 12-08-2026 (3) — EL COFRE ABIERTO: EL PENDIENTE Nº 1, REFUTADO POR CAPA 1, Y EL COFRE MOVIDO DE SITIO
+bitacora.md.txt	385	490	# ⇢ 12-08-2026 (2) — LA 10ª REVISIÓN ADVERSARIAL: DÉCIMA REVISIÓN, DÉCIMA MORDIDA — Y LA PRIMERA CUYA MORDIDA GRANDE LLEGÓ CON REPARACIÓN
+bitacora.md.txt	491	558	# ⇢ 12-08-2026 — LA RUTA POST-9ª, COBRADA EN SIETE AVANCES: LAS DOS EQUIDISTRIBUCIONES SON UNA, Y EL ÁRBOL DE P2 QUEDA CON UN SOLO HUECO NOMBRADO
+bitacora.md.txt	559	824	# ⇢ 11-08-2026 (2) — P4 COBRADO: EL RÉCORD SIN CAP, `φ ≥ 0,462781` EN ARITMÉTICA EXACTA
+bitacora.md.txt	825	1023	# ⇢ 11-08-2026 — LA JORNADA SATELITAL: EL MURO ES DE UN METRO, Y TIENE DOS PUERTAS
+bitacora.md.txt	1024	1050	# ⇢ 10-08-2026 (16) — EL TEST DECISIVO DE γ, PRIMERA PASADA: γ CAE POR DÉCADA — EL LADO DE LA REDUCCIÓN
+bitacora.md.txt	1051	1066	# ⇢ 10-08-2026 (15) — EL BAUTIZO DE QUELTEHUES (orden del usuario, el cierre)
+bitacora.md.txt	1067	1126	# ⇢ 10-08-2026 (14) — LA 7ª REVISIÓN: TRES ADVERSARIOS CONTRA LA TANDA ENTERA. SÉPTIMA VEZ QUE ROMPE ALGO — Y EL REGALO ES MARKOV FUERTE
+bitacora.md.txt	1127	1215	# ⇢ 10-08-2026 (13) — LA REDUCCIÓN FINAL: EL SALTO CONDICIONAL NO NECESITA UN PISO UNIFORME
+bitacora.md.txt	1216	1250	# ⇢ 10-08-2026 (12) — LA SÍNTESIS DEL DÍA: EL CÍRCULO SE CIERRA SOBRE EL PISO POR VISITA — MEDIDO EN 0,76 EN LAS COORDENADAS CORRECTAS
+bitacora.md.txt	1251	1293	# ⇢ 10-08-2026 (11) — EL LEMA DE LA MEZCLA, REDUCIDO A CUATRO PIEZAS EXACTAS (el esqueleto demostrable)
+bitacora.md.txt	1294	1366	# ⇢ 10-08-2026 (10) — LA SERIE DEL PISO EN SU FORMA RENOVACIÓN-CORRECTA, Y «LA ENTRADA NUNCA ES EL PRE-VÓRTICE»
+bitacora.md.txt	1367	1429	# ⇢ 10-08-2026 (9) — LA LÍNEA FOSTER: TRES INTENTOS, TRES DIAGNÓSTICOS, Y LA OBSERVACIÓN QUE REORDENA EL PROBLEMA
+bitacora.md.txt	1430	1493	# ⇢ 10-08-2026 (8) — T=30 EN LA TABLA CERTIFICADA, Y EL ESQUELETO DEL LEMA LOCAL CON NOMBRES: DOEBLIN + LAMPERTI + ERICKSON
+bitacora.md.txt	1494	1526	# ⇢ 10-08-2026 (7) — LA CORRECCIÓN 50 (cazada por Opus 5, vía el usuario) Y EL TEOREMA B: LA SUMA ENTERA, BAJO EL UMBRAL
+bitacora.md.txt	1527	1576	# ⇢ 10-08-2026 (6) — GAVIOTAS (propuesto): LA COTA MARTINGALA — EL «ÚLTIMO PASO», CERTIFICADO BAJO EL UMBRAL A T FIJO
+bitacora.md.txt	1577	1601	# ⇢ 10-08-2026 (5) — LA COSECHA VOLCADA (182·49) Y EFRON–STEIN CIERRA EL ESLABÓN EXÓGENO
+bitacora.md.txt	1602	1628	# ⇢ 10-08-2026 (4) — GRIMMETT–HOLMES FICHADO (cero solapamiento) Y EL MODELO PURO CORRIGE EL EXPONENTE: UN SLOT ES `m^{−3/2}`, EL PERSISTENTE ES `1/m`
+bitacora.md.txt	1629	1655	# ⇢ 10-08-2026 (3) — EL NÚCLEO DE SENSIBILIDAD: `κ ~ 0,45/m` — EL DESBALANCE CONDICIONADO SE DESVANECE COMO `log T / T`
+bitacora.md.txt	1656	1707	# ⇢ 10-08-2026 (2) — TÓRTOLAS (propuesto): EL LEMA DEL ACOPLAMIENTO — EL SESGO DE LA MONEDA ES TIMING PURO
+bitacora.md.txt	1708	1756	# ⇢ 10-08-2026 — GARZAS (propuesto): LA MONEDA CONDICIONADA, LEÍDA POR ALTURA — Y EL EXPONENTE DEL CRITERIO CRUZA 1 HACIA ABAJO
+bitacora.md.txt	1757	1783	# ⇢ 09-08-2026 (15, madrugada) — CONEJAS EN LEAN: EL 18º, COBRADO CON SU REVISIÓN POR DELANTE
+bitacora.md.txt	1784	1843	# ⇢ 09-08-2026 (14) — LA 6ª REVISIÓN: LA RONDA DEL TRONCO. SEXTA VEZ QUE ROMPE ALGO — Y ESTA VEZ MORDIÓ A LEONAS
+bitacora.md.txt	1844	1868	# ⇢ 09-08-2026 (13) — LOS ESCALONES 7 Y 8 DE PUMAS: `λ ≥ 1,9844`
+bitacora.md.txt	1869	1907	# ⇢ 09-08-2026 (12) — EL ATERRIZAJE DE N2, EN LEAN: EL 17º `.lean`, Y EL PENDIENTE DECLARADO DE GOLONDRINAS, COBRADO
+bitacora.md.txt	1908	1933	# ⇢ 09-08-2026 (11) — LA LOCALIZACIÓN: EL INGREDIENTE COMBINATORIO DE `e₈` ENTRA TODO POR EL CANAL PAR, Y `e^h₈` TIENE FORMA CERRADA
+bitacora.md.txt	1934	1958	# ⇢ 09-08-2026 (10) — LA ESCALERA DE FORMAS CERRADAS TERMINA EN `e₆`: EL PENDIENTE DE `e₁₀`/`e₁₂`, RESUELTO EN NEGATIVO
+bitacora.md.txt	1959	1992	# ⇢ 09-08-2026 (9) — LA REVISIÓN BIBLIOGRÁFICA DE LA CADENA, HECHA: LA FORMA `{v, 3^k·v + c}` NO ESTÁ PUBLICADA
+bitacora.md.txt	1993	2016	# ⇢ 09-08-2026 (8) — EL PENDIENTE DEL ACTA, COBRADO: `cabras.lean` (EL 16º), EL INVARIANTE MOD 3 DE LA TORRE
+bitacora.md.txt	2017	2069	# ⇢ 09-08-2026 (7) — LA 5ª REVISIÓN EXTERNA: TRES ADVERSARIOS CONTRA LA TERNA. QUINTA REVISIÓN, QUINTA VEZ QUE ROMPE ALGO
+bitacora.md.txt	2070	2120	# ⇢ 09-08-2026 (6) — LA SUB-TEORÍA DE LA MADRIGUERA: LIEBRES Y CEBRAS REVISADAS Y ADOPTADAS, Y URRACAS (TEOREMA + EL 15º .LEAN)
+bitacora.md.txt	2121	2146	# ⇢ 09-08-2026 (5) — LA RETAGUARDIA SALDADA: EL PISO SOBREVIVE AL EXPONENTE HONESTO Y EL 14º .LEAN COMPILA A LA PRIMERA
+bitacora.md.txt	2147	2177	# ⇢ 09-08-2026 (4) — LA CUARTA REVISIÓN EXTERNA DICTÓ Y ROMPIÓ; APLICADA ENTERA. Y EL CORREO A FRABONI, ENVIADO
+bitacora.md.txt	2178	2250	# ⇢ 09-08-2026 (3) — LA REFORMULACIÓN, LAMPERTI Y GOLONDRINAS: EL FONDO SE VISITA SIEMPRE
+bitacora.md.txt	2251	2288	# ⇢ 09-08-2026 (2) — LA SALIDA AL MUNDO: zootheorem + OEIS A398792–A398795
+bitacora.md.txt	2289	2363	# ⇢ 09-08-2026 — EL LEMA DE BLOQUES: EL PISO QUEDA EN UNA SOLA DESIGUALDAD. Y LA FAMILIA q
+bitacora.md.txt	2364	2397	# ⇢ CIERRE DEL 04-08-2026 — EMPEZAR POR `RutaTeoremas.md`, SECCIÓN «EL ESTADO Y LOS PRÓXIMOS PASOS»
+bitacora.md.txt	2398	2424	# ⇢ 04-08 (7): EL TEOREMA DE MOSCAS — LA TENSIÓN, TRANSFERIDA: LAS MOSCAS NO ESCAPAN DE LA TELARAÑA
+bitacora.md.txt	2425	2450	# ⇢ 04-08 (6): EL TEOREMA DE ARAÑAS — LA SOMBRA: LA TORRE DESAPARECE DEL OFFSET
+bitacora.md.txt	2451	2497	# ⇢ 04-08 (5): LA PERPETUIDAD CRÍTICA — EL MECANISMO DE LA DENSIDAD, CON NOMBRE — Y b HASTA 35
+bitacora.md.txt	2498	2543	# ⇢ 04-08 (4): EL GOAL DE LAMBDA — RESPONDIDO CON INVERSIÓN — Y EL ERROR EN LA TABLA DE 2007
+bitacora.md.txt	2544	2596	# ⇢ 04-08 (3): LA RETAGUARDIA Y LOS CANALES — TRES .LEAN NUEVOS, LOS FLECOS MUERTOS, e6 A 29 NIVELES
+bitacora.md.txt	2597	2638	# ⇢ 04-08 (2): LA CADENA (k, c) — EL PROGRAMA ENTERO ES UN SISTEMA SIMBÓLICO, Y a(k) SE EXTIENDE A 34
+bitacora.md.txt	2639	2663	# ⇢ EL CIERRE DEL 04-08: EL TEOREMA MOD 3 — DEMOSTRADO, FORMALIZADO, Y EL 6º .LEAN
+bitacora.md.txt	2664	2684	# ⇢ LA AUDITORÍA RIGOR MORTIS (04-08): 30/30, TODA AFIRMACIÓN CON SU TEST
+bitacora.md.txt	2685	2709	# ⇢ LA TABLA FINAL DE LA JORNADA 03/04-08 (para empezar mañana por aquí)
+bitacora.md.txt	2710	2738	# ⇢ EL GRAN CIERRE DE LA MADRUGADA DEL 04-08: LOS TRES ÁTOMOS Y LAS DOS FÓRMULAS
+bitacora.md.txt	2739	2779	# ⇢ 03-08-2026 — LA ECUACIÓN DE LAS NUEVAS, y dos agujeros cerrados
+bitacora.md.txt	2780	2801	## ⇢ Y EL PASO SIGUIENTE SE DIO LA MISMA SESIÓN: los vórtices, tabulados
+bitacora.md.txt	2802	2818	## ⇢ Y LA SEGUNDA VUELTA ENCONTRÓ LA FORMA DE LA RECURSIÓN: los estratos
+bitacora.md.txt	2819	2833	## ⇢ Y LA PRIMERA FILA DEL TRIÁNGULO QUEDÓ DEMOSTRADA la misma noche
+bitacora.md.txt	2834	2856	## ⇢ Y LA REDUCCIÓN ENTRE ESTRATOS, DEMOSTRADA: |M|=4 es un |M|=2 con preludio
+bitacora.md.txt	2857	2870	## ⇢ EL MAPA DE DEPENDENCIAS ENTRA A LA BASE, con su regla (orden del usuario)
+bitacora.md.txt	2871	2887	## ⇢ Y LA RUTA IMPAR DE |M| = 4, DEMOSTRADA (comprobación 9)
+bitacora.md.txt	2888	2913	## ⇢ LA COORDENADA D — la herramienta nueva — y la ruta `r ≡ 3 (mod 4)` excluida
+bitacora.md.txt	2914	2943	## ⇢ LA COORDENADA E — autónoma de verdad — y la ruta par acorralada
+bitacora.md.txt	2944	2970	## ⇢ EL TERCER MIXTO CLASIFICADO, Y EL CENSO DE LAS DIEZ FAMILIAS DE E
+bitacora.md.txt	2971	2982	## ⇢ Y LA RAMA B-β, ITERADA EN EL MAPA (D, E) PURO HASTA u = 10⁷
+bitacora.md.txt	2983	3001	## ⇢ EL VIRAJE (03-08-2026, decisión del usuario, con criterio propio validado)
+bitacora.md.txt	3002	3025	## ⇢ EL PASO 1 DE LA CLASIFICACIÓN, HECHO EN AUTONOMÍA (`itinerarios.py`)
+bitacora.md.txt	3026	3056	## ⇢ EL REINICIO UNIFORME, LA ECUACIÓN DE RENOVACIÓN — Y EL FANTASMA QUE CAZÓ
+bitacora.md.txt	3057	3082	## ⇢ EL CENSO DEL REBOTE Y EL LEMA DEL BALANCE: el sistema CIERRA en dos incógnitas
+bitacora.md.txt	3083	3104	## ⇢ LA RÁFAGA DE LA MADRUGADA (goal: investigación abierta) — CINCO REGISTROS MÁS
+bitacora.md.txt	3105	3169	## ⇢ Y EL PERRAS DE LOS PISOS REDUCIDOS, MEDIDO CON FORMA CERRADA
+bitacora.md.txt	3170	3196	## ⇢ EL ÚLTIMO REGALO DE LA NOCHE: EL LEMA DE LA EQUIVALENCIA — `f = d`
+bitacora.md.txt	3197	3218	## ⇢ CIERRE DEL 03-08-2026 — LA RUTA QUEDA EN `RutaTeoremas.md`. EMPEZAR POR AHÍ
+bitacora.md.txt	3219	3243	## ⇢ LA SEGUNDA REVISIÓN ROMPIÓ EL COROLARIO 1 DE JIRAFAS — Y EL SISTEMA SOBREVIVIÓ SIN ÉL
+bitacora.md.txt	3244	3276	## ⇢ LA PRIMERA REVISIÓN EXTERNA DICTÓ (Opus 5) — Y LA IDENTIDAD EXACTA CIERRA
+bitacora.md.txt	3277	3292	## ⇢ LAS MASAS DE CLASE, Y EL MURO CON NOMBRE (`masasdeclase.py`)
+bitacora.md.txt	3293	3316	## ⇢ LA VERIFICACIÓN BIBLIOGRÁFICA DE LOS DOS TEOREMAS (orden del usuario)
+bitacora.md.txt	3317	3349	## ⇢ EL TEOREMA DE LA MITAD EXACTA (comprobación 15) — el objetivo del /goal
+bitacora.md.txt	3350	3357	# ⇢ 02-08-2026 — LA DEPURACIÓN TOTAL DICTÓ: 100 de 100. EMPEZAR POR AQUÍ
+bitacora.md.txt	3358	3362	## El marcador final
+bitacora.md.txt	3363	3372	## Cómo se pagó, porque el método cambió a mitad por orden del usuario
+bitacora.md.txt	3373	3387	## Lo que encontró que no se sabía
+bitacora.md.txt	3388	3396	## Los 12 NO_DECIDIBLES, por clase
+bitacora.md.txt	3397	3403	## LO QUE QUEDA, en orden
+bitacora.md.txt	3404	3442	## ⇢ Y EL ATAQUE A CST ARRANCÓ, la misma noche, todo local
+bitacora.md.txt	3443	3544	# ⇢ CIERRE DEL 01-08-2026 (noche) — LOS DOS TRÍOS DICTARON. EMPEZAR POR AQUÍ
+bitacora.md.txt	3545	3567	## Lo que cambia decisiones
+bitacora.md.txt	3568	3581	## Lo que se cerró sin gastar máquina
+bitacora.md.txt	3582	3590	## La lección, y es la misma tres veces
+bitacora.md.txt	3591	3603	## Lo que queda abierto
+bitacora.md.txt	3604	3609	# ⇢ ESTADO AL CIERRE DEL 01-08-2026 (tarde) — lo anterior
+bitacora.md.txt	3610	3633	## ⇢ LO MÁS NUEVO: LEAN 4 ENTRA AL REPO, Y CON ÉL LA REGLA DE LOS TRES
+bitacora.md.txt	3634	3649	### ⇢ EL PRIMER TRÍO YA ESTÁ LANZADO: el control A/B del `3n−1`
+bitacora.md.txt	3650	3678	### ⚠ LO QUE HAY QUE MIRAR PRIMERO AL VOLVER: una frase mía puede estar mal
+bitacora.md.txt	3679	3695	### LO QUE SE SACÓ EN LIMPIO, y es poco pero es duro
+bitacora.md.txt	3696	3707	### PUNTOS A FAVOR, al día
+bitacora.md.txt	3708	3731	### PENDIENTES, en orden
+bitacora.md.txt	3732	3740	### LA LECCIÓN DEL DÍA, que se repitió tres veces
+bitacora.md.txt	3741	3769	## 1. LA PURGA, hecha (commit `4f8efdc`)
+bitacora.md.txt	3770	3790	## 2. LO QUE ESTABA CORRIENDO AL CERRAR
+bitacora.md.txt	3791	3809	### Las tres vías, en una línea cada una
+bitacora.md.txt	3810	3815	## 3. LO QUE HAY QUE HACER CUANDO CIERREN
+bitacora.md.txt	3816	3834	## 4. LOS PENDIENTES DE FONDO, por orden
+bitacora.md.txt	3835	3845	## 5. LAS DOS REGLAS NUEVAS DE HOY
+bitacora.md.txt	3846	3851	## 2026-08-01 (noche) — LAS DOS AUDITORÍAS APLICADAS. 6 de 6 adversarios rompieron algo
+bitacora.md.txt	3852	3864	### La regla nueva, primero, porque cambia cómo se trabaja
+bitacora.md.txt	3865	3869	### El saldo
+bitacora.md.txt	3870	3921	### Las sorpresas, ordenadas por lo que cambian
+bitacora.md.txt	3922	3936	### Y lo que aguantó, que es la otra mitad
+bitacora.md.txt	3937	3953	### Estado de los pendientes de más abajo
+bitacora.md.txt	3954	3959	## ⇢ LA AUDITORÍA DEL 01-08-2026: tres cosas que hay que decidir antes de nada
+bitacora.md.txt	3960	3977	### 1. `a(k)` ES IDÉNTICA PARA `3n+1` Y PARA `3n−1` — y eso toca el envío a OEIS
+bitacora.md.txt	3978	3991	### 2. EVERETT ESTABA MAL TRADUCIDO, y la versión escrita era infalsificable
+bitacora.md.txt	3992	4006	### 3. UNA COTA NUEVA, Y ES MÁS FUERTE QUE LO QUE TENÍAMOS
+bitacora.md.txt	4007	4018	### Y el hueco, confirmado con números
+bitacora.md.txt	4019	4034	### Deuda inmediata
+bitacora.md.txt	4035	4042	## ⇢ PENDIENTE: convertir en `.py` lo que trajo la búsqueda web del 01-08-2026
+bitacora.md.txt	4043	4063	### Lo más importante que se encontró
+bitacora.md.txt	4064	4099	### Los diez bloques a convertir en código
+bitacora.md.txt	4100	4163	## ⇢ PENDIENTE PRIORITARIO: auditar las REFUTACIONES, no sólo las afirmaciones
+bitacora.md.txt	4164	4170	## 2026-08-01 (tarde) — el punto 5 cerrado, y una cita que existía y aun así sobraba
+bitacora.md.txt	4171	4196	### 1. La cita fantasma existía. Y había que quitarla igual
+bitacora.md.txt	4197	4209	### 2. El `0,2286` no difería «en la tercera cifra». Estaba en otra unidad
+bitacora.md.txt	4210	4217	### 3. La frase de la holgura mezclaba TRES rangos, no dos
+bitacora.md.txt	4218	4228	### El saldo en código
+bitacora.md.txt	4229	4233	## 2026-08-01 (mañana) — el día en que la documentación se editó a ciegas
+bitacora.md.txt	4234	4255	### El error, que es lo único que vale la pena contar
+bitacora.md.txt	4256	4286	### Lo que sí quedó arreglado (commit `d8b1d73`)
+bitacora.md.txt	4287	4300	### Lo que NO se hizo, para que no se dé por cerrado
+bitacora.md.txt	4301	4305	## 2026-07-30 — el día de las correcciones
+bitacora.md.txt	4306	4319	### Lo que se midió nuevo
+bitacora.md.txt	4320	4334	### Las siete correcciones
+bitacora.md.txt	4335	4341	### Dos negativos nuevos
+bitacora.md.txt	4342	4365	### Vías que quedaron cerradas, con su razón
+bitacora.md.txt	4366	4379	## Lo que queda pendiente
+bitacora.md.txt	4380	4403	### 1. El plan de la pinza, en tres fases
+bitacora.md.txt	4404	4433	### 2. El resto de la cola
+bitacora.md.txt	4434	4445	### 3. La deuda de método
+bitacora.md.txt	4446	4507	### 4. LA PASADA CRUZADA — encargada a Fable 5, pendiente
+bitacora.md.txt	4508	4594	### 5. CONSOLIDAR EL `CLAUDE.md` — ⇢ CERRADO EL 01-08-2026
+bitacora.md.txt	4595	4606	## El objetivo, reformulado
+bitacora.md.txt	3641	3641	FICHA **1 · LEAN**
+bitacora.md.txt	3642	3642	FICHA **2 · INDEPENDIENTE**
+bitacora.md.txt	3643	3643	FICHA **3 · COMPARADOR**
+bitacora.md.txt	3658	3658	FICHA **yo, en `CLAUDE.md`**
+bitacora.md.txt	3659	3659	FICHA **agente 1 (Lean)**
+bitacora.md.txt	3660	3660	FICHA **agente 2 (Python)**
+bitacora.md.txt	3700	3700	FICHA **la cota por tramo** `3^A·n₀ ≤ 2^B·n_k`
+bitacora.md.txt	3705	3705	FICHA **CST: «no hay contraejemplo con `σ* ≤ 16.294`, para todo `x`»**
+bitacora.md.txt	3777	3777	FICHA **`wzu334m64`** — las tres vías
+bitacora.md.txt	3778	3778	FICHA **`wyefzghui`** — auditar refutaciones
+bitacora.md.txt	4310	4310	FICHA **El umbral de los 45 rumbos**
+bitacora.md.txt	4311	4311	FICHA **Los negativos son `3n−1`**
+bitacora.md.txt	4312	4312	FICHA **Las constantes**
+bitacora.md.txt	4313	4313	FICHA **El ajuste fino**
+bitacora.md.txt	4314	4314	FICHA **Collatz contra la moneda**
+bitacora.md.txt	4315	4315	FICHA **El piso de la altitud**
+bitacora.md.txt	4316	4316	FICHA **La pinza de ciclos**
+bitacora.md.txt	4317	4317	FICHA **`k = 32`**
+bitacora.md.txt	4318	4318	FICHA **Los récords publicados**
+derivados.md.txt	6	13	# DERIVADOS.md — las ramas del tronco (`CLAUDE.md`)
+derivados.md.txt	14	25	## Índice
+derivados.md.txt	26	26	# ═══════════ [D-01] LEAN 4: el verificador entero (historia, coste, control A/B en Lean) ═══════════
+derivados.md.txt	27	43	## LEAN 4: el verificador, y QUÉ MITAD de los errores caza
+derivados.md.txt	44	71	### NO arregla «los errores que frenan el avance». Arregla una mitad concreta
+derivados.md.txt	72	93	### LA TRAMPA, y es la única que importa
+derivados.md.txt	94	104	### El control final: `#print axioms`
+derivados.md.txt	105	124	### Coste real, medido
+derivados.md.txt	125	206	### El control A/B en Lean: lo que de verdad cambia entre `3n+1` y `3n−1`
+derivados.md.txt	207	225	#### Lo que el comparador encontró EN LOS DOS TRABAJOS
+derivados.md.txt	226	226	# ═══════════ [D-02] LA REGLA DE LOS TRES completa (encargos, el punto 3, proporcion) ═══════════
+derivados.md.txt	227	249	## LA REGLA DE LOS TRES: Lean, el independiente, y quien los compara
+derivados.md.txt	250	256	### Lo que hace que funcione: que 1 y 2 NO SE VEAN
+derivados.md.txt	257	273	### El comparador no aplaude: su encargo es esta lista
+derivados.md.txt	274	292	### Cuando el agente de Lean NO puede formalizarlo, eso ES el resultado
+derivados.md.txt	293	304	### Proporción, para que la regla sea sostenible
+derivados.md.txt	305	305	# ═══════════ [D-03] Instalacion: historia, avisos de perdida del toolchain, conteos viejos ═══════════
+derivados.md.txt	306	391	## Instalación
+derivados.md.txt	392	392	# ═══════════ [D-04] Como esta repartido el repo (detalle, historia de la purga) ═══════════
+derivados.md.txt	393	473	## Cómo está repartido el repo
+derivados.md.txt	474	474	# ═══════════ [D-05] El registro de conversaciones: historia completa (los 355, el agujero del 01-08) ═══════════
+derivados.md.txt	475	585	## REGLA: el registro de las conversaciones (`respuestas.db`)
+derivados.md.txt	586	586	# ═══════════ [D-06] EL ARCHIVO GRANDE: todo lo establecido con verificacion (29-07 a 01-08) y sus correcciones ═══════════
+derivados.md.txt	587	808	## Lo que se estableció, con verificación
+derivados.md.txt	809	837	### La malla de los arranques (`mallaresiduos.py`)
+derivados.md.txt	838	852	### El coral de Harriss: el cierre lo pone el angulo, no Collatz
+derivados.md.txt	853	891	### Los aros que cierran solos, y la rueda del árbol (`mallascerradas.py`)
+derivados.md.txt	892	1057	### Los once hilos y el cruce por índice de paso (`guardarhilos.py`, `hilos.db`)
+derivados.md.txt	1058	1066	### El criterio de fusion de clases (`clasesfusion.py`)
+derivados.md.txt	1067	1094	#### El mecanismo, y dónde encajan las dos familias publicadas
+derivados.md.txt	1095	1215	#### El criterio demostrado, sin muestrear (`clasesfusion.py`)
+derivados.md.txt	1216	1247	#### Hacia dónde va la fracción: la pregunta, ya limpia
+derivados.md.txt	1248	1448	#### Y las dos sucesiones no están en OEIS
+derivados.md.txt	1449	1494	### Los negativos son el mapa `3n−1` (30-07-2026)
+derivados.md.txt	1495	1536	### Las constantes de Collatz (30-07-2026)
+derivados.md.txt	1537	1592	#### `γ(ρ)` unifica cuatro entradas de este documento en una sola
+derivados.md.txt	1593	1611	#### Wagon: el valor está bien y la fórmula publicada está mal
+derivados.md.txt	1612	1627	#### `E[unos] = E[σ]/2` no es una coincidencia numérica
+derivados.md.txt	1628	1644	#### El `3,49031` es un número sin explicar
+derivados.md.txt	1645	1658	#### `Res ≥ 1` no es estricta: vale `1` clavado en las potencias de 2
+derivados.md.txt	1659	1689	#### `σ = χ` es una CONJETURA ABIERTA de Terras, no un hecho
+derivados.md.txt	1690	1775	### El piso de la altitud: lo único con forma de teorema (30-07-2026)
+derivados.md.txt	1776	1837	### Los récords publicados, y el repo cruzado contra ellos (`records.json`, `cruzarecords.py`)
+derivados.md.txt	1838	1927	### La pinza de descarte de ciclos (`pinzaciclos.py`, 30-07-2026)
+derivados.md.txt	1928	2067	### Las cribas industriales, y por qué NO sirven para ciclos (30-07-2026)
+derivados.md.txt	2068	2283	## Qué es real y qué es dibujo
+derivados.md.txt	2284	2284	# ═══════════ [D-07] Lo que AGUANTO la auditoria y EL ANDAMIO completo ═══════════
+derivados.md.txt	2285	2311	## La otra mitad de la auditoría: LO QUE AGUANTÓ (01-08-2026)
+derivados.md.txt	2312	2350	### EL ANDAMIO: qué se lleva por delante cada pieza si cae
+derivados.md.txt	2351	2351	# ═══════════ [D-08] El balance de novedad, Collatz 1932, Everett corregido, el techo y el cuarto camino ═══════════
+derivados.md.txt	2352	2403	## Nada de esto es nuevo — el balance, hecho a propósito
+derivados.md.txt	2404	2427	### Collatz llegó a esto desde la teoría de grafos, igual que nosotros
+derivados.md.txt	2428	2451	### La demostración de Everett, y qué dice en nuestro lenguaje
+derivados.md.txt	2452	2498	#### B1 — la traducción a `(A, B)` estaba mal
+derivados.md.txt	2499	2518	#### B2 — y `log₂3` tampoco es «el umbral verdadero»
+derivados.md.txt	2519	2555	#### B3 — EL HUECO, que es el hallazgo de la pasada
+derivados.md.txt	2556	2572	#### Qué es cada cosa, y por qué este error duró un año
+derivados.md.txt	2573	2609	### Lo que sí es inusual aquí, y no es matemática
+derivados.md.txt	2610	2640	### El techo realista, y hacia dónde no hay camino
+derivados.md.txt	2641	2739	### EL CUARTO CAMINO — el objetivo realista, enunciado el 30-07-2026
+derivados.md.txt	2740	2740	# ═══════════ [D-09] El proyecto de fondo, los dos filtros y la maquinita de if/else ═══════════
+derivados.md.txt	2741	2773	## El proyecto de fondo, y el filtro que hay que aplicarle
+derivados.md.txt	2774	2816	### "Es determinista, luego tiene patrón, luego se puede demostrar"
+derivados.md.txt	2817	2881	### "La maquinita de `if/else`": buscar los que siempre suben y los que siempre bajan
+derivados.md.txt	2882	2882	# ═══════════ [D-10] Siguiente sesion (fosil historico: k=34, plan de la pinza/Wang, pendientes viejos) ═══════════
+derivados.md.txt	2883	3177	## Siguiente sesión
+derivados.md.txt	904	904	FICHA **100002 … 100007**
+derivados.md.txt	1507	1507	FICHA **Wagon** (tiempo de caída medio, OEIS **A122790**)
+derivados.md.txt	2293	2293	FICHA **Terras, Teorema 1.1**
+derivados.md.txt	2294	2294	FICHA **la forma del repo `2^B·seq[j] = 3^A·seq[i] + C` ES T1.1**
+derivados.md.txt	2295	2295	FICHA **Terras, Teorema 1.2**
+derivados.md.txt	2296	2296	FICHA **Terras, Corolario 1.4** (paridades 50/50)
+derivados.md.txt	2297	2297	FICHA **la Tabla C de jump values**
+derivados.md.txt	2298	2298	FICHA **Gao 1993**, la tupla de `2^500 + 1`
+derivados.md.txt	2299	2299	FICHA **Wu 1995**, la tupla de 310
+derivados.md.txt	2300	2300	FICHA **A076227**
+derivados.md.txt	2301	2301	FICHA **Elia–Tucker 2015**
+derivados.md.txt	2302	2302	FICHA **la cota `5/3` de Everett**
+derivados.md.txt	2303	2303	FICHA **Eliahou 1993 y Sinisalo 2003**
+derivados.md.txt	2304	2304	FICHA **el `1,4784` de Simons–de Weger**
+derivados.md.txt	2305	2305	FICHA **el Teorema 23 de Hercher**
+derivados.md.txt	2857	2857	FICHA **un ciclo**
+inventario.md.txt	1	6	# INVENTARIO Y PLAN DE DEPURACIÓN — 09-08-2026
+inventario.md.txt	7	21	## La clave que ordena todo el análisis
+inventario.md.txt	22	23	## El catálogo (raíz: 62 .py · 15 .txt · 14 .lean · 3 .md · 3 .db · 1 .json)
+inventario.md.txt	24	38	### ESENCIALES (perderlos = daño real; todos en git ✓)
+inventario.md.txt	39	46	### NECESARIOS (registro y reproducibilidad; en git ✓; costo de contexto 0)
+inventario.md.txt	47	51	### PRESCINDIBLES / REGENERABLES (ya fuera de git; sólo ocupan disco local)
+inventario.md.txt	52	58	### FUERA DE GIT Y **NO** PRESCINDIBLES (el punto frágil)
+inventario.md.txt	59	67	## ⚠ EL HALLAZGO DE RIESGO INVERSO (decidir pronto)
+inventario.md.txt	68	85	## REDUNDANCIAS REALES DETECTADAS (pocas, y ninguna urgente)
+inventario.md.txt	86	100	## Qué se hizo hoy y qué queda a tu decisión

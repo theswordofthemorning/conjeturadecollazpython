@@ -1,0 +1,23 @@
+CONTROL: 5680 pasos contra pares enteros positivos: OK
+CONTROL: 33371 celdas (k=2..16, signos, cero, recargas y alturas grandes): OK.
+CONTROL: 16 arranques x 1024 palabras, por pares positivos: OK.
+ADV: tras bit 0, h=2^21 a k=3; P(L>=21)=1/1048576, NO 1.
+MEZCLA: condicionada a c impar ahora y a la proxima rama mixta viva;
+no condicionada a supervivencia futura; fracciones exactas, sin filtro de granularidad.
+c0=1 t=8 entradas=89 Amax=5 C_cola=76/89 (~0.853933) max_C_j=1.033708 en j=3
+c0=1 t=12 entradas=1197 Amax=5 C_cola=1168/1197 (~0.975773) max_C_j=1.035923 en j=3
+c0=1 t=16 entradas=16914 Amax=5 C_cola=8473/8457 (~1.001892) max_C_j=1.001892 en j=5
+c0=1 t=20 entradas=243366 Amax=6 C_cola=121091/121683 (~0.995135) max_C_j=1.000855 en j=3
+c0=5 t=8 entradas=94 Amax=5 C_cola=33/47 (~0.702128) max_C_j=0.829787 en j=1
+c0=5 t=12 entradas=1228 Amax=5 C_cola=279/307 (~0.908795) max_C_j=0.934853 en j=3
+c0=5 t=16 entradas=16833 Amax=6 C_cola=5432/5611 (~0.968098) max_C_j=0.991386 en j=3
+c0=5 t=20 entradas=241502 Amax=6 C_cola=119054/120751 (~0.985946) max_C_j=0.996613 en j=3
+c0=999983 t=8 entradas=81 Amax=5 C_cola=62/81 (~0.765432) max_C_j=0.962963 en j=4
+c0=999983 t=12 entradas=1023 Amax=5 C_cola=944/1023 (~0.922776) max_C_j=1.024438 en j=1
+c0=999983 t=16 entradas=15404 Amax=5 C_cola=7657/7702 (~0.994157) max_C_j=0.994157 en j=5
+c0=999983 t=20 entradas=224991 Amax=6 C_cola=8470/8333 (~1.016441) max_C_j=1.016583 en j=5
+c0=1398101 t=8 entradas=82 Amax=4 C_cola=36/41 (~0.878049) max_C_j=0.975610 en j=1
+c0=1398101 t=12 entradas=1146 Amax=5 C_cola=202/191 (~1.057592) max_C_j=1.057592 en j=5
+c0=1398101 t=16 entradas=16575 Amax=5 C_cola=16396/16575 (~0.989201) max_C_j=0.995958 en j=3
+c0=1398101 t=20 entradas=242147 Amax=6 C_cola=237520/242147 (~0.980892) max_C_j=0.988970 en j=1
+FIN: ley de una racha verificada; los prefactores de mezclas son mediciones finitas.

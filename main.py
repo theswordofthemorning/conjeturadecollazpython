@@ -25,19 +25,20 @@ def _cronometrar(fn, *args, **kwargs):
 
 
 def cmd_verificar(args) -> None:
-    informe, segundos = _cronometrar(collatz.verificar, args.limite)
+    informe, segundos = _cronometrar(collatz.verificar, args.limite, args.tope_pasos)
     semilla, techo = informe["mayor_altitud"]
 
     print(f"\n  Verificacion de Collatz para n = 1 … {informe['limite']:,}")
     print(f"  {'-' * 52}")
-    if informe["contraejemplo"] is None:
-        print(f"  resultado          : sin contraejemplos")
+    if informe["estado"] == "completo":
+        print("  resultado          : convergencia comprobada en el rango")
     else:
-        print(f"  resultado          : CONTRAEJEMPLO en n = {informe['contraejemplo']:,}")
+        print(f"  resultado          : inconcluso; tope agotado en n = {informe['semilla_pendiente']:,}")
+    print(f"  limite verificado  : {informe['limite_verificado']:,}")
     print(f"  pasos de descenso  : {informe['pasos_de_descenso']:,}")
     print(f"  mayor altitud      : n = {semilla:,} llega a {techo:,}")
     print(f"  tiempo             : {segundos:.2f} s\n")
-    print("  Ojo: esto no demuestra nada. Solo dice que hasta aqui no se rompio.\n")
+    print("  Esta comprobacion finita no demuestra la conjetura para todo n.\n")
 
 
 def cmd_records(args) -> None:
@@ -69,8 +70,9 @@ def main() -> None:
     p = argparse.ArgumentParser(description="Laboratorio de la conjetura de Collatz")
     sub = p.add_subparsers(dest="comando", required=True)
 
-    v = sub.add_parser("verificar", help="busca contraejemplos hasta un limite")
+    v = sub.add_parser("verificar", help="comprueba convergencia en un rango finito")
     v.add_argument("--limite", type=int, default=1_000_000)
+    v.add_argument("--tope-pasos", type=int, default=10_000_000)
     v.set_defaults(func=cmd_verificar)
 
     r = sub.add_parser("records", help="semillas que baten records")

@@ -1,0 +1,6 @@
+OK: a(1)..a(20) recomputed by brute force, all match.
+OK: b(n) = a(n+1) - 2a(n) is nonnegative for all stored terms
+    (the doubling theorem a(n+1) >= 2a(n) holds on the data).
+
+b(n) = a(n+1) - 2a(n), n = 1..35:
+[0, 1, 1, 2, 2, 3, 4, 6, 11, 19, 34, 60, 106, 190, 341, 623, 1148, 2124, 3963, 7451, 14072, 26699, 50913, 97379, 186769, 359164, 692079, 1336125, 2583668, 5002992, 9701007, 18831364, 36594031, 71181933, 138581314]

@@ -1,63 +1,53 @@
-# Repository Guidelines
+# Reglas del laboratorio
 
-## Project Structure & Module Organization
+## Arranque y contexto
 
-Root-level Python files contain Collatz experiments; `collatz.py` implements
-the classical map and `main.py` provides the CLI. `.lean` files contain proofs.
-Read `RutaTeoremas.md` for research status and `CLAUDE.md` for working conventions.
+Leer **sólo [ESTADO_INVESTIGACION.md](ESTADO_INVESTIGACION.md)** después de
+estas reglas. Si ya se proporcionaron en la sesión, no releerlas.
+Abrir luego únicamente el archivo o sección que requiera la tarea.
+`RutaTeoremas.md` es un índice opcional; `CLAUDE.md` remite aquí.
+No precargar bitácora, derivados, actas, transcripciones ni todo SQLite.
+Buscar con `rg -n` y leer rangos cortos; ampliar cuando una dependencia lo exija.
+El archivo histórico conserva decisiones antiguas, no instrucciones vigentes.
 
-`depuracion/` holds claim specifications (`fichas/`), independent Python
-checks (`py/`), Lean proofs (`lean/`), and `veredictos.jsonl`, the authoritative
-audit record. `revision*_adv*/` contains review reproductions. Research
-artifacts include `*_salida.txt`, notes, SQLite databases, and archived
-sessions in `transcripciones/`.
+## Trabajo y rigor
 
-## Companion Repository: zootheorem
+- Antes de editar: `git fetch origin` y revisar `git status -sb` en cada
+  repo afectado. Preservar cambios locales e históricos; no publicar por
+  el solo hecho de actualizar documentación.
+- Trabajo local sin subagentes salvo petición explícita del usuario.
+- Python sencillo, cuatro espacios, nombres en español; conservar las
+  implementaciones independientes. Preferir enteros o `Fraction` para
+  afirmaciones exactas. Scripts con parámetros explícitos, sin depender de `input()`.
+- Declarar mapa, dominio, índices, unidades, ley y condicionamiento.
+  Distinguir prueba escrita, formalización, conteo exacto y medición.
+  Un barrido finito no es una prueba universal; cotejar también bordes.
+- Para afirmaciones matemáticas, contrastar una derivación o cálculo
+  independiente y Lean cuando corresponda. Si la formalización es parcial,
+  declarar el tramo pendiente. Lean certifica el enunciado, no su interpretación.
+  Comprobar `lean --version` y `#print axioms`; evitar `sorryAx`.
+- Los resultados propios conservan nombres de animales en femenino;
+  consultar el índice histórico antes de asignar otro.
+- Mirar parámetros antes de ejecutar o importar experimentos antiguos:
+  algunos lanzan barridos al importar. No repetir censos caros por cambios
+  documentales. En Windows usar `python -B -X utf8`; cuidar cp1252 en Sublime.
 
-`../zootheorem/`, also on the Desktop, publishes results from this laboratory.
-It contains articles in `papers/`, integer sequences in `seqs/`, independent
-dependency-free Python checks in `verify/`, and the Lean mirror theorem in
-`lean/mirror_theorem.lean`. `drafts/` holds publication and OEIS submission work.
-From that repository, run `python verify/verify_merging_classes.py`,
-`python verify/verify_q_family.py`, or `lean lean/mirror_theorem.lean`.
-Keep published statements consistent with verified laboratory results and
-distinguish proved, computed exactly, and measured claims.
+## Archivos y verificaciones
 
-## Build, Test, and Development Commands
+`collatz.py` y `main.py`: mapa clásico y CLI. `depuracion/`: fichas,
+verificadores y actas. El compañero `../zootheorem/` publica papers,
+`seqs/`, `verify/` y `lean/mirror_theorem.lean`. Consultar su plan sólo
+si se trabaja en publicación. No hay build, linter ni CI centralizados.
 
-Run commands from the repository root:
+Validar lo afectado; el conjunto acotado está en
+`depuracion/coherencia20260913/ejecutar_controles.py`. Para documentación,
+comprobar conservación y enlaces; no relanzar ese conjunto por rutina.
 
-- `python -m pip install -r requirements.txt`: install NumPy, Matplotlib, and Plotly.
-- `python main.py camino 27`: print one classical Collatz trajectory.
-- `python main.py verificar --limite 10000`: check a bounded seed range.
-- `python main.py records --limite 10000`: report trajectory records.
-- `python verificar_constantes.py`: run the independent constants audit.
-- `lean --version`: confirm the separately installed Lean 4 toolchain.
-- `lean depuracion/lean/A1.lean`: check an individual proof using Lean's core.
+## Cierre y mantenimiento
 
-There is no package build step. Inspect script parameters before expensive sweeps.
-
-## Coding Style & Naming Conventions
-
-Use four-space Python indentation, descriptive Spanish `snake_case` names,
-and simple standalone scripts. Preserve mathematical notation. No formatter
-or linter is configured. Prefer integers or `fractions.Fraction` for exact
-claims; label floating-point measurements explicitly.
-
-## Testing Guidelines
-
-There is no centralized test framework, CI, or coverage threshold. Use
-`verificar_*.py` checks and claim-specific `depuracion/py/A<number>.py` and
-`A<number>_comp.py` scripts. For mathematical changes, pair an independent
-calculation with a Lean proof where applicable and compare their assumptions.
-Check boundary cases, identify classical versus accelerated steps, and record
-parameters and failures. Finite sweeps are evidence, never universal proofs.
-
-## Commit & Pull Request Guidelines
-
-History uses Spanish, descriptive research summaries, often with uppercase
-lead phrases and detailed evidence; it does not follow Conventional Commits.
-Describe the finding or correction and its verification. Keep changes focused.
-PRs should identify affected claims, link relevant issues or audit records,
-list reproduction commands and results, and state unresolved limitations.
-Update research notes when conclusions change; preserve historical evidence.
+Actualizar el estado breve **sustituyendo** lo superado: resultado, límite,
+siguiente acción y evidencia. Mantenerlo en unas 600 palabras; llevar
+pruebas y sesiones largas a notas temáticas enlazadas, sin duplicarlas.
+Cambios de afirmaciones: registro versionado y generador, no sólo SQLite.
+`respuestas.db` es captura literal; nunca reconstruir conversaciones.
+Describir cambios y validación en español; conservar evidencia histórica.

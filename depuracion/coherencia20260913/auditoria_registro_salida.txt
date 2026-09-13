@@ -1,0 +1,3 @@
+OK: fallos de validación y reemplazo conservan la base anterior.
+OK: captura repetida no duplica; conflicto revierte todo el lote.
+OK: registro 2026-09-13, 216 afirmaciones, 52 nodos, 84 dependencias.

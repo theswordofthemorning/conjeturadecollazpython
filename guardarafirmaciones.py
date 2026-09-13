@@ -1,3 +1,5 @@
+# REGISTRO VIGENTE: depuracion/coherencia20260913/registro.json.
+# Las listas literales de abajo son la base historica; no editarlas sin migracion.
 # guardarafirmaciones.py
 #
 # LAS AFIRMACIONES DEL LABORATORIO, ORDENADAS POR CUANTIFICADOR.
@@ -22,7 +24,7 @@
 #                       "cuarto camino" del repo: la regla sin la secuencia.
 #     casi_todo_n       vale salvo un conjunto de densidad cero. Encadena con
 #                       cuidado: la excepcion que buscamos podria vivir ahi.
-#     promedio          NO ENCADENA CON NADA. Un promedio no dice nada de
+#     promedio          Distinguir medicion de estimacion demostrada. No decide
 #                       ningun numero concreto. sqrt(3)/2 < 1 significa "en
 #                       promedio bajan", y una sola orbita que subiera para
 #                       siempre no moveria ese promedio ni un decimal.
@@ -4902,6 +4904,13 @@ DEPENDENCIAS = [
 ]
 
 print()
+# Fuente literal hist?rica congelada. Las correcciones actuales son versionadas.
+from registroafirmaciones import aplicar_registro, guardar_base
+(AFIRMACIONES, CORRECCIONES, NODOS, DEPENDENCIAS,
+ CLAVES_ACTUALES, VERSION_REGISTRO) = aplicar_registro(
+    AFIRMACIONES, CORRECCIONES, NODOS, DEPENDENCIAS,
+    os.path.join(CARPETA, "depuracion/coherencia20260913/registro.json"))
+
 print("COMPROBACION 0 - el mapa de dependencias y la regla del avance")
 estado_de = {}
 for nombre, estado, _ in NODOS:
@@ -5027,13 +5036,7 @@ print()
 # ===========================================================================
 
 ruta = os.path.join(CARPETA, ARCHIVO)
-if os.path.exists(ruta):
-    os.remove(ruta)
-
-conexion = sqlite3.connect(ruta)
-cursor = conexion.cursor()
-
-cursor.executescript("""
+esquema = """
 CREATE TABLE afirmaciones (
     id            INTEGER PRIMARY KEY,
     enunciado     TEXT NOT NULL,
@@ -5082,70 +5085,27 @@ CREATE TABLE dependencias (
 
 CREATE INDEX idx_cuantificador ON afirmaciones (cuantificador);
 CREATE INDEX idx_estado        ON afirmaciones (estado);
-""")
 
-cursor.executemany(
-    "INSERT INTO afirmaciones (enunciado, cuantificador, estado, fichero,"
-    " fuente, notas) VALUES (?,?,?,?,?,?)", AFIRMACIONES)
-cursor.executemany(
-    "INSERT INTO correcciones (que_se_creia, por_que_era_falsa, leccion)"
-    " VALUES (?,?,?)", CORRECCIONES)
-cursor.executemany(
-    "INSERT INTO constantes (nombre, valor_teorico, valor_medido, error_rel,"
-    " formula, que_mide, fuente, fichero, aviso) VALUES (?,?,?,?,?,?,?,?,?)",
-    CONSTANTES)
-cursor.executemany(
-    "INSERT INTO nodos (nombre, estado, descripcion) VALUES (?,?,?)", NODOS)
-cursor.executemany(
-    "INSERT INTO dependencias (hijo, padre) VALUES (?,?)", DEPENDENCIAS)
-
-conexion.commit()
-conexion.close()
-
-print("BASE DE DATOS ESCRITA: %s" % ARCHIVO)
-print("  afirmaciones %d · correcciones %d · constantes %d"
-      % (len(AFIRMACIONES), len(CORRECCIONES), len(CONSTANTES)))
-print()
-
-
-# ===========================================================================
-# COMPROBACION 3 -- ida y vuelta
-# ===========================================================================
-#
-# Guardar mal es peor que no guardar.
-
+CREATE TABLE claves_actuales (
+    clave TEXT PRIMARY KEY,
+    afirmacion_id INTEGER NOT NULL REFERENCES afirmaciones(id)
+);
+CREATE TABLE metadatos (clave TEXT PRIMARY KEY, valor TEXT NOT NULL);
+"""
+tablas = {
+    "afirmaciones": (("enunciado", "cuantificador", "estado", "fichero", "fuente", "notas"), AFIRMACIONES),
+    "correcciones": (("que_se_creia", "por_que_era_falsa", "leccion"), CORRECCIONES),
+    "constantes": (("nombre", "valor_teorico", "valor_medido", "error_rel", "formula", "que_mide", "fuente", "fichero", "aviso"), CONSTANTES),
+    "nodos": (("nombre", "estado", "descripcion"), NODOS),
+    "dependencias": (("hijo", "padre"), DEPENDENCIAS),
+    "claves_actuales": (("clave", "afirmacion_id"), CLAVES_ACTUALES),
+    "metadatos": (("clave", "valor"), [("version_registro", VERSION_REGISTRO)]),
+}
+guardar_base(ruta, esquema, tablas)
+print("BASE ESCRITA ATOMICAMENTE: %s; registro %s" % (ARCHIVO, VERSION_REGISTRO))
+print("COMPROBACION 3 OK: todas las tablas, integridad y referencias verificadas.")
 revision = sqlite3.connect(ruta)
 c2 = revision.cursor()
-
-leidas = c2.execute(
-    "SELECT enunciado, cuantificador, estado, fichero, fuente, notas"
-    " FROM afirmaciones ORDER BY id").fetchall()
-leidas_corr = c2.execute(
-    "SELECT que_se_creia, por_que_era_falsa, leccion"
-    " FROM correcciones ORDER BY id").fetchall()
-leidas_cte = c2.execute(
-    "SELECT nombre, valor_teorico, valor_medido, error_rel, formula, que_mide,"
-    " fuente, fichero, aviso FROM constantes ORDER BY id").fetchall()
-
-fallos_vuelta = 0
-for guardadas, releidas in ((AFIRMACIONES, leidas), (CORRECCIONES, leidas_corr),
-                            (CONSTANTES, leidas_cte)):
-    if len(guardadas) != len(releidas):
-        fallos_vuelta += 1
-    for a, b in zip(guardadas, releidas):
-        if tuple(a) != tuple(b):
-            fallos_vuelta += 1
-
-print("COMPROBACION 3 - ida y vuelta contra el disco")
-print("  releidas: %d afirmaciones, %d correcciones, %d constantes"
-      % (len(leidas), len(leidas_corr), len(leidas_cte)))
-print("  fallos: %d" % fallos_vuelta)
-if fallos_vuelta:
-    revision.close()
-    raise SystemExit("Lo guardado no coincide con lo calculado. No sirve.")
-print("  -> 0 fallos.")
-print()
-
 
 # ===========================================================================
 # EL INFORME
@@ -5171,17 +5131,16 @@ print()
 
 
 print("=" * ANCHO)
-print("LAS QUE COMPONEN - 'todo_n' demostradas y 'clase_residual'")
+print("AFIRMACIONES DEMOSTRADAS POR NUMERO O CLASE (leer sus hipotesis)")
 print("=" * ANCHO)
 print()
-print("  Son las unicas con las que se puede encadenar un argumento: valen")
-print("  para CADA numero, o para los INFINITOS numeros de una clase.")
+print("  Este filtro no decide la validez de un ensamblaje: comprobar dominio,")
+print("  hipotesis y dependencias antes de aplicar cada afirmacion.")
 print()
 
 componen = c2.execute(
     "SELECT cuantificador, enunciado, fichero FROM afirmaciones"
-    " WHERE cuantificador='clase_residual'"
-    "    OR (cuantificador='todo_n' AND estado='demostrado')"
+    " WHERE estado='demostrado' AND cuantificador IN ('clase_residual','todo_n')"
     " ORDER BY cuantificador DESC, id").fetchall()
 
 ultimo = None
@@ -5198,14 +5157,12 @@ print()
 
 
 print("=" * ANCHO)
-print("LOS PROMEDIOS - AVISO: NO ENCADENAN CON NADA")
+print("PROMEDIOS: DISTINGUIR MEDICIONES Y ESTIMACIONES DEMOSTRADAS")
 print("=" * ANCHO)
 print()
-print("  Un promedio no demuestra nada de ningun numero concreto. Una sola")
-print("  orbita que subiera para siempre no moveria estos numeros ni un")
-print("  decimal, porque seria un conjunto de medida cero. Prueba de que no es")
-print("  paranoia: 5n+1 tiene media geometrica 1,118 > 1 -o sea 'todo sube'- y")
-print("  SIN EMBARGO tiene un ciclo, el del 13, donde nada sube.")
+print("  Una medicion no prueba un enunciado universal. Una estimacion de")
+print("  momentos demostrada si puede sostener un argumento probabilistico,")
+print("  con su ley, dominio y condicionamiento especificados.")
 print()
 
 promedios = c2.execute(

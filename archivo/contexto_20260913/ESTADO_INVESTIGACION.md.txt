@@ -1,0 +1,108 @@
+# Estado de la investigación — 13-09-2026
+
+Este es el punto de entrada vigente para el laboratorio y su publicación en
+[`zootheorem`](../zootheorem/PLAN_INVESTIGACION.md). Sustituye las instrucciones
+de trabajo de resúmenes históricos; conserva sus documentos como evidencia.
+La [auditoría de coherencia](depuracion/coherencia20260913/LEEME.md) identifica
+las correcciones, su alcance y las comprobaciones realizadas.
+
+## Objetivo y convenciones
+
+Usamos `T(x)=x/2` en pares y `(3x+1)/2` en impares, A014682. El CLI
+`main.py` usa el mapa **clásico**, con `3x+1` sin división en el paso impar.
+Los pasos mixtos de los ejemplos OEIS se numeran desde 1 y examinan los
+valores de entrada de cada paso; algunos experimentos antiguos numeran desde 0.
+
+El objetivo interno es `phi = lim a(n)/2^n = 1`, donde `a(n)` cuenta fusiones
+balanceadas de clases a más tardar en el nivel n. Las nuevas del nivel n son
+`a(n)-2*a(n-1)`; la sucesión `b(n)` de A398793 usa el índice desplazado
+`b(n)=a(n+1)-2*a(n)`.
+
+Definir `F` como el conjunto de enteros positivos cuyo par consecutivo funde
+al mismo índice con igual conteo de impares. Se tiene **densidad natural
+inferior de F >= phi**; por tanto `phi=1` implica densidad natural uno de F.
+No está justificada la igualdad general `phi=d(F)` por una unión creciente:
+véase la [corrección del puente](depuracion/coherencia20260913/Matematica.md).
+
+Fusión balanceada, igualdad de tiempos **finitos** hasta 1 y convergencia a 1
+son enunciados distintos. La igualdad de alturas requiere convergencia y
+controlar primeras llegadas anteriores al encuentro. Pandas conserva su
+implicación condicional a `Res<3`; no identifica sin más las densidades.
+La denominación histórica «Gao–Wu en densidad» no sustituye esta definición
+precisa ni una comprobación del enunciado original y su convención de altura.
+
+## Qué se sostiene y qué sigue abierto
+
+| Pieza | Estado utilizable | Límite |
+|---|---|---|
+| Leonas / Terras | Transiciones exactas y representación por clases | El bit es la paridad del **ancla**, no necesariamente del menor; la absorción única es de clases |
+| Moscas | Cota de momentos fraccionarios a tiempo determinista, con hipótesis de dominación | No entrega automáticamente la misma cota en una salida condicionada |
+| Suricatas | Invariantes comunes de alturas 2 y 3 constantes, todo módulo `2^m`, Lean | No entrega margen uniforme de mezcla |
+| Castoras | Balance exacto con cuatro corrientes, paridad y supervivencia | La identidad no fuerza una contracción uniforme |
+| Erizas | Imposibilidad de `rho<1/2` uniforme en todos los tiempos grandes y todas las escalas; también del control L2 en todo un sector lineal | No descarta estudiar una escala fija ni las clases especiales de racha |
+| Mangostas | Ley exacta de racha dado el estado completo; reloj `O(n log n)` con error explícito | El `O(n)` propuesto en la revisión 12 requiere otra estimación de las alturas |
+| Gacelas | Cambio armónico, supervivencia y control de `Pi_tau` | El cambio armónico hacia delante no es automáticamente la reversión ni la supervivencia futura |
+| Corolario de Mangostas y Gacelas | Cola uniforme de una excursión `O(sqrt(log(t)/t))`, deducción escrita | No incluye todavía los tramos de frontera del reloj global; probabilidades no formalizadas integralmente |
+| P2 / control de `W_tau` | **Pendiente** | Hace falta masa suficiente en una ventana fija bajo la ley real de salida |
+| Ensamblaje a `phi=1` | **Pendiente** | Reloj global, control de arranques y divergencia de las probabilidades condicionales deben enlazarse sin circularidad |
+
+La revisión 12 existe en `revision12_adv1/` y se incorpora como revisión
+local por otro asistente. No es revisión humana ni formalización completa;
+su mejora del reloj a `O(n)` no se adopta como teorema. Sus observaciones
+sobre alcance de Erizas y sobre la probabilidad del producto sí se integran.
+
+## Plan de avance y criterio de cierre
+
+1. **P0 — Integridad del objeto y los registros (esta depuración).** Corregir
+   fuentes y SQLite conjuntamente; conservar versiones y distinguir IDs
+   históricos de identificadores actuales. Publicar los verificadores de
+   los estratos y sincronizar sus copias locales con el envío del 13-09.
+   Cierre local: controles de coherencia, cálculo directo y regeneración
+   pasan. La publicación de los nuevos archivos en el remoto sigue separada.
+2. **P1 — Reloj de retornos.** Partir del corolario de una excursión, contar
+   explícitamente los tramos en `k=0,1` y precisar si cada variable es
+   duración, entrada al fondo o nuevo arranque en `k=2`. Cierre: cota del
+   reloj **global** suficiente para el ensamblaje, con dominio y dependencia
+   del arranque explícitos. No darlo por cerrado por una cota de pasos mixtos.
+3. **P2 — Ventana de salida.** Con `u_tau=Pi_tau*u0+W_tau`, buscar constantes
+   `M<infinito`, `p>0` independientes del arranque tales que
+   `P(|W_tau|<=M | tau>T(c0))>=p`, para un horizonte declarado de orden
+   `log(2+|c0|)` y el dominio de arranques pertinente. El producto ya tiene
+   una probabilidad de fallo exponencial; restarla da la intersección.
+   Cierre: prueba bajo la ley real, o una familia explícita que refute esa
+   uniformidad. Una mediana marginal no satisface el criterio.
+4. **P3 — Arranques y ensamblaje.** Demostrar el control requerido de los
+   `c_i` visitados y que `sum_i p_i=infinito` casi seguramente para las
+   probabilidades condicionales reales de éxito. Usar Markov fuerte y
+   Borel–Cantelli condicional con sus hipótesis verificadas. Cierre: una
+   prueba completa de `phi=1`, revisada por dependencias, sin asumir la
+   recurrencia buscada para obtener esas hipótesis.
+5. **P4 — Publicación.** Tras cerrar una pieza, sincronizar esta ficha, su
+   registro en SQLite y el plan público; declarar formalización y rangos.
+   Una aprobación OEIS respalda la incorporación de una sucesión, no el
+   argumento asintótico del programa.
+
+Para P2, los primeros ensayos deben incluir signos, semillas pequeñas,
+potencias de 2 y 3 y vecinos, y semillas diseñadas por congruencias.
+Contar supervivientes, salidas y censura por separado; variar el horizonte
+con la semilla. Registrar la pregunta y los umbrales antes de medir. No
+extrapolar una cola con pocos datos ni condicionar sin pagar el cambio de ley.
+
+## Fuentes, reproducción e historia
+
+- `guardarafirmaciones.py` genera `afirmaciones.db`; corregir solo la base
+  se perdería al regenerarla. El catálogo vigente se incorpora desde
+  `depuracion/coherencia20260913/registro.json`.
+- `depuracion/veredictos.jsonl` manda sobre los **enunciados literales de
+  sus fichas históricas**. Su A50 no es la fila 50 actual: no unir por número.
+- `respuestas.db` es un archivo de conversaciones capturadas, no un índice
+  completo de resultados. Tras esta captura tiene 1.957 mensajes y llega
+  al 24-08-2026; se añadieron 131 mensajes literales de dos fuentes.
+  No hay transcripciones de septiembre en esas fuentes disponibles.
+- `RutaTeoremas.md`, `bitacora.md`, `derivados.md` y las actas conservan el
+  recorrido histórico. Ante un conflicto sobre el siguiente trabajo, usar
+  esta ficha y la corrección identificada en el registro vigente.
+
+Los comandos y resultados de esta depuración están en su
+[acta](depuracion/coherencia20260913/LEEME.md). El mapa de dependencias expresa
+obligaciones matemáticas; que sus referencias existan no demuestra sus aristas.

@@ -1,0 +1,4 @@
+theta=0.5: additive bound 20.751986157765 < 21.8 (60-digit Decimal evaluation)
+theta=0.9: additive bound 45.191013417939 < 46.2 (60-digit Decimal evaluation)
+OK: all four stored b-files agree with scripts and papers; density bound is exact.
+This checks consistency beyond the direct ranges, not a new enumeration there.

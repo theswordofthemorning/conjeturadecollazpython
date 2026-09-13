@@ -1,5 +1,9 @@
 # Frente de densidad: 10-09-2026
 
+> Estado integrado el 13-09: [plan vigente](../../ESTADO_INVESTIGACION.md).
+> El corolario del reloj y los límites de la revisión 12 están en
+> [Matematica.md](../coherencia20260913/Matematica.md).
+
 ## Estado y alcance
 
 **Quinta tanda:** [Puente de las Gacelas](Gacelas.md). La masa h=k-1
@@ -184,22 +188,20 @@ de racha/recarga. Tampoco basta pedir L2 uniforme en 1<=m<=alpha*t:
 Erizas excluye ese control. No continuar intentando demostrar el margen
 uniforme global siguiente.
 
-La transferencia quedo escrita en [Castoras.md](Castoras.md). Ahora se
-busca una propiedad propagable de las leyes alcanzables que acote su
-margen H desde abajo, con constante uniforme. Debe controlar los cruces
-de corrientes de distintas alturas y la correccion de paridad R, que
-puede ser negativa; el simple equilibrio par/impar no basta.
+La identidad de [Castoras.md](Castoras.md) se conserva. Su uso para
+obtener un margen H uniforme global queda descartado por Erizas;
+no es el siguiente trabajo. Se estudian ahora rachas y la ventana de W
+bajo la ley real de salida, con el dominio del plan vigente.
 
 Antes de concluir P2, siguen pendientes las condiciones medidas en
 `notaensamblajep2.txt`, incluida la transferencia de perturbaciones y el
 control condicionado. No quedan resueltas por esta nota.
 
-## Revision adversarial pendiente
+## Revisión local incorporada (13-09-2026)
 
-Cuando el usuario la autorice: comprobar que los dos mapas de Lean son
-los de las corrientes compartidas; atacar la traduccion de periodicidad
-en Int a funciones sobre residuos; comprobar el argumento de igualdad
-en la norma de M2 M3; y verificar que ninguna conclusion presume un gap
-uniforme ni reemplaza la cadena real por esos operadores auxiliares.
-Reproducir los conteos desde la definicion de pares, sin leer los Python
-de esta tanda. La coincidencia actual no sustituye esa revision.
+Las cinco tandas fueron revisadas en `revision12_adv1/` por otro
+asistente. Sus actas se conservan sin reescribir. No se adopta su
+reloj O(n): el promedio de A medido a tiempo 24 no lo demuestra.
+Se incorpora el alcance correcto de Erizas y el control condicional
+del producto; el ensamblaje probabilístico completo y la revisión
+humana siguen pendientes. Véase el acta de coherencia enlazada arriba.

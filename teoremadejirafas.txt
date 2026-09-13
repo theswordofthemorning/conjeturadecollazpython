@@ -203,8 +203,8 @@ Con la ida (este documento) y el reciproco queda la CARACTERIZACION:
     una fusion en el indice t esta S-balanceada
     <=>  es un evento de clase mod 2^t.
 
-Eso es mas que lo que el documento original afirmaba, y es la pieza que
-cierra el puente phi = d del lema de Pandas (lemadepandas.txt): el
-conjunto de fusiones balanceadas es union monotona de eventos de clase,
-luego su densidad natural coincide con la medida 2-adica lim a(k)/2^k.
+La caracterización se conserva. CORRECCION 13-09-2026: no cierra por
+sí sola phi=d. La unión creciente de clases da densidad inferior(F)>=phi,
+no igualdad sin otro argumento de colas. Ver lemadepandas.txt y
+ depuracion/coherencia20260913/Matematica.md, sección 1.
 ================================================================================

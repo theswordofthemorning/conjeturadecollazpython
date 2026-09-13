@@ -1,0 +1,46 @@
+CONTROL: 5680 pasos contra pares enteros positivos: OK
+CONTROL: 858 estados, cuatro cotas locales; 10000 raices enteras: OK.
+Decimales solo para presentar; todas las comparaciones usan enteros/Fraction.
+c0=-5 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000
+c0=-5 t=4 estados=8 S=0.500000 A=0.375000000 rho_lim_m=0.375000000 h=7 caja_masa=1.000000
+c0=-5 t=8 estados=79 S=0.355469 A=0.088768584 rho_lim_m=0.345211161 h=10 caja_masa=1.000000
+c0=-5 t=12 estados=604 S=0.299561 A=0.021756777 rho_lim_m=0.363117867 h=13 caja_masa=1.000000
+c0=-5 t=16 estados=3778 S=0.260422 A=0.009748682 rho_lim_m=0.424563417 h=16 caja_masa=1.000000
+c0=-5 t=20 estados=22137 S=0.235098 A=0.006003278 rho_lim_m=0.451329138 h=19 caja_masa=1.000000
+  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.
+c0=0 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000
+c0=0 t=4 estados=12 S=0.750000 A=0.166666667 rho_lim_m=0.666666667 h=7 caja_masa=1.000000
+c0=0 t=8 estados=60 S=0.476562 A=0.105159151 rho_lim_m=0.389909999 h=10 caja_masa=1.000000
+c0=0 t=12 estados=321 S=0.371094 A=0.037313330 rho_lim_m=0.395615466 h=13 caja_masa=1.000000
+c0=0 t=16 estados=1866 S=0.300415 A=0.017087544 rho_lim_m=0.418972402 h=16 caja_masa=1.000000
+c0=0 t=20 estados=10952 S=0.261508 A=0.009402353 rho_lim_m=0.437295735 h=19 caja_masa=1.000000
+  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.
+c0=1 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000
+c0=1 t=4 estados=8 S=0.500000 A=0.375000000 rho_lim_m=0.250000000 h=7 caja_masa=1.000000
+c0=1 t=8 estados=81 S=0.375000 A=0.077479658 rho_lim_m=0.356600935 h=10 caja_masa=1.000000
+c0=1 t=12 estados=534 S=0.311768 A=0.022885852 rho_lim_m=0.396847448 h=13 caja_masa=1.000000
+c0=1 t=16 estados=3154 S=0.269165 A=0.010455342 rho_lim_m=0.426089880 h=16 caja_masa=1.000000
+c0=1 t=20 estados=18302 S=0.241755 A=0.006486619 rho_lim_m=0.450421540 h=19 caja_masa=1.000000
+  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.
+c0=5 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000
+c0=5 t=4 estados=7 S=0.437500 A=0.571428571 rho_lim_m=0.380952381 h=7 caja_masa=1.000000
+c0=5 t=8 estados=78 S=0.390625 A=0.089172414 rho_lim_m=0.357618534 h=10 caja_masa=1.000000
+c0=5 t=12 estados=538 S=0.311035 A=0.026476961 rho_lim_m=0.386630188 h=13 caja_masa=1.000000
+c0=5 t=16 estados=3376 S=0.267273 A=0.011610971 rho_lim_m=0.418590234 h=16 caja_masa=1.000000
+c0=5 t=20 estados=20656 S=0.239140 A=0.006772316 rho_lim_m=0.445358179 h=19 caja_masa=0.999996
+  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.
+c0=999983 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000
+c0=999983 t=4 estados=6 S=0.375000 A=0.666666667 rho_lim_m=0.500000000 h=7 caja_masa=1.000000
+c0=999983 t=8 estados=78 S=0.316406 A=0.103709048 rho_lim_m=0.311127144 h=10 caja_masa=1.000000
+c0=999983 t=12 estados=812 S=0.271973 A=0.014612547 rho_lim_m=0.322848835 h=13 caja_masa=1.000000
+c0=999983 t=16 estados=6981 S=0.245010 A=0.003399216 rho_lim_m=0.369418740 h=16 caja_masa=1.000000
+c0=999983 t=20 estados=52066 S=0.224715 A=0.001538114 rho_lim_m=0.424752063 h=19 caja_masa=1.000000
+  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.
+c0=1398101 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000
+c0=1398101 t=4 estados=7 S=0.437500 A=0.571428571 rho_lim_m=0.380952381 h=7 caja_masa=1.000000
+c0=1398101 t=8 estados=91 S=0.363281 A=0.055811572 rho_lim_m=0.267895545 h=10 caja_masa=1.000000
+c0=1398101 t=12 estados=900 S=0.300781 A=0.010302023 rho_lim_m=0.341806194 h=13 caja_masa=1.000000
+c0=1398101 t=16 estados=6531 S=0.265503 A=0.003094408 rho_lim_m=0.395031785 h=16 caja_masa=1.000000
+c0=1398101 t=20 estados=42750 S=0.240320 A=0.001534513 rho_lim_m=0.430158942 h=19 caja_masa=1.000000
+  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.
+FIN: controles terminados; prueba asintotica escrita en Erizas.md, no barrido universal.

@@ -1,0 +1,5 @@
+'paso_puerta' depends on axioms: [propext, Quot.sound]
+'camino_puerta' depends on axioms: [propext, Quot.sound]
+'cabras' depends on axioms: [propext, Quot.sound]
+'torre_sin_ceros' depends on axioms: [propext, Quot.sound]
+'caso_ida_clase' depends on axioms: [propext, Quot.sound]

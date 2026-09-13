@@ -7,10 +7,10 @@
 #   EL LEMA QUE SE TANTEA (L-A de la reduccion del 10-08 (13)):
 #       phi(c0) = P(la excursion desde (2, c0) aterriza en la ventana
 #                   de Doeblin al volver al fondo)  >=  C * c0^(-gamma)
-#   con gamma(c0) -> 0. La forma 1/sqrt(log) quedo EXCLUIDA por la 7a
-#   revision; lo que decide el programa es si gamma CAE por decada
-#   (la reduccion vive: Levy da la serie divergente y phi = 1 via
-#   Markov fuerte + LIEBRES) o se ESTABILIZA (phi < 1 con techo).
+#   con gamma(c0) -> 0. Corrección 13-09-2026: el ajuste finito de la
+#   revisión 7 no excluye una forma asintótica 1/sqrt(log). Una tendencia
+#   medida de gamma no decide phi: hacen falta riesgos condicionales y
+#   control de los arranques visitados. Véase ESTADO_INVESTIGACION.md.
 #
 #   EL PROTOCOLO (el del cierre del 10-08, ahora como fichero del repo --
 #   este instrumento vivia solo en la transcripcion aa6b725d y eso era

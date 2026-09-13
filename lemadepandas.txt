@@ -1,114 +1,52 @@
-================================================================================
-EL LEMA DE LA EQUIVALENCIA DE PANDAS
-(igual altura <=> fusion al mismo indice; y phi = d)
-Documento autocontenido para revision externa. 03-08-2026, noche.
-Se pide al revisor: intentar ROMPERLO, no aplaudirlo.
-================================================================================
+EL LEMA DE PANDAS — VERSION CORREGIDA, 13-09-2026
 
-0. LAS LETRAS, PRIMERO (correccion de la tercera revision, aceptada)
---------------------------------------------------------------------------------
-Dos cantidades DISTINTAS que este programa venia llamando igual:
+La versión del 03-08 se conserva íntegra en
+  depuracion/coherencia20260913/historico/lemadepandas_20260803.txt
+La prueba y el contraejemplo al antiguo puente están en
+  depuracion/coherencia20260913/Matematica.md, sección 1.
 
-    phi  =  lim a(k)/2^k     la medida 2-adica de fusion: a(k) cuenta los
-            residuos r mod 2^k cuyo par (r, r+1) funde al mismo indice,
-            con S igualada, en <= k pasos (existe por monotonia, Gao 1993).
+1. DOMINIO Y LEMA QUE SE CONSERVA
+T(x)=x/2 si es par, (3x+1)/2 si es impar. Supóngase que ambas
+trayectorias de n y n+1 alcanzan 1. Sean tau sus primeras llegadas
+bajo T, S los conteos de entradas impares hasta entonces y H=tau+S
+sus alturas clásicas finitas. Definir Res mediante
+  2^tau = 3^S * n * Res(n).
 
-    d    =  la densidad natural de los pares consecutivos de IGUAL ALTURA
-            clasica, la que midio Gao Guo-Gang (Discrete Math. 112, 1993):
-            0,310 a 10^2 subiendo a 0,512 a 10^8.
+Si H(n)=H(n+1) y 1<=Res(n),Res(n+1)<3, entonces
+  tau(n)=tau(n+1) y S(n)=S(n+1).
+En particular hay fusión al mismo índice con igual conteo impar.
 
-Este documento demuestra que phi = d (condicional a Res < 6, ver abajo),
-via dos piezas: el LEMA DE PANDAS (los conjuntos coinciden) y el PUENTE
-(el conjunto tiene densidad natural igual a la medida 2-adica).
+Prueba: d=tau(n)-tau(n+1)=S(n+1)-S(n). Al dividir las identidades,
+  2^d / 3^(S(n)-S(n+1)) = (n/(n+1))*Res(n)/Res(n+1),
+luego 6^d es ese cociente. Para n>=2 queda entre 1/6 y 3; su única
+potencia entera de 6 es 1. El caso n=1 no tiene alturas iguales.
+No se presupone la convergencia de todos los enteros ni un máximo
+universal de Res. Res<6 no basta para este argumento de intervalos.
 
-1. DEFINICIONES
---------------------------------------------------------------------------------
-T(n) = n/2 (par), (3n+1)/2 (impar). S_t(n) = impares entre los t primeros.
-Altura clasica H(n) = pasos del mapa clasico hasta 1 = tau(n) + S(n), donde
-tau(n) es el tiempo de atajo hasta 1 y S(n) = S_{tau}(n).
+2. LO QUE APORTA JIRAFAS
+En una clase módulo 2^t, las dos trayectorias son afines con pendientes
+3^Sx y 3^Sy. Si Sx=Sy, una coincidencia hace idénticas esas funciones:
+la fusión balanceada se levanta a toda la clase. La fusión de clase
+implica a su vez igualdad de pendientes y, por tanto, balance.
 
-RESIDUO DE ROOSENDAAL: al llegar al 1, la identidad de Terras da
+La vuelta a igual altura FINITA requiere que la cola común alcance 1
+y que ninguna primera llegada ocurra antes del encuentro. Para los
+levantamientos 2^t*m+r con m>=1 no hay primera llegada antes de t,
+pues T^j(x)>=x/2^j>1 para j<t. La fusión vale también para m=0;
+la igualdad de alturas puede fallar allí, como muestran 4 y 5.
 
-    2^tau = 3^S * n * Res(n),    con Res(n) >= 1 DEMOSTRADO
-    (es el C >= 0 de la identidad; el maximo CONOCIDO es
-    Res(993) = 1,2531..., verificado hasta 2^71 con los records de
-    Barina; que sea el maximo absoluto es la conjetura de Roosendaal).
+3. PUENTE DE DENSIDAD CORREGIDO
+Sea F_t la unión periódica de fusiones balanceadas hasta t, de densidad
+a(t)/2^t, y F su unión. Entonces
+  densidad natural inferior(F) >= phi = lim_t a(t)/2^t.
+En particular phi=1 implica que F tiene densidad natural uno.
 
-2. EL LEMA
---------------------------------------------------------------------------------
-LEMA (Pandas; condicional a Res < 6). Si H(n) = H(n+1), entonces
-tau(n) = tau(n+1) y S(n) = S(n+1); en particular las dos trayectorias
-del atajo se encuentran AL MISMO INDICE (a mas tardar en el 1, en el
-indice tau comun), con S igualada.
+Se RETIRA la prueba anterior de phi=d(F): una unión creciente de
+conjuntos periódicos no permite intercambiar esos límites. Por ejemplo,
+C_j={n>=1:n=j mod 2^(j+2)} tiene densidad 2^(-j-2); cada unión finita
+tiene densidad <1/4 y su unión total es N positiva. No se ha refutado
+una igualdad particular de Collatz; queda sin demostrar aquí.
 
-DEMOSTRACION. Sea d* = tau(n) - tau(n+1). Con H iguales,
-d* = S(n+1) - S(n). Dividiendo las dos identidades de Terras:
-
-    2^{tau(n) - tau(n+1)} * 3^{S(n) - S(n+1)} = (n * Res(n)) / ((n+1) * Res(n+1))
-    =>  6^{d*} = (n / (n+1)) * (Res(n) / Res(n+1))
-
-Con 1 <= Res < 6 en ambos y n/(n+1) en (1/2, 1), el lado derecho vive en
-(1/12, 6). La unica potencia ENTERA de 6 en ese intervalo es 6^0 = 1...
-OJO: 6^{-1} = 1/6 > 1/12: hay que afinar. Res(n)/Res(n+1) en (1/6, 6) y
-n/(n+1) en [1/2, 1): producto en (1/12, 6): contiene 1/6. AFINADO: para
-n >= 1, n/(n+1) >= 1/2, y Res(n)/Res(n+1) > 1/6, luego el producto
-> 1/12; y d* = -1 exigiria producto = 1/6, o sea
-Res(n)/Res(n+1) = (n+1)/(6n) <= 2/6 = 1/3 < 1... posible si Res(n+1) > 3.
-LA CONDICION CORRECTA es entonces mas fina: basta Res < 3 para descartar
-d* = -1 con n >= 1 (Res(n)/Res(n+1) > 1/3 >= (n+1)/(6n) para n >= 1
-exige... (n+1)/(6n) <= 1/3 para n >= 1, con igualdad en n = 1: para
-n >= 2 es < 1/3 y Res(n)/Res(n+1) > 1/3 basta con Res < 3; el caso
-n = 1 se comprueba a mano: H(1) = 0 != H(2) = 1, no hay par que decidir).
-Y d* = +1 exigiria producto = 6, imposible con Res < 6 y n/(n+1) < 1.
-|d*| >= 2 esta aun mas lejos. Luego d* = 0 con la condicion declarada
-Res < 3 (mas fina que la version Res < 6 que se publico primero; el
-maximo conocido es 1,2532, asi que ambas son formas ultra debiles de
-Roosendaal, incondicionales bajo 2^71). QED.
-
-NOTA DE HONESTIDAD SOBRE LA CONDICION: el parrafo anterior registra el
-afinado en vivo: la primera version del argumento decia (1/6, 6) sin el
-factor n/(n+1) bien acotado. La condicion limpia y suficiente es
-Res < 3 (para n >= 2), y el caso n = 1 es vacuo. El revisor debe
-verificar exactamente este punto (ataque P1).
-
-3. EL PUENTE: phi = d
---------------------------------------------------------------------------------
-RECIPROCO DE JIRAFAS (nuevo, y es la pieza que faltaba): una fusion
-S-BALANCEADA en el indice t es SIEMPRE un evento de clase mod 2^t.
-  Demostracion: sobre la clase de r mod 2^t, ambos lados son afines con
-  pendientes 3^{Sx} y 3^{Sy}; balanceada significa Sx = Sy, luego la
-  DIFERENCIA es CONSTANTE en la clase: si vale 0 para un r, vale 0 para
-  todos. QED. (Con la ida -Jirafas: fusion de clase => balanceada- queda
-  la CARACTERIZACION: balanceada <=> evento de clase.)
-
-Por tanto el conjunto {n : (n, n+1) funde al mismo indice con S igual}
-es la union monotona de eventos de clase, y su densidad natural es
-lim a(k)/2^k = phi. Con Pandas (los conjuntos "igual altura" y "fusion
-al mismo indice balanceada" coinciden, condicional): phi = d. Nuestra
-medida de fusion ES la densidad de Gao; la brecha medida
-(a(32)/2^32 = 0,4357 contra d ~ 0,512 a 10^8) es truncamiento puro.
-
-4. VERIFICACION COMPUTACIONAL (identidadexacta.py)
---------------------------------------------------------------------------------
-Los 477.245 pares de igual altura bajo 10^6 funden TODOS al mismo
-indice, cero excepciones (corte con SystemExit).
-
-5. DONDE ATACAR
---------------------------------------------------------------------------------
-  P1. El afinado de la condicion (seccion 2): repasar las desigualdades
-      con n/(n+1) y decidir la condicion minima limpia (Res < 3?
-      Res < 6 con n >= 2?). Es aritmetica de intervalos, pero es EL
-      punto delicado del documento y se corrigio en vivo.
-  P2. El caso borde n = 1 (H(1) segun convenio) y n = 2: comprobar que
-      no deciden nada.
-  P3. El puente usa "union monotona de eventos de clase => densidad
-      natural = medida 2-adica": verificar el intercambio de limites
-      (la union creciente de uniones finitas de clases residuales tiene
-      densidad = sup de las densidades: cierto, pero escribirlo).
-  P4. El reciproco de Jirafas: la diferencia afin constante en la clase
-      -- verificar que "un r de la clase" incluye al representante
-      pequeno y que no hay sutileza con clases cuyo representante
-      minimo este cerca del borde.
-  P5. phi = d hace comparables nuestros numeros con los de Gao 1993 y
-      con OEIS A277109 / Frinkle et al. 2025: cruzar las series.
-================================================================================
+Tampoco se identifica sin hipótesis phi con la densidad de pares de
+igual altura finita. La coincidencia medida de 477.245 pares hasta
+10^6 en identidadexacta.py es evidencia finita, no ese puente.

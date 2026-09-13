@@ -1,0 +1,59 @@
+{
+  "repo": "conjeturadecollazpython",
+  "documentos": [
+    {
+      "archivo": "AGENTS.md",
+      "palabras_antes": 400,
+      "palabras_despues": 384,
+      "bytes_antes": 3312,
+      "bytes_despues": 2984
+    },
+    {
+      "archivo": "CLAUDE.md",
+      "palabras_antes": 9995,
+      "palabras_despues": 69,
+      "bytes_antes": 63364,
+      "bytes_despues": 634
+    },
+    {
+      "archivo": "ESTADO_INVESTIGACION.md",
+      "palabras_antes": 1091,
+      "palabras_despues": 527,
+      "bytes_antes": 7480,
+      "bytes_despues": 4001
+    },
+    {
+      "archivo": "RutaTeoremas.md",
+      "palabras_antes": 12568,
+      "palabras_despues": 173,
+      "bytes_antes": 79273,
+      "bytes_despues": 1551
+    },
+    {
+      "archivo": "bitacora.md",
+      "palabras_antes": 44918,
+      "palabras_despues": 84,
+      "bytes_antes": 280913,
+      "bytes_despues": 885
+    },
+    {
+      "archivo": "derivados.md",
+      "palabras_antes": 31336,
+      "palabras_despues": 150,
+      "bytes_antes": 187221,
+      "bytes_despues": 1028
+    },
+    {
+      "archivo": "inventario.md",
+      "palabras_antes": 825,
+      "palabras_despues": 85,
+      "bytes_antes": 5661,
+      "bytes_despues": 718
+    }
+  ],
+  "palabras_antes": 101133,
+  "palabras_despues": 1472,
+  "reduccion_porcentual": 98.54,
+  "copias_literales_verificadas": 7,
+  "enlaces_locales_verificados": 32
+}
