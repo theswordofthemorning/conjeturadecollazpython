@@ -1,4 +1,4 @@
-# Estado para continuar — 13-09-2026
+# Estado para continuar — 17-09-2026
 
 **Objetivo:** `phi=lim a(n)/2^n=1`. P0, depuración local, terminó;
 P1–P3 siguen abiertos. La próxima tarea es **P1: completar el reloj global**.
@@ -64,7 +64,11 @@ interpretar `depuracion/veredictos.jsonl` por enunciado literal.
 `respuestas.db`: 1.957 mensajes hasta 24-08; faltan fuentes de septiembre.
 
 [Auditoría y controles](depuracion/coherencia20260913/LEEME.md): 24 controles
-pasaron, nueve Lean. Hay cambios locales sin commit/push; `revision12_adv1/`
-era preexistente sin seguimiento: preservarlo. Los tres drafts siguen
-pendientes en la última observación; [publicación](../zootheorem/PLAN_INVESTIGACION.md).
+pasaron, nueve Lean. El 17-09 se respondió a Irvine y se aclararon y
+reenviaron A399819–A399821: las tres **proposed**, aprobación pendiente.
+[Respuesta, argumento y evidencia](depuracion/oeis20260917/LEEME.md):
+descomposición por mixtos, vínculo con Gao y testigo Elia–Tucker 3067–3068;
+control directo/simbólico 1..13 y Lean 4.32.2 sin `sorryAx`.
+P1–P3 siguen abiertos. Cambios de esta sesión locales sin commit/push;
+[publicación](../zootheorem/PLAN_INVESTIGACION.md).
 Al cerrar una pieza, actualizar esta ficha, registro y plan público (P4).
