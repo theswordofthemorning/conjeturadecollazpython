@@ -1,0 +1,74 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Drafts by Omar Said
+(In many browsers, middle-clicking on any of the links below will open it in a new tab.)
+Showing all changes.
+Sequence
+￼
+Status
+￼
+First Edited
+￼
+Last Active
+￼
+Draft by
+￼
+Reviewed or edited by
+￼
+￼
+￼
+A399819
+￼
+proposed +33 −2
+￼
+Sep 12 20:33
+￼
+Sep 17 16:35
+￼
+Omar Said (3/3)
+￼
+￼
+￼
+￼
+Number of new Collatz merging classes at level n with exactly 8 mixed-parity steps.
+￼
+A399820
+￼
+editing +31 −2
+￼
+Sep 12 20:35
+￼
+Sep 17 17:31
+￼
+Omar Said (3/3)
+￼
+not yet proposed for review
+￼
+￼
+Number of new Collatz merging classes at level n with exactly 10 mixed-parity steps.
+￼
+A399821
+￼
+proposed +30 −2
+￼
+Sep 12 20:36
+￼
+Sep 17 16:33
+￼
+Omar Said (3/3)
+￼
+￼
+￼
+￼
+Number of new Collatz merging classes at level n with exactly 12 mixed-parity steps.
+￼
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy

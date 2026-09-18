@@ -1,0 +1,327 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Draft edits for A399819
+(Bold, blue-underlined text is an addition; faded, red-underlined text is a deletion.)
+
+A399819
+allocated for Omar Said
+(history; edit; published version)
+Individual edits:
+#3 by Omar Said at Sat Sep 12 20:33:23 EDT 2026
+NAME
+allocated for Omar Said
+Number of new Collatz merging classes at level n with exactly 8 mixed-parity steps.
+DATA
+3, 7, 15, 27, 45, 73, 111, 166, 237, 330, 451, 605, 797, 1033, 1316, 1655, 2054, 2517, 3051, 3665
+OFFSET
+10,1
+COMMENTS
+Let T be the Collatz map (A014682): T(x) = x/2 if x is even, T(x) = (3*x+1)/2 if x is odd. A new merging class at level n is a residue class modulo 2^n for which the pair (r,r+1) merges at step n with equal odd count and is not inherited from a merging class at level n-1.
+This sequence counts the new classes whose two trajectories have opposite parity at exactly 8 of the n steps. The first term is for n = 10.
+The companion sequences for 10 and 12 mixed-parity steps are A399820 and A399821. The lower strata have simple forms: the strata with 2 and 4 mixed-parity steps have one class at each level, and the stratum with 6 mixed-parity steps is 3 + (n-7)*(n-8)/2.
+Checked against OEIS on Sep 12 2026 with the displayed terms: no results.
+LINKS
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+EXAMPLE
+a(10) = 3: at level 10 there are three new merging classes with exactly eight mixed-parity steps.
+PROG
+(Python)
+def step(x):    
+return (3*x + 1)//2 if x & 1 else x//2
+def ok(r, n):    
+x, y, sx, sy, m = r, r+1, 0, 0, 0    
+for t in range(1, n+1):        
+m += ((x ^ y) & 1)        
+sx += x & 1; sy += y & 1        
+x, y = step(x), step(y)        
+if x == y:            
+return t == n and sx == sy and m == 8    
+return False
+def a(n):    
+return sum(ok(r, n) for r in range(2**n - 1))
+CROSSREFS
+Cf. A398792, A398793, A399820, A399821.
+KEYWORD
+allocated
+nonn,more
+AUTHOR
+Omar Said, Sep 12 2026
+STATUS
+approved
+editing
+Discussion
+Sat Sep 12
+20:38
+Omar Said: First of three related strata submitted together: this one (8 mixed-parity steps), A399820 (10) and A399821 (12); they cross-reference each other. All terms are exact brute-force counts over the 2^n - 1 residues, reproduced by the program in PROG. Searched the OEIS on Sep 12 2026 with the displayed terms: no results.
+#4 by Omar Said at Sat Sep 12 20:38:34 EDT 2026
+STATUS
+editing
+proposed
+#5 by Michel Marcus at Sun Sep 13 01:17:35 EDT 2026
+COMMENTS
+Checked against OEIS on Sep 12 2026 with the displayed terms: no results.
+STATUS
+proposed
+editing
+#6 by Michel Marcus at Sun Sep 13 01:17:40 EDT 2026
+STATUS
+editing
+proposed
+Discussion
+Sun Sep 13
+03:03
+Michel Marcus: maybe you should have started with n=6
+03:05
+Michel Marcus
+: why offset is 10 ?
+example does not show anything : it just restates the name
+#7 by Omar Said at Sun Sep 13 12:23:07 EDT 2026
+DATA
+1, 3, 7, 15, 27, 45, 73, 111, 166, 237, 330, 451, 605, 797, 1033, 1316, 1655, 2054, 2517, 3051, 3665
+OFFSET
+10,1
+9,2
+COMMENTS
+This sequence counts the new classes whose two trajectories have opposite parity at exactly 8 of the n steps. The first nonzero term is for n = 109.
+The companion sequences for 10 and 12 mixed-parity steps are A399820 and A399821. The lower strata have simple forms: the strata with 2 and 4 mixed-parity steps have one class at each level, and the stratum with 6 mixed-parity steps is 3 + (n-7)*(n-8)/2 for n >= 10.
+EXAMPLE
+a(10) = 3: at level 10 there are three new merging classes with exactly eight mixed-parity steps.
+a(9) = 1, corresponding to r = 65 modulo 512. The trajectories 65, 98, 49, 74, 37, 56, 28, 14, 7, 11 and 66, 33, 50, 25, 38, 19, 29, 44, 22, 11 first meet after 9 iterations of T. Each has four odd inputs, and their inputs have opposite parity at steps 1 through 7 and at step 9.
+a(10) = 3: the three classes are r = 131, 193, 473 modulo 1024. For r = 131, the two trajectories first meet at 11 after 10 iterations; each has four odd inputs, with opposite parity at steps 1, 2, 3, 5, 6, 7, 8, 10.
+STATUS
+proposed
+editing
+Discussion
+Sun Sep 13
+12:23
+Omar Said
+: The starting index 10 came from the printed table used for these submissions. Checking the earlier levels gives e8(n) = 0 for 1 <= n <= 8 and e8(9) = 1, represented by r = 65 modulo 512. Starting at n = 6 would prepend three zeros. I have included the omitted nonzero term and started this sequence at n = 9 (offset 9,2); the companion sequences start at their first nonzero terms, n = 11 and n = 13.
+
+The examples now give the actual residue classes and show their first meeting, equal odd-input counts and mixed-parity steps. Direct enumeration agrees with all the original terms for n = 10..20 and with the symbolic computation through n = 20. The quoted formula for six mixed-parity steps is now qualified by n >= 10.
+
+For clarity, the original extended table was generated by the symbolic algorithm; the independent direct check reported here covers n <= 20.
+#8 by Omar Said at Sun Sep 13 12:24:16 EDT 2026
+STATUS
+editing
+proposed
+Discussion
+Thu Sep 17
+00:13
+Sean A. Irvine: This is incomprehensible.
+00:14
+Sean A. Irvine: How does any of this help with the Collatz problem?
+#9 by Omar Said at Thu Sep 17 16:34:52 EDT 2026
+COMMENTS
+Let T be the Collatz map (A014682): T(x) = x/2 if x is for even, T( x) =  and (3*x+1)/2 if x is for odd x. A new merging class at level n is a residue class modulo 2^n Iterate T simultaneously from r and r+1, for which the pair (r,each integer r+1) merges at step n  with equal odd count and is not inherited from a merging class at level 0 <= r < 2^n-1.
+This sequence counts the new classes whose two trajectories have opposite parity at exactly 8 of the n steps. The first nonzero term is for n = 9.
+The companion sequences for 10 and 12 mixed-parity steps are A399820 and A399821. The lower strata have simple forms: the strata with 2 and 4 mixed-parity steps have one class at each level, and the stratum with 6 mixed-parity steps is 3 + (n-7)*(n-8)/2 for n >= 10.
+Count r if the two trajectories first meet after exactly n iterations, have the same number of odd inputs among these n iterations, and have opposite input parities at exactly 8 of them. An iteration with opposite input parities is called a mixed-parity step; steps are numbered 1 through n, including the meeting step.
+The first nonzero term is at n = 9. The sequences A399819, A399820 and A399821 count the cases with 8, 10 and 12 mixed-parity steps, respectively.
+The equal odd counts ensure that the meeting holds for the entire residue class modulo 2^n: if each path has s odd inputs, replacing r by r + 2^n*m adds 3^s*m to both values at step n. Thus each counted r represents an infinite family of consecutive pairs, not just one numerical coincidence.
+These sequences refine A398793 by the number of mixed-parity steps. If e_j(n) denotes the same count with j mixed-parity steps, then sum_j e_j(n) = A398793(n-1) = A398792(n) - 2*A398792(n-1), for n >= 2. Only even j can occur, since equal odd counts require equally many mixed steps of each orientation.
+This decomposition records how different parity patterns contribute to the density of merging consecutive pairs, in connection with the question studied by Gao. The quantity e_j(n)/2^n is the density added at level n by that part of the count. Proving lim A398792(n)/2^n = 1 remains an open objective; the three fixed values j = 8, 10, 12 alone do not settle it.
+The counts require only finite trajectories and do not assume the Collatz conjecture. For lifted pairs r + 2^n*m, r + 2^n*m + 1 with m >= 1, equal finite total stopping times follow if their common trajectory reaches 1.
+A concrete connection with earlier work is the pair (3067,3068), used by Elia and Tucker to disprove Garner's conjecture about equal-height pairs. Under T it first meets at 692 after 18 iterations, with 10 odd inputs on each path and 8 mixed-parity steps. Hence r = 3067 is one of the 237 classes counted by a(18).
+REFERENCES
+G.-G. Gao, On consecutive numbers of the same height in the Collatz problem, Discrete Mathematics 112 (1993), 261-267.
+LINKS
+Marcus Elia and Amanda Tucker, <a href="https://arxiv.org/abs/1511.09141">Consecutive Integers and the Collatz Conjecture</a>, Integers 15 (2015), A54, Section 4.
+STATUS
+proposed
+editing
+Discussion
+Thu Sep 17
+16:35
+Omar Said
+: Dear Sean, thank you for pointing out that the definition and motivation needed to be clearer. I have rewritten the comments in all three related submissions.
+
+In plain terms, run the Collatz map T = A014682 simultaneously from consecutive integers r and r+1. Count their first meeting after n iterations, requiring equal numbers of odd inputs on the two paths. At each iteration, record whether one input is odd and the other even. A399819 counts the cases with exactly eight such disagreements; A399820 and A399821 count ten and twelve. Equal odd counts make the meeting persist throughout the residue class modulo 2^n, so each counted residue describes an infinite family of consecutive pairs.
+
+My immediate research objective is the density question motivated by Gao's work on consecutive numbers, specifically to establish phi = lim A398792(n)/2^n = 1 for these balanced meetings. The three submissions provide a decomposition of the existing counts: writing e_j(n) for the count with j parity disagreements, we have sum_j e_j(n) = A398793(n-1). Consequently phi = sum_{n>=2} sum_j e_j(n)/2^n. This explains their role: they separate contributions hidden in the total and provide exact data against which proposed recurrences for the distribution of first meetings can be checked. They do not by themselves establish the limit; control of all j and n is still needed.
+
+There is also a concrete connection to the literature. Elia and Tucker's pair (3067,3068), their first counterexample to Garner's conjecture, first meets under T at 692 after 18 iterations. Both paths have ten odd inputs, and their parities differ at steps 1,2,3,6,9,14,15,18. Thus this pair belongs precisely to A399819: its residue is one of the 237 counted at n=18. The same eight-disagreement pattern holds throughout their family (2^19*m+3067, 2^19*m+3068). Their paper is https://arxiv.org/abs/1511.09141, Section 4.
+
+The distinction from the full Collatz conjecture is essential. If phi=1, balanced merging pairs have natural density one; this does not prove that every trajectory reaches 1. For the lifted pairs with m>=1, equal finite total stopping times additionally require convergence of the common tail. These qualifications are stated in the revised comments. The sequences themselves are unconditional finite integer counts; the independent direct verification reported previously covers n<=20, while later terms retain their symbolic-computation provenance.
+
+I hope this makes both the objects being counted and their intended use clearer. Thank you for taking the time to review them.
+#10 by Omar Said at Thu Sep 17 16:35:58 EDT 2026
+STATUS
+editing
+proposed
+Discussion
+Thu Sep 17
+18:47
+Andrew Howroyd
+: An oeis search for "mixed parity step" gives 0 results.
+This suggests this is your personal terminology and not standard terminology?
+Nothing in this sequence suggests that these words are your own invention, so this is immediately confusing.
+You should at least give a definition so that readers are not puzzled about where this phrase comes from. Typically a definition begins something like: A mixed-parity step is defined here to be ....
+18:49
+Andrew Howroyd: Similarly we need a definition of 'merging class' (again an oeis search of "merging class" gives 0 results)
+#11 by Omar Said at Thu Sep 17 20:04:07 EDT 2026
+NAME
+Number of new Collatz merging classes at level n with exactly 8 mixed-parity steps.
+Number of integers 0 <= r < 2^n whose trajectories from r and r+1 under the Collatz map (A014682) first meet after n iterations, with equal numbers of odd inputs and exactly 8 positions of opposite input parity.
+COMMENTS
+Let T be the Collatz map (A014682): T(x) = x/2 for even x and (3*x+1)/2 for odd x. Iterate T simultaneously from r and r+1, for For each integer r with 0 <= r < 2^n, set x_i = T^i(r) and y_i = T^i(r+1), for i = 0,...,n.
+Count r if the two trajectories first meet after exactly n iterations, have the same number of odd inputs among these n iterations, and have opposite input parities at exactly 8 of them. An iteration with opposite input parities is called a mixed-parity step; steps are numbered 1 through n, including the meeting step.
+Count r if x_n = y_n, x_i != y_i for every 0 <= i < n, the lists x_0,...,x_(n-1) and y_0,...,y_(n-1) contain equally many odd terms, and exactly 8 indices i in 0,...,n-1 have x_i and y_i of opposite parity.
+A mixed-parity step is defined here to be an iteration whose two input values have opposite parity, namely an index i with x_i and y_i of opposite parity. This is step i+1 in the examples, where steps are numbered 1 through n.
+A merging class at level n is defined here to be a residue class modulo 2^n whose two trajectories satisfy x_n = y_n and have equal numbers of odd inputs before that meeting. Such a class is new at level n when x_i != y_i for every 0 <= i < n. The phrases "mixed-parity step" and "merging class" are local terminology in these three entries.
+The first nonzero term is at n = 9. The sequences A399819, A399820 and A399821 count the cases with impose 8, 10 and 12 mixedopposite-parity steps, positions, respectively.
+The equal odd counts ensure that the meeting holds for make this a property of the entire whole residue class modulo 2^n: if each path has s odd inputs, replacing r by r + 2^n*m adds 3^s*m to both values at step n (Terras). Thus each counted r represents an infinite family of consecutive pairs, not just one numerical coincidenceThe first meeting and its parity pattern are preserved for every integer m >= 0.
+These sequences refine A398793 by the number of mixed-parity steps. If Writing e_j(n) denotes for the same count with j mixedopposite-parity steps, then positions, sum_j e_j(n) = A398793(n-1) = A398792(n) - 2*A398792(n-1), for n >= 2. Only even j can occur, since equal odd counts require the two orientations of an opposite-parity position must occur equally many mixed steps of each orientationoften.
+This decomposition records how different parity patterns contribute to the density of merging consecutive pairs, in connection with the question studied by Gao. The quantity e_j(n)/2^n is the density added at level n by that part of the count. Proving lim A398792(n)/2^n = 1 remains an open objective; the three fixed values j = 8, 10, 12 alone do not settle it.
+Thus e_j(n)/2^n is the density of the residue classes first meeting at step n with j opposite-parity positions. These counts refine A398793 by parity pattern, in connection with the consecutive-pair questions studied by Gao. They do not establish that lim A398792(n)/2^n = 1.
+The counts require only use finite trajectories and do not assume the Collatz conjecturerequire no convergence assumption. For lifted pairs r + 2^n*m, r + 2^n*m + 1 with m >= 1, equal finite total stopping times follow if their common trajectory reaches 1.
+LINKS
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+Guo-Gang Gao, <a href="https://doi.org/10.1016/0012-365X(93)90240-T">On consecutive numbers of the same height in the Collatz problem</a>, Discrete Mathematics, Volume 112, pages 261-267, 1993.
+Lynn E. Garner, <a href="https://doi.org/10.1016/S0012-365X(85)80020-0">On heights in the Collatz 3n+1 problem</a>, Discrete Mathematics 55 (1985), 57-64.
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+Riho Terras, <a href="https://doi.org/10.4064/aa-30-3-241-252">A stopping time problem on the positive integers</a>, Acta Arithmetica 30 (1976), 241-252.
+STATUS
+proposed
+editing
+Discussion
+Thu Sep 17
+20:10
+Omar Said
+: Dear Andrew, thank you. These are descriptive terms used in these submissions, and I should have explicitly identified them as such. The earlier wording gave the counting rule but left the title dependent on that terminology.
+
+I have replaced the titles of all three entries by direct descriptions of the integers being counted. The comments now say "A mixed-parity step is defined here to be ..." and "A merging class at level n is defined here to be ...", and identify both phrases as local terminology.
+
+Precisely, set x_i = T^i(r), y_i = T^i(r+1), with T = A014682. We count 0 <= r < 2^n when the paths first meet at i=n, their input lists at i=0,...,n-1 have equal numbers of odd terms, and their inputs have opposite parity at exactly eight positions. The other two entries replace eight by ten and twelve. The examples number the corresponding iterations 1,...,n.
+
+The numerical definitions, data, offsets and programs are unchanged. I have also added direct links to Gao and Terras, and to Garner here, following Michel's bibliographic request on A399820. Thank you for helping make these entries understandable on their own.
+#12 by Omar Said at Thu Sep 17 20:10:23 EDT 2026
+STATUS
+editing
+proposed
+All edits since published version (omitting small deletions for readability):
+NAME
+allocated for Omar Said
+Number of integers 0 <= r < 2^n whose trajectories from r and r+1 under the Collatz map (A014682) first meet after n iterations, with equal numbers of odd inputs and exactly 8 positions of opposite input parity.
+DATA
+1, 3, 7, 15, 27, 45, 73, 111, 166, 237, 330, 451, 605, 797, 1033, 1316, 1655, 2054, 2517, 3051, 3665
+OFFSET
+9,2
+COMMENTS
+Let T be the Collatz map (A014682): T(x) = x/2 for even x and (3*x+1)/2 for odd x. For each integer r with 0 <= r < 2^n, set x_i = T^i(r) and y_i = T^i(r+1), for i = 0,...,n.
+Count r if x_n = y_n, x_i != y_i for every 0 <= i < n, the lists x_0,...,x_(n-1) and y_0,...,y_(n-1) contain equally many odd terms, and exactly 8 indices i in 0,...,n-1 have x_i and y_i of opposite parity.
+A mixed-parity step is defined here to be an iteration whose two input values have opposite parity, namely an index i with x_i and y_i of opposite parity. This is step i+1 in the examples, where steps are numbered 1 through n.
+A merging class at level n is defined here to be a residue class modulo 2^n whose two trajectories satisfy x_n = y_n and have equal numbers of odd inputs before that meeting. Such a class is new at level n when x_i != y_i for every 0 <= i < n. The phrases "mixed-parity step" and "merging class" are local terminology in these three entries.
+The first nonzero term is at n = 9. A399819, A399820 and A399821 impose 8, 10 and 12 opposite-parity positions, respectively.
+The equal odd counts make this a property of the whole residue class: if each path has s odd inputs, replacing r by r + 2^n*m adds 3^s*m to both values at step n (Terras). The first meeting and its parity pattern are preserved for every integer m >= 0.
+Writing e_j(n) for the same count with j opposite-parity positions, sum_j e_j(n) = A398793(n-1) = A398792(n) - 2*A398792(n-1), for n >= 2. Only even j occur, since the two orientations of an opposite-parity position must occur equally often.
+Thus e_j(n)/2^n is the density of the residue classes first meeting at step n with j opposite-parity positions. These counts refine A398793 by parity pattern, in connection with the consecutive-pair questions studied by Gao. They do not establish that lim A398792(n)/2^n = 1.
+The counts use finite trajectories and require no convergence assumption. For lifted pairs r + 2^n*m, r + 2^n*m + 1 with m >= 1, equal finite total stopping times follow if their common trajectory reaches 1.
+A concrete connection with earlier work is the pair (3067,3068), used by Elia and Tucker to disprove Garner's conjecture about equal-height pairs. Under T it first meets at 692 after 18 iterations, with 10 odd inputs on each path and 8 mixed-parity steps. Hence r = 3067 is one of the 237 classes counted by a(18).
+REFERENCES
+G.-G. Gao, On consecutive numbers of the same height in the Collatz problem, Discrete Mathematics 112 (1993), 261-267.
+LINKS
+Marcus Elia and Amanda Tucker, <a href="https://arxiv.org/abs/1511.09141">Consecutive Integers and the Collatz Conjecture</a>, Integers 15 (2015), A54, Section 4.
+Guo-Gang Gao, <a href="https://doi.org/10.1016/0012-365X(93)90240-T">On consecutive numbers of the same height in the Collatz problem</a>, Discrete Mathematics, Volume 112, pages 261-267, 1993.
+Lynn E. Garner, <a href="https://doi.org/10.1016/S0012-365X(85)80020-0">On heights in the Collatz 3n+1 problem</a>, Discrete Mathematics 55 (1985), 57-64.
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+Riho Terras, <a href="https://doi.org/10.4064/aa-30-3-241-252">A stopping time problem on the positive integers</a>, Acta Arithmetica 30 (1976), 241-252.
+EXAMPLE
+a(9) = 1, corresponding to r = 65 modulo 512. The trajectories 65, 98, 49, 74, 37, 56, 28, 14, 7, 11 and 66, 33, 50, 25, 38, 19, 29, 44, 22, 11 first meet after 9 iterations of T. Each has four odd inputs, and their inputs have opposite parity at steps 1 through 7 and at step 9.
+a(10) = 3: the three classes are r = 131, 193, 473 modulo 1024. For r = 131, the two trajectories first meet at 11 after 10 iterations; each has four odd inputs, with opposite parity at steps 1, 2, 3, 5, 6, 7, 8, 10.
+PROG
+(Python)
+def step(x):    
+return (3*x + 1)//2 if x & 1 else x//2
+def ok(r, n):    
+x, y, sx, sy, m = r, r+1, 0, 0, 0    
+for t in range(1, n+1):        
+m += ((x ^ y) & 1)        
+sx += x & 1; sy += y & 1        
+x, y = step(x), step(y)        
+if x == y:            
+return t == n and sx == sy and m == 8    
+return False
+def a(n):    
+return sum(ok(r, n) for r in range(2**n - 1))
+CROSSREFS
+Cf. A398792, A398793, A399820, A399821.
+KEYWORD
+allocated
+nonn,more,changed
+AUTHOR
+Omar Said, Sep 12 2026
+STATUS
+approved
+proposed
+Discussion
+Sat Sep 12
+20:38
+Omar Said: First of three related strata submitted together: this one (8 mixed-parity steps), A399820 (10) and A399821 (12); they cross-reference each other. All terms are exact brute-force counts over the 2^n - 1 residues, reproduced by the program in PROG. Searched the OEIS on Sep 12 2026 with the displayed terms: no results.
+Sun Sep 13
+03:03
+Michel Marcus: maybe you should have started with n=6
+03:05
+Michel Marcus
+: why offset is 10 ?
+example does not show anything : it just restates the name
+12:23
+Omar Said
+: The starting index 10 came from the printed table used for these submissions. Checking the earlier levels gives e8(n) = 0 for 1 <= n <= 8 and e8(9) = 1, represented by r = 65 modulo 512. Starting at n = 6 would prepend three zeros. I have included the omitted nonzero term and started this sequence at n = 9 (offset 9,2); the companion sequences start at their first nonzero terms, n = 11 and n = 13.
+
+The examples now give the actual residue classes and show their first meeting, equal odd-input counts and mixed-parity steps. Direct enumeration agrees with all the original terms for n = 10..20 and with the symbolic computation through n = 20. The quoted formula for six mixed-parity steps is now qualified by n >= 10.
+
+For clarity, the original extended table was generated by the symbolic algorithm; the independent direct check reported here covers n <= 20.
+Thu Sep 17
+00:13
+Sean A. Irvine: This is incomprehensible.
+00:14
+Sean A. Irvine: How does any of this help with the Collatz problem?
+16:35
+Omar Said
+: Dear Sean, thank you for pointing out that the definition and motivation needed to be clearer. I have rewritten the comments in all three related submissions.
+
+In plain terms, run the Collatz map T = A014682 simultaneously from consecutive integers r and r+1. Count their first meeting after n iterations, requiring equal numbers of odd inputs on the two paths. At each iteration, record whether one input is odd and the other even. A399819 counts the cases with exactly eight such disagreements; A399820 and A399821 count ten and twelve. Equal odd counts make the meeting persist throughout the residue class modulo 2^n, so each counted residue describes an infinite family of consecutive pairs.
+
+My immediate research objective is the density question motivated by Gao's work on consecutive numbers, specifically to establish phi = lim A398792(n)/2^n = 1 for these balanced meetings. The three submissions provide a decomposition of the existing counts: writing e_j(n) for the count with j parity disagreements, we have sum_j e_j(n) = A398793(n-1). Consequently phi = sum_{n>=2} sum_j e_j(n)/2^n. This explains their role: they separate contributions hidden in the total and provide exact data against which proposed recurrences for the distribution of first meetings can be checked. They do not by themselves establish the limit; control of all j and n is still needed.
+
+There is also a concrete connection to the literature. Elia and Tucker's pair (3067,3068), their first counterexample to Garner's conjecture, first meets under T at 692 after 18 iterations. Both paths have ten odd inputs, and their parities differ at steps 1,2,3,6,9,14,15,18. Thus this pair belongs precisely to A399819: its residue is one of the 237 counted at n=18. The same eight-disagreement pattern holds throughout their family (2^19*m+3067, 2^19*m+3068). Their paper is https://arxiv.org/abs/1511.09141, Section 4.
+
+The distinction from the full Collatz conjecture is essential. If phi=1, balanced merging pairs have natural density one; this does not prove that every trajectory reaches 1. For the lifted pairs with m>=1, equal finite total stopping times additionally require convergence of the common tail. These qualifications are stated in the revised comments. The sequences themselves are unconditional finite integer counts; the independent direct verification reported previously covers n<=20, while later terms retain their symbolic-computation provenance.
+
+I hope this makes both the objects being counted and their intended use clearer. Thank you for taking the time to review them.
+18:47
+Andrew Howroyd
+: An oeis search for "mixed parity step" gives 0 results.
+This suggests this is your personal terminology and not standard terminology?
+Nothing in this sequence suggests that these words are your own invention, so this is immediately confusing.
+You should at least give a definition so that readers are not puzzled about where this phrase comes from. Typically a definition begins something like: A mixed-parity step is defined here to be ....
+18:49
+Andrew Howroyd: Similarly we need a definition of 'merging class' (again an oeis search of "merging class" gives 0 results)
+20:10
+Omar Said
+: Dear Andrew, thank you. These are descriptive terms used in these submissions, and I should have explicitly identified them as such. The earlier wording gave the counting rule but left the title dependent on that terminology.
+
+I have replaced the titles of all three entries by direct descriptions of the integers being counted. The comments now say "A mixed-parity step is defined here to be ..." and "A merging class at level n is defined here to be ...", and identify both phrases as local terminology.
+
+Precisely, set x_i = T^i(r), y_i = T^i(r+1), with T = A014682. We count 0 <= r < 2^n when the paths first meet at i=n, their input lists at i=0,...,n-1 have equal numbers of odd terms, and their inputs have opposite parity at exactly eight positions. The other two entries replace eight by ten and twelve. The examples number the corresponding iterations 1,...,n.
+
+The numerical definitions, data, offsets and programs are unchanged. I have also added direct links to Gao and Terras, and to Garner here, following Michel's bibliographic request on A399820. Thank you for helping make these entries understandable on their own.
+Discussion of this draft (optional):
+(Notes entered here will be displayed in the edit history and mailed
+to people who have contributed to this draft of the sequence.
+THEY DO NOT BECOME PART OF THE PUBLISHED SEQUENCE.)
+￼ 
+
+Add note to discussion. 
+
+
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy

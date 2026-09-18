@@ -1,0 +1,147 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Revision History for A398792
+(Bold, blue-underlined text is an addition; faded, red-underlined text is a deletion.)
+Showing entries 1-10 | older changes
+A398792
+Number of values 0 <= r < 2^n such that the trajectories of r and r+1 under the Collatz map f (A014682), satisfy f^(n)(r) = f^(n)(r+1) and contain the same number of odd terms among the first n iterates.
+(history; edit; published version)
+#11 by Sean A. Irvine at Sun Aug 23 19:12:26 EDT 2026
+STATUS
+editing
+approved
+#10 by Sean A. Irvine at Sun Aug 23 19:08:59 EDT 2026
+NAME
+Number of residues r in [values 0,  <= r < 2^n)  such that the trajectories of r and r+1 under the Collatz map T f (A014682), T(x) = x/2 if x is even and (3x+1)/2 if x is odd, satisfy Tf^(n)(r) = Tf^(n)(r+1) and contain the same number of odd terms among the first n iterates.
+COMMENTS
+By Terras's theorem, the first n parities of a trajectory depend only on the residue mod 2^n, and Tf^(n)(2^n*m + r) = 3^s*m + Tf^(n)(r) where s is the number of odd steps of r; hence the counted condition holds for entire residue classes: every pair (2^n*m + r, 2^n*m + r + 1) with m >= 1 in a counted class merges, and both members have equal total stopping time whenever the merged trajectory reaches 1 (unconditionally true for all values below 2^71, see Barina).
+Computing a(n) requires deciding all 2^n residue classes, so the cost doubles with each further term; the terms listed are at the current computational limit.
+FORMULA
+a(n+1) >= 2*a(n). See the first comment.
+EXAMPLE
+a(3) = 1: the residue r = 4 satisfies Tf^(3)(4) = Tf^(3)(5) = 2 with one odd step on each side (4 -> 2 -> 1 -> 2 and 5 -> 8 -> 4 -> 2), so every pair (8m+4, 8m+5) with m >= 1 merges in 3 steps.
+STATUS
+proposed
+editing
+Discussion
+Sun Aug 23
+19:09
+Sean A. Irvine: I removed "residues" from the name, since that is not actually required for the computation of the sequence.
+#9 by Omar Said at Sun Aug 16 20:58:10 EDT 2026
+STATUS
+editing
+proposed
+#8 by Omar Said at Sun Aug 16 20:56:41 EDT 2026
+NAME
+Number of residues r in [0, 2^n) such that the trajectories of r and r+1 under the shortcut Collatz map T (A014682), T(x) = x/2 if x is even,  and (3x+1)/2 if x is odd) , satisfy T^n(r) = T^n(r+1) and contain the same number of odd terms among the first n iterates.
+COMMENTS
+a(n+1) >= 2*a(n) for all n: with m = 1 in Terras's identity, both r and r + 2^n inherit the property. Hence a(n)/2^n is nondecreasing, and every value is a proved lower bound for the lower density of pairs of consecutive integers with equal Collatz height: a(32)/2^32 = 0.435658..., by exact integer computation over all 2^32 residues (no sampling).
+Relation to the 3x+1 problem: a(n)/2^n is a nondecreasing lower bound for the density of pairs of consecutive integers of equal Collatz height, and the classes counted at n = 3 and n = 5 are exactly the families of Garner and of Wu and Huang cited above, so the sequence gives the exact form of families that were previously known one at a time. It is not evidence for or against the Collatz conjecture: the map (3x-1)/2 gives the same values (see the comment above).
+Computing a(n) requires deciding all 2^n residue classes, so the cost doubles with each further term; the terms listed are at the current computational limit.
+FORMULA
+a(n+1) >= 2*a(n) (proved; see . See the first comment).
+Discussion
+Sun Aug 16
+20:57
+Omar Said: Thanks -- done. The name now refers to the Collatz map T (A014682) and states the two cases explicitly; A014682 is exactly this map, and its own comment notes that T is the usual notation in the 3x+1 literature, so the cross-reference fits. I have removed "proved" from the formula and from the second comment. The one qualifier I kept is Barina's 2^71 verification, since that is a genuine condition rather than a claim of proof. I have also added a comment stating what the sequence contributes to the 3x+1 problem and what it does not, and one explaining why the data stops where it does.
+#7 by Sean A. Irvine at Sun Aug 16 18:54:56 EDT 2026
+STATUS
+proposed
+editing
+#6 by Omar Said at Sun Aug 09 12:03:07 EDT 2026
+STATUS
+editing
+proposed
+Discussion
+Sun Aug 16
+18:54
+Sean A. Irvine: "shortcut Collatz map" is not standard terminology in the OEIS, call it the "Collatz map (A014682)".
+#5 by Omar Said at Sun Aug 09 11:59:03 EDT 2026
+REFERENCES
+L. E. Garner, On heights in the Collatz 3n+1 problem, Discrete Math. 55 (1985), 57-64.
+L. E. Garner, On heights in the Collatz 3n+1 problem, Discrete Math. 55 (1985), 57-64.
+J.-B. Wu Jia-Bang and G.-L. Huang Guo-Lin, , Family of consecutive integer pairs of the same height in the Collatz conjecture, Mathematica Applicata (Wuhan) 14 (2001), suppl., 21-25. MR 1885838.
+KEYWORD
+nonn,changed
+STATUS
+proposed
+editing
+Discussion
+Sun Aug 09
+12:02
+Omar Said: Fixed, thanks: references alphabetized (Gao before Garner). On "Jia-Bang": Wu is the family name (Chinese order), so the entry now reads J.-B. Wu and G.-L. Huang and is alphabetized under W. The reference is MR 1885838 (Zbl 1002.11023); the two parity vectors quoted from it in Lagarias's annotated bibliography (entry 125 of arXiv:math/0608208) were recomputed and match exactly.
+#4 by Omar Said at Sun Aug 09 10:45:23 EDT 2026
+STATUS
+editing
+proposed
+Discussion
+Sun Aug 09
+10:51
+Michel Marcus
+: Entries should be alphabetized by the last name of the first author listed.
+so Garner should be after Gao
+and Jia-Bang should be ???
+#3 by Omar Said at Sun Aug 09 10:45:00 EDT 2026
+NAME
+allocated for Omar Said
+Number of residues r in [0, 2^n) such that the trajectories of r and r+1 under the shortcut Collatz map (x/2 if x is even, (3x+1)/2 if x is odd) satisfy T^n(r) = T^n(r+1) and contain the same number of odd terms among the first n iterates.
+DATA
+0, 0, 1, 3, 8, 18, 39, 82, 170, 351, 721, 1476, 3012, 6130, 12450, 25241, 51105, 103358, 208840, 421643, 850737, 1715546, 3457791, 6966495, 14030369, 28247507, 56854178, 114400435, 230136995, 462857658, 930718308, 1871137623, 3761106610, 7558807251, 15188796435, 30516174184
+OFFSET
+1,4
+COMMENTS
+By Terras's theorem, the first n parities of a trajectory depend only on the residue mod 2^n, and T^n(2^n*m + r) = 3^s*m + T^n(r) where s is the number of odd steps of r; hence the counted condition holds for entire residue classes: every pair (2^n*m + r, 2^n*m + r + 1) with m >= 1 in a counted class merges, and both members have equal total stopping time whenever the merged trajectory reaches 1 (unconditionally true for all values below 2^71, see Barina).
+a(n+1) >= 2*a(n) for all n: with m = 1 in Terras's identity, both r and r + 2^n inherit the property. Hence a(n)/2^n is nondecreasing, and every value is a proved lower bound for the lower density of pairs of consecutive integers with equal Collatz height: a(32)/2^32 = 0.435658..., by exact integer computation over all 2^32 residues (no sampling).
+The class r = 4 mod 8 (n = 3) is Garner's pair (8k+4, 8k+5); the class r = 5 mod 32 (n = 5) is the family (32m+5, 32m+6) of Wu and Huang.
+The map (3x-1)/2 yields the identical sequence for all n: negation conjugates the two maps, and the reflection r -> 2^n - 1 - r maps one counted set onto the other (machine-checked proof in Lean 4 at the link).
+REFERENCES
+D. Barina, Convergence verification of the Collatz problem, J. Supercomputing 81 (2025), art. 810.
+L. E. Garner, On heights in the Collatz 3n+1 problem, Discrete Math. 55 (1985), 57-64.
+G.-G. Gao, On consecutive numbers of the same height in the Collatz problem, Discrete Math. 112 (1993), 261-267.
+R. Terras, A stopping time problem on the positive integers, Acta Arith. 30 (1976), 241-252.
+Wu Jia-Bang and Huang Guo-Lin, Family of consecutive integer pairs of the same height in the Collatz conjecture, Mathematica Applicata (Wuhan) 14 (2001), suppl., 21-25. MR 1885838.
+LINKS
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+FORMULA
+a(n+1) >= 2*a(n) (proved; see the first comment).
+EXAMPLE
+a(3) = 1: the residue r = 4 satisfies T^3(4) = T^3(5) = 2 with one odd step on each side (4 -> 2 -> 1 -> 2 and 5 -> 8 -> 4 -> 2), so every pair (8m+4, 8m+5) with m >= 1 merges in 3 steps.
+PROG
+(Python)
+def a(n):    
+c = 0    
+for r in range(2**n):        
+x, y, sx, sy = r, r+1, 0, 0        
+for _ in range(n):            
+sx += x & 1; sy += y & 1            
+x = (3*x+1)//2 if x & 1 else x//2            
+y = (3*y+1)//2 if y & 1 else y//2            
+if x == y:                
+c += sx == sy                
+break    
+return c
+CROSSREFS
+Cf. A398793 (new classes a(n+1)-2*a(n)), A398794 and A398795 (analogs for the maps (5x+1)/2 and (7x+1)/2), A076227, A100982, A006877.
+KEYWORD
+allocated
+nonn
+AUTHOR
+Omar Said, Aug 09 2026
+STATUS
+approved
+editing
+#2 by Omar Said at Sun Aug 09 10:42:07 EDT 2026
+KEYWORD
+allocating
+allocated
+Showing entries 1-10 | older changes
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy

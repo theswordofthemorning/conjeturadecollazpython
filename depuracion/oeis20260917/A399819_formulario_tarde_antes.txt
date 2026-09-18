@@ -1,0 +1,130 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+Editing A399819 #10
+(Click on text below to start editing. Or edit internal format.)
+
+IMPORTANT: Thousands of people use the sequence database every day.
+Please take great care that the terms you send are absolutely correct.
+The standards are those of a mathematics reference work.
+Contributions are contributed under The OEIS Contributor's License Agreement, and may be edited, altered, or
+removed by other contributors. If you do not want your writing to be edited mercilessly, then do not submit it here.
+You are also promising us that you wrote this yourself, or copied it from a public domain resource,
+or have the right to submit it (see The OEIS Contributor's License Agreement for details).
+Do not submit copyrighted work without permission!
+hide guide text
+Enter a short description or definition of the sequence (required):
+If necessary, you can add more details in the Comments section below.
+Example: Numbers k with property that ...
+NAME
+Number of new Collatz merging classes at level n with exactly 8 mixed-parity steps.
+Enter the initial terms of the sequence here (required):
+Entries must be separated by commas. Include signs.
+Entries usually give at most 260 characters. If you have more terms than this, please consider also sending a b-file: see here for instructions.
+Example: 1, -24, 252, -1472, 4830, -6048, -16744, 84480, -113643, -115920
+(First, double-check that the sequence really is new by omitting the first term and looking it up in the OEIS!)
+DATA
+1, 3, 7, 15, 27, 45, 73, 111, 166, 237, 330, 451, 605, 797, 1033, 1316, 1655, 2054, 2517, 3051, 3665
+￼
+What is the offset?
+This is the “lead index” or “subscript” of the initial term.
+For example, if the sequence counts graphs on n nodes with some property, what is the first value of n? For a list, use offset 1.
+OFFSET
+9,2
+Enter any additional comments. Important: say if you can prove that your comment is correct or if it is only an empirical observation.
+Examples: a(n) is also the number of Jones graphs on n nodes.
+It appears that this is also the first row of the array in A123456.
+COMMENTS
+Let T be the Collatz map (A014682): T(x) = x/2 for even x and (3*x+1)/2 for odd x. Iterate T simultaneously from r and r+1, for each integer r with 0 <= r < 2^n.
+Count r if the two trajectories first meet after exactly n iterations, have the same number of odd inputs among these n iterations, and have opposite input parities at exactly 8 of them. An iteration with opposite input parities is called a mixed-parity step; steps are numbered 1 through n, including the meeting step.
+The first nonzero term is at n = 9. The sequences A399819, A399820 and A399821 count the cases with 8, 10 and 12 mixed-parity steps, respectively.
+The equal odd counts ensure that the meeting holds for the entire residue class modulo 2^n: if each path has s odd inputs, replacing r by r + 2^n*m adds 3^s*m to both values at step n. Thus each counted r represents an infinite family of consecutive pairs, not just one numerical coincidence.
+These sequences refine A398793 by the number of mixed-parity steps. If e_j(n) denotes the same count with j mixed-parity steps, then sum_j e_j(n) = A398793(n-1) = A398792(n) - 2*A398792(n-1), for n >= 2. Only even j can occur, since equal odd counts require equally many mixed steps of each orientation.
+This decomposition records how different parity patterns contribute to the density of merging consecutive pairs, in connection with the question studied by Gao. The quantity e_j(n)/2^n is the density added at level n by that part of the count. Proving lim A398792(n)/2^n = 1 remains an open objective; the three fixed values j = 8, 10, 12 alone do not settle it.
+The counts require only finite trajectories and do not assume the Collatz conjecture. For lifted pairs r + 2^n*m, r + 2^n*m + 1 with m >= 1, equal finite total stopping times follow if their common trajectory reaches 1.
+A concrete connection with earlier work is the pair (3067,3068), used by Elia and Tucker to disprove Garner's conjecture about equal-height pairs. Under T it first meets at 692 after 18 iterations, with 10 odd inputs on each path and 8 mixed-parity steps. Hence r = 3067 is one of the 237 classes counted by a(18).
+Enter any references to books, journals, etc.:
+Examples:
+H. J. Smith and A. B. Todd, Title, Publisher, Year, pages xxx-yyy.
+H. J. Smith and A. B. Todd, Article title, Journal Name, 16 (2001), 794-797.
+REFERENCES
+G.-G. Gao, On consecutive numbers of the same height in the Collatz problem, Discrete Mathematics 112 (1993), 261-267.
+Enter any links to web sites using HTML's <a href> notation.
+Examples (the first shows the format for a b-file):
+T. D. Noe, <a href="/A000010/b000010.txt">Table of n, a(n) for n = 1..10000</a>
+Author, <a href="http://www.etc....">Title</a>.
+N. J. A. Sloane and J. A. Sellers, <a href="http://arxiv.org/abs/math.CO/0312418">On non-squashing partitions</a>, Discrete Math., 294 (2005), 259-274.
+Wikipedia, <a href="http://en.wikipedia.org/wiki/Mobius_function">Moebius function</a>
+If you are extending an existing b-file, the format is:
+Lars Blomberg, <a href="/A280745/b280745.txt">Table of n, a(n) for n = 1..10000</a> (first 1683 terms from N. J. A. Sloane)
+LINKS
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+Marcus Elia and Amanda Tucker, <a href="https://arxiv.org/abs/1511.09141">Consecutive Integers and the Collatz Conjecture</a>, Integers 15 (2015), A54, Section 4.
+￼
+I want to upload a supporting file to store with the OEIS and add a link to it.
+Enter any formulas, recurrences, generating functions, etc. Important: say if you can prove what you entered or if it is only an empirical observation.
+Examples:
+a(n) = n^3 + 17*n - 1.
+G.f.: (3/4)*x^3/((1-x)*(1+2*x+x^3)) (conjectured).
+FORMULA
+~
+Give example(s) to illustrate the initial terms:
+Example: For n = 3 the a(3) = 5 solutions are ...
+EXAMPLE
+a(9) = 1, corresponding to r = 65 modulo 512. The trajectories 65, 98, 49, 74, 37, 56, 28, 14, 7, 11 and 66, 33, 50, 25, 38, 19, 29, 44, 22, 11 first meet after 9 iterations of T. Each has four odd inputs, and their inputs have opposite parity at steps 1 through 7 and at step 9.
+a(10) = 3: the three classes are r = 131, 193, 473 modulo 1024. For r = 131, the two trajectories first meet at 11 after 10 iterations; each has four odd inputs, with opposite parity at steps 1, 2, 3, 5, 6, 7, 8, 10.
+Give a Maple program to generate the sequence:
+MAPLE
+~
+Give a Mathematica program to generate the sequence:
+MATHEMATICA
+~
+Give a program to generate the sequence, and specify the language:
+Example: (C) int a(int n) { return n & (n-1); }
+PROG
+(Python)
+def step(x):
+    return (3*x + 1)//2 if x & 1 else x//2
+def ok(r, n):
+    x, y, sx, sy, m = r, r+1, 0, 0, 0
+    for t in range(1, n+1):
+        m += ((x ^ y) & 1)
+        sx += x & 1; sy += y & 1
+        x, y = step(x), step(y)
+        if x == y:
+            return t == n and sx == sy and m == 8
+    return False
+def a(n):
+    return sum(ok(r, n) for r in range(2**n - 1))
+Give cross-references to other sequences:
+Example: Cf. A987654, A987655. Complement of A001358. Row sums of triangle A123456.
+CROSSREFS
+Cf. A398792, A398793, A399820, A399821.
+Give keywords:
+See the help file for more information.
+If not given explicitly, keyword “nonn” or “sign” will be assigned automatically.
+KEYWORD
+nonn,more,changed
+Name of person submitting the sequence:
+This is filled in automatically by the system and should normally not be changed.
+AUTHOR
+_Omar Said_, Sep 12 2026
+Describe any unsigned changes:
+This field is to credit additions that can't be properly acknowledged in other fields..
+Your name and the date will be appended to lines that end in “from” or “by”
+Examples: you might say (without a period at the end):
+More terms from
+Corrected and extended by
+a(8)-a(12) from
+Definition corrected by
+Edited by
+EXTENSIONS
+~
+
+hide guide text
+Save Changes
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy

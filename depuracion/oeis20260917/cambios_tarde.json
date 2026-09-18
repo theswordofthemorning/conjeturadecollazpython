@@ -1,0 +1,38 @@
+{
+  "fecha": "2026-09-17",
+  "cambios": [
+    {
+      "numero": "A399819",
+      "sha256_antes": "75db2267a43be193ab9e63b3867d1b8d388fc3d186b638b12da937b41b415581",
+      "sha256_propuesto": "88f0a447f6e588daad331a54dbd1e373fb62e3e59fa5afe3f8052663a1939597",
+      "campos_modificados": [
+        "NAME",
+        "COMMENTS",
+        "LINKS"
+      ],
+      "datos_offset_programa_ejemplos": "conservados literalmente"
+    },
+    {
+      "numero": "A399820",
+      "sha256_antes": "a1c0bf3310f0e2640ae0f5fcbe96ecacde39122ea5910431e055648aa9fd0d6b",
+      "sha256_propuesto": "cae7fb8b941ba63712b9bbe139e64d0f8b5d7ab6b8bebd93676bdde3b6678878",
+      "campos_modificados": [
+        "NAME",
+        "COMMENTS",
+        "LINKS"
+      ],
+      "datos_offset_programa_ejemplos": "conservados literalmente"
+    },
+    {
+      "numero": "A399821",
+      "sha256_antes": "21dd5e2aca4a794eba915c5c2dc97efe0abbf6363ed35cbffc96f6c316a69f45",
+      "sha256_propuesto": "5a23ff9b3036682cdff14f504cd670c5018bcac23bf2c497bbc8d498edb0ad53",
+      "campos_modificados": [
+        "NAME",
+        "COMMENTS",
+        "LINKS"
+      ],
+      "datos_offset_programa_ejemplos": "conservados literalmente"
+    }
+  ]
+}

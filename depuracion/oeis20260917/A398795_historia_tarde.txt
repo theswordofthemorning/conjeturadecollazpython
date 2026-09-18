@@ -1,0 +1,89 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Revision History for A398795
+(Bold, blue-underlined text is an addition; faded, red-underlined text is a deletion.)
+Showing all changes.
+A398795
+Number of values 0 <= r < 2^n such that the trajectories of r and r+1 under the map f(x) = x/2 for x even, (7*x+1)/2 for x odd, satisfy f^(n)(r) = f^(n)(r+1) and contain the same number of odd terms among the first n iterates.
+(history; edit; published version)
+#6 by Sean A. Irvine at Fri Aug 28 22:06:27 EDT 2026
+STATUS
+editing
+approved
+#5 by Sean A. Irvine at Fri Aug 28 22:05:54 EDT 2026
+DATA
+0, 0, 0, 1, 2, 5, 11, 23, 48, 99, 203, 413, 838, 1694, 3419, 6881, 13843, 27811, 55818, 111980, 224511, 449933, 901415, 1805400, 3615145, 7237666, 14487753, 28996767, 58029789
+EXTENSIONS
+a(23)-a(29) from Sean A. Irvine, Aug 28 2026
+STATUS
+proposed
+editing
+#4 by Omar Said at Sun Aug 23 21:47:00 EDT 2026
+STATUS
+editing
+proposed
+#3 by Omar Said at Sun Aug 23 21:44:44 EDT 2026
+AUTHOR
+Omar Said, Aug 09 23 2026
+Discussion
+Sun Aug 23
+21:45
+Omar Said: Submitting the (7x+1)/2 analog of A398792 and A398794. A note on the map itself: unlike (5x+1)/2, which is A185452, the map x -> x/2 for x even, (7x+1)/2 for x odd does not appear to be in the OEIS -- I searched by terms (0, 4, 1, 11, 2, 18, 3, 25, 4, 32, ...) and by description, using A185452 as a positive control, and found nothing; so the definition is written out here rather than cited by A-number. Terms 1..18 are recomputed by independent brute force in the linked repository, and 19..22 come from an exact class computation that agrees with the brute force on the whole common range.
+#2 by Omar Said at Sun Aug 23 21:41:23 EDT 2026
+NAME
+allocated for Omar Said
+Number of values 0 <= r < 2^n such that the trajectories of r and r+1 under the map f(x) = x/2 for x even, (7*x+1)/2 for x odd, satisfy f^(n)(r) = f^(n)(r+1) and contain the same number of odd terms among the first n iterates.
+DATA
+0, 0, 0, 1, 2, 5, 11, 23, 48, 99, 203, 413, 838, 1694, 3419, 6881, 13843, 27811, 55818, 111980, 224511, 449933
+OFFSET
+1,5
+COMMENTS
+The analog of A398792 for the 7x+1 map; see A398794 for why the count is well defined without any convergence assumption. The density a(n)/2^n at n = 22 is 0.107, against 0.409 for the Collatz map (A398792) and 0.0044 for 5x+1 (A398794); it is nondecreasing in n and grows slowly on the computed range.
+For maps (q*x+r)/2 with an odd prime p dividing r but not q, the corresponding count is 0 for every n: mod p the map is multiplication by units (2^-1 or 2^-1*q), and merging at equal step and odd counts equalizes the accumulated factors, forcing r == r+1 (mod p), which is impossible. (Tested on (5x+3)/2, (7x+3)/2 and (3x+5)/2: all identically zero.)
+Relation to the 3x+1 problem: comparing this count with A398792 and A398794 singles out q = 3 as the only map in the family (q*x+1)/2 for which the difference of a consecutive pair neither grows nor shrinks on average, the expected multiplier being (1+q)/4. The three counts are not ordered by q: q = 7 gives a larger density than q = 5. Like A398792, this is not evidence for or against the Collatz conjecture.
+LINKS
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+EXAMPLE
+a(4) = 1: the residue r = 8 satisfies f^(4)(8) = f^(4)(9) = 4 with one odd step on each side (8 -> 4 -> 2 -> 1 -> 4 and 9 -> 32 -> 16 -> 8 -> 4).
+PROG
+(Python)
+def a(n):    
+c = 0    
+for r in range(2**n):        
+x, y, sx, sy = r, r+1, 0, 0        
+for _ in range(n):            
+sx += x & 1; sy += y & 1            
+x = (7*x+1)//2 if x & 1 else x//2            
+y = (7*y+1)//2 if y & 1 else y//2            
+if x == y:                
+c += sx == sy                
+break    
+return c
+CROSSREFS
+Cf. A185452, A398792, A398793, A398794.
+KEYWORD
+allocated
+nonn,more
+AUTHOR
+Omar Said, Aug 09 2026
+STATUS
+approved
+editing
+#1 by Omar Said at Sun Aug 09 10:42:07 EDT 2026
+NAME
+allocated for Omar Said
+KEYWORD
+allocated
+STATUS
+approved
+Showing all changes.
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy

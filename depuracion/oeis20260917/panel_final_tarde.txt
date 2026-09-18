@@ -1,0 +1,74 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Drafts by Omar Said
+(In many browsers, middle-clicking on any of the links below will open it in a new tab.)
+Showing all changes.
+Sequence
+￼
+Status
+￼
+First Edited
+￼
+Last Active
+￼
+Draft by
+￼
+Reviewed or edited by
+￼
+￼
+￼
+A399819
+￼
+proposed +38 −2
+￼
+Sep 12 20:33
+￼
+Sep 17 20:10
+￼
+Omar Said (3/3)
+￼
+￼
+￼
+￼
+Number of integers 0 <= r < 2^n whose trajectories from r and r+1 under the Collatz map (A014682) first meet after n iterations, with equal numbers of odd inputs and exactly 8 positions of opposite input parity.
+￼
+A399820
+￼
+proposed +34 −2
+￼
+Sep 12 20:35
+￼
+Sep 17 20:11
+￼
+Omar Said (3/3)
+￼
+￼
+￼
+￼
+Number of integers 0 <= r < 2^n whose trajectories from r and r+1 under the Collatz map (A014682) first meet after n iterations, with equal numbers of odd inputs and exactly 10 positions of opposite input parity.
+￼
+A399821
+￼
+proposed +34 −2
+￼
+Sep 12 20:36
+￼
+Sep 17 20:08
+￼
+Omar Said (3/3)
+￼
+￼
+￼
+￼
+Number of integers 0 <= r < 2^n whose trajectories from r and r+1 under the Collatz map (A014682) first meet after n iterations, with equal numbers of odd inputs and exactly 12 positions of opposite input parity.
+￼
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy

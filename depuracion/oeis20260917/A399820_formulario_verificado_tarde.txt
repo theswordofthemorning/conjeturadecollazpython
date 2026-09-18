@@ -1,0 +1,36 @@
+%I #11 Sep 17 2026 17:31:11
+%S 1,4,12,30,65,131,247,447,761,1242,1953,3003,4485,6570,9410,13204,
+%T 18164,24596,32753
+%N Number of integers 0 <= r < 2^n whose trajectories from r and r+1 under the Collatz map (A014682) first meet after n iterations, with equal numbers of odd inputs and exactly 10 positions of opposite input parity.
+%C Let T be the Collatz map (A014682): T(x) = x/2 for even x and (3*x+1)/2 for odd x. For each integer r with 0 <= r < 2^n, set x_i = T^i(r) and y_i = T^i(r+1), for i = 0,...,n.
+%C Count r if x_n = y_n, x_i != y_i for every 0 <= i < n, the lists x_0,...,x_(n-1) and y_0,...,y_(n-1) contain equally many odd terms, and exactly 10 indices i in 0,...,n-1 have x_i and y_i of opposite parity.
+%C A mixed-parity step is defined here to be an iteration whose two input values have opposite parity, namely an index i with x_i and y_i of opposite parity. This is step i+1 in the examples, where steps are numbered 1 through n.
+%C A merging class at level n is defined here to be a residue class modulo 2^n whose two trajectories satisfy x_n = y_n and have equal numbers of odd inputs before that meeting. Such a class is new at level n when x_i != y_i for every 0 <= i < n. The phrases "mixed-parity step" and "merging class" are local terminology in these three entries.
+%C The first nonzero term is at n = 11. A399819, A399820 and A399821 impose 8, 10 and 12 opposite-parity positions, respectively.
+%C The equal odd counts make this a property of the whole residue class: if each path has s odd inputs, replacing r by r + 2^n*m adds 3^s*m to both values at step n (Terras). The first meeting and its parity pattern are preserved for every integer m >= 0.
+%C Writing e_j(n) for the same count with j opposite-parity positions, sum_j e_j(n) = A398793(n-1) = A398792(n) - 2*A398792(n-1), for n >= 2. Only even j occur, since the two orientations of an opposite-parity position must occur equally often.
+%C Thus e_j(n)/2^n is the density of the residue classes first meeting at step n with j opposite-parity positions. These counts refine A398793 by parity pattern, in connection with the consecutive-pair questions studied by Gao. They do not establish that lim A398792(n)/2^n = 1.
+%C The counts use finite trajectories and require no convergence assumption. For lifted pairs r + 2^n*m, r + 2^n*m + 1 with m >= 1, equal finite total stopping times follow if their common trajectory reaches 1.
+%D G.-G. Gao, On consecutive numbers of the same height in the Collatz problem, Discrete Mathematics 112 (1993), 261-267.
+%H Guo-Gang Gao, <a href="https://doi.org/10.1016/0012-365X(93)90240-T">On consecutive numbers of the same height in the Collatz problem</a>, Discrete Mathematics, Volume 112, pages 261-267, 1993.
+%H Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+%H Riho Terras, <a href="https://doi.org/10.4064/aa-30-3-241-252">A stopping time problem on the positive integers</a>, Acta Arithmetica 30 (1976), 241-252.
+%e a(11) = 1: the unique class is r = 769 modulo 2048. The trajectories starting at 769 and 770 first meet at 92 after 11 iterations of T. Each has five odd inputs to these iterations, and their inputs have opposite parity at steps 1 through 9 and at step 11.
+%o (Python)
+%o def step(x):
+%o     return (3*x + 1)//2 if x & 1 else x//2
+%o def ok(r, n):
+%o     x, y, sx, sy, m = r, r+1, 0, 0, 0
+%o     for t in range(1, n+1):
+%o         m += ((x ^ y) & 1)
+%o         sx += x & 1; sy += y & 1
+%o         x, y = step(x), step(y)
+%o         if x == y:
+%o             return t == n and sx == sy and m == 10
+%o     return False
+%o def a(n):
+%o     return sum(ok(r, n) for r in range(2**n - 1))
+%Y Cf. A398792, A398793, A399819, A399821.
+%K nonn,more,changed
+%O 11,2
+%A _Omar Said_, Sep 12 2026

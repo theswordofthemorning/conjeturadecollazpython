@@ -1,5 +1,14 @@
 # Respuesta a Sean Irvine y aclaración de los tres estratos — 17-09-2026
 
+Esta nota conserva la entrega de las 16:35 EDT. El estado posterior y
+las respuestas a Howroyd y Marcus están en [el análisis de la tarde](ANALISIS_TARDE.md):
+revisiones #12/#13/#11, las tres propuestas; correcciones de las cuatro
+publicadas preparadas, pendientes por el límite de ediciones de OEIS.
+
+Para próximas sesiones: [guardar, responder y dejar proposed](../../../zootheorem/drafts/PROCEDIMIENTO_OEIS.md).
+El procedimiento recoge los botones, los cotejos y las incidencias UIA;
+se incorpora al cierre solicitado por el usuario con commit y push.
+
 Se revisaron el estado del laboratorio, el plan de zootheorem, el paper 01,
 los borradores vigentes y las discusiones reales de las tres fichas en Chrome.
 Irvine escribió en A399819, a las 00:13 y 00:14 EDT del 17 de septiembre:

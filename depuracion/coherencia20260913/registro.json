@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-13",
+  "version": "2026-09-17",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -110,12 +110,12 @@
         "notas": "La familia extremal de las nuevas (03-08-2026). Demostracion de cuatro lineas en el comentario de la COMPROBACION 5: un lado hace j impares hasta 3^j - 1 y dos pares; el otro gasta un par, hace j-1 impares y el encuentro cuadra exacto (3b + 1 = (3^j - 1)/2), con S = j en ambos. Corolario: b(j+2) >= 1 para todo j par - las nuevas nunca se acaban. Comprobada j = 4..60. Que ese b sea el MAXIMO del nivel esta solo medido (k <= 15). Y el patron 'todo b es 1 mod 3' se REFUTO antes de publicarse: b = 2255 en k+1 = 15."
       },
       "despues": {
-        "enunciado": "Para todo j par >=2, (2^j-2,2^j-1) funde por primera vez en j+2 pasos de T; es una clase nueva del nivel j+2.",
+        "enunciado": "Para todo j par >=2, (2^j-2,2^j-1) funde por primera vez en j+2 pasos de T, en el valor (3^j-1)/4; es una clase nueva del nivel j+2.",
         "cuantificador": "clase_residual",
         "estado": "demostrado",
         "fichero": "nuevasfusion.py",
         "fuente": "propio",
-        "notas": "Vortice w=(3^(j-1)-1)/2, S=j en ambos. Con b(n)=a(n+1)-2a(n), el corolario se escribe b(j+1)>=1, no b(j+2)>=1. Ver Conejas y Matematica.md. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+        "notas": "w=(3^(j-1)-1)/2 es el menor valor en j+1, antes del encuentro, no el valor terminal. Los valores en j+1 son w y 3w+1; en j+2 ambos son (3^j-1)/4, con S=j en ambos. Determinismo y desigualdad en j+1 excluyen todo encuentro anterior. Con b(n)=a(n+1)-2a(n), el corolario es b(j+1)>=1. La ficha OEIS A398793 confunde w con el encuentro; correccion externa preparada pero bloqueada por limite de ediciones. Cotejo entero j=2..20 pares y Lean 4.32.2 el 17-09: depuracion/oeis20260917/ANALISIS_TARDE.md. Historial original conservado en guardarafirmaciones.py y antes."
       }
     },
     {
@@ -457,7 +457,7 @@
         "estado": "demostrado",
         "fichero": "conejas.lean",
         "fuente": "propio",
-        "notas": "La exactitud de primer encuentro exige el argumento adicional de no coincidencia anterior; no se infiere del mero largo del CaminoN. El corolario de nuevas usa b(j+1), con b(n)=a(n+1)-2a(n). Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+        "notas": "Lean construye el valor terminal 3t+2, con 3^(j-1)=4t+3, es decir (3^j-1)/4. El repunit w=2t+1 es previo. La exactitud de primer encuentro exige ademas determinismo y desigualdad en j+1; esa deduccion y el conteo no estan ensamblados en el teorema Lean. El corolario usa b(j+1), con b(n)=a(n+1)-2a(n). Revalidado el 17-09-2026 con Lean 4.32.2; axiomas propext y Quot.sound, sin sorryAx. Ver depuracion/oeis20260917/ANALISIS_TARDE.md. Historial literal conservado."
       }
     },
     {
@@ -883,6 +883,11 @@
       "El buscador de estratos descarta cuasipolinomios de grado<=8 y periodo<=8.",
       "Solo ajusta P(n)+correccion periodica; hay parametros sin suficientes datos.",
       "Separar no hay ajuste, falta muestra y enunciados infinitos."
+    ],
+    [
+      "A398793 identifica el encuentro de (2^j-2,2^j-1) con el repunit (3^(j-1)-1)/2.",
+      "El repunit es el menor valor en j+1; el encuentro en j+2 es (3^j-1)/4. En j=2 se encuentran en 2, no en 1.",
+      "Distinguir coordenada previa y valor terminal. Cotejo entero y Lean 4.32.2 el 17-09-2026; correccion OEIS preparada, pendiente por limite de ediciones."
     ]
   ]
 }

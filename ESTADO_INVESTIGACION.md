@@ -57,18 +57,22 @@ supervivencia, salida y censura. Una mediana marginal no basta.
 
 ## Registro y entrega
 
-Catálogo: `afirmaciones.db`, 216 filas; fuente vigente
+Catálogo: `afirmaciones.db`, 216 filas, registro 17-09; fuente vigente
 `depuracion/coherencia20260913/registro.json` + `guardarafirmaciones.py`.
 Los IDs de fichas antiguas no coinciden siempre con filas actuales:
 interpretar `depuracion/veredictos.jsonl` por enunciado literal.
 `respuestas.db`: 1.957 mensajes hasta 24-08; faltan fuentes de septiembre.
 
 [Auditoría y controles](depuracion/coherencia20260913/LEEME.md): 24 controles
-pasaron, nueve Lean. El 17-09 se respondió a Irvine y se aclararon y
-reenviaron A399819–A399821: las tres **proposed**, aprobación pendiente.
-[Respuesta, argumento y evidencia](depuracion/oeis20260917/LEEME.md):
-descomposición por mixtos, vínculo con Gao y testigo Elia–Tucker 3067–3068;
-control directo/simbólico 1..13 y Lean 4.32.2 sin `sorryAx`.
-P1–P3 siguen abiertos. Cambios de esta sesión locales sin commit/push;
+pasaron, nueve Lean. El 17-09 se respondió a Irvine y luego a Howroyd y
+Marcus. A399819–A399821: **proposed**, revisiones #12/#13/#11; títulos
+directos, términos locales definidos y enlaces añadidos.
+[Análisis, respuestas y evidencia](depuracion/oeis20260917/ANALISIS_TARDE.md):
+las siete fichas cotejadas; control directo/simbólico 1..13; Conejas con
+Lean 4.32.2 sin `sorryAx`. Su encuentro es `(3^j-1)/4`, no el repunit previo.
+Correcciones de A398792–A398795 preparadas, **no enviadas**: OEIS bloqueó
+otra edición por tener tres pendientes. Enviarlas cuando haya cupo.
+P1–P3 siguen abiertos. Cierre: usuario solicita commit/push de ambos repos.
+[Procedimiento para dejar drafts propuestos](../zootheorem/drafts/PROCEDIMIENTO_OEIS.md);
 [publicación](../zootheorem/PLAN_INVESTIGACION.md).
 Al cerrar una pieza, actualizar esta ficha, registro y plan público (P4).

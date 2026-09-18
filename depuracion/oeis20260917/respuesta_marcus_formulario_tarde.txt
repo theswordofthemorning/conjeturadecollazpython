@@ -1,0 +1,5 @@
+Dear Michel, thank you for adding Gao's link and for pointing out the missing article links. I have retained your addition and added Terras's DOI here; all three submissions now link both papers. A399819 also links Garner and Elia--Tucker. I have made the terminology and titles explicit in all three entries in response to Andrew's comments on A399819.
+
+Your request concerning A398792 is justified too. I have prepared links for Gao, Garner, Terras and Barina, plus Lagarias's bibliography (entry 125) for the Wu--Huang reference, for which I have not located a direct article link. Barina's 2025 title should be "Improved verification limit for the convergence of the Collatz conjecture".
+
+When I tried to open A398792 for editing, OEIS returned "You have too many active edits pending." Those changes are therefore prepared but not yet submitted. The same review identified density wording in A398792 that needs its convergence qualification stated consistently; that correction is included in the prepared edit. Thank you for the careful review.

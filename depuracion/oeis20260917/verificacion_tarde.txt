@@ -1,0 +1,8 @@
+A399819: %I #12 Sep 17 2026 20:10:23; datos, offset, ejemplos y programa conservados; respuesta comprobada; proposed.
+A399820: %I #13 Sep 17 2026 20:11:04; datos, offset, ejemplos y programa conservados; respuesta comprobada; proposed.
+A399821: %I #11 Sep 17 2026 20:08:06; datos, offset, ejemplos y programa conservados; respuesta comprobada; proposed.
+A398792: 36 terminos publicados; coinciden los 36 terminos locales; sin editar por limite de OEIS.
+A398793: 35 terminos publicados; coinciden los 35 terminos locales; sin editar por limite de OEIS.
+A398794: 29 terminos publicados; coinciden los 22 terminos locales; sin editar por limite de OEIS.
+A398795: 29 terminos publicados; coinciden los 22 terminos locales; sin editar por limite de OEIS.
+Conejas: j=2..20 pares, primer encuentro, entradas impares y valores previos cotejados con enteros. No es prueba universal.

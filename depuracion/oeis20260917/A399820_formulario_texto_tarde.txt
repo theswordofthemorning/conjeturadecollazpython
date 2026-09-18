@@ -1,0 +1,53 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+Editing A399820 #11
+IMPORTANT: Thousands of people use the sequence database every day.
+Please take great care that the terms you send are absolutely correct.
+The standards are those of a mathematics reference work.
+Contributions are contributed under The OEIS Contributor's License Agreement, and may be edited, altered, or
+removed by other contributors. If you do not want your writing to be edited mercilessly, then do not submit it here.
+You are also promising us that you wrote this yourself, or copied it from a public domain resource,
+or have the right to submit it (see The OEIS Contributor's License Agreement for details).
+Do not submit copyrighted work without permission!
+Save Changes
+%I #11 Sep 17 2026 17:31:11
+%S 1,4,12,30,65,131,247,447,761,1242,1953,3003,4485,6570,9410,13204,
+%T 18164,24596,32753
+%N Number of new Collatz merging classes at level n with exactly 10 mixed-parity steps.
+%C Let T be the Collatz map (A014682): T(x) = x/2 for even x and (3*x+1)/2 for odd x. Iterate T simultaneously from r and r+1, for each integer r with 0 <= r < 2^n.
+%C Count r if the two trajectories first meet after exactly n iterations, have the same number of odd inputs among these n iterations, and have opposite input parities at exactly 10 of them. An iteration with opposite input parities is called a mixed-parity step; steps are numbered 1 through n, including the meeting step.
+%C The first nonzero term is at n = 11. The sequences A399819, A399820 and A399821 count the cases with 8, 10 and 12 mixed-parity steps, respectively.
+%C The equal odd counts ensure that the meeting holds for the entire residue class modulo 2^n: if each path has s odd inputs, replacing r by r + 2^n*m adds 3^s*m to both values at step n. Thus each counted r represents an infinite family of consecutive pairs, not just one numerical coincidence.
+%C These sequences refine A398793 by the number of mixed-parity steps. If e_j(n) denotes the same count with j mixed-parity steps, then sum_j e_j(n) = A398793(n-1) = A398792(n) - 2*A398792(n-1), for n >= 2. Only even j can occur, since equal odd counts require equally many mixed steps of each orientation.
+%C This decomposition records how different parity patterns contribute to the density of merging consecutive pairs, in connection with the question studied by Gao. The quantity e_j(n)/2^n is the density added at level n by that part of the count. Proving lim A398792(n)/2^n = 1 remains an open objective; the three fixed values j = 8, 10, 12 alone do not settle it.
+%C The counts require only finite trajectories and do not assume the Collatz conjecture. For lifted pairs r + 2^n*m, r + 2^n*m + 1 with m >= 1, equal finite total stopping times follow if their common trajectory reaches 1.
+%D G.-G. Gao, On consecutive numbers of the same height in the Collatz problem, Discrete Mathematics 112 (1993), 261-267.
+%H Guo-Gang Gao, <a href="https://doi.org/10.1016/0012-365X(93)90240-T">On consecutive numbers of the same height in the Collatz problem</a>, Discrete Mathematics, Volume 112, pages 261-267, 1993.
+%H Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+%e a(11) = 1: the unique class is r = 769 modulo 2048. The trajectories starting at 769 and 770 first meet at 92 after 11 iterations of T. Each has five odd inputs to these iterations, and their inputs have opposite parity at steps 1 through 9 and at step 11.
+%o (Python)
+%o def step(x):
+%o     return (3*x + 1)//2 if x & 1 else x//2
+%o def ok(r, n):
+%o     x, y, sx, sy, m = r, r+1, 0, 0, 0
+%o     for t in range(1, n+1):
+%o         m += ((x ^ y) & 1)
+%o         sx += x & 1; sy += y & 1
+%o         x, y = step(x), step(y)
+%o         if x == y:
+%o             return t == n and sx == sy and m == 10
+%o     return False
+%o def a(n):
+%o     return sum(ok(r, n) for r in range(2**n - 1))
+%Y Cf. A398792, A398793, A399819, A399821.
+%K nonn,more,changed
+%O 11,2
+%A _Omar Said_, Sep 12 2026
+
+Save Changes
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy

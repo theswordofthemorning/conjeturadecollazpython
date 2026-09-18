@@ -1,0 +1,7 @@
+Dear Andrew, thank you. These are descriptive terms used in these submissions, and I should have explicitly identified them as such. The earlier wording gave the counting rule but left the title dependent on that terminology.
+
+I have replaced the titles of all three entries by direct descriptions of the integers being counted. The comments now say "A mixed-parity step is defined here to be ..." and "A merging class at level n is defined here to be ...", and identify both phrases as local terminology.
+
+Precisely, set x_i = T^i(r), y_i = T^i(r+1), with T = A014682. We count 0 <= r < 2^n when the paths first meet at i=n, their input lists at i=0,...,n-1 have equal numbers of odd terms, and their inputs have opposite parity at exactly eight positions. The other two entries replace eight by ten and twelve. The examples number the corresponding iterations 1,...,n.
+
+The numerical definitions, data, offsets and programs are unchanged. I have also added direct links to Gao and Terras, and to Garner here, following Michel's bibliographic request on A399820. Thank you for helping make these entries understandable on their own.

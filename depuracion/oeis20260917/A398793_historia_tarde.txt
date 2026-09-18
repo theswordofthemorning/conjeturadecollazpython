@@ -1,0 +1,116 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Revision History for A398793
+(Bold, blue-underlined text is an addition; faded, red-underlined text is a deletion.)
+Showing all changes.
+A398793
+Number of residues r mod 2^(n+1) such that r and r+1 have the same image and the same number of odd terms after n+1 iterations of the Collatz map (A014682) and such that r mod 2^n does not already have this property at level n.
+(history; edit; published version)
+#10 by Sean A. Irvine at Sun Aug 23 19:29:53 EDT 2026
+STATUS
+editing
+approved
+#9 by Sean A. Irvine at Sun Aug 23 19:29:44 EDT 2026
+NAME
+Number of residues r mod 2^(n+1) such that r and r+1 have the same image and the same number of odd terms after n+1 iterations of the Collatz map T (A014682), T(x) = x/2 if x is even and (3x+1)/2 if x is odd,  and such that r mod 2^n does not already have this property at level n; a(n) = A398792(n+1) - 2*A398792(n).
+COMMENTS
+Let f^(n) denote the n-th iteration of the Collatz map.
+Nonnegative for all n: by Terras's theorem (1976) the first n parities of a trajectory depend only on the residue mod 2^n, and Tf^(n)(2^n*m + r) = 3^s*m + Tf^(n)(r), where s is the number of odd terms among the first n iterates of r. Taking m = 1 shows that if r is counted in A398792 at level n, then both r and r + 2^n are counted at level n+1, whence A398792(n+1) >= 2*A398792(n).
+PROG
+(Python) # b(n) via the program in A398792: b = lambda n: a(n+1) - 2*a(n)
+STATUS
+proposed
+editing
+#8 by Omar Said at Sun Aug 16 21:04:59 EDT 2026
+STATUS
+editing
+proposed
+#7 by Omar Said at Sun Aug 16 21:04:29 EDT 2026
+NAME
+Number of residue classes mod 2^(n+1) of merging consecutive Collatz pairs that are not inherited by doubling from level n.
+Number of residues r mod 2^(n+1) such that r and r+1 have the same image and the same number of odd terms after n+1 iterations of the Collatz map T (A014682), T(x) = x/2 if x is even and (3x+1)/2 if x is odd, and such that r mod 2^n does not already have this property at level n; a(n) = A398792(n+1) - 2*A398792(n).
+COMMENTS
+Nonnegative for all n because A398792(n+1) >= 2*A398792(n) (proved: with m = 1 in Terras's identity, both r and r + 2^n inherit the merging property).
+Nonnegative for all n: by Terras's theorem (1976) the first n parities of a trajectory depend only on the residue mod 2^n, and T^n(2^n*m + r) = 3^s*m + T^n(r), where s is the number of odd terms among the first n iterates of r. Taking m = 1 shows that if r is counted in A398792 at level n, then both r and r + 2^n are counted at level n+1, whence A398792(n+1) >= 2*A398792(n).
+The ratio a(n+1)/a(n) increases toward 2 on the computed range (1.9469 at n = 35); whether its limit is 2 is equivalent to whether the proved density bound A398792(n)/2^n converges to the full density of consecutive pairs of equal Collatz height.
+Relation to the 3x+1 problem: a(n) resolves A398792 level by level, counting the classes that first show this merging at level n+1; the class counted at n = 2 is Garner's pair (8m+4, 8m+5). Like A398792, the sequence is not evidence for or against the Collatz conjecture, since the map (3x-1)/2 gives the same values.
+Discussion
+Sun Aug 16
+21:04
+Omar Said: Thanks -- rewritten. The name is now self-contained: it states the merging condition explicitly, in terms of A014682, instead of relying on the phrase "merging consecutive Collatz pairs". One note in case it is useful: the formula a(n) = A398792(n+1) - 2*A398792(n) opened the name in my first submission and was removed by an earlier editor; I have put it back at the end, where it defines rather than replaces the description, but I am happy to drop it if you prefer. Terras's identity is now stated in full rather than cited by name, "proved" is gone from both places it appeared, and a comment now states what the sequence contributes to the 3x+1 problem and what it does not.
+#6 by Sean A. Irvine at Sun Aug 16 18:50:55 EDT 2026
+STATUS
+proposed
+editing
+#5 by Omar Said at Sun Aug 09 10:58:28 EDT 2026
+STATUS
+editing
+proposed
+Discussion
+Sun Aug 16
+18:50
+Sean A. Irvine: Name is unclear. What does "merging consecutive Collatz pairs" mean? What is "Terras's identity"? How does this contribute to the Collatz problem/conjecture? Don't include statements like "proved" (everything in the OEIS is proved unless otherwise stated).
+#4 by Michel Marcus at Sun Aug 09 10:49:08 EDT 2026
+NAME
+a(n) = A398792(n+1) - 2*A398792(n): number Number of residue classes mod 2^(n+1) of merging consecutive Collatz pairs that are not inherited by doubling from level n.
+STATUS
+proposed
+editing
+Discussion
+Sun Aug 09
+10:49
+Michel Marcus: data needs more terms
+10:55
+Omar Said: All 35 known terms are shown in DATA. Computing a(n) requires deciding every residue class mod 2^(n+1); the last terms already come from two independent exact computations at the 2^36 level, and each further level doubles the cost. I can add a b-file duplicating the data if that is preferred.
+#3 by Omar Said at Sun Aug 09 10:47:58 EDT 2026
+STATUS
+editing
+proposed
+#2 by Omar Said at Sun Aug 09 10:47:37 EDT 2026
+NAME
+allocated for Omar Said
+a(n) = A398792(n+1) - 2*A398792(n): number of residue classes mod 2^(n+1) of merging consecutive Collatz pairs that are not inherited by doubling from level n.
+DATA
+0, 1, 1, 2, 2, 3, 4, 6, 11, 19, 34, 60, 106, 190, 341, 623, 1148, 2124, 3963, 7451, 14072, 26699, 50913, 97379, 186769, 359164, 692079, 1336125, 2583668, 5002992, 9701007, 18831364, 36594031, 71181933, 138581314
+OFFSET
+1,4
+COMMENTS
+Nonnegative for all n because A398792(n+1) >= 2*A398792(n) (proved: with m = 1 in Terras's identity, both r and r + 2^n inherit the merging property).
+The pair (2^j - 2, 2^j - 1) merges for the first time at step j+2 for every even j >= 2, with merge point at the ternary repunit (3^(j-1)-1)/2, so new classes appear at infinitely many levels.
+The ratio a(n+1)/a(n) increases toward 2 on the computed range (1.9469 at n = 35); whether its limit is 2 is equivalent to whether the proved density bound A398792(n)/2^n converges to the full density of consecutive pairs of equal Collatz height.
+LINKS
+Omar Said, <a href="https://github.com/theswordofthemorning/zootheorem">Statements, proofs, sequence data and verification scripts</a>
+FORMULA
+a(n) = A398792(n+1) - 2*A398792(n).
+EXAMPLE
+a(2) = 1: the residue class r = 4 mod 8 (Garner's pair (8m+4, 8m+5)) merges at level 3 and is not the doubling of a class merging at level 2.
+PROG
+(Python) # b(n) via the program in A398792: b = lambda n: a(n+1) - 2*a(n)
+CROSSREFS
+Cf. A398792, A398794, A398795, A076227.
+KEYWORD
+allocated
+nonn
+AUTHOR
+Omar Said, Aug 09 2026
+STATUS
+approved
+editing
+#1 by Omar Said at Sun Aug 09 10:42:07 EDT 2026
+NAME
+allocated for Omar Said
+KEYWORD
+allocated
+STATUS
+approved
+Showing all changes.
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 17 19:37 EDT 2026. Contains 399322 sequences.
+License Agreements, Terms of Use, Privacy Policy
