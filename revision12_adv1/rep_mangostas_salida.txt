@@ -1,0 +1,73 @@
+A. (M1): r<A da L=r determinista; r=A da L=A+G con G~Geom(1/2)
+   k    c            A  r   ley empirica de L (exacta)   veredicto
+   2  8             3  3   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   2  12            3  2   L=2 con prob 1                   ok
+   2  6             3  1   L=1 con prob 1                   ok
+   2  0             3  3   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   3  4             1  1   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   3  2             1  1   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   3  1             1  0   L=0 con prob 1                   ok
+   4  16            4  4   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   4  8             4  3   L=3 con prob 1                   ok
+   4  48            4  4   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   5  2             1  1   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   6  8             3  3   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   6  24            3  3   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   2  -8            3  3   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   2  -12           3  2   L=2 con prob 1                   ok
+   4  -16           4  4   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   7  6             1  1   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   8  256           5  5   P(L=A+s)=2^-(s+1) para s=0..11   ok
+   fallos: 0
+
+B. (M2): P(L >= A+s) <= 2^-s, con IGUALDAD si r=A
+   violaciones de la cota / de la igualdad en r=A: 130
+
+C. (M3): V(A,r,n) = numero de palabras que siguen PAR tras n pasos
+   discrepancias: 0
+
+D. LA IDENTIDAD  A=1 (k impar), A=2+v2(k) (k par), y 2^A <= 4k
+   k=1..2999: discrepancias = 0
+
+E. LA CORRECCION DEL EJEMPLO DE RACHA FORZADA
+   (2,1398101) --mixto bit 0--> (3,2097152)   2^21=2097152 -> True
+   A = v2(3^3-1) = v2(26) = 1
+   P(L>=21) = 524287/549755813888 = 2^-20 -> False   [Mangostas dice 2^-20]
+   bit compartido 1 inmediato: c = 3145715  impar: True
+   la palabra de ceros realiza 21 pasos  [dice 21]
+
+F. (M4): 2^j P(L>=j) = 2^j mu(A>=j, 2^j|c) + E[2^A 1_{A<j, 2^A|c}]
+   FALLA j=1: 18253610927/16106127360 vs 17/15
+   FALLA j=2: 912680545/536870912 vs 17/10
+   FALLA j=3: 3087007717/1342177280 vs 23/10
+   FALLA j=4: 1811939301/671088640 vs 27/10
+   FALLA j=5: 905969637/335544320 vs 27/10
+   FALLA j=6: 90596961/33554432 vs 27/10
+   FALLA j=7: 226492389/83886080 vs 27/10
+   FALLA j=8: 113246181/41943040 vs 27/10
+   FALLA j=9: 56623077/20971520 vs 27/10
+   FALLA j=10: 5662305/2097152 vs 27/10
+   FALLA j=11: 14155749/5242880 vs 27/10
+   FALLA j=12: 7077861/2621440 vs 27/10
+   FALLA j=13: 3538917/1310720 vs 27/10
+   FALLA j=14: 353889/131072 vs 27/10
+   FALLA j=15: 884709/327680 vs 27/10
+   FALLA j=16: 442341/163840 vs 27/10
+   FALLA j=17: 221157/81920 vs 27/10
+   FALLA j=18: 22113/8192 vs 27/10
+   FALLA j=19: 55269/20480 vs 27/10
+   Amax de la mezcla = 5   discrepancias en j=1..19: 19
+   (M5) C_cola = 27/10 = 2.700000
+Traceback (most recent call last):
+  File "C:\Users\Home\Desktop\conjeturadecollazpython\revision12_adv1\rep_mangostas.py", line 172, in <module>
+    all(2**j * sum(peso * sum(p for L, p in ley_L(k, c, j + 25).items()
+    ^^^
+  File "C:\Users\Home\Desktop\conjeturadecollazpython\revision12_adv1\rep_mangostas.py", line 172, in <genexpr>
+    all(2**j * sum(peso * sum(p for L, p in ley_L(k, c, j + 25).items()
+               ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              if L >= j) for k, c in mezcla) == Ccola
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Home\Desktop\conjeturadecollazpython\revision12_adv1\rep_mangostas.py", line 172, in <genexpr>
+    all(2**j * sum(peso * sum(p for L, p in ley_L(k, c, j + 25).items()
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'items'

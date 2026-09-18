@@ -1,0 +1,5 @@
+'Frente20260910.invariantes_comunes_constantes' depends on axioms: [propext, Quot.sound]
+'Frente20260910.chi_invariante_tres' depends on axioms: [propext, Quot.sound]
+'Frente20260910.chi_invariante_cinco' depends on axioms: [propext, Quot.sound]
+'Frente20260910.chi_no_invariante_dos' does not depend on any axioms
+'Frente20260910.chi_media_cero' does not depend on any axioms

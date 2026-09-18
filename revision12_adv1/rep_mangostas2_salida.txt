@@ -1,0 +1,25 @@
+A. EL MECANISMO (pasos 1 y 2 de la prueba), exhaustivo
+   paso 1: si 0<r<A, LOS DOS hijos tienen v2 exactamente r-1
+   paso 2: si 2^A|c, EXACTAMENTE UNO sigue divisible por 2^A
+           y el otro cae a v2 exactamente A-1
+   paso 1: 17066 casos, 0 fallos
+   paso 2: 21934 casos, 0 fallos
+
+B. (M2) CON COLAS EXACTAS: P(L>=A+s) <= 2^-s, igualdad si r=A
+   violaciones de la cota: 0    igualdades confirmadas en r=A: 125
+
+C. LA CORRECCION DEL EJEMPLO DE RACHA FORZADA
+   (2,1398101) --mixto bit 0--> (3,2097152) = 2^21: True
+   A = v2(26) = 1, luego r = min(21, 1) = 1 = A
+   cola exacta P(L>=j) = 2^(A-j) para j=2..16:
+     verificado j=2..16: True
+   por el mecanismo (verificado exhaustivamente en A), la cola es
+   geometrica exacta, luego P(L>=21) = 2^(1-21) = 2^-20.
+   [Mangostas dice exactamente 2^-20]  -> confirmado
+   bit compartido 1 inmediato: c=3145715, impar: True  (L=1)
+   la palabra de ceros realiza 21 pasos [la nota dice 21]
+
+D. (M4) CON COLAS EXACTAS
+   Amax=4   discrepancias en j=1..14: 0
+   (M5) C_cola = 11/4 = 2.750000
+   valor normalizado para j=Amax+1..Amax+5: {Fraction(11, 4)} -> constante e igual a C_cola: True

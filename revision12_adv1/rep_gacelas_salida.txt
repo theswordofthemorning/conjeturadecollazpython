@@ -1,0 +1,43 @@
+A. EL CONTRAEJEMPLO DE LA SECCION 1
+   [Gacelas: desde (2,0), S_4=12/16; de las 12 supervivientes,
+    ocho empiezan en bit 0 y cuatro en bit 1; P(bit0|tau>4)=2/3]
+   palabras supervivientes de 4 bits: 12 de 16  -> S_4 = 3/4
+   empiezan en bit 0: 8    en bit 1: 4
+   P(bit 0 | tau>4) = 2/3   [Q daria 1/2]
+   coincide con la nota: True
+
+B. (G2): S_t >= q_t = 2^-t C(t, floor(t/2)) >= 1/sqrt(2t+3)
+   c0        t   S_t         q_t         1/sqrt(2t+3)   ok
+   0          8  0.47656250  0.27343750  0.22941573     ok
+   0         16  0.30041504  0.19638062  0.16903085     ok
+   1          8  0.37500000  0.27343750  0.22941573     ok
+   1         16  0.26916504  0.19638062  0.16903085     ok
+   -1         8  0.33984375  0.27343750  0.22941573     ok
+   -1        16  0.24510193  0.19638062  0.16903085     ok
+   27         8  0.37109375  0.27343750  0.22941573     ok
+   27        16  0.26457214  0.19638062  0.16903085     ok
+   999983     8  0.31640625  0.27343750  0.22941573     ok
+   999983    16  0.24501038  0.19638062  0.16903085     ok
+   -1398101   8  0.33593750  0.27343750  0.22941573     ok
+   -1398101  16  0.25729370  0.19638062  0.16903085     ok
+   fallos en 6 semillas x t=1..16: 0
+
+C. LA IDENTIDAD DE BALOTA:  (2m+1)^2(4m+5) - (2m+2)^2(4m+1) = 1
+   m=0..4999: discrepancias = 0
+   a_m >= 1/sqrt(4m+1) para m=0..2999: fallos = 0
+   q_2m = a_m  y  q_(2m+1) = a_(m+1), m=0..299: fallos = 0
+
+D. LAS PROBABILIDADES DE Q (h-transform con h=k-1)
+   suma 1 y no negativas para k=2..39: True
+   desde k=2 la bajada tiene probabilidad 0 -> cero: True
+
+E. LA IDENTIDAD AFIN  u' = A u + delta,  A=1/2 (bit0), 3/2 (bit1)
+   15516 transiciones: A siempre 1/2 o 3/2 y delta con la forma prevista; fallos = 0
+
+F. LOS CERTIFICADOS DE (G4)-(G5), en enteros exactos
+   4*sqrt(3) < 7  <=>  48 < 49 : True
+   (15/16)/(31/32) = 30/31 : True
+   30/31 < (61/62)^2 : True   (diferencia = 1/3844)
+   61^2(2T+5) <= 62^2(2T+3) desde T = 29  [la nota dice 29]
+   f(1024)^2 = 124^2 (61/62)^2048 * 2051 <= 1 : True   (vale 1.087e-07)
+   luego 62(61/62)^T <= (1/2)/sqrt(2T+3) para todo T>=1024.

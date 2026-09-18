@@ -1,0 +1,38 @@
+celdas registradas = 234
+
+A. LA IDENTIDAD (C), EXACTA, EN LAS 234 CELDAS
+   fallos de (C)                 = 0
+   fallos de las dos formas de H = 0
+
+B. RANGO DE H/E   [Castoras.md afirma 0,038917 a 0,266228]
+   min = 0.038917   max = 0.266228
+   H/E > 0 en todas: True
+
+C. TENDENCIA DE H/E EN EL TIEMPO (lo que la nota NO reporta)
+   t : min H/E   max H/E   media   |  min(1/2 - e'/E)
+  12 :  0.116086  0.220087  0.174814  |  0.120184
+  13 :  0.113722  0.229598  0.177899  |  0.117295
+  14 :  0.118583  0.234896  0.171766  |  0.122353
+  15 :  0.100875  0.235508  0.164625  |  0.103688
+  16 :  0.084157  0.229008  0.153282  |  0.086413
+  17 :  0.050954  0.235020  0.148746  |  0.052243
+  18 :  0.063039  0.244674  0.143265  |  0.064590
+  19 :  0.038917  0.246224  0.153036  |  0.039834
+  20 :  0.045017  0.214979  0.128299  |  0.045907
+  21 :  0.078578  0.232171  0.149083  |  0.080042
+  22 :  0.071297  0.236360  0.140002  |  0.072615
+  23 :  0.078817  0.266228  0.141127  |  0.080192
+  24 :  0.042741  0.251775  0.158075  |  0.043598
+
+D. TENDENCIA POR ARRANQUE: peor H/E de cada t
+   c0=999983       t=12: 0.172723   t=18: 0.112392   t=24: 0.069509   cociente 24/12 = 0.402
+   c0=1398101      t=12: 0.116086   t=18: 0.063039   t=24: 0.081484   cociente 24/12 = 0.702
+   c0=999999937    t=12: 0.150660   t=18: 0.088155   t=24: 0.042741   cociente 24/12 = 0.284
+
+E. FRACCION N0-N1 DENTRO DE Delta, EN LAS CELDAS m=8
+   [Castoras.md afirma entre ~17,7% y ~25,6%]
+   celdas m=8 = 39   min = 17.7200%   max = 25.6189%
+
+F. CONTROL DE SIGNOS  [la nota afirma Q,sU,Delta >= 0; R puede ser <0]
+   celdas con Q<0 = 0  sU<0 = 0  Delta<0 = 0  R<0 = 38
+   s <= 1/2 en todas: True

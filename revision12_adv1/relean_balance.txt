@@ -1,0 +1,19 @@
+'BalanceCorrientes.varianza_cuatro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.separar_paridad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.balance_global' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.margen_medio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.contraccion_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.testigo_entrada' depends on axioms: [propext, Quot.sound]
+'BalanceCorrientes.testigo_salida_dos' depends on axioms: [propext, Quot.sound]
+'BalanceCorrientes.testigo_salida_tres' depends on axioms: [propext, Quot.sound]
+'BalanceCorrientes.testigo_masas' does not depend on any axioms
+'BalanceCorrientes.testigo_soporte' does not depend on any axioms
+'BalanceCorrientes.testigo_exceso_padre' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.testigo_exceso_hija' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.testigo_aumenta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.testigo_cociente' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BalanceCorrientes.testigo_equilibrado_entrada' depends on axioms: [propext, Quot.sound]
+'BalanceCorrientes.testigo_equilibrado_dos' depends on axioms: [propext, Quot.sound]
+'BalanceCorrientes.testigo_equilibrado_tres' depends on axioms: [propext, Quot.sound]
+'BalanceCorrientes.testigo_equilibrado_masas' does not depend on any axioms
+'BalanceCorrientes.testigo_equilibrado_excesos' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,17 @@
+A. LA LEY DE PASO CONTRA PARES ENTEROS REALES
+   (v, w=3^k v + c) -> (T v, T w), se lee el nuevo (k', c')
+   casos probados = 1439748   fallos = 0
+
+B. QUE EL BIT ES LA PARIDAD DEL ANCLA, NO LA DE c
+   se reintenta la misma comprobacion usando bit = c %% 2:
+   con bit = paridad de c: 53559 fallos de 118917 casos
+   (debe fallar masivamente: confirma que el bit es el del ANCLA)
+
+C. LA SALIDA: k=1 SIGNIFICA QUE LA EXCURSION TERMINA
+   desde (k=2, c impar) con ancla impar el nuevo k es 1;
+   comprobado arriba en cada uno de esos casos.
+   ramas de salida enumeradas en el barrido A: k=2, c impar,
+   v impar; ninguna otra combinacion produce k=1.
+
+D. NINGUNA OTRA RAMA MUERE
+   ramas con k'<2 saliendo de k>=3: 0  (debe ser 0)

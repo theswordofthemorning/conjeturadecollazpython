@@ -1,0 +1,42 @@
+c0 = 1
+ t  estados   S_t>=1/(t+1)  EX=1  EX2<=t+1  EX4<=(t+1)(3t+1)  EU<=|c0|/9+t/2  A_t>=1/(4D_t)
+  0        1      ok        ok     ok        ok              ok              ok
+  1        1      ok        ok     ok        ok              ok              ok
+  2        2      ok        ok     ok        ok              ok              ok
+  3        4      ok        ok     ok        ok              ok              ok
+  4        8      ok        ok     ok        ok              ok              ok
+  5       15      ok        ok     ok        ok              ok              ok
+  6       25      ok        ok     ok        ok              ok              ok
+  7       47      ok        ok     ok        ok              ok              ok
+  8       81      ok        ok     ok        ok              ok              ok
+  9      137      ok        ok     ok        ok              ok              ok
+ 10      217      ok        ok     ok        ok              ok              ok
+ 11      345      ok        ok     ok        ok              ok              ok
+ 12      534      ok        ok     ok        ok              ok              ok
+ 13      846      ok        ok     ok        ok              ok              ok
+ 14     1312      ok        ok     ok        ok              ok              ok
+ 15     2024      ok        ok     ok        ok              ok              ok
+ 16     3154      ok        ok     ok        ok              ok              ok
+ 17     4914      ok        ok     ok        ok              ok              ok
+ 18     7620      ok        ok     ok        ok              ok              ok
+ 19    11786      ok        ok     ok        ok              ok              ok
+ 20    18302      ok        ok     ok        ok              ok              ok
+ 28   590042      ok        ok     ok        ok              ok              ok
+
+EL COCIENTE EN ESCALA  A_{t+1}/(2 A_t)
+[Erizas: aprox 0,450422 en 19->20 y 0,469286 en 27->28]
+   0 ->  1 : 0.500000
+   5 ->  6 : 0.375000
+  10 -> 11 : 0.351337
+  15 -> 16 : 0.426090
+  17 -> 18 : 0.441317
+  18 -> 19 : 0.445981
+  19 -> 20 : 0.450422   <-- Erizas dice 0.450422
+  20 -> 21 : 0.453332
+  21 -> 22 : 0.456254
+  22 -> 23 : 0.459027
+  23 -> 24 : 0.462012
+  24 -> 25 : 0.464074
+  25 -> 26 : 0.466016
+  26 -> 27 : 0.467700
+  27 -> 28 : 0.469286   <-- Erizas dice 0.469286

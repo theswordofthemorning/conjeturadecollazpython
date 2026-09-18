@@ -1,0 +1,39 @@
+A. COMPONENTES COMUNES (reproduccion independiente)
+   m : comp(3,5) comp(2,3)   [LEEME afirma 2 y 1]
+   m= 2:    2         1       ok
+   m= 3:    2         1       ok
+   m= 4:    2         1       ok
+   m= 5:    2         1       ok
+   m= 6:    2         1       ok
+   m= 7:    2         1       ok
+   m= 8:    2         1       ok
+   m= 9:    2         1       ok
+   m=10:    2         1       ok
+   m=11:    2         1       ok
+   m=12:    2         1       ok
+
+B. IDENTIDAD DE TRASLACION  tau_2(tau_3^{-1}(x)) == x+9 (mod 2^m)
+   identidades comprobadas = 8188   fallos = 0   [LEEME afirma 8188]
+
+C. chi = (1,-1,-1,1) mod 4 : invariancias (exacto, enteros)
+   m= 2: inv_tau3=True  inv_tau5=True  inv_tau2=False  suma=0
+   m=12: inv_tau3=True  inv_tau5=True  inv_tau2=False  suma=0
+
+D. ENERGIA  ||M2 chi||^2 / ||chi||^2   con M_k=(I+P_k)/2  (Fraction)
+   m= 2: 2/4 = 1/2   [LEEME afirma 1/2]
+   m= 3: 4/8 = 1/2   [LEEME afirma 1/2]
+   m= 4: 8/16 = 1/2   [LEEME afirma 1/2]
+   m= 5: 16/32 = 1/2   [LEEME afirma 1/2]
+   m= 6: 32/64 = 1/2   [LEEME afirma 1/2]
+   m= 7: 64/128 = 1/2   [LEEME afirma 1/2]
+   m= 8: 128/256 = 1/2   [LEEME afirma 1/2]
+
+E. NORMA ESPECTRAL DE M2 M3 EN MEDIA CERO (medicion flotante)
+   LEEME: 0.707107 0.707107 0.809017 0.859923 0.893467 0.912601 0.931140 para m=2..8
+   m= 2: ||M2M3||=0.707106781187   ||M3M2||=0.707106781187
+   m= 3: ||M2M3||=0.707106781187   ||M3M2||=0.707106781187
+   m= 4: ||M2M3||=0.809016994375   ||M3M2||=0.809016994375
+   m= 5: ||M2M3||=0.859922664586   ||M3M2||=0.859922664586
+   m= 6: ||M2M3||=0.893466768280   ||M3M2||=0.893466768280
+   m= 7: ||M2M3||=0.912600660726   ||M3M2||=0.912600660726
+   m= 8: ||M2M3||=0.931140314243   ||M3M2||=0.931140314243

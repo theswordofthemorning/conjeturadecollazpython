@@ -31,7 +31,8 @@ En una excursión se parte de `(2,c0)` con bits justos independientes;
   uniforme en c0. Controla una excursión interior, no los tramos de frontera.
 - **Erizas:** descarta contracción uniforme en todas las escalas y tiempos
   grandes, incluso L2 en todo un sector lineal. Escala fija no queda descartada.
-- La revisión local 12 existe; su reloj O(n) usa una media medida y no se
+- La [revisión 12](revision12_adv1/acta_revision12.md) se archiva íntegra;
+  su reloj O(n) usa una media medida y no se
   adopta. Los argumentos probabilísticos no están íntegramente formalizados.
 - Ni `p_i→0` implica absorción incompleta ni momentos a tiempo fijo se
   trasladan automáticamente a salida condicionada. El cambio armónico
