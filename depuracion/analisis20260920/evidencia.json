@@ -1,0 +1,143 @@
+{
+  "fecha": "2026-09-20",
+  "commit_base": "a0bf045",
+  "alcance": "Análisis estático general y revisión dirigida; no recertificación de todo el histórico.",
+  "inventario": {
+    "archivos": 716,
+    "python": 210,
+    "lineas_python": 55064,
+    "lean": 78,
+    "json": 34,
+    "python_con_bucles_with_try_globales": 181,
+    "python_sin_guardia_main": 184
+  },
+  "estatica": {
+    "errores_sintaxis_python": 0,
+    "errores_json": 0,
+    "enlaces_locales_comprobados": 35,
+    "destinos_inexistentes": 0,
+    "anclas_comprobadas": false
+  },
+  "controles_adicionales": [
+    {
+      "comando": "python -B -X utf8 depuracion/coherencia20260913/verificar_motor.py",
+      "codigo": 0,
+      "resumen": "Topes, dominio, prefijo, CLI y 1001 trayectorias clásicas."
+    },
+    {
+      "comando": "python -B -X utf8 depuracion/coherencia20260913/verificar_registro.py",
+      "codigo": 0,
+      "resumen": "Registro 2026-09-17 coincide; atomicidad e idempotencia comprobadas con temporales."
+    },
+    {
+      "comando": "python -B -X utf8 depuracion/coherencia20260913/verificar_matematica.py",
+      "codigo": 0,
+      "resumen": "Garner, puertas con signo, densidad, riesgos, reloj, ajuste y estratos n<=13."
+    },
+    {
+      "comando": "python -B -X utf8 depuracion/frente20260910/transferencia.py",
+      "codigo": 0,
+      "resumen": "5680 pasos, balota hasta 200, cola hasta 400, umbral 1024, 1536 palabras; P/Q hasta 16 para seis semillas."
+    }
+  ],
+  "version_lean": "Lean 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c",
+  "salidas_print_axioms": 71,
+  "lean": [
+    {
+      "archivo": "cadenakc.lean",
+      "codigo": 0,
+      "salida": "'ley_N1' depends on axioms: [propext, Quot.sound]\n'ley_N2' depends on axioms: [propext, Quot.sound]\n'ley_N3' depends on axioms: [propext, Quot.sound]\n'ley_N4' depends on axioms: [propext, Quot.sound]\n'ley_moneda' depends on axioms: [propext, Quot.sound]\n'vortice_fusion' depends on axioms: [propext, Quot.sound]\n'ley_F4' depends on axioms: [propext, Quot.sound]\n'piso_impar' depends on axioms: [propext, Quot.sound]\n"
+    },
+    {
+      "archivo": "cabras.lean",
+      "codigo": 0,
+      "salida": "'paso_puerta' depends on axioms: [propext, Quot.sound]\n'camino_puerta' depends on axioms: [propext, Quot.sound]\n'cabras' depends on axioms: [propext, Quot.sound]\n'torre_sin_ceros' depends on axioms: [propext, Quot.sound]\n'caso_ida_clase' depends on axioms: [propext, Quot.sound]\n"
+    },
+    {
+      "archivo": "conejas.lean",
+      "codigo": 0,
+      "salida": "'peldano' depends on axioms: [propext, Quot.sound]\n'escalera' depends on axioms: [propext, Quot.sound]\n'tres_mod4' depends on axioms: [propext, Quot.sound]\n'conejas' depends on axioms: [propext, Quot.sound]\n'separados_antes' depends on axioms: [propext, Quot.sound]\n'caso_valores' does not depend on any axioms\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/invariantes.lean",
+      "codigo": 0,
+      "salida": "'Frente20260910.invariantes_comunes_constantes' depends on axioms: [propext, Quot.sound]\n'Frente20260910.chi_invariante_tres' depends on axioms: [propext, Quot.sound]\n'Frente20260910.chi_invariante_cinco' depends on axioms: [propext, Quot.sound]\n'Frente20260910.chi_no_invariante_dos' does not depend on any axioms\n'Frente20260910.chi_media_cero' does not depend on any axioms\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/balance.lean",
+      "codigo": 0,
+      "salida": "'BalanceCorrientes.varianza_cuatro' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.separar_paridad' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.balance_global' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.margen_medio' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.contraccion_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.testigo_entrada' depends on axioms: [propext, Quot.sound]\n'BalanceCorrientes.testigo_salida_dos' depends on axioms: [propext, Quot.sound]\n'BalanceCorrientes.testigo_salida_tres' depends on axioms: [propext, Quot.sound]\n'BalanceCorrientes.testigo_masas' does not depend on any axioms\n'BalanceCorrientes.testigo_soporte' does not depend on any axioms\n'BalanceCorrientes.testigo_exceso_padre' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.testigo_exceso_hija' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.testigo_aumenta' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.testigo_cociente' depends on axioms: [propext, Classical.choice, Quot.sound]\n'BalanceCorrientes.testigo_equilibrado_entrada' depends on axioms: [propext, Quot.sound]\n'BalanceCorrientes.testigo_equilibrado_dos' depends on axioms: [propext, Quot.sound]\n'BalanceCorrientes.testigo_equilibrado_tres' depends on axioms: [propext, Quot.sound]\n'BalanceCorrientes.testigo_equilibrado_masas' does not depend on any axioms\n'BalanceCorrientes.testigo_equilibrado_excesos' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/obstruccion.lean",
+      "codigo": 0,
+      "salida": "'Erizas.paso_primero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.paso_segundo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.paso_cuarto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.segundo_acumulado' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.cuarto_acumulado' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.u_acumulado' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.presupuesto_colas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.identidad_escala' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Erizas.obstruccion_finita' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/rachas.lean",
+      "codigo": 0,
+      "salida": "'Mangostas.hijos_altos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Mangostas.paridades_altas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Mangostas.factor_par' depends on axioms: [propext, Quot.sound]\n'Mangostas.factor_impar' depends on axioms: [propext, Quot.sound]\n'Mangostas.hijos_bajos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Mangostas.paridades_bajas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Mangostas.conteo_bajo' depends on axioms: [propext, Quot.sound]\n'Mangostas.conteo_alto' depends on axioms: [propext, Quot.sound]\n'Mangostas.adversarial_entrada' does not depend on any axioms\n'Mangostas.adversarial_salida_rapida' does not depend on any axioms\n'Mangostas.adversarial_cuenta' does not depend on any axioms\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/transferencia.lean",
+      "codigo": 0,
+      "salida": "'Gacelas.masa_armonica' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Gacelas.pesos_mixtos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Gacelas.certificado_balota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Gacelas.certificado_raiz' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Gacelas.certificado_exponencial' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Gacelas.cola_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Gacelas.cola_inicial' does not depend on any axioms\n'Gacelas.sesgo_compartido' does not depend on any axioms\n"
+    }
+  ],
+  "python": [
+    {
+      "archivo": "depuracion/frente20260910/balance.py",
+      "codigo": 0,
+      "salida": "CONTROL: 5680 pasos contra pares enteros positivos: OK\r\nTESTIGO SINTETICO k=2, m=2: n(0)=4; n(1)=n(3)=n(5)=n(7)=3.\r\n  e_padre=5/8, e_hija=6/5, rho=48/25; s=3/8, Q=1/4, R=-3/8, Delta=0.\r\n  Ley arbitraria: no se afirma que sea alcanzable desde una semilla.\r\nCONTROLES: 20 leyes sinteticas, incluyendo grupos vacios y piso cero: OK.\r\nTESTIGO EQUILIBRADO k=2, m=2: n(0)=n(1)=1; e_padre=e_hija=3;\r\n  Q=R=Delta=0: equilibrar la paridad no basta. Ley sintetica, no orbita.\r\nCOLUMNAS: rho; s; Q/e; R/e; salida/e; Delta/e; margen/e; cuota N0-N1 de Delta.\r\nc0=1 t=8 m=8: 0.343309 0.036458 0.001817 0.019281 0.033537 0.614572 0.150978 0.202930\r\nc0=1 t=12 m=8: 0.363669 0.041895 0.000398 0.021129 0.074536 0.555504 0.130619 0.213836\r\nc0=1 t=16 m=8: 0.375392 0.028685 0.000287 0.001212 0.074591 0.559286 0.121033 0.227784\r\nc0=1 t=20 m=8: 0.374262 0.022959 0.000164 0.001454 0.080362 0.552350 0.122851 0.234279\r\nc0=5 t=8 m=8: 0.349302 0.070000 0.000850 0.067735 0.043475 0.563089 0.140149 0.198020\r\nc0=5 t=12 m=8: 0.359333 0.043171 0.001062 0.040492 0.060901 0.553725 0.134594 0.215760\r\nc0=5 t=16 m=8: 0.372013 0.030800 0.000384 0.004662 0.074354 0.560046 0.124045 0.229285\r\nc0=5 t=20 m=8: 0.374895 0.023158 0.000209 0.001575 0.080585 0.551417 0.122208 0.233496\r\nc0=999983 t=8 m=8: 0.297484 0.055556 0.002105 0.187544 0.036006 0.493388 0.191265 0.172438\r\nc0=999983 t=12 m=8: 0.307802 0.021095 0.001646 0.037223 0.035407 0.624416 0.188144 0.193339\r\nc0=999983 t=16 m=8: 0.394662 0.023603 0.000604 -0.000371 0.063083 0.551338 0.102852 0.212945\r\nc0=999983 t=20 m=8: 0.368268 0.019376 0.000309 0.000160 0.082656 0.555743 0.129180 0.242112\r\nc0=999999937 t=8 m=8: 0.325924 0.068421 0.001854 0.074708 0.043162 0.576652 0.162165 0.259903\r\nc0=999999937 t=12 m=8: 0.322213 0.035658 0.000497 0.000111 0.042457 0.646211 0.171447 0.177200\r\nc0=999999937 t=16 m=8: 0.393811 0.026114 0.000565 0.008726 0.060286 0.546896 0.103416 0.218637\r\nc0=999999937 t=20 m=8: 0.369791 0.022303 0.000136 0.000132 0.079431 0.558757 0.127304 0.210191\r\nc0=1398101 t=8 m=8: 0.366599 0.043011 0.000553 0.003866 0.063534 0.581216 0.127663 0.242595\r\nc0=1398101 t=12 m=8: 0.351615 0.034091 0.000327 0.003674 0.072035 0.584337 0.143327 0.214227\r\nc0=1398101 t=16 m=8: 0.347309 0.026695 0.000290 -0.000611 0.068064 0.594219 0.148615 0.229113\r\nc0=1398101 t=20 m=8: 0.399088 0.021820 0.000761 0.000505 0.080757 0.527597 0.098710 0.204494\r\nFIN: 200 balances exactos; 0 cruces de rho >= 1/2.\r\n  q/e en [0.000024, 0.538319]; testigos (c0,t,m)=((999999937, 20, 10), (999983, 12, 1)).\r\n  r/e en [-0.047203, 0.195716]; testigos (c0,t,m)=((1398101, 8, 3), (999983, 8, 5)).\r\n  salida/e en [0.000000, 0.112176]; testigos (c0,t,m)=((5, 8, 1), (999983, 20, 4)).\r\n  delta/e en [0.282889, 0.785820]; testigos (c0,t,m)=((999983, 12, 1), (999999937, 12, 2)).\r\n  margen/e en [0.045017, 0.435028]; testigos (c0,t,m)=((999983, 20, 10), (999999937, 16, 1)).\r\nIdentidades comprobadas; margenes medidos, sin teorema de contraccion ni revision ciega.\r\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/invariantes.py",
+      "codigo": 0,
+      "salida": "EXACTO: componentes comunes (3,5) frente a (2,3)\r\n  m= 2: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m= 3: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m= 4: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m= 5: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m= 6: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m= 7: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m= 8: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m= 9: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m=10: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m=11: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\n  m=12: componentes=2,1; energia(M2 chi)/energia(chi)=1/2\r\nCONTROL: 8188 identidades de traslacion: OK\r\nMEDICION SVD: norma en media cero de M2 M3; no uniforme en m\r\n  m=2: 0.707106781187\r\n  m=3: 0.707106781187\r\n  m=4: 0.809016994375\r\n  m=5: 0.859922664586\r\n  m=6: 0.893466768280\r\n  m=7: 0.912600660726\r\n  m=8: 0.931140314243\r\nFIN: control exacto y SVD separados; no prueba rho_cond < 1/2.\r\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/obstruccion.py",
+      "codigo": 0,
+      "salida": "CONTROL: 5680 pasos contra pares enteros positivos: OK\r\nCONTROL: 858 estados, cuatro cotas locales; 10000 raices enteras: OK.\r\nDecimales solo para presentar; todas las comparaciones usan enteros/Fraction.\r\nc0=-5 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000\r\nc0=-5 t=4 estados=8 S=0.500000 A=0.375000000 rho_lim_m=0.375000000 h=7 caja_masa=1.000000\r\nc0=-5 t=8 estados=79 S=0.355469 A=0.088768584 rho_lim_m=0.345211161 h=10 caja_masa=1.000000\r\nc0=-5 t=12 estados=604 S=0.299561 A=0.021756777 rho_lim_m=0.363117867 h=13 caja_masa=1.000000\r\nc0=-5 t=16 estados=3778 S=0.260422 A=0.009748682 rho_lim_m=0.424563417 h=16 caja_masa=1.000000\r\nc0=-5 t=20 estados=22137 S=0.235098 A=0.006003278 rho_lim_m=0.451329138 h=19 caja_masa=1.000000\r\n  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.\r\nc0=0 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000\r\nc0=0 t=4 estados=12 S=0.750000 A=0.166666667 rho_lim_m=0.666666667 h=7 caja_masa=1.000000\r\nc0=0 t=8 estados=60 S=0.476562 A=0.105159151 rho_lim_m=0.389909999 h=10 caja_masa=1.000000\r\nc0=0 t=12 estados=321 S=0.371094 A=0.037313330 rho_lim_m=0.395615466 h=13 caja_masa=1.000000\r\nc0=0 t=16 estados=1866 S=0.300415 A=0.017087544 rho_lim_m=0.418972402 h=16 caja_masa=1.000000\r\nc0=0 t=20 estados=10952 S=0.261508 A=0.009402353 rho_lim_m=0.437295735 h=19 caja_masa=1.000000\r\n  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.\r\nc0=1 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000\r\nc0=1 t=4 estados=8 S=0.500000 A=0.375000000 rho_lim_m=0.250000000 h=7 caja_masa=1.000000\r\nc0=1 t=8 estados=81 S=0.375000 A=0.077479658 rho_lim_m=0.356600935 h=10 caja_masa=1.000000\r\nc0=1 t=12 estados=534 S=0.311768 A=0.022885852 rho_lim_m=0.396847448 h=13 caja_masa=1.000000\r\nc0=1 t=16 estados=3154 S=0.269165 A=0.010455342 rho_lim_m=0.426089880 h=16 caja_masa=1.000000\r\nc0=1 t=20 estados=18302 S=0.241755 A=0.006486619 rho_lim_m=0.450421540 h=19 caja_masa=1.000000\r\n  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.\r\nc0=5 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000\r\nc0=5 t=4 estados=7 S=0.437500 A=0.571428571 rho_lim_m=0.380952381 h=7 caja_masa=1.000000\r\nc0=5 t=8 estados=78 S=0.390625 A=0.089172414 rho_lim_m=0.357618534 h=10 caja_masa=1.000000\r\nc0=5 t=12 estados=538 S=0.311035 A=0.026476961 rho_lim_m=0.386630188 h=13 caja_masa=1.000000\r\nc0=5 t=16 estados=3376 S=0.267273 A=0.011610971 rho_lim_m=0.418590234 h=16 caja_masa=1.000000\r\nc0=5 t=20 estados=20656 S=0.239140 A=0.006772316 rho_lim_m=0.445358179 h=19 caja_masa=0.999996\r\n  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.\r\nc0=999983 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000\r\nc0=999983 t=4 estados=6 S=0.375000 A=0.666666667 rho_lim_m=0.500000000 h=7 caja_masa=1.000000\r\nc0=999983 t=8 estados=78 S=0.316406 A=0.103709048 rho_lim_m=0.311127144 h=10 caja_masa=1.000000\r\nc0=999983 t=12 estados=812 S=0.271973 A=0.014612547 rho_lim_m=0.322848835 h=13 caja_masa=1.000000\r\nc0=999983 t=16 estados=6981 S=0.245010 A=0.003399216 rho_lim_m=0.369418740 h=16 caja_masa=1.000000\r\nc0=999983 t=20 estados=52066 S=0.224715 A=0.001538114 rho_lim_m=0.424752063 h=19 caja_masa=1.000000\r\n  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.\r\nc0=1398101 t=0 estados=1 S=1.000000 A=1.000000000 rho_lim_m=- h=2 caja_masa=1.000000\r\nc0=1398101 t=4 estados=7 S=0.437500 A=0.571428571 rho_lim_m=0.380952381 h=7 caja_masa=1.000000\r\nc0=1398101 t=8 estados=91 S=0.363281 A=0.055811572 rho_lim_m=0.267895545 h=10 caja_masa=1.000000\r\nc0=1398101 t=12 estados=900 S=0.300781 A=0.010302023 rho_lim_m=0.341806194 h=13 caja_masa=1.000000\r\nc0=1398101 t=16 estados=6531 S=0.265503 A=0.003094408 rho_lim_m=0.395031785 h=16 caja_masa=1.000000\r\nc0=1398101 t=20 estados=42750 S=0.240320 A=0.001534513 rho_lim_m=0.430158942 h=19 caja_masa=1.000000\r\n  OK: 21 leyes; momentos, supervivencia, caja y colision exactos.\r\nFIN: controles terminados; prueba asintotica escrita en Erizas.md, no barrido universal.\r\n"
+    },
+    {
+      "archivo": "depuracion/frente20260910/rachas.py",
+      "codigo": 0,
+      "salida": "CONTROL: 5680 pasos contra pares enteros positivos: OK\r\nCONTROL: 33371 celdas (k=2..16, signos, cero, recargas y alturas grandes): OK.\r\nCONTROL: 16 arranques x 1024 palabras, por pares positivos: OK.\r\nADV: tras bit 0, h=2^21 a k=3; P(L>=21)=1/1048576, NO 1.\r\nMEZCLA: condicionada a c impar ahora y a la proxima rama mixta viva;\r\nno condicionada a supervivencia futura; fracciones exactas, sin filtro de granularidad.\r\nc0=1 t=8 entradas=89 Amax=5 C_cola=76/89 (~0.853933) max_C_j=1.033708 en j=3\r\nc0=1 t=12 entradas=1197 Amax=5 C_cola=1168/1197 (~0.975773) max_C_j=1.035923 en j=3\r\nc0=1 t=16 entradas=16914 Amax=5 C_cola=8473/8457 (~1.001892) max_C_j=1.001892 en j=5\r\nc0=1 t=20 entradas=243366 Amax=6 C_cola=121091/121683 (~0.995135) max_C_j=1.000855 en j=3\r\nc0=5 t=8 entradas=94 Amax=5 C_cola=33/47 (~0.702128) max_C_j=0.829787 en j=1\r\nc0=5 t=12 entradas=1228 Amax=5 C_cola=279/307 (~0.908795) max_C_j=0.934853 en j=3\r\nc0=5 t=16 entradas=16833 Amax=6 C_cola=5432/5611 (~0.968098) max_C_j=0.991386 en j=3\r\nc0=5 t=20 entradas=241502 Amax=6 C_cola=119054/120751 (~0.985946) max_C_j=0.996613 en j=3\r\nc0=999983 t=8 entradas=81 Amax=5 C_cola=62/81 (~0.765432) max_C_j=0.962963 en j=4\r\nc0=999983 t=12 entradas=1023 Amax=5 C_cola=944/1023 (~0.922776) max_C_j=1.024438 en j=1\r\nc0=999983 t=16 entradas=15404 Amax=5 C_cola=7657/7702 (~0.994157) max_C_j=0.994157 en j=5\r\nc0=999983 t=20 entradas=224991 Amax=6 C_cola=8470/8333 (~1.016441) max_C_j=1.016583 en j=5\r\nc0=1398101 t=8 entradas=82 Amax=4 C_cola=36/41 (~0.878049) max_C_j=0.975610 en j=1\r\nc0=1398101 t=12 entradas=1146 Amax=5 C_cola=202/191 (~1.057592) max_C_j=1.057592 en j=5\r\nc0=1398101 t=16 entradas=16575 Amax=5 C_cola=16396/16575 (~0.989201) max_C_j=0.995958 en j=3\r\nc0=1398101 t=20 entradas=242147 Amax=6 C_cola=237520/242147 (~0.980892) max_C_j=0.988970 en j=1\r\nFIN: ley de una racha verificada; los prefactores de mezclas son mediciones finitas.\r\n"
+    }
+  ],
+  "testigo_desbordamiento": {
+    "archivo": "clasesparalelo.py",
+    "funcion": "salto_y_paridad",
+    "k": 40,
+    "residuo": "1099511627775",
+    "resultado_numpy": "-3983235605438928864",
+    "resultado_entero": "12157665459056928800",
+    "metodo_independiente": "40 iteraciones del mapa atajo con enteros Python; 3**40-1.",
+    "k_control_coincidentes": [
+      1,
+      2,
+      3,
+      32,
+      39
+    ]
+  },
+  "bases": {
+    "afirmaciones": 216,
+    "correcciones": 85,
+    "constantes": 20,
+    "nodos": 52,
+    "dependencias": 84,
+    "claves_actuales": 8,
+    "mensajes": 1957,
+    "hilos": 11,
+    "pasos_hilos": 1111
+  },
+  "no_ejecutado": [
+    "Generador guardarhilos.py",
+    "Censos grandes históricos",
+    "Otros 70 Lean",
+    "Lectura de transcripciones ZIP",
+    "Consulta remota de OEIS"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "alcance": "Contrastes finitos independientes de Lean; no prueba global.",
+  "hormigas": {
+    "gaps": 2063,
+    "viajes": 8221,
+    "bloques": 2063,
+    "offsets": 4127,
+    "mayor_palabra": 1180
+  },
+  "relevo": {
+    "horizontes_salida": [
+      0,
+      6
+    ],
+    "presupuestos_explicitados": {
+      "1": 5,
+      "2": 5,
+      "3": 5
+    },
+    "casos": 147,
+    "interpretacion": "piso de primera salida buena multiplicado por 2^-D"
+  },
+  "horizonte_fijo": [
+    {
+      "m": 10,
+      "W_m": 2154318682768,
+      "ell_fijo": 41,
+      "D_m": 250000,
+      "z_fijo": -250047,
+      "alcance": "aritmetica de una posible variante global; no prueba su protocolo"
+    },
+    {
+      "m": 1000,
+      "W_m": 29302860586515520,
+      "ell_fijo": 55,
+      "D_m": 440896,
+      "z_fijo": -439974,
+      "alcance": "aritmetica de una posible variante global; no prueba su protocolo"
+    },
+    {
+      "m": 1000000,
+      "W_m": 41372628554613904083520,
+      "ell_fijo": 76,
+      "D_m": 817216,
+      "z_fijo": 182675,
+      "alcance": "aritmetica de una posible variante global; no prueba su protocolo"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "alcance": "Contraste finito exacto de la interpretación; no prueba CF_H.",
+  "motor": "por_par: reconstrucción de dos enteros positivos, sin importar Lean",
+  "rachas": {
+    "alturas_k": [
+      2,
+      12
+    ],
+    "casos": 832,
+    "igualdades_cota": 189,
+    "evento": "al menos h pasos compartidos; no exige offset par después de h"
+  },
+  "reloj": {
+    "semillas": [
+      -2147483649,
+      -17,
+      -1,
+      0,
+      1,
+      2,
+      17,
+      2147483648
+    ],
+    "horizontes": [
+      0,
+      16
+    ],
+    "casos_M6": 280,
+    "casos_H3": 720,
+    "descomposiciones_evento": 2312
+  }
+}

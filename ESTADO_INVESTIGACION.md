@@ -1,79 +1,84 @@
-# Estado para continuar — 17-09-2026
+# Estado para continuar ? 20-09-2026, cierre del d?a
 
-**Objetivo:** `phi=lim a(n)/2^n=1`. P0, depuración local, terminó;
-P1–P3 siguen abiertos. La próxima tarea es **P1: completar el reloj global**.
-No hace falta releer la historia para empezar.
+**Investigaci?n pausada a petici?n del usuario.** Objetivo conservado:
+resolver Gao o avanzar hasta donde sea posible. **No se declara resuelta.**
+La ruta actual es [CF_F](depuracion/gao20260920/Ensayo_finito.md), basada
+en CF_H. Est?n certificados los ingredientes locales, las guardias y el
+conteo de ensayos. Falta conectar el reloj global con suficientes entradas
+admisibles. [Punto preciso de reinicio](depuracion/gao20260920/Guardias_finitas.md).
 
-## Objeto y límites que deben conservarse
+## Objeto y ley
 
-`T(x)=x/2` si es par, `(3x+1)/2` si es impar (A014682).
-`a(n)` cuenta clases módulo `2^n` que funden hasta n con igual conteo
-impar; nuevas en n: `a(n)-2a(n-1)`. OEIS usa `b(n)=a(n+1)-2a(n)`.
-El CLI usa el mapa **clásico**. Los pasos mixtos OEIS empiezan en 1.
+`T(x)=x/2` si es par, `(3x+1)/2` si es impar; C es el mapa cl?sico
+del CLI. `a(t)` cuenta clases m?dulo `2^t` que fusionan balanceadas
+hasta t; `phi=lim a(t)/2^t`. OEIS usa `b(t)=a(t+1)-2a(t)`.
+Para F, uni?n de esas clases, `densidad inferior(F)>=phi`; phi=1
+implicar?a densidad uno. Igual altura finita exige adem?s convergencia
+de la cola y control de primeras llegadas a 1.
 
-Para el conjunto F de fusiones balanceadas, `densidad inferior(F)>=phi`;
-la unión creciente no prueba `phi=d(F)`. Igual altura **finita** requiere
-convergencia y controlar primeras llegadas a 1. Pandas sólo da su
-implicación bajo terminación y `Res<3`. El nombre histórico «Gao–Wu» no
-sustituye estas hipótesis. La aprobación OEIS no demuestra la densidad.
+Cadena original absorbente, bits iid justos. Estado `{v,3^k*v+c}`;
+bit=paridad del ancla, no del menor. En k=0, gap positivo; en torre,
+c firmado. `(1,1)` con bit 1 absorbe. Desde `(2,c0)`, tau es primera
+llegada a k=1; sigma es fusi?n. Tiempo en pasos f?sicos del mapa atajo.
+No sustituir la ley por supervivencia condicionada o cadena rebotada.
 
-Cadena: núcleo `{v,3^k*v+c}` y frontera de gap positivo en k=0; el bit
-es paridad del **ancla**, no del menor. `(1,1)` con bit 1 absorbe clases.
-En una excursión se parte de `(2,c0)` con bits justos independientes;
-`tau` es la primera llegada a k=1, **no la fusión**.
+## Certificados disponibles
 
-## Base disponible y obstáculos
+- Momentos y m?ximo de magnitud de la cadena completa; desde `(0,1)`,
+  coste del m?ximo hasta h acotado por `66/h`.
+- Identidad af?n hasta tau, W prolongado multiplicativamente despu?s;
+  producto normalizado y m?ximos. No congelar W ni sustituir tiempo
+  determinista por tau dentro de una esperanza.
+- Supervivencia inferior `1/(t+1)`, cola de mixtos, rachas enteras y
+  [reloj M6/H3](depuracion/gao20260920/Reloj_bloques.md).
+- [VH uniforme](depuracion/gao20260920/Ventana_conjunta.md): par?metros
+  fijados por C para todos |c|<=|C|, salida buena con piso `1/(4Q)`.
+- Hormigas: palabra de fusi?n desde `(1,c)` de longitud
+  `<=16(ceil(log2(2+|c|))+1)^2`. La antigua constante 2,5 est? refutada.
+- EF: con `D=16(ceil(log2(G+2))+1)^2`, `W=H+D` y `p=2^-D/(4Q)`,
+  probabilidad de fusi?n antes de W al menos p, uniforme en el offset.
+- Protocolo guardado: j ensayos admitidos y fallidos tienen probabilidad
+  `<= (1-p)^j`. Cada bloque consume W bits y borra la marca de entrada
+  al reiniciar. La b?squeda admite s?lo entradas nuevas 1->2 con
+  |c|<=C y tiempo suficiente; se trunca en h.
 
-- **Mangostas:** ley exacta de rachas; reloj de n mixtos O(n log n).
-- **Gacelas:** supervivencia y control del producto. Con `u0=c0/9`,
-  `u_tau=Pi_tau*u0+W_tau`; falta controlar W en la salida.
-- **Corolario escrito:** `P_(2,c0)(tau>t)<=C sqrt(log(t+2)/(t+1))`,
-  uniforme en c0. Controla una excursión interior, no los tramos de frontera.
-- **Erizas:** descarta contracción uniforme en todas las escalas y tiempos
-  grandes, incluso L2 en todo un sector lineal. Escala fija no queda descartada.
-- La [revisión 12](revision12_adv1/acta_revision12.md) se archiva íntegra;
-  su reloj O(n) usa una media medida y no se
-  adopta. Los argumentos probabilísticos no están íntegramente formalizados.
-- Ni `p_i→0` implica absorción incompleta ni momentos a tiempo fijo se
-  trasladan automáticamente a salida condicionada. El cambio armónico
-  hacia delante no es la reversión ni el condicionamiento a supervivencia futura.
+## Primera obligaci?n al retomar
 
-## Siguiente trabajo y criterio de cierre
+`K_C(h)` cuenta entradas admisibles entre 0 y h, incluidos extremos.
+`ConteoEnsayos.lean` certifica para todos C,j,h:
 
-1. **P1:** abrir [Matematica.md, §3](depuracion/coherencia20260913/Matematica.md#3-corolario-del-reloj-de-mangostas-y-gacelas).
-   Especificar tiempos de entrada, salida y reinicio; añadir los tramos
-   k=0,1 al reloj interior. Contrastar las transiciones con `cadenakc.lean`.
-   Cierre: cota del reloj global con dominio y dependencia del arranque explícitos.
-2. **P2:** buscar M finito y p>0 uniformes tales que
-   `P(|W_tau|<=M | tau>T(c0))>=p`, para un horizonte declarado de orden
-   `log(2+|c0|)`. Cierre: prueba bajo la ley real o familia que refute
-   uniformidad. Detalle y pago del producto: la misma nota, §4.
-3. **P3:** controlar los arranques reales c_i y demostrar divergencia de
-   la suma de riesgos condicionales; ensamblar Markov fuerte y
-   Borel–Cantelli sin asumir la recurrencia buscada.
+    P(sigma>h) <= P(sigma>h y K_C(h)<1+j(W+2)) + (1-p)^j.
 
-Para ensayos P2: ambos signos, semillas pequeñas, potencias de 2 y 3 y
-vecinos, congruencias adversarias. Declarar horizonte y ventana; separar
-supervivencia, salida y censura. Una mediana marginal no basta.
+El primer t?rmino incluye supervivencia. Pr?ximo: formalizar, con
+`N=2^m`, `h=N^6`, `C_m=9h^4`, m>=10,
 
-## Registro y entrega
+    P(sigma>h y K_(C_m)(h)<N) <= 3/N+66/h+1/(4h^3).
 
-Catálogo: `afirmaciones.db`, 216 filas, registro 17-09; fuente vigente
-`depuracion/coherencia20260913/registro.json` + `guardarafirmaciones.py`.
-Los IDs de fichas antiguas no coinciden siempre con filas actuales:
-interpretar `depuracion/veredictos.jsonl` por enunciado literal.
-`respuestas.db`: 1.957 mensajes hasta 24-08; faltan fuentes de septiembre.
+Usar el presupuesto del [reloj global](depuracion/gao20260920/Reloj_global.md)
+y C5 de [CF_H](depuracion/gao20260920/Ventana_armonica.md): frontera,
+porciones incompletas y control de offsets antes de h. Despu?s aplicar
+`J_F=floor((N-1)/(W_m+2))`. CF_F sigue candidata; CF_H usaba D_m+2,
+no mezclar denominadores. Quedan el l?mite `J_F*p_m -> infinito` y el
+transporte a clases, escrito en [Cilindros](depuracion/gao20260920/Cilindros.md).
+El P2 antiguo de ventana constante para W sigue abierto.
 
-[Auditoría y controles](depuracion/coherencia20260913/LEEME.md): 24 controles
-pasaron, nueve Lean. El 17-09 se respondió a Irvine y luego a Howroyd y
-Marcus. A399819–A399821: **proposed**, revisiones #12/#13/#11; títulos
-directos, términos locales definidos y enlaces añadidos.
-[Análisis, respuestas y evidencia](depuracion/oeis20260917/ANALISIS_TARDE.md):
-las siete fichas cotejadas; control directo/simbólico 1..13; Conejas con
-Lean 4.32.2 sin `sorryAx`. Su encuentro es `(3^j-1)/4`, no el repunit previo.
-Correcciones de A398792–A398795 preparadas, **no enviadas**: OEIS bloqueó
-otra edición por tener tres pendientes. Enviarlas cuando haya cupo.
-P1–P3 siguen abiertos. Cierre: usuario solicita commit/push de ambos repos.
-[Procedimiento para dejar drafts propuestos](../zootheorem/drafts/PROCEDIMIENTO_OEIS.md);
-[publicación](../zootheorem/PLAN_INVESTIGACION.md).
-Al cerrar una pieza, actualizar esta ficha, registro y plan público (P4).
+Falta cotejar Gao primario (1993), cuyo proveedor bloque? el acceso.
+La atribuci?n secundaria de Lagarias no sustituye ese cotejo ni prueba
+Collatz. No contactar personas ni enviar OEIS/papers sin autorizaci?n.
+
+## Evidencia y conservaci?n
+
+Lean 4.32.2, Mathlib fijado: 157 consultas locales de axiomas en 22
+archivos sin `sorryAx`. [Compilaci?n y hashes](depuracion/gao20260920/evidencia_guardias_lean.json).
+Contrastes exactos independientes con Fraction; el ?ltimo protocolo
+pas? 24.564 casos y 528 comparaciones en una cadena auxiliar, h<=10.
+Son controles finitos, no pruebas universales.
+[Revisi?n completa](depuracion/gao20260920/REVISION.md).
+
+Registro: 228 afirmaciones; protocolo demostrado, CF_F conjeturada.
+Fuente versionada `depuracion/coherencia20260913/registro.json` y generador
+`guardarafirmaciones.py`. No reconstruir conversaciones ni alterar hist?ricos.
+Los [an?lisis previos](depuracion/analisis20260920/CONTINUIDAD.md) se conservan;
+su ruta P1?P3 precede este avance. zootheorem permanece intacto.
+Cierre solicitado: commit y push del laboratorio; reanudar desde la cota
+anterior, sin repetir censos caros ni la compilaci?n por rutina.

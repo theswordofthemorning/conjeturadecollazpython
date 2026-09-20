@@ -1,0 +1,101 @@
+{
+  "transiciones": 14024,
+  "cilindros": [
+    {
+      "nivel": 3,
+      "palabras": 8,
+      "fusiones": 1
+    },
+    {
+      "nivel": 4,
+      "palabras": 16,
+      "fusiones": 3
+    },
+    {
+      "nivel": 5,
+      "palabras": 32,
+      "fusiones": 8
+    },
+    {
+      "nivel": 6,
+      "palabras": 64,
+      "fusiones": 18
+    },
+    {
+      "nivel": 7,
+      "palabras": 128,
+      "fusiones": 39
+    },
+    {
+      "nivel": 8,
+      "palabras": 256,
+      "fusiones": 82
+    },
+    {
+      "nivel": 9,
+      "palabras": 512,
+      "fusiones": 170
+    },
+    {
+      "nivel": 10,
+      "palabras": 1024,
+      "fusiones": 351
+    },
+    {
+      "nivel": 11,
+      "palabras": 2048,
+      "fusiones": 721
+    },
+    {
+      "nivel": 12,
+      "palabras": 4096,
+      "fusiones": 1476
+    }
+  ],
+  "politica": {
+    "casos": 8265,
+    "max_longitud": 2658,
+    "bits_semilla_maxima": 1624
+  },
+  "rachas_k1": 910,
+  "palabras_w": 4096,
+  "parametros": [
+    {
+      "bits_c": 0,
+      "T": 1024,
+      "H": 31737280000,
+      "bits_G": 97
+    },
+    {
+      "bits_c": 1,
+      "T": 1024,
+      "H": 31737280000,
+      "bits_G": 97
+    },
+    {
+      "bits_c": 1,
+      "T": 1024,
+      "H": 31737280000,
+      "bits_G": 97
+    },
+    {
+      "bits_c": 33,
+      "T": 1056,
+      "H": 33749857792,
+      "bits_G": 97
+    },
+    {
+      "bits_c": 203,
+      "T": 6496,
+      "H": 1491230525952,
+      "bits_G": 111
+    },
+    {
+      "bits_c": 4097,
+      "T": 131104,
+      "H": 765645480537600,
+      "bits_G": 133
+    }
+  ],
+  "alcance": "Controles finitos exactos; no prueba universal del ensamblaje."
+}

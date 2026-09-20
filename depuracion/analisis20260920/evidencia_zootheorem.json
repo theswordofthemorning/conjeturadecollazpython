@@ -1,0 +1,133 @@
+{
+  "fecha": "2026-09-20",
+  "repositorio": "C:/Users/Home/Desktop/zootheorem",
+  "commit": "5e03432",
+  "alcance": "Análisis local, cuatro verificadores y certificado espejo. Sin recálculo de los rangos altos ni consulta OEIS en vivo.",
+  "inventario": {
+    "archivos": 40,
+    "markdown": 14,
+    "txt": 18,
+    "python": 4,
+    "json": 2,
+    "tsv": 1,
+    "lean": 1
+  },
+  "estatica": {
+    "python_validos": 4,
+    "json_validos": 2,
+    "enlaces_locales_fuera_archivo": 27,
+    "destinos_inexistentes": 0,
+    "anclas_validadas": false
+  },
+  "controles": [
+    {
+      "comando": "python -B -X utf8 verify/verify_merging_classes.py",
+      "codigo": 0,
+      "salida": "OK: a(1)..a(20) recomputed by brute force, all match.\r\nOK: b(n) = a(n+1) - 2a(n) is nonnegative for all stored terms\r\n    (the doubling theorem a(n+1) >= 2a(n) holds on the data).\r\n\r\nb(n) = a(n+1) - 2a(n), n = 1..35:\r\n[0, 1, 1, 2, 2, 3, 4, 6, 11, 19, 34, 60, 106, 190, 341, 623, 1148, 2124, 3963, 7451, 14072, 26699, 50913, 97379, 186769, 359164, 692079, 1336125, 2583668, 5002992, 9701007, 18831364, 36594031, 71181933, 138581314]\r\n"
+    },
+    {
+      "comando": "python -B -X utf8 verify/verify_q_family.py",
+      "codigo": 0,
+      "salida": "OK: q=5, a(1)..a(18) recomputed by brute force, all match.\r\nOK: q=7, a(1)..a(18) recomputed by brute force, all match.\r\n\r\nDensities at n = 22: q=5: 0.004387   q=7: 0.107272   (q=3 gives 0.409018)\r\n\r\nOK: (5x+3)/2 -- a(n) = 0 for n <= 14, as the obstruction theorem predicts.\r\nOK: (7x+3)/2 -- a(n) = 0 for n <= 14, as the obstruction theorem predicts.\r\nOK: (3x+5)/2 -- a(n) = 0 for n <= 14, as the obstruction theorem predicts.\r\n\r\nThe one-line criticality statement (see papers/02): writing each\r\nshared step under the fresh-bit law as c -> m*c, the\r\nmultiplier m is a fair coin on {1/2, q/2}, so E[m] = (1+q)/4.\r\nE[m] = 1 exactly iff q = 3: among all maps (qx+1)/2 the Collatz\r\ncase uniquely has mean shared-step multiplier one. This is not a density theorem.\r\n"
+    },
+    {
+      "comando": "python -B -X utf8 verify/verify_strata.py",
+      "codigo": 0,
+      "salida": "n e8 e10 e12\r\n1 0 0 0\r\n2 0 0 0\r\n3 0 0 0\r\n4 0 0 0\r\n5 0 0 0\r\n6 0 0 0\r\n7 0 0 0\r\n8 0 0 0\r\n9 1 0 0\r\n10 3 0 0\r\n11 7 1 0\r\n12 15 4 0\r\n13 27 12 1\r\n14 45 30 5\r\n15 73 65 18\r\n16 111 131 52\r\n17 166 247 134\r\n18 237 447 315\r\n19 330 761 681\r\n20 451 1242 1393\r\nn=9, k=8, r=65, meeting=11, odd=4,4, mixed=[1, 2, 3, 4, 5, 6, 7, 9]\r\nn=10, k=8, r=131, meeting=11, odd=4,4, mixed=[1, 2, 3, 5, 6, 7, 8, 10]\r\nn=10, k=8, r=193, meeting=47, odd=5,5, mixed=[1, 2, 3, 4, 5, 6, 7, 10]\r\nn=10, k=8, r=473, meeting=38, odd=4,4, mixed=[1, 2, 3, 4, 5, 7, 8, 10]\r\nn=11, k=10, r=769, meeting=92, odd=5,5, mixed=[1, 2, 3, 4, 5, 6, 7, 8, 9, 11]\r\nn=13, k=12, r=1025, meeting=92, odd=6,6, mixed=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13]\r\nOK: all 60 counts through n=20; witnesses, b-files and draft offsets agree.\r\n"
+    },
+    {
+      "comando": "python -B -X utf8 verify/verify_consistency.py",
+      "codigo": 0,
+      "salida": "theta=0.5: additive bound 20.751986157765 < 21.8 (60-digit Decimal evaluation)\r\ntheta=0.9: additive bound 45.191013417939 < 46.2 (60-digit Decimal evaluation)\r\nOK: all four stored b-files agree with scripts and papers; density bound is exact.\r\nThis checks consistency beyond the direct ranges, not a new enumeration there.\r\n"
+    },
+    {
+      "comando": "lean --version",
+      "codigo": 0,
+      "salida": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)\n"
+    },
+    {
+      "comando": "lean lean/mirror_theorem.lean",
+      "codigo": 0,
+      "salida": "'paso_conj' depends on axioms: [propext, Quot.sound]\n'conj_it' depends on axioms: [propext, Quot.sound]\n'conj_s' depends on axioms: [propext, Quot.sound]\n'terras' depends on axioms: [propext, Quot.sound]\n'borde' depends on axioms: [propext, Quot.sound]\n'periodico' depends on axioms: [propext, Quot.sound]\n'conj_bueno' depends on axioms: [propext, Quot.sound]\n'reflexion' depends on axioms: [propext, Quot.sound]\n'cuenta_fin' depends on axioms: [propext, Quot.sound]\n'cuenta_refl' depends on axioms: [propext, Quot.sound]\n'espejo' depends on axioms: [propext, Quot.sound]\n'repo_a7' does not depend on any axioms\n'clases32_buenas' does not depend on any axioms\n'cruce_mas' does not depend on any axioms\n'cruce_menos' does not depend on any axioms\n'igualdad_literal' does not depend on any axioms\n'reflexion_k5' does not depend on any axioms\n"
+    }
+  ],
+  "control_adicional": {
+    "codigo": 0,
+    "salida": "OK: 39 conteos de los programas OEIS vs verificador independiente n=1..13; borde omitido n=1..100.\r\nOK: ejemplo (3067,3068): n=18, encuentro=692, impares=10,10, mixtos=8.\r\nCOMMITS_COMPARTIDOS_EN_REFS_LOCALES 0\r\nCERTIFICADO_ESPEJO_IDENTICO True\r\n"
+  },
+  "datos": [
+    {
+      "nombre": "a3",
+      "desde": 1,
+      "hasta": 36,
+      "directo_hasta": 20
+    },
+    {
+      "nombre": "b3",
+      "desde": 1,
+      "hasta": 35,
+      "ambos_operandos_directos_hasta": 19
+    },
+    {
+      "nombre": "a5",
+      "desde": 1,
+      "hasta": 22,
+      "directo_hasta": 18
+    },
+    {
+      "nombre": "a7",
+      "desde": 1,
+      "hasta": 22,
+      "directo_hasta": 18
+    },
+    {
+      "nombre": "e8",
+      "desde": 9,
+      "hasta": 29,
+      "directo_hasta": 20
+    },
+    {
+      "nombre": "e10",
+      "desde": 11,
+      "hasta": 29,
+      "directo_hasta": 20
+    },
+    {
+      "nombre": "e12",
+      "desde": 13,
+      "hasta": 29,
+      "directo_hasta": 20
+    }
+  ],
+  "axiomas_espejo": {
+    "consultas": 17,
+    "sorryAx": false,
+    "axiomas_en_salida": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "mutaciones_zootheorem": [],
+  "hallazgos_pendientes": [
+    {
+      "archivo": "lean/mirror_theorem.lean",
+      "linea": 44,
+      "descripcion": "Comentario presenta número de ciclos como exhaustivo; no es parte del teorema certificado."
+    },
+    {
+      "archivo": "verify/verify_merging_classes.py",
+      "linea": 69,
+      "descripcion": "Barrido global al importar."
+    },
+    {
+      "archivo": "verify/verify_q_family.py",
+      "linea": 49,
+      "descripcion": "Barrido global al importar."
+    },
+    {
+      "archivo": "papers/03-uniform-fractional-moment-bound.md",
+      "linea": 56,
+      "descripcion": "45.192 frente a 45.191013417939...; no afecta cota 46.2."
+    }
+  ]
+}

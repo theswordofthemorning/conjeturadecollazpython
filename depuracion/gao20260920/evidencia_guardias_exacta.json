@@ -1,0 +1,12 @@
+{
+  "alcance": "Cadena auxiliar finita absorbente; contraste del protocolo y conteo, no de EF ni CF_F.",
+  "h_maximo": 10,
+  "palabras_y_estados": 24564,
+  "inclusiones": 2659,
+  "comparaciones_racionales": 528,
+  "riesgos_por_ancho": {
+    "1": "1/2",
+    "2": "1/2",
+    "3": "5/8"
+  }
+}

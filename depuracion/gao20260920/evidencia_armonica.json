@@ -1,0 +1,53 @@
+{
+  "alcance": "Contraste finito exacto y aritmetica; CF_H sigue candidata.",
+  "arboles": {
+    "semillas": 8,
+    "pasos": 10,
+    "niveles": 88,
+    "cotas_mixtos": 4840,
+    "techos": [
+      1,
+      2,
+      3,
+      5,
+      9
+    ],
+    "motor": "por_par: dos enteros positivos y mapa atajo; independiente de Lean"
+  },
+  "producto": "base T=1024 y umbral exacto T>=60 del paso inductivo",
+  "parametros": [
+    {
+      "m": 10,
+      "T_m": 7808,
+      "H_m": 2154318432768,
+      "Q_m": 7809,
+      "G_m": 13910791279458107507778271165840146435,
+      "D_m": 250000,
+      "b_m": 15,
+      "ell_m": 18,
+      "z_m": -250024
+    },
+    {
+      "m": 1000,
+      "T_m": 768128,
+      "H_m": 29302860586074624,
+      "Q_m": 768129,
+      "G_m": 24901732030933670708148941516907091545729792000003,
+      "D_m": 440896,
+      "b_m": 22,
+      "ell_m": 19,
+      "z_m": -439938
+    },
+    {
+      "m": 1000000,
+      "T_m": 768000128,
+      "H_m": 41372628554613903266304,
+      "Q_m": 768000129,
+      "G_m": 49623798896610258501518324645833262237448747034092122895615050956803,
+      "D_m": 817216,
+      "b_m": 32,
+      "ell_m": 20,
+      "z_m": 182731
+    }
+  ]
+}

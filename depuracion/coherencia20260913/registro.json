@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-17",
+  "version": "2026-09-20",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -666,6 +666,114 @@
       "fichero": "../zootheorem/verify/verify_strata.py",
       "fuente": "propio",
       "notas": "Enumeracion directa n=1..20 y cruce simbolico. Los 33 terminos originales n=10..20 coinciden. n=21..29 quedan como datos del calculo simbolico historico, sin nuevo barrido directo."
+    },
+    {
+      "clave": "moscas_mangostas_gacelas_global",
+      "enunciado": "Corolario escrito de MOSCAS, MANGOSTAS y GACELAS: bajo bits iid justos en la cadena absorbente original, sobre no absorcion, S_i=O_omega(i^4) y |c_(S_i)|=O_omega(i^16) casi seguramente, S_i entrada a k=2 desde k=1.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Reloj_global.md",
+      "fuente": "propio",
+      "notas": "Arranque fijo en k=0,1 o (2,c0), frontera positiva y offsets firmados. Prueba escrita local de rachas y Borel-Cantelli; constantes aleatorias dependientes del arranque, sin suponer masa positiva de no absorcion. cadena_completa.lean certifica todas las transiciones; formal/Momentos.lean enlaza dominacion real, promedio de 2^t hojas y momento, con cota 32 desde (0,1). No hay formalizacion integral del reloj ni revision externa; ensamblaje final sigue candidato."
+    },
+    {
+      "clave": "gacelas_moscas_ventana_creciente",
+      "enunciado": "Corolario escrito de GACELAS y MOSCAS: desde (2,c0), con T,H,G explicitos en V3, P(T<tau<=H, |c_tau|<=G)>=1/(4sqrt(2T+3)); T=O(log(2+|c0|)), H=O(T^2 log(T+2)), G=O(T^5 log(T+2)^2).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Salida_ampliada.md",
+      "fuente": "propio",
+      "notas": "c0 entero firmado; tau primera llegada a k=1. formal/Resto.lean certifica identidad afin incluida la salida, W prolongado multiplicativamente, V1, V2 y coste <=1/(4Q). formal/Producto.lean mejora a (61/62)^T el control del producto en cualquier horizonte finito desde T. Tres sustracciones y leyes de excursion siguen escritas, sin formalizacion integral de V3. No prueba P2 de ventana fija ni condiciona bits frescos al futuro."
+    },
+    {
+      "clave": "hormigas_cota_cuadratica",
+      "enunciado": "HORMIGAS: todo estado (1,c), c entero firmado, admite una palabra de fusion de longitud a lo sumo 16(ceil(log2(2+|c|))+1)^2.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Salida_ampliada.md",
+      "fuente": "propio",
+      "notas": "Hormigas.lean certifica la existencia sobre la transicion original, mediante divisiones, viajes de contraccion <=5/6 y grupos de cuatro viajes. Incluye c=0 y signos. No reutiliza la constante historica 2,5. Ensayo_finito.md documenta el certificado universal y el contraste independiente de 4127 offsets."
+    },
+    {
+      "clave": "gao_ensamblaje_20260920",
+      "enunciado": "CANDIDATO: reloj y arranques polinomicos, ventana de salida creciente y ensayos no solapados implicarian absorcion casi segura, phi=1 y densidad uno de fusion clasica antes de log2(n).",
+      "cuantificador": "casi_todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/gao20260920/Ensamblaje_candidato.md",
+      "fuente": "propio",
+      "notas": "No anunciar resolucion. Desarrollo universal de cilindros en Cilindros.md y cierre propuesto por supermartingala. Segunda auditoria: ruta alternativa explicita CF en Cota_finita.md. Pendiente enlace formal probabilistico y lectura primaria de Gao. No demuestra llegada a 1 ni igualdad de alturas finitas incondicional."
+    },
+    {
+      "clave": "gao_cota_finita_20260920",
+      "enunciado": "COTA CANDIDATA CF: desde (0,1), para m>=10, N=2^m y h=N^6, P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p_m)^J_m, con parametros explicitos en Cota_finita.md cuyo ultimo termino tenderia a cero.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/gao20260920/Cota_finita.md",
+      "fuente": "propio",
+      "notas": "Segunda auditoria: evento bueno, reloj para porciones incompletas y guardias al inicio sin condicionamiento futuro. cota_finita.lean certifica presupuestos e induccion abstracta de riesgos. formal/Momentos.lean certifica C1 sobre la cadena completa: maximo hasta h con coste <=66/h y probabilidad como conteo de hojas. Faltan excursiones y ensayos guardados; CF sigue conjeturada. La aritmetica hasta m=1000000 no es un censo. Si se valida CF, daria phi=1."
+    },
+    {
+      "clave": "gacelas_control_armonico",
+      "enunciado": "GACELAS, control armonico de la primera excursion desde (2,c0): P(tau>t)>=1/(t+1). Si M_h cuenta pasos mixtos hasta h o salida, P(M_h>=n)<=1/L+(L-1)/n para todo L,n>=1, h>=0 y c0 entero.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Ventana_armonica.md",
+      "fuente": "propio",
+      "notas": "Supervivencia.lean y Banda.lean certifican la cadena detenida, altura armonica, energia de banda, contador, acoplamiento y cotas sobre arboles finitos. Reloj.lean enlaza ahora los mixtos con el tiempo fisico mediante M6/H3; registro separado. El contraste de H1/H2 por pares positivos cubre h=0..10, 8 semillas y 5 techos."
+    },
+    {
+      "clave": "gao_cota_armonica_20260920",
+      "enunciado": "COTA CANDIDATA CF_H: mismo presupuesto global de CF, con ventana Q=T+1, n=256Q^2, R=[128(H+1)Q]^2 y G=3(R+1). El piso p_m=2^(-D_m)/(4Q_m) implicaria P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p_m)^J_m y tenderia a cero.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/gao20260920/Ventana_armonica.md",
+      "fuente": "propio",
+      "notas": "H1/H2, M6/H3, VH y Hormigas certificados. Ensayo.lean entrega un piso uniforme antes de H+D. Ese resultado local fundamenta CF_F con otro numero de ensayos; no certifica automaticamente el protocolo variable de CF_H. Quedan ensamblaje global y transporte a clases. No anuncia Gao ni Collatz."
+    },
+    {
+      "clave": "mangostas_reloj_armonico",
+      "enunciado": "MANGOSTAS-GACELAS, reloj de la excursion desde (2,c0): para a>=2+floor(log2(n+2)), H=n(a+s+1), P(tau>H y M_H<n)<=n*2^(-s). Para L,n>=1, P(tau>H)<=1/L+(L-1)/n+n*2^(-s). c0 entero firmado y bits iid justos de paridad del ancla; tau es llegada a k=1 y M cuenta mixtos hasta h o salida, incluido el paso de salida.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Reloj_bloques.md",
+      "fuente": "propio",
+      "notas": "RachasEnteras.lean, UmbralRachas.lean y Reloj.lean certifican conteo, umbral diadico, invariante de altura, bloques deterministas y M6/H3 sobre la cadena original detenida. 22 consultas de axiomas sin sorryAx. Contraste independiente: 832 conteos de rachas, 280 M6, 720 H3, h<=16. No demuestra VH conjunta ni CF_H; no confundir la salida con fusion."
+    },
+    {
+      "clave": "gacelas_ventana_armonica",
+      "enunciado": "GACELAS, ventana VH: para C,c enteros con |c|<=|C|, m=ceil(log2(2+|C|)), T=32 max(32,m), Q=T+1, L=16Q, n=L^2, a=2+floor(log2(n+2)), s=3 ceil(log2(n+1)), H=n(a+s+1), R=[128(H+1)Q]^2, G=3(R+1), la primera excursion desde (2,c) satisface P(T<tau<=H y |c_tau|<=G)>=1/(4Q).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Ventana_conjunta.md",
+      "fuente": "propio",
+      "notas": "Palabras.lean, SalidaPalabras.lean, Ventana.lean y ParametrosVentana.lean certifican el evento conjunto sobre los mismos bits justos, la primera salida, todas las condiciones aritmeticas y la uniformidad con parametros fijados por C. 22 consultas de axiomas sin sorryAx. Contraste finito: 3577 palabras, 114716 inclusiones y 315 cotas. No prueba CF_H ni el P2 antiguo de ventana constante; no identifica salida con fusion."
+    },
+    {
+      "clave": "hormigas_ensayo_finito",
+      "enunciado": "HORMIGAS-GACELAS, ensayo EF: con los parametros T(C),Q(C),H(C),G(C) de VH y D(C)=16(ceil(log2(G(C)+2))+1)^2, para todo C,c enteros con |c|<=|C|, P_(2,c)(sigma<=H(C)+D(C))>=2^(-D(C))/(4Q(C)). Sigma es fusion de la cadena original bajo bits iid justos de paridad del ancla.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Ensayo_finito.md",
+      "fuente": "propio",
+      "notas": "Hormigas.lean y Ensayo.lean prueban palabra universal, peso de una palabra, relevo desde la excursion detenida y piso uniforme de fusion a horizonte fijo. 12 consultas de axiomas sin sorryAx. Contraste: 8221 viajes, 4127 offsets y 147 relevos. No prueba la repeticion global de ensayos ni phi=1."
+    },
+    {
+      "clave": "gao_cota_fija_20260920",
+      "enunciado": "COTA CANDIDATA CF_F: con los parametros de CF_H, W_m=H_m+D_m y J_F=floor((N-1)/(W_m+2)), P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p_m)^J_F. Los ensayos tienen duracion fija W_m y guardias de offset y tiempo restante conocidas al inicio.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/gao20260920/Ensayo_finito.md",
+      "fuente": "propio",
+      "notas": "EF, admision, busqueda truncada y conteo estan certificados. ConteoEnsayos.lean reduce supervivencia a pocas entradas admisibles y un resto geometrico. Falta acotar ese evento mediante el reloj global, el limite y el transporte a clases. J_F difiere del J de CF_H. CF_F sigue conjeturada; la aritmetica finita no demuestra Gao."
+    },
+    {
+      "clave": "hormigas_gacelas_ensayos_guardados",
+      "enunciado": "HORMIGAS-GACELAS, repeticion finita: con C natural, W=H(C)+D(C), p=2^-D(C)/(4Q(C)), K_C(h) contador de entradas marcadas 1->2 con |c|<=C, P(sigma>h)<=P(sigma>h y K_C(h)<1+j(W+2))+(1-p)^j para todo j,h naturales. Cadena original, bits iid justos; raiz ((0,1),false).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Guardias_finitas.md",
+      "fuente": "propio",
+      "notas": "Repeticion.lean, Guardias.lean y ConteoEnsayos.lean: evento booleano, promedio recursivo, guardias conocidas al inicio, inclusion por conteo y cota geometrica. 16 consultas nuevas sin sorryAx. Contraste auxiliar finito: 24564 casos y 528 comparaciones racionales. Falta la cota global del evento de pocas entradas; no demuestra CF_F ni phi=1."
     }
   ],
   "nodos": [
@@ -705,7 +813,7 @@
       "despues": [
         "lema_LB_ritmo",
         "pendiente",
-        "Reloj GLOBAL: incorporar tramos de frontera al corolario uniforme de excursiones de Mangostas-Gacelas."
+        "Nueva deduccion escrita del reloj global S_i=O_omega(i^4) en depuracion/gao20260920/Reloj_global.md. Nodo historico pendiente de segunda auditoria conjunta del nuevo ensamblaje; no seguir suponiendo frontera ausente."
       ]
     },
     {
@@ -718,7 +826,7 @@
       "despues": [
         "arranques_polinomiales",
         "pendiente",
-        "Los arranques planos son una medicion; falta la cota a tiempos de visita con las hipotesis del ensamblaje. No confundir O_en_probabilidad con una cota casi segura sin argumento adicional."
+        "Nueva deduccion escrita |c_(S_i)|=O_omega(i^16) sobre no absorcion en Reloj_global.md, via envolvente simultanea y reloj. El nodo permanece pendiente de segunda auditoria del ensamblaje; no afirma la medicion beta=0."
       ]
     },
     {
@@ -731,7 +839,7 @@
       "despues": [
         "phi_uno",
         "pendiente",
-        "Objetivo phi=1 para fusion balanceada. W, reloj global y control de arranques pendientes; comprobar la divergencia condicional antes del ensamblaje. No afirma por si solo convergencia a 1."
+        "Objetivo phi=1. Candidato escrito el 20-09 en depuracion/gao20260920/Ensamblaje_candidato.md: ventana creciente de W, reloj y arranques, ensayos separados. Pendiente segunda auditoria conjunta y Gao primario; no elevar por tests finitos. No afirma llegada a 1."
       ]
     },
     {
@@ -798,7 +906,7 @@
       "despues": [
         "reloj_excursion",
         "demostrado",
-        "Corolario escrito de Mangostas-Gacelas: cola O(sqrt(log t/t)) uniforme en c0. Probabilidad no formalizada integralmente."
+        "Corolario escrito de Mangostas-Gacelas: cola O(sqrt(log t/t)) uniforme en c0. M6 y la cota finita H3 quedan formalizadas en Reloj.lean el 20-09; la cota asintotica y el reloj global no quedan certificados por esa compilacion."
       ]
     },
     {
