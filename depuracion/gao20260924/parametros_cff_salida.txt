@@ -1,0 +1,90 @@
+1. Identidades declaradas en Ventana_armonica.md seccion 4
+   r = 24m+4 ;  T_m = 768m+128 ;  Q_m = T_m+1 ;  d = N^4(10m+3)
+
+   m |  r = m0  esperado |    T_m     esperado | ok
+  10 |     244       244 |     7808       7808 | si
+  11 |     268       268 |     8576       8576 | si
+  12 |     292       292 |     9344       9344 | si
+  13 |     316       316 |    10112      10112 | si
+  14 |     340       340 |    10880      10880 | si
+  15 |     364       364 |    11648      11648 | si
+  16 |     388       388 |    12416      12416 | si
+  17 |     412       412 |    13184      13184 | si
+  18 |     436       436 |    13952      13952 | si
+  19 |     460       460 |    14720      14720 | si
+  30 |     724       724 |    23168      23168 | si
+  50 |    1204      1204 |    38528      38528 | si
+ 100 |    2404      2404 |    76928      76928 | si
+1000 |   24004     24004 |   768128     768128 | si
+   identidades fallidas: 0
+
+2. El termino 3/N: union de N excursiones con coste 3/N^2
+   H3 con n=N^4, L=N^2, a=4m+2, s=6m da 1/L+(L-1)/n+n*2^-s
+   m=10   coste por excursion = 3145727/1099511627776  <= 3/N^2 = 3/1048576 : True
+   m=12   coste por excursion = 50331647/281474976710656  <= 3/N^2 = 3/16777216 : True
+   m=20   coste por excursion = 3298534883327/1208925819614629174706176  <= 3/N^2 = 3/1099511627776 : True
+   m=50   coste por excursion = 3802951800684688204490109616127/1606938044258990275541962092341162602522202993782792835301376  <= 3/N^2 = 3/1267650600228229401496703205376 : True
+   union de N excursiones: N * 3/N^2 = 3/N  (exacto)
+
+3. Encaje temporal: las N excursiones caben en h
+   N*d <= h  <=>  10m+3 <= 2^m
+   m=5   10m+3 = 53     N = 32      cabe: False
+   m=6   10m+3 = 63     N = 64      cabe: True
+   m=7   10m+3 = 73     N = 128     cabe: True
+   m=8   10m+3 = 83     N = 256     cabe: True
+   m=9   10m+3 = 93     N = 512     cabe: True
+   m=10  10m+3 = 103    N = 1024    cabe: True
+   m=11  10m+3 = 113    N = 2048    cabe: True
+   primer m con encaje: 6
+
+4. Condiciones aritmeticas de la seccion 3
+   m=10    n^2>=8Q: True   T>=1024: True   4(T+1)61^T<=62^T: True
+   m=50    n^2>=8Q: True   T>=1024: True   4(T+1)61^T<=62^T: True
+   m=1000  n^2>=8Q: True   T>=1024: True   4(T+1)61^T<=62^T: True
+
+5. CONTENIDO DE LA COTA: hace falta J_F >= 1, es decir W_m+2 <= N-1
+   W_m = H_m + D_m, con H_m de la ventana aplicada a c0 = C_m.
+
+     m |            W_m |              N=2^m | J_F | J_H (CF_H)
+     10 |  2154318682768 |               1024 |   0 | 0
+     20 |  8966843581072 |            1048576 |   0 | 3
+     30 | 20613218634000 |         1073741824 |   0 | 3682
+     40 | 37518275718928 |      1099511627776 |   0 | 3661304
+     45 | 48672159515712 |     35184372088832 |   0 | 115469902
+     46 | 50851179349056 |     70368744177664 |   1 | 230939804
+     47 | 53077913589136 |    140737488355328 |   2 | 455257808
+     48 | 55352362227088 |    281474976710656 |   5 | 910515616
+     50 | 60044402709904 |   1125899906842624 |  18 | 3642062466
+     60 | 86367469271184 | 1152921504606846976 | 13349 | 3.624e+12
+    100 | 251494347294736 | 1267650600228229401496703205376 | 5040473528983974 | 3.768e+24
+
+   primer m con J_F >= 1 : 46
+   con m = 10 declarado  : J_F = 0 -> la cota CF_F
+   no tiene contenido ahi (el termino (1-p)^J_F vale 1).
+   CF_H no sufre esto: usa D_m+2, no W_m+2, y D_m es diminuto.
+   D_m para m=10: 250000  H_m para m=10: 2154318432768
+
+6. El mismo problema en CF_H, y el umbral de utilidad real
+   primer m con J_H >= 1 : 19  (CF_H tambien falla en m=10)
+
+   Para que la cota sirva no basta J >= 1: hace falta J*p -> infinito,
+   con p_m = 2^(-D_m)/(4Q_m). En log2:
+       log2(J_F * p_m) = log2(J_F) - D_m - log2(4*Q_m)
+
+     m |    D_m | log2(J_F) | log2(J_F*p_m) | util
+      46 | 304704 |         0 |       -304721 | no
+     100 | 336400 |        52 |       -336366 | no
+    1000 | 440896 |       945 |       -439972 | no
+   10000 | 553536 |      9938 |       -543622 | no
+  100000 | 678976 |     99931 |       -579073 | no
+  250000 | 732736 |    249928 |       -482837 | no
+  260000 | 739600 |    259928 |       -479701 | no
+  262500 | 739600 |    262428 |       -477201 | no
+  300000 | 746496 |    299928 |       -446597 | no
+
+   primer m con J_F * p_m > 1 (busqueda binaria, cota inferior en log2): 802923
+   D_m en ese punto: 802816
+
+   Esto no rompe el limite: D_m crece como log^2(m) y m acaba
+   superandolo, luego J_F*p_m -> infinito. Pero el umbral declarado
+   m>=10 no describe donde la cota empieza a decir algo.

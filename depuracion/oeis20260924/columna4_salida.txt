@@ -1,0 +1,38 @@
+ n |  r4(n) | opuestas | z tras 2 pasos | r2(n-2) | z = r2(n-2) mod 2^(n-2)
+ 6 |     45 | [0, 1, 2, 5] |             34 |       2 | si
+ 7 |     29 | [0, 1, 2, 6] |             22 |      22 | si
+ 8 |    189 | [0, 1, 2, 7] |            142 |      14 | si
+ 9 |    125 | [0, 1, 2, 8] |             94 |      94 | si
+10 |    765 | [0, 1, 2, 9] |            574 |      62 | si
+11 |    509 | [0, 1, 2, 10] |            382 |     382 | si
+12 |   3069 | 0,1,2,n-1 |           2302 |     254 | si
+13 |   2045 | 0,1,2,n-1 |           1534 |    1534 | si
+...
+
+niveles contrastados: n = 6..39
+fallos (opuestas = {0,1,2,n-1}, par consecutivo en i=2, congruencia): 0
+
+Consecuencia: si se prueba que toda solucion de j=4 tiene sus
+opuestas en 0,1,2,n-1, entonces e_4(n) = e_2(n-2) = 1 y la columna
+queda cerrada. Esa implicacion es lo que falta; la reduccion en si
+esta comprobada en todo el rango de arriba.
+
+======================================================================
+Caracterizacion: la posicion i es opuesta  <=>  d_i = y_i - x_i es IMPAR
+(dos numeros difieren en paridad exactamente cuando su resta es impar)
+
+De ahi, todo depende de r modulo 4. Con d_0 = 1:
+  r PAR       : d_1 = r+2, par   -> la posicion 1 NO es opuesta
+  r = 1 (mod 4): x_1=(3r+1)/2 par, y_1=(r+1)/2 impar, y entonces
+                x_2=(3r+1)/4, y_2=(3r+5)/4, luego d_2 = 1 EXACTO:
+                el par vuelve a ser consecutivo tras 2 pasos
+  r = 3 (mod 4): d_2 = -2r-1, impar -> la posicion 2 tambien es opuesta
+
+r probados: 1..199999   discrepancias con el analisis mod 4: 0
+
+Consecuencia: un par con r = 1 (mod 4) gasta sus opuestas 0 y 1 y
+reaparece como par consecutivo (x_2, x_2+1) con n-2 pasos por delante.
+Si ademas j = 4, a ese par le quedan exactamente 2 opuestas en n-2
+pasos, es decir es el par de j=2 del nivel n-2: e_4(n) = e_2(n-2) = 1.
+Falta solo descartar que un par con j=4 tenga r par.
+los representantes de j=4 son todos = 1 (mod 4): True

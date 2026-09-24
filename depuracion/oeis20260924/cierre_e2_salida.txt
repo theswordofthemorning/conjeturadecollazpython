@@ -1,0 +1,18 @@
+Contraste de las formulas cerradas con la iteracion real
+
+niveles contrastados: n = 4..60
+fallos: 0
+
+Consecuencias, ya demostradas y no solo observadas:
+  - las posiciones 1..n-2 tienen paridad igual, luego j = 2;
+  - x_i != y_i para i < n (difieren en un factor 3), luego la fusion
+    es la PRIMERA y ocurre exactamente en el paso n;
+  - en i=0 el par es (par, impar) y en i=n-1 (impar, par): los dos
+    desequilibrios se cancelan, luego el par es balanceado;
+  - k = n-3 si n es par y n-2 si n es impar; en ambos casos k es
+    IMPAR, que es justo la condicion para que (x, 3x+1) funda.
+
+  k impar en ambos casos: True
+
+Junto con la reduccion a dos candidatos (unicidad.py), esto cierra
+e_2(n) = 1 para todo n >= 4 como teorema, no como conjetura.

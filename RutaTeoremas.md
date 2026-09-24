@@ -13,6 +13,8 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Invariantes y balance | [Frente](depuracion/frente20260910/LEEME.md); [Castoras](depuracion/frente20260910/Castoras.md) |
 | Correcciones, SQLite y reproducción | [Auditoría](depuracion/coherencia20260913/LEEME.md) |
 | Datos y publicación | [Plan de zootheorem](../zootheorem/PLAN_INVESTIGACION.md) |
+| Estratos: por qué `j` es par; confluencia | [Garzas](depuracion/oeis20260924/Garzas.md); `garzas.py` en esa carpeta |
+| Rango útil de CF_H y CF_F; umbrales de m | [Cigarras](depuracion/gao20260924/Cigarras.md); `parametros_cff.py` |
 
 ## El zoológico y las rutas anteriores
 

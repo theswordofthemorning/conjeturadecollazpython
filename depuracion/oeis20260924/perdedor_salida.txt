@@ -1,0 +1,141 @@
+Posicion n-1 de los dos candidatos de cada nivel
+
+  n |      candidato |    x_(n-1) |    y_(n-1) | y=3x+1 | x impar | funde
+  3 | ganador       4 |          1 |          4 |   True |    True |  True
+  3 | perdedor      0 |          0 |          1 |   True |   False | False
+
+  4 | ganador       2 |          1 |          4 |   True |    True |  True
+  4 | perdedor     10 |          4 |         13 |   True |   False | False
+
+  5 | ganador      22 |         13 |         40 |   True |    True |  True
+  5 | perdedor      6 |          4 |         13 |   True |   False | False
+
+  6 | ganador      14 |         13 |         40 |   True |    True |  True
+  6 | perdedor     46 |         40 |        121 |   True |   False | False
+
+  7 | ganador      94 |        121 |        364 |   True |    True |  True
+  7 | perdedor     30 |         40 |        121 |   True |   False | False
+
+  8 | ganador      62 |        121 |        364 |   True |    True |  True
+  8 | perdedor    190 |        364 |       1093 |   True |   False | False
+
+  9 | ganador     382 |       1093 |       3280 |   True |    True |  True
+  9 | perdedor    126 |        364 |       1093 |   True |   False | False
+
+ 10 | ganador     254 |       1093 |       3280 |   True |    True |  True
+ 10 | perdedor    766 |       3280 |       9841 |   True |   False | False
+
+ 11 | ganador    1534 |       9841 |      29524 |   True |    True |  True
+ 11 | perdedor    510 |       3280 |       9841 |   True |   False | False
+
+ 12 | ganador    1022 |       9841 |      29524 |   True |    True |  True
+ 12 | perdedor   3070 |      29524 |      88573 |   True |   False | False
+
+ 13 | ganador    6142 |      88573 |     265720 |   True |    True |  True
+ 13 | perdedor   2046 |      29524 |      88573 |   True |   False | False
+
+ 14 | ganador    4094 |      88573 |     265720 |   True |    True |  True
+ 14 | perdedor  12286 |     265720 |     797161 |   True |   False | False
+
+ 15 | ganador   24574 |     797161 |    2391484 |   True |    True |  True
+ 15 | perdedor   8190 |     265720 |     797161 |   True |   False | False
+
+ 16 | ganador   16382 |     797161 |    2391484 |   True |    True |  True
+ 16 | perdedor  49150 |    2391484 |    7174453 |   True |   False | False
+
+ 17 | ganador   98302 |    7174453 |   21523360 |   True |    True |  True
+ 17 | perdedor  32766 |    2391484 |    7174453 |   True |   False | False
+
+ 18 | ganador   65534 |    7174453 |   21523360 |   True |    True |  True
+ 18 | perdedor 196606 |   21523360 |   64570081 |   True |   False | False
+
+ 19 | ganador  393214 |   64570081 |  193710244 |   True |    True |  True
+ 19 | perdedor 131070 |   21523360 |   64570081 |   True |   False | False
+
+ 20 | ganador  262142 |   64570081 |  193710244 |   True |    True |  True
+ 20 | perdedor 786430 |  193710244 |  581130733 |   True |   False | False
+
+ 21 | ganador  1572862 |  581130733 | 1743392200 |   True |    True |  True
+ 21 | perdedor 524286 |  193710244 |  581130733 |   True |   False | False
+
+ 22 | ganador  1048574 |  581130733 | 1743392200 |   True |    True |  True
+ 22 | perdedor 3145726 | 1743392200 | 5230176601 |   True |   False | False
+
+ 23 | ganador  6291454 | 5230176601 | 15690529804 |   True |    True |  True
+ 23 | perdedor 2097150 | 1743392200 | 5230176601 |   True |   False | False
+
+ 24 | ganador  4194302 | 5230176601 | 15690529804 |   True |    True |  True
+ 24 | perdedor 12582910 | 15690529804 | 47071589413 |   True |   False | False
+
+ 25 | ganador  25165822 | 47071589413 | 141214768240 |   True |    True |  True
+ 25 | perdedor 8388606 | 15690529804 | 47071589413 |   True |   False | False
+
+filas que violan la tesis (y=3x+1 siempre; funde <=> x impar): 0
+
+Comprobacion directa del criterio: si x es impar y y = 3x+1,
+entonces T(x) = (3x+1)/2 = y/2 = T(y), luego funden.
+Si x es par y y = 3x+1 (impar), T(x) = x/2 y T(y) = (3y+1)/2 = (9x+4)/2;
+son iguales solo si x/2 = (9x+4)/2, es decir x = -1/2: imposible.
+x probados con y = 3x+1, discrepancias con el criterio: 0
+
+Identificacion de esos pares: x_k = (3^k-1)/2, y_k = 3x_k+1 = (3^(k+1)-1)/2
+
+  k |        x_k | impar | T(x_k) si funde = (3^(k+1)-1)/4
+  0 |          0 | False | -- (no funde)
+  1 |          1 |  True | 2
+  2 |          4 | False | -- (no funde)
+  3 |         13 |  True | 20
+  4 |         40 | False | -- (no funde)
+  5 |        121 |  True | 182
+  6 |        364 | False | -- (no funde)
+  7 |       1093 |  True | 1640
+  8 |       3280 | False | -- (no funde)
+  9 |       9841 |  True | 14762
+ 10 |      29524 | False | -- (no funde)
+ 11 |      88573 |  True | 132860
+ 12 |     265720 | False | -- (no funde)
+ 13 |     797161 |  True | 1195742
+
+x_k impar <=> k impar: 3^k = 3 (mod 4) si k impar, luego (3^k-1)/2 es
+impar; y 3^k = 1 (mod 4) si k par, luego (3^k-1)/2 es par. Sin excepcion
+en los k probados.
+
+Para k impar, k+1 es par y (3^(k+1)-1)/4 = (9^((k+1)/2)-1)/4: son
+exactamente los puntos de fusion 2, 20, 182, 1640, ... y de ahi la
+recurrencia m -> 9m+2, que ya no es una observacion sino la forma
+cerrada de esta familia.
+identidad (3^(k+1)-1)/4 = (9^((k+1)/2)-1)/4 para k impar: True
+recurrencia m_(j+1) = 9 m_j + 2: True
+
+Ultimo eslabon: con que k llega cada candidato a la posicion n-1
+
+  n | ganador | k | 2*floor((n-1)/2)-1 | perdedor | k' | k' par ?
+  3 |       4 | 1 |                  1 |        0 |  0 | si
+  4 |       2 | 1 |                  1 |       10 |  2 | si
+  5 |      22 | 3 |                  3 |        6 |  2 | si
+  6 |      14 | 3 |                  3 |       46 |  4 | si
+  7 |      94 | 5 |                  5 |       30 |  4 | si
+  8 |      62 | 5 |                  5 |      190 |  6 | si
+  9 |     382 | 7 |                  7 |      126 |  6 | si
+ 10 |     254 | 7 |                  7 |      766 |  8 | si
+ 11 |    1534 | 9 |                  9 |      510 |  8 | si
+ 12 |    1022 | 9 |                  9 |     3070 | 10 | si
+ 13 |    6142 | 11 |                 11 |     2046 | 10 | si
+ 14 |    4094 | 11 |                 11 |    12286 | 12 | si
+ 15 |   24574 | 13 |                 13 |     8190 | 12 | si
+ 16 |   16382 | 13 |                 13 |    49150 | 14 | si
+ 17 |   98302 | 15 |                 15 |    32766 | 14 | si
+ 18 |   65534 | 15 |                 15 |   196606 | 16 | si
+ 19 |  393214 | 17 |                 17 |   131070 | 16 | si
+ 20 |  262142 | 17 |                 17 |   786430 | 18 | si
+ 21 | 1572862 | 19 |                 19 |   524286 | 18 | si
+ 22 | 1048574 | 19 |                 19 |  3145726 | 20 | si
+ 23 | 6291454 | 21 |                 21 |  2097150 | 20 | si
+
+fallos de: k = 2*floor((n-1)/2)-1 impar, k' vecino y par: 0
+
+El ganador llega siempre con el k impar predicho; el perdedor con un
+k vecino, que por serlo es par, y por eso no funde. El vecino es k+1
+si n es par y k-1 si n es impar; para el criterio solo cuenta que sea
+par. Falta demostrar que la trayectoria de q*2^(n-2)-2 alcanza
+(3^k-1)/2 en el paso n-1.

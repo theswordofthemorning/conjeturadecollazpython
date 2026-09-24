@@ -1,0 +1,59 @@
+1. Las dos primeras posiciones, calculadas a mano
+   k probados: 100000   discrepancias: 0
+
+2. Recursion n(r) = 2 + n(r'), j(r) = 2 + j(r'), r' = (3r+1)/4
+   pares r = 1 (mod 4) contrastados: 54623
+   fallos (incluida la equivalencia de balance): 0
+
+3. Consecuencia: j = 4 solo puede darse con r = 5 (mod 8)
+   clases modulo 8 observadas con j = 4: [5]
+   r' = 3k+1 par <=> k impar <=> r = 5 (mod 8): True
+
+4. Lo que queda fuera de la recursion
+   r = 0 (mod 4): j observados = [2, 6, 8, 10, 12, 14]
+   r = 1 (mod 4): j observados = [4, 6, 8, 10, 12, 14]
+   r = 2 (mod 4): j observados = [2, 6, 8, 10, 12, 14]
+   r = 3 (mod 4): j observados = [6, 8, 10, 12, 14, 16]
+
+   La recursion cubre r = 1 (mod 4). Para cerrar e_4(n) = 1 falta
+   demostrar que r par y r = 3 (mod 4) no pueden dar j = 4; ambos
+   casos estan comprobados en todo el rango de arriba, pero no
+   demostrados. Un barrido finito no es una prueba universal.
+
+5. Las clases pares, calculadas igual
+   r = 4l+2 : x_1 = 2l+1, y_1 = 6l+5, ambos IMPARES -> no opuesta;
+             x_2 = 3l+2, y_2 = 9l+8, d_2 = 6l+6 par -> tampoco.
+   r = 4l   : x_1 = 2l,   y_1 = 6l+2, ambos PARES  -> no opuesta;
+             x_2 = l,    y_2 = 3l+1, d_2 = 2l+1 IMPAR -> opuesta.
+             y si ademas l es impar, x_3 = y_3 = (3l+1)/2: FUNDE en 3.
+   l probados: 100000   discrepancias: 0
+
+   Asi el analisis se ramifica por clases modulo 2^s. El j minimo
+   por clase modulo 8 resulta ser:
+     0->6  1->6  2->2  3->6  4->2  5->4  6->2  7->8
+   es decir j=2 solo en las clases 2,4,6 y j=4 solo en la clase 5.
+
+6. Identidad de conteo que se deriva de la recursion
+   La biyeccion r -> (3r+1)/4 lleva {r = 1 mod 4} sobre {r' = 1 mod 3}
+   y baja dos niveles y dos estratos. Con el rango correcto
+   (r < 2^n da r' < 3*2^(n-2)) el conteo cuadra exactamente:
+
+   #{r = 1 mod 4, nivel n, estrato j}
+     = #{r' = 1 mod 3 en [0, 3*2^(n-2)), nivel n-2, estrato j-2}
+   niveles n = 7..18, todos los estratos; filas que difieren: 0
+
+7. La clase r = 3 (mod 4), calculada igual
+   r = 4k+3: x_1 = 6k+5 (impar), y_1 = 2k+2 (par)  -> opuesta en 1
+             x_2 = 9k+8,  y_2 = k+1,  d_2 = -2r-1 impar -> opuesta en 2
+     k impar (r = 7 mod 8): d_3 = -13k-12, IMPAR -> opuesta en 3.
+       con la de n-1 son cinco posiciones; siendo j par, j >= 6,
+       luego esta clase NO puede dar j = 4. Descartada.
+     k par   (r = 3 mod 8): d_3 = -3k-2, par. Caso abierto.
+   k probados: 100000   discrepancias: 0
+
+   Estado de e_4(n) = 1 por clases modulo 8:
+     r = 5 (mod 8) : a lo sumo uno, por la recursion  [resuelto]
+     r = 1 (mod 8) : j >= 6 por la recursion          [resuelto]
+     r = 7 (mod 8) : j >= 6 por el calculo de arriba  [resuelto]
+     r = 3 (mod 8) : abierto
+     r par         : abierto

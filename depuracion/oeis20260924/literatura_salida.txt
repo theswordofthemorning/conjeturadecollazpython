@@ -1,0 +1,20 @@
+1. Las columnas extremas son las familias clasicas
+   Garner (8k+4): 2^3 = 8, representante 4 = r2(3): True
+   Wu-Huang, citadas en la bibliografia de Lagarias:
+     (2^5 m +  5, +1): r4(5) =  5  coincide
+     (2^6 m + 45, +1): r4(6) = 45  coincide
+     (2^7 m + 29, +1): r4(7) = 29  coincide
+
+2. Teorema 2.1 de Elia y Tucker: n = 4 (mod 8), n > 4, funde en 3
+   casos probados: 24999   fallos: 0
+
+3. Su contraejemplo a la conjetura de Garner: la familia 2^19 m + 3067
+   (3067, 3068): paso 18, j = 8, balanceado True, punto de fusion 692
+   punto de fusion mod 3 = 2 (lema de la garza: 2)
+   3067 mod 8 = 3
+   los 40 primeros miembros: mismo paso y mismo j: True
+   j par en todos ellos: True
+
+   La conjetura de Garner que falla caracteriza pares de igual
+   altura por sus 'stems'. El parametro j es otra cosa y no se ve
+   afectado: clasifica el contraejemplo igual que a los demas.

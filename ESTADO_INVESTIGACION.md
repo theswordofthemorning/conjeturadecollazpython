@@ -54,6 +54,14 @@ El primer t?rmino incluye supervivencia. Pr?ximo: formalizar, con
 
     P(sigma>h y K_(C_m)(h)<N) <= 3/N+66/h+1/(4h^3).
 
+**Aviso del 24-09-2026 sobre ese `m>=10`:** la desigualdad de arriba es
+sustantiva en cualquier `m`, pero el ensamblaje que la usa no. Con los
+parámetros declarados `J_F=0` para todo `m<=45`, luego `(1-p_m)^J_F` vale
+1 y el ensamblaje no concluye nada. Umbrales exactos:
+`m>=19` para que CF_H tenga un ensayo, `m>=46` para CF_F, y `m>=802923`
+para que ese término baje de 1. Llevar la hipótesis correcta al
+formalizar. Comprobación en [Cigarras](depuracion/gao20260924/Cigarras.md).
+
 Usar el presupuesto del [reloj global](depuracion/gao20260920/Reloj_global.md)
 y C5 de [CF_H](depuracion/gao20260920/Ventana_armonica.md): frontera,
 porciones incompletas y control de offsets antes de h. Despu?s aplicar

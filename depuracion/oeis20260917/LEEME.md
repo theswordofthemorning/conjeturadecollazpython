@@ -115,3 +115,7 @@ familia, con encuentro `2*3^10*m+692`.
 Siguiente acción editorial: atender la próxima respuesta; aprobación
 pendiente. Siguiente acción matemática: P1 del estado del laboratorio.
 No hubo commit ni push a GitHub en esta sesión.
+
+**Continuación (24-09-2026):** las tres fichas fueron rechazadas por
+Irvine y sus números reciclados. Lo anterior queda como registro de
+aquel día; el desenlace está en [el acta del 24-09](../oeis20260924/LEEME.md).

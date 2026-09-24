@@ -262,11 +262,31 @@ y el teorema del espejo en Lean). El intercambio con los editores va
 en la bitacora (09-08 (2) y (4)).
 
 ---------------------------------------------------------------------------
-ESTRATOS OEIS: A399819, A399820, A399821 (actualizado 13-09-2026)
+ESTRATOS e8, e10, e12 -- numeros OEIS RECICLADOS (actualizado 24-09-2026)
 ---------------------------------------------------------------------------
 
-Estado: re-propuestos el 13-09-2026; aprobación pendiente en la última
-observación. Copias actuales y verificadores en ../zootheorem/drafts/ y
+Estado: RECHAZADOS en OEIS el 24-09-2026 (Sean A. Irvine, NOGI) y los
+numeros A399819-A399821 reciclados. No citarlos: volveran a asignarse a
+secuencias ajenas. Los datos y verificadores siguen siendo validos; acta
+en depuracion/oeis20260924/LEEME.md.
+
+TEOREMA DE LA LIBELULA (24-09-2026, demostrado): e_j(N) = 0 para todo j
+IMPAR, y j >= 2 siempre. Razon: la posicion inicial y la ultima antes de
+fundir son siempre de paridad opuesta, y el balance obliga a que los
+desequilibrios +-1 se cancelen por pares. Luego la eleccion j = 8, 10, 12
+no era arbitraria (no hay impares que elegir), pero las fichas no lo
+decian. Con el lema de la garza -- el punto de fusion cumple siempre
+m = 2 (mod 3) -- en depuracion/oeis20260924/Garzas.md.
+
+COLUMNA j=2 (24-09-2026, demostrado): e_2(N) = 1 para todo N >= 4, con el
+unico par en forma cerrada: r = 2^(N-2)-2 si N es par y r = 3*2^(N-2)-2 si
+N es impar. Las dos trayectorias tienen forma 3^a*2^b-1; el paso anterior
+a fundir es siempre (x, 3x+1) con x = (3^k-1)/2 en A003462, y un par asi
+funde si y solo si x es impar. Los puntos de fusion resultantes son los
+repdigitos de base 9 de A125857: 2, 20, 182, 1640, ... La columna j=4
+parece tambien constante 1, pero eso sigue sin demostrar (barrido hasta
+N=26).
+Copias actuales y verificadores en ../zootheorem/drafts/ y
 ../zootheorem/verify/verify_strata.py. Offsets: 9,2; 11,2; 13,2.
 La tabla histórica siguiente empieza en N=10: le precede e8(9)=1;
 e8,e10,e12 son cero para N=1..8. Términos N=10..20 recalculados sin discrepancias.
