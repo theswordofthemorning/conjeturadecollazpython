@@ -5,7 +5,8 @@ en Lean.** Teorema `TejonasGao.gao` ([Tejonas](depuracion/gao20260920/Tejonas.md
 con f el mapa clásico (`n/2` o `3n+1`), el conjunto de n tales que
 `f^k(n)=f^k(n+1)` para algún `k<=log2 n` tiene densidad natural 1.
 `#print axioms` sólo muestra `propext`, `Classical.choice` y `Quot.sound`.
-**Pendiente de revisión humana y de cotejo del artículo primario de Gao.**
+**Pendiente de revisión humana. El artículo de Gao, ya leído, enuncia una
+forma más exigente que falta formalizar.**
 No afirma nada sobre la llegada a 1.
 
 ## Objeto y ley
@@ -36,11 +37,13 @@ Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
 1. **Revisión humana del enunciado**: [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean),
    líneas 11–20 (`f`, `encuentro`, límite de densidad). Lean certifica el
    enunciado, no su lectura.
-2. **Cotejo de Gao (1993)**, Discrete Math. 112, 261–267: el usuario dejó el
-   PDF en local el 25-09, sin leer todavía; no se sube por derechos. El de
-   Lagarias está hecho y coincide literalmente, con C el mapa clásico
-   ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)). No se halló
-   prueba publicada en una búsqueda breve.
+2. **Cotejo de Gao (1993)**, Discrete Math. 112, 261–267, leído el 25-09
+   ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)). **No coincide
+   literalmente.** Gao conjetura `d̄_k -> 1`, con una coalescencia más
+   exigente (las mismas divisiones por 2 y sin pasar por 1) y la misma cota
+   k para todo `n<2^k`. Lean da la forma de Lagarias, que sí coincide con su
+   resumen. La prueba parece cubrir la forma literal, pero falta
+   formalizarla. No se halló prueba publicada en una búsqueda breve.
 3. Si ambas cosas salen bien, redactar la prueba para revisión externa.
    **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
    La propuesta OEIS del 24-09 sigue siendo correcta como texto histórico
