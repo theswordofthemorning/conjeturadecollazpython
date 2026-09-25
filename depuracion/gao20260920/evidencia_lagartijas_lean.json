@@ -1,0 +1,36 @@
+{
+  "comando": "lake env lean Lagartijas.lean",
+  "codigo": 0,
+  "lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "mathlib_commit": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "consultas": 19,
+  "admite_sorry": false,
+  "errores": [],
+  "axiomas": [
+    "'LagartijasGao.riesgo_antitono' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.potencial_superarmonico' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.objetivo_cruce' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.reloj_determinista' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.muchas_entradas' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.pocas_entradas' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.interior_hijo' depends on axioms: [propext]",
+    "'LagartijasGao.riesgo_excursion' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.riesgo_entrada' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.deriva_frontera' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.riesgo_frontera' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.frontera_uno' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.frontera_inicio' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.pocas_entradas_abstracta' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.cola_parametros' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.presupuesto_lagartijas' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.lagartijas' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.cf_f' depends on axioms: [propext, choice, Quot.sound]",
+    "'LagartijasGao.ensayos_caben' depends on axioms: [propext, Quot.sound]"
+  ],
+  "sha256": {
+    "Lagartijas.lean": "870e43750ec7fd769656cc1629d74bc6dfdbff9b73f422e83d28c708af9e5a26",
+    "lakefile.lean": "63f112dc77eb3c44eda210403d5ba6f64befd4f935a5e54e8a48d97cf7339da9",
+    "lake-manifest.json": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+    "lean-toolchain": "ad754bf869b81954d95894d3b1324f5ec031819b8e9c8a4cdd4a485b271f0793"
+  }
+}

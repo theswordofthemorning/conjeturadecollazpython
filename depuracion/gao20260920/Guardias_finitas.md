@@ -58,6 +58,8 @@ C,j,h naturales; las probabilidades son promedios exactos de palabras.
 
 ## Primer paso al retomar
 
+*Hecho el 25-09-2026 por otra vía: [Lagartijas](Lagartijas.md).*
+
 Con los parámetros de [CF_F](Ensayo_finito.md), `N=2^m`, `h=N^6`,
 `C_m=9h^4` y `J_F=floor((N-1)/(W_m+2))`, demostrar sobre esta misma cadena:
 

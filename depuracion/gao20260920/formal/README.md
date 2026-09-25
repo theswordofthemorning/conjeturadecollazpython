@@ -32,6 +32,16 @@ una cadena auxiliar. `GaoFormal` contiene:
 - [ParametrosVentana.lean](ParametrosVentana.lean): VH explícita y uniforme.
 - [Hormigas.lean](Hormigas.lean): palabra universal de absorción y cota cuadrática.
 - [Ensayo.lean](Ensayo.lean): relevo y absorción uniforme antes de H+D.
+- [Repeticion.lean](Repeticion.lean), [Guardias.lean](Guardias.lean) y
+  [ConteoEnsayos.lean](ConteoEnsayos.lean): protocolo guardado y conteo.
+- [Lagartijas.lean](Lagartijas.lean): pocas entradas admisibles antes de h
+  y CF_F completa (`lagartijas`, `cf_f`). [Nota](../Lagartijas.md).
+- [Martas.lean](Martas.lean): el lado derecho de CF_F tiende a cero;
+  `P(sigma>h)->0` (`martas`). [Nota](../Martas.md).
+- [Tejonas.lean](Tejonas.lean): pares reales, transporte a clases y
+  densidad uno del conjunto de Gao (`transporte`, `gao`). [Nota](../Tejonas.md).
+- [GaoEnunciado.lean](GaoEnunciado.lean): el enunciado para revisión, como
+  límite de densidades (`conjetura_gao`).
 
 La magnitud es `tamano=|c|/3^k` y vale cero en el cementerio. El bit
 selecciona la paridad del ancla. `promedio` asigna probabilidad 1/2 a
@@ -67,8 +77,10 @@ El [ensayo finito](../Ensayo_finito.md) conecta VH con Hormigas sobre
 la cadena original y obtiene un piso uniforme de fusión antes de H+D.
 
 El alcance es finito y universal en n, h y los estados indicados.
-No se formalizan aquí el transporte a clases de enteros, el protocolo
-global de ensayos ni la cota CF completa.
+El protocolo global de ensayos, CF_F, su límite, el transporte a clases de
+enteros y la densidad uno de Gao quedan formalizados (ConteoEnsayos,
+Lagartijas, Martas, Tejonas). Lean certifica los enunciados; su lectura
+humana y el cotejo del artículo primario de Gao siguen pendientes.
 Tampoco se obtiene una cota a tiempo de salida condicionado sustituyendo
 n por una variable aleatoria. El estado de validación se registra en
 la [revisión principal](../REVISION.md).

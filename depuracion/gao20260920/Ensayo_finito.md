@@ -2,6 +2,7 @@
 
 20-09-2026. Se certifica el riesgo de absorción de un ensayo local.
 La variante global CF_F desarrollada abajo **sigue candidata**.
+*25-09-2026: CF_F quedó demostrada en Lean; ver [Lagartijas](Lagartijas.md).*
 Conserva el objetivo phi=1 y los presupuestos de CF_H; cambia la
 duración de los ensayos y, por ello, cuántos se pueden contar.
 

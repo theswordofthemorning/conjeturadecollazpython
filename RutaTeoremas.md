@@ -15,6 +15,10 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Datos y publicación | [Plan de zootheorem](../zootheorem/PLAN_INVESTIGACION.md) |
 | Estratos: por qué `j` es par; confluencia | [Garzas](depuracion/oeis20260924/Garzas.md); `garzas.py` en esa carpeta |
 | Rango útil de CF_H y CF_F; umbrales de m | [Cigarras](depuracion/gao20260924/Cigarras.md); `parametros_cff.py` |
+| Pocas entradas y CF_F en Lean; pares reales | [Lagartijas](depuracion/gao20260920/Lagartijas.md); `formal/Lagartijas.lean` |
+| Límite de CF_F: fusión casi segura | [Martas](depuracion/gao20260920/Martas.md); `formal/Martas.lean` |
+| Transporte a pares reales y densidad de Gao | [Tejonas](depuracion/gao20260920/Tejonas.md); `formal/Tejonas.lean` |
+| Pendientes de Gao y lista para el revisor | [gaopendientes.md](gaopendientes.md) |
 
 ## El zoológico y las rutas anteriores
 

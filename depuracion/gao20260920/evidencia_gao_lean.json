@@ -1,0 +1,134 @@
+{
+  "lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "mathlib_commit": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "lake_build": {
+    "codigo": 0,
+    "final": [
+      "Build completed successfully (1609 jobs)."
+    ]
+  },
+  "modulos": {
+    "Lagartijas": {
+      "codigo": 0,
+      "consultas": 19,
+      "errores": [],
+      "axiomas_usados": [
+        "Quot.sound",
+        "choice",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "870e43750ec7fd769656cc1629d74bc6dfdbff9b73f422e83d28c708af9e5a26",
+      "axiomas": [
+        "'LagartijasGao.riesgo_antitono' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.potencial_superarmonico' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.objetivo_cruce' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.reloj_determinista' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.muchas_entradas' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.pocas_entradas' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.interior_hijo' depends on axioms: [propext]",
+        "'LagartijasGao.riesgo_excursion' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.riesgo_entrada' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.deriva_frontera' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.riesgo_frontera' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.frontera_uno' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.frontera_inicio' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.pocas_entradas_abstracta' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.cola_parametros' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.presupuesto_lagartijas' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.lagartijas' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.cf_f' depends on axioms: [propext, choice, Quot.sound]",
+        "'LagartijasGao.ensayos_caben' depends on axioms: [propext, Quot.sound]"
+      ]
+    },
+    "Martas": {
+      "codigo": 0,
+      "consultas": 7,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "3850f08b951bd359c658dd8d33af2e7ae077e9a0d2ac287ac32e79e358922a54",
+      "axiomas": [
+        "'MartasGao.duracion_cota' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'MartasGao.tiempo_cota' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'MartasGao.ensayos_grandes' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'MartasGao.cola_ensayos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'MartasGao.existe_m' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'MartasGao.fusion_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'MartasGao.martas' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    "Tejonas": {
+      "codigo": 0,
+      "consultas": 8,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "2b60f7751c5ff9d52142667c003eaa6d60b21fbf2e6d0abf2f13fa058526540c",
+      "axiomas": [
+        "'TejonasGao.canon_paso' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'TejonasGao.suma_rep' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'TejonasGao.transporte' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'TejonasGao.canon_modulo' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'TejonasGao.iter_collatz' depends on axioms: [propext, Quot.sound]",
+        "'TejonasGao.fusion_clasica' depends on axioms: [propext, Quot.sound]",
+        "'TejonasGao.conteo_bloques' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'TejonasGao.gao' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    "GaoEnunciado": {
+      "codigo": 0,
+      "consultas": 1,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "2221721561a4d67f38bd8ec010f33ce37c5aa53d89c12cd0a7cbf21527c8272c",
+      "axiomas": [
+        "'GaoEnunciado.conjetura_gao' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    }
+  },
+  "leanchecker": {
+    "cadena_completa": 0,
+    "rachas": 0,
+    "Momentos": 0,
+    "Maximos": 0,
+    "Resto": 0,
+    "Producto": 0,
+    "Supervivencia": 0,
+    "Banda": 0,
+    "RachasEnteras": 0,
+    "UmbralRachas": 0,
+    "Reloj": 0,
+    "Palabras": 0,
+    "SalidaPalabras": 0,
+    "Ventana": 0,
+    "ParametrosVentana": 0,
+    "Hormigas": 0,
+    "Ensayo": 0,
+    "Repeticion": 0,
+    "Guardias": 0,
+    "ConteoEnsayos": 0,
+    "Lagartijas": 0,
+    "Martas": 0,
+    "Tejonas": 0,
+    "GaoEnunciado": 0
+  },
+  "sha256": {
+    "lakefile.lean": "7aaa179d7686f4930fa66d484414a37858863d3733ddc8aeaab5df59294b9aee",
+    "lake-manifest.json": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+    "lean-toolchain": "ad754bf869b81954d95894d3b1324f5ec031819b8e9c8a4cdd4a485b271f0793"
+  }
+}

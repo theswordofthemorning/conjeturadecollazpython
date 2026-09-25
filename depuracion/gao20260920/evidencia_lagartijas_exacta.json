@@ -1,0 +1,57 @@
+{
+  "parametros": {
+    "V": 2,
+    "N": 2,
+    "d": 4,
+    "B": 3,
+    "G": 8,
+    "h": 16,
+    "U": "4",
+    "C": 36,
+    "theta": "21/20"
+  },
+  "A": {
+    "palabras": 65536,
+    "vivas_pocas": 18108,
+    "sin_explicar": 0
+  },
+  "B": {
+    "P_A": "4527/16384",
+    "P_C1": "9605/65536",
+    "P_obj_sin_C1": "19361/65536",
+    "eps": "3/4",
+    "beta": "16000/9261",
+    "cota": "2641300577/606928896",
+    "ok": true
+  },
+  "C": {
+    "comparaciones": 363,
+    "fallos": 0
+  },
+  "D": {
+    "comparaciones": 73,
+    "fallos": 0
+  },
+  "A2": {
+    "N": 3,
+    "G": 5,
+    "h": 15,
+    "vivas_pocas": 17445,
+    "sin_explicar": 0
+  },
+  "C2": {
+    "V": 0,
+    "comparaciones": 144,
+    "no_triviales": 130,
+    "fallos": 0
+  },
+  "D2": {
+    "d": 8,
+    "B": 20,
+    "beta": 0.4034482820235232,
+    "comparaciones": 19,
+    "no_triviales": 19,
+    "fallos": 0,
+    "max_cociente": 0.0015353145601703538
+  }
+}

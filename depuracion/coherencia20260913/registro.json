@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-20",
+  "version": "2026-09-25",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -759,12 +759,12 @@
     },
     {
       "clave": "gao_cota_fija_20260920",
-      "enunciado": "COTA CANDIDATA CF_F: con los parametros de CF_H, W_m=H_m+D_m y J_F=floor((N-1)/(W_m+2)), P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p_m)^J_F. Los ensayos tienen duracion fija W_m y guardias de offset y tiempo restante conocidas al inicio.",
+      "enunciado": "CF_F: con N=2^m, h=N^6, C=9h^4, m>=10, W=H(C)+D(C), p=2^-D(C)/(4Q(C)) y todo J con 1+J(W+2)<=N (en particular J_F=floor((N-1)/(W+2))), P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p)^J. Cadena original desde ((0,1),false), bits iid justos; ensayos de duracion fija W con guardias conocidas al inicio.",
       "cuantificador": "todo_n",
-      "estado": "conjeturado",
-      "fichero": "depuracion/gao20260920/Ensayo_finito.md",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Lagartijas.md",
       "fuente": "propio",
-      "notas": "EF, admision, busqueda truncada y conteo estan certificados. ConteoEnsayos.lean reduce supervivencia a pocas entradas admisibles y un resto geometrico. Falta acotar ese evento mediante el reloj global, el limite y el transporte a clases. J_F difiere del J de CF_H. CF_F sigue conjeturada; la aritmetica finita no demuestra Gao."
+      "notas": "Conjeturada hasta el 24-09-2026. Demostrada el 25-09 en Lagartijas.lean (cf_f, ensayos_caben) con supervivencia_por_entradas de ConteoEnsayos.lean. 19 consultas de axiomas sin sorryAx. No prueba el limite J_F*p_m -> infinito (J_F*p_m>1 solo desde m=802923), ni el transporte a clases, ni phi=1."
     },
     {
       "clave": "hormigas_gacelas_ensayos_guardados",
@@ -773,7 +773,43 @@
       "estado": "demostrado",
       "fichero": "depuracion/gao20260920/Guardias_finitas.md",
       "fuente": "propio",
-      "notas": "Repeticion.lean, Guardias.lean y ConteoEnsayos.lean: evento booleano, promedio recursivo, guardias conocidas al inicio, inclusion por conteo y cota geometrica. 16 consultas nuevas sin sorryAx. Contraste auxiliar finito: 24564 casos y 528 comparaciones racionales. Falta la cota global del evento de pocas entradas; no demuestra CF_F ni phi=1."
+      "notas": "Repeticion.lean, Guardias.lean y ConteoEnsayos.lean: evento booleano, promedio recursivo, guardias conocidas al inicio, inclusion por conteo y cota geometrica. 16 consultas nuevas sin sorryAx. Contraste auxiliar finito: 24564 casos y 528 comparaciones racionales. La cota global del evento de pocas entradas es Lagartijas (25-09-2026); juntas dan CF_F. No demuestra phi=1."
+    },
+    {
+      "clave": "lagartijas_pocas_entradas",
+      "enunciado": "LAGARTIJAS: con N=2^m, h=N^6, C=9h^4 y m>=10, P(sigma>h y K_C(h)<N)<=3/N+66/h+1/(4h^3), donde K_C(h) cuenta las posiciones 0..h con entrada marcada 1->2 y |c|<=C. Cadena original desde ((0,1),false), bits iid justos.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Lagartijas.md",
+      "fuente": "propio",
+      "notas": "Lagartijas.lean: reloj determinista por la edad del hueco desde la ultima entrada guardada, potencial superarmonico por huecos (cruce_dominado), cola H3 dentro de la excursion y potencial geometrico con v2 en la frontera. Sin uniones sobre todos los instantes ni rachas C2. Contrastes: cadena reimplementada (inclusion en 65536 y 32768 palabras, frontera 144 y excursion 19 comparaciones) y 262144 pares reales (n,n+1): estado, biyeccion de clases y fusiones exactas hasta t=18."
+    },
+    {
+      "clave": "martas_fusion_casi_segura",
+      "enunciado": "MARTAS: la cadena original desde (0,1) fusiona casi seguramente: para todo eps>0 existe h0 con P(sigma>h)<=eps para todo h>=h0. Equivale a que el lado derecho de CF_F tiende a cero cuando m crece.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Martas.md",
+      "fuente": "propio",
+      "notas": "Martas.lean: parametros de EF acotados por potencias de dos (W+2<=2^(3L+17), D<=16(8L+53)^2, T<=1024m), J_F*p_m>=2^K para m>=K+4l+62+16(8l+133)^2, (1-p)^J<=1/(1+Jp) y monotonia de la fusion. Sin sorryAx. Ritmo pesimo: J_F*p_m>1 solo desde m=802923."
+    },
+    {
+      "clave": "tejonas_transporte",
+      "enunciado": "TEJONAS, transporte: para todo par de enteros con sus conteos impares bajo el mapa atajo, el estado canonico (ancla = menos impares, o el menor si empatan; k=|P-Q|, c=otro-3^k*ancla) evoluciona por la transicion de la cadena con la paridad del ancla; y para toda f, sum_{n<2^t} f(estado del par (n,n+1) en t) = 2^t E[f(cadena en t desde (0,1))].",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Tejonas.md",
+      "fuente": "propio",
+      "notas": "Tejonas.lean: canon_paso, canon_rep, paso_rep, bit_rep, suma_rep, transporte, canon_modulo. Sin sorryAx. Contraste: 262144 pares reales con estado, biyeccion de clases, fusiones exactas hasta t=18 y periodicidad modulo 2^18."
+    },
+    {
+      "clave": "gao_densidad_uno",
+      "enunciado": "CONJETURA DE GAO (1993), segun el resumen de Lagarias: con f(n)=n/2 (par) o 3n+1 (impar), el conjunto de n tales que f^k(n)=f^k(n+1) para algun k<=log2(n) tiene densidad natural 1.",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Tejonas.md",
+      "fuente": "propio",
+      "notas": "Teorema TejonasGao.gao en Lean 4.32.2 con Mathlib fijado: para todo eps>0 existe N0 con #(G y [0,N))>=(1-eps)N para N>=N0. Cadena EF/VH/Hormigas/H3/C1/protocolo -> Lagartijas -> Martas -> Tejonas; #print axioms solo muestra propext, Classical.choice y Quot.sound. Densidad observada 0,374 en 2^22 (ritmo pesimo, no contradice). PENDIENTE: revision humana del enunciado y cotejo del articulo primario de Gao. No afirma llegada a 1."
     }
   ],
   "nodos": [
@@ -839,7 +875,7 @@
       "despues": [
         "phi_uno",
         "pendiente",
-        "Objetivo phi=1. Candidato escrito el 20-09 en depuracion/gao20260920/Ensamblaje_candidato.md: ventana creciente de W, reloj y arranques, ensayos separados. Pendiente segunda auditoria conjunta y Gao primario; no elevar por tests finitos. No afirma llegada a 1."
+        "Objetivo phi=1 de la ruta antigua (L-A, L-B, arranques). Obtenido el 25-09 por otra via en Lean: Lagartijas, Martas y Tejonas dan a(t)/2^t=P(sigma<=t)->1; ver nodo gao_densidad. Los nodos L-A y L-B siguen pendientes y ya no son necesarios; el nodo se conserva pendiente por sus aristas historicas."
       ]
     },
     {
@@ -917,6 +953,42 @@
         "pendiente",
         "Ventana fija para W bajo supervivencia futura en la ley real; condicion suficiente de P2, aun sin demostrar."
       ]
+    },
+    {
+      "nombre": "lagartijas",
+      "antes": null,
+      "despues": [
+        "lagartijas",
+        "demostrado",
+        "LAGARTIJAS: P(sigma>h y menos de N entradas guardadas)<=3/N+66/h+1/(4h^3) con N=2^m, h=N^6, C=9h^4. Lean sin sorryAx; con ConteoEnsayos da CF_F. No prueba el limite ni phi=1."
+      ]
+    },
+    {
+      "nombre": "martas",
+      "antes": null,
+      "despues": [
+        "martas",
+        "demostrado",
+        "MARTAS: P(sigma>h)->0 desde (0,1); el lado derecho de CF_F tiende a cero. Lean sin sorryAx."
+      ]
+    },
+    {
+      "nombre": "tejonas",
+      "antes": null,
+      "despues": [
+        "tejonas",
+        "demostrado",
+        "TEJONAS: pares reales siguen la cadena; transporte a clases residuales exacto. Lean sin sorryAx."
+      ]
+    },
+    {
+      "nombre": "gao_densidad",
+      "antes": null,
+      "despues": [
+        "gao_densidad",
+        "demostrado",
+        "Conjetura de Gao segun Lagarias: densidad natural 1 de n con f^k(n)=f^k(n+1) para algun k<=log2 n. Lean sin sorryAx; pendiente revision humana y Gao primario."
+      ]
     }
   ],
   "dependencias_nuevas": [
@@ -959,6 +1031,22 @@
     [
       "lema_LB_ritmo",
       "reloj_excursion"
+    ],
+    [
+      "lagartijas",
+      "reloj_excursion"
+    ],
+    [
+      "martas",
+      "lagartijas"
+    ],
+    [
+      "tejonas",
+      "martas"
+    ],
+    [
+      "gao_densidad",
+      "tejonas"
     ]
   ],
   "correcciones_nuevas": [
