@@ -72,7 +72,11 @@ El P2 antiguo de ventana constante para W sigue abierto.
 
 Falta cotejar Gao primario (1993), cuyo proveedor bloque? el acceso.
 La atribuci?n secundaria de Lagarias no sustituye ese cotejo ni prueba
-Collatz. No contactar personas ni enviar OEIS/papers sin autorizaci?n.
+Collatz. No contactar personas ni enviar OEIS/papers sin autorización.
+OEIS, 24-09: propuesta única lista y sin enviar (tiempo de encuentro de los
+pares de A078417, con la conjetura de Gao como enunciado literal); la envía
+el usuario el 25-09. [Texto](../zootheorem/drafts/PROPUESTA_ENCUENTRO_20260924.md)
+y [verificación](depuracion/oeis20260924/LEEME.md).
 
 ## Evidencia y conservaci?n
 

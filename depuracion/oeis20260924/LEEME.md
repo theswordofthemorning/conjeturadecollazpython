@@ -128,3 +128,41 @@ nulas por un teorema elemental, dos columnas constantes con forma cerrada
 conjeturada y `130` testigos mínimos certificados. Sigue sin decidirse
 nada, y sigue sin enviarse nada; pero la objeción citada —restricciones
 arbitrarias— ya tiene respuesta que no existía esta mañana.
+
+## Noche del 24-09: una sola propuesta, lista y sin enviar
+
+El usuario decidió proponer **una sola** secuencia y enviarla él mismo el
+25-09. Es el tiempo de encuentro de los pares de A078417:
+`a(n)` = primer `k` con `C^k(m) = C^k(m+1)`, `m = A078417(n)`, con el mapa
+clásico A006370. El texto listo para pegar, con la búsqueda de duplicados
+(«No results» en cuatro consultas, control Fibonacci correcto), está en
+`../../../zootheorem/drafts/PROPUESTA_ENCUENTRO_20260924.md`.
+
+Sustituye a la «Propuesta 1» de `TRES_PROPUESTAS_20260924.md`, que usaba
+A014682 y contaba como encuentros los que ocurren dando vueltas en el ciclo
+1 -> 2 (7 y 8 «se encuentran» en el paso 10). El triángulo `T(n,j)` sigue
+descartado.
+
+Lo que se afirma y cómo se sostiene:
+
+- **Gao, literal.** Para `m >= 2`, el conjunto de Gao
+  `{m : C^k(m) = C^k(m+1) para algún k <= log2 m}` es exactamente
+  `{A078417(n) : a(n) <= log2 A078417(n)}`. Prueba: la altura cumple
+  `h(x) >= log2 x`, con igualdad sólo en potencias de 2, así que un encuentro
+  tan temprano ocurre antes de llegar a 1. Cotejo directo sin discrepancias
+  en `m = 2..199999`.
+- **Cota de Gao.** `A398792(j)/2^j` acota por debajo la densidad inferior de
+  ese conjunto: una clase contada allí se encuentra en `j` pasos de A014682,
+  es decir en `j + s <= 2j` pasos de `C`, y `2j <= log2 m` para `m >= 4^j`.
+  Con `j = 32`, `0,4356... > 0,389`.
+- **`a(n) >= 3`, con igualdad exactamente si `m = 4 (mod 8)`** (pares de
+  Garner). Prueba por casos: si `C(x) = C(y)` con `x != y`, entonces
+  `{x,y} = {2v, (v-1)/3}`; ningún par consecutivo es así (`5v+1 = ±3`), el
+  paso 2 no tiene solución y en el paso 3 sólo sobrevive `m/4` impar.
+  Cotejado en los 10 000 términos.
+
+Verificador: [`encuentro.py`](encuentro.py), salida en
+[`encuentro_salida.txt`](encuentro_salida.txt), b-file en `b_encuentro.txt`.
+`b078417_oficial.txt` es copia de la b-file de A078417 (Eric M. Schmidt,
+oeis.org/A078417/b078417.txt, licencia CC BY-SA 4.0 de OEIS), usada sólo
+para el cotejo.

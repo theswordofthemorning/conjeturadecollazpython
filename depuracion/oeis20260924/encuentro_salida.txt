@@ -1,0 +1,5 @@
+A078417: 10000 terminos coinciden con la b-file oficial
+primeros 60: 3,9,5,3,7,3,10,5,3,6,3,8,9,5,3,7,3,13,12,5,3,6,3,9,5,3,7,3,11,5,10,3,6,3,8,5,3,7,3,14,5,13,3,6,3,9,11,5,3,7,3,10,5,3,6,3,8,9,5,3
+Gao, m = 2 .. 199999 discrepancias: 0
+a=3 sobre m = 4 mod 8: True | todo m = 4 mod 8 (m>4) de la tabla tiene a=3: True
+maximo de a en la b-file: 177 | ultimo m: 23348
