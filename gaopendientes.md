@@ -1,6 +1,6 @@
 # Gao: lo hecho y lo pendiente
 
-25-09-2026, revisado el 26-09. Qué está demostrado, qué falta y cómo cerrarlo. El estado breve
+25-09-2026, revisado el 26-09 (Alpacas). Qué está demostrado, qué falta y cómo cerrarlo. El estado breve
 está en [ESTADO_INVESTIGACION.md](ESTADO_INVESTIGACION.md); las pruebas, en
 las notas enlazadas. Esta hoja no las repite.
 
@@ -29,6 +29,7 @@ llegar a 1: no es la conjetura de Collatz.**
 | Tejonas | pares reales, mapa clásico, densidad | [Tejonas](depuracion/gao20260920/Tejonas.md) |
 | GaoEnunciado | forma de límite, autocontenida | [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean) |
 | Hienas y GaoLiteral | forma literal de Gao: `d̄_k -> 1`, `d(x) -> 1` | [Hienas](depuracion/gao20260920/Hienas.md) |
+| Alpacas y GarnerEnunciado | Garner (1985): rachas de todo largo con la misma altura | [Alpacas](depuracion/garner20260926/Alpacas.md) |
 
 ## Lo ya comprobado
 
@@ -94,6 +95,12 @@ La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
        `C^0..C^k`.
      - `dbarra k` cuenta los `n<2^k-1` que coalescen en algún `j<=k`, y
        divide por `2^k`.
+   - Las líneas 11–27 de [GarnerEnunciado.lean](depuracion/gao20260920/formal/GarnerEnunciado.lean):
+     - `altura n h` es `height(n)=h`: `C^h(n)=1` y ningún `C^k(n)=1` con `k<h`.
+     - `mitades n h` cuenta los `k<h` con `C^k(n)` par. Con h la altura es
+       `σ∞(n)`.
+     - `FormaGarner`: para todo L y N hay `n>=N` con `n, …, n+L` de igual
+       altura h e igual `σ∞`. Tres `#guard` reproducen ejemplos de Gao.
 2. **Búsqueda bibliográfica a fondo.** El 26-09 se ampliaron las fuentes: las
    bibliografías de Lagarias, las 9 citas de Semantic Scholar y ccchallenge
    ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)). Falta:
@@ -124,22 +131,12 @@ La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
    ([nota del 24-09](depuracion/oeis20260924/LEEME.md)), y ese límite es justo
    lo que dan Tejonas y Martas. Cualquier edición, tras la revisión.
 6. **Rutas que abre.**
-   - **Rachas de Garner: siguiente ruta** ([plan](depuracion/garner20260926/LEEME.md)).
-     Candidata, sin formalizar. Garner (1985)
-     conjeturó que hay rachas arbitrariamente largas de enteros consecutivos
-     con la misma altura (Lagarias, entrada 72). Wu (1993) y Gao-Penning
-     sólo prueban que una racha de largo L da infinitas. Parece salir de
-     Martas y Tejonas:
-     - La unión de cotas da un residuo r módulo `2^t` con r, r+1, …, r+L
-       fusionados de dos en dos por clases.
-     - Los `2^t u + r + i` comparten entonces `3^a u + A`. Se elige u con
-       `3^a u + A = 2^m`, lo que usa que 2 es raíz primitiva módulo `3^a`.
-     - Todos llegan a 1 a la vez, con la misma altura y las mismas mitades.
-
-     Un sondeo con t<=20 construyó así rachas de hasta 23 consecutivos,
-     comprobadas iterando números de más de 300 cifras. Hay que comprobar
-     que no esté ya demostrado; A277109, A078441 y Frinkle et al. (2025) lo
-     tratan como cómputo. Luego, formalizarlo.
+   - **Rachas de Garner: hecho el 26-09** ([Alpacas](depuracion/garner20260926/Alpacas.md)).
+     `GarnerEnunciado.conjetura_garner`: para cada L hay L+1 consecutivos,
+     tan grandes como se quiera, con la misma altura y el mismo `σ∞`. Sale
+     de Martas por cota de unión y de llevar el valor común a una potencia
+     de 2. Pendiente de la misma revisión humana. Faltan zbMATH, MathSciNet
+     y el texto de Garner (1985).
    - Enunciar en Lean el corolario `A398792(t)/2^t -> 1`, que sale de
      `transporte` y `martas`.
    - Un ritmo útil. El de la prueba es pésimo: `J_F*p_m>1` sólo desde
@@ -167,8 +164,10 @@ lake build GaoCore GaoFormal
 lake env lean GaoEnunciado.lean      # axiomas del teorema final
 lake env lean GaoLiteral.lean        # forma literal, con el #guard de la tabla 3
 lake env leanchecker GaoLiteral
+lake env lean GarnerEnunciado.lean   # Garner, con los #guard de Gao
 cd ..
 python -B -X utf8 evidencia_gao_lean.py            # todo, y reescribe la evidencia
+python -B -X utf8 ../garner20260926/verificar_alpacas.py   # rachas construidas y tabla 1
 python -B -X utf8 verificar_hienas.py              # tabla 3 de Gao y puente, n<2^24
 python -B -X utf8 verificar_lagartijas_pares.py
 python -B -X utf8 verificar_lagartijas.py
@@ -191,4 +190,8 @@ python -B -X utf8 verificar_lagartijas.py
   - K. Frinkle et al., *Computing streaks of consecutive numbers with the
     same Collatz height*, J. Supercomputing (2025), sólo el resumen;
   - OEIS A078417, A078441 y A277109;
-  - ccchallenge.org/contribute.
+  - ccchallenge.org/contribute;
+  - para Alpacas: M. Elia y A. Tucker, Integers 15 (2015), arXiv:1511.09141
+    (refutan la caracterización de Garner por bloques y cadenas), y el
+    volumen 112 de Discrete Math. que aportó el usuario, donde sólo Gao
+    trata Collatz.

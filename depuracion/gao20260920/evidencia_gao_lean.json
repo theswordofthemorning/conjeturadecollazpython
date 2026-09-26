@@ -4,7 +4,7 @@
   "lake_build": {
     "codigo": 0,
     "final": [
-      "Build completed successfully (1611 jobs)."
+      "Build completed successfully (1613 jobs)."
     ]
   },
   "modulos": {
@@ -131,6 +131,36 @@
         "'GaoLiteral.lagarias' depends on axioms: [propext, Classical.choice, Quot.sound]",
         "'GaoLiteral.conjetura_gao_literal' depends on axioms: [propext, Classical.choice, Quot.sound]"
       ]
+    },
+    "Alpacas": {
+      "codigo": 0,
+      "consultas": 1,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "781ebfcf3212eb822bb108363f92f06ee095c8e1d7d38f0f297f3edf40f37678",
+      "axiomas": [
+        "'AlpacasGarner.alpacas' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    "GarnerEnunciado": {
+      "codigo": 0,
+      "consultas": 1,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "f9e046b0074d4eee4acc57e82dafa428fbe24382768c6ab7fe1f7ca200a9e51f",
+      "axiomas": [
+        "'GarnerEnunciado.conjetura_garner' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
     }
   },
   "leanchecker": {
@@ -159,10 +189,12 @@
     "Tejonas": 0,
     "GaoEnunciado": 0,
     "Hienas": 0,
-    "GaoLiteral": 0
+    "GaoLiteral": 0,
+    "Alpacas": 0,
+    "GarnerEnunciado": 0
   },
   "sha256": {
-    "lakefile.lean": "c2e99364d509c157b51e1d78ae67f546d0c86e90839d7ae44abc7506c43c504e",
+    "lakefile.lean": "edb4a631ce0680a7e5c156654c43d8b4e91b90b01b0f9af34cfea0722fdd9373",
     "lake-manifest.json": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26",
     "lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273"
   }

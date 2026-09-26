@@ -20,7 +20,7 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Transporte a pares reales y densidad de Gao | [Tejonas](depuracion/gao20260920/Tejonas.md); `formal/Tejonas.lean` |
 | Forma literal de Gao: `d̄_k -> 1` y puente | [Hienas](depuracion/gao20260920/Hienas.md); `formal/Hienas.lean`, `formal/GaoLiteral.lean` |
 | Pendientes de Gao y lista para el revisor | [gaopendientes.md](gaopendientes.md) |
-| Rachas de Garner (1985): siguiente ruta | [Plan y sondeo](depuracion/garner20260926/LEEME.md); `sondeo_rachas.py` |
+| Rachas de Garner (1985): misma altura, todo largo | [Alpacas](depuracion/garner20260926/Alpacas.md); `formal/Alpacas.lean`, `formal/GarnerEnunciado.lean`; [plan](depuracion/garner20260926/LEEME.md) |
 
 ## El zoológico y las rutas anteriores
 

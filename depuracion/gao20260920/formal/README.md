@@ -48,6 +48,12 @@ una cadena auxiliar. `GaoFormal` contiene:
 - [GaoLiteral.lean](GaoLiteral.lean): la conjetura tal como la escribe Gao,
   `d̄_k -> 1` y `d(x) -> 1` (`conjetura_gao_literal`), y un `#guard` que
   recalcula su tabla 3 hasta k=12.
+- [Alpacas.lean](Alpacas.lean): de Martas, un bloque de pares fusionados
+  por cota de unión; 2 es raíz primitiva módulo `3^k`; rachas de la misma
+  altura y las mismas mitades (`alpacas`). [Nota](../../garner20260926/Alpacas.md).
+- [GarnerEnunciado.lean](GarnerEnunciado.lean): la conjetura de Garner
+  (1985) con las definiciones de Gao, `height` y `σ∞`
+  (`conjetura_garner`), y tres `#guard` con rachas de Gao y Penning.
 
 La magnitud es `tamano=|c|/3^k` y vale cero en el cementerio. El bit
 selecciona la paridad del ancla. `promedio` asigna probabilidad 1/2 a

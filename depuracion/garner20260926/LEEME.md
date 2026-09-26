@@ -1,8 +1,9 @@
 # Ruta de Garner (1985): rachas arbitrariamente largas de la misma altura
 
-26-09-2026. **Siguiente ruta, elegida por el usuario.** Candidata: sin
-prueba escrita completa ni formalización. Todavía no se ha comprobado si
-ya está demostrada.
+26-09-2026. **Demostrada en Lean el mismo día:** [Alpacas](Alpacas.md),
+`GarnerEnunciado.conjetura_garner`, con axiomas estándar. Pendiente de
+revisión humana. Lo que sigue es el plan tal como se escribió, con los
+pasos marcados al final.
 
 ## La conjetura
 
@@ -69,17 +70,19 @@ En todos los casos las alturas y las divisiones coinciden. Los residuos 98,
 
 ## Pasos, en orden
 
-1. **Novedad.** Leer Garner (1985) y Frinkle et al. (2025), y buscar en
-   zbMATH o MathSciNet si ya se demostró.
-2. **Prueba escrita.** Revisar sobre todo:
-   - la unión de cotas y el borde `r+L<2^t`;
-   - que A es coprimo con 3;
-   - el argumento de «nadie llega antes a 1».
-3. **Lean.** Reutilizar `transporte`, `canon_modulo`, `iter_rep` y `martas`.
-   Falta demostrar:
-   - la unión de cotas sobre L desplazamientos;
-   - que 2 es raíz primitiva módulo `3^a`, por elevación del exponente o
-     con `ZMod`;
-   - la igualdad de alturas.
-4. **OEIS.** Sólo tras la revisión, y con autorización del usuario: un
-   comentario en A078441 de que a(n) existe para todo n.
+1. **Novedad.** Hecho en parte el 26-09
+   ([Alpacas, novedad](Alpacas.md#novedad)): bibliografías de Lagarias,
+   Gao, resúmenes de Wu, Elia–Tucker, OEIS, el resumen de Frinkle et al. y
+   una búsqueda web. No se halló prueba. Faltan zbMATH, MathSciNet y el
+   texto completo de Garner (1985) y de Frinkle et al.
+2. **Prueba escrita.** Hecha en [Alpacas.md](Alpacas.md). Los tres puntos
+   delicados quedaron así:
+   - el borde lo evita la cota de unión, que sólo usa `r+i` dentro de `S_t`;
+   - A es coprimo con 3 porque uno de r y r+1 es impar y a es común;
+   - «nadie llega antes a 1» sale del ciclo `{1,2,4}` y de `2^m>=8`.
+3. **Lean.** Hecho: [Alpacas.lean](../gao20260920/formal/Alpacas.lean) y
+   [GarnerEnunciado.lean](../gao20260920/formal/GarnerEnunciado.lean). Que 2
+   es raíz primitiva se probó por elevación a mano (`cuatro`,
+   `dos_genera`), sin `ZMod`.
+4. **OEIS.** Sin cambios: sólo tras la revisión humana, y con autorización
+   del usuario, un comentario en A078441 de que a(n) existe para todo n.

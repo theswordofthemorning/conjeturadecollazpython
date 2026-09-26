@@ -819,6 +819,15 @@
       "fichero": "depuracion/gao20260920/Hienas.md",
       "fuente": "propio",
       "notas": "Hienas.lean, que solo importa Mathlib (puente, equilibrio, sin_uno, gao_de_lagarias, d_de_lagarias), y GaoLiteral.lean (lagarias, conjetura_gao_literal y #guard de la tabla 3 de Gao hasta k=12). #print axioms: propext, Classical.choice, Quot.sound; leanchecker con codigo 0. verificar_hienas.py: los 21 valores de la tabla 3 (k=4..24) y 0 fallos del puente en n<2^24. PENDIENTE: revision humana. No afirma llegada a 1: coalescer da la misma altura solo si ambas llegan."
+    },
+    {
+      "clave": "alpacas_garner",
+      "enunciado": "ALPACAS, CONJETURA DE GARNER (1985) SOBRE RACHAS: con C(n)=n/2 (par) o 3n+1 (impar), para cada L y cada N hay n>=N tal que n, n+1, ..., n+L tienen la misma altura (minimo h con C^h=1) y el mismo tiempo total de parada (divisiones por 2 hasta llegar a 1), en el sentido de Gao (1993, pag. 262). Construccion: un bloque de L+1 pares (r+i,r+i+1) fusionados por clases hasta t (cota de union sobre Martas); los 2^t*u+r+i comparten 3^a*u+A con 3 sin dividir a A; como 2 es raiz primitiva modulo 3^a se elige u con 3^a*u+A=2^m. Altura t+a+m y mitades t+m.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/garner20260926/Alpacas.md",
+      "fuente": "propio",
+      "notas": "Alpacas.lean (bloque, bloque_fusion, cuatro, dos_genera, orbita, tres, altura_potencia, alpacas) y GarnerEnunciado.lean (conjetura_garner, definiciones literales de Gao y #guard de 943-949, 7083-7099 y 57346-57370). #print axioms: propext, Classical.choice, Quot.sound; leanchecker con codigo 0. verificar_alpacas.py: rachas de L+1 para L=1..22 (t<=20) con altura t+a+m y mitades t+m iterando de verdad, orden de 2 modulo 3^k, tabla 1 de Gao entera. Depende de Martas y Tejonas. No se hallo prueba publicada (Lagarias 1963-2009, Gao, Wu, Elia-Tucker, OEIS, resumen de Frinkle et al. 2025); faltan zbMATH y MathSciNet. Garner (1) con alturas finitas sigue abierta. PENDIENTE: revision humana."
     }
   ],
   "nodos": [
@@ -1007,6 +1016,15 @@
         "demostrado",
         "HIENAS: conjetura de Gao literal (d_barra(k)->1 y d(x)->1) desde la forma de Lagarias; todo encuentro en k<=log2 n pasos es coalescencia de Gao. Lean sin sorryAx; pendiente revision humana."
       ]
+    },
+    {
+      "nombre": "alpacas",
+      "antes": null,
+      "despues": [
+        "alpacas",
+        "demostrado",
+        "ALPACAS: conjetura de Garner (1985), rachas arbitrariamente largas de consecutivos con la misma altura y el mismo tiempo total de parada. Lean sin sorryAx; pendiente revision humana."
+      ]
     }
   ],
   "dependencias_nuevas": [
@@ -1069,6 +1087,14 @@
     [
       "hienas",
       "gao_densidad"
+    ],
+    [
+      "alpacas",
+      "martas"
+    ],
+    [
+      "alpacas",
+      "tejonas"
     ]
   ],
   "correcciones_nuevas": [
