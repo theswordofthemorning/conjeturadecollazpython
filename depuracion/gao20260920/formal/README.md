@@ -54,6 +54,11 @@ una cadena auxiliar. `GaoFormal` contiene:
 - [GarnerEnunciado.lean](GarnerEnunciado.lean): la conjetura de Garner
   (1985) con las definiciones de Gao, `height` y `σ∞`
   (`conjetura_garner`), y tres `#guard` con rachas de Gao y Penning.
+- [Condoras.lean](Condoras.lean): las dos conjeturas de Wu (1992): `lim L=∞`
+  por Garner (`wu_dos`), y con `d(x)->1`, `lim d(M)=1` equivale a densidad 1
+  de los que llegan a 1 (`wu_uno`).
+- [WuEnunciado.lean](WuEnunciado.lean): enunciado literal de Wu y `#guard`
+  con su 176-upla y `d(2^10)=620/1023`.
 
 La magnitud es `tamano=|c|/3^k` y vale cero en el cementerio. El bit
 selecciona la paridad del ancla. `promedio` asigna probabilidad 1/2 a

@@ -828,6 +828,15 @@
       "fichero": "depuracion/garner20260926/Alpacas.md",
       "fuente": "propio",
       "notas": "Alpacas.lean (bloque, bloque_fusion, cuatro, dos_genera, orbita, tres, altura_potencia, alpacas) y GarnerEnunciado.lean (conjetura_garner, definiciones literales de Gao y #guard de 943-949, 7083-7099 y 57346-57370). #print axioms: propext, Classical.choice, Quot.sound; leanchecker con codigo 0. verificar_alpacas.py: rachas de L+1 para L=1..22 (t<=20) con altura t+a+m y mitades t+m iterando de verdad, orden de 2 modulo 3^k, tabla 1 de Gao entera. Depende de Martas y Tejonas. No se hallo prueba publicada (Lagarias 1963-2009, Gao, Wu, Elia-Tucker, OEIS, resumen de Frinkle et al. 2025); faltan zbMATH y MathSciNet. Garner (1) con alturas finitas sigue abierta. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "condoras_wu",
+      "enunciado": "CONDORAS, CONJETURAS DE WU (1992): Wu Jiabang, J. Huazhong Univ. Sci. Tech. 20(5) (1992) 171-174, define K = #{n en [1,M) en una w-upla (w>=2) de consecutivos de igual altura}, d(M)=K/(M-1), y conjetura lim d(M)=1 y lim L=inf (L la upla mas larga en [1,M)). Conjetura 2 demostrada: lim L=inf, de Garner (Alpacas). Conjetura 1 reducida: con d(x)->1 de Gao (Hienas), lim d(M)=1 equivale a que los n que llegan a 1 tengan densidad natural 1, problema abierto.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/formal/WuEnunciado.lean",
+      "fuente": "propio",
+      "notas": "Condoras.lean (wu_dos, racha_de_coalescencia, cota_llegan, diferencia, wu_uno) y WuEnunciado.lean (definiciones literales, conjetura_wu_dos, conjetura_wu_uno, #guard de la 176-upla desde 722067240 con altura 190 y de d(2^10)=620/1023). #print axioms: propext, Classical.choice, Quot.sound. Las citas de las conjeturas vienen de CNKI AI (texto completo, cuenta de prueba del usuario) y falta cotejarlas con el original. La conjetura 1 misma sigue abierta. PENDIENTE: revision humana."
     }
   ],
   "nodos": [
@@ -1025,6 +1034,15 @@
         "demostrado",
         "ALPACAS: conjetura de Garner (1985), rachas arbitrariamente largas de consecutivos con la misma altura y el mismo tiempo total de parada. Lean sin sorryAx; pendiente revision humana."
       ]
+    },
+    {
+      "nombre": "condoras",
+      "antes": null,
+      "despues": [
+        "condoras",
+        "demostrado",
+        "CONDORAS: conjetura 2 de Wu (1992), lim L=inf; y lim d(M)=1 equivale a densidad 1 de los que llegan a 1. Lean sin sorryAx; pendiente revision humana."
+      ]
     }
   ],
   "dependencias_nuevas": [
@@ -1095,6 +1113,14 @@
     [
       "alpacas",
       "tejonas"
+    ],
+    [
+      "condoras",
+      "alpacas"
+    ],
+    [
+      "condoras",
+      "hienas"
     ]
   ],
   "correcciones_nuevas": [

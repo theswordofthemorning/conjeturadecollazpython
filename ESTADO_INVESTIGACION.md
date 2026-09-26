@@ -1,7 +1,8 @@
 # Estado para continuar — 26-09-2026
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
-literal, y de ella la conjetura de Garner (1985) sobre rachas.**
+literal; de ella la de Garner (1985) sobre rachas, y la conjetura 2 de
+Wu (1992).**
 
 - **Forma de Lagarias.** `GaoEnunciado.conjetura_gao`
   ([Tejonas](depuracion/gao20260920/Tejonas.md)): con f el mapa clásico
@@ -15,6 +16,10 @@ literal, y de ella la conjetura de Garner (1985) sobre rachas.**
   ([Alpacas](depuracion/garner20260926/Alpacas.md)): para cada L hay L+1
   consecutivos, tan grandes como se quiera, con la misma altura y el mismo
   tiempo total de parada.
+- **Wu (1992).** `WuEnunciado` ([Condoras](depuracion/gao20260920/formal/Condoras.lean)):
+  `lim L=∞` (conjetura 2). La conjetura 1, `lim d(M)=1`, equivale dado Gao a
+  que casi todo n llegue a 1: sigue abierta. Citas leídas con la IA de CNKI;
+  falta cotejar el original.
 
 `#print axioms` sólo muestra `propext`, `Classical.choice` y `Quot.sound`.
 **Pendiente de revisión humana.** Salvo en las rachas construidas, no
@@ -41,6 +46,7 @@ la proporción `a(t)/2^t` de clases módulo `2^t` fusionadas hasta t es
 6. [Alpacas](depuracion/garner20260926/Alpacas.md): por cota de unión, L
    pares fusionados seguidos; valor común `3^a·u+A` con `3∤A`; como 2 es
    raíz primitiva módulo `3^a`, u con `3^a·u+A=2^m`.
+7. Condoras: Wu con Garner y con `d(x)->1` de Hienas.
 
 ## Primera obligación al retomar
 
@@ -50,7 +56,8 @@ Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
    [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean),
    líneas 11–20; [Hienas.lean](depuracion/gao20260920/formal/Hienas.lean),
    líneas 34–76, y [GarnerEnunciado.lean](depuracion/gao20260920/formal/GarnerEnunciado.lean),
-   líneas 11–27. Lean certifica el enunciado, no su lectura. Hay tres apoyos:
+   líneas 11–27, y [WuEnunciado.lean](depuracion/gao20260920/formal/WuEnunciado.lean),
+   líneas 12–58. Lean certifica el enunciado, no su lectura. Hay tres apoyos:
    - las definiciones reproducen la tabla 3 de Gao;
    - Hienas escribe de nuevo la forma de Lagarias sin importar nada del
      proyecto;
@@ -68,13 +75,13 @@ Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
 
 - **OEIS.** La propuesta del 24-09 la envía el usuario. Conviene corregir
   dos frases sobre el original de Gao, y no añadir «proved» sin revisión.
+- **En curso: tres artículos para arXiv** (Gao, Garner y Wu). El plan, los
+  requisitos y lo pendiente están en [papers/README.md](papers/README.md).
+  Falta regenerar la evidencia Lean con Condoras y WuEnunciado.
 - **Siguiente ruta:** la elige el usuario. Candidatas en
   [gaopendientes.md](gaopendientes.md), punto 6: el corolario
   `A398792(t)/2^t -> 1`, un ritmo útil, y Garner (1) con alturas en `ℕ∪{∞}`.
   Garner (1) con alturas finitas sigue abierta.
-
-La ruta antigua (P1–P3, L-A, L-B) queda superada, no demostrada; sus nodos
-siguen pendientes en el registro.
 
 ## Evidencia y conservación
 
@@ -98,7 +105,7 @@ Contrastes independientes:
 
 Son controles finitos; el certificado universal es Lean.
 
-Registro 2026-09-26: 234 afirmaciones; Lagartijas, CF_F, Martas, Tejonas,
-`gao_densidad`, `hienas` y `alpacas_garner` demostradas. Fuente versionada `depuracion/coherencia20260913/registro.json`
+Registro 2026-09-26: 235 afirmaciones; Lagartijas, CF_F, Martas, Tejonas,
+`gao_densidad`, `hienas`, `alpacas_garner` y `condoras_wu` demostradas. Fuente versionada `depuracion/coherencia20260913/registro.json`
 y generador `guardarafirmaciones.py`. No reconstruir conversaciones ni
 alterar históricos. zootheorem permanece intacto.

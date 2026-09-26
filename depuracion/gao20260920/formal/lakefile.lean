@@ -18,4 +18,4 @@ lean_lib MangostasCore where
 lean_lib GaoFormal where
   roots := #[`Momentos, `Maximos, `Resto, `Producto, `Supervivencia, `Banda,
     `RachasEnteras, `UmbralRachas, `Reloj, `Palabras, `SalidaPalabras, `Ventana,
-    `ParametrosVentana, `Hormigas, `Ensayo, `Repeticion, `Guardias, `ConteoEnsayos, `Lagartijas, `Martas, `Tejonas, `GaoEnunciado, `Hienas, `GaoLiteral, `Alpacas, `GarnerEnunciado]
+    `ParametrosVentana, `Hormigas, `Ensayo, `Repeticion, `Guardias, `ConteoEnsayos, `Lagartijas, `Martas, `Tejonas, `GaoEnunciado, `Hienas, `GaoLiteral, `Alpacas, `GarnerEnunciado, `Condoras, `WuEnunciado]
