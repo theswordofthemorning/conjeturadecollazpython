@@ -1,5 +1,8 @@
-"""Compila Lagartijas, Martas, Tejonas y GaoEnunciado; guarda versiones, hashes y axiomas,
-y repasa con leanchecker toda la cadena de módulos propios.
+"""Compila Lagartijas, Martas, Tejonas, GaoEnunciado, Hienas y GaoLiteral; guarda versiones,
+hashes y axiomas, y repasa con leanchecker toda la cadena de módulos propios.
+
+Los hashes se toman con finales de línea LF, como el blob de Git, para que no cambien
+con la conversión CRLF de Windows.
 
 Uso (con la caché de Mathlib ya descargada, ver formal/README.md):
     python -B -X utf8 evidencia_gao_lean.py
@@ -12,12 +15,12 @@ import subprocess
 
 CARPETA = Path(__file__).resolve().parent
 FORMAL = CARPETA / 'formal'
-MODULOS = ('Lagartijas', 'Martas', 'Tejonas', 'GaoEnunciado')
+MODULOS = ('Lagartijas', 'Martas', 'Tejonas', 'GaoEnunciado', 'Hienas', 'GaoLiteral')
 AXIOMAS_ESTANDAR = {'propext', 'Classical.choice', 'choice', 'Quot.sound'}
 
 
 def sha(ruta):
-    return hashlib.sha256(ruta.read_bytes()).hexdigest()
+    return hashlib.sha256(ruta.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
 
 
 def main():

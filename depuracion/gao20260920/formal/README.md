@@ -42,6 +42,12 @@ una cadena auxiliar. `GaoFormal` contiene:
   densidad uno del conjunto de Gao (`transporte`, `gao`). [Nota](../Tejonas.md).
 - [GaoEnunciado.lean](GaoEnunciado.lean): el enunciado para revisión, como
   límite de densidades (`conjetura_gao`).
+- [Hienas.lean](Hienas.lean): sólo importa Mathlib. Define la coalescencia
+  de Gao y `d̄_k`, y prueba que un encuentro en `<= log2 n` pasos ya es
+  coalescencia (`puente`). [Nota](../Hienas.md).
+- [GaoLiteral.lean](GaoLiteral.lean): la conjetura tal como la escribe Gao,
+  `d̄_k -> 1` y `d(x) -> 1` (`conjetura_gao_literal`), y un `#guard` que
+  recalcula su tabla 3 hasta k=12.
 
 La magnitud es `tamano=|c|/3^k` y vale cero en el cementerio. El bit
 selecciona la paridad del ancla. `promedio` asigna probabilidad 1/2 a

@@ -71,7 +71,8 @@ contradicen ni lo confirman.
 - El enunciado de Lean coincide literalmente con el de Lagarias, con C el
   mapa clásico. El original de Gao (1993), leído el 25-09, no coincide
   literalmente: conjetura `d̄_k -> 1` con una coalescencia más exigente
-  ([ficha](ficha_gao_lagarias.md)). Falta formalizar esa forma.
+  ([ficha](ficha_gao_lagarias.md)). Esa forma quedó formalizada el 26-09 en
+  [Hienas](Hienas.md) (`GaoLiteral.conjetura_gao_literal`).
 - Una lectura humana de los enunciados Lean (`collatz`, `gao_encuentro`,
   `gao`): Lean certifica el enunciado, no su interpretación.
 - No enviar a OEIS ni publicar sin autorización del usuario.

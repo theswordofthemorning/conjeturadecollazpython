@@ -4,7 +4,7 @@
   "lake_build": {
     "codigo": 0,
     "final": [
-      "Build completed successfully (1609 jobs)."
+      "Build completed successfully (1611 jobs)."
     ]
   },
   "modulos": {
@@ -18,7 +18,7 @@
         "propext"
       ],
       "solo_estandar": true,
-      "sha256": "870e43750ec7fd769656cc1629d74bc6dfdbff9b73f422e83d28c708af9e5a26",
+      "sha256": "c189bda9190e6c9c0aa5b0cf641013ac8e06d951658b9f6208ad819142e8ed8b",
       "axiomas": [
         "'LagartijasGao.riesgo_antitono' depends on axioms: [propext, choice, Quot.sound]",
         "'LagartijasGao.potencial_superarmonico' depends on axioms: [propext, choice, Quot.sound]",
@@ -51,7 +51,7 @@
         "propext"
       ],
       "solo_estandar": true,
-      "sha256": "3850f08b951bd359c658dd8d33af2e7ae077e9a0d2ac287ac32e79e358922a54",
+      "sha256": "a738ad4f5df52b281aa7a7186748fbb4cdf4179f4b2c3c07b01dde7f39bb152a",
       "axiomas": [
         "'MartasGao.duracion_cota' depends on axioms: [propext, Classical.choice, Quot.sound]",
         "'MartasGao.tiempo_cota' depends on axioms: [propext, Classical.choice, Quot.sound]",
@@ -72,7 +72,7 @@
         "propext"
       ],
       "solo_estandar": true,
-      "sha256": "2b60f7751c5ff9d52142667c003eaa6d60b21fbf2e6d0abf2f13fa058526540c",
+      "sha256": "95541d9d2258e4e9d7afe71125cbe259d0cee1addaef14f77e96ba1ce3cc934b",
       "axiomas": [
         "'TejonasGao.canon_paso' depends on axioms: [propext, Classical.choice, Quot.sound]",
         "'TejonasGao.suma_rep' depends on axioms: [propext, Classical.choice, Quot.sound]",
@@ -97,6 +97,39 @@
       "sha256": "2221721561a4d67f38bd8ec010f33ce37c5aa53d89c12cd0a7cbf21527c8272c",
       "axiomas": [
         "'GaoEnunciado.conjetura_gao' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    "Hienas": {
+      "codigo": 0,
+      "consultas": 3,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "9026162d6c96aca77e655ca2430335dcae65727915213892a2c09ae7a577acf0",
+      "axiomas": [
+        "'Hienas.puente' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'Hienas.gao_de_lagarias' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'Hienas.d_de_lagarias' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    "GaoLiteral": {
+      "codigo": 0,
+      "consultas": 2,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "69d63504430fd84e08624a7312f35be664de3d0a4c9b32bb446bcbf80462da7f",
+      "axiomas": [
+        "'GaoLiteral.lagarias' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'GaoLiteral.conjetura_gao_literal' depends on axioms: [propext, Classical.choice, Quot.sound]"
       ]
     }
   },
@@ -124,11 +157,13 @@
     "Lagartijas": 0,
     "Martas": 0,
     "Tejonas": 0,
-    "GaoEnunciado": 0
+    "GaoEnunciado": 0,
+    "Hienas": 0,
+    "GaoLiteral": 0
   },
   "sha256": {
-    "lakefile.lean": "7aaa179d7686f4930fa66d484414a37858863d3733ddc8aeaab5df59294b9aee",
-    "lake-manifest.json": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
-    "lean-toolchain": "ad754bf869b81954d95894d3b1324f5ec031819b8e9c8a4cdd4a485b271f0793"
+    "lakefile.lean": "c2e99364d509c157b51e1d78ae67f546d0c86e90839d7ae44abc7506c43c504e",
+    "lake-manifest.json": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26",
+    "lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273"
   }
 }

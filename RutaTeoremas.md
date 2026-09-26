@@ -18,7 +18,9 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Pocas entradas y CF_F en Lean; pares reales | [Lagartijas](depuracion/gao20260920/Lagartijas.md); `formal/Lagartijas.lean` |
 | Límite de CF_F: fusión casi segura | [Martas](depuracion/gao20260920/Martas.md); `formal/Martas.lean` |
 | Transporte a pares reales y densidad de Gao | [Tejonas](depuracion/gao20260920/Tejonas.md); `formal/Tejonas.lean` |
+| Forma literal de Gao: `d̄_k -> 1` y puente | [Hienas](depuracion/gao20260920/Hienas.md); `formal/Hienas.lean`, `formal/GaoLiteral.lean` |
 | Pendientes de Gao y lista para el revisor | [gaopendientes.md](gaopendientes.md) |
+| Rachas de Garner (1985): siguiente ruta | [Plan y sondeo](depuracion/garner20260926/LEEME.md); `sondeo_rachas.py` |
 
 ## El zoológico y las rutas anteriores
 

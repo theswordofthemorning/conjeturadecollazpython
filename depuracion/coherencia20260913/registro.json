@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-25",
+  "version": "2026-09-26",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -809,7 +809,16 @@
       "estado": "demostrado",
       "fichero": "depuracion/gao20260920/Tejonas.md",
       "fuente": "propio",
-      "notas": "Teorema TejonasGao.gao en Lean 4.32.2 con Mathlib fijado: para todo eps>0 existe N0 con #(G y [0,N))>=(1-eps)N para N>=N0. Cadena EF/VH/Hormigas/H3/C1/protocolo -> Lagartijas -> Martas -> Tejonas; #print axioms solo muestra propext, Classical.choice y Quot.sound. Densidad observada 0,374 en 2^22 (ritmo pesimo, no contradice). PENDIENTE: revision humana del enunciado y cotejo del articulo primario de Gao. No afirma llegada a 1."
+      "notas": "Teorema TejonasGao.gao en Lean 4.32.2 con Mathlib fijado: para todo eps>0 existe N0 con #(G y [0,N))>=(1-eps)N para N>=N0. Cadena EF/VH/Hormigas/H3/C1/protocolo -> Lagartijas -> Martas -> Tejonas; #print axioms solo muestra propext, Classical.choice y Quot.sound. Densidad observada 0,374 en 2^22 (ritmo pesimo, no contradice). Cotejo del articulo primario hecho el 25-09: coincide con el resumen de Lagarias, no literalmente con Gao; la forma literal se deduce en hienas_gao_literal. PENDIENTE: revision humana del enunciado. No afirma llegada a 1."
+    },
+    {
+      "clave": "hienas_gao_literal",
+      "enunciado": "HIENAS, CONJETURA DE GAO (1993) EN SU FORMA LITERAL: con C(n)=n/2 (par) o 3n+1 (impar), n y n+1 coalescen en el paso k si C^k(n)=C^k(n+1), con el mismo numero de divisiones por 2 en los k primeros pasos y sin 1 en C^0..C^k. Entonces d_barra(k)=2^-k #{n<2^k-1: coalescen tras <=k pasos} tiende a 1, y d(x)=x^-1 #{n<x: coalescen} tiende a 1. Puente: todo encuentro en k<=log2 n pasos es coalescencia de Gao.",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Hienas.md",
+      "fuente": "propio",
+      "notas": "Hienas.lean, que solo importa Mathlib (puente, equilibrio, sin_uno, gao_de_lagarias, d_de_lagarias), y GaoLiteral.lean (lagarias, conjetura_gao_literal y #guard de la tabla 3 de Gao hasta k=12). #print axioms: propext, Classical.choice, Quot.sound; leanchecker con codigo 0. verificar_hienas.py: los 21 valores de la tabla 3 (k=4..24) y 0 fallos del puente en n<2^24. PENDIENTE: revision humana. No afirma llegada a 1: coalescer da la misma altura solo si ambas llegan."
     }
   ],
   "nodos": [
@@ -987,7 +996,16 @@
       "despues": [
         "gao_densidad",
         "demostrado",
-        "Conjetura de Gao segun Lagarias: densidad natural 1 de n con f^k(n)=f^k(n+1) para algun k<=log2 n. Lean sin sorryAx; pendiente revision humana y Gao primario."
+        "Conjetura de Gao segun Lagarias: densidad natural 1 de n con f^k(n)=f^k(n+1) para algun k<=log2 n. Lean sin sorryAx; pendiente revision humana; Gao primario cotejado, forma literal en hienas."
+      ]
+    },
+    {
+      "nombre": "hienas",
+      "antes": null,
+      "despues": [
+        "hienas",
+        "demostrado",
+        "HIENAS: conjetura de Gao literal (d_barra(k)->1 y d(x)->1) desde la forma de Lagarias; todo encuentro en k<=log2 n pasos es coalescencia de Gao. Lean sin sorryAx; pendiente revision humana."
       ]
     }
   ],
@@ -1047,6 +1065,10 @@
     [
       "gao_densidad",
       "tejonas"
+    ],
+    [
+      "hienas",
+      "gao_densidad"
     ]
   ],
   "correcciones_nuevas": [

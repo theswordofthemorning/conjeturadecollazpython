@@ -67,26 +67,39 @@ La frase de Lagarias «proves that it has a natural density which is at
 least 0.389» también simplifica: Gao prueba que existe `lim d̄_k` y calcula
 `d̄_24`.
 
-Comentarios, sin formalizar:
+**Actualización del 26-09: la forma literal está formalizada**
+([Hienas](Hienas.md)). `GaoLiteral.conjetura_gao_literal` demuestra
+`d̄_k -> 1` y `d(x) -> 1` con la coalescencia exigente de Gao. Para el 1 se
+toma la lectura más estricta: no aparece en `C^0..C^k`. No hizo falta la
+fusión balanceada: cualquier encuentro en `k <= log2 n` pasos ya tiene las
+mismas divisiones por 2 y no pasa por 1 (`Hienas.puente`), y de la
+densidad de Lagarias se deducen las de Gao. Con las mismas definiciones,
+Lean recalcula la tabla 3 hasta k=12, y
+[verificar_hienas.py](verificar_hienas.py) los 21 valores.
 
-- Con `k <= log2 n`, ninguna de las dos trayectorias pasa por 1 en los k
-  primeros pasos. Sólo una potencia de 2 llega tan pronto, y entonces no hay
-  encuentro. Es el argumento de alturas de la
-  [nota OEIS del 24-09](../oeis20260924/LEEME.md).
-- Los encuentros que construye la prueba vienen de una fusión balanceada:
-  el mismo número de pasos impares del atajo y, por tanto, el mismo número
-  de divisiones por 2 en el mapa clásico. El enunciado de Lean no lo recoge.
-- Con ambas cosas, el argumento de bloques de Tejonas debería dar
-  `d̄_k -> 1`. Los n entre `4^t` y `2^k` de clases fusionadas coalescen, en
-  el sentido de Gao, en `2t <= k` pasos o menos. Daría también `d* = 1` y la
-  forma informal, con la salvedad que el propio Gao señala: coalescer
-  implica la misma altura si la conjetura 3x+1 es cierta.
-- El artículo deja otras preguntas que esto no toca: rachas arbitrariamente
-  largas, su heurística, y si `height(n)=height(n+1)` implica que coincidan
-  los tiempos totales de parada.
+Queda la salvedad que el propio Gao señala: coalescer da la misma altura
+sólo si las trayectorias llegan a 1. El artículo deja otras preguntas que
+esto no toca: rachas arbitrariamente largas, su heurística, y si
+`height(n)=height(n+1)` implica que coincidan los tiempos totales de parada.
 
 ## Estado en la literatura (búsqueda breve, 25-09-2026)
 
 No se encontró una prueba publicada. El proyecto ccchallenge.org, que
 formaliza artículos sobre Collatz, lista Gao (1993) como «not formalized».
 Una búsqueda breve no excluye trabajos no indexados. No se contactó a nadie.
+
+Ampliada el 26-09:
+
+- Las dos bibliografías anotadas de Lagarias (1963–1999 y 2000–2009, en
+  `lecturas/`) no traen ninguna prueba. Wu (1995) prueba que crece una
+  densidad condicionada y conjetura que crece la otra. Garner (1985)
+  conjetura que la mayoría de los enteros tienen la altura de un vecino, y
+  que hay rachas arbitrariamente largas de la misma altura.
+- Semantic Scholar da 9 trabajos que citan a Gao: cuatro versiones de las
+  bibliografías de Lagarias, LaDue (2017, arXiv:1709.02979, condiciones para
+  pares concretos, sin densidades) y cuatro que sólo se vieron por título o
+  resumen: 1994, 2007, 2022 y Frinkle et al. (2025, J. Supercomputing,
+  cómputo de rachas para A277109).
+- ccchallenge.org sigue listando Gao (1993) como «Wishlist», sin formalizar.
+- zbMATH devolvió 403; MathSciNet y Google Scholar no se consultaron. La
+  búsqueda sigue sin ser exhaustiva.

@@ -1,6 +1,6 @@
 # Gao: lo hecho y lo pendiente
 
-25-09-2026. Qué está demostrado, qué falta y cómo cerrarlo. El estado breve
+25-09-2026, revisado el 26-09. Qué está demostrado, qué falta y cómo cerrarlo. El estado breve
 está en [ESTADO_INVESTIGACION.md](ESTADO_INVESTIGACION.md); las pruebas, en
 las notas enlazadas. Esta hoja no las repite.
 
@@ -14,10 +14,12 @@ naturales. Conjunto
 Teorema `GaoEnunciado.conjetura_gao`: `#(G ∩ [0,N))/N -> 1`, es decir, G
 tiene **densidad natural 1**. Es la conjetura de Gao (1993) **en la forma
 que resume Lagarias**. El artículo original, leído el 25-09, la enuncia de
-otro modo, más exigente (punto 2). No hay ley ni condicionamiento: el
-teorema es determinista. La cadena con bits justos es sólo el vehículo, y
-Tejonas la transporta de forma exacta a las clases módulo `2^t`. **No dice
-nada de llegar a 1: no es la conjetura de Collatz.**
+otro modo, más exigente: `d̄_k -> 1`. **Esa forma literal está demostrada
+desde el 26-09** (`GaoLiteral.conjetura_gao_literal`, [Hienas](depuracion/gao20260920/Hienas.md)),
+junto con `d(x) -> 1`. No hay ley ni condicionamiento: el teorema es
+determinista. La cadena con bits justos es sólo el vehículo, y Tejonas la
+transporta de forma exacta a las clases módulo `2^t`. **No dice nada de
+llegar a 1: no es la conjetura de Collatz.**
 
 | Pieza | Qué da | Nota |
 |---|---|---|
@@ -26,17 +28,29 @@ nada de llegar a 1: no es la conjetura de Collatz.**
 | Martas | `P(sigma>h) -> 0` | [Martas](depuracion/gao20260920/Martas.md) |
 | Tejonas | pares reales, mapa clásico, densidad | [Tejonas](depuracion/gao20260920/Tejonas.md) |
 | GaoEnunciado | forma de límite, autocontenida | [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean) |
+| Hienas y GaoLiteral | forma literal de Gao: `d̄_k -> 1`, `d(x) -> 1` | [Hienas](depuracion/gao20260920/Hienas.md) |
 
 ## Lo ya comprobado
 
-- **Formalización.** Lean 4.32.2 y Mathlib `905b95818eb3`. `lake build GaoCore
-  GaoFormal` completo (1609 tareas). `#print axioms` sólo muestra `propext`,
-  `Classical.choice` y `Quot.sound` en las 35 consultas de Lagartijas, Martas,
-  Tejonas y GaoEnunciado. No hay `sorry`, `admit`, `native_decide`, `axiom`
-  propios ni `extern`. `leanchecker` repasa por el núcleo los 24 módulos
-  propios: los 24 terminan con código 0. El 25-09 los hashes de
-  [la evidencia](depuracion/gao20260920/evidencia_gao_lean.json) coinciden con
-  los archivos.
+- **Formalización.** Lean 4.32.2 y Mathlib `905b95818eb3`. `#print axioms`
+  sólo muestra `propext`, `Classical.choice` y `Quot.sound`. No hay `sorry`,
+  `admit`, `native_decide`, `axiom` propios ni `extern`.
+- **Repaso desde cero, 26-09.**
+  - Se apartó la compilación vieja y se recompiló todo: 1610 tareas,
+    código 0 y 175 consultas de axiomas, todas estándar.
+  - En algunas consultas `Classical.choice` sale como `choice` a secas. Los
+    15 axiomas del entorno son del núcleo de Lean; el proyecto no declara
+    ninguno.
+  - En los fuentes no hay notaciones, macros ni instancias que cambien el
+    sentido del enunciado.
+  - `leanchecker` da código 0 en los 26 módulos propios.
+  - `leanchecker --fresh`, que también revisa Mathlib desde cero, da código
+    0 sobre la unión.
+  - [La evidencia](depuracion/gao20260920/evidencia_gao_lean.json) toma ahora
+    los hashes con LF. Los tres que no coincidían sólo diferían en CRLF.
+- **Enunciado reescrito aparte.** [Hienas.lean](depuracion/gao20260920/formal/Hienas.lean)
+  sólo importa Mathlib y escribe de nuevo la forma de Lagarias. Lean acepta
+  que `conjetura_gao` la demuestra tal cual (`GaoLiteral.lagarias`).
 - **Conteo exacto.** [Pares reales](depuracion/gao20260920/verificar_lagartijas_pares.py):
   262.144 pares `(n,n+1)` con n en `[2^18,2^19)`.
   - El estado real coincide con la cadena en cada paso.
@@ -47,9 +61,12 @@ nada de llegar a 1: no es la conjetura de Collatz.**
 
   La [cadena reimplementada](depuracion/gao20260920/verificar_lagartijas.py)
   comprueba las desigualdades de Lagartijas con parámetros pequeños.
-- **Cotejo del enunciado.** Coincide literalmente con el resumen de
-  Lagarias, con C el mapa clásico. Con el original de Gao no coincide
-  (punto 2; [ficha](depuracion/gao20260920/ficha_gao_lagarias.md)).
+- **Cotejo del enunciado.** `conjetura_gao` coincide literalmente con el
+  resumen de Lagarias: entrada 68, releída el 26-09 en el PDF de `lecturas/`.
+  La forma literal de Gao está en `GaoLiteral.conjetura_gao_literal`. Con
+  sus mismas definiciones, un `#guard` recalcula la tabla 3 hasta k=12, y
+  [verificar_hienas.py](depuracion/gao20260920/verificar_hienas.py) reproduce
+  sus 21 valores.
 - **Coherencia numérica.** Las fusiones balanceadas hasta t son A398792(t),
   y `A398792(32)/2^32 = 0,4356…`. La densidad observada de G es 0,364 en
   `2^20` y 0,374 en `2^22`. El 0,389 de Gao es otra cantidad: `d̄_24`, de su
@@ -57,44 +74,42 @@ nada de llegar a 1: no es la conjetura de Collatz.**
 
 ## Lo que falta, en orden
 
-1. **Lectura humana del enunciado.** Basta leer las líneas 11–20 de
-   [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean).
-   Lean certifica el enunciado, no su lectura. Comprobar:
-   - `f` es el mapa clásico, con `f(0)=0`.
-   - `Nat.log 2 m` es `floor(log2 m)` si m>=1, y 0 si m=0. Para k entero,
-     `k<=log2 m` equivale a `k<=floor(log2 m)`.
-   - `f^[k]` es la k-ésima iteración.
-   - El filtro de `Finset.range N` son los `m<N` de G; el cociente por N
-     tiende a 1. En Lean `x/0=0`, lo que no afecta al límite.
-   - `open Classical in` sólo da la decidibilidad del filtro.
-   - El teorema no tiene hipótesis, y `f = TejonasGao.collatz` se prueba por
-     `rfl`.
-2. **Forma literal de Gao.** El artículo se leyó el 25-09 y **no coincide
-   literalmente** con lo demostrado
-   ([ficha con las citas](depuracion/gao20260920/ficha_gao_lagarias.md)).
-   Gao conjetura `d̄_k -> 1`, donde `d̄_k` es la proporción de los `n < 2^k`
-   tales que n y n+1 coalescen en `<= k` iteraciones de C. Su coalescencia
-   exige la misma imagen, el mismo número de divisiones por 2 y no pasar
-   por 1. Pendiente:
-   - Formalizar esa forma. La prueba parece cubrirla: la fusión da el mismo
-     número de divisiones, y con `k <= log2 n` nadie pasa por 1. No está
-     hecho.
-   - Hasta entonces, decir «forma de Lagarias» y no «conjetura de Gao» a
-     secas.
-   - Actualizar la nota de `gao_densidad_uno` en el registro (cotejo hecho,
-     no literal) y regenerar la base con el generador.
-3. **Búsqueda bibliográfica a fondo.** Buscar quién cita a Gao (1993) en
-   zbMATH, MathSciNet y Google Scholar. La búsqueda breve del 25-09 no halló
-   ninguna prueba publicada, pero eso no basta para decir que es nueva.
-4. **Redacción en prosa autocontenida.** Las notas usan el vocabulario del
+La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
+([Hienas](depuracion/gao20260920/Hienas.md)).
+
+1. **Lectura humana de los enunciados.** Lean certifica el enunciado, no su
+   lectura.
+   - Las líneas 11–20 de [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean):
+     - `f` es el mapa clásico, con `f(0)=0`.
+     - `Nat.log 2 m` es `floor(log2 m)` si m>=1, y 0 si m=0. Para k entero,
+       `k<=log2 m` equivale a `k<=floor(log2 m)`.
+     - `f^[k]` es la k-ésima iteración.
+     - El filtro de `Finset.range N` son los `m<N` de G; el cociente por N
+       tiende a 1. En Lean `x/0=0`, lo que no afecta al límite.
+     - `open Classical in` sólo da la decidibilidad del filtro.
+     - El teorema no tiene hipótesis, y `f = TejonasGao.collatz` se prueba
+       por `rfl`.
+   - Las líneas 34–76 de [Hienas.lean](depuracion/gao20260920/formal/Hienas.lean):
+     - `coalescen` pide la misma imagen, las mismas mitades y ningún 1 en
+       `C^0..C^k`.
+     - `dbarra k` cuenta los `n<2^k-1` que coalescen en algún `j<=k`, y
+       divide por `2^k`.
+2. **Búsqueda bibliográfica a fondo.** El 26-09 se ampliaron las fuentes: las
+   bibliografías de Lagarias, las 9 citas de Semantic Scholar y ccchallenge
+   ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)). Falta:
+   - consultar zbMATH, que devolvió 403, MathSciNet y Google Scholar;
+   - leer enteras las cuatro citas vistas sólo por título o resumen.
+3. **Redacción en prosa autocontenida.** Las notas usan el vocabulario del
    laboratorio y dependen de las sesiones desde el 20-09. Un revisor necesita
    en un solo texto:
    - las definiciones, la cadena y el potencial de Lagartijas;
    - el transporte y la densidad;
-   - la relación con el enunciado original de Gao;
+   - el puente de Hienas con el enunciado original de Gao;
    - un mapa del código Lean.
-5. **Revisión externa**, sólo con autorización del usuario.
-6. **OEIS.** La propuesta del 24-09 (borrador en zootheorem, que no se toca
+4. **Revisión externa**, sólo con autorización del usuario. ccchallenge.org
+   acepta formalizaciones en Lean y las audita. Exige declarar el uso de IA
+   y el modelo, y que el auditor no sea el autor.
+5. **OEIS.** La propuesta del 24-09 (borrador en zootheorem, que no se toca
    desde aquí) dice que Gao «proved that its density is at least 0.389 (as
    summarized by Lagarias)» y que «Gao's conjecture is thus the statement
    that…».
@@ -103,18 +118,37 @@ nada de llegar a 1: no es la conjetura de Collatz.**
    - La conjetura literal es `d̄_k -> 1`.
 
    Conviene ajustar esas dos frases antes de enviarla. Lo decide y lo hace
-   el usuario. Las fichas de A398792 decían «They do not establish that lim
-   A398792(n)/2^n = 1» ([nota del 24-09](depuracion/oeis20260924/LEEME.md)),
-   y ese límite es justo lo que dan Tejonas y Martas. Cualquier edición,
-   tras la revisión.
-7. **Opcionales.**
+   el usuario. No añadir que está demostrada mientras no haya revisión: el
+   ARSENAL de zootheorem pide evitar «proved» como insignia. Las fichas de
+   A398792 decían «They do not establish that lim A398792(n)/2^n = 1»
+   ([nota del 24-09](depuracion/oeis20260924/LEEME.md)), y ese límite es justo
+   lo que dan Tejonas y Martas. Cualquier edición, tras la revisión.
+6. **Rutas que abre.**
+   - **Rachas de Garner: siguiente ruta** ([plan](depuracion/garner20260926/LEEME.md)).
+     Candidata, sin formalizar. Garner (1985)
+     conjeturó que hay rachas arbitrariamente largas de enteros consecutivos
+     con la misma altura (Lagarias, entrada 72). Wu (1993) y Gao-Penning
+     sólo prueban que una racha de largo L da infinitas. Parece salir de
+     Martas y Tejonas:
+     - La unión de cotas da un residuo r módulo `2^t` con r, r+1, …, r+L
+       fusionados de dos en dos por clases.
+     - Los `2^t u + r + i` comparten entonces `3^a u + A`. Se elige u con
+       `3^a u + A = 2^m`, lo que usa que 2 es raíz primitiva módulo `3^a`.
+     - Todos llegan a 1 a la vez, con la misma altura y las mismas mitades.
+
+     Un sondeo con t<=20 construyó así rachas de hasta 23 consecutivos,
+     comprobadas iterando números de más de 300 cifras. Hay que comprobar
+     que no esté ya demostrado; A277109, A078441 y Frinkle et al. (2025) lo
+     tratan como cómputo. Luego, formalizarlo.
    - Enunciar en Lean el corolario `A398792(t)/2^t -> 1`, que sale de
      `transporte` y `martas`.
    - Un ritmo útil. El de la prueba es pésimo: `J_F*p_m>1` sólo desde
-     m=802923 ([Cigarras](depuracion/gao20260924/Cigarras.md)).
-   - Cotejar si el resultado implica la conjetura de Garner (1985). Gao la
-     resume así: la mayoría de los enteros tienen la misma altura que un
-     vecino.
+     m=802923 ([Cigarras](depuracion/gao20260924/Cigarras.md)). El modelo
+     sugiere que falta lo que tarda en volver un paseo al azar, del orden de
+     `1/sqrt(t)`. Es una heurística, no está medida.
+   - Garner (1): que la mayoría tenga la altura de un vecino. Sale con
+     densidad 1 si la altura puede ser infinita. Con alturas finitas hace
+     falta saber que esos n llegan a 1, y eso está abierto.
    - Decidir si `phi_uno` se cierra en el registro: sigue pendiente por sus
      aristas históricas, aunque `gao_densidad` ya da su contenido.
 
@@ -131,9 +165,11 @@ versionado. No se reconstruyen conversaciones. El PDF de Gao no se sube.
 cd depuracion/gao20260920/formal     # primera vez: lake exe cache get (README)
 lake build GaoCore GaoFormal
 lake env lean GaoEnunciado.lean      # axiomas del teorema final
-lake env leanchecker GaoEnunciado
+lake env lean GaoLiteral.lean        # forma literal, con el #guard de la tabla 3
+lake env leanchecker GaoLiteral
 cd ..
 python -B -X utf8 evidencia_gao_lean.py            # todo, y reescribe la evidencia
+python -B -X utf8 verificar_hienas.py              # tabla 3 de Gao y puente, n<2^24
 python -B -X utf8 verificar_lagartijas_pares.py
 python -B -X utf8 verificar_lagartijas.py
 ```
@@ -148,3 +184,11 @@ python -B -X utf8 verificar_lagartijas.py
 - ccchallenge.org, que el 25-09 listaba Gao (1993) como «not formalized».
 - arXiv:2603.11066 y arXiv:1511.09141: consultados el 25-09; no demuestran
   esta conjetura.
+- 26-09:
+  - la misma bibliografía, entrada 72 (Garner 1985, sus dos conjeturas) y
+    entradas 189–190 (Wu); la bibliografía II (2000–2009);
+  - Semantic Scholar, 9 citas de Gao (1993); LaDue, arXiv:1709.02979;
+  - K. Frinkle et al., *Computing streaks of consecutive numbers with the
+    same Collatz height*, J. Supercomputing (2025), sólo el resumen;
+  - OEIS A078417, A078441 y A277109;
+  - ccchallenge.org/contribute.

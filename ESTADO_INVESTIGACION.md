@@ -1,13 +1,19 @@
-# Estado para continuar — 25-09-2026
+# Estado para continuar — 26-09-2026
 
-**La conjetura de Gao, en la forma que resume Lagarias, está demostrada
-en Lean.** Teorema `TejonasGao.gao` ([Tejonas](depuracion/gao20260920/Tejonas.md)):
-con f el mapa clásico (`n/2` o `3n+1`), el conjunto de n tales que
-`f^k(n)=f^k(n+1)` para algún `k<=log2 n` tiene densidad natural 1.
+**La conjetura de Gao está demostrada en Lean, también en su forma
+literal.**
+
+- **Forma de Lagarias.** `GaoEnunciado.conjetura_gao`
+  ([Tejonas](depuracion/gao20260920/Tejonas.md)): con f el mapa clásico
+  (`n/2` o `3n+1`), el conjunto de n tales que `f^k(n)=f^k(n+1)` para algún
+  `k<=log2 n` tiene densidad natural 1.
+- **Forma de Gao (1993).** `GaoLiteral.conjetura_gao_literal`
+  ([Hienas](depuracion/gao20260920/Hienas.md)): `d̄_k -> 1`, con su
+  coalescencia exigente (mismas divisiones por 2, sin pasar por 1), y
+  además `d(x) -> 1`.
+
 `#print axioms` sólo muestra `propext`, `Classical.choice` y `Quot.sound`.
-**Pendiente de revisión humana. El artículo de Gao, ya leído, enuncia una
-forma más exigente que falta formalizar.**
-No afirma nada sobre la llegada a 1.
+**Pendiente de revisión humana.** No afirma nada sobre la llegada a 1.
 
 ## Objeto y ley
 
@@ -21,33 +27,43 @@ y `phi=lim a(t)/2^t`. Tejonas demuestra que `a(t)/2^t=P(sigma<=t)`.
 1. Ingredientes del 20-09: C1 (magnitud `<=66/h`), H3, VH, Hormigas, EF y
    protocolo guardado: `P(sigma>h)<=P(sigma>h y K_C(h)<1+j(W+2))+(1-p)^j`.
 2. [Lagartijas](depuracion/gao20260920/Lagartijas.md): con `N=2^m`, `h=N^6`,
-   `C=9h^4`, `P(sigma>h y K_C(h)<N)<=3/N+66/h+1/(4h^3)`; de ahí CF_F. La
-   prueba usa un potencial por huecos entre entradas.
-3. [Martas](depuracion/gao20260920/Martas.md): el lado derecho de CF_F tiende
-   a cero, luego `P(sigma>h)->0`. El ritmo es pésimo: `J_F*p_m>1` sólo
-   desde m=802923 ([Cigarras](depuracion/gao20260924/Cigarras.md)).
-4. [Tejonas](depuracion/gao20260920/Tejonas.md): el estado canónico de todo
-   par entero evoluciona por la cadena; transporte exacto a clases; paso al
-   mapa clásico con `k<=2t`; densidad por bloques con `n>=4^t`.
+   `C=9h^4`, `P(sigma>h y K_C(h)<N)<=3/N+66/h+1/(4h^3)`; de ahí CF_F.
+3. [Martas](depuracion/gao20260920/Martas.md): `P(sigma>h)->0`. El ritmo es
+   pésimo: `J_F*p_m>1` sólo desde m=802923 ([Cigarras](depuracion/gao20260924/Cigarras.md)).
+4. [Tejonas](depuracion/gao20260920/Tejonas.md): transporte exacto de pares
+   reales a clases; mapa clásico con `k<=2t`; densidad por bloques.
+5. [Hienas](depuracion/gao20260920/Hienas.md): un encuentro en `<=log2 n`
+   pasos ya es coalescencia de Gao; de ahí `d̄_k -> 1` y `d(x) -> 1`.
 
 ## Primera obligación al retomar
 
 Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
 
-1. **Revisión humana del enunciado**: [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean),
-   líneas 11–20 (`f`, `encuentro`, límite de densidad). Lean certifica el
-   enunciado, no su lectura.
-2. **Cotejo de Gao (1993)**, Discrete Math. 112, 261–267, leído el 25-09
-   ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)). **No coincide
-   literalmente.** Gao conjetura `d̄_k -> 1`, con una coalescencia más
-   exigente (las mismas divisiones por 2 y sin pasar por 1) y la misma cota
-   k para todo `n<2^k`. Lean da la forma de Lagarias, que sí coincide con su
-   resumen. La prueba parece cubrir la forma literal, pero falta
-   formalizarla. No se halló prueba publicada en una búsqueda breve.
-3. Si ambas cosas salen bien, redactar la prueba para revisión externa.
-   **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
-   La propuesta OEIS del 24-09 sigue siendo correcta como texto histórico
-   («Gao conjectured»); no añadirle que está demostrada sin revisión.
+1. **Revisión humana de los enunciados.** Leer
+   [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean),
+   líneas 11–20, y [Hienas.lean](depuracion/gao20260920/formal/Hienas.lean),
+   líneas 34–76. Lean certifica el enunciado, no su lectura. Para la lectura
+   ya hay dos apoyos:
+   - las definiciones reproducen la tabla 3 de Gao;
+   - Hienas escribe de nuevo la forma de Lagarias sin importar nada del
+     proyecto.
+2. **Bibliografía a fondo.** No se halló prueba publicada: bibliografías de
+   Lagarias, 9 citas de Gao y ccchallenge, donde Gao (1993) sigue sin
+   formalizar ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)).
+   Faltan zbMATH, MathSciNet y Scholar.
+3. **Redacción autocontenida para revisión externa.** Con autorización del
+   usuario. ccchallenge.org acepta formalizaciones en Lean, pide declarar el
+   uso de IA y las audita otra persona.
+
+**No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
+
+- **OEIS.** La propuesta del 24-09 la envía el usuario. Conviene corregir
+  dos frases sobre el original de Gao, y no añadir «proved» sin revisión.
+- **Siguiente ruta, elegida por el usuario el 26-09:** la conjetura de
+  Garner (1985) de rachas arbitrariamente largas de la misma altura
+  ([plan](depuracion/garner20260926/LEEME.md)). Parece salir de Martas más
+  la elección de u que lleva a una potencia de 2. Un sondeo construyó
+  rachas de 23. Primero, comprobar que no esté ya demostrada.
 
 La ruta antigua (P1–P3, L-A, L-B, arranques polinómicos) queda superada,
 no demostrada; sus nodos siguen pendientes en el registro. El P2 de
@@ -55,21 +71,26 @@ ventana constante para W sigue abierto y no hace falta.
 
 ## Evidencia y conservación
 
-Lean 4.32.2 y Mathlib fijado; `lake build GaoCore GaoFormal` completo
-(1609 tareas) y `leanchecker` repasa por el núcleo los 24 módulos propios,
-todos con código 0. [Compilación, hashes y axiomas](depuracion/gao20260920/evidencia_gao_lean.json);
-la de las piezas anteriores está en `evidencia_guardias_lean.json`. `.lake/`
-se reconstruye con `lake exe cache get` ([README](depuracion/gao20260920/formal/README.md)).
+Lean 4.32.2 y Mathlib fijado. El 26-09 se recompiló todo desde cero: 1610
+tareas y 175 consultas de axiomas, todas estándar. `leanchecker` da código
+0 en los 26 módulos propios, y `leanchecker --fresh`, Mathlib incluido,
+también. [Compilación, hashes y axiomas](depuracion/gao20260920/evidencia_gao_lean.json),
+con hashes tomados en LF. La compilación del 20-09 quedó apartada en
+`formal/.lake/build_respaldo_20260920`, fuera de Git, y se puede borrar.
+`.lake/` se reconstruye con `lake exe cache get` ([README](depuracion/gao20260920/formal/README.md)).
 
-Contrastes independientes: [cadena reimplementada](depuracion/gao20260920/verificar_lagartijas.py)
-y [262.144 pares reales](depuracion/gao20260920/verificar_lagartijas_pares.py):
-estado, biyección de clases, fusiones hasta t=18, periodicidad y encuentro
-clásico, todo sin fallos. La densidad observada de G es 0,374 en `2^22`. Son
-controles finitos; el certificado universal es Lean.
+Contrastes independientes:
 
-Registro 2026-09-25: 232 afirmaciones; Lagartijas, CF_F, Martas, Tejonas y
-`gao_densidad` demostradas. Fuente versionada `depuracion/coherencia20260913/registro.json`
+- [cadena reimplementada](depuracion/gao20260920/verificar_lagartijas.py) y
+  [262.144 pares reales](depuracion/gao20260920/verificar_lagartijas_pares.py),
+  sin fallos;
+- [verificar_hienas.py](depuracion/gao20260920/verificar_hienas.py): los 21
+  valores de la tabla 3 de Gao y 0 fallos del puente en `n<2^24`.
+
+La densidad observada de G es 0,382 en `2^24`. Son controles finitos; el
+certificado universal es Lean.
+
+Registro 2026-09-26: 233 afirmaciones; Lagartijas, CF_F, Martas, Tejonas,
+`gao_densidad` y `hienas` demostradas. Fuente versionada `depuracion/coherencia20260913/registro.json`
 y generador `guardarafirmaciones.py`. No reconstruir conversaciones ni
-alterar históricos. OEIS, 24-09: propuesta única lista, la envía el usuario
-([texto](../zootheorem/drafts/PROPUESTA_ENCUENTRO_20260924.md)). zootheorem
-permanece intacto.
+alterar históricos. zootheorem permanece intacto.
