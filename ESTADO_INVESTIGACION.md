@@ -1,4 +1,4 @@
-# Estado para continuar — 26-09-2026
+# Estado para continuar — 27-09-2026
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
 literal; de ella la de Garner (1985) sobre rachas, y la conjetura 2 de
@@ -34,19 +34,14 @@ la proporción `a(t)/2^t` de clases módulo `2^t` fusionadas hasta t es
 
 ## Cadena demostrada (todo en `depuracion/gao20260920/formal`)
 
-1. Ingredientes del 20-09: C1, H3, VH, Hormigas, EF y protocolo guardado.
-2. [Lagartijas](depuracion/gao20260920/Lagartijas.md): pocas entradas
-   admisibles antes de h; de ahí CF_F.
-3. [Martas](depuracion/gao20260920/Martas.md): `P(sigma>h)->0`. El ritmo es
-   pésimo: `J_F*p_m>1` sólo desde m=802923 ([Cigarras](depuracion/gao20260924/Cigarras.md)).
-4. [Tejonas](depuracion/gao20260920/Tejonas.md): transporte exacto de pares
-   reales a clases; mapa clásico con `k<=2t`; densidad por bloques.
-5. [Hienas](depuracion/gao20260920/Hienas.md): un encuentro en `<=log2 n`
-   pasos ya es coalescencia de Gao; de ahí `d̄_k -> 1` y `d(x) -> 1`.
-6. [Alpacas](depuracion/garner20260926/Alpacas.md): por cota de unión, L
-   pares fusionados seguidos; valor común `3^a·u+A` con `3∤A`; como 2 es
-   raíz primitiva módulo `3^a`, u con `3^a·u+A=2^m`.
-7. Condoras: Wu con Garner y con `d(x)->1` de Hienas.
+C1, H3, VH, Hormigas, EF y ensayos guardados (20-09) →
+[Lagartijas](depuracion/gao20260920/Lagartijas.md) (CF_F) →
+[Martas](depuracion/gao20260920/Martas.md) (`P(sigma>h)->0`; ritmo pésimo,
+[Cigarras](depuracion/gao20260924/Cigarras.md)) →
+[Tejonas](depuracion/gao20260920/Tejonas.md) (clases y densidad) →
+[Hienas](depuracion/gao20260920/Hienas.md) (forma literal) →
+[Alpacas](depuracion/garner20260926/Alpacas.md) (Garner) → Condoras (Wu).
+El artículo I la expone entera, con cada nombre Lean.
 
 ## Primera obligación al retomar
 
@@ -64,20 +59,25 @@ Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
    - los `#guard` de Garner reproducen las rachas 943–949, 7083–7099 y
      57346–57370 de Gao.
 2. **Bibliografía a fondo.** No se halló prueba publicada de ninguna de las
-   dos ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md),
-   [Alpacas](depuracion/garner20260926/Alpacas.md#novedad)). Faltan zbMATH,
+   tres ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md),
+   [revisión del 27-09](papers/revision20260927/REVISION.md#4-novedad)).
+   El 27-09 se consultaron zbMATH (API), arXiv y la web. Faltan
    MathSciNet, Scholar y el texto de Garner (1985).
-3. **Redacción autocontenida para revisión externa.** Con autorización del
-   usuario. ccchallenge.org acepta formalizaciones en Lean, pide declarar el
-   uso de IA y las audita otra persona.
+3. **Destino.** Los datos del autor, la declaración de IA y el cotejo de
+   Wu con la IA de CNKI ya están en los artículos (27-09). Falta el
+   destino: el 27-09 descartó ccchallenge.org y propuso un DOI en Zenodo
+   y una revista *overlay*; se decide al retomar.
 
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
-- **OEIS.** La propuesta del 24-09 la envía el usuario. Conviene corregir
-  dos frases sobre el original de Gao, y no añadir «proved» sin revisión.
-- **En curso: tres artículos para arXiv** (Gao, Garner y Wu). El plan, los
-  requisitos y lo pendiente están en [papers/README.md](papers/README.md).
-  Falta regenerar la evidencia Lean con Condoras y WuEnunciado.
+- **Artículos: escritos, compilados y revisados el 27-09, sin enviar.**
+  Son tres `.tex` en inglés (Gao, Garner y Wu), con la revisión
+  adversarial y lo que falta en [papers/README.md](papers/README.md).
+- **OEIS: enviadas el 27-09 con autorización del usuario; las tres en
+  *proposed*** ([papers/oeis/LEEME.md](papers/oeis/LEEME.md)). Son A400486
+  (la tabla 3 de Gao), A400487 (la cuenta de Wu) y la revisión #31 de
+  A078441 (Garner). Cupos: 3 de 3. La propuesta del encuentro del 24-09
+  nunca se envió. Contestar a los editores requiere autorización.
 - **Siguiente ruta:** la elige el usuario. Candidatas en
   [gaopendientes.md](gaopendientes.md), punto 6: el corolario
   `A398792(t)/2^t -> 1`, un ritmo útil, y Garner (1) con alturas en `ℕ∪{∞}`.
@@ -93,17 +93,15 @@ que repasa además Mathlib, sale con código 0.
 con hashes en LF. `formal/.lake/build_respaldo_20260920`, fuera de Git, se
 puede borrar. `.lake/` se reconstruye con `lake exe cache get` ([README](depuracion/gao20260920/formal/README.md)).
 
-Contrastes independientes:
-
-- [cadena reimplementada](depuracion/gao20260920/verificar_lagartijas.py) y
-  [262.144 pares reales](depuracion/gao20260920/verificar_lagartijas_pares.py);
-- [verificar_hienas.py](depuracion/gao20260920/verificar_hienas.py): los 21
-  valores de la tabla 3 de Gao y 0 fallos del puente en `n<2^24`;
-- [verificar_alpacas.py](depuracion/garner20260926/verificar_alpacas.py):
-  rachas construidas de L+1 para `L<=22`, con altura `t+a+m` y `σ∞=t+m`
-  iterando de verdad, y la tabla 1 de Gao entera.
-
-Son controles finitos; el certificado universal es Lean.
+Contrastes independientes, finitos: [cadena](depuracion/gao20260920/verificar_lagartijas.py),
+[262.144 pares reales](depuracion/gao20260920/verificar_lagartijas_pares.py),
+[Hienas](depuracion/gao20260920/verificar_hienas.py),
+[Alpacas](depuracion/garner20260926/verificar_alpacas.py) y la
+[revisión del 27-09](papers/revision20260927/REVISION.md). Esta última usa
+código nuevo y reproduce enteras las tablas 2 y 3 de Gao; hasta entonces la
+2 no se había cotejado. Cubre también Garner por otra ruta y Wu hasta
+`N=26`, y comprueba que los hashes de Lean son los de la evidencia. El
+certificado universal es Lean.
 
 Registro 2026-09-26: 235 afirmaciones; Lagartijas, CF_F, Martas, Tejonas,
 `gao_densidad`, `hienas`, `alpacas_garner` y `condoras_wu` demostradas. Fuente versionada `depuracion/coherencia20260913/registro.json`

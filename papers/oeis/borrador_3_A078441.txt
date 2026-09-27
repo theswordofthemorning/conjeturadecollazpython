@@ -1,0 +1,20 @@
+Edición propuesta de A078441 (no es una secuencia nueva). Se AÑADEN estas líneas;
+todo lo existente (datos, b-file, ejemplo, programa, %E) se conserva tal cual.
+Antes de editar, leer la ficha viva y respetar el orden de los enlaces (alfabético).
+La línea %Y sustituye a la existente («Cf. A008908 (Values of h(k)), A153330
+(Differences in adjacent h(k)).»), que se conserva dentro de ella.
+Los comentarios van firmados, porque la ficha es de otro autor.
+
+%C A078441 Garner (1985) conjectured that there are arbitrarily long runs of consecutive integers with the same height. As recalled by Gao (1993), the runs should have the same height, computed with f as here, and the same number of halving steps (A006666); in that form the conjecture implies that a(n) exists for every n. - _Omar Said_, Sep 27 2026
+%C A078441 a(7), a(17), a(25), a(40), a(65), a(98) and a(176) are the starting points of the first seven runs in Table 1 of Gao (1993), which lists the longest run in each range 10^j..10^(j+1); in each of these runs all members also have the same number of halving steps (A006666). The run of 176 integers from a(176) = 722067240 is the longest below 2^30, as found by Wu (1992). - _Omar Said_, Sep 27 2026
+%H A078441 Guo-Gang Gao, <a href="https://doi.org/10.1016/0012-365X(93)90240-T">On consecutive numbers of the same height in the Collatz problem</a>, Discrete Math. 112 (1993), 261-267.
+%H A078441 Lynn E. Garner, <a href="https://doi.org/10.1016/S0012-365X(85)80020-0">On heights in the Collatz 3n+1 problem</a>, Discrete Math. 55 (1985), 57-64.
+%H A078441 Jeffrey C. Lagarias, <a href="https://arxiv.org/abs/math/0309224">The 3x+1 problem: An annotated bibliography (1963-1999) (sorted by author)</a>, arXiv:math/0309224 [math.NT], 2003-2011 (entries 68, 72 and 188).
+%H A078441 Jia-Bang Wu, <a href="https://doi.org/10.13245/j.hust.1992.05.030">A tendency of the proportion of consecutive numbers of the same height in the Collatz problem</a> (in Chinese), J. Huazhong Univ. Sci. Tech. 20 (1992), no. 5, 171-174.
+%Y A078441 Cf. A006577, A006666, A008908 (Values of h(k)), A078417, A153330 (Differences in adjacent h(k)), A277109, A400487.
+
+Líneas OPCIONALES, sólo cuando el artículo II tenga DOI y el autor lo decida
+(sustituir XXXXXXX por el número de Zenodo o de la revista):
+
+%C A078441 Said Duran (2026) gives a proof, formalized in Lean 4, that a(n) exists for every n; the runs constructed there also have equal numbers of halving steps.
+%H A078441 Omar Javier Said Duran, <a href="https://doi.org/10.5281/zenodo.XXXXXXX">Arbitrarily long runs of consecutive integers with the same Collatz height</a>, 2026.

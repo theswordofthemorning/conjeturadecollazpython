@@ -1,0 +1,245 @@
+% Artículo III: las dos conjeturas de Wu (1992). Borrador del 27-09-2026, sin enviar.
+% Compilar con: tectonic -X compile articulo_III_wu.tex   (o pdflatex, dos pasadas)
+% PENDIENTE: cotejar las dos conjeturas con el original impreso
+% de Wu (1992) (CNKI HZLG199205041); lectura humana de los enunciados Lean.
+\documentclass[11pt]{amsart}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{newunicodechar}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
+\newunicodechar{∧}{\ensuremath{\wedge}}
+\newunicodechar{∨}{\ensuremath{\vee}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≠}{\ensuremath{\ne}}
+\newunicodechar{𝓝}{\ensuremath{\mathcal{N}}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{theoremA}{Theorem A}
+\newtheorem*{theoremB}{Theorem B}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{conjecture1}{Conjecture W1}
+\newtheorem*{conjecture2}{Conjecture W2}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\lean}[1]{\nolinkurl{#1}}
+\raggedbottom
+
+\begin{document}
+
+\title[Two conjectures of Wu]{On two conjectures of Wu on consecutive integers of the same height in the Collatz problem}
+
+\author[O. J. Said Duran]{Omar Javier Said Duran}
+\address{Independent Researcher}
+\email{omarsaid24@gmail.com}
+
+\date{Draft of 27 September 2026}
+
+\begin{abstract}
+The height of a positive integer is the number of steps of the Collatz map ($n\mapsto n/2$ for even $n$, $n\mapsto 3n+1$ for odd $n$) needed to reach $1$. Wu Jiabang (1992) computed, for $N\le 24$, the proportion $d(2^N)$ of the integers in $[1,2^N)$ that belong to a run of at least two consecutive integers of the same height, found that it increases with $N$, and proposed two conjectures. As read from the full text through the AI reading assistant of the CNKI database, they state that $d(M)\to1$ and that the length $L(M)$ of the longest run of equal height in $[1,M)$ tends to infinity. We prove the second conjecture: it follows from the existence of arbitrarily long runs of equal height, proved in a companion paper. For the first, we show that $d(M)\to1$ if and only if the positive integers that reach $1$ have natural density one. One direction is immediate. The other uses a theorem of a second companion paper, on a conjecture of Gao, by which the proportion of $n<x$ such that $n$ and $n+1$ coalesce tends to $1$, together with the fact that coalescing integers that reach $1$ have the same height. Wu's first conjecture is therefore equivalent to a density form of the $3x+1$ conjecture, which is open: the best known lower bound for the number of $n\le x$ that reach $1$ is $x^{0.84}$. We extend Wu's table to $N=26$, and note that the monotonicity he observed, if it held for all $N$, would already give a positive lower density of integers reaching $1$. Both results are formalized in Lean~4 with Mathlib. The wording of the conjectures has still to be checked against the printed article.
+\end{abstract}
+
+\subjclass[2020]{Primary 11B83; Secondary 11Y55, 68V20}
+\keywords{Collatz problem, $3x+1$ problem, height, consecutive integers, natural density, Lean, formal verification}
+
+\maketitle
+
+\section{Introduction}
+
+Let $C(n)=n/2$ for even $n$ and $C(n)=3n+1$ for odd $n$. The \emph{height} of $n\ge1$ is the least $h$ with $C^{h}(n)=1$, when it exists; we say that $n$ \emph{reaches $1$} if it has a height. The $3x+1$ conjecture asserts that every positive integer reaches $1$ \cite{Lag85,Lag10}.
+
+Garner \cite{Gar85} studied consecutive integers of the same height and conjectured that a majority of the positive integers have the same height as a neighbour, and that arbitrarily long runs of consecutive integers of the same height occur \cite[entry~72]{Lag03}. Wu \cite{Wu92} revisited the first question numerically. The English abstract of his paper, as given by zbMATH (Zbl~0766.11013) and, with small differences, by Lagarias \cite[entry~188]{Lag03}, reads in part: ``The number of integers, $K$, which belong to $n$-tuples ($n\ge2$) in the interval $[1,2^N)$ ($N=1,2,\dots,24$) is accurately calculated. It is found that the density $d(2^N)$ ($=K/(2^N-1)$) of $K$ in $[1,2^N)$ increases with $N$. [\dots] The longest tuple in $[1,2^{30})$, which is the $176$-tuple with initial number $722\,067\,240$ has been found. In addition, two conjectures are proposed.''
+
+\begin{definition}\label{def:wu}
+A \emph{run} is a set of at least two consecutive positive integers with the same height. For $M\ge2$ let $K(M)$ be the number of $n\in[1,M)$ that belong to a run, that is, that have the same height as $n-1$ or as $n+1$, and put
+\[
+d(M)=\frac{K(M)}{M-1}.
+\]
+Let $L(M)$ be the largest $k$ such that some $k$ consecutive integers of $[1,M)$ have the same height.
+\end{definition}
+
+The abstract does not state the two conjectures, and we could not obtain the printed article. We read them through the AI reading assistant of the CNKI database \cite{CNKI}, which has access to the full text and quotes them verbatim (in Chinese) as ``the author conjectures: $\lim d(M)=1$'' and ``the author conjectures: $\lim L=\infty$'', with $L$ the length of the longest run; after the first one Wu adds that, if true, it would obviously be of great help for the Collatz problem. According to the same assistant, the height is the total number of halvings and multiplications by $3$ needed to reach $1$, that is, the height for the map $C$; Wu's run of $176$ integers from $722067240$ has $128$ halvings and $62$ multiplications by $3$, hence height $190$, as in Table~1 of Gao \cite{Gao93}; and $d(2^{10})=60.61\%$ and $d(2^{24})=72.48\%$, in agreement with our computation (Section~\ref{sec:table}). The assistant's rendering of Wu's full table is not reliable (it misaligns the rows), and we do not use it.
+
+\begin{conjecture1}[Wu]
+$d(M)\to1$ as $M\to\infty$.
+\end{conjecture1}
+
+\begin{conjecture2}[Wu]
+$L(M)\to\infty$ as $M\to\infty$.
+\end{conjecture2}
+
+\begin{theoremA}[\lean{WuEnunciado.conjetura_wu_dos}]
+Conjecture~W2 holds.
+\end{theoremA}
+
+\begin{theoremB}[\lean{WuEnunciado.conjetura_wu_uno}]
+Let $\rho(M)$ be the number of $n\in[1,M)$ that reach $1$, divided by $M-1$. Then $d(M)\to1$ if and only if $\rho(M)\to1$.
+\end{theoremB}
+
+Since $\rho(M)\to1$ says that the integers reaching $1$ have natural density one, Theorem~B shows that Conjecture~W1 is equivalent to a density form of the $3x+1$ conjecture. That statement is open. Krasikov and Lagarias \cite{KL03} proved that at least $x^{0.84}$ integers $n\le x$ reach $1$ for large $x$; Terras \cite{Ter76} and Everett \cite{Eve77} proved that almost all $n$ have an iterate below $n$, and Tao \cite{Tao22} that almost all orbits, in logarithmic density, attain almost bounded values. None of these results shows that a set of positive density reaches $1$. Theorem~B thus explains why Conjecture~W1 has resisted: it is as hard as the density form of the problem. Theorem~A settles the other half of Wu's paper.
+
+Both theorems rest on companion papers. Theorem~A follows from the existence of arbitrarily long runs of the same height and total stopping time \cite{SaidGarner}, which is Garner's conjecture on runs. Theorem~B uses the proof of a conjecture of Gao \cite{SaidGao}: the proportion $d_{\mathrm{G}}(x)$ of $n<x$ such that $n$ and $n+1$ coalesce, in the sense of Gao \cite{Gao93} recalled in Section~\ref{sec:B}, tends to~$1$.
+
+Wu proposed two further conjectures in later papers, which we do not address: that the density of consecutive pairs that coalesce in his sense increases with $N$ \cite{Wu95}, and, with Hao, that two stopping times of every $n$ coincide \cite{WH03}; the latter is equivalent to the coefficient stopping time conjecture of Terras \cite{Ter76}, see \cite[II, entry~124]{Lag03}.
+
+\section{Proof of Theorem A}\label{sec:A}
+
+By \cite[Theorem~1.1]{SaidGarner}, for every $k\ge1$ there are $n\ge1$ and $h$ such that $n,n+1,\dots,n+k-1$ all have height $h$. For $M\ge n+k$ these $k$ integers lie in $[1,M)$, so $L(M)\ge k$. Hence $L(M)\to\infty$ (\lean{CondorasWu.wu_dos}). \qed
+
+\section{Proof of Theorem B}\label{sec:B}
+
+Recall Gao's definition \cite[p.~264]{Gao93}: $n$ and $n+1$ \emph{coalesce} if for some $j$ one has $C^{j}(n)=C^{j}(n+1)$, the two trajectories contain the same number of halvings among their first $j$ steps, and $C^{i}(n)\ne1$, $C^{i}(n+1)\ne1$ for $0\le i\le j$. Let
+\[
+d_{\mathrm G}(x)=\frac1x\,\#\{0\le n<x:\ n \text{ and } n+1 \text{ coalesce}\}.
+\]
+
+\begin{theorem}[{\cite[Theorem~B]{SaidGao}; \lean{GaoLiteral.conjetura_gao_literal}}]\label{thm:gao}
+$d_{\mathrm G}(x)\to1$ as $x\to\infty$.
+\end{theorem}
+
+\begin{lemma}[\lean{CondorasWu.racha_de_coalescencia}]\label{lem:coal}
+If $n$ reaches $1$ and $n$, $n+1$ coalesce, then $n+1$ has the same height as $n$; in particular $n$ belongs to a run.
+\end{lemma}
+
+\begin{proof}
+Let them coalesce at step $j$ and let $h$ be the height of $n$. Since $1$ does not occur up to step $j$, we have $j<h$. The trajectories agree from step $j$ on, so $C^{h}(n+1)=1$; and $1$ does not occur earlier in the trajectory of $n+1$, before step $j$ by definition and after it because the trajectories agree.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~B]
+Let $R(M)$ be the number of $n\in[1,M)$ that reach $1$, and $G(M)$ the number of $n\in[0,M)$ such that $n$ and $n+1$ coalesce. Every integer in a run has a height, so $K(M)\le R(M)$. By Lemma~\ref{lem:coal}, an integer of $[1,M)$ that reaches $1$ and is not in a run does not coalesce with its successor, so
+\[
+K(M)\ \le\ R(M)\ \le\ K(M)+\bigl(M-G(M)\bigr)
+\]
+(\lean{CondorasWu.cota_llegan}). Dividing by $M-1$,
+\[
+0\ \le\ \rho(M)-d(M)\ \le\ \frac{M}{M-1}\Bigl(1-d_{\mathrm G}(M)\Bigr)\ \longrightarrow\ 0
+\]
+by Theorem~\ref{thm:gao} (\lean{CondorasWu.diferencia}). Hence $d(M)\to1$ if and only if $\rho(M)\to1$ (\lean{CondorasWu.wu_uno}).
+\end{proof}
+
+\begin{remark}
+The argument never uses the value of the height. If heights are measured with the shortcut map $T(x)=x/2$ or $(3x+1)/2$, the height of $n$ for $T$ is its number of halvings under $C$; coalescing integers that reach $1$ have the same number of halvings as well, and both proofs apply verbatim. For $N\le 22$ the two conventions give the same values of $K(2^N)$. The formalization uses the classical map $C$.
+\end{remark}
+
+\section{The numbers}\label{sec:table}
+
+Table~\ref{tab:wu} gives $K(2^N)$, $d(2^N)$ and $L(2^N)$ for $N\le 26$, computed exactly from the heights of all $n\le 2^{26}+1$; for $N\le 24$ two independent programs agree. The values of $L(2^N)$ agree with those derived from the sequence A078441 of the OEIS, which lists the first start of a run of each length \cite{OEIS}. Wu's run of $176$ integers from $722067240$ is A078441$(176)$.
+
+\begin{table}[ht]
+\caption{Wu's counts extended to $N=26$.}\label{tab:wu}
+\small
+\begin{tabular}{@{}rrlr@{\qquad}rrlr@{}}
+\toprule
+$N$ & $K(2^N)$ & $d(2^N)$ & $L$ & $N$ & $K(2^N)$ & $d(2^N)$ & $L$ \\
+\midrule
+1 & 0 & 0 & 1 & 14 & 10802 & 0.659342 & 17 \\
+2 & 0 & 0 & 1 & 15 & 21925 & 0.669118 & 17 \\
+3 & 0 & 0 & 1 & 16 & 44511 & 0.679194 & 25 \\
+4 & 4 & 0.266667 & 2 & 17 & 90024 & 0.686834 & 25 \\
+5 & 13 & 0.419355 & 3 & 18 & 182048 & 0.694461 & 27 \\
+6 & 32 & 0.507937 & 3 & 19 & 367482 & 0.700918 & 29 \\
+7 & 69 & 0.543307 & 5 & 20 & 740758 & 0.706443 & 40 \\
+8 & 147 & 0.576471 & 5 & 21 & 1491673 & 0.711285 & 40 \\
+9 & 303 & 0.592955 & 6 & 22 & 3003711 & 0.716141 & 52 \\
+10 & 620 & 0.606061 & 7 & 23 & 6045633 & 0.720696 & 65 \\
+11 & 1270 & 0.620420 & 9 & 24 & 12159386 & 0.724756 & 77 \\
+12 & 2618 & 0.639316 & 14 & 25 & 24450352 & 0.728677 & 96 \\
+13 & 5340 & 0.651935 & 17 & 26 & 49147890 & 0.732361 & 96 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The table confirms Wu's observation that $d(2^N)$ increases with $N$, now up to $N=26$, and suggests how slowly it could approach~$1$.
+
+\begin{remark}[monotonicity]\label{rem:mono}
+Wu's observation cannot be extended to all $N$ without new information on the $3x+1$ problem. Suppose that $d(2^N)$ were nondecreasing for $N\ge26$. For $2^N\le M<2^{N+1}$ with $N\ge26$, every integer counted in $K(2^N)$ reaches $1$, so $R(M)\ge K(2^N)\ge d(2^{26})(2^N-1)$, and
+\[
+\liminf_{M\to\infty}\frac{R(M)}{M}\ \ge\ \frac{d(2^{26})}2\ >\ 0.366 .
+\]
+A positive lower density of integers reaching $1$ is far beyond what is known \cite{KL03}. This remark is not formalized.
+\end{remark}
+
+\section{Formalization}\label{sec:formal}
+
+The results are formalized in Lean~4.32.2 with Mathlib at commit \lean{905b95818eb3}, in the modules \lean{Condoras.lean} and \lean{WuEnunciado.lean}; the latter restates Wu's definitions without the auxiliary names of the proofs:
+
+\begin{Verbatim}[fontsize=\small]
+def C (n : ℕ) : ℕ := if n % 2 = 0 then n / 2 else 3 * n + 1
+def altura (n h : ℕ) : Prop :=
+  C^[h] n = 1 ∧ ∀ k, k < h → C^[k] n ≠ 1
+def enUpla (n : ℕ) : Prop :=
+  ∃ h, altura n h ∧ (altura (n - 1) h ∨ altura (n + 1) h)
+noncomputable def d (M : ℕ) : ℝ :=
+  (((Finset.Ico 1 M).filter enUpla).card : ℝ) / ((M : ℝ) - 1)
+def uplaEn (M k : ℕ) : Prop :=
+  ∃ n h, 1 ≤ n ∧ n + k ≤ M ∧ ∀ i, i < k → altura (n + i) h
+noncomputable def L (M : ℕ) : ℕ := sSup {k | uplaEn M k}
+def llega (n : ℕ) : Prop := ∃ h, C^[h] n = 1
+noncomputable def proporcionLlegan (M : ℕ) : ℝ :=
+  (((Finset.Ico 1 M).filter llega).card : ℝ) / ((M : ℝ) - 1)
+theorem conjetura_wu_dos : Tendsto L atTop atTop
+theorem conjetura_wu_uno :
+    Tendsto d atTop (𝓝 1) ↔ Tendsto proporcionLlegan atTop (𝓝 1)
+\end{Verbatim}
+
+\noindent (Line breaks are adjusted for display.) For $n=1$ the term \texttt{altura (n - 1) h} concerns $0$, which never reaches $1$, so only the right neighbour counts, as in Definition~\ref{def:wu}. The set in the definition of \texttt{L} is bounded by $M$, so for $M\ge1$ its supremum is a maximum. The command \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} for both theorems, and \texttt{leanchecker} replays the modules with exit code~$0$. Three commands \texttt{\#guard}, evaluated by the interpreter and not used by any proof, check with the same definitions that $722067240,\dots,722067415$ all have height $190$ while $722067239$ and $722067416$ do not, that a faster height function agrees with \texttt{altura} on $[1,1024]$, and that $K(2^{10})=620$.
+
+\section*{Use of AI tools}
+The formalization, the numerical checks and the first draft of this text were produced with extensive assistance from large language models of Anthropic's Claude family, used as programming and proof assistants: Claude Opus~5.5 for the results of this paper (September 2026), and Claude Opus~5 and Claude Fable~5 in earlier stages of the same project, according to the commit history. The statements of Wu's conjectures were read through the AI reading assistant of CNKI, as explained in the introduction. The author is responsible for the content.
+
+\begin{thebibliography}{99}
+
+\bibitem{CNKI} China National Knowledge Infrastructure (CNKI), full-text record of \cite{Wu92} with file number HZLG199205041, read on 26 September 2026. DOI \nolinkurl{10.13245/j.hust.1992.05.030}.
+
+\bibitem{Eve77} C.~J.~Everett, \emph{Iteration of the number-theoretic function $f(2n)=n$, $f(2n+1)=3n+2$}, Adv.\ Math.\ 25 (1977), 42--45.
+
+\bibitem{Gao93} G.-G.~Gao, \emph{On consecutive numbers of the same height in the Collatz problem}, Discrete Math.\ 112 (1993), 261--267. doi:10.1016/0012-365X(93)90240-T.
+
+\bibitem{Gar85} L.~E.~Garner, \emph{On heights in the Collatz $3n+1$ problem}, Discrete Math.\ 55 (1985), 57--64. doi:10.1016/S0012-365X(85)80020-0.
+
+\bibitem{KL03} I.~Krasikov and J.~C.~Lagarias, \emph{Bounds for the $3x+1$ problem using difference inequalities}, Acta Arith.\ 109 (2003), 237--258.
+
+\bibitem{Lag85} J.~C.~Lagarias, \emph{The $3x+1$ problem and its generalizations}, Amer.\ Math.\ Monthly 92 (1985), 3--23.
+
+\bibitem{Lag03} J.~C.~Lagarias, \emph{The $3x+1$ problem: an annotated bibliography (1963--1999)}, arXiv:math/0309224, version of 2011; \emph{II (2000--2009)}, arXiv:math/0608208.
+
+\bibitem{Lag10} J.~C.~Lagarias (ed.), \emph{The Ultimate Challenge: The $3x+1$ Problem}, Amer.\ Math.\ Soc., Providence, RI, 2010.
+
+\bibitem{OEIS} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, \url{https://oeis.org}, sequence A078441.
+
+\bibitem{SaidGao} O.~J.~Said Duran, \emph{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao}, companion paper, 2026.
+
+\bibitem{SaidGarner} O.~J.~Said Duran, \emph{Arbitrarily long runs of consecutive integers with the same Collatz height}, companion paper, 2026.
+
+\bibitem{Tao22} T.~Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values}, Forum Math.\ Pi 10 (2022), e12. arXiv:1909.03562.
+
+\bibitem{Ter76} R.~Terras, \emph{A stopping time problem on the positive integers}, Acta Arith.\ 30 (1976), 241--252.
+
+\bibitem{WH03} J.~B.~Wu and S.~W.~Hao, \emph{On the equality of the adequate stopping time and the coefficient stopping time of $n$ in the $3N+1$ conjecture} (in Chinese), J.~Huazhong Univ.\ Sci.\ Tech.\ Nat.\ Sci.\ 31 (2003), no.~5, 114--116.
+
+\bibitem{Wu92} J.~B.~Wu, \emph{A tendency of the proportion of consecutive numbers of the same height in the Collatz problem} (in Chinese), J.~Huazhong Univ.\ Sci.\ Tech.\ 20 (1992), no.~5, 171--174.
+
+\bibitem{Wu95} J.~B.~Wu, \emph{The monotonicity of pairs of coalescence numbers in the Collatz problem} (in Chinese), J.~Huazhong Univ.\ Sci.\ Tech.\ 23 (1995), suppl.~II, 170--172.
+
+\end{thebibliography}
+
+\end{document}

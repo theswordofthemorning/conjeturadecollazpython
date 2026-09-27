@@ -1,0 +1,298 @@
+% Artículo II: la conjetura de Garner (1985) sobre rachas. Borrador del 27-09-2026, sin enviar.
+% Compilar con: tectonic -X compile articulo_II_garner.tex   (o pdflatex, dos pasadas)
+% PENDIENTE: lectura humana de los enunciados Lean.
+\documentclass[11pt]{amsart}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{newunicodechar}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
+\newunicodechar{∧}{\ensuremath{\wedge}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≠}{\ensuremath{\ne}}
+\newunicodechar{∣}{\ensuremath{\mid}}
+\newunicodechar{…}{\ensuremath{\dots}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Prob}{\mathbf{P}}
+\newcommand{\lean}[1]{\nolinkurl{#1}}
+
+\raggedbottom
+
+\begin{document}
+
+\title[Long runs of equal Collatz height]{Arbitrarily long runs of consecutive integers with the same Collatz height}
+
+\author[O. J. Said Duran]{Omar Javier Said Duran}
+\address{Independent Researcher}
+\email{omarsaid24@gmail.com}
+
+\date{Draft of 27 September 2026}
+
+\begin{abstract}
+The height of a positive integer $n$ is the number of steps of the Collatz map $C$ ($C(n)=n/2$ for even $n$, $C(n)=3n+1$ for odd $n$) needed to reach $1$. Garner (1985) conjectured that there are arbitrarily long runs of consecutive integers with the same height; Gao (1993) recalled the conjecture with the same height and the same total stopping time, that is, the same number of halvings, and attributed it also to Penning. We prove it: for all $L$ and $N$ there is $n\ge N$ such that $n,n+1,\dots,n+L$ have the same height and the same total stopping time. They then also have the same height for the shortcut map $T(x)=x/2$ or $(3x+1)/2$, and every term of the sequence A078441 of the OEIS exists. The proof combines three facts. By the companion paper on a conjecture of Gao, the proportion of residues $r$ modulo $2^t$ such that $r$ and $r+1$ merge under $T$ within $t$ steps with the same number of odd terms tends to $1$, so a union bound gives $L$ consecutive such pairs. By a theorem of Terras, all the members of such a block of residue classes are carried after $t$ steps to one common value $3^a u+A$, for every $u$, and $3$ does not divide $A$. Since $2$ is a primitive root modulo every power of $3$, $u$ can be chosen so that the common value is a power of $2$, in the spirit of the lemma of Penning and Gao on the repetition of runs. The argument is formalized in Lean~4 with Mathlib, using only the standard axioms. It gives existence without useful bounds, and it says nothing about whether other integers reach $1$.
+\end{abstract}
+
+\subjclass[2020]{Primary 11B83; Secondary 11A07, 68V20}
+\keywords{Collatz problem, $3x+1$ problem, height, total stopping time, consecutive integers, primitive root, Lean, formal verification}
+
+\maketitle
+
+\section{Introduction}
+
+Let $C(n)=n/2$ for even $n$ and $C(n)=3n+1$ for odd $n$. The \emph{height} of $n\ge1$ is the least $h$ with $C^{h}(n)=1$, when it exists, and the \emph{total stopping time} $\sigma_\infty(n)$ is the number of halvings among those $h$ steps \cite{Gao93}. The $3x+1$ conjecture asserts that every positive integer has a height \cite{Lag85,Lag10}.
+
+Consecutive integers of the same height are frequent: $12$ and $13$ both have height $9$, and $943,\dots,949$ all have height $36$ and total stopping time $26$ \cite{Gao93}. Garner \cite{Gar85} studied pairs of consecutive integers of the same height through their parity vectors, proved that infinitely many such pairs exist, and made two conjectures, as summarized by Lagarias \cite[entry~72]{Lag03}: (1) a majority of all positive integers have the same height as an adjacent integer; (2) arbitrarily long runs of integers of the same height occur. The review of Garner's paper in zbMATH (by G.~Lord) measures heights with the shortcut map $T(x)=x/2$ or $(3x+1)/2$ and lists (2) among the open questions. Gao \cite[p.~262]{Gao93} writes: ``It has been conjectured that there exist arbitrarily long sets of consecutive numbers of the same height and the same $\sigma_\infty(n)$'', citing Garner and Penning \cite{Pen89}.
+
+Runs have been pursued by computer. Penning found $17$ consecutive integers from $7083$ with height $57$ and total stopping time $40$, and observed that one run yields infinitely many runs of the same length \cite{Pen89}; Gao \cite[Lemma~1]{Gao93} and Wu \cite{Wu93} proved this repetition lemma, and Gao found a run of length $35654$ starting at $2^{500}+1$. Wu \cite{Wu92} found the longest run below $2^{30}$, of length $176$ from $722067240$. The sequence A078441 of the OEIS lists the first start of a run of each length, and A277109 gives the length of the run starting at $2^n+1$; its largest known term, $2^{50}-1$ for $n=3954$, is due to Frinkle, and the computations of his group are described in \cite{Fri25} (see \cite{OEIS}). Wu and Huang \cite{WH01} gave infinite families of pairs, and Elia and Tucker \cite{ET15} refuted a different conjecture of Garner, his proposed characterization of the pairs of equal height by ``blocks'' and ``strings''. We have not found a proof of conjecture (2) in the literature.
+
+\begin{theorem}[\lean{GarnerEnunciado.conjetura_garner}]\label{thm:main}
+For all integers $L\ge0$ and $N\ge0$ there are $n\ge N$ and integers $h,s$ such that
+\[
+\operatorname{height}(n+i)=h\quad\text{and}\quad \sigma_\infty(n+i)=s\qquad\text{for } 0\le i\le L.
+\]
+\end{theorem}
+
+Each step of $T$ contains exactly one halving, so the height of $n$ for the map $T$ is $\sigma_\infty(n)$, and the number of odd steps is $\operatorname{height}(n)-\sigma_\infty(n)$. Theorem~\ref{thm:main} therefore covers every usual meaning of ``same height''.
+
+\begin{corollary}\label{cor:A078441}
+For every $k\ge1$ there is a run of $k$ consecutive positive integers with the same height; that is, every term of A078441 exists.
+\end{corollary}
+
+In the companion paper \cite{SaidWu} we deduce the second conjecture of Wu \cite{Wu92}: the longest run of equal height in $[1,M)$ tends to infinity with $M$.
+
+\subsection*{What is not proved}
+The heights of the integers in our runs are known because their common value after finitely many steps is a power of $2$. The theorem says nothing about the heights of other integers. Garner's conjecture (1) remains open in its literal form, since a majority of integers would first have to reach $1$ (see Remark~\ref{rem:garner1}). The proof gives existence only: the value of $t$ below comes from a limit theorem without a useful rate, and the runs it builds are far from the smallest ones.
+
+\subsection*{Method}
+The proof has three steps.
+\begin{enumerate}
+\item By the companion paper \cite{SaidGao}, for large $t$ almost all residues $r$ modulo $2^t$ have the property that $r$ and $r+1$ \emph{merge by classes}: $T^{t}(r)=T^{t}(r+1)$ and the two trajectories have the same number of odd terms. A union bound gives a block of $L+1$ consecutive such residues (Section~\ref{sec:block}).
+\item By Terras's formula, after $t$ steps of $T$ all the integers $2^tu+r+i$ of the block reach one common value $3^au+A$, for every $u\ge0$, and $3\nmid A$ (Section~\ref{sec:common}).
+\item Since $2$ is a primitive root modulo $3^a$, some $u$ makes $3^au+A$ a power of $2$, and then all the integers of the block descend together to $1$ (Sections~\ref{sec:primitive} and~\ref{sec:proof}).
+\end{enumerate}
+The last step is the idea of Penning's and Gao's repetition lemma, where a known run is shifted so that its common value becomes a power of $2$ \cite[Lemma~1]{Gao93}. Here there is no known run to start from, and the common value is an arbitrary residue prime to $3$; this is why the full primitive-root property is needed, rather than Euler's theorem.
+
+\section{Preliminaries}\label{sec:prelim}
+
+Let $T\colon\Z\to\Z$, $T(x)=x/2$ for even $x$ and $T(x)=(3x+1)/2$ for odd $x$. For $x\ge0$ let $a_t(x)$ be the number of odd terms among $x,T(x),\dots,T^{t-1}(x)$. One step of $T$ from an odd number consists of the two steps $x\mapsto 3x+1\mapsto(3x+1)/2$ of $C$, so
+\begin{equation}\label{eq:TC}
+T^{t}(x)=C^{\,t+a_t(x)}(x),
+\end{equation}
+and exactly $t$ of these $t+a_t(x)$ steps of $C$ are halvings (\lean{AlpacasGarner.orbita}). We use Terras's formula \cite{Ter76}: for $0\le r<2^t$ and $u\ge0$,
+\begin{equation}\label{eq:terras}
+T^{t}(2^tu+r)=3^{a_t(r)}u+T^{t}(r),\qquad a_t(2^tu+r)=a_t(r).
+\end{equation}
+
+\begin{definition}
+A residue $0\le r<2^t$ is \emph{merged at $t$} if $T^{t}(r)=T^{t}(r+1)$ and $a_t(r)=a_t(r+1)$. Let $S_t$ be the set of merged residues.
+\end{definition}
+
+The number $|S_t|$ is the term $t$ of A398792. The input from the companion paper is the following theorem.
+
+\begin{theorem}[{\cite[Corollary~C]{SaidGao}}]\label{thm:gao}
+$|S_t|/2^t\to1$ as $t\to\infty$.
+\end{theorem}
+
+In Lean this is the combination of \lean{TejonasGao.transporte}, which identifies $|S_t|/2^t$ with the probability that a Markov chain on pairs of trajectories is absorbed by time $t$, and \lean{MartasGao.martas}, which shows that this probability tends to $1$ \cite{SaidGao}.
+
+\section{A block of merged residues}\label{sec:block}
+
+\begin{lemma}[\lean{AlpacasGarner.bloque}]\label{lem:union}
+Let $K\ge1$ and $S\subseteq[0,2^t)$ with $K\,(2^t+K-|S|)<2^t$. Then there is $r$ with $r,r+1,\dots,r+K-1\in S$.
+\end{lemma}
+
+\begin{proof}
+Otherwise every $r<2^t$ has some $i(r)<K$ with $r+i(r)\notin S$. The map $r\mapsto r+i(r)$ takes values in $[0,2^t+K)\setminus S$, and each value has at most $K$ preimages. Hence $2^t\le K(2^t+K-|S|)$, a contradiction.
+\end{proof}
+
+\begin{proposition}[\lean{AlpacasGarner.bloque_fusion}]\label{prop:block}
+For every $K\ge1$ there are $t\ge1$ and $r$ such that $r+i<2^t$ and $r+i\in S_t$ for $0\le i<K$.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:gao} choose $t$ with $2^t-|S_t|\le 2^t/(2(K+1))$ and $2K^2<2^t$. Then
+\[
+K\,(2^t+K-|S_t|)\le \frac{K\,2^t}{2(K+1)}+K^2<\frac{2^t}2+\frac{2^t}2,
+\]
+and Lemma~\ref{lem:union} applies. Since $S_t\subseteq[0,2^t)$, also $r+i<2^t$.
+\end{proof}
+
+\section{The common value}\label{sec:common}
+
+\begin{lemma}\label{lem:common}
+Let $t,r,K$ be as in Proposition~\ref{prop:block}, and put $a=a_t(r)$ and $A=T^{t}(r)$. For every $u\ge0$ the integers $n_i=2^tu+r+i$, $0\le i\le K$, satisfy
+\[
+T^{t}(n_i)=3^au+A\qquad\text{and}\qquad a_t(n_i)=a.
+\]
+Moreover $a\ge1$ and $3\nmid A$.
+\end{lemma}
+
+\begin{proof}
+For $i<K$ the residue $r+i$ is merged at $t$, so $T^{t}(r+i)=T^{t}(r+i+1)$ and $a_t(r+i)=a_t(r+i+1)$. By induction on $i$, all the integers $r+i$ with $0\le i\le K$ have the same value $A$ and the same count $a$ after $t$ steps. Moreover $r+K<2^t$: the residue $2^t-1$ is never merged, because $a_t(2^t)=0$ while $a_t(2^t-1)\ge1$, so $r+K-1\le 2^t-2$. Hence \eqref{eq:terras} applies to each $n_i=2^tu+(r+i)$ and gives $T^{t}(n_i)=3^au+A$ and $a_t(n_i)=a$. (The Lean proof argues with pairs instead: the state of the pair $(n,n+1)$ at time $t$ depends only on $n\bmod 2^t$, by \lean{TejonasGao.canon_modulo} and \lean{AlpacasGarner.fusion_sx}.)
+
+One of $r$ and $r+1$ is odd, so its first step is odd; since $a_t(r)=a_t(r+1)$, we get $a\ge1$. After an odd step the value $(3x+1)/2$ is $\equiv 2\pmod 3$; halving a number prime to $3$ gives a number prime to $3$, and every later odd step again gives a value $\equiv2\pmod3$. Since the first $t$ steps of $r$ contain an odd step, $3\nmid T^{t}(r)=A$ (\lean{AlpacasGarner.tres}).
+\end{proof}
+
+\section{Two is a primitive root modulo powers of three}\label{sec:primitive}
+
+The following is classical; we include the elementary proof that is formalized.
+
+\begin{lemma}[\lean{AlpacasGarner.cuatro}, \lean{dos_genera}, \lean{dos_genera_grande}]\label{lem:primitive}
+Let $k\ge0$ and let $c$ be an integer with $3\nmid c$. For every $M$ there is $m\ge M$ with $3^{k+1}\mid 2^m-c$.
+\end{lemma}
+
+\begin{proof}
+First, $4^{3^k}=1+3^{k+1}e_k$ with $3\nmid e_k$: for $k=0$, $e_0=1$; and cubing $1+3^{k+1}e$ gives $1+3^{k+2}(e+3^{k+1}e^2+3^{2k+1}e^3)$, whose bracket is $\equiv e\pmod 3$.
+
+Now induct on $k$. For $k=0$, one of $2^0=1$ and $2^1=2$ is $\equiv c\pmod 3$. Suppose $3^{k+1}\mid 2^m-c$, say $2^m-c=3^{k+1}j$. For $\ell\in\{0,1,2\}$,
+\begin{align*}
+2^{m+2\ell 3^k}-c&=2^m\bigl(4^{3^k}\bigr)^{\ell}-c\equiv 2^m-c+\ell\,2^m 3^{k+1}e_k\\
+&=3^{k+1}\bigl(j+\ell\,2^me_k\bigr)\pmod{3^{k+2}}.
+\end{align*}
+Since $3\nmid 2^me_k$, the three numbers $j+\ell 2^me_k$ are distinct modulo $3$, so one of them is divisible by $3$, and the corresponding exponent works modulo $3^{k+2}$. Finally, adding multiples of $2\cdot3^k$ to $m$ does not change $2^m$ modulo $3^{k+1}$, so $m$ can be taken as large as desired.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+
+Let $L,N\ge0$ and put $K=L+1$. Take $t,r$ as in Proposition~\ref{prop:block} and $a\ge1$, $A$ as in Lemma~\ref{lem:common}. By Lemma~\ref{lem:primitive} with $k=a-1$ and $c=A$, choose
+\[
+m\ \ge\ A+3^aN+3\qquad\text{with}\qquad 3^a\mid 2^m-A,
+\]
+and put $u=(2^m-A)/3^a$. Since $2^m>m$, we have $u>N$. Let $n=2^tu+r\ge u>N$.
+
+By Lemma~\ref{lem:common}, for $0\le i\le L$ we have $T^{t}(n+i)=2^m$ and $a_t(n+i)=a$. By \eqref{eq:TC}, $C^{\,t+a}(n+i)=2^m$, and exactly $t$ of the first $t+a$ steps of $C$ from $n+i$ are halvings. The value $1$ does not occur among $C^{0}(n+i),\dots,C^{t+a}(n+i)$: otherwise the trajectory would already be in the cycle $1\to4\to2\to1$ at step $t+a$, but $2^m\ge 8$. From $2^m$ the trajectory is $2^{m-1},\dots,2,1$. Hence
+\[
+\operatorname{height}(n+i)=t+a+m\qquad\text{and}\qquad \sigma_\infty(n+i)=t+m\qquad(0\le i\le L)
+\]
+(\lean{AlpacasGarner.altura_potencia}, \lean{AlpacasGarner.alpacas}). This proves Theorem~\ref{thm:main}, and Corollary~\ref{cor:A078441} follows with $L=k-1$. \qed
+
+\begin{remark}
+The construction actually produces $L+2$ consecutive integers with the same height, since the block contains $K=L+1$ merged pairs. The period of $2$ modulo $3^a$ is $2\cdot3^{a-1}$, so the admissible values of $m$ form a progression, and each gives a run.
+\end{remark}
+
+\section{Computations}\label{sec:comp}
+
+The proof is effective once $t$ and $r$ are known, and small values of $t$ suffice in practice. Table~\ref{tab:runs} lists, for $1\le L\le 16$, the least $t$ and the least $r$ found by direct iteration of $T$ over all residues modulo $2^t$, together with $a$, $A$, the least $m\ge3$ with $2^m\equiv A\pmod{3^a}$, the number of decimal digits of $n=2^tu+r$, and the resulting height and total stopping time. In every case the heights and the numbers of halvings of $n,\dots,n+L$ were computed by iterating $C$ with exact integers, also for the next two admissible values of $m$; the discrete logarithm $m$ was found by exhaustive search, without assuming that $2$ is a primitive root.
+
+\begin{table}[ht]
+\caption{Runs of $L+1$ consecutive integers of equal height built by the proof.}\label{tab:runs}
+\small
+\begin{tabular}{@{}rrrrrrrrr@{}}
+\toprule
+$L$ & $t$ & $r$ & $a$ & $A$ & $m$ & digits of $n$ & height & $\sigma_\infty$ \\
+\midrule
+1 & 3 & 4 & 1 & 2 & 3 & 2 & 7 & 6 \\
+2 & 5 & 4 & 2 & 2 & 7 & 3 & 14 & 12 \\
+3, 4 & 8 & 98 & 3 & 11 & 13 & 5 & 24 & 21 \\
+5 & 11 & 386 & 5 & 47 & 61 & 20 & 77 & 72 \\
+6 & 13 & 3988 & 5 & 119 & 103 & 33 & 121 & 116 \\
+7, 8 & 15 & 1680 & 6 & 38 & 319 & 98 & 340 & 334 \\
+9, 10 & 16 & 10640 & 6 & 119 & 427 & 131 & 449 & 443 \\
+11 & 17 & 7088 & 7 & 119 & 427 & 131 & 451 & 444 \\
+12 & 18 & 205377 & 8 & 5141 & 2749 & 830 & 2775 & 2767 \\
+13 & 19 & 2987 & 8 & 38 & 319 & 98 & 346 & 338 \\
+14 & 19 & 307201 & 8 & 3845 & 1021 & 310 & 1048 & 1040 \\
+15, 16 & 20 & 614402 & 8 & 3845 & 1021 & 310 & 1049 & 1041 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Several of the residues in Table~\ref{tab:runs}, namely $98$, $386$, $1680$ and $2987$, are themselves terms of A078441. The runs built by the proof are much larger than the first runs of the same length: the first run of length $8$ starts at A078441$(8)=1494$, while the construction gives a starting point with $98$ digits.
+
+As further checks of the definitions, a direct computation reproduces A078441$(1),\dots,$A078441$(40)$, all eight rows of Gao's Table~1 (including the fact that the listed runs cannot be extended by one on either side), and a sample of $37$ members of Gao's run of length $35654$ from $2^{500}+1$.
+
+\section{Formalization}\label{sec:formal}
+
+The proof is formalized in Lean~4.32.2 with Mathlib at commit \lean{905b95818eb3}, in the modules \lean{Alpacas.lean} and \lean{GarnerEnunciado.lean}, which import the development of \cite{SaidGao}. The statement, with the definitions of Gao \cite[p.~262]{Gao93}, reads:
+
+\begin{Verbatim}[fontsize=\small]
+def C (n : ℕ) : ℕ := if n % 2 = 0 then n / 2 else 3 * n + 1
+def altura (n h : ℕ) : Prop :=
+  C^[h] n = 1 ∧ ∀ k, k < h → C^[k] n ≠ 1
+def mitades (n h : ℕ) : ℕ :=
+  ((Finset.range h).filter (fun k => C^[k] n % 2 = 0)).card
+def FormaGarner : Prop :=
+  ∀ L N : ℕ, ∃ n h s : ℕ, N ≤ n ∧
+    ∀ i, i ≤ L → altura (n + i) h ∧ mitades (n + i) h = s
+theorem conjetura_garner : FormaGarner
+\end{Verbatim}
+
+\noindent Here \texttt{altura n h} says that $h$ is the height of $n$, and when this holds \texttt{mitades n h} is $\sigma_\infty(n)$. (Line breaks are adjusted for display.) The command \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}; there is no \texttt{sorry}, no \lean{native_decide} and no declared axiom. The independent checker \texttt{leanchecker} replays both modules and their dependencies with exit code~$0$. Three commands \texttt{\#guard} recompute, with the same definitions, Gao's examples $943$--$949$ (height $36$, $\sigma_\infty=26$), Penning's $7083$--$7099$ (height $57$, $\sigma_\infty=40$) and $57346$--$57370$ (height $78$, $\sigma_\infty=54$); they are evaluated by the interpreter and no theorem depends on them. Lean certifies the displayed statement; its agreement with Garner's and Gao's wording is for the reader to check.
+
+\section{Remarks}\label{sec:remarks}
+
+\begin{remark}[Garner's first conjecture]\label{rem:garner1}
+By \cite{SaidGao}, the set of $n$ such that $C^{k}(n)=C^{k}(n+1)$ for some $k\le\log_2 n$ has natural density one, and for such $n$ either both $n,n+1$ reach $1$ with the same height and total stopping time, or neither reaches $1$. Thus, if heights are allowed to be infinite, almost every integer has the same height as its successor. With finite heights, Garner's conjecture~(1) would follow from the statement that almost all integers reach $1$, which is open \cite{KL03,SaidWu}. This remark is not formalized.
+\end{remark}
+
+\begin{remark}[Gao's question]
+Gao asked whether equal heights of $n$ and $n+1$ force equal total stopping times \cite[p.~266]{Gao93}. The runs of Theorem~\ref{thm:main} have both, by construction. We have checked the question for all $n<2^{24}$ without finding a counterexample; it remains open.
+\end{remark}
+
+\begin{remark}[Wu's second conjecture]
+Let $L(M)$ be the length of the longest run of consecutive integers of equal height inside $[1,M)$. Theorem~\ref{thm:main} gives $L(M)\to\infty$, which is the second conjecture of Wu \cite{Wu92}; see \cite{SaidWu}.
+\end{remark}
+
+\section*{Use of AI tools}
+The formalization, the numerical checks and the first draft of this text were produced with extensive assistance from large language models of Anthropic's Claude family, used as programming and proof assistants: Claude Opus~5.5 for the results of this paper (September 2026), and Claude Opus~5 and Claude Fable~5 in earlier stages of the same project, according to the commit history. The author is responsible for the content.
+
+\begin{thebibliography}{99}
+
+\bibitem{ET15} M.~Elia and A.~Tucker, \emph{Consecutive integers and the Collatz conjecture}, Integers 15 (2015), \#A54. arXiv:1511.09141.
+
+\bibitem{Fri25} K.~Frinkle, S.~Rowland, J.~Pack, M.~Gordon, J.~Eskue, S.~Egbe and M.~Morris, \emph{Computing streaks of consecutive numbers with the same Collatz height}, J.~Supercomput.\ 81 (2025), art.~1338. doi:10.1007/s11227-025-07820-8.
+
+\bibitem{Gao93} G.-G.~Gao, \emph{On consecutive numbers of the same height in the Collatz problem}, Discrete Math.\ 112 (1993), 261--267. doi:10.1016/0012-365X(93)90240-T.
+
+\bibitem{Gar85} L.~E.~Garner, \emph{On heights in the Collatz $3n+1$ problem}, Discrete Math.\ 55 (1985), 57--64. doi:10.1016/S0012-365X(85)80020-0.
+
+\bibitem{KL03} I.~Krasikov and J.~C.~Lagarias, \emph{Bounds for the $3x+1$ problem using difference inequalities}, Acta Arith.\ 109 (2003), 237--258.
+
+\bibitem{Lag85} J.~C.~Lagarias, \emph{The $3x+1$ problem and its generalizations}, Amer.\ Math.\ Monthly 92 (1985), 3--23.
+
+\bibitem{Lag03} J.~C.~Lagarias, \emph{The $3x+1$ problem: an annotated bibliography (1963--1999)}, arXiv:math/0309224, version of 2011.
+
+\bibitem{Lag10} J.~C.~Lagarias (ed.), \emph{The Ultimate Challenge: The $3x+1$ Problem}, Amer.\ Math.\ Soc., Providence, RI, 2010.
+
+\bibitem{OEIS} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, \url{https://oeis.org}, sequences A078441, A277109 and A398792.
+
+\bibitem{Pen89} P.~Penning, Crux Math.\ 15 (1989), 282--283.
+
+\bibitem{SaidGao} O.~J.~Said Duran, \emph{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao}, companion paper, 2026.
+
+\bibitem{SaidWu} O.~J.~Said Duran, \emph{On two conjectures of Wu on consecutive integers of the same height in the Collatz problem}, companion paper, 2026.
+
+\bibitem{Ter76} R.~Terras, \emph{A stopping time problem on the positive integers}, Acta Arith.\ 30 (1976), 241--252.
+
+\bibitem{WH01} J.~B.~Wu and G.~L.~Huang, \emph{Families of pairs of consecutive integers of the same height in the Collatz conjecture}, Math.\ Appl.\ (Wuhan) 14 (2001), suppl., 21--25.
+
+\bibitem{Wu92} J.~B.~Wu, \emph{A tendency of the proportion of consecutive numbers of the same height in the Collatz problem} (in Chinese), J.~Huazhong Univ.\ Sci.\ Tech.\ 20 (1992), no.~5, 171--174.
+
+\bibitem{Wu93} J.~B.~Wu, \emph{On the consecutive positive integers of the same height in the Collatz problem} (in Chinese), Math.\ Appl.\ 6 (1993), suppl., 150--153.
+
+\end{thebibliography}
+
+\end{document}

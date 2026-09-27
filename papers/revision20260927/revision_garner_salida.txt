@@ -1,0 +1,27 @@
+Rachas construidas (altura y sigma_inf calculadas iterando C):
+L= 1  t= 3  r=4       a=1  A=2        m=3     periodo=2     cifras de n=2     altura=7     sigma=6     OK
+L= 2  t= 5  r=4       a=2  A=2        m=7     periodo=6     cifras de n=3     altura=14    sigma=12    OK
+L= 3  t= 8  r=98      a=3  A=11       m=13    periodo=18    cifras de n=5     altura=24    sigma=21    OK
+L= 4  t= 8  r=98      a=3  A=11       m=13    periodo=18    cifras de n=5     altura=24    sigma=21    OK
+L= 5  t=11  r=386     a=5  A=47       m=61    periodo=162   cifras de n=20    altura=77    sigma=72    OK
+L= 6  t=13  r=3988    a=5  A=119      m=103   periodo=162   cifras de n=33    altura=121   sigma=116   OK
+L= 7  t=15  r=1680    a=6  A=38       m=319   periodo=486   cifras de n=98    altura=340   sigma=334   OK
+L= 8  t=15  r=1680    a=6  A=38       m=319   periodo=486   cifras de n=98    altura=340   sigma=334   OK
+L= 9  t=16  r=10640   a=6  A=119      m=427   periodo=486   cifras de n=131   altura=449   sigma=443   OK
+L=10  t=16  r=10640   a=6  A=119      m=427   periodo=486   cifras de n=131   altura=449   sigma=443   OK
+L=11  t=17  r=7088    a=7  A=119      m=427   periodo=1458  cifras de n=131   altura=451   sigma=444   OK
+L=12  t=18  r=205377  a=8  A=5141     m=2749  periodo=4374  cifras de n=830   altura=2775  sigma=2767  OK
+L=13  t=19  r=2987    a=8  A=38       m=319   periodo=4374  cifras de n=98    altura=346   sigma=338   OK
+L=14  t=19  r=307201  a=8  A=3845     m=1021  periodo=4374  cifras de n=310   altura=1048  sigma=1040  OK
+L=15  t=20  r=614402  a=8  A=3845     m=1021  periodo=4374  cifras de n=310   altura=1049  sigma=1041  OK
+L=16  t=20  r=614402  a=8  A=3845     m=1021  periodo=4374  cifras de n=310   altura=1049  sigma=1041  OK
+A078441, a(1)..a(40) desde cero: coincide
+Tabla 1 de Gao:   7 desde 943         altura 36 sigma 26: OK
+Tabla 1 de Gao:  17 desde 7083        altura 57 sigma 40: OK
+Tabla 1 de Gao:  25 desde 57346       altura 78 sigma 54: OK
+Tabla 1 de Gao:  40 desde 596310      altura 97 sigma 67: OK
+Tabla 1 de Gao:  65 desde 5772712     altura 214 sigma 140: OK
+Tabla 1 de Gao:  98 desde 98041684    altura 169 sigma 114: OK
+Tabla 1 de Gao: 176 desde 722067240   altura 190 sigma 128: OK
+Tabla 1 de Gao: 349 desde 9749626154  altura 248 sigma 165: OK
+OK

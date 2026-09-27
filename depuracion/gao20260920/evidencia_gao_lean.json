@@ -4,7 +4,7 @@
   "lake_build": {
     "codigo": 0,
     "final": [
-      "Build completed successfully (1613 jobs)."
+      "Build completed successfully (1615 jobs)."
     ]
   },
   "modulos": {
@@ -161,6 +161,38 @@
       "axiomas": [
         "'GarnerEnunciado.conjetura_garner' depends on axioms: [propext, Classical.choice, Quot.sound]"
       ]
+    },
+    "Condoras": {
+      "codigo": 0,
+      "consultas": 2,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "c20dbb349e83823c1dea7da5e536e58a34202310e9294702dc039a8e103ff849",
+      "axiomas": [
+        "'CondorasWu.wu_dos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'CondorasWu.wu_uno' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
+    },
+    "WuEnunciado": {
+      "codigo": 0,
+      "consultas": 2,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "bbde5189ca569ed1b6441fdeb87f88f4e34f9691cdbfde36fa7925354f6198b9",
+      "axiomas": [
+        "'WuEnunciado.conjetura_wu_dos' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'WuEnunciado.conjetura_wu_uno' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
     }
   },
   "leanchecker": {
@@ -191,10 +223,12 @@
     "Hienas": 0,
     "GaoLiteral": 0,
     "Alpacas": 0,
-    "GarnerEnunciado": 0
+    "GarnerEnunciado": 0,
+    "Condoras": 0,
+    "WuEnunciado": 0
   },
   "sha256": {
-    "lakefile.lean": "edb4a631ce0680a7e5c156654c43d8b4e91b90b01b0f9af34cfea0722fdd9373",
+    "lakefile.lean": "4a9fa182a99a63f712f11263140b9d930bc07fac4bdce32d7c225f2e54d2c411",
     "lake-manifest.json": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26",
     "lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273"
   }

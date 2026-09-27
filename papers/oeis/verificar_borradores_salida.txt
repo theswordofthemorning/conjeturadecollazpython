@@ -1,0 +1,14 @@
+Gao: programa de la ficha da 16 terminos iguales a %S: True
+Gao: b-file (n = 1..28) igual a %S: True
+Gao: %O (1, 5), correcto (1, 5): True
+Gao: a(n+1) >= 2 a(n) en todos los terminos: True
+Gao: ejemplos a(4) = {12}, a(5) = {12, 18, 20, 28}, 14 entra en n = 9: True
+Gao: a(24)/2^24 y a(28)/2^28 redondeados: (0.389, 0.4) True
+Wu: programa de la ficha da 16 terminos iguales a %S: True
+Wu: b-file (n = 1..26) igual a %S: True
+Wu: %O (1, 4), correcto (1, 4): True
+Wu: %F con la b-file oficial de A078417 (hasta 23348) para n = 1..14: True
+Wu: ejemplo a(4) = {12, 13, 14, 15} con 9, 9, 17, 17 pasos: True
+Wu: cifras 0.606, 0.725, 0.732 y crecimiento desde n = 4: (0.606, 0.725, 0.732) True
+A078441: los comienzos de la tabla 1 de Gao son a(7), ..., a(176), y a(177) > 2^30: True
+OK

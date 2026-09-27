@@ -1,0 +1,15 @@
+Tabla 3 (2^k * dbarra_k), k = 1..24:
+   [0, 0, 0, 1, 4, 11, 29, 65, 145, 305, 641, 1317, 2733, 5565, 11397, 23181, 47181, 95589, 193901, 392157, 793277, 1601597, 3234269, 6522141]
+   coincide con la tabla 3 de Gao: True (31 s)
+Tabla 2, d(10^e):
+   e=2  mio 0.310000  Gao 0.310  OK
+   e=3  mio 0.365000  Gao 0.365  OK
+   e=4  mio 0.416100  Gao 0.416  OK
+   e=5  mio 0.450220  Gao 0.450  OK
+   e=6  mio 0.477245  Gao 0.477  OK
+   e=7  mio 0.496470  Gao 0.496  OK
+   coincide con la tabla 2 de Gao: True (77 s)
+Puente, n < 2^22: 1567551 encuentros en <= log2 n pasos, 0 fallos
+   densidad de encuentros en [1, 2^20): 0.3644
+   densidad de encuentros en [1, 2^22): 0.3737  (6 s)
+OK
