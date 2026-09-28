@@ -1,4 +1,5 @@
-% Artículo II: la conjetura de Garner (1985) sobre rachas. Borrador del 27-09-2026, sin enviar.
+% Artículo II: la conjetura de Garner (1985) sobre rachas. Versión 1 del 27-09-2026,
+% depositada en Zenodo (doi:10.5281/zenodo.23003526); artefacto Lean: doi:10.5281/zenodo.23003500.
 % Compilar con: tectonic -X compile articulo_II_garner.tex   (o pdflatex, dos pasadas)
 % PENDIENTE: lectura humana de los enunciados Lean.
 \documentclass[11pt]{amsart}
@@ -13,6 +14,7 @@
 \usepackage{fancyvrb}
 \usepackage{newunicodechar}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Arbitrarily long runs of consecutive integers with the same Collatz height},pdfauthor={Omar Javier Said Duran}}
 \usepackage{xurl}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
@@ -48,8 +50,9 @@
 \author[O. J. Said Duran]{Omar Javier Said Duran}
 \address{Independent Researcher}
 \email{omarsaid24@gmail.com}
+\urladdr{https://orcid.org/0009-0009-1418-2558}
 
-\date{Draft of 27 September 2026}
+\date{27 September 2026}
 
 \begin{abstract}
 The height of a positive integer $n$ is the number of steps of the Collatz map $C$ ($C(n)=n/2$ for even $n$, $C(n)=3n+1$ for odd $n$) needed to reach $1$. Garner (1985) conjectured that there are arbitrarily long runs of consecutive integers with the same height; Gao (1993) recalled the conjecture with the same height and the same total stopping time, that is, the same number of halvings, and attributed it also to Penning. We prove it: for all $L$ and $N$ there is $n\ge N$ such that $n,n+1,\dots,n+L$ have the same height and the same total stopping time. They then also have the same height for the shortcut map $T(x)=x/2$ or $(3x+1)/2$, and every term of the sequence A078441 of the OEIS exists. The proof combines three facts. By the companion paper on a conjecture of Gao, the proportion of residues $r$ modulo $2^t$ such that $r$ and $r+1$ merge under $T$ within $t$ steps with the same number of odd terms tends to $1$, so a union bound gives $L$ consecutive such pairs. By a theorem of Terras, all the members of such a block of residue classes are carried after $t$ steps to one common value $3^a u+A$, for every $u$, and $3$ does not divide $A$. Since $2$ is a primitive root modulo every power of $3$, $u$ can be chosen so that the common value is a power of $2$, in the spirit of the lemma of Penning and Gao on the repetition of runs. The argument is formalized in Lean~4 with Mathlib, using only the standard axioms. It gives existence without useful bounds, and it says nothing about whether other integers reach $1$.
@@ -195,7 +198,7 @@ The construction actually produces $L+2$ consecutive integers with the same heig
 
 \section{Computations}\label{sec:comp}
 
-The proof is effective once $t$ and $r$ are known, and small values of $t$ suffice in practice. Table~\ref{tab:runs} lists, for $1\le L\le 16$, the least $t$ and the least $r$ found by direct iteration of $T$ over all residues modulo $2^t$, together with $a$, $A$, the least $m\ge3$ with $2^m\equiv A\pmod{3^a}$, the number of decimal digits of $n=2^tu+r$, and the resulting height and total stopping time. In every case the heights and the numbers of halvings of $n,\dots,n+L$ were computed by iterating $C$ with exact integers, also for the next two admissible values of $m$; the discrete logarithm $m$ was found by exhaustive search, without assuming that $2$ is a primitive root.
+The proof is effective once $t$ and $r$ are known, and small values of $t$ suffice in practice. Table~\ref{tab:runs} lists, for $1\le L\le 16$, the least $t$ and the least $r$ found by direct iteration of $T$ over all residues modulo $2^t$, together with $a$, $A$, the least $m\ge3$ with $2^m\equiv A\pmod{3^a}$, the number of decimal digits of $n=2^tu+r$, and the resulting height and total stopping time. In every case the heights and the numbers of halvings of $n,\dots,n+L$ were computed by iterating $C$ with exact integers, also for the next two admissible values of $m$; the discrete logarithm $m$ was found by exhaustive search, without assuming that $2$ is a primitive root. The programs are included in the archive \cite{Artifact}.
 
 \begin{table}[ht]
 \caption{Runs of $L+1$ consecutive integers of equal height built by the proof.}\label{tab:runs}
@@ -226,7 +229,7 @@ As further checks of the definitions, a direct computation reproduces A078441$(1
 
 \section{Formalization}\label{sec:formal}
 
-The proof is formalized in Lean~4.32.2 with Mathlib at commit \lean{905b95818eb3}, in the modules \lean{Alpacas.lean} and \lean{GarnerEnunciado.lean}, which import the development of \cite{SaidGao}. The statement, with the definitions of Gao \cite[p.~262]{Gao93}, reads:
+The proof is formalized in Lean~4.32.2 with Mathlib at commit \lean{905b95818eb3}, in the modules \lean{Alpacas.lean} and \lean{GarnerEnunciado.lean}, which import the development of \cite{SaidGao}; the sources are archived on Zenodo \cite{Artifact}. The statement, with the definitions of Gao \cite[p.~262]{Gao93}, reads:
 
 \begin{Verbatim}[fontsize=\small]
 def C (n : ℕ) : ℕ := if n % 2 = 0 then n / 2 else 3 * n + 1
@@ -281,9 +284,11 @@ The formalization, the numerical checks and the first draft of this text were pr
 
 \bibitem{Pen89} P.~Penning, Crux Math.\ 15 (1989), 282--283.
 
-\bibitem{SaidGao} O.~J.~Said Duran, \emph{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao}, companion paper, 2026.
+\bibitem{SaidGao} O.~J.~Said Duran, \emph{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao}, preprint, Zenodo, 2026. doi:10.5281/zenodo.23003524.
 
-\bibitem{SaidWu} O.~J.~Said Duran, \emph{On two conjectures of Wu on consecutive integers of the same height in the Collatz problem}, companion paper, 2026.
+\bibitem{Artifact} O.~J.~Said Duran, \emph{Formal proofs in Lean~4 of conjectures of Gao, Garner and Wu on consecutive integers in the Collatz problem}, software, version~1.0.0, Zenodo, 2026. doi:10.5281/zenodo.23003500.
+
+\bibitem{SaidWu} O.~J.~Said Duran, \emph{On two conjectures of Wu on consecutive integers of the same height in the Collatz problem}, preprint, Zenodo, 2026. doi:10.5281/zenodo.23003528.
 
 \bibitem{Ter76} R.~Terras, \emph{A stopping time problem on the positive integers}, Acta Arith.\ 30 (1976), 241--252.
 

@@ -1,0 +1,66 @@
+{
+  "comun": {
+    "creators": [
+      {
+        "person_or_org": {
+          "type": "personal",
+          "given_name": "Omar Javier",
+          "family_name": "Said Duran",
+          "identifiers": [{"scheme": "orcid", "identifier": "0009-0009-1418-2558"}]
+        },
+        "affiliations": [{"name": "Independent Researcher"}]
+      }
+    ],
+    "publication_date": "2026-09-27",
+    "publisher": "Zenodo",
+    "languages": [{"id": "eng"}]
+  },
+  "S": {
+    "resource_type": {"id": "software"},
+    "title": "Formal proofs in Lean 4 of conjectures of Gao, Garner and Wu on consecutive integers in the Collatz problem",
+    "version": "1.0.0",
+    "rights": [{"id": "apache-2.0"}],
+    "subjects": [
+      {"subject": "Collatz problem"}, {"subject": "3x+1 problem"}, {"subject": "Lean 4"},
+      {"subject": "Mathlib"}, {"subject": "formal verification"}, {"subject": "natural density"},
+      {"subject": "Markov chain"}
+    ],
+    "description": "<p>Lean 4 (v4.32.2) and Mathlib formalization accompanying three papers on consecutive integers in the Collatz (3x+1) problem. With C(n) = n/2 for even n and C(n) = 3n+1 for odd n, it proves:</p><ul><li><strong>Gao (1993), in the form recorded by Lagarias:</strong> the set of n such that C^k(n) = C^k(n+1) for some k ≤ log_2 n has natural density one (<code>GaoEnunciado.conjetura_gao</code>).</li><li><strong>Gao (1993), literal form:</strong> the normalized count of the n &lt; 2^k − 1 such that n and n+1 coalesce within k steps (equal values, equal numbers of halvings, without passing through 1) tends to 1, and so does the proportion d(x) of such n &lt; x (<code>GaoLiteral.conjetura_gao_literal</code>).</li><li><strong>Garner (1985):</strong> for all L and N there is n ≥ N such that n, n+1, …, n+L have the same height and the same total stopping time (<code>GarnerEnunciado.conjetura_garner</code>).</li><li><strong>Wu (1992):</strong> the length of the longest run of consecutive integers of equal height in [1, M) tends to infinity (<code>WuEnunciado.conjetura_wu_dos</code>), and Wu's first conjecture, d(M) → 1, is equivalent to the statement that the integers reaching 1 have natural density one (<code>WuEnunciado.conjetura_wu_uno</code>).</li></ul><p>The final theorems depend only on the axioms propext, Classical.choice and Quot.sound; there is no sorry, native_decide or declared axiom. Apart from the runs that are built explicitly, nothing here shows that any integer reaches 1.</p><p><strong>Build.</strong> Lean 4.32.2 and Mathlib commit 905b95818eb3 are pinned (lean-toolchain, lake-manifest.json). From the directory depuracion/gao20260920/formal of the archive run <code>lake exe cache get</code> and then <code>lake build GaoCore GaoFormal</code>. The file evidencia_gao_lean.json records the build, the SHA-256 hash of every module and the output of #print axioms. The folder checks contains the independent Python programs of the numerical checks reported in the papers. Identifiers and comments in the sources are in Spanish; README.md describes every module in English.</p>"
+  },
+  "P1": {
+    "resource_type": {"id": "publication-preprint"},
+    "title": "Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao",
+    "version": "1",
+    "rights": [{"id": "cc-by-4.0"}],
+    "subjects": [
+      {"subject": "Collatz problem"}, {"subject": "3x+1 problem"}, {"subject": "coalescence"},
+      {"subject": "natural density"}, {"subject": "Markov chain"}, {"subject": "Lean"},
+      {"subject": "formal verification"}
+    ],
+    "description": "<p>Let C be the Collatz map, C(n) = n/2 for even n and C(n) = 3n+1 for odd n. Following Gao (1993), two consecutive integers n and n+1 coalesce if C^k(n) = C^k(n+1) for some k, with the same number of halvings on both trajectories and without either trajectory passing through 1. Gao computed the normalized count d̄_k of the n &lt; 2^k − 1 for which this happens within k steps, proved that d̄_k is nondecreasing, and conjectured that d̄_k → 1. In the form recorded by Lagarias, the conjecture states that the set of n with C^k(n) = C^k(n+1) for some k ≤ log_2 n has natural density one. We prove both statements, and also that the proportion d(x) of n &lt; x for which n and n+1 coalesce tends to 1; Gao did not know whether this limit exists. The proof follows a pair of trajectories through a Markov chain on states {v, 3^k v + c} driven by fair coin flips, which describes the residue classes modulo 2^t exactly, and shows that the chain is absorbed almost surely. The ingredients are a contraction of the square root of |c|/3^k, a harmonic function for the level k, a clock controlling long runs of equal parity, a window in which the offset returns to a bounded range, a universal absorbing word of length O(log^2(2+|c|)), and a counting argument for repeated trials that never conditions on the future. A short lemma shows that a meeting within log_2 n steps is already a coalescence in Gao's sense. Every step is formalized in Lean 4 with Mathlib, and the final theorems depend only on the axioms propext, Classical.choice and Quot.sound. The results concern coalescence only: they do not show that any integer reaches 1, and the convergence is extremely slow.</p>"
+  },
+  "P2": {
+    "resource_type": {"id": "publication-preprint"},
+    "title": "Arbitrarily long runs of consecutive integers with the same Collatz height",
+    "version": "1",
+    "rights": [{"id": "cc-by-4.0"}],
+    "subjects": [
+      {"subject": "Collatz problem"}, {"subject": "3x+1 problem"}, {"subject": "height"},
+      {"subject": "total stopping time"}, {"subject": "consecutive integers"}, {"subject": "primitive root"},
+      {"subject": "Lean"}, {"subject": "formal verification"}
+    ],
+    "description": "<p>The height of a positive integer n is the number of steps of the Collatz map C (C(n) = n/2 for even n, C(n) = 3n+1 for odd n) needed to reach 1. Garner (1985) conjectured that there are arbitrarily long runs of consecutive integers with the same height; Gao (1993) recalled the conjecture with the same height and the same total stopping time, that is, the same number of halvings, and attributed it also to Penning. We prove it: for all L and N there is n ≥ N such that n, n+1, …, n+L have the same height and the same total stopping time. They then also have the same height for the shortcut map T(x) = x/2 or (3x+1)/2, and every term of the sequence A078441 of the OEIS exists. The proof combines three facts. By the companion paper on a conjecture of Gao, the proportion of residues r modulo 2^t such that r and r+1 merge under T within t steps with the same number of odd terms tends to 1, so a union bound gives L consecutive such pairs. By a theorem of Terras, all the members of such a block of residue classes are carried after t steps to one common value 3^a u + A, for every u, and 3 does not divide A. Since 2 is a primitive root modulo every power of 3, u can be chosen so that the common value is a power of 2, in the spirit of the lemma of Penning and Gao on the repetition of runs. The argument is formalized in Lean 4 with Mathlib, using only the standard axioms. It gives existence without useful bounds, and it says nothing about whether other integers reach 1.</p>"
+  },
+  "P3": {
+    "resource_type": {"id": "publication-preprint"},
+    "title": "On two conjectures of Wu on consecutive integers of the same height in the Collatz problem",
+    "version": "1",
+    "rights": [{"id": "cc-by-4.0"}],
+    "subjects": [
+      {"subject": "Collatz problem"}, {"subject": "3x+1 problem"}, {"subject": "height"},
+      {"subject": "consecutive integers"}, {"subject": "natural density"}, {"subject": "Lean"},
+      {"subject": "formal verification"}
+    ],
+    "description": "<p>The height of a positive integer is the number of steps of the Collatz map (n ↦ n/2 for even n, n ↦ 3n+1 for odd n) needed to reach 1. Wu Jiabang (1992) computed, for N ≤ 24, the proportion d(2^N) of the integers in [1, 2^N) that belong to a run of at least two consecutive integers of the same height, found that it increases with N, and proposed two conjectures. As read from the full text through the AI reading assistant of the CNKI database, they state that d(M) → 1 and that the length L(M) of the longest run of equal height in [1, M) tends to infinity. We prove the second conjecture: it follows from the existence of arbitrarily long runs of equal height, proved in a companion paper. For the first, we show that d(M) → 1 if and only if the positive integers that reach 1 have natural density one. One direction is immediate. The other uses a theorem of a second companion paper, on a conjecture of Gao, by which the proportion of n &lt; x such that n and n+1 coalesce tends to 1, together with the fact that coalescing integers that reach 1 have the same height. Wu's first conjecture is therefore equivalent to a density form of the 3x+1 conjecture, which is open: the best known lower bound for the number of n ≤ x that reach 1 is x^0.84. We extend Wu's table to N = 26, and note that the monotonicity he observed, if it held for all N, would already give a positive lower density of integers reaching 1. Both results are formalized in Lean 4 with Mathlib. The wording of the conjectures has still to be checked against the printed article.</p>"
+  }
+}

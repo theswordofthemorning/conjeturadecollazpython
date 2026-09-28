@@ -64,15 +64,22 @@ Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
    El 27-09 se consultaron zbMATH (API), arXiv y la web. Faltan
    MathSciNet, Scholar y el texto de Garner (1985).
 3. **Destino.** Los datos del autor, la declaración de IA y el cotejo de
-   Wu con la IA de CNKI ya están en los artículos (27-09). Falta el
-   destino: el 27-09 descartó ccchallenge.org y propuso un DOI en Zenodo
-   y una revista *overlay*; se decide al retomar.
+   Wu con la IA de CNKI ya están en los artículos (27-09). Destino elegido
+   el 27-09: Zenodo + *Annals of Formalized Mathematics*. Todo está
+   publicado en Zenodo y los tres artículos se enviaron a AFM (#19502–#19504)
+   ([papers/zenodo/](papers/zenodo/LEEME.md)).
 
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
-- **Artículos: escritos, compilados y revisados el 27-09, sin enviar.**
-  Son tres `.tex` en inglés (Gao, Garner y Wu), con la revisión
-  adversarial y lo que falta en [papers/README.md](papers/README.md).
+- **Artículos: escritos, compilados y revisados el 27-09.** Son tres `.tex`
+  en inglés (Gao, Garner y Wu), con la revisión adversarial y lo que falta
+  en [papers/README.md](papers/README.md).
+  - El 27-09 por la noche se publicaron en Zenodo el artefacto Lean
+    (10.5281/zenodo.23003500) y los tres artículos (23003524, 23003526 y
+    23003528).
+  - Los artículos se enviaron a *Annals of Formalized Mathematics*: #19502,
+    #19503 y #19504, en *Submitted* ([papers/zenodo/](papers/zenodo/LEEME.md)).
+  - Contestar a los editores requiere autorización.
 - **OEIS: enviadas el 27-09 con autorización del usuario; las tres en
   *proposed*** ([papers/oeis/LEEME.md](papers/oeis/LEEME.md)). Son A400486
   (la tabla 3 de Gao), A400487 (la cuenta de Wu) y la revisión #31 de

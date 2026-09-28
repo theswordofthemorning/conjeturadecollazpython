@@ -1,6 +1,16 @@
 # Artículos: Gao, Garner y Wu
 
-27-09-2026. **Escritos, compilados y revisados; no enviados ni publicados.**
+27-09-2026. **Publicados en Zenodo y enviados a *Annals of Formalized
+Mathematics*.** Detalle en [zenodo/LEEME.md](zenodo/LEEME.md).
+
+| | Zenodo | AFM |
+|---|---|---|
+| Artefacto Lean | 10.5281/zenodo.23003500 | — |
+| Artículo I | 10.5281/zenodo.23003524 | #19502 |
+| Artículo II | 10.5281/zenodo.23003526 | #19503 |
+| Artículo III | 10.5281/zenodo.23003528 | #19504 |
+
+Los tres artículos están en *Submitted*.
 El usuario los pidió el 26-09 «como si fueran para arXiv», con nombres
 completos y fechas, bien explicados y revisados antes. No se envía nada sin
 su autorización.
@@ -52,12 +62,34 @@ visto, y el III lo dice. PDF recompilados el 27-09 por la tarde.
 1. **Revisión humana** de los enunciados Lean ([gaopendientes.md](../gaopendientes.md))
    y lectura de los tres textos.
 2. **Destino y formato.** El 27-09 el usuario descartó ccchallenge.org
-   (tarda más de un año y no da revisión por pares). El plan pasa a ser un
-   DOI en Zenodo y una revista *overlay*; se decide al retomar. Candidatas
-   de Episciences que aceptan depósitos de Zenodo: *Discrete Mathematics &
-   Theoretical Computer Science* y *Annals of Formalized Mathematics*. Falta
-   armar el paquete (PDF, fuentes, los `.lean` y la evidencia) y poner su
-   DOI donde dice `[TO CONFIRM: permanent archive and DOI]`.
+   (tarda más de un año y no da revisión por pares). El plan es un DOI en
+   Zenodo y una revista *overlay* de Episciences. El 27-09 por la tarde se
+   revisaron cuatro candidatas.
+
+   **Qué repositorio admite cada una**
+
+   | Revista | Repositorios |
+   |---|---|
+   | *Annals of Formalized Mathematics* (AFM) | Zenodo, arXiv o HAL |
+   | DMTCS (actualizado el 24-09) | arXiv o HAL |
+   | *Hardy-Ramanujan Journal* | arXiv o HAL |
+   | *Communications in Mathematics* | arXiv |
+
+   **Por qué se recomienda AFM**
+   - Es la única de las cuatro que acepta Zenodo.
+   - Exige un artefacto formal y admite lo obtenido con IA si hay prueba
+     formal.
+   - Acepta en unos 10 meses, según la mediana de sus 8 artículos.
+   - Pide que el código sea abierto y accesible a los árbitros.
+
+   **Hecho el 27-09 por la noche.** El usuario eligió Zenodo + AFM y pidió
+   «envía los papers».
+   - El paquete está armado y probado.
+   - Los DOI ya figuran en los tres artículos.
+   - Los cuatro registros están publicados en Zenodo, y los tres artículos
+     enviados a AFM (#19502–#19504).
+
+   Detalle, huellas y cartas: [zenodo/](zenodo/LEEME.md).
 
 ## Revisión
 

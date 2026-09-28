@@ -1,4 +1,5 @@
-% Artículo I: la conjetura de Gao (1993). Borrador del 27-09-2026, sin enviar.
+% Artículo I: la conjetura de Gao (1993). Versión 1 del 27-09-2026, depositada en
+% Zenodo (doi:10.5281/zenodo.23003524); el artefacto Lean es doi:10.5281/zenodo.23003500.
 % Compilar con: tectonic -X compile articulo_I_gao.tex   (o pdflatex, dos pasadas)
 % PENDIENTE: lectura humana de los enunciados Lean.
 \documentclass[11pt]{amsart}
@@ -13,6 +14,7 @@
 \usepackage{fancyvrb}
 \usepackage{newunicodechar}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao},pdfauthor={Omar Javier Said Duran}}
 \usepackage{xurl}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
@@ -64,8 +66,9 @@
 \author[O. J. Said Duran]{Omar Javier Said Duran}
 \address{Independent Researcher}
 \email{omarsaid24@gmail.com}
+\urladdr{https://orcid.org/0009-0009-1418-2558}
 
-\date{Draft of 27 September 2026}
+\date{27 September 2026}
 
 \begin{abstract}
 Let $C$ be the Collatz map, $C(n)=n/2$ for even $n$ and $C(n)=3n+1$ for odd $n$. Following Gao (1993), two consecutive integers $n$ and $n+1$ coalesce if $C^{k}(n)=C^{k}(n+1)$ for some $k$, with the same number of halvings on both trajectories and without either trajectory passing through $1$. Gao computed the normalized count $\dbar_k$ of the $n<2^k-1$ for which this happens within $k$ steps, proved that $\dbar_k$ is nondecreasing, and conjectured that $\dbar_k\to 1$. In the form recorded by Lagarias, the conjecture states that the set of $n$ with $C^{k}(n)=C^{k}(n+1)$ for some $k\le\log_2 n$ has natural density one. We prove both statements, and also that the proportion $d(x)$ of $n<x$ for which $n$ and $n+1$ coalesce tends to $1$; Gao did not know whether this limit exists. The proof follows a pair of trajectories through a Markov chain on states $\{v,3^k v+c\}$ driven by fair coin flips, which describes the residue classes modulo $2^t$ exactly, and shows that the chain is absorbed almost surely. The ingredients are a contraction of the square root of $|c|/3^k$, a harmonic function for the level $k$, a clock controlling long runs of equal parity, a window in which the offset returns to a bounded range, a universal absorbing word of length $O(\log^2(2+|c|))$, and a counting argument for repeated trials that never conditions on the future. A short lemma shows that a meeting within $\log_2 n$ steps is already a coalescence in Gao's sense. Every step is formalized in Lean~4 with Mathlib, and the final theorems depend only on the axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. The results concern coalescence only: they do not show that any integer reaches $1$, and the convergence is extremely slow.
@@ -129,7 +132,7 @@ Coalescence does not require reaching $1$. Gao glosses his conjecture as saying 
 The convergence is also extremely slow. The density of $\mathcal G\cap[0,N)$ is $0.3644$ at $N=2^{20}$ and $0.3737$ at $N=2^{22}$, and Gao's table gives $\dbar_{24}\approx0.389$. Our proof yields no useful rate (Remark~\ref{rem:rate}).
 
 \subsection*{Formal verification}
-All the results above are formalized in Lean~4 \cite{Lean4} with Mathlib \cite{Mathlib}. The final statements are \lean{GaoEnunciado.conjetura_gao} (Theorem~A) and \lean{GaoLiteral.conjetura_gao_literal} (Theorem~B). The definitions used by the second one are written again in a file that imports only Mathlib. Section~\ref{sec:formal} describes the development and what the formalization does and does not certify. Corollary~C is not stated separately in Lean; it follows at once from two formal theorems (Section~\ref{sec:density}).
+All the results above are formalized in Lean~4 \cite{Lean4} with Mathlib \cite{Mathlib}. The final statements are \lean{GaoEnunciado.conjetura_gao} (Theorem~A) and \lean{GaoLiteral.conjetura_gao_literal} (Theorem~B). The definitions used by the second one are written again in a file that imports only Mathlib. Section~\ref{sec:formal} describes the development and what the formalization does and does not certify. Corollary~C is not stated separately in Lean; it follows at once from two formal theorems (Section~\ref{sec:density}). The Lean sources, the record of the build and the programs of the numerical checks are archived on Zenodo \cite{Artifact}.
 
 \subsection*{Related work}
 The dynamics of residue classes goes back to Terras \cite{Ter76} and Everett \cite{Eve77}, who proved that almost all integers have finite stopping time. Tao \cite{Tao22} proved that almost all orbits (in logarithmic density) attain almost bounded values. These results concern single trajectories; the present one concerns the meeting of two adjacent trajectories, and uses no information about stopping times. Gao's Lemma~2 \cite{Gao93}, which lifts a coalescing pair $n,n+1$ to $2^kr+n,\,2^kr+n+1$, is the class structure behind the monotonicity of $\dbar_k$; Proposition~\ref{prop:transport} below is an exact, quantitative form of the same structure for the shortcut map. Garner \cite{Gar85}, Wu \cite{Wu92,Wu93,Wu95}, Wu and Huang \cite{WH01}, Elia and Tucker \cite{ET15}, LaDue \cite{LaD17} and Frinkle et al.\ \cite{Fri25} study consecutive integers of the same height, mostly by exhibiting families and by computation. In the companion papers we deduce from the present results Garner's conjecture on arbitrarily long runs \cite{SaidGarner} and the second conjecture of Wu \cite{SaidWu}. We have not found in the literature a proof of Gao's conjecture in either form.
@@ -447,7 +450,7 @@ Let them coalesce at step $j$ and let $h$ be the height of $n$. Since $1$ does n
 \section{Formalization and checks}\label{sec:formal}
 
 \subsection{The development}
-The formalization uses Lean~4.32.2 and Mathlib at commit \texttt{905b95818eb3} (tag v4.32.2), and is built with \texttt{lake build GaoCore GaoFormal}. The results of this paper use $26$ modules: the transition \lean{cadena_completa}, an earlier module \texttt{rachas} on runs of shared steps, and $24$ modules listed in Table~\ref{tab:files}. With the companion papers the project has $30$ modules and about $6900$ lines of Lean. The sources are in the repository of the project, commit \texttt{6a87fda}, directory \lean{depuracion/gao20260920/formal} [TO CONFIRM: permanent archive and DOI].
+The formalization uses Lean~4.32.2 and Mathlib at commit \texttt{905b95818eb3} (tag v4.32.2), and is built with \texttt{lake build GaoCore GaoFormal}. The results of this paper use $26$ modules: the transition \lean{cadena_completa}, an earlier module \texttt{rachas} on runs of shared steps, and $24$ modules listed in Table~\ref{tab:files}. With the companion papers the project has $30$ modules and about $6900$ lines of Lean. The sources are archived on Zenodo \cite{Artifact}, where the Lake project is the directory \lean{depuracion/gao20260920/formal}; the file \texttt{evidencia\_gao\_lean.json} of the archive records the build, the SHA-256 hash of every module and the output of \texttt{\#print axioms}.
 
 \begin{table}[ht]
 \caption{Lean modules and the results of this paper.}\label{tab:files}
@@ -480,7 +483,7 @@ Lean certifies that the displayed statements are proved; it does not certify tha
 The commands \texttt{\#guard} in \lean{GaoLiteral.lean} recompute Gao's Table~3 for $4\le k\le 12$ from the definitions of \lean{Hienas.lean}. They are evaluated by the Lean interpreter, not by the kernel, and no theorem depends on them.
 
 \subsection{Numerical checks}
-We also ran independent Python programs, which do not use the Lean code. They check the following facts.
+We also ran independent Python programs, which do not use the Lean code and are included in the archive \cite{Artifact}. They check the following facts.
 \begin{itemize}
 \item \emph{Definitions against Gao's tables.} With the definitions above, the numbers $2^k\dbar_k$ for $1\le k\le 24$ are
 0, 0, 0, 1, 4, 11, 29, 65, 145, 305, 641, 1317, 2733, 5565, 11397, 23181, 47181, 95589, 193901, 392157, 793277, 1601597, 3234269, 6522141.
@@ -530,9 +533,11 @@ The formalization, the numerical checks and the first draft of this text were pr
 
 \bibitem{OEIS} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, \url{https://oeis.org}, sequence A398792.
 
-\bibitem{SaidGarner} O.~J.~Said Duran, \emph{Arbitrarily long runs of consecutive integers with the same Collatz height}, companion paper, 2026.
+\bibitem{SaidGarner} O.~J.~Said Duran, \emph{Arbitrarily long runs of consecutive integers with the same Collatz height}, preprint, Zenodo, 2026. doi:10.5281/zenodo.23003526.
 
-\bibitem{SaidWu} O.~J.~Said Duran, \emph{On two conjectures of Wu on consecutive integers of the same height in the Collatz problem}, companion paper, 2026.
+\bibitem{Artifact} O.~J.~Said Duran, \emph{Formal proofs in Lean~4 of conjectures of Gao, Garner and Wu on consecutive integers in the Collatz problem}, software, version~1.0.0, Zenodo, 2026. doi:10.5281/zenodo.23003500.
+
+\bibitem{SaidWu} O.~J.~Said Duran, \emph{On two conjectures of Wu on consecutive integers of the same height in the Collatz problem}, preprint, Zenodo, 2026. doi:10.5281/zenodo.23003528.
 
 \bibitem{Tao22} T.~Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values}, Forum Math.\ Pi 10 (2022), e12. arXiv:1909.03562.
 

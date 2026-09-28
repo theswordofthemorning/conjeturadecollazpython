@@ -1,4 +1,5 @@
-% Artículo III: las dos conjeturas de Wu (1992). Borrador del 27-09-2026, sin enviar.
+% Artículo III: las dos conjeturas de Wu (1992). Versión 1 del 27-09-2026, depositada
+% en Zenodo (doi:10.5281/zenodo.23003528); artefacto Lean: doi:10.5281/zenodo.23003500.
 % Compilar con: tectonic -X compile articulo_III_wu.tex   (o pdflatex, dos pasadas)
 % PENDIENTE: cotejar las dos conjeturas con el original impreso
 % de Wu (1992) (CNKI HZLG199205041); lectura humana de los enunciados Lean.
@@ -14,6 +15,7 @@
 \usepackage{fancyvrb}
 \usepackage{newunicodechar}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={On two conjectures of Wu on consecutive integers of the same height in the Collatz problem},pdfauthor={Omar Javier Said Duran}}
 \usepackage{xurl}
 \newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
 \newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
@@ -51,8 +53,9 @@
 \author[O. J. Said Duran]{Omar Javier Said Duran}
 \address{Independent Researcher}
 \email{omarsaid24@gmail.com}
+\urladdr{https://orcid.org/0009-0009-1418-2558}
 
-\date{Draft of 27 September 2026}
+\date{27 September 2026}
 
 \begin{abstract}
 The height of a positive integer is the number of steps of the Collatz map ($n\mapsto n/2$ for even $n$, $n\mapsto 3n+1$ for odd $n$) needed to reach $1$. Wu Jiabang (1992) computed, for $N\le 24$, the proportion $d(2^N)$ of the integers in $[1,2^N)$ that belong to a run of at least two consecutive integers of the same height, found that it increases with $N$, and proposed two conjectures. As read from the full text through the AI reading assistant of the CNKI database, they state that $d(M)\to1$ and that the length $L(M)$ of the longest run of equal height in $[1,M)$ tends to infinity. We prove the second conjecture: it follows from the existence of arbitrarily long runs of equal height, proved in a companion paper. For the first, we show that $d(M)\to1$ if and only if the positive integers that reach $1$ have natural density one. One direction is immediate. The other uses a theorem of a second companion paper, on a conjecture of Gao, by which the proportion of $n<x$ such that $n$ and $n+1$ coalesce tends to $1$, together with the fact that coalescing integers that reach $1$ have the same height. Wu's first conjecture is therefore equivalent to a density form of the $3x+1$ conjecture, which is open: the best known lower bound for the number of $n\le x$ that reach $1$ is $x^{0.84}$. We extend Wu's table to $N=26$, and note that the monotonicity he observed, if it held for all $N$, would already give a positive lower density of integers reaching $1$. Both results are formalized in Lean~4 with Mathlib. The wording of the conjectures has still to be checked against the printed article.
@@ -142,7 +145,7 @@ The argument never uses the value of the height. If heights are measured with th
 
 \section{The numbers}\label{sec:table}
 
-Table~\ref{tab:wu} gives $K(2^N)$, $d(2^N)$ and $L(2^N)$ for $N\le 26$, computed exactly from the heights of all $n\le 2^{26}+1$; for $N\le 24$ two independent programs agree. The values of $L(2^N)$ agree with those derived from the sequence A078441 of the OEIS, which lists the first start of a run of each length \cite{OEIS}. Wu's run of $176$ integers from $722067240$ is A078441$(176)$.
+Table~\ref{tab:wu} gives $K(2^N)$, $d(2^N)$ and $L(2^N)$ for $N\le 26$, computed exactly from the heights of all $n\le 2^{26}+1$; for $N\le 24$ two independent programs agree. The programs are included in the archive \cite{Artifact}. The values of $L(2^N)$ agree with those derived from the sequence A078441 of the OEIS, which lists the first start of a run of each length \cite{OEIS}. Wu's run of $176$ integers from $722067240$ is A078441$(176)$.
 
 \begin{table}[ht]
 \caption{Wu's counts extended to $N=26$.}\label{tab:wu}
@@ -180,7 +183,7 @@ A positive lower density of integers reaching $1$ is far beyond what is known \c
 
 \section{Formalization}\label{sec:formal}
 
-The results are formalized in Lean~4.32.2 with Mathlib at commit \lean{905b95818eb3}, in the modules \lean{Condoras.lean} and \lean{WuEnunciado.lean}; the latter restates Wu's definitions without the auxiliary names of the proofs:
+The results are formalized in Lean~4.32.2 with Mathlib at commit \lean{905b95818eb3}, in the modules \lean{Condoras.lean} and \lean{WuEnunciado.lean}, archived on Zenodo \cite{Artifact}; the latter restates Wu's definitions without the auxiliary names of the proofs:
 
 \begin{Verbatim}[fontsize=\small]
 def C (n : ℕ) : ℕ := if n % 2 = 0 then n / 2 else 3 * n + 1
@@ -226,9 +229,11 @@ The formalization, the numerical checks and the first draft of this text were pr
 
 \bibitem{OEIS} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, \url{https://oeis.org}, sequence A078441.
 
-\bibitem{SaidGao} O.~J.~Said Duran, \emph{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao}, companion paper, 2026.
+\bibitem{SaidGao} O.~J.~Said Duran, \emph{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao}, preprint, Zenodo, 2026. doi:10.5281/zenodo.23003524.
 
-\bibitem{SaidGarner} O.~J.~Said Duran, \emph{Arbitrarily long runs of consecutive integers with the same Collatz height}, companion paper, 2026.
+\bibitem{SaidGarner} O.~J.~Said Duran, \emph{Arbitrarily long runs of consecutive integers with the same Collatz height}, preprint, Zenodo, 2026. doi:10.5281/zenodo.23003526.
+
+\bibitem{Artifact} O.~J.~Said Duran, \emph{Formal proofs in Lean~4 of conjectures of Gao, Garner and Wu on consecutive integers in the Collatz problem}, software, version~1.0.0, Zenodo, 2026. doi:10.5281/zenodo.23003500.
 
 \bibitem{Tao22} T.~Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values}, Forum Math.\ Pi 10 (2022), e12. arXiv:1909.03562.
 
