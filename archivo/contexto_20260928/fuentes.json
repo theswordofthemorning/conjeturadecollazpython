@@ -1,0 +1,29 @@
+{
+  "fecha": "2026-09-28",
+  "fuentes": [
+    {
+      "original": "depuracion/analisis20260920/ANALISIS.md",
+      "copia": "archivo/contexto_20260928/analisis20260920_ANALISIS.md.txt",
+      "bytes": 9344,
+      "sha256": "69dafe8dc2f8d98392211673229c1d77f5d9845f7193fca1bbb3d006959acfe8"
+    },
+    {
+      "original": "depuracion/analisis20260920/ANALISIS_ZOOTHEOREM.md",
+      "copia": "archivo/contexto_20260928/analisis20260920_ANALISIS_ZOOTHEOREM.md.txt",
+      "bytes": 8472,
+      "sha256": "87f8e73529f3d5e4e8e6bb4335ebfae4375f58db7b908ad1f8c899c95c9d4d75"
+    },
+    {
+      "original": "depuracion/analisis20260920/CONTINUIDAD.md",
+      "copia": "archivo/contexto_20260928/analisis20260920_CONTINUIDAD.md.txt",
+      "bytes": 4233,
+      "sha256": "7fb92d83ede8a80a9549cc9e43b9d347fd6389d4ab0e5c5a1fc9236cddc1e66c"
+    },
+    {
+      "original": "depuracion/transversal20260927/LEEME.md",
+      "copia": "archivo/contexto_20260928/transversal20260927_LEEME.md.txt",
+      "bytes": 8374,
+      "sha256": "aee024ea7be67534d5d25be5baace7f7d7d9f6b98f6a66f7ef398101e6621235"
+    }
+  ]
+}
