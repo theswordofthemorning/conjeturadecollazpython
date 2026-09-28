@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-26",
+  "version": "2026-09-28",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -837,9 +837,27 @@
       "fichero": "depuracion/gao20260920/formal/WuEnunciado.lean",
       "fuente": "propio",
       "notas": "Condoras.lean (wu_dos, racha_de_coalescencia, cota_llegan, diferencia, wu_uno) y WuEnunciado.lean (definiciones literales, conjetura_wu_dos, conjetura_wu_uno, #guard de la 176-upla desde 722067240 con altura 190 y de d(2^10)=620/1023). #print axioms: propext, Classical.choice, Quot.sound. Las citas de las conjeturas vienen de CNKI AI (texto completo, cuenta de prueba del usuario) y falta cotejarlas con el original. La conjetura 1 misma sigue abierta. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "condoras_barrera_condicional",
+      "enunciado": "CONDORAS, PUENTE CONDICIONAL DE BARRERA: mapa clasico C, E(X,B)=#{1<=n<=X: para todo j>=0, C^j(n)>B}. Para todo perfil real error, si E(X,B)<=error(B)X para todos B>=1 y X>=0, y todos los enteros 1<=n<=B llegan a 1 para una barrera B>=1, entonces rho(M)>=1-error(B) para M>=2; dWu(M)>=1-error(B)-(M-G(M))/(M-1) para M>=2, donde G(M) cuenta las coalescencias de Gao en [0,M); y para todo eps>0 eventualmente dWu(M)>=1-error(B)-eps. Esta ultima conclusion usa Gao mediante CondorasWu.diferencia. La cota externa y la cobertura inclusiva de la barrera son hipotesis explicitas.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/nashida20260928/CondorasBarrera.lean",
+      "fuente": "propio; extension condicional de Condoras motivada por Nashida r8 (2026), DOI 10.5281/zenodo.22986671",
+      "notas": "Prueba escrita independiente en depuracion/nashida20260928/LEEME.md; Lean 4.32.2: no_llega_iff_sobre, cuenta_complementaria, cota_rho, cota_finita_dWu, cota_eventual_dWu, compilacion codigo 0 y axiomas estandar sin sorryAx (lean_local.txt). Perfil generico: Nashida corresponderia a error(B)=K*B^(-c). No se ha reproducido ni importado la formalizacion externa; no se demuestra CotaBarrera, no se descarga Cubierta B, no se resuelve Wu 1. Forma eventual formalizada; el liminf es su lectura matematica. No se reivindica novedad bibliografica. PENDIENTE: revision humana."
     }
   ],
   "nodos": [
+    {
+      "nombre": "condoras_barrera",
+      "antes": null,
+      "despues": [
+        "condoras_barrera",
+        "demostrado",
+        "CONDORAS, puente condicional: una cota E(X,B)<=error(B)X y terminacion de todo 1<=n<=B dan eventualmente dWu(M)>=1-error(B)-eps para cada eps>0. La cota externa sigue siendo hipotesis; no resuelve Wu 1."
+      ]
+    },
     {
       "nombre": "hormigas_accesibilidad",
       "antes": [
@@ -1046,6 +1064,10 @@
     }
   ],
   "dependencias_nuevas": [
+    [
+      "condoras_barrera",
+      "condoras"
+    ],
     [
       "suricatas",
       "cadena_kc"

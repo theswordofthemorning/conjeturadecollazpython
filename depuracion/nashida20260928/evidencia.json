@@ -1,0 +1,186 @@
+{
+  "fecha": "2026-09-28",
+  "alcance": "Cotejo del original de Nashida y certificado local de una implicacion condicional. No reproduce ni certifica el proyecto externo.",
+  "pdf": {
+    "doi_conceptual": "10.5281/zenodo.22986670",
+    "doi_version": "10.5281/zenodo.22986671",
+    "revision": "r8",
+    "fecha_articulo": "2026-09-27",
+    "paginas": 12,
+    "url": "https://zenodo.org/api/records/22986671/files/collatz-fixed-barrier-power-saving-r8.pdf/content",
+    "bytes": 486196,
+    "md5_cotejado_con_zenodo": "a20e2cf1123471ec20c5e6aa7047eeab",
+    "sha256": "c77ddd9e56cbdc653d644f179b00d8831da06b30d15eaa9353dc2a281a96a32b"
+  },
+  "codigo_externo": {
+    "repositorio": "https://github.com/harappa/collatz-fixed-barrier-power-saving",
+    "commit": "976fffb160744c56f1f26912f7bd23d195fe02d2",
+    "lean_toolchain_declarado": "leanprover/lean4:v4.30.0-rc2",
+    "mathlib_declarado": "v4.30.0-rc2",
+    "recompilado_localmente": false,
+    "cierre_dependencias_descargado": false,
+    "manifiesto_sha256": "82ae227eb0abbf8a0699c45bf95716b8cc8a940d74d02368ef7827c70e27ace8",
+    "archivos_consultados_cotejados_con_manifiesto": [
+      {
+        "archivo": "CollatzND/Core/Bridge.lean",
+        "sha256": "ab83d927f77f40b9f7edb3f146fff4e11f99aeeda2049c624decdd0c733a44ae"
+      },
+      {
+        "archivo": "CollatzND/Core/Col.lean",
+        "sha256": "3724b4ad95b83f3cb4857f393d5e70704fd9629d21e09c37909a74827a56d00d"
+      },
+      {
+        "archivo": "CollatzND/Core/Density.lean",
+        "sha256": "ce5841ef8f6cd082e155db2677a64febe7fd4af52dbdcb30f46841ccdf93b887"
+      },
+      {
+        "archivo": "CollatzND/Core/Explicit.lean",
+        "sha256": "bd50f9ce15d53d61fff7fb19a6d9e64af1e7c8d9c936c047a33f93d3178aa897"
+      },
+      {
+        "archivo": "CollatzND/Core/Main.lean",
+        "sha256": "745a1c9e117eaebb71d9a440a322c0fb42c3ba051e2e9e7d9ca2892e63c61b13"
+      },
+      {
+        "archivo": "CollatzND/Core/Power.lean",
+        "sha256": "e062f9cc3e7464353d0ea310a2fc916e534b551aa441d2d0b314a9c002b3ff6d"
+      },
+      {
+        "archivo": "CollatzND/Core/ShaikBridge.lean",
+        "sha256": "339eb9cf5a92572963cad2d832d1196c3ccc86293e95721ac846e1bf2ff3a00b"
+      },
+      {
+        "archivo": "CollatzND/Core/Uniform.lean",
+        "sha256": "bae8cbbce5e9de4513613f9314429a0a4ac01b5df1f18a2758778af9a5234136"
+      },
+      {
+        "archivo": "CollatzProof/Core/Defs.lean",
+        "sha256": "290f243ecd6e7afee27d6e7227e653d49567e8018bf2dcb4335bd2fc62ff6e38"
+      },
+      {
+        "archivo": "fetch_mazur.py",
+        "sha256": "0aa47787952d8c7f11b3cfd80814a9c4946050064f005455e8a064a7dbb1bda8"
+      },
+      {
+        "archivo": "fetch_shaik.py",
+        "sha256": "a634c5138a85f74f1dd5099927314bbca473fcb40b7130447d8348e4dc4c1a6c"
+      },
+      {
+        "archivo": "NOTICE",
+        "sha256": "3632df6d7b01ff13601b31f05cf4aa71aaa2936702c322f2c334c8be46bd5cc4"
+      },
+      {
+        "archivo": "patches/shaik-v4.30.patch",
+        "sha256": "04447eee7e66c97568921817afd76ec6605eea4ec9be7717ca48cf73683359a5"
+      },
+      {
+        "archivo": "verify/leanchecker-fresh-2026-09-27.log",
+        "sha256": "30f92a7d0cfd1a101311a0d2958b4c0749d7e65ddc522e8077a3203272c4233b"
+      },
+      {
+        "archivo": "verify/stmt-2026-09-26.log",
+        "sha256": "db4641755bfdbc0e078ef5ac3a4d06bdc54766a0076d2c5908565dd5ac6d760b"
+      },
+      {
+        "archivo": "verify/Stmt.lean",
+        "sha256": "104ee703d9fa7ac708cf41a8d60c5bbe6eeb227271dd05ed1a3216452bd9232f"
+      }
+    ],
+    "limite": "Lectura selectiva. Los hashes no certifican las pruebas. Los registros externos de verificacion pertenecen al autor.",
+    "mazur_commit_declarado": "ca3dd0d63920411213403092aecc6946619eb082",
+    "shaik_commit_declarado": "7239f88d05d8262d4778f3c46f4560905052872f",
+    "leanchecker_del_autor_20260927": {
+      "archivo": "verify/leanchecker-fresh-2026-09-27.log",
+      "commit_fuente_declarado_en_log": "8528d93",
+      "codigo_declarado_en_log": 0,
+      "es_reproduccion_nuestra": false
+    }
+  },
+  "puente_local": {
+    "lean_version_verificada": "4.32.2",
+    "lean_commit": "f3b06c705e6c85f5314019d5d3baab0fec5b580c",
+    "directorio": "depuracion/gao20260920/formal",
+    "comando": "lake env lean ../../nashida20260928/CondorasBarrera.lean",
+    "invocacion": "lake.exe de la version instalada",
+    "codigo_salida": 0,
+    "registro_salida": "lean_local.txt",
+    "axiomas_por_teorema": {
+      "CondorasBarrera.no_llega_iff_sobre": [
+        "propext",
+        "Quot.sound"
+      ],
+      "CondorasBarrera.cuenta_complementaria": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "CondorasBarrera.cota_rho": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "CondorasBarrera.cota_finita_dWu": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "CondorasBarrera.cota_eventual_dWu": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "hipotesis_explicitas": [
+      "B >= 1",
+      "Cubierta B: todo entero 1 <= n <= B llega a 1",
+      "CotaBarrera error: E(X,B) <= error(B) * X para todos B >= 1 y X >= 0"
+    ],
+    "limite": "Perfil de error arbitrario. No importa Nashida ni demuestra CotaBarrera. Forma eventual formalizada; no un teorema Lean de liminf.",
+    "archivos": [
+      {
+        "archivo": "depuracion/nashida20260928/CondorasBarrera.lean",
+        "sha256_utf8_lf": "f9254618b024b9c150c3951a13d620bdeb121f2a2ae2db1e583c1b76de309585"
+      },
+      {
+        "archivo": "depuracion/nashida20260928/lean_local.txt",
+        "sha256_utf8_lf": "54ff26dd3f6d43cec3eeff13f6dff74c7f0d155a50e8cbb92c78c73e0dbba6bd"
+      },
+      {
+        "archivo": "depuracion/gao20260920/formal/Condoras.lean",
+        "sha256_utf8_lf": "c20dbb349e83823c1dea7da5e536e58a34202310e9294702dc039a8e103ff849"
+      },
+      {
+        "archivo": "depuracion/gao20260920/formal/GarnerEnunciado.lean",
+        "sha256_utf8_lf": "f9e046b0074d4eee4acc57e82dafa428fbe24382768c6ab7fe1f7ca200a9e51f"
+      },
+      {
+        "archivo": "depuracion/gao20260920/formal/Hienas.lean",
+        "sha256_utf8_lf": "9026162d6c96aca77e655ca2430335dcae65727915213892a2c09ae7a577acf0"
+      },
+      {
+        "archivo": "depuracion/gao20260920/formal/GaoLiteral.lean",
+        "sha256_utf8_lf": "69d63504430fd84e08624a7312f35be664de3d0a4c9b32bb446bcbf80462da7f"
+      }
+    ]
+  },
+  "registro": {
+    "version": "2026-09-28",
+    "generador": "python -B -X utf8 guardarafirmaciones.py",
+    "codigo_salida": 0,
+    "filas_antes": 235,
+    "filas_despues": 236,
+    "id_alta": 236,
+    "clave_alta": "condoras_barrera_condicional",
+    "primeras_235_conservadas_literalmente": true,
+    "sha256_filas_anteriores_json_utf8_compacto": "a4327974f12b1b1b95a055a1a45c7b71f13ad83dbf0155933004fe0b12a7aa7d",
+    "integrity_check": "ok",
+    "foreign_key_check": []
+  },
+  "restricciones": {
+    "subagentes": false,
+    "experimentos_numericos_nuevos": false,
+    "respuestas_db_modificada": false,
+    "configuracion_lean_modificada": false,
+    "reivindicacion_de_novedad_bibliografica": false
+  }
+}

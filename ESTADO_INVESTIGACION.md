@@ -1,4 +1,4 @@
-# Estado para continuar — 27-09-2026
+# Estado para continuar — 28-09-2026
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
 literal; de ella la de Garner (1985) sobre rachas, y la conjetura 2 de
@@ -43,74 +43,71 @@ C1, H3, VH, Hormigas, EF y ensayos guardados (20-09) →
 [Alpacas](depuracion/garner20260926/Alpacas.md) (Garner) → Condoras (Wu).
 El artículo I la expone entera, con cada nombre Lean.
 
-## Primera obligación al retomar
+## Revisión y publicación
 
 Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
 
-1. **Revisión humana de los enunciados.** Leer
-   [GaoEnunciado.lean](depuracion/gao20260920/formal/GaoEnunciado.lean),
-   líneas 11–20; [Hienas.lean](depuracion/gao20260920/formal/Hienas.lean),
-   líneas 34–76, y [GarnerEnunciado.lean](depuracion/gao20260920/formal/GarnerEnunciado.lean),
-   líneas 11–27, y [WuEnunciado.lean](depuracion/gao20260920/formal/WuEnunciado.lean),
-   líneas 12–58. Lean certifica el enunciado, no su lectura. Hay tres apoyos:
-   - las definiciones reproducen la tabla 3 de Gao;
-   - Hienas escribe de nuevo la forma de Lagarias sin importar nada del
-     proyecto;
-   - los `#guard` de Garner reproducen las rachas 943–949, 7083–7099 y
-     57346–57370 de Gao.
-2. **Bibliografía a fondo.** No se halló prueba publicada de ninguna de las
-   tres ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md),
-   [revisión del 27-09](papers/revision20260927/REVISION.md#4-novedad)).
-   El 27-09 se consultaron zbMATH (API), arXiv y la web. Faltan
-   MathSciNet, Scholar y el texto de Garner (1985).
-3. **Editores.** Si escriben los de AFM u OEIS, preparar la respuesta y
-   pedir autorización antes de contestar.
+Prioridad pendiente: revisión humana de
+[GaoEnunciado](depuracion/gao20260920/formal/GaoEnunciado.lean),
+[Hienas](depuracion/gao20260920/formal/Hienas.lean),
+[GarnerEnunciado](depuracion/gao20260920/formal/GarnerEnunciado.lean) y
+[WuEnunciado](depuracion/gao20260920/formal/WuEnunciado.lean).
+Lean certifica el enunciado, no su interpretación. Las tablas, las rachas
+de Gao y la formulación independiente de Hienas apoyan su lectura.
+
+No se halló prueba publicada de las tres conjeturas en la
+[revisión bibliográfica del 27-09](papers/revision20260927/REVISION.md#4-novedad).
+Faltan MathSciNet, Scholar y el original de Garner; la novedad no está
+certificada exhaustivamente.
 
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
-- **Artículos (27-09).** Son tres `.tex` en inglés
-  ([papers/README.md](papers/README.md)). En Zenodo están el artefacto Lean
-  (10.5281/zenodo.23003500) y los artículos (23003524, 23003526 y 23003528).
-  En AFM están los envíos #19502–#19504, en *Submitted*
-  ([papers/zenodo/](papers/zenodo/LEEME.md)).
-- **OEIS: enviadas el 27-09 con autorización del usuario; las tres en
-  *proposed*** ([papers/oeis/LEEME.md](papers/oeis/LEEME.md)). Son A400486
-  (la tabla 3 de Gao), A400487 (la cuenta de Wu) y la revisión #31 de
-  A078441 (Garner). Cupos: 3 de 3. La propuesta del encuentro del 24-09
-  nunca se envió. Contestar a los editores requiere autorización.
-- **Siguiente ruta: la transversal** ([nota del 27-09](depuracion/transversal20260927/LEEME.md)).
-  Lo demostrado habla de pares que se funden, no de llegar a 1. Wu 1,
-  Garner (1) con alturas finitas y la pregunta de Gao chocan con esa pared.
-  Hay tres cruces:
-  - Pandas da la pregunta de Gao si los residuos son menores que 3;
-  - Condoras con Nashida (2026) acotaría `liminf d(M)` si Collatz vale
-    bajo N0;
-  - Wirsching (predecesores), sin leer.
+- **Artículos, estado registrado el 27-09.** Tres `.tex` en inglés
+  ([papers](papers/README.md)); artefacto y artículos en Zenodo. AFM
+  #19502–#19504 en *Submitted*; DOI y envíos en
+  [publicación](papers/zenodo/LEEME.md).
+- **OEIS, 27-09:** A400486, A400487 y A078441 revisión #31 enviadas con
+  autorización, las tres *proposed*, cupos 3/3
+  ([detalle](papers/oeis/LEEME.md)). El encuentro del 24-09 no se envió.
+  Responder a editores requiere autorización.
 
-  Primer paso: leer Nashida (2026b) y Wirsching (2003). Otras candidatas
-  están en [gaopendientes.md](gaopendientes.md), punto 6.
+## Ruta vigente y próximo bloque
+
+[Plan por sesiones](depuracion/transversal20260927/PLAN_SESIONES_20260928.md),
+ordenado por petición del usuario: Nashida (1–2), Pandas (2–4), Wirsching
+(4–6), CST (6). Presupuestos de exploración, no plazos de resolución.
+
+[Nashida, diagnóstico](depuracion/nashida20260928/LEEME.md): leído r8 y
+cotejado su enunciado con el código. El puente `CondorasBarrera.lean`
+compila localmente: una cota `E(X,B)<=error(B)X` y terminación de todo
+`1<=n<=B` dan eventualmente `dWu>=1-error(B)-eps`. Ambas son hipótesis
+explícitas; Nashida no se recompiló ni importó. K no está explicitada y
+una barrera fija no da Wu 1. Sin nuevos experimentos numéricos.
+
+Siguiente bloque: **Pandas**, conservando terminación y cotas del residuo.
+El plan incorpora combinar una cota de base con una recurrencia entre
+escalas y controlar el error acumulado; sus aplicaciones siguen pendientes.
+Se conservan la [evaluación CST](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md)
+y el [plan anterior](depuracion/transversal20260927/LEEME.md).
 
 ## Evidencia y conservación
 
-Lean 4.32.2 y Mathlib fijado. El 26-09 se recompiló todo desde cero (1610
-tareas, 175 consultas de axiomas estándar). Tras Alpacas, `leanchecker` da
-código 0 en los 28 módulos propios, y `leanchecker --fresh GarnerEnunciado`,
-que repasa además Mathlib, sale con código 0.
-[Compilación, hashes y axiomas](depuracion/gao20260920/evidencia_gao_lean.json),
-con hashes en LF. `formal/.lake/build_respaldo_20260920`, fuera de Git, se
-puede borrar. `.lake/` se reconstruye con `lake exe cache get` ([README](depuracion/gao20260920/formal/README.md)).
+Evidencia previa: Lean 4.32.2, Mathlib fijado; recompilación limpia del
+26-09, 1610 tareas y 175 consultas de axiomas estándar. `leanchecker`:
+28 módulos propios y `--fresh GarnerEnunciado`, código 0.
+[Compilación, hashes y axiomas](depuracion/gao20260920/evidencia_gao_lean.json);
+[reconstrucción](depuracion/gao20260920/formal/README.md).
 
 Contrastes independientes, finitos: [cadena](depuracion/gao20260920/verificar_lagartijas.py),
-[262.144 pares reales](depuracion/gao20260920/verificar_lagartijas_pares.py),
+[pares reales](depuracion/gao20260920/verificar_lagartijas_pares.py),
 [Hienas](depuracion/gao20260920/verificar_hienas.py),
 [Alpacas](depuracion/garner20260926/verificar_alpacas.py) y la
-[revisión del 27-09](papers/revision20260927/REVISION.md). Esta última usa
-código nuevo y reproduce enteras las tablas 2 y 3 de Gao; hasta entonces la
-2 no se había cotejado. Cubre también Garner por otra ruta y Wu hasta
-`N=26`, y comprueba que los hashes de Lean son los de la evidencia. El
-certificado universal es Lean.
+[revisión del 27-09](papers/revision20260927/REVISION.md): tablas 2 y 3 de
+Gao, Garner por otra ruta, Wu hasta `N=26` y hashes. Estos controles
+finitos no sustituyen el certificado universal de Lean.
 
-Registro 2026-09-26: 235 afirmaciones; Lagartijas, CF_F, Martas, Tejonas,
-`gao_densidad`, `hienas`, `alpacas_garner` y `condoras_wu` demostradas. Fuente versionada `depuracion/coherencia20260913/registro.json`
-y generador `guardarafirmaciones.py`. No reconstruir conversaciones ni
-alterar históricos. zootheorem permanece intacto.
+Registro del 28-09: 236 afirmaciones, incluida la implicación condicional;
+[fuente versionada](depuracion/coherencia20260913/registro.json) y
+`guardarafirmaciones.py`. [Evidencia nueva](depuracion/nashida20260928/evidencia.json).
+No reconstruir conversaciones ni alterar
+históricos. zootheorem permanece intacto.

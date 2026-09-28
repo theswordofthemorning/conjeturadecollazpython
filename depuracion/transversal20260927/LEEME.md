@@ -1,5 +1,10 @@
 # Ruta transversal: de los pares a la llegada a 1
 
+**Seguimiento del 28-09:** el orden vigente está en el
+[plan por sesiones](PLAN_SESIONES_20260928.md). Esta nota conserva el plan
+del 27-09; el cotejo posterior de Nashida y su puente condicional se
+documentan en la [auditoría](../nashida20260928/LEEME.md).
+
 27-09-2026. Es un plan: no trae resultados nuevos demostrados. Cada
 afirmación dice si es prueba escrita, formalización, conteo exacto o
 lectura. Nada de esta nota entra al registro de afirmaciones mientras no se
@@ -51,6 +56,13 @@ atajo T. La altura es H = τ + S, y el residuo de Roosendaal cumple
   es la parte de las potencias de 6. Los artículos I y II no citan Pandas.
 
 ## Cruce 2: Condoras con Nashida (2026)
+
+**Corrección del 28-09 al texto histórico que sigue:** el original r8
+cuenta órbitas que permanecen estrictamente por encima de N0. Por tanto,
+la hipótesis del puente debe cubrir `1<=n<=N0`, incluyendo N0. Si sólo
+se cubre `n<N0`, para `N0>=2` se aplica la cota a `N0-1`. K no está explicitada en el
+artículo. El puente condicional ya está formalizado localmente; la prueba
+externa no se ha recompilado aquí. Véase la [ficha](../nashida20260928/LEEME.md).
 
 Nashida (2026b) es *A power-saving bound, uniform in the endpoint, for
 Collatz orbits that stay above a fixed barrier* (Zenodo,

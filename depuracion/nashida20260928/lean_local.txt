@@ -1,0 +1,18 @@
+Fecha: 2026-09-28
+Directorio: depuracion/gao20260920/formal
+Lean: 4.32.2, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c
+Comando: lake env lean ../../nashida20260928/CondorasBarrera.lean
+Invocado mediante el lake.exe de la version instalada.
+Codigo de salida: 0
+Alcance: puente condicional local. No recompila el proyecto externo de Nashida.
+
+'CondorasBarrera.no_llega_iff_sobre' depends on axioms: [propext, Quot.sound]
+'CondorasBarrera.cuenta_complementaria' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CondorasBarrera.cota_rho' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CondorasBarrera.cota_finita_dWu' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CondorasBarrera.cota_eventual_dWu' depends on axioms: [propext, Classical.choice, Quot.sound]
+@CondorasBarrera.cota_eventual_dWu : ∀ {B : ℕ} {error : ℕ → ℝ},
+  1 ≤ B →
+    CondorasBarrera.Cubierta B →
+      CondorasBarrera.CotaBarrera error →
+        ∀ (ε : ℝ), 0 < ε → ∀ᶠ (M : ℕ) in Filter.atTop, 1 - error B - ε ≤ CondorasWu.dWu M
