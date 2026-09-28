@@ -63,32 +63,32 @@ Lista completa y criterios de cierre: [gaopendientes.md](gaopendientes.md).
    [revisión del 27-09](papers/revision20260927/REVISION.md#4-novedad)).
    El 27-09 se consultaron zbMATH (API), arXiv y la web. Faltan
    MathSciNet, Scholar y el texto de Garner (1985).
-3. **Destino.** Los datos del autor, la declaración de IA y el cotejo de
-   Wu con la IA de CNKI ya están en los artículos (27-09). Destino elegido
-   el 27-09: Zenodo + *Annals of Formalized Mathematics*. Todo está
-   publicado en Zenodo y los tres artículos se enviaron a AFM (#19502–#19504)
-   ([papers/zenodo/](papers/zenodo/LEEME.md)).
+3. **Editores.** Si escriben los de AFM u OEIS, preparar la respuesta y
+   pedir autorización antes de contestar.
 
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
-- **Artículos: escritos, compilados y revisados el 27-09.** Son tres `.tex`
-  en inglés (Gao, Garner y Wu), con la revisión adversarial y lo que falta
-  en [papers/README.md](papers/README.md).
-  - El 27-09 por la noche se publicaron en Zenodo el artefacto Lean
-    (10.5281/zenodo.23003500) y los tres artículos (23003524, 23003526 y
-    23003528).
-  - Los artículos se enviaron a *Annals of Formalized Mathematics*: #19502,
-    #19503 y #19504, en *Submitted* ([papers/zenodo/](papers/zenodo/LEEME.md)).
-  - Contestar a los editores requiere autorización.
+- **Artículos (27-09).** Son tres `.tex` en inglés
+  ([papers/README.md](papers/README.md)). En Zenodo están el artefacto Lean
+  (10.5281/zenodo.23003500) y los artículos (23003524, 23003526 y 23003528).
+  En AFM están los envíos #19502–#19504, en *Submitted*
+  ([papers/zenodo/](papers/zenodo/LEEME.md)).
 - **OEIS: enviadas el 27-09 con autorización del usuario; las tres en
   *proposed*** ([papers/oeis/LEEME.md](papers/oeis/LEEME.md)). Son A400486
   (la tabla 3 de Gao), A400487 (la cuenta de Wu) y la revisión #31 de
   A078441 (Garner). Cupos: 3 de 3. La propuesta del encuentro del 24-09
   nunca se envió. Contestar a los editores requiere autorización.
-- **Siguiente ruta:** la elige el usuario. Candidatas en
-  [gaopendientes.md](gaopendientes.md), punto 6: el corolario
-  `A398792(t)/2^t -> 1`, un ritmo útil, y Garner (1) con alturas en `ℕ∪{∞}`.
-  Garner (1) con alturas finitas sigue abierta.
+- **Siguiente ruta: la transversal** ([nota del 27-09](depuracion/transversal20260927/LEEME.md)).
+  Lo demostrado habla de pares que se funden, no de llegar a 1. Wu 1,
+  Garner (1) con alturas finitas y la pregunta de Gao chocan con esa pared.
+  Hay tres cruces:
+  - Pandas da la pregunta de Gao si los residuos son menores que 3;
+  - Condoras con Nashida (2026) acotaría `liminf d(M)` si Collatz vale
+    bajo N0;
+  - Wirsching (predecesores), sin leer.
+
+  Primer paso: leer Nashida (2026b) y Wirsching (2003). Otras candidatas
+  están en [gaopendientes.md](gaopendientes.md), punto 6.
 
 ## Evidencia y conservación
 

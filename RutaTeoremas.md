@@ -21,6 +21,7 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Forma literal de Gao: `d̄_k -> 1` y puente | [Hienas](depuracion/gao20260920/Hienas.md); `formal/Hienas.lean`, `formal/GaoLiteral.lean` |
 | Pendientes de Gao y lista para el revisor | [gaopendientes.md](gaopendientes.md) |
 | Rachas de Garner (1985): misma altura, todo largo | [Alpacas](depuracion/garner20260926/Alpacas.md); `formal/Alpacas.lean`, `formal/GarnerEnunciado.lean`; [plan](depuracion/garner20260926/LEEME.md) |
+| Ruta transversal: pregunta de Gao y Pandas, Wu 1 con Nashida, predecesores; lista de ccchallenge | [Transversal](depuracion/transversal20260927/LEEME.md); `pandas_gao.py`, `ccchallenge_lista.py` en esa carpeta |
 
 ## El zoológico y las rutas anteriores
 

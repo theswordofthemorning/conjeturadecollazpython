@@ -90,6 +90,13 @@ visto, y el III lo dice. PDF recompilados el 27-09 por la tarde.
      enviados a AFM (#19502–#19504).
 
    Detalle, huellas y cartas: [zenodo/](zenodo/LEEME.md).
+3. **Para la respuesta a los árbitros** (27-09):
+   - citar Pandas en la pregunta de Gao (I y II);
+   - citar Nashida (2026) en Wu 1 y en Garner (1) (II y III);
+   - citar Novgorodtsev (2026b) y Kolpakov et al. (2026) como trabajos
+     afines (I).
+
+   Detalle en la [ruta transversal](../depuracion/transversal20260927/LEEME.md).
 
 ## Revisión
 

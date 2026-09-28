@@ -103,7 +103,10 @@ La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
        altura h e igual `σ∞`. Tres `#guard` reproducen ejemplos de Gao.
 2. **Búsqueda bibliográfica a fondo.** El 26-09 se ampliaron las fuentes: las
    bibliografías de Lagarias, las 9 citas de Semantic Scholar y ccchallenge
-   ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)). Falta:
+   ([ficha](depuracion/gao20260920/ficha_gao_lagarias.md)). El 27-09 se leyó
+   por su API la lista entera de ccchallenge (379 registros), y nadie en ella
+   demuestra Gao, Garner ni Wu ([ruta transversal](depuracion/transversal20260927/LEEME.md)).
+   Falta:
    - consultar zbMATH, que devolvió 403, MathSciNet y Google Scholar;
    - leer enteras las cuatro citas vistas sólo por título o resumen.
 3. **Redacción en prosa autocontenida.** Las notas usan el vocabulario del
@@ -115,7 +118,8 @@ La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
    - un mapa del código Lean.
 4. **Revisión externa**, sólo con autorización del usuario. ccchallenge.org
    acepta formalizaciones en Lean y las audita. Exige declarar el uso de IA
-   y el modelo, y que el auditor no sea el autor.
+   y el modelo, y que el auditor no sea el autor. El 27-09 su cola estaba
+   parada: 6 esperando auditoría y ninguna en curso.
 5. **OEIS.** La propuesta del 24-09 (borrador en zootheorem, que no se toca
    desde aquí) dice que Gao «proved that its density is at least 0.389 (as
    summarized by Lagarias)» y que «Gao's conjecture is thus the statement
@@ -146,6 +150,10 @@ La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
    - Garner (1): que la mayoría tenga la altura de un vecino. Sale con
      densidad 1 si la altura puede ser infinita. Con alturas finitas hace
      falta saber que esos n llegan a 1, y eso está abierto.
+   - **Ruta transversal (27-09)**, para cruzar de los pares a la llegada a 1
+     ([nota](depuracion/transversal20260927/LEEME.md)). Tiene tres cruces:
+     Pandas con la pregunta de Gao, Condoras con Nashida (2026) y los
+     predecesores de Wirsching.
    - Decidir si `phi_uno` se cierra en el registro: sigue pendiente por sus
      aristas históricas, aunque `gao_densidad` ya da su contenido.
 
@@ -195,3 +203,5 @@ python -B -X utf8 verificar_lagartijas.py
     (refutan la caracterización de Garner por bloques y cadenas), y el
     volumen 112 de Discrete Math. que aportó el usuario, donde sólo Gao
     trata Collatz.
+- 27-09: la lista de ccchallenge por su API, y los trabajos nuevos que cita
+  la [ruta transversal](depuracion/transversal20260927/LEEME.md#fuentes).

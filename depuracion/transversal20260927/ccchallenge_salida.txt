@@ -1,0 +1,73 @@
+Leido de https://ccchallenge.org/api/papers el 2026-09-27
+Registros: 379 (total declarado: 379)
+Con resumen: 32
+Estados:
+  not_started            368
+  waiting_to_be_audited  6
+  formalising            4
+  audited                1
+
+Los tres de nuestros articulos:
+  Gao1993                    1993 not_started            On consecutive numbers of the same height in the Collatz problem
+  Garner1985                 1985 not_started            On heights in the Collatz $3n + 1$ problem
+  Wu1992                     1992 not_started            A tendency of the proportion of consecutive numbers of the same height in the Collatz problem
+
+Titulo o resumen con consecutivos, altura o coalescencia: 11
+  Gao1993                    1993 not_started            On consecutive numbers of the same height in the Collatz problem
+  Garner1985                 1985 not_started            On heights in the Collatz $3n + 1$ problem
+  KlarnerRado1973            1973 not_started            Linear combinations of sets of consecutive integers
+  KolpakovJumasLuo2026       2026 not_started            Phase Structure, Trajectory Entanglement, and the Origin of Bimodality in the Collatz Map
+  Nashida2026c               2026 not_started            A strict improvement of the Terras-type bound for integers with long Collatz stopping times
+  Novgorodtsev2026           2026 not_started            Algebraic Proof of the Collatz Conjecture and Universal Classification of 2-Adic Dynamical Syst
+  Novgorodtsev2026b          2026 not_started            Exact Synchronized Coalescence Clocks and Peak-Envelope Transfer for a Positive-Density Family 
+  Wu1992                     1992 not_started            A tendency of the proportion of consecutive numbers of the same height in the Collatz problem
+  Wu1993                     1993 not_started            On the consecutive positive integers of the same height in the Collatz problem
+  Wu1995                     1995 not_started            The monotonicity of pairs of coalescence numbers in the Collatz problem
+  WuHuang2001a               2001 not_started            Family of consecutive integer pairs of the same height in the Collatz conjecture
+
+Titulo o resumen con pares, fusion o vecinos: 5
+  Garner1985                 1985 not_started            On heights in the Collatz $3n + 1$ problem
+  KolpakovJumasLuo2026       2026 not_started            Phase Structure, Trajectory Entanglement, and the Origin of Bimodality in the Collatz Map
+  Novgorodtsev2026b          2026 not_started            Exact Synchronized Coalescence Clocks and Peak-Envelope Transfer for a Positive-Density Family 
+  Wu1995                     1995 not_started            The monotonicity of pairs of coalescence numbers in the Collatz problem
+  WuHuang2001a               2001 not_started            Family of consecutive integer pairs of the same height in the Collatz conjecture
+
+Titulo o resumen con densidad o casi todos: 12
+  ApplegateLagarias1995a     1995 not_started            Density Bounds for the $3x+1$ Problem I. Tree-Search Method
+  ApplegateLagarias1995b     1995 not_started            Density Bounds for the $3x+1$ Problem II. Krasikov Inequalities
+  ApplegateLagarias2003      2003 not_started            Lower bounds for the total stopping time of $3x+1$ iterates
+  Klarner1981                1981 not_started            An algorithm to determine when certain sets have $0$ density
+  Korec1994                  1994 not_started            A Density Estimate for the $3x+1$ Problem
+  Nashida2026                2026 not_started            A power saving in natural density for generalized Collatz maps
+  Nashida2026b               2026 not_started            A power-saving bound, uniform in the endpoint, for Collatz orbits that stay above a fixed barri
+  Novgorodtsev2026b          2026 not_started            Exact Synchronized Coalescence Clocks and Peak-Envelope Transfer for a Positive-Density Family 
+  Santos2020                 2020 not_started            On the Collatz general problem qn+1
+  Tao2022                    2022 waiting_to_be_audited  Almost all orbits of the Collatz map attain almost bounded values
+  Terras1979                 1979 not_started            On the existence of a density
+  Wirsching2003              2003 not_started            On the problem of positive predecessor density in $3N+1$ dynamics
+
+Titulo o resumen con predecesores o arboles: 11
+  ApplegateLagarias1995a     1995 not_started            Density Bounds for the $3x+1$ Problem I. Tree-Search Method
+  ApplegateLagarias1995c     1995 not_started            The distribution of $3x+1$ trees
+  BeltraminelliMerliniRusconi1994 1994 not_started            Orbite inverse nel problema del $3n+1$
+  Inclan2026                 2026 not_started            Analysis of Collatz Trajectories via Modulo 6 Modular Families and 3-adic Scaling Bounds
+  Inclan2026b                2026 not_started            Inverse Collatz map study, version 3
+  Wirsching1993              1993 not_started            An Improved Estimate Concerning $3N + 1$ Predecessor Sets
+  Wirsching1994              1994 not_started            A Markov chain underlying the backward Syracuse algorithm
+  Wirsching1996              1996 not_started            On the Combinatorial Structure of $3N+1$ Predecessor Sets
+  Wirsching1997              1996 not_started            $3n+1$ Predecessor Densities and Uniform Distribution in $\mathbb{Z}_3^\ast$
+  Wirsching2003              2003 not_started            On the problem of positive predecessor density in $3N+1$ dynamics
+  Zarnowski2001              2001 not_started            Generalized inverses and the total stopping time of Collatz sequences
+
+Con formalizacion hecha o en marcha:
+  BernsteinLagarias1996      1996 waiting_to_be_audited  The $3x+1$ Conjugacy Map
+  BohmSontacchi1978          1978 audited                On the existence of cycles of given length in integer sequences like $x_{n+1}= x_n/2$ if $x_n$ 
+  Eliahou1993                1993 waiting_to_be_audited  The $3x + 1$ problem: New Lower Bounds on Nontrivial Cycle Lengths
+  EliahouVergerGaugry2025    2025 waiting_to_be_audited  The number system in rational base $3/2$ and the $3x+1$ problem
+  Hercher2023                2023 waiting_to_be_audited  There are no Collatz $m$-Cycles with $m \leq 91$
+  Knight2026                 2026 formalising            Collatz high cycles do not exist
+  KrasikovLagarias2003       2003 formalising            Bounds for the $3x+1$ problem using difference inequalities
+  Monks2006                  2006 formalising            The sufficiency of arithmetic progressions for the $3x+1$ conjecture
+  RozierTerracol2025         2025 waiting_to_be_audited  Paradoxical behavior in Collatz sequences
+  Tao2022                    2022 waiting_to_be_audited  Almost all orbits of the Collatz map attain almost bounded values
+  Terras1976                 1976 formalising            A stopping time problem on the positive integers
