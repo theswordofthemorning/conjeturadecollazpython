@@ -1,0 +1,129 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+Nominations for sequence A400000 are open, see here.
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Draft edits for A400487
+(Bold, blue-underlined text is an addition; faded, red-underlined text is a deletion.)
+
+A400487
+allocated for Omar Said
+(history; edit; published version)
+Individual edits:
+#2 by Omar Said at Sun Sep 27 16:47:03 EDT 2026
+NAME
+allocated for Omar Said
+Number of positive integers k < 2^n that take the same number of Collatz steps to reach 1 as k-1 or k+1.
+DATA
+0, 0, 0, 4, 13, 32, 69, 147, 303, 620, 1270, 2618, 5340, 10802, 21925, 44511, 90024, 182048, 367482, 740758, 1491673, 3003711, 6045633, 12159386, 24450352, 49147890
+OFFSET
+1,4
+COMMENTS
+The steps are those of the Collatz map x -> x/2 for even x, 3*x+1 for odd x (A006370), and their number is A006577; 0 never reaches 1. Equivalently, a(n) counts the k < 2^n such that k or k-1 is in A078417, that is, the k < 2^n lying in a run of at least two consecutive integers that take the same number of steps.
+Wu (1992) computed a(n) for n <= 24, observed that a(n)/(2^n-1) increases with n, and conjectured that the proportion of integers lying in such runs tends to 1.
+If a(n)/2^n -> 1, then the positive integers that reach 1 have natural density 1, because every k counted reaches 1. Whether they do is an open problem; the best known lower bound for the number of k <= x that reach 1 is x^0.84 (Krasikov and Lagarias).
+The ratio a(n)/(2^n-1) is 0.606 for n = 10, 0.725 for n = 24 and 0.732 for n = 26, and increases on this range.
+LINKS
+Ilia Krasikov and Jeffrey C. Lagarias, <a href="https://arxiv.org/abs/math/0205002">Bounds for the 3x+1 problem using difference inequalities</a>, Acta Arith. 109 (2003), 237-258.
+Jeffrey C. Lagarias, <a href="https://arxiv.org/abs/math/0309224">The 3x+1 problem: An annotated bibliography (1963-1999) (sorted by author)</a>, arXiv:math/0309224 [math.NT], 2003-2011 (entry 188).
+Jia-Bang Wu, <a href="https://doi.org/10.13245/j.hust.1992.05.030">A tendency of the proportion of consecutive numbers of the same height in the Collatz problem</a> (in Chinese), J. Huazhong Univ. Sci. Tech. 20 (1992), no. 5, 171-174.
+FORMULA
+a(n) = #{1 <= k < 2^n: k is in A078417 or k-1 is in A078417}.
+EXAMPLE
+a(4) = 4: below 16 the numbers that take the same number of steps as a neighbor are 12 and 13 (9 steps each) and 14 and 15 (17 steps each).
+PROG
+(Python)
+def h(k):    
+s = 0    
+while k != 1:        
+k = k//2 if k % 2 == 0 else 3*k+1        
+s += 1    
+return s
+def a(n):    
+H = [None] + [h(k) for k in range(1, 2**n + 1)]    
+return sum(1 for k in range(1, 2**n) if (k > 1 and H[k] == H[k-1]) or H[k] == H[k+1])
+print([a(n) for n in range(1, 17)])
+CROSSREFS
+Cf. A006370, A006577, A078417, A078441, A277109, A400486.
+KEYWORD
+allocated
+nonn
+AUTHOR
+Omar Said, Sep 27 2026
+STATUS
+approved
+editing
+#3 by Omar Said at Sun Sep 27 16:49:41 EDT 2026
+STATUS
+editing
+proposed
+#4 by Michel Marcus at Sun Sep 27 16:51:13 EDT 2026
+LINKS
+Ilia Krasikov and Jeffrey C. Lagarias, <a href="https://arxiv.org/abs/math/0205002">Bounds for the 3x+1 problem using difference inequalities</a>, Acta AritharXiv:math/0205002 [math. 109 (2003), 237-258NT], 2002.
+STATUS
+proposed
+editing
+#5 by Michel Marcus at Sun Sep 27 16:51:16 EDT 2026
+STATUS
+editing
+proposed
+All edits since published version (omitting small deletions for readability):
+NAME
+allocated for Omar Said
+Number of positive integers k < 2^n that take the same number of Collatz steps to reach 1 as k-1 or k+1.
+DATA
+0, 0, 0, 4, 13, 32, 69, 147, 303, 620, 1270, 2618, 5340, 10802, 21925, 44511, 90024, 182048, 367482, 740758, 1491673, 3003711, 6045633, 12159386, 24450352, 49147890
+OFFSET
+1,4
+COMMENTS
+The steps are those of the Collatz map x -> x/2 for even x, 3*x+1 for odd x (A006370), and their number is A006577; 0 never reaches 1. Equivalently, a(n) counts the k < 2^n such that k or k-1 is in A078417, that is, the k < 2^n lying in a run of at least two consecutive integers that take the same number of steps.
+Wu (1992) computed a(n) for n <= 24, observed that a(n)/(2^n-1) increases with n, and conjectured that the proportion of integers lying in such runs tends to 1.
+If a(n)/2^n -> 1, then the positive integers that reach 1 have natural density 1, because every k counted reaches 1. Whether they do is an open problem; the best known lower bound for the number of k <= x that reach 1 is x^0.84 (Krasikov and Lagarias).
+The ratio a(n)/(2^n-1) is 0.606 for n = 10, 0.725 for n = 24 and 0.732 for n = 26, and increases on this range.
+LINKS
+Ilia Krasikov and Jeffrey C. Lagarias, <a href="https://arxiv.org/abs/math/0205002">Bounds for the 3x+1 problem using difference inequalities</a>, arXiv:math/0205002 [math.NT], 2002.
+Jeffrey C. Lagarias, <a href="https://arxiv.org/abs/math/0309224">The 3x+1 problem: An annotated bibliography (1963-1999) (sorted by author)</a>, arXiv:math/0309224 [math.NT], 2003-2011 (entry 188).
+Jia-Bang Wu, <a href="https://doi.org/10.13245/j.hust.1992.05.030">A tendency of the proportion of consecutive numbers of the same height in the Collatz problem</a> (in Chinese), J. Huazhong Univ. Sci. Tech. 20 (1992), no. 5, 171-174.
+FORMULA
+a(n) = #{1 <= k < 2^n: k is in A078417 or k-1 is in A078417}.
+EXAMPLE
+a(4) = 4: below 16 the numbers that take the same number of steps as a neighbor are 12 and 13 (9 steps each) and 14 and 15 (17 steps each).
+PROG
+(Python)
+def h(k):    
+s = 0    
+while k != 1:        
+k = k//2 if k % 2 == 0 else 3*k+1        
+s += 1    
+return s
+def a(n):    
+H = [None] + [h(k) for k in range(1, 2**n + 1)]    
+return sum(1 for k in range(1, 2**n) if (k > 1 and H[k] == H[k-1]) or H[k] == H[k+1])
+print([a(n) for n in range(1, 17)])
+CROSSREFS
+Cf. A006370, A006577, A078417, A078441, A277109, A400486.
+KEYWORD
+allocated
+nonn,changed
+AUTHOR
+Omar Said, Sep 27 2026
+STATUS
+approved
+proposed
+Discussion of this draft (optional):
+(Notes entered here will be displayed in the edit history and mailed
+to people who have contributed to this draft of the sequence.
+THEY DO NOT BECOME PART OF THE PUBLISHED SEQUENCE.)
+￼ 
+
+Add note to discussion. 
+
+
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 28 15:11 EDT 2026. Contains 399722 sequences.
+License Agreements, Terms of Use, Privacy Policy

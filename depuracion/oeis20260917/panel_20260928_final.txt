@@ -1,0 +1,75 @@
+Welcome, Omar Said | My Drafts (3)
+The OEIS is supported by the many generous donors to the OEIS Foundation.
+￼
+Nominations for sequence A400000 are open, see here.
+￼
+Search
+Hints
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Drafts by Omar Said
+(In many browsers, middle-clicking on any of the links below will open it in a new tab.)
+Showing all changes.
+Sequence
+￼
+Status
+￼
+First Edited
+￼
+Last Active
+￼
+Draft by
+￼
+Reviewed or edited by
+￼
+￼
+￼
+A078441
+￼
+proposed +12 −3
+￼
+Sep 27 16:54
+￼
+Sep 28 15:20
+￼
+Omar Said (3/3)
+￼
+￼
+￼
+￼
+a(n) begins the first chain of n consecutive positive integers that have equal h-values, where h(k) is the length of the finite sequence k, f(k), f(f(k)), ...., 1 in the Collatz (or 3x + 1) problem. (The earliest "1" is meant.)
+￼
+A400486
+￼
+proposed +29 −2
+￼
+Sep 27 16:42
+￼
+Sep 27 16:53
+￼
+Omar Said (3/3)
+￼
+Michel Marcus
+￼
+￼
+Number of positive integers m < 2^n - 1 such that the Collatz trajectories of m and m+1 meet within n steps, after equal numbers of halving steps and before either reaches 1.
+￼
+A400487
+￼
+proposed +26 −2
+￼
+Sep 27 16:47
+￼
+Sep 27 16:51
+￼
+Omar Said (3/3)
+￼
+Michel Marcus
+￼
+￼
+Number of positive integers k < 2^n that take the same number of Collatz steps to reach 1 as k-1 or k+1.
+￼
+Lookup Welcome Wiki Register Music Plot 2 Demos Index WebCam Contribute Format Style Sheet Transforms Superseeker Recents
+The OEIS Community
+Maintained by The OEIS Foundation Inc.
+Last modified September 28 15:19 EDT 2026. Contains 399722 sequences.
+License Agreements, Terms of Use, Privacy Policy

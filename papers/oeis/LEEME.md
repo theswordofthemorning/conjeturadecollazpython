@@ -1,20 +1,26 @@
 # Borradores OEIS: Gao, Wu y Garner
 
-**Enviados el 27-09-2026 (16:42–16:55 EDT) con autorización del usuario. Las
-tres fichas están en *proposed*.** Esto significa que están en revisión, no
-aprobadas. Se enviaron en el orden que pidió el usuario: 1 Gao, 2 Wu, 3 Garner.
+**Estado comprobado el 28-09-2026, 15:20 EDT: las tres fichas están en
+*proposed*.** Se respondió a Marcus y se agruparon las firmas de A078441
+(#37, reenvío #38), con autorización del usuario. Conservados el programa
+PARI de Barbera y los retoques de Marcus. Gao y Wu no tienen preguntas
+pendientes. [Respuesta, cotejos y capturas](RESPUESTA_20260928.md).
 
-| Ficha | Qué es | Texto enviado | Estado a las 16:56 EDT |
+Los envíos originales fueron el 27-09 (16:42–16:55 EDT), en el orden
+pedido: 1 Gao, 2 Wu, 3 Garner. *Proposed* significa en revisión, no aprobado.
+
+| Ficha | Qué es | Texto enviado el 27-09 | Estado del envío original a las 16:56 EDT |
 |---|---|---|---|
 | [A400486](https://oeis.org/draft/A400486) | Gao: la tabla 3 de Gao (1993) en cuentas, n = 1..28 | [borrador_1_gao.txt](borrador_1_gao.txt) | *proposed*; Michel Marcus añadió `more` |
 | [A400487](https://oeis.org/draft/A400487) | Wu: la cuenta K(2^N) de Wu (1992), n = 1..26 | [borrador_2_wu.txt](borrador_2_wu.txt) | *proposed*; Marcus pasó la cita de Krasikov–Lagarias al formato arXiv |
 | [A078441](https://oeis.org/draft/A078441) #31 | edición: conjetura de Garner, tabla 1 de Gao, Wu y enlaces | [borrador_3_A078441.txt](borrador_3_A078441.txt) | *proposed* |
 
-Los tres archivos tienen ya el texto que hay en el servidor, con los retoques
-de Marcus. OEIS añade por su cuenta dos cosas que no figuran en ellos: la
-palabra clave `changed` y el reparto de DATA en `%S/%T/%U`. La cuenta tiene
-ahora 3 de 3 cupos ocupados, así que no cabe ninguna edición más hasta que se
-resuelva alguna. Las correcciones de A398792–A398795 siguen esperando.
+Los tres borradores conservan los textos del 27-09, con los retoques de
+Marcus de ese día. Para A078441, el contenido actualizado está en la
+[captura interna del 28-09](../../depuracion/oeis20260917/A078441_20260928_interno_guardado.txt).
+OEIS añade la palabra clave `changed` y reparte DATA en `%S/%T/%U`.
+La cuenta sigue con 3 de 3 cupos ocupados; las correcciones de
+A398792–A398795 siguen esperando.
 
 ## Cómo se envió
 
