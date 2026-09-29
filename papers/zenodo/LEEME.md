@@ -7,7 +7,10 @@ Formalized Mathematics* (AFM), la revista *overlay* de Episciences.
 ## Estado
 
 **Publicados en Zenodo y enviados a AFM el 27-09-2026, entre las 21:17 y
-las 21:28 EDT.** En AFM figuran como *Submitted*. En la hora del servidor
+las 21:28 EDT.** El 29-09 AFM rechazó el #19502 (Gao). El correo, firmado
+por Robert Y. Lewis desde Episciences, no da motivos: *"has been rejected by
+the editorial board"*. No consta respuesta sobre #19503 y #19504. El usuario
+decidió «olvida a AFM»; Gao pasa a Qeios ([qeios/LEEME.md](../qeios/LEEME.md)). En la hora del servidor
 de Episciences es el 28-09, 03:17–03:28.
 
 | Registro | DOI | Archivo | AFM |

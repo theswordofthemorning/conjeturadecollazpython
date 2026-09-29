@@ -3,6 +3,10 @@
 27-09-2026. **Publicados en Zenodo y enviados a *Annals of Formalized
 Mathematics*.** Detalle en [zenodo/LEEME.md](zenodo/LEEME.md).
 
+29-09-2026. **AFM rechazó el I sin dar motivos. El I, en versión 2, se envió
+a Qeios como preprint** (envío 5962): [qeios/LEEME.md](qeios/LEEME.md).
+El II y el III esperan.
+
 | | Zenodo | AFM |
 |---|---|---|
 | Artefacto Lean | 10.5281/zenodo.23003500 | — |
@@ -10,7 +14,6 @@ Mathematics*.** Detalle en [zenodo/LEEME.md](zenodo/LEEME.md).
 | Artículo II | 10.5281/zenodo.23003526 | #19503 |
 | Artículo III | 10.5281/zenodo.23003528 | #19504 |
 
-Los tres artículos están en *Submitted*.
 El usuario los pidió el 26-09 «como si fueran para arXiv», con nombres
 completos y fechas, bien explicados y revisados antes. No se envía nada sin
 su autorización.

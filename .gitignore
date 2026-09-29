@@ -9,3 +9,6 @@ venv/
 *.olean
 *.ilean
 lecturas/
+
+# Enlace privado del envío a Palomar
+papers/palomar/ENLACE_PRIVADO.txt

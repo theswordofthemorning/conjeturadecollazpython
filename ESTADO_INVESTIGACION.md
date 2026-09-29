@@ -1,4 +1,4 @@
-# Estado para continuar — 28-09-2026
+# Estado para continuar — 29-09-2026
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
 literal; de ella la de Garner (1985) sobre rachas, y la conjetura 2 de
@@ -62,14 +62,23 @@ certificada exhaustivamente.
 
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
-- **Artículos, estado registrado el 27-09.** Tres `.tex` en inglés
-  ([papers](papers/README.md)); artefacto y artículos en Zenodo. AFM
-  #19502–#19504 en *Submitted*; DOI y envíos en
-  [publicación](papers/zenodo/LEEME.md).
-- **OEIS, 27-09:** A400486, A400487 y A078441 revisión #31 enviadas con
-  autorización, las tres *proposed*, cupos 3/3
-  ([detalle](papers/oeis/LEEME.md)). El encuentro del 24-09 no se envió.
-  Responder a editores requiere autorización.
+- **Artículos, 29-09.** Tres `.tex` en inglés ([papers](papers/README.md));
+  artefacto y artículos en Zenodo ([DOI](papers/zenodo/LEEME.md)). AFM
+  rechazó el I sin motivos; el usuario la descartó. **El I, versión 2, se
+  envió a Qeios como preprint** (envío 5962; en línea en un día hábil), con
+  reclutamiento gratuito de revisores y la sección de tres comprobaciones.
+  No pasar a *Version of Record*; II y III esperan
+  ([Qeios](papers/qeios/LEEME.md)). **Palomar, 29-09:** Gao portado a Lean
+  v4.35.0-rc2 y al sistema de módulos en el repositorio público
+  `theswordofthemorning/gao-palomar`; CI en verde, incluido `lake comparator`;
+  enviado a las 21:38 UTC, en verificación ([Palomar](papers/palomar/LEEME.md)).
+  Zulip: publicado el 29-09 en #Machine Learning for Theorem Proving
+  ([registro](papers/qeios/ZULIP_borrador.md)); responder sólo con autorización.
+- **OEIS, 28-09:** respondido a Marcus con autorización; firmas agrupadas
+  en A078441 #37 y reenvío #38. Conservados el PARI de Barbera y los retoques
+  editoriales. Las tres siguen *proposed*, cupos 3/3; esperar revisión
+  ([evidencia](papers/oeis/RESPUESTA_20260928.md)). Gao y Wu sin preguntas
+  pendientes. El encuentro del 24-09 no se envió.
 
 ## Ruta vigente y próximo bloque
 
