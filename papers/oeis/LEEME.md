@@ -1,5 +1,12 @@
 # Borradores OEIS: Gao, Wu y Garner
 
+**30-09-2026: A078441 aprobada** (revisión #40, 29-09 23:52), con el
+bloque firmado y los enlaces
+([ficha aprobada](../../depuracion/oeis20260917/A078441_20260930_aprobada.txt)).
+A400486 y A400487 siguen sin aprobar; en la vista pública figuran como
+«allocated» ([captura](../../depuracion/oeis20260917/A400486_A400487_20260930_publico.txt)).
+No se ha consultado el panel de cupos. Lo que sigue es el estado del 28-09.
+
 **Estado comprobado el 28-09-2026, 15:20 EDT: las tres fichas están en
 *proposed*.** Se respondió a Marcus y se agruparon las firmas de A078441
 (#37, reenvío #38), con autorización del usuario. Conservados el programa

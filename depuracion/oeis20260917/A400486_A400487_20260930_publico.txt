@@ -1,0 +1,16 @@
+# Greetings from The On-Line Encyclopedia of Integer Sequences! http://oeis.org/
+
+Search: id:a400486|id:a400487
+Showing 1-2 of 2
+
+%I A400487 #1 Sep 27 2026 16:37:17
+%S A400487 
+%N A400487 allocated for Omar Said
+%K A400487 allocated
+
+%I A400486 #2 Sep 27 2026 16:37:17
+%S A400486 
+%N A400486 allocated for Omar Said
+%K A400486 allocated
+
+# Content is available under The OEIS End-User License Agreement: http://oeis.org/LICENSE

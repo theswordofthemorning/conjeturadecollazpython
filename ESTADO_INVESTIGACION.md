@@ -74,11 +74,18 @@ certificada exhaustivamente.
   enviado a las 21:38 UTC, en verificación ([Palomar](papers/palomar/LEEME.md)).
   Zulip: publicado el 29-09 en #Machine Learning for Theorem Proving
   ([registro](papers/qeios/ZULIP_borrador.md)); responder sólo con autorización.
-- **OEIS, 28-09:** respondido a Marcus con autorización; firmas agrupadas
-  en A078441 #37 y reenvío #38. Conservados el PARI de Barbera y los retoques
-  editoriales. Las tres siguen *proposed*, cupos 3/3; esperar revisión
-  ([evidencia](papers/oeis/RESPUESTA_20260928.md)). Gao y Wu sin preguntas
-  pendientes. El encuentro del 24-09 no se envió.
+- **OEIS, 30-09:** **A078441 aprobada** (#40, 29-09 23:52): publicados el
+  bloque firmado (conjetura de Garner con la condición de pasos de división
+  de Gao, Tabla 1 de Gao, racha de 176 de Wu), los enlaces a Garner, Gao y
+  Wu y la referencia cruzada a A400487
+  ([ficha aprobada](depuracion/oeis20260917/A078441_20260930_aprobada.txt)).
+  Valida las citas y los datos, no argumentos propios. A400486 (Gao) y
+  A400487 (Wu) siguen sin aprobar: en público, «allocated»
+  ([captura](depuracion/oeis20260917/A400486_A400487_20260930_publico.txt)).
+  Si A400487 no se aprobara, habría que retirar su referencia en A078441.
+  Antes, 28-09: respondido a Marcus y firmas agrupadas (#37, #38)
+  ([evidencia](papers/oeis/RESPUESTA_20260928.md)). El encuentro del 24-09
+  no se envió.
 
 ## Ruta vigente y próximo bloque
 
