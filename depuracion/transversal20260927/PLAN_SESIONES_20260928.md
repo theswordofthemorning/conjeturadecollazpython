@@ -31,6 +31,12 @@ la pregunta de Gao con `Res < 4` y en densidad, y la aplicación de combinar
 escalas (Marmotas), cuya obstrucción es una cuenta de pasos por encima de la
 barrera. Siguiente bloque: Wirsching.
 
+**Wirsching, sesión 1 (30-09):** [ficha](../wirsching20260930/LEEME.md). El
+eslabón abierto es (⋆3); (⋆1) literal falla en todo nivel calculado, con ceros
+exactos, y su refutación en un 3-ádico refutaría la conjetura 2 tal como está
+escrita. La versión útil para el laboratorio es por entero y con ventana
+desplazada. Quedan hasta 5 sesiones reservadas.
+
 ## Bloque 1: Nashida
 
 **Sesión 1.** Localizar el texto primario y fijar su versión y el commit del

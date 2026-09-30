@@ -873,6 +873,42 @@
       "fichero": "depuracion/pandas20260930/Pandas.lean",
       "fuente": "propio; tecnica de combinar escalas incorporada al plan del 28-09 tras la lectura de Nashida (2026)",
       "notas": "Lean: transporte, residuo_por_escalas, potencia_tres (Bernoulli, sin exponencial), residuo_menor_cuatro, gao_por_escalas; axiomas estandar. La base en [1, 2^20) es hipotesis del enunciado Lean; su comprobacion es finita y exacta (verificar_pandas.py y pandas_gao.py coinciden). No hay cota demostrada del numero de pasos por encima de B: la condicion de entrada no se ha probado para todo n. Esa es la obstruccion precisa del bloque. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "wirsching_ceros_elka",
+      "enunciado": "WIRSCHING (2003), CONDICION (*1) LITERAL: funcion Elka e_l(k,a) = caminos del atajo que llegan a a con k pasos n/2 y l pasos (3n+1)/2. Para cada 2 <= l <= 16 hay unidades a mod 3^l con e_l(l,a) = 0: 2, 7, 20, 58, ..., 1963154 clases en l=16 (6,8% de las unidades); el exceso maximo del coste minimo c_l(a) - l es <= 5. El entero 34 no tiene predecesores con l impares y a lo sumo l pares para 2 <= l <= 16, y e_16(19,34) = 9 frente a la media 141,5. Los conjuntos S_l de clases malas en todo nivel de [8,l] no se vacian hasta l = 16 (1247348 clases; tasa de elevaciones malas 0,76-0,81).",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/wirsching20260930/LEEME.md",
+      "fuente": "propio; condicion (*1) de G. J. Wirsching, DCDS 9 (2003) 771-787",
+      "notas": "Calculo exacto en enteros: costo.py (DP min-plus por residuos), elka.py (recurrencia cotejada con enumeracion de palabras l <= 7 y con sum_a e = C(k+l,k)), predecesores_34.py (busqueda sobre enteros, independiente de los residuos; coincide nivel a nivel con costo.py), densidad_malos.py y reformulacion.py. Finito: no dice nada de l grande. El 7 tiene ceros para 4 <= l <= 13 y deja de tenerlos en l = 14."
+    },
+    {
+      "clave": "wirsching_dispersion_cascada",
+      "enunciado": "DISPERSION DE LAS FUNCIONES ELKA: con r = e_l(k,a)/ebar_l(k) sobre las unidades mod 3^l, M2 = E[r^2] en k = l crece casi linealmente de 1,67 a 2,71 para l = 2..14 (en k = l + floor(sqrt l), de 1,32 a 1,84); la mediana baja despacio y el 10% mas cargado reune el 41% de la masa. Heuristica: r_l(a) = sum_j w_j r_(l-1)(hijo_j) con w_j ~ 3*2^-(j+1) es una cascada multiplicativa con E[sum w] = 1, E[sum w^2] = 1 exacto (punto critico de L^2) y E[sum w log w] = log(3/4) < 0: limite no degenerado con cola de indice 2 y sin cota inferior uniforme en a.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/wirsching20260930/dispersion.py",
+      "fuente": "propio",
+      "notas": "Los momentos son exactos y finitos (l <= 14). La cascada es un modelo heuristico con hijos tratados como independientes; no esta demostrada. Predice que la lectura global (uniforme en a) de (*1) falla y que la lectura por unidad puede valer para casi toda a."
+    },
+    {
+      "clave": "wirsching_reduccion_conjetura2",
+      "enunciado": "REDUCCION: si un 3-adico a* cumple e_l(l,a*) = 0 para infinitos l, entonces (*1) falla en a* para todo delta y mu (la sucesion k_l = l esta en toda ventana A_delta), en la lectura global y en la de cada unidad; como g_l <= e_l (e = p*g con p(0) = 1), tambien falla (*3). Si (*4) es cierta (Tavares 2026, teorema 11.1), la Conjetura 2 de Wirsching es falsa tal como esta escrita sobre Z_3^x. Por compacidad basta que los conjuntos encajados S_l de clases malas en todo nivel >= l0 no sean vacios.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/wirsching20260930/LEEME.md",
+      "fuente": "propio; cadena de Wirsching (2003) y R. A. Tavares, arXiv:2608.27617v1 (sin arbitrar)",
+      "notas": "Prueba escrita y elemental en la ficha; no formalizada. La refutacion depende de la hipotesis (existencia de a*), que no esta demostrada, y de (*4), demostrada por Tavares en un preprint que no se audito entero (solo §§3, 4, 11, 12)."
+    },
+    {
+      "clave": "wirsching_W1",
+      "enunciado": "CANDIDATA W1: para todo l >= 8 hay unidades a mod 3^l con e_j(j, a mod 3^j) = 0 para todo j en [8, l]; equivalentemente existe un 3-adico a* con e_l(l,a*) = 0 para todo l >= 8. Refutaria la Conjetura 2 de Wirsching tal como esta escrita.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/wirsching20260930/densidad_malos.py",
+      "fuente": "propio",
+      "notas": "Evidencia finita: los S_l crecen hasta l = 16 (1217, 2841, ..., 1247348). La tasa de supervivencia por elevacion baja despacio (0,81 -> 0,76): no se puede extrapolar sin un mecanismo."
     }
   ],
   "nodos": [

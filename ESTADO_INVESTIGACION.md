@@ -83,25 +83,22 @@ certificada exhaustivamente.
 
 ## Ruta vigente y próximo bloque
 
-[Plan por sesiones](depuracion/transversal20260927/PLAN_SESIONES_20260928.md),
-ordenado por petición del usuario: Nashida (1–2), Pandas (2–4), Wirsching
-(4–6), CST (6). Presupuestos de exploración, no plazos de resolución.
+[Plan por sesiones](depuracion/transversal20260927/PLAN_SESIONES_20260928.md):
+Nashida, Pandas, Wirsching (4–6 sesiones), CST (6); presupuestos, no plazos.
 
-[Nashida](depuracion/nashida20260928/LEEME.md), 28-09: puente condicional
-`CondorasBarrera.lean`; la cota externa y la cobertura de la barrera son
-hipótesis explícitas.
+- [Nashida](depuracion/nashida20260928/LEEME.md), 28-09: puente condicional
+  de barrera, con la cota externa como hipótesis.
+- [Pandas](depuracion/pandas20260930/LEEME.md), 30-09, en Lean: pregunta de
+  Gao (¿igual altura, igual σ∞?) sí con `Res < 4` y para casi todo n; Marmotas
+  exige a un contraejemplo más de `2^21` pasos `3n+1` sobre `2^20`.
+- [Wirsching](depuracion/wirsching20260930/LEEME.md), sesión 1, 30-09: sólo
+  queda la condición por residuos; (⋆1) literal falla en todo nivel `<=16`
+  (el entero 34 no tiene caminos con `l` impares y `l` pares). Un 3-ádico malo
+  en infinitos niveles refutaría la conjetura 2; hasta 16 no se agotan.
 
-[Pandas](depuracion/pandas20260930/LEEME.md), 30-09: formalizado en Lean
-(`Pandas.lean`, axiomas estándar); `Res >= 1` es teorema y basta `Res < 4`.
-Pregunta de Gao (¿igual altura implica igual σ∞?): sí si todo residuo es
-menor que 4; sí para casi todo n sin hipótesis. Marmotas combina escalas:
-con la base exacta en `[1, 2^20)`, un contraejemplo exige más de `2^21`
-pasos `3n+1` por encima de `2^20` antes de bajar. Acotar esos pasos es un
-problema de tiempos de parada y queda abierto. Cotejo independiente en Python.
-
-Siguiente bloque: **Wirsching** (4–6 sesiones): programa y preprint de
-Tavares; aislar el control por residuos pendiente y un objetivo limitado.
-Se conservan la [evaluación CST](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md)
+Siguiente: sesión 2 de Wirsching (W2: ventana desplazada y µ por entero,
+medida; intento acotado de W1). Sin mecanismo, pasar a CST. Se conservan la
+[evaluación CST](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md)
 y el [plan anterior](depuracion/transversal20260927/LEEME.md).
 
 ## Evidencia y conservación
@@ -120,7 +117,7 @@ Contrastes independientes, finitos: [cadena](depuracion/gao20260920/verificar_la
 Gao, Garner por otra ruta, Wu hasta `N=26` y hashes. Estos controles
 finitos no sustituyen el certificado universal de Lean.
 
-Registro del 30-09: 239 afirmaciones, con Pandas y Marmotas;
+Registro del 30-09: 243 afirmaciones, con Pandas, Marmotas y Wirsching;
 [fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`. [Evidencia nueva](depuracion/nashida20260928/evidencia.json).
 No reconstruir conversaciones ni alterar
