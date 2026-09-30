@@ -1,0 +1,69 @@
+{
+  "certificado_previo": "certificado_10_rachas.json",
+  "sha256_certificado_previo": "4ef297b00323f265ad65744a2bba229494818c533936a22eb8fc809e13fc7713",
+  "mapa": "clasico agrupado: 3n+1 si impar, luego una division por 2",
+  "aritmetica": "int y Fraction",
+  "semillas": 11213,
+  "intervalo_cerrado": [
+    2,
+    11214
+  ],
+  "max_pasos": 105,
+  "max_primer_cruce": 105,
+  "primer_testigo_del_maximo": 10087,
+  "tope_insuficiente_rechazado": true,
+  "sha256_filas_n_k_q_valor": "864d42e2d564c80b43055e67eabcc9dca50e07a3609ba2fb03ccfbedf27f7918",
+  "coincide_con_certificado_previo": true,
+  "bordes": {
+    "2": {
+      "k": 1,
+      "q": 0,
+      "valor": 1
+    },
+    "3": {
+      "k": 4,
+      "q": 2,
+      "valor": 2
+    },
+    "39": {
+      "k": 8,
+      "q": 5,
+      "valor": 38
+    },
+    "11214": {
+      "k": 1,
+      "q": 0,
+      "valor": 5607
+    }
+  },
+  "obligacion_aritmetica": {
+    "intervalo_q_cerrado": [
+      1,
+      82696
+    ],
+    "por_cota_semilla": 82593,
+    "por_criba_lineal": 103,
+    "ejemplos_criba": [
+      {
+        "q": 2966,
+        "k": 4701,
+        "m": 16
+      },
+      {
+        "q": 3631,
+        "k": 5755,
+        "m": 19
+      },
+      {
+        "q": 4296,
+        "k": 6809,
+        "m": 23
+      }
+    ],
+    "primer_q_fuera": 82697,
+    "k_del_primer_q_fuera": 131072,
+    "certificada_en_lean": false
+  },
+  "fallos": 0,
+  "sha256_programa": "75e316a748d2db5af3ea9a008b5e3b255c0688a6e28a67a7e77e4a2aaee07d0e"
+}

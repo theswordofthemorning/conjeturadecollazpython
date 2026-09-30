@@ -1,0 +1,66 @@
+{
+  "hasta_inclusivo": 2000,
+  "max_pasos": 10000,
+  "semillas": 1999,
+  "bloques_cotejados": 1764,
+  "bordes": {
+    "2": {
+      "k": 1,
+      "q": 0,
+      "valor": 1,
+      "bloques": []
+    },
+    "3": {
+      "k": 4,
+      "q": 2,
+      "valor": 2,
+      "bloques": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    "7": {
+      "k": 7,
+      "q": 4,
+      "valor": 5,
+      "bloques": [
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "39": {
+      "k": 8,
+      "q": 5,
+      "valor": 38,
+      "bloques": [
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    "2000": {
+      "k": 1,
+      "q": 0,
+      "valor": 1000,
+      "bloques": []
+    }
+  },
+  "dominio_y_tope_comprobados": true,
+  "fallos": 0,
+  "sha256_filas": "fa8abe74ea205f57cf9f14bd5b4ff8b1bc8a4bce9e645de408159b85ae7f9a27",
+  "sha256_programa": "c27bbd316a3674cb8fe8091dad42d5b44f37d1839b2768b230c623b1164b8e79",
+  "alcance": "Cotejo finito de formulas e indices; no prueba universal ni prueba de Rhin"
+}

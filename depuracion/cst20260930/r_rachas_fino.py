@@ -1,4 +1,4 @@
-# Metodo de Ocelotas para r rachas, version fina, con precision controlada.
+# Metodo de Ocelotas para r rachas: exploracion numerica, no certificado.
 #
 # Para una palabra de primer cruce con r rachas impares (ver r_rachas.py), un
 # contraejemplo a CST obliga a
@@ -8,10 +8,11 @@
 # sobrevive al test, y para los supervivientes se toma la cota n < M.
 #
 # Precision: log2(Delta) = k + log2(1 - 2^(-delta)), delta = k - q L, con L = log2 3
-# en 60 cifras (modulo decimal) y 1 - 2^(-delta) = -expm1(-delta ln 2), exacto en
-# coma flotante aun con delta diminuto. El test usa una holgura de 1e-6 a favor de
-# sobrevivir (mas supervivientes, nunca menos). La cota de n redondea hacia arriba.
-# Es un calculo finito; la ultima etapa es comprobar CST para n pequenos.
+# en 60 cifras (modulo decimal) y 1 - 2^(-delta) se evalua con expm1 para reducir
+# la cancelacion. No hay intervalos dirigidos ni cota demostrada del error total:
+# ni la holgura 1e-6 ni ceil garantizan por si solas redondear conservadoramente.
+# K_de_r tambien requiere una prueba de la cola infinita. Para una reduccion
+# exacta reproducible, ver certificar_rachas.py y REVISION_RACHAS.md.
 import math
 import sys
 from decimal import Decimal, getcontext
@@ -53,10 +54,18 @@ def estudio(r):
     return F, K, Q, sobreviven
 
 
-R_MAX = int(sys.argv[1]) if len(sys.argv) > 1 else 14
-for r in range(2, R_MAX + 1):
-    F, K, Q, s = estudio(r)
-    peor = max(s, key=lambda t: t[2])
-    print(f"r={r:2d} F={F:9.1f} K_r={K:9d} Q_r={Q:8d} supervivientes={len(s):5d} "
-          f"k_max={max(t[1] for t in s):7d} n_max={peor[2]} (q={peor[0]}, k={peor[1]})")
-    sys.stdout.flush()
+def main():
+    r_min = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+    r_max = int(sys.argv[1]) if len(sys.argv) > 1 else 14
+    if not 1 <= r_min <= r_max:
+        raise SystemExit("Uso: r_rachas_fino.py R_MAX [R_MIN], con 1 <= R_MIN <= R_MAX")
+    for r in range(r_min, r_max + 1):
+        F, K, Q, s = estudio(r)
+        peor = max(s, key=lambda t: t[2])
+        print(f"r={r:2d} F={F:9.1f} K_r={K:9d} Q_r={Q:8d} supervivientes={len(s):5d} "
+              f"k_max={max(t[1] for t in s):7d} n_max={peor[2]} (q={peor[0]}, k={peor[1]})")
+        sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    main()

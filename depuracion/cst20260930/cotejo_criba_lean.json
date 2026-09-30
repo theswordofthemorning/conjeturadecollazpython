@@ -1,0 +1,24 @@
+{
+  "intervalo_q_cerrado": [
+    1,
+    82696
+  ],
+  "tamano_bloque": 1024,
+  "bloques": 81,
+  "escala": 281474976710656,
+  "exponentes_cotejados_con_potencias_exactas": 82696,
+  "por_cota_semilla": 82593,
+  "por_criba_lineal": 103,
+  "pasos_exponente_uno": 34322,
+  "pasos_exponente_dos": 48374,
+  "anchura_maxima_intervalo": 1010,
+  "ultimo_exponente_k": 131071,
+  "ultimo_bloque_cerrado": [
+    81921,
+    82696
+  ],
+  "sha256_filas_q_inferior_superior_k": "adcdb02299fe5b4ae9934eaa383125a5fc02cac8de222671513ded8801d74dd4",
+  "fallos": 0,
+  "sha256_lean": "6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6",
+  "sha256_generador": "a40ef3495823afe670cf54aecc6c2136b2ac81e2192962a219cc531289ce65af"
+}

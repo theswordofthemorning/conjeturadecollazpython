@@ -2,7 +2,8 @@
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
 literal; de ella la de Garner (1985) sobre rachas y la conjetura 2 de Wu
-(1992). Nuevo: CST de Terras para palabras de dos rachas (Ocelotas).**
+(1992). CST: Ocelotas hasta diez rachas contadas directamente,
+en Lean bajo Rhin.**
 
 - **Gao, forma de Lagarias.** `GaoEnunciado.conjetura_gao`
   ([Tejonas](depuracion/gao20260920/Tejonas.md)): con el mapa clásico, los n
@@ -16,11 +17,12 @@ literal; de ella la de Garner (1985) sobre rachas y la conjetura 2 de Wu
 - **Wu (1992).** `WuEnunciado` ([Condoras](depuracion/gao20260920/formal/Condoras.lean)):
   `lim L=∞`. La conjetura 1 equivale, dado Gao, a que casi todo n llegue a 1:
   sigue abierta. Citas leídas con la IA de CNKI; falta cotejar el original.
-- **Ocelotas.** [CST](depuracion/cst20260930/LEEME.md): si la palabra de
-  paridad de `n>=2` hasta su primer cruce del coeficiente es `1^a 0^b 1^c 0^d`,
-  en ese paso ya hay descenso real. Usa la cota de Rhin (1987) como hipótesis
-  explícita. Con Rozier–Terracol (una racha), un contraejemplo a CST necesita
-  al menos tres rachas.
+- **Ocelotas.** [CST](depuracion/cst20260930/LEEME.md): bajo `RhinEntera`,
+  `cst_contador` prueba primer descenso = primer cruce hasta diez rachas
+  impares, con `RhinEntera` explícita. El contador canónico construye
+  `Palabra`; criba y descenso finito certificados. Caso par incluido.
+  Un fallo con primer cruce finito necesita al menos once rachas, bajo
+  Rhin. [Interfaz cerrada](depuracion/cst20260930/CONTADOR_LEAN.md).
 
 Axiomas estándar en todo. **Pendiente de revisión humana.** Salvo en las
 rachas construidas, nada de esto afirma la llegada a 1.
@@ -74,11 +76,14 @@ presupuestos de exploración, no plazos.
   límite.
 - [CST](depuracion/cst20260930/LEEME.md): Ocelotas, arriba.
 
-Siguiente: el método de Ocelotas se extiende a `r` rachas (preliminar: para
-`r<=10` sólo quedan `n<=12337`); falta prueba escrita, cotejo, comprobación
-directa y Lean para r = 3 ([CST](depuracion/cst20260930/LEEME.md)). Se conservan la
-[evaluación CST](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md)
-y el [plan anterior](depuracion/transversal20260927/LEEME.md).
+CST, [certificado exacto](depuracion/cst20260930/REVISION_RACHAS.md):
+888 candidatos q, `n<=11214`; descenso cotejado independientemente.
+[Cierre Lean](depuracion/cst20260930/CIERRE_LEAN.md): criba para
+1<=q<=82696 mediante 81 bloques enteros. Ocho módulos sin `sorryAx`;
+contador, extracción y ausencia de descenso anterior formalizados.
+Cotejo nuevo: 8191 palabras binarias y 33024 prefijos de órbita.
+Siguiente: auditar rango y constantes de Rhin en la fuente original y
+estudiar su descarga en Lean; revisión humana pendiente. No ampliar censos.
 
 ## Evidencia y conservación
 
@@ -94,7 +99,7 @@ Contrastes finitos independientes: [cadena](depuracion/gao20260920/verificar_lag
 [Alpacas](depuracion/garner20260926/verificar_alpacas.py) y los scripts de
 cada ficha nueva. No sustituyen los certificados universales.
 
-Registro: 245 afirmaciones
+Registro: 246 afirmaciones
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar
 históricos. zootheorem permanece intacto.

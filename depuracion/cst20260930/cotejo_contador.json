@@ -1,0 +1,75 @@
+{
+  "mapa": "n/2 si par; (3n+1)/2 si impar; naturales, pasos del atajo",
+  "tipo": "cotejo exacto finito; no prueba universal; sin Rhin",
+  "longitud_binaria": 12,
+  "palabras_binarias": 8191,
+  "categorias": {
+    "vacia": 1,
+    "inicio_par": 4095,
+    "impar_abierta": 2048,
+    "impar_cerrada": 2047
+  },
+  "sha256_palabras": "18923f390d75ca605feb1c1c87c87a1ef3bc3dadd99699f3805cc45093fa8bd8",
+  "semillas": [
+    0,
+    255
+  ],
+  "prefijos_por_semilla": [
+    0,
+    128
+  ],
+  "prefijos_orbita": 33024,
+  "prefijos_impares_cerrados": 8120,
+  "primeros_cruces_encontrados": 256,
+  "sin_cruce_en_horizonte": [],
+  "sha256_orbitas": "cb205ef03ed874c2132a0a6c90a7c4fc9e8a9d07dcbcd402267eb7d81493a92a",
+  "bordes": [
+    {
+      "n": 0,
+      "k": 1,
+      "rachas": 0,
+      "valor": 0
+    },
+    {
+      "n": 1,
+      "k": 2,
+      "rachas": 1,
+      "valor": 1
+    },
+    {
+      "n": 2,
+      "k": 1,
+      "rachas": 0,
+      "valor": 1
+    },
+    {
+      "n": 3,
+      "k": 4,
+      "rachas": 1,
+      "valor": 2
+    },
+    {
+      "n": 7,
+      "k": 7,
+      "rachas": 2,
+      "valor": 5
+    },
+    {
+      "n": 27,
+      "k": 59,
+      "rachas": 15,
+      "valor": 23
+    },
+    {
+      "n": 10087,
+      "k": 105,
+      "rachas": 25,
+      "valor": 7688
+    }
+  ],
+  "fallos": 0,
+  "sha256_fuentes": {
+    "OcelotasContador.lean": "db5e74df0882240da8ea8f913f191488602950ab4cc83be25efb36bc5ffe379a",
+    "cotejar_contador.py": "34d4c9505f250ea9ff05a25805bed84d600917a225bf0e269f418755ad3e9dbc"
+  }
+}

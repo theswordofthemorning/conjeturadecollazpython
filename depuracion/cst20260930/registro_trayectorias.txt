@@ -1,0 +1,16 @@
+Extracto de controles y huellas; se omite el listado general de afirmaciones.
+Fecha: 2026-09-30
+Comando: python -B -X utf8 guardarafirmaciones.py
+Codigo de salida: 0
+COMPROBACION 0 - el mapa de dependencias y la regla del avance
+  -> nodos 63, aristas 96, sin ciclos, regla respetada.
+  afirmaciones : 246
+COMPROBACION 1 - el vocabulario cerrado
+  -> 0 fallos.
+COMPROBACION 2 - los ficheros citados existen, y las constantes traen lo suyo
+  -> 0 fallos.
+BASE ESCRITA ATOMICAMENTE: afirmaciones.db; registro 2026-09-30
+COMPROBACION 3 OK: todas las tablas, integridad y referencias verificadas.
+SHA256 guardarafirmaciones.py: 6e87981cb372e6289f9b7c1a361fe10b1e282d9e1209ca93ff1a492e49d598c1
+SHA256 depuracion/coherencia20260913/registro.json: 5c2a84bed85aa151483e56a59ec98d53b0d1090dbb49b2d271884183b826422c
+SHA256 afirmaciones.db: 7ca47d22d12fc0e7a5b9cf71d99712b087090dd6ee77f3f25ecf12f2579eb059

@@ -1,11 +1,19 @@
-# CST para palabras de dos rachas: Ocelotas — 30-09-2026
+# CST por número de rachas: Ocelotas — 30-09-2026
 
 Bloque 4 del [plan por sesiones](../transversal20260927/PLAN_SESIONES_20260928.md),
 que la [segunda opinión](../transversal20260927/SEGUNDA_OPINION_20260928.md)
 proponía como frente principal. El objetivo candidato era el caso de dos rachas
 impares, y está cerrado.
 
-**Teorema (Ocelotas).** Sea `T(n) = n/2` (par), `(3n+1)/2` (impar), y sea
+**Revisión posterior:** [extensión exacta hasta diez rachas](REVISION_RACHAS.md),
+bajo `RhinEntera`, con prueba escrita, criba entera y cotejo independiente.
+El [cierre en Lean](CIERRE_LEAN.md) certifica la criba, el descenso finito
+y el teorema `ocelotas_diez` para palabras reales `Palabra`, con Rhin
+explícita. La [interfaz del contador](CONTADOR_LEAN.md) extrae esa palabra
+y prueba `cst_contador`: primer descenso = primer cruce hasta diez rachas.
+El teorema original de dos rachas se conserva abajo.
+
+**Teorema (Ocelotas, bajo `RhinEntera`).** Sea `T(n) = n/2` (par), `(3n+1)/2` (impar), y sea
 `k = τ(n)` el primer cruce del coeficiente: `3^{S_j} ≥ 2^j` para `1 ≤ j < k` y
 `3^{S_k} < 2^k`, donde `S_j` cuenta los pasos impares entre los j primeros. Si
 `n ≥ 2` y su palabra de paridad de longitud k es `1^a 0^b 1^c 0^d` (dos rachas
@@ -22,8 +30,10 @@ enunciado.
 - La conjetura CST es de Terras (1976), y el nombre, de Lagarias. Rozier y
   Terracol la verifican para `n <= 2,8·10^19` (arXiv:2502.00948v5, corolario
   5.4; publicado en Discrete Math. 2026).
-- Su apéndice A excluye, con un argumento elemental, las sucesiones paradójicas
-  con un solo máximo local (una racha). Su observación 5.5, sugerida por
+- Su apéndice A excluye las sucesiones paradójicas con un solo máximo local
+  (una racha): el argumento elemental trata el caso acíclico, y el cíclico usa
+  la exclusión conocida de circuitos mediante teoría trascendente.
+  Su observación 5.5, sugerida por
   Simons, propone estudiar CST por número de máximos locales, como Simons y de
   Weger (2005) hicieron con los ciclos.
 - Una búsqueda rápida no encontró el caso de dos máximos para CST. El
@@ -109,38 +119,50 @@ exactos, para `q <= 20000`.
   impares, a cualquier escala. Es una familia infinita de clases y de enteros.
   Recupera, como control, el caso de una racha de Rozier–Terracol en el
   barrido, pero no lo formaliza.
-- No demuestra CST en general, ni Collatz. Un contraejemplo a CST tendría que
-  tener al menos tres rachas impares antes de su primer cruce.
+- No demuestra CST en general, ni Collatz. Bajo `RhinEntera`, el caso de dos
+  rachas excluye contraejemplos con menos de tres; la extensión escrita
+  posterior eleva ese mínimo a once; Lean ya lo prueba mediante el contador
+  directo de rachas, bajo Rhin.
 - El método (Rhin, congruencias de cada racha, un test por q y un cálculo
   final pequeño) es el de Simons y de Weger para ciclos, trasladado al
   descenso.
 
-## Siguiente
+## Extensión exacta y siguiente paso
 
-Extender a tres rachas y, si se puede, a `r` rachas con un test por q análogo.
-Con r rachas, `B/3^q < r` y cada racha aporta una congruencia. Las longitudes
-quedan acotadas en forma escalonada, así que el test crece con r. Hay que medir
-primero hasta qué r es viable.
+La [revisión](REVISION_RACHAS.md) desarrolla la prueba general y sustituye
+el cálculo aproximado por `3^5 < 2^8`, racionales y comparaciones enteras.
+Para hasta diez rachas, bajo `RhinEntera`, obtiene `k < 131072`; la criba
+deja 888 valores de q y obliga a `n <= 11214`. Todas esas semillas
+descienden en su primer cruce. El cotejo independiente usa otra criba,
+con 1023 supervivientes, y obtiene el mismo límite.
 
-## Extensión a r rachas (preliminar, 30-09, al cierre de la sesión)
+Evidencia: [certificador](certificar_rachas.py),
+[certificado](certificado_10_rachas.json),
+[cotejo](cotejar_certificado_rachas.py), [salida](cotejo_10_rachas.json) y
+[núcleo Lean](OcelotasRachas.lean) ([compilación](lean_revision_rachas.txt)).
+La [segunda tanda](TRAYECTORIAS_LEAN.md) formaliza desde la palabra real las
+congruencias, la cota aditiva y **k<131072 bajo Rhin**, además de la interfaz
+con la criba ([Lean](OcelotasTrayectorias.lean),
+[compilación](lean_trayectorias.txt)).
+La [tercera tanda](FINITO_LEAN.md) certifica el descenso para cada
+2<=n<=11214, sin Rhin, y demuestra el ensamblaje con una condición
+aritmética explícita ([Lean](OcelotasFinito.lean), [compilación](lean_finito.txt)).
+La [cuarta tanda](CIERRE_LEAN.md) demuestra esa condición para
+1<=q<=82696 y cierra el ensamblaje: `ocelotas_diez` ya no recibe `hcriba`.
+Siete módulos compilaron sin `sorryAx` ([registro](lean_cierre.txt)).
+La [quinta tanda](CONTADOR_LEAN.md) construye `Palabra` desde el contador
+canónico y prueba que no hay descenso antes del cruce. Ocho módulos
+compilan sin `sorryAx` ([registro](lean_contador.txt)).
+**Siguiente:** auditar el rango y las constantes de Rhin contra la fuente
+original y estudiar su descarga en Lean; revisión humana pendiente.
 
-El mismo mecanismo se generaliza ([r_rachas.py](r_rachas.py),
-[salida](r_rachas_salida.txt); [r_rachas_fino.py](r_rachas_fino.py),
-[salida](r_rachas_fino_salida.txt)). Con r rachas, `B < r·3^q`, cada racha da
-`x_i + 1 >= 2^{a_i}`, y las relaciones entre rachas dan
-`n + 1 >= 2^{a_1+…+a_i}/3^{p_i}`. De ahí `q < F_r·log2 M`, con
-`M = (r+1)·3^q/Δ` y `F_r = (L^r − 1)/(L − 1)`, `L = log2 3`; la versión entera,
-la que iría a Lean, usa `F_r = 2^r − 1`. Rhin acota k, y un test por q deja
-pocos casos:
-
-- versión entera: r = 3 deja `n <= 346` y `k <= 65`; r = 4 deja `n <= 530` y
-  `k <= 149`;
-- versión fina: para `r <= 10`, los supervivientes tienen `n <= 12.337`.
-
-Si esto se confirma, un contraejemplo a CST necesitaría más de 10 rachas
-impares antes de su primer cruce. **Falta todavía**: la prueba escrita
-completa del caso general, el cotejo independiente, la comprobación directa
-de CST hasta esos n y la formalización (r = 3 parece viable con `decide`).
+Se conservan los estudios preliminares [r_rachas.py](r_rachas.py)
+([salida](r_rachas_salida.txt)) y [r_rachas_fino.py](r_rachas_fino.py)
+([salida](r_rachas_fino_salida.txt), [r=17,...,20](r_rachas_fino_17_20.txt)),
+como exploración. Su aritmética aproximada no certifica redondeo dirigido.
+Los barridos anteriores [hasta 2^22](verificar_r_rachas_salida.txt) y
+[hasta 2^23](verificar_r_rachas_23_salida.txt) se preservan; la salida
+`verificar_r_rachas_29_salida.txt` vacía no acredita un cálculo terminado.
 
 ## Reproducir
 

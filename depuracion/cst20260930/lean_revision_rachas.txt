@@ -1,0 +1,18 @@
+Fecha: 2026-09-30
+Directorio: depuracion/gao20260920/formal
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+Comando: lake env lean ../../cst20260930/OcelotasRachas.lean
+Codigo de salida: 0
+'OcelotasRachas.tres_cinco' depends on axioms: [propext]
+'OcelotasRachas.cota_paso_monotono' depends on axioms: [propext, Quot.sound]
+'OcelotasRachas.paso_cota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRachas.cota_acumulada' depends on axioms: [propext, Quot.sound]
+'OcelotasRachas.criba_desde_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRachas.cola_diez' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Recompilacion de Ocelotas.lean durante esta revision: codigo 0.
+'Ocelotas.finito_q' depends on axioms: [propext]
+'Ocelotas.finito_n' depends on axioms: [propext]
+'Ocelotas.ocelotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+SHA256 Ocelotas.lean: 576cb1ca5ea94f200ee6525a4132bd0c70498bdeb1253581d909335ab59456a6
+SHA256 OcelotasRachas.lean: 14e57ea46813cfe8ab8284a67862cead876cf5af939b01650f160edc95f29bde

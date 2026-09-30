@@ -1,0 +1,47 @@
+SHA256 comprobador: 9951d442fcccd70f4a75da6bdafb4192179eabef0d257525cfabce7d5b6322eb
+Comando: lake env lean --version
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+
+Codigo de salida: 0
+Comando: lake env lean -R C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\GORDOL~1\AppData\Local\Temp\ocelotas_lean_fr4qe_17\Ocelotas.olean C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930\Ocelotas.lean
+'Ocelotas.finito_q' depends on axioms: [propext]
+'Ocelotas.finito_n' depends on axioms: [propext]
+'Ocelotas.ocelotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 Ocelotas.lean: 576cb1ca5ea94f200ee6525a4132bd0c70498bdeb1253581d909335ab59456a6
+Comando: lake env lean -R C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\GORDOL~1\AppData\Local\Temp\ocelotas_lean_fr4qe_17\OcelotasRachas.olean C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasRachas.lean
+'OcelotasRachas.tres_cinco' depends on axioms: [propext]
+'OcelotasRachas.cota_paso_monotono' depends on axioms: [propext, Quot.sound]
+'OcelotasRachas.paso_cota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRachas.cota_acumulada' depends on axioms: [propext, Quot.sound]
+'OcelotasRachas.criba_desde_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRachas.cola_diez' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasRachas.lean: 14e57ea46813cfe8ab8284a67862cead876cf5af939b01650f160edc95f29bde
+Comando: lake env lean -R C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\GORDOL~1\AppData\Local\Temp\ocelotas_lean_fr4qe_17\OcelotasTrayectorias.olean C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasTrayectorias.lean
+'OcelotasTrayectorias.cuenta_impares' depends on axioms: [propext, Quot.sound]
+'OcelotasTrayectorias.congruencia_racha' depends on axioms: [propext, Quot.sound]
+'OcelotasTrayectorias.congruencias_acumuladas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.criba_desde_trayectoria' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.fallo_producto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.fallo_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.criba_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.cota_semilla' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.tiempo_diez' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasTrayectorias.lean: a352ac46cd0571166b8ce023a7e9fc36c5abe1af9fa5da24780517b3111310d0
+Comando: lake env lean -R C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\GORDOL~1\AppData\Local\Temp\ocelotas_lean_fr4qe_17\OcelotasFinito.olean C:\Users\GordoLaEspadaDelAlba\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasFinito.lean
+'OcelotasFinito.comprobar_correcto' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.semillas_comprobadas' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.existe_descenso_finito' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.descenso_finito' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.exponente_acotado' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.diez_de_certificado' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasFinito.lean: 852bd08f85934fed543016aad6876d4c0895b2aae372f9e18b51847ad8837eb1
+CADENA VALIDADA: solo axiomas estandar admitidos; ningun hueco.

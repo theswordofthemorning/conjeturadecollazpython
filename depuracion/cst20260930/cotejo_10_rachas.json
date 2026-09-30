@@ -1,0 +1,32 @@
+{
+  "certificado": "certificado_10_rachas.json",
+  "criba_independiente": "q < E*m; más débil que la recurrencia",
+  "supervivientes_independientes": 1023,
+  "n_maximo_independiente": 11214,
+  "semillas_cotejadas": 11213,
+  "max_primer_cruce_observado": 105,
+  "sha256_filas_coincide": true,
+  "bordes": {
+    "2": {
+      "k": 1,
+      "q": 0,
+      "valor": 1
+    },
+    "3": {
+      "k": 4,
+      "q": 2,
+      "valor": 2
+    },
+    "39": {
+      "k": 8,
+      "q": 5,
+      "valor": 38
+    },
+    "11214": {
+      "k": 1,
+      "q": 0,
+      "valor": 5607
+    }
+  },
+  "fallos": 0
+}
