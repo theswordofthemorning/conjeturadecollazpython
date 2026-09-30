@@ -918,6 +918,15 @@
       "fichero": "depuracion/wirsching20260930/ventana_desplazada.py",
       "fuente": "propio",
       "notas": "Busqueda exacta sobre enteros, independiente de los residuos. Compatible con limites positivos alcanzados despacio y con decaimiento lento: no decide W2, que equivale a un teorema local limite para la suma de Syracuse en clases fijas."
+    },
+    {
+      "clave": "ocelotas_cst_dos_rachas",
+      "enunciado": "OCELOTAS, CST DE TERRAS PARA DOS RACHAS: atajo T; tau(n) = k el primer cruce del coeficiente (3^S_j >= 2^j para 1 <= j < k y 3^S_k < 2^k). Si n >= 2 y su palabra de paridad de longitud k es 1^a 0^b 1^c 0^d con a, b, c, d >= 1, entonces T^k(n) < n: la conjetura CST (t(n) = tau(n)) vale para todas esas n, con exponentes sin cota. Con el apendice A de Rozier-Terracol (una racha), un contraejemplo a CST necesita al menos tres rachas impares antes de su primer cruce.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/Ocelotas.lean",
+      "fuente": "propio; usa la cota de G. Rhin (1987) para |k log 2 - q log 3|; programa sugerido en Rozier-Terracol, arXiv:2502.00948v5, observacion 5.5",
+      "notas": "Prueba: tramos y congruencias 2^a | n+1, 2^c | T^(a+b)(n)+1; nucleo 2^q Delta^3 < 18*27^q; con Rhin (forma entera 3^q <= (2^k - 3^q) k^14) k <= 1023; finito_q (q <= 645) deja k <= 27 y n <= 50; finito_n comprueba CST para n <= 50. Lean 4.32.2, codigo 0, axiomas propext, Classical.choice, Quot.sound; RhinEntera es hipotesis explicita (teorema publicado con demostracion asistida por ordenador; ademas cotejada para q <= 20000). Cotejos: dos_rachas.py (3803188 ternas con k <= 539, sin contraejemplo, minimo Delta*n/B = 2,02 en n = 39), cotejo_dos_rachas.py (muestra bit a bit y barrido n < 2^22) y supervivientes.py. Novedad no certificada (busqueda rapida). PENDIENTE: revision humana."
     }
   ],
   "nodos": [
@@ -1150,6 +1159,15 @@
         "marmotas",
         "demostrado",
         "MARMOTAS: transporte del residuo entre escalas; un contraejemplo a Gao exige mas de 2^21 pasos 3n+1 sobre 2^20. Lean sin sorryAx; base numerica finita; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "ocelotas",
+      "antes": null,
+      "despues": [
+        "ocelotas",
+        "demostrado",
+        "OCELOTAS: CST de Terras para palabras de dos rachas impares hasta el primer cruce; usa la cota de Rhin (1987) como hipotesis explicita. Lean sin sorryAx; pendiente revision humana."
       ]
     }
   ],

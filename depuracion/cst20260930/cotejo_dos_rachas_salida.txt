@@ -1,0 +1,2 @@
+1. Muestra de 20000 ternas (de 3803188) con k <= 539, construccion bit a bit e iteracion directa: OK
+2. Barrido 2 <= n < 2^22: 1496791 semillas de una racha y 306857 de dos rachas (211 ternas distintas); caracterizacion y descenso: OK

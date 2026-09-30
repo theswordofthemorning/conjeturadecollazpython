@@ -1,0 +1,5 @@
+Cota entera cruda: para k >= 820 es 2^(k-1) >= 36 k^84 (comprobado en un tramo); K1 = 819
+Forma entera de Rhin 3^q <= (2^k - 3^q) k^14 falla en k <= 819: 0 veces
+Ternas con k <= 819: 13328215; pasan F1: 701; pasan F1 y F2: 5
+k maximo entre las supervivientes: 8
+supervivientes por k (k: numero): {5: 1, 8: 4}

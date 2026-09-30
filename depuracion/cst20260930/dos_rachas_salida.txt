@@ -1,0 +1,8 @@
+Cota a priori con Lambda >= 1.0 * k^-13.3: K_max = 492
+Cota a priori con Lambda >= 0.001 * k^-13.3: K_max = 539
+
+Recorrido exhaustivo de las ternas con k <= 539
+  ternas (a, b, c) examinadas: 3803188
+  palabras comprobadas directamente (k <= 120): 2000
+  contraejemplos (Delta * n_min <= B): 0
+  menor cociente Delta * n_min / B: 2.01992 en a=3, b=1, c=2, d=2, n_min=39

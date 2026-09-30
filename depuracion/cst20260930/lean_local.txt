@@ -1,0 +1,12 @@
+Fecha: 2026-09-30
+Directorio: depuracion/gao20260920/formal
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+Comando: lake env lean ../../cst20260930/Ocelotas.lean
+Codigo de salida: 0
+Tiempo: 31 s
+Hipotesis externa: RhinEntera (forma entera de Rhin 1987), explicita en el enunciado.
+Calculos en el nucleo: finito_q (q <= 645) y finito_n (n <= 50, k <= 27), con decide +kernel.
+
+'Ocelotas.finito_q' depends on axioms: [propext]
+'Ocelotas.finito_n' depends on axioms: [propext]
+'Ocelotas.ocelotas' depends on axioms: [propext, Classical.choice, Quot.sound]

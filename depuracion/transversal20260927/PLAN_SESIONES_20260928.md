@@ -42,6 +42,12 @@ desplazada.
 decidir. Hay 399 racionales candidatos a W1. La versión útil equivale a un
 teorema local límite: se cierra el bloque tras dos sesiones. Siguiente: CST.
 
+**CST, sesiones 1–3 (30-09):** [ficha](../cst20260930/LEEME.md). Objetivo de
+dos rachas cerrado y formalizado (Ocelotas): la cota de Rhin, las
+congruencias de cada racha y un test por q dejan sólo `n <= 50`. Punto de
+decisión del paso 3 superado; los pasos 4–6 pasan a la extensión a tres o más
+rachas.
+
 ## Bloque 1: Nashida
 
 **Sesión 1.** Localizar el texto primario y fijar su versión y el commit del
