@@ -1,0 +1,14 @@
+Fecha: 2026-09-30
+Directorio: depuracion/gao20260920/formal
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+Comando: lake env lean ../../pandas20260930/Pandas.lean
+Codigo de salida: 0
+Alcance: Pandas, pregunta de Gao (condicional, en densidad) y Marmotas; la base numerica de Marmotas es hipotesis.
+
+'PandasGao.pandas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PandasGao.pandas_escrito' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PandasGao.gao_de_residuo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PandasGao.gao_casi_siempre' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PandasGao.equilibrio_quince' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PandasGao.residuo_por_escalas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PandasGao.gao_por_escalas' depends on axioms: [propext, Classical.choice, Quot.sound]

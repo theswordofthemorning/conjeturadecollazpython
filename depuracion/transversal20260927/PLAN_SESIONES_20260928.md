@@ -25,6 +25,12 @@ La reproducción de la formalización externa queda como ampliación separada,
 no como un resultado ya obtenido. Siguiente bloque: Pandas. Las sesiones
 reservadas no contabilizan mensajes ni se declaran consumidas automáticamente.
 
+**Avance del 30-09:** Pandas cerrado en una sesión; ver su
+[ficha](../pandas20260930/LEEME.md). Formalizado con `Res >= 1` demostrado,
+la pregunta de Gao con `Res < 4` y en densidad, y la aplicación de combinar
+escalas (Marmotas), cuya obstrucción es una cuenta de pasos por encima de la
+barrera. Siguiente bloque: Wirsching.
+
 ## Bloque 1: Nashida
 
 **Sesión 1.** Localizar el texto primario y fijar su versión y el commit del
@@ -96,9 +102,10 @@ Antes de trasladarla a otra ruta, escribir y comprobar:
 
 Aplicaciones **candidatas**, todavía sin esos ingredientes demostrados:
 
-- **Pandas:** buscar si una cota del residuo puede propagarse entre etapas
-  conservando la condición de primera llegada. El lema actual presupone
-  terminación y una cota del residuo; no ofrece esa propagación por sí solo.
+- **Pandas:** aplicada el 30-09 (Marmotas). La cota del residuo en `[1, B)` se
+  propaga con un factor `(1 + 1/(3B))^S`; el empalme es la primera entrada
+  en `[1, B)`. El error sólo se controla si S, los pasos `3n+1` por encima de
+  B, está acotado; esa cota falta.
 - **Wirsching:** comparar cotas para conjuntos finitos de predecesores con
   una recurrencia que controle los residuos a mayor profundidad. El paso
   entre la dinámica límite y los predecesores enteros debe justificarse.

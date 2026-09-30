@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-28",
+  "version": "2026-09-30",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -153,7 +153,7 @@
         "estado": "demostrado",
         "fichero": "lemadepandas.txt",
         "fuente": "propio",
-        "notas": "Se retira el corolario general phi=d: la union creciente de clases solo entrega densidad natural inferior(F)>=phi. El intercambio de limites anterior es falso en general. Ver lemadepandas.txt y depuracion/coherencia20260913/Matematica.md. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+        "notas": "Se retira el corolario general phi=d: la union creciente de clases solo entrega densidad natural inferior(F)>=phi. El intercambio de limites anterior es falso en general. Ver lemadepandas.txt y depuracion/coherencia20260913/Matematica.md. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro. Formalizado el 30-09-2026 en depuracion/pandas20260930/Pandas.lean (pandas_escrito), con la forma afilada Res(n) <= 6, Res(n+1) < 6n/(n+1)."
       }
     },
     {
@@ -846,6 +846,33 @@
       "fichero": "depuracion/nashida20260928/CondorasBarrera.lean",
       "fuente": "propio; extension condicional de Condoras motivada por Nashida r8 (2026), DOI 10.5281/zenodo.22986671",
       "notas": "Prueba escrita independiente en depuracion/nashida20260928/LEEME.md; Lean 4.32.2: no_llega_iff_sobre, cuenta_complementaria, cota_rho, cota_finita_dWu, cota_eventual_dWu, compilacion codigo 0 y axiomas estandar sin sorryAx (lean_local.txt). Perfil generico: Nashida corresponderia a error(B)=K*B^(-c). No se ha reproducido ni importado la formalizacion externa; no se demuestra CotaBarrera, no se descarga Cubierta B, no se resuelve Wu 1. Forma eventual formalizada; el liminf es su lectura matematica. No se reivindica novedad bibliografica. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "pandas_gao_lean",
+      "enunciado": "PANDAS EN LEAN Y PREGUNTA DE GAO (1993, pag. 266): mapa clasico C; altura y sigma_inf (divisiones por 2 hasta la primera llegada a 1) de GarnerEnunciado; S = pasos 3n+1; Res(n) = 2^sigma_inf/(3^S n). (i) Res(n) >= 1 si n llega a 1. (ii) Si n y n+1 tienen la misma altura, Res(n) <= 6 y Res(n+1) < 6n/(n+1), coinciden sigma_inf y S; en particular con Res < 3 en los dos (lemadepandas.txt). Vale igual en un encuentro C^j(n) = C^j(n+1) con los residuos parciales. (iii) Si todo residuo es menor que 4, igual altura implica igual sigma_inf. (iv) Un encuentro en el paso j con 2^j + 3 < 15n es equilibrado (Hienas pedia 2^j <= n).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/pandas20260930/Pandas.lean",
+      "fuente": "propio; pregunta de G.-G. Gao, Discrete Math. 112 (1993) 261-267, pag. 266",
+      "notas": "Lean 4.32.2 con lake env lean desde depuracion/gao20260920/formal, codigo 0; #print axioms: propext, Classical.choice, Quot.sound (depuracion/pandas20260930/lean_local.txt). Teoremas: residuo_ge_uno, seis, pandas_encuentro, pandas, pandas_escrito, gao_de_residuo, equilibrio_quince. #guard: Res(993) exacto con altura 93 y la racha 943..949. Cotejo independiente verificar_pandas.py: formula del producto exacta hasta 2^14, Res >= 1 y maximo 1,253142144 en 993 hasta 2^20, nucleo seis por fuerza bruta, 500898 pares de igual altura sin distinto sigma_inf. La pregunta de Gao para todo n sigue abierta: falta una cota universal del residuo. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "pandas_gao_densidad",
+      "enunciado": "PREGUNTA DE GAO EN DENSIDAD, SIN HIPOTESIS: los n tales que n y n+1 tienen la misma altura clasica y distinto sigma_inf forman un conjunto de densidad natural 0. Si n y n+1 coalescen en el sentido de Gao y tienen igual altura, tienen igual sigma_inf; y la coalescencia tiene densidad 1 (GaoLiteral, Hienas).",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/pandas20260930/Pandas.lean",
+      "fuente": "propio; corolario de Hienas (d(x) -> 1)",
+      "notas": "Teoremas mitades_de_coalescencia y gao_casi_siempre; axiomas estandar. Corolario directo de la cadena ya demostrada; no dice nada de los n de densidad cero que no coalescen. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "marmotas_escalas",
+      "enunciado": "MARMOTAS, COMBINAR ESCALAS PARA EL RESIDUO: si las k primeras iteradas de x no bajan de B, 2^m C^k(x) (3B)^S <= 3^S x (3B+1)^S, es decir, residuo parcial <= (1+1/(3B))^S con S los pasos 3n+1. Si todo m < B con altura tiene Res(m) <= a/b y la orbita de x entra en [1,B) en el paso k tras S pasos 3n+1 hechos en valores >= B, entonces Res(x) <= (a/b)(1+1/(3B))^S. Con S <= 2B el factor es <= 3; con a/b < 4/3, Res(x) < 4, y un par n, n+1 de igual altura que cumpla esa entrada tiene igual sigma_inf. Con B = 2^20 la base es un calculo exacto (max Res = 1,253142144 < 4/3): todo contraejemplo a la pregunta de Gao exige que la orbita de n o la de n+1 haga mas de 2^21 pasos 3n+1 por encima de 2^20 antes de bajar de 2^20.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/pandas20260930/Pandas.lean",
+      "fuente": "propio; tecnica de combinar escalas incorporada al plan del 28-09 tras la lectura de Nashida (2026)",
+      "notas": "Lean: transporte, residuo_por_escalas, potencia_tres (Bernoulli, sin exponencial), residuo_menor_cuatro, gao_por_escalas; axiomas estandar. La base en [1, 2^20) es hipotesis del enunciado Lean; su comprobacion es finita y exacta (verificar_pandas.py y pandas_gao.py coinciden). No hay cota demostrada del numero de pasos por encima de B: la condicion de entrada no se ha probado para todo n. Esa es la obstruccion precisa del bloque. PENDIENTE: revision humana."
     }
   ],
   "nodos": [
@@ -1061,6 +1088,24 @@
         "demostrado",
         "CONDORAS: conjetura 2 de Wu (1992), lim L=inf; y lim d(M)=1 equivale a densidad 1 de los que llegan a 1. Lean sin sorryAx; pendiente revision humana."
       ]
+    },
+    {
+      "nombre": "pandas",
+      "antes": null,
+      "despues": [
+        "pandas",
+        "demostrado",
+        "PANDAS: igual altura y residuos acotados dan igual sigma_inf; pregunta de Gao con Res<4, y en densidad 0 sin hipotesis. Lean sin sorryAx; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "marmotas",
+      "antes": null,
+      "despues": [
+        "marmotas",
+        "demostrado",
+        "MARMOTAS: transporte del residuo entre escalas; un contraejemplo a Gao exige mas de 2^21 pasos 3n+1 sobre 2^20. Lean sin sorryAx; base numerica finita; pendiente revision humana."
+      ]
     }
   ],
   "dependencias_nuevas": [
@@ -1143,6 +1188,14 @@
     [
       "condoras",
       "hienas"
+    ],
+    [
+      "pandas",
+      "hienas"
+    ],
+    [
+      "marmotas",
+      "pandas"
     ]
   ],
   "correcciones_nuevas": [

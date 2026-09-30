@@ -1,4 +1,4 @@
-# Estado para continuar — 29-09-2026
+# Estado para continuar — 30-09-2026
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
 literal; de ella la de Garner (1985) sobre rachas, y la conjetura 2 de
@@ -74,18 +74,12 @@ certificada exhaustivamente.
   enviado a las 21:38 UTC, en verificación ([Palomar](papers/palomar/LEEME.md)).
   Zulip: publicado el 29-09 en #Machine Learning for Theorem Proving
   ([registro](papers/qeios/ZULIP_borrador.md)); responder sólo con autorización.
-- **OEIS, 30-09:** **A078441 aprobada** (#40, 29-09 23:52): publicados el
-  bloque firmado (conjetura de Garner con la condición de pasos de división
-  de Gao, Tabla 1 de Gao, racha de 176 de Wu), los enlaces a Garner, Gao y
-  Wu y la referencia cruzada a A400487
-  ([ficha aprobada](depuracion/oeis20260917/A078441_20260930_aprobada.txt)).
-  Valida las citas y los datos, no argumentos propios. A400486 (Gao) y
-  A400487 (Wu) siguen sin aprobar: en público, «allocated»
-  ([captura](depuracion/oeis20260917/A400486_A400487_20260930_publico.txt)).
-  Si A400487 no se aprobara, habría que retirar su referencia en A078441.
-  Antes, 28-09: respondido a Marcus y firmas agrupadas (#37, #38)
-  ([evidencia](papers/oeis/RESPUESTA_20260928.md)). El encuentro del 24-09
-  no se envió.
+- **OEIS, 30-09:** A078441 aprobada (#40) con el bloque firmado y los enlaces
+  ([ficha](depuracion/oeis20260917/A078441_20260930_aprobada.txt)); valida
+  citas y datos, no argumentos propios. A400486 y A400487 siguen sin aprobar
+  ([captura](depuracion/oeis20260917/A400486_A400487_20260930_publico.txt));
+  si A400487 no se aprobara, retirar su referencia en A078441. Antes:
+  [respuesta del 28-09](papers/oeis/RESPUESTA_20260928.md).
 
 ## Ruta vigente y próximo bloque
 
@@ -93,16 +87,20 @@ certificada exhaustivamente.
 ordenado por petición del usuario: Nashida (1–2), Pandas (2–4), Wirsching
 (4–6), CST (6). Presupuestos de exploración, no plazos de resolución.
 
-[Nashida, diagnóstico](depuracion/nashida20260928/LEEME.md): leído r8 y
-cotejado su enunciado con el código. El puente `CondorasBarrera.lean`
-compila localmente: una cota `E(X,B)<=error(B)X` y terminación de todo
-`1<=n<=B` dan eventualmente `dWu>=1-error(B)-eps`. Ambas son hipótesis
-explícitas; Nashida no se recompiló ni importó. K no está explicitada y
-una barrera fija no da Wu 1. Sin nuevos experimentos numéricos.
+[Nashida](depuracion/nashida20260928/LEEME.md), 28-09: puente condicional
+`CondorasBarrera.lean`; la cota externa y la cobertura de la barrera son
+hipótesis explícitas.
 
-Siguiente bloque: **Pandas**, conservando terminación y cotas del residuo.
-El plan incorpora combinar una cota de base con una recurrencia entre
-escalas y controlar el error acumulado; sus aplicaciones siguen pendientes.
+[Pandas](depuracion/pandas20260930/LEEME.md), 30-09: formalizado en Lean
+(`Pandas.lean`, axiomas estándar); `Res >= 1` es teorema y basta `Res < 4`.
+Pregunta de Gao (¿igual altura implica igual σ∞?): sí si todo residuo es
+menor que 4; sí para casi todo n sin hipótesis. Marmotas combina escalas:
+con la base exacta en `[1, 2^20)`, un contraejemplo exige más de `2^21`
+pasos `3n+1` por encima de `2^20` antes de bajar. Acotar esos pasos es un
+problema de tiempos de parada y queda abierto. Cotejo independiente en Python.
+
+Siguiente bloque: **Wirsching** (4–6 sesiones): programa y preprint de
+Tavares; aislar el control por residuos pendiente y un objetivo limitado.
 Se conservan la [evaluación CST](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md)
 y el [plan anterior](depuracion/transversal20260927/LEEME.md).
 
@@ -122,7 +120,7 @@ Contrastes independientes, finitos: [cadena](depuracion/gao20260920/verificar_la
 Gao, Garner por otra ruta, Wu hasta `N=26` y hashes. Estos controles
 finitos no sustituyen el certificado universal de Lean.
 
-Registro del 28-09: 236 afirmaciones, incluida la implicación condicional;
+Registro del 30-09: 239 afirmaciones, con Pandas y Marmotas;
 [fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`. [Evidencia nueva](depuracion/nashida20260928/evidencia.json).
 No reconstruir conversaciones ni alterar

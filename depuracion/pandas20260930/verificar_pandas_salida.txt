@@ -1,0 +1,11 @@
+1. Producto de (3y+1)/(3y) = 2^TAU/(3^S n) para 1 <= n < 2^14: OK
+2. Res < 1 en [1, 2^20): 0 casos
+   maximo exacto: 2305843009213693952/1840049047529878113 = 1.253142144395
+   se alcanza en [993, 1986, 3972, 7944, 15888, 31776, 63552, 127104, 254208, 508416, 1016832]; otros n con Res >= maximo: 0
+3. Nucleo `seis` en la caja n<=30, Y<=8, exponentes<=14: 4457 casos con hipotesis, 0 con t1 != t2
+4. Pares n, n+1 < 2^20 con igual altura: 500898; con distinto TAU: 0
+   primer encuentro con 2^j + 3 < 15n (sin hipotesis de residuo): 399979
+   sin esa cobertura: 100919; mayor j - log2(n): 222.306 en n = 424043, j = 241
+5. Base de Marmotas, B = 2^20: max Res = 1.253142144 < 4/3
+   factor de transporte admitido: (1 + 1/(3B))^S con S <= 2B = 2097152, a lo sumo 3
+   cota resultante para Res: 3 * max Res = 3.759426 < 4

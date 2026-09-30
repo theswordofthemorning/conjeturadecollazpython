@@ -50,3 +50,9 @@ una igualdad particular de Collatz; queda sin demostrar aquí.
 Tampoco se identifica sin hipótesis phi con la densidad de pares de
 igual altura finita. La coincidencia medida de 477.245 pares hasta
 10^6 en identidadexacta.py es evidencia finita, no ese puente.
+
+4. FORMALIZACION (30-09-2026)
+Formalizado en depuracion/pandas20260930/Pandas.lean (pandas_escrito).
+Res >= 1 es teorema (residuo_ge_uno), y basta Res(n) <= 6 con
+Res(n+1) < 6n/(n+1) (pandas); con n >= 2, Res < 4 en los dos.
+Ficha, pregunta de Gao y Marmotas: depuracion/pandas20260930/LEEME.md.
