@@ -74,8 +74,9 @@ presupuestos de exploración, no plazos.
   límite.
 - [CST](depuracion/cst20260930/LEEME.md): Ocelotas, arriba.
 
-Siguiente: medir si el método de Ocelotas (congruencias por racha, test por
-`q`, cálculo final) se extiende a tres o a `r` rachas. Se conservan la
+Siguiente: el método de Ocelotas se extiende a `r` rachas (preliminar: para
+`r<=10` sólo quedan `n<=12337`); falta prueba escrita, cotejo, comprobación
+directa y Lean para r = 3 ([CST](depuracion/cst20260930/LEEME.md)). Se conservan la
 [evaluación CST](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md)
 y el [plan anterior](depuracion/transversal20260927/LEEME.md).
 

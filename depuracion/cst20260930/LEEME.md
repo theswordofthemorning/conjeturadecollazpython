@@ -122,6 +122,26 @@ Con r rachas, `B/3^q < r` y cada racha aporta una congruencia. Las longitudes
 quedan acotadas en forma escalonada, así que el test crece con r. Hay que medir
 primero hasta qué r es viable.
 
+## Extensión a r rachas (preliminar, 30-09, al cierre de la sesión)
+
+El mismo mecanismo se generaliza ([r_rachas.py](r_rachas.py),
+[salida](r_rachas_salida.txt); [r_rachas_fino.py](r_rachas_fino.py),
+[salida](r_rachas_fino_salida.txt)). Con r rachas, `B < r·3^q`, cada racha da
+`x_i + 1 >= 2^{a_i}`, y las relaciones entre rachas dan
+`n + 1 >= 2^{a_1+…+a_i}/3^{p_i}`. De ahí `q < F_r·log2 M`, con
+`M = (r+1)·3^q/Δ` y `F_r = (L^r − 1)/(L − 1)`, `L = log2 3`; la versión entera,
+la que iría a Lean, usa `F_r = 2^r − 1`. Rhin acota k, y un test por q deja
+pocos casos:
+
+- versión entera: r = 3 deja `n <= 346` y `k <= 65`; r = 4 deja `n <= 530` y
+  `k <= 149`;
+- versión fina: para `r <= 10`, los supervivientes tienen `n <= 12.337`.
+
+Si esto se confirma, un contraejemplo a CST necesitaría más de 10 rachas
+impares antes de su primer cruce. **Falta todavía**: la prueba escrita
+completa del caso general, el cotejo independiente, la comprobación directa
+de CST hasta esos n y la formalización (r = 3 parece viable con `decide`).
+
 ## Reproducir
 
 ```text

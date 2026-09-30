@@ -1,0 +1,10 @@
+r=2 (entera, E=3): K_r=627; sobreviven 9 valores de q; k max=27; n max=76
+r=3 (entera, E=7): K_r=1688; sobreviven 25 valores de q; k max=65; n max=346
+r=4 (entera, E=15): K_r=4044; sobreviven 59 valores de q; k max=149; n max=530
+r=2 (fina, F=2.6): K_r=525; sobreviven 8 q; k max=16; n max=56
+r=3 (fina, F=5.1): K_r=1169; sobreviven 18 q; k max=65; n max=346
+r=4 (fina, F=9.1): K_r=2281; sobreviven 35 q; k max=92; n max=433
+r=5 (fina, F=15.4): K_r=4170; sobreviven 65 q; k max=233; n max=820
+r=6 (fina, F=25.4): K_r=7350; sobreviven 116 q; k max=485; n max=6844
+r=8 (fina, F=66.4): K_r=21533; sobreviven 325 q; k max=970; n max=8799
+r=10 (fina, F=169.3): K_r=60619; sobreviven 871 q; k max=3647; n max=12336
