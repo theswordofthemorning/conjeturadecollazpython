@@ -35,7 +35,12 @@ barrera. Siguiente bloque: Wirsching.
 eslabón abierto es (⋆3); (⋆1) literal falla en todo nivel calculado, con ceros
 exactos, y su refutación en un 3-ádico refutaría la conjetura 2 tal como está
 escrita. La versión útil para el laboratorio es por entero y con ventana
-desplazada. Quedan hasta 5 sesiones reservadas.
+desplazada.
+
+**Wirsching, sesión 2 y cierre (30-09):** W2 medida en ocho enteros hasta
+`l = 21`: el mínimo del cociente en la ventana desplazada baja despacio, sin
+decidir. Hay 399 racionales candidatos a W1. La versión útil equivale a un
+teorema local límite: se cierra el bloque tras dos sesiones. Siguiente: CST.
 
 ## Bloque 1: Nashida
 

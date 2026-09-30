@@ -147,9 +147,44 @@ Candidatas, sin demostrar:
 - **W2.** Formular (⋆1′): ventana desplazada y µ(a) por entero. Medir
   `e_ℓ(k,a)/ē_ℓ(k)` para enteros pequeños en `k − ℓ ∈ [C, C + √ℓ]`.
 
+## Sesión 2 (30-09): W2 medida y candidatos a W1
+
+**W2, ventana desplazada en enteros fijos** ([ventana_desplazada.py](ventana_desplazada.py),
+[salida](ventana_desplazada_salida.txt)). Una búsqueda sobre enteros, sin
+residuos, da la tabla completa `e_i(c,a)` para `i <= 21`. Se mide el mínimo de
+`r = e/ē` en `k − ℓ ∈ [6, 6 + ⌊√ℓ⌋]`, por encima de todo exceso medido. Para
+los ocho enteros probados ese mínimo baja despacio entre `ℓ = 6` y `ℓ = 21`:
+
+| a | 5 | 7 | 11 | 13 | 17 | 34 | 43 | 56248 |
+|---|---|---|---|---|---|---|---|---|
+| ℓ = 6 | 0,80 | 0,42 | 1,30 | 1,09 | 1,49 | 0,31 | 0,61 | 0,26 |
+| ℓ = 21 | 0,49 | 0,23 | 0,82 | 0,95 | 1,20 | 0,117 | 0,46 | 0,056 |
+
+En 7, 34 y 43 el descenso se frena en los últimos niveles; en 5 y 11, no.
+Es compatible con límites positivos a los que se llega despacio (la cascada
+no degenerada) y también con un decaimiento lento. No decide W2.
+
+**Candidatos racionales a W1** ([racionales_malos.py](racionales_malos.py),
+[salida](racionales_malos_salida.txt)). De los racionales `p/q` con
+`|p| <= 400` y `q <= 40`, 399 son malos en todos los niveles de `[8, 16]`, y
+muchos en todos los de `[2, 16]`. Por ejemplo, `347/2` y `−49/20` terminan con
+exceso 3, y el entero negativo −164 cuelga del ciclo de −17. Para `q` impar,
+el árbol hacia atrás de `p/q` es el de predecesores de p en la dinámica
+`3x+q`, cuya heurística genérica predice un coste por paso menor que 1 a la
+larga. Son candidatos a estudiar, no una prueba.
+
+**Decisión del bloque.** La obstrucción precisa cambia la valoración: la
+cadena de Wirsching tal como está escrita no es una ruta prometedora hacia
+Wu 1. Su versión útil (W2) equivale a un teorema local límite para la suma de
+Syracuse en clases fijas, fuera del alcance de las herramientas conocidas. W1
+es una pregunta matemática interesante, que refutaría una conjetura
+publicada, pero no está en el camino hacia Wu 1. **Se cierra Wirsching tras
+dos sesiones y el siguiente bloque es CST.** W1 y W2 quedan registradas como
+candidatas.
+
 ## Reproducir
 
-Desde esta carpeta, todo en menos de 3 minutos:
+Desde esta carpeta, todo en menos de 5 minutos:
 
 ```text
 python -B -X utf8 elka.py
@@ -158,6 +193,8 @@ python -B -X utf8 dispersion.py
 python -B -X utf8 densidad_malos.py
 python -B -X utf8 predecesores_34.py
 python -B -X utf8 reformulacion.py
+python -B -X utf8 ventana_desplazada.py
+python -B -X utf8 racionales_malos.py
 ```
 
 Los PDF leídos no se suben; están en la página de Wirsching y en arXiv.

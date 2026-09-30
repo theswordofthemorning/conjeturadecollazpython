@@ -908,7 +908,16 @@
       "estado": "conjeturado",
       "fichero": "depuracion/wirsching20260930/densidad_malos.py",
       "fuente": "propio",
-      "notas": "Evidencia finita: los S_l crecen hasta l = 16 (1217, 2841, ..., 1247348). La tasa de supervivencia por elevacion baja despacio (0,81 -> 0,76): no se puede extrapolar sin un mecanismo."
+      "notas": "Evidencia finita: los S_l crecen hasta l = 16 (1217, 2841, ..., 1247348). La tasa de supervivencia por elevacion baja despacio (0,81 -> 0,76): no se puede extrapolar sin un mecanismo. Candidatos estructurados: 399 racionales p/q (|p| <= 400, q <= 40) son malos en todo nivel de [8,16], muchos en todo [2,16] (347/2 y -49/20 con exceso 3 en l = 16; el entero -164, del arbol del ciclo de -17). Para q impar su arbol hacia atras es el de la dinamica 3x+q (racionales_malos.py)."
+    },
+    {
+      "clave": "wirsching_W2_ventana",
+      "enunciado": "WIRSCHING, VENTANA DESPLAZADA EN ENTEROS FIJOS (W2): para a en {5, 7, 11, 13, 17, 34, 43, 56248}, el minimo de e_l(k,a)/ebar_l(k) en k - l en [6, 6 + isqrt(l)] baja despacio entre l = 6 y l = 21 (por ejemplo 34: 0,31 -> 0,117; 5: 0,80 -> 0,49; 17: 1,49 -> 1,20); en 7, 34 y 43 el descenso se frena al final.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/wirsching20260930/ventana_desplazada.py",
+      "fuente": "propio",
+      "notas": "Busqueda exacta sobre enteros, independiente de los residuos. Compatible con limites positivos alcanzados despacio y con decaimiento lento: no decide W2, que equivale a un teorema local limite para la suma de Syracuse en clases fijas."
     }
   ],
   "nodos": [

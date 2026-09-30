@@ -91,13 +91,16 @@ Nashida, Pandas, Wirsching (4–6 sesiones), CST (6); presupuestos, no plazos.
 - [Pandas](depuracion/pandas20260930/LEEME.md), 30-09, en Lean: pregunta de
   Gao (¿igual altura, igual σ∞?) sí con `Res < 4` y para casi todo n; Marmotas
   exige a un contraejemplo más de `2^21` pasos `3n+1` sobre `2^20`.
-- [Wirsching](depuracion/wirsching20260930/LEEME.md), sesión 1, 30-09: sólo
-  queda la condición por residuos; (⋆1) literal falla en todo nivel `<=16`
-  (el entero 34 no tiene caminos con `l` impares y `l` pares). Un 3-ádico malo
-  en infinitos niveles refutaría la conjetura 2; hasta 16 no se agotan.
+- [Wirsching](depuracion/wirsching20260930/LEEME.md), dos sesiones, 30-09:
+  sólo queda la condición por residuos; (⋆1) literal falla en todo nivel
+  `<=16` (el entero 34 no tiene caminos con `l` impares y `l` pares). Un
+  3-ádico malo en infinitos niveles refutaría la conjetura 2; hay candidatos
+  racionales malos hasta 16. La versión útil (por entero, ventana desplazada)
+  equivale a un teorema local límite. Bloque cerrado.
 
-Siguiente: sesión 2 de Wirsching (W2: ventana desplazada y µ por entero,
-medida; intento acotado de W1). Sin mecanismo, pasar a CST. Se conservan la
+Siguiente bloque: **CST** (6 sesiones): cotejo de dos rachas impares,
+parametrización exacta y una desigualdad o reducción para longitudes
+arbitrarias. Se conservan la
 [evaluación CST](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md)
 y el [plan anterior](depuracion/transversal20260927/LEEME.md).
 
@@ -117,7 +120,7 @@ Contrastes independientes, finitos: [cadena](depuracion/gao20260920/verificar_la
 Gao, Garner por otra ruta, Wu hasta `N=26` y hashes. Estos controles
 finitos no sustituyen el certificado universal de Lean.
 
-Registro del 30-09: 243 afirmaciones, con Pandas, Marmotas y Wirsching;
+Registro del 30-09: 244 afirmaciones, con Pandas, Marmotas y Wirsching;
 [fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`. [Evidencia nueva](depuracion/nashida20260928/evidencia.json).
 No reconstruir conversaciones ni alterar
