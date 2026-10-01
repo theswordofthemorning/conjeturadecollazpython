@@ -1,0 +1,23 @@
+Dear Editors,
+
+I submit for consideration in the Journal of Automated Reasoning the manuscript "Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao".
+
+The paper proves a 1993 conjecture of G.-G. Gao (Discrete Math. 112) on the Collatz trajectories of consecutive integers, both in the form recorded in Lagarias's annotated bibliography (a set of natural density one) and in Gao's literal form. It does not concern the 3x+1 conjecture itself, and says so in its first sentence.
+
+Every step is formalized in Lean 4 with Mathlib: 26 modules, 6067 lines, and the final theorems depend only on Lean's three standard axioms. The probabilistic part, the almost sure absorption of a Markov chain with infinitely many states, is formalized with finite averages over bit words, without Mathlib's measure theory. The development was produced with extensive assistance from large language models working in an agentic coding environment. Section 6 is the methods section: it documents that use and how each output was checked (Lean kernel, leanchecker, axiom audit, and scripts that compare the Lean names and code shown in the text with the sources). I hope the paper is of interest to the journal both as the formalization of a research result and as a documented case of LLM-assisted formalization.
+
+For transparency:
+- An earlier version of this paper is available as a preprint on Zenodo (https://doi.org/10.5281/zenodo.23003524), and the Lean development is archived at https://doi.org/10.5281/zenodo.23003500.
+- On 29 September 2026 the paper was also submitted, as a preprint only, to the platform Qeios; it has not been posted there.
+- Two companion preprints on Zenodo deduce from this result conjectures of Garner (https://doi.org/10.5281/zenodo.23003526) and of Wu (https://doi.org/10.5281/zenodo.23003528). They are separate papers and are not part of this submission.
+- The manuscript is not under consideration at any journal.
+
+I am an independent researcher in Calama, Chile, without an academic affiliation. Section 6.5 of the paper asks reviewers for three separate verdicts (the formal statements, the proofs, and the fidelity of the text), which I hope makes the assessment easier.
+
+Thank you for your consideration.
+
+Sincerely,
+Omar Javier Said Duran
+Independent researcher, Calama, Chile
+ORCID: https://orcid.org/0009-0009-1418-2558
+omarsaid24@gmail.com

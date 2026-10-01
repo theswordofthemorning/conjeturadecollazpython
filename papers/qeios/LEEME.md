@@ -12,6 +12,38 @@ article. It will be online on Qeios within 1 business day."* El número de
 envío es **5962** (`/article-submission-confirm/5962`). Todavía no hay
 enlace público ni DOI de Qeios; anotarlos aquí cuando aparezcan.
 
+**Comprobado el 01-10-2026** (sesión del usuario en Chrome, sólo lectura): el
+perfil ([108558](https://www.qeios.com/profile/108558)) dice «You haven't
+posted any Publication yet»; sin notificaciones ni borradores; la búsqueda
+«Collatz» no lo encuentra; `/article-submission-confirm/5962` da 400. El
+plazo de «1 business day» ya pasó: sigue en revisión interna o hubo
+respuesta por correo. Mirar el correo antes de escribir a info@qeios.com.
+Ese día se rellenó el perfil (campo *Mathematics* y biografía de 125
+caracteres); textos completos en [../perfil/PRESENTACION.md](../perfil/PRESENTACION.md).
+
+**Abandonado el 01-10.** El correo del 30-09 pedía doctorado y publicaciones
+revisadas; el usuario: «Qeios no va a publicar, olvídate de ellos». La
+[respuesta](RESPUESTA_20261001.md) quedó sin enviar. Ese mismo día el
+artículo se envió al *Journal of Automated Reasoning*, y la carta y el
+formulario declaran este envío como preprint sin publicar
+([../jar/LEEME.md](../jar/LEEME.md)).
+
+**Retiro pedido el 01-10, a las 19:01**, con permiso del usuario («sí, está
+bien, retíranos de Qeios»). Fue una respuesta desde su Gmail a info@qeios.com,
+en el mismo hilo «Your recent submission»; figura en «Enviados». Se
+desconocía otra vía: el perfil no muestra el envío. Texto literal:
+
+> Dear Qeios Team,
+>
+> Thank you for your message. I have decided to withdraw my submission no. 5962, "Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao". Please do not publish it, and please let me know once it has been withdrawn.
+>
+> Best regards,
+> Omar Javier Said Duran
+
+No se contestó a la pregunta sobre credenciales ni se tocó la cuenta, cuyo
+perfil está vacío. Falta la confirmación de Qeios: anotarla aquí cuando
+llegue.
+
 | Campo | Valor enviado |
 |---|---|
 | Manuscrito | [`papers/articulo_I_gao.tex`](../articulo_I_gao.tex) (LaTeX; huella abajo) |

@@ -7,6 +7,12 @@ Mathematics*.** Detalle en [zenodo/LEEME.md](zenodo/LEEME.md).
 a Qeios como preprint** (envío 5962): [qeios/LEEME.md](qeios/LEEME.md).
 El II y el III esperan.
 
+01-10-2026. **Se envió el I, adaptado a la revista, al *Journal of
+Automated Reasoning*** (Springer). Envío `6ea1db0a…` en SNAPP, en revisión
+técnica: [jar/LEEME.md](jar/LEEME.md). Qeios queda descartado; el retiro
+del 5962 se pidió ese día a las 19:01. Por qué JAR:
+[revistas/LEEME.md](revistas/LEEME.md).
+
 | | Zenodo | AFM |
 |---|---|---|
 | Artefacto Lean | 10.5281/zenodo.23003500 | — |

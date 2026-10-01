@@ -1,0 +1,583 @@
+% Submitted to the Journal of Automated Reasoning, 1 October 2026.
+% Single file: amsart, bibliography included, no figures.
+% Compile with XeLaTeX (e.g. tectonic -X compile) or with pdfLaTeX (two runs).
+\documentclass[11pt]{amsart}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{newunicodechar}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao},pdfauthor={Omar Javier Said Duran}}
+\usepackage{xurl}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{ℤ}{\ensuremath{\mathbb{Z}}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
+\newunicodechar{∧}{\ensuremath{\wedge}}
+\newunicodechar{∨}{\ensuremath{\vee}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{≠}{\ensuremath{\ne}}
+\newunicodechar{¬}{\ensuremath{\neg}}
+\newunicodechar{∣}{\ensuremath{\mid}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{⟨}{\ensuremath{\langle}}
+\newunicodechar{⟩}{\ensuremath{\rangle}}
+\newunicodechar{𝓝}{\ensuremath{\mathcal{N}}}
+\newunicodechar{·}{\ensuremath{\cdot}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{theoremA}{Theorem A}
+\newtheorem*{theoremB}{Theorem B}
+\newtheorem*{corollaryC}{Corollary C}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Prob}{\mathbf{P}}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\dbar}{\bar d}
+\newcommand{\fus}{\star}
+\newcommand{\lean}[1]{\nolinkurl{#1}}
+
+\raggedbottom
+
+\begin{document}
+
+\title[Consecutive integers coalesce with density one]{Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao}
+
+\author[O. J. Said Duran]{Omar Javier Said Duran}
+\address{Independent researcher, Calama, Chile}
+\email{omarsaid24@gmail.com}
+\urladdr{https://orcid.org/0009-0009-1418-2558}
+
+\date{1 October 2026}
+
+\begin{abstract}
+This paper does not concern the $3x+1$ conjecture, that is, whether every trajectory reaches $1$; it concerns how often the trajectories of two consecutive integers meet. Let $C$ be the Collatz map, $C(n)=n/2$ for even $n$ and $C(n)=3n+1$ for odd $n$. Following Gao (1993), $n$ and $n+1$ coalesce if $C^{k}(n)=C^{k}(n+1)$ for some $k$, with the same number of halvings on both trajectories and without either trajectory passing through $1$. Gao proved that the normalized count $\dbar_k$ of the $n<2^k-1$ that coalesce within $k$ steps is nondecreasing, and conjectured that $\dbar_k\to 1$. In the form recorded by Lagarias, the conjecture states that the set of $n$ with $C^{k}(n)=C^{k}(n+1)$ for some $k\le\log_2 n$ has natural density one. We prove both forms, and that the proportion $d(x)$ of $n<x$ for which $n$ and $n+1$ coalesce tends to $1$. The proof follows a pair of trajectories through a Markov chain driven by fair coin flips, which describes the residue classes modulo $2^t$ exactly, and shows that the chain is absorbed almost surely, using a square-root drift, a harmonic function, a universal absorbing word and a counting argument for repeated trials that never conditions on the future. Every step is formalized in Lean~4 with Mathlib, and the final theorems depend only on the axioms \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. The development was written with extensive assistance from large language models; we describe how it was checked. The results concern coalescence only: they do not show that any integer reaches $1$.
+\end{abstract}
+
+\subjclass[2020]{Primary 11B83, 68V20; Secondary 60J10, 11Y55}
+\keywords{Collatz problem, coalescence, natural density, Markov chain, Lean, formal verification}
+
+\maketitle
+
+\section{Introduction}
+
+The Collatz map on the nonnegative integers is
+\[
+C(n)=\begin{cases} n/2, & n \text{ even},\\ 3n+1, & n \text{ odd},\end{cases}
+\]
+so that $C(0)=0$. The \emph{height} of $n\ge 1$ is the least $h$ with $C^{h}(n)=1$, if there is one, and the \emph{total stopping time} $\sigma_\infty(n)$ is the number of halvings among those $h$ steps \cite{Gao93}. The $3x+1$ conjecture asserts that every $n\ge1$ has a height; see \cite{Lag85,Lag10} for its history.
+
+Consecutive integers very often have the same height. Garner \cite{Gar85} studied this phenomenon through parity vectors and conjectured that a majority of the positive integers have the same height as a neighbour, and that arbitrarily long runs of consecutive integers of the same height exist. Gao \cite{Gao93} found long runs by computer (among them one of length $35654$ starting at $2^{500}+1$), and introduced the following notion, which does not presuppose that trajectories reach~$1$.
+
+\begin{definition}[Gao {\cite[p.~264]{Gao93}}]\label{def:coalesce}
+Let $n\ge 0$ and $k\ge0$. The integers $n$ and $n+1$ \emph{coalesce at step $k$} if
+\begin{enumerate}
+\item $C^{k}(n)=C^{k}(n+1)$;
+\item the two trajectories have the same number of halvings among their first $k$ steps; and
+\item $C^{i}(n)\ne1$ and $C^{i}(n+1)\ne1$ for $0\le i\le k$.
+\end{enumerate}
+They \emph{coalesce} if they coalesce at some step.
+\end{definition}
+
+Gao writes ``the number $1$ has occurred in neither trajectory of $n$ nor that of $n+1$ in the first $k$ iterations''. Condition (3) is the most demanding reading of this phrase; any other reading gives a larger set, to which all our lower bounds apply as well. Gao notes that if $n$ and $n+1$ coalesce and reach $1$, they have the same height and the same total stopping time (see also Lemma~\ref{lem:same-height}). He defines
+\begin{gather*}
+d(x)=\frac1x\,\#\{0\le n<x:\ n \text{ and } n+1 \text{ coalesce}\},\\
+\dbar_k=\frac1{2^k}\,\#\{0\le n<2^k-1:\ n \text{ and } n+1 \text{ coalesce at a step } j\le k\}.
+\end{gather*}
+He proves that $\dbar_k$ is nondecreasing, so that $\lim_k \dbar_k$ exists \cite[Corollary~2]{Gao93}, tabulates $\dbar_k$ for $4\le k\le 24$ (with $\dbar_{24}\approx 0.389$) and $d(10^j)$ for $2\le j\le 8$, and states: ``The conjecture asserts that $\dbar_k\to1$ as $k\to\infty$'' \cite[p.~265]{Gao93}. He adds that ``it is not very easy to determine if the limit of $d(x)$ exists''. Lagarias's annotated bibliography \cite[entry~68]{Lag03} records the conjecture as follows: the set
+\[
+\mathcal G=\{\,n\ge0:\ C^{k}(n)=C^{k}(n+1) \text{ for some } k\le \log_2 n\,\}
+\]
+has natural density one. (For $n=0$ the condition reads $k\le 0$ and fails, so $0\notin\mathcal G$.)
+
+\begin{theoremA}[Lagarias's form]
+The set $\mathcal G$ has natural density one: $\#(\mathcal G\cap[0,N))/N\to1$ as $N\to\infty$.
+\end{theoremA}
+
+\begin{theoremB}[Gao's form]
+$\dbar_k\to 1$ as $k\to\infty$, and $d(x)\to 1$ as $x\to\infty$.
+\end{theoremB}
+
+The two statements are linked by an elementary lemma (Lemma~\ref{lem:bridge}): a meeting within $\log_2 n$ steps is a coalescence in the sense of Definition~\ref{def:coalesce}. The proof of Theorem~A studies the residue classes modulo $2^t$. It yields the following statement, which concerns the shortcut map $T(x)=x/2$ or $(3x+1)/2$.
+
+\begin{corollaryC}
+Let $a(t)$ be the number of residues $0\le r<2^t$ such that $T^{t}(r)=T^{t}(r+1)$ and the two trajectories contain the same number of odd terms among their first $t$ terms. Then $a(t)/2^t\to1$.
+\end{corollaryC}
+
+The numbers $a(t)$ form the sequence A398792 of the OEIS \cite{OEIS}.
+
+\subsection{What is not proved}
+Coalescence does not require reaching $1$. Gao glosses his conjecture as saying that ``almost every pair of consecutive integers greater than $n$ have the same height and the same total stopping time''. Read literally, that gloss needs almost all integers to reach $1$. By Theorem~B and Lemma~\ref{lem:same-height}, it is in fact equivalent to the statement that the integers that reach $1$ have natural density one, which is open; the best lower bound known for their counting function is $x^{0.84}$ \cite{KL03}. (This equivalence is not formalized here; the analogous statement for the first conjecture of Wu \cite{Wu92} is formalized in the companion paper~\cite{SaidWu}.) Nothing in this paper bears on the $3x+1$ conjecture itself.
+
+The convergence is also extremely slow. The density of $\mathcal G\cap[0,N)$ is $0.3644$ at $N=2^{20}$ and $0.3737$ at $N=2^{22}$, and Gao's table gives $\dbar_{24}\approx0.389$. Our proof yields no useful rate (Remark~\ref{rem:rate}).
+
+\subsection{Formal verification}
+All the results above are formalized in Lean~4 \cite{Lean4} with Mathlib \cite{Mathlib}. The final statements are \lean{GaoEnunciado.conjetura_gao} (Theorem~A) and \lean{GaoLiteral.conjetura_gao_literal} (Theorem~B). The definitions used by the second one are written again in a file that imports only Mathlib. Section~\ref{sec:formal} is the methods section of the paper: it describes the development, what the formalization does and does not certify, the independent numerical checks, and how large language models were used to produce the development. Corollary~C is not stated separately in Lean; it follows at once from two formal theorems (Section~\ref{sec:density}). The Lean sources, the record of the build and the programs of the numerical checks are archived on Zenodo \cite{Artifact}.
+
+\subsection{Related work}
+The dynamics of residue classes goes back to Terras \cite{Ter76} and Everett \cite{Eve77}, who proved that almost all integers have finite stopping time. Tao \cite{Tao22} proved that almost all orbits (in logarithmic density) attain almost bounded values. These results concern single trajectories; the present one concerns the meeting of two adjacent trajectories, and uses no information about stopping times. Gao's Lemma~2 \cite{Gao93}, which lifts a coalescing pair $n,n+1$ to $2^kr+n,\,2^kr+n+1$, is the class structure behind the monotonicity of $\dbar_k$; Proposition~\ref{prop:transport} below is an exact, quantitative form of the same structure for the shortcut map. Garner \cite{Gar85}, Wu \cite{Wu92,Wu93,Wu95}, Wu and Huang \cite{WH01}, Elia and Tucker \cite{ET15}, LaDue \cite{LaD17} and Frinkle et al.\ \cite{Fri25} study consecutive integers of the same height, mostly by exhibiting families and by computation. In the companion papers we deduce from the present results Garner's conjecture on arbitrarily long runs \cite{SaidGarner} and the second conjecture of Wu \cite{SaidWu}. We have not found in the literature a proof of Gao's conjecture in either form.
+
+\subsection{Organization}
+Section~\ref{sec:chain} introduces the chain of pairs and the transport of the uniform measure on residues. Section~\ref{sec:absorption} proves that the chain is absorbed almost surely. Section~\ref{sec:density} deduces Theorem~A and Corollary~C, and Section~\ref{sec:literal} deduces Theorem~B. Section~\ref{sec:formal} describes the methods: the formalization, the independent numerical checks and the use of AI tools. Section~\ref{sec:remarks} collects remarks and open questions.
+
+\section{Pairs of trajectories and a Markov chain}\label{sec:chain}
+
+\subsection{The shortcut map}
+Let $T\colon\Z\to\Z$, $T(x)=x/2$ for even $x$ and $T(x)=(3x+1)/2$ for odd $x$. One step of $T$ from an odd number is two steps of $C$, the second being a halving. Hence if $s$ of the first $t$ terms $x,T(x),\dots,T^{t-1}(x)$ of a nonnegative integer $x$ are odd, then
+\begin{equation}\label{eq:T-to-C}
+T^{t}(x)=C^{\,t+s}(x),
+\end{equation}
+and exactly $t$ of those $t+s$ steps of $C$ are halvings. We use the classical theorem of Terras \cite{Ter76}: for $0\le r<2^t$ and every integer $m$,
+\begin{equation}\label{eq:terras}
+T^{t}(2^t m+r)=3^{s}m+T^{t}(r),
+\end{equation}
+where $s$ is the number of odd terms among the first $t$ terms of $r$; in particular the first $t$ parities of $2^tm+r$ are those of $r$.
+
+\subsection{Pairs and their canonical state}
+We follow two trajectories of $T$ together, and count the odd terms of each. A \emph{counted pair} is $(x,y;p,q)$ with $x,y\in\Z$ and $p,q\in\N$, and one step maps it to $(T(x),T(y);\,p+[x\text{ odd}],\,q+[y\text{ odd}])$. Its \emph{anchor} is the member with fewer odd terms, or the smaller member if $p=q$. The \emph{canonical state} of the pair is
+\[
+\fus \ \text{ if } p=q \text{ and } x=y,\qquad
+(k,c)=\bigl(q-p,\ y-3^{q-p}x\bigr) \ \text{ if the anchor is } x,
+\]
+and symmetrically if the anchor is $y$. Thus the pair is $\{v,\,3^k v+c\}$, where $v$ is the anchor. The state $\fus$ (``fusion'') records a meeting with equal odd counts; after it the two trajectories coincide and the counts grow together.
+
+\subsection{The chain}
+Let $\mathcal S=\{\fus\}\cup(\N\times\Z)$. Since $3^k$ is odd, the parity of the non-anchor member of a pair in state $(k,c)$ is the parity of the anchor plus $c$. This determines the transition $P\colon\mathcal S\times\{0,1\}\to\mathcal S$ of Table~\ref{tab:P}, where the bit $b$ is the parity of the anchor; moreover $P(\fus,b)=\fus$.
+
+\begin{table}[ht]
+\caption{The transition $P(z,b)$ of the chain of pairs.}\label{tab:P}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+State $z$ & $b=0$ & $b=1$ \\
+\midrule
+$(0,c)$, $c$ even & $(0,\,c/2)$ & $(0,\,3c/2)$ \\
+$(0,c)$, $c$ odd & $\bigl(1,\,(3c+1)/2\bigr)$ & $\bigl(1,\,(1-3c)/2\bigr)$ \\
+$(k,c)$, $k\ge1$, $c$ even & $(k,\,c/2)$ & $\bigl(k,\,(3c+1-3^k)/2\bigr)$ \\
+$(k,c)$, $k\ge2$, $c$ odd & $\bigl(k+1,\,(3c+1)/2\bigr)$ & $\bigl(k-1,\,(c-3^{k-1})/2\bigr)$ \\
+$(1,c)$, $c$ odd & $\bigl(2,\,(3c+1)/2\bigr)$ & $\fus$ if $c=1$; else $\bigl(0,\,|c-1|/2\bigr)$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+A step is \emph{shared} if $c$ is even (both members have the parity $b$, and the level $k$ does not change) and \emph{mixed} if $c$ is odd. We call $k$ the \emph{level}, levels $k\ge2$ \emph{interior}, and levels $0,1$ the \emph{frontier}.
+
+\begin{lemma}[exactness; \lean{TejonasGao.canon_paso}]\label{lem:exact}
+For every counted pair $s$ of integers, the canonical state of the next pair is $P(\text{state of } s,\ b)$, where $b$ is the parity of the anchor of $s$.
+\end{lemma}
+
+The proof is a direct case analysis (level $0$, higher levels, the descent from level $1$ to level $0$ with fusion at $c=1$, and the remaining cases by exchanging the members). We write $(Z_t)_{t\ge0}$ for the chain $Z_{t+1}=P(Z_t,b_{t+1})$ driven by independent fair bits $b_1,b_2,\dots$ and started at $Z_0=(0,1)$, which is the state of the pair $(n,n+1;0,0)$. Let $\sigma=\inf\{t: Z_t=\fus\}$ be the absorption time. All the probabilities below are finite averages over bit words: for a function $f$ of the state at time $t$, $\E f(Z_t)=2^{-t}\sum_{w\in\{0,1\}^t} f(Z_t(w))$, counting words with multiplicity.
+
+\subsection{Transport to residue classes}
+For $n\ge0$ let $Z_t(n)$ be the canonical state of the pair $(n,n+1;0,0)$ after $t$ steps.
+
+\begin{proposition}[\lean{TejonasGao.transporte}, \lean{canon_modulo}]\label{prop:transport}
+For every $t\ge0$ and every $f\colon\mathcal S\to\R$,
+\[
+\sum_{n=0}^{2^t-1} f\bigl(Z_t(n)\bigr)=2^t\,\E f(Z_t).
+\]
+Moreover $Z_t(n)$ depends only on $n \bmod 2^t$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+Consider an affine family of counted pairs $(3^{p}m+a,\ 3^{q}m+b;\ p,q)$, $m\in\Z$. Its canonical state does not depend on $m$, because the terms in $m$ cancel in $c$. Splitting $m=2l+e$ according to its last bit gives two affine families in $l$, one step of $T$ maps each of them to an affine family, and the two families receive opposite anchor bits (\lean{bit_rep}). By induction on $t$, the $2^t$ residue classes modulo $2^t$ correspond bijectively to the $2^t$ bit words, and the class of $r$ has state $Z_t(r)$ (\lean{suma_rep}, \lean{iter_rep}). This is Terras's argument \eqref{eq:terras} carried out for pairs.
+\end{proof}
+
+\begin{lemma}[\lean{TejonasGao.iter_collatz}, \lean{fusion_clasica}]\label{lem:classical}
+If $Z_t(n)=\fus$, then $C^{k}(n)=C^{k}(n+1)$ for some $k\le 2t$.
+\end{lemma}
+
+\begin{proof}
+At time $t$ both members equal $T^t(n)=T^t(n+1)$, and both have the same number $s\le t$ of odd terms. By \eqref{eq:T-to-C}, $C^{t+s}(n)=C^{t+s}(n+1)$.
+\end{proof}
+
+Let $S_t=\{0\le r<2^t: Z_t(r)=\fus\}$. Taking for $f$ the indicator of $\fus$ in Proposition~\ref{prop:transport},
+\begin{equation}\label{eq:St}
+|S_t|=2^t\,\Prob(\sigma\le t).
+\end{equation}
+
+\section{Almost sure absorption}\label{sec:absorption}
+
+\begin{theorem}[\lean{MartasGao.martas}]\label{thm:martas}
+$\Prob(\sigma>h)\to0$ as $h\to\infty$.
+\end{theorem}
+
+This section outlines the proof. The statements are those of the formalization, which contains the complete arguments; for each we name the Lean theorem. The time $t$ always counts steps of the chain, that is, steps of $T$.
+
+\subsection{Magnitude}
+For a state $(k,c)$ put $u=|c|/3^k$, and $u(\fus)=0$. Since the pair is $\{v,3^kv+c\}$, the quantity $u$ is the offset measured in units of the factor $3^k$. A case check gives $u(P(z,b))\le A_b\,u(z)+\tfrac12$ with $A_0=\tfrac12$, $A_1=\tfrac32$ (\lean{MomentosGao.dominacion_real}). Since $\sqrt{1/2}\le 91/128$, $\sqrt{3/2}\le 157/128$ and $(91+157)/256=31/32$,
+\[
+\tfrac12\Bigl(\sqrt{u(P(z,0))}+\sqrt{u(P(z,1))}\Bigr)\le \tfrac{31}{32}\sqrt{u(z)}+1
+\]
+(\lean{deriva_raiz}). Iterating, $\E\sqrt{u(Z_n)}\le (31/32)^n\sqrt{u(Z_0)}+32\bigl(1-(31/32)^n\bigr)$ (\lean{momento_cadena}), which is at most $32$ for $Z_0=(0,1)$ (\lean{momento_raiz}). A union bound over the times $0,\dots,h$ and Markov's inequality give
+\begin{equation}\label{eq:C1}
+\Prob\bigl(\exists\, t\le h:\ u(Z_t)>h^4\bigr)\le \frac{32(h+1)}{h^2}\le\frac{66}{h}\qquad(h\ge1)
+\end{equation}
+(\lean{envolvente_cf}).
+
+\subsection{The level}
+An \emph{excursion} starts at an interior state $(2,c)$ and ends at the first time $\tau$ at which the level is $1$. Shared steps keep the level, and in the interior a mixed step moves it up or down by one with probability $\tfrac12$ each. Hence $X_t=k_t-1$, frozen at $\tau$, is a nonnegative martingale with $X_0=1$ that grows by at most one per step, and
+\begin{equation}\label{eq:H1}
+\Prob(\tau>t)\ge \frac1{t+1}
+\end{equation}
+(\lean{SupervivenciaGao.supervivencia_armonica}). Stopping the chain when it reaches level $L+1$ and using the energy $V(x)=x(L-x)$, whose mean decreases by one at each mixed step and is unchanged at shared steps, one finds that the number $M_h$ of mixed steps of the excursion among the first $h$ steps satisfies, for all $L,n\ge1$,
+\begin{equation}\label{eq:H2}
+\Prob(M_h\ge n)\le \frac1L+\frac{L-1}{n}
+\end{equation}
+(\lean{BandaGao.cola_mixtos_original}).
+
+Long runs of shared steps are rare. At an interior level $k$, a shared step maps $c$ to $c/2$ or to $(3c-(3^k-1))/2$. Let $A_k=v_2(3^k-1)$; then $A_k=1$ for odd $k$ and $A_k=2+v_2(k)$ for even $k$, so $A_k\le 2+\lfloor\log_2 k\rfloor$ (\lean{UmbralRachasGao.orden_cota}). Below valuation $A_k$ every shared step lowers $v_2(c)$ by exactly one, whatever the bit; an exact count of words then gives, uniformly in $c$ and for every $a\ge A_k$,
+\begin{equation}\label{eq:runs}
+\Prob\bigl(\text{the next } a+s \text{ steps are shared}\bigr)\le 2^{-s}
+\end{equation}
+(\lean{cola_umbral}). Before the $n$-th mixed step of an excursion the level is at most $n+2$. Cutting time into deterministic blocks of length $B=a+s+1$ with $a\ge 2+\lfloor\log_2(n+2)\rfloor$, each block either contains a mixed step or a shared run longer than $A_k+s$. Induction over the blocks, averaging only over future bits, gives
+\begin{equation}\label{eq:M6}
+\Prob\bigl(\tau>nB \text{ and } M_{nB}<n\bigr)\le n2^{-s}
+\end{equation}
+(\lean{RelojGao.reloj_original}), and together with \eqref{eq:H2}, for all $L,n\ge1$,
+\begin{equation}\label{eq:H3}
+\Prob(\tau>nB)\le \frac1L+\frac{L-1}{n}+n2^{-s}
+\end{equation}
+(\lean{RelojGao.cola_excursion}).
+
+\subsection{A window for the exit}
+Fix an integer bound $C_0$ and define, with logarithms to base $2$,
+\begin{gather*}
+T_0=32\max\bigl(32,\lceil\log_2(2+|C_0|)\rceil\bigr),\quad Q=T_0+1,\quad L=16Q,\quad n=L^2,\\
+a=2+\lfloor\log_2(n+2)\rfloor,\quad s=3\lceil\log_2(n+1)\rceil,\quad H=n(a+s+1),\\
+R=\bigl(128(H+1)Q\bigr)^2,\qquad G=3(R+1).
+\end{gather*}
+
+\begin{proposition}[\lean{ParametrosVentanaGao.ventana_uniforme}]\label{prop:VH}
+For every integer $c$ with $|c|\le|C_0|$, the excursion started at $(2,c)$ satisfies
+\[
+\Prob\bigl(T_0<\tau\le H \text{ and } |c_\tau|\le G\bigr)\ge\frac1{4Q}.
+\]
+\end{proposition}
+
+\begin{proof}[Sketch]
+During the excursion write $u_t=c_t/3^{k_t}$ with sign. For every word whose states before each step are interior, $u_t=\Pi_t\,c/9+W_t$, where $\Pi_t=\prod_{j\le t}A_{b_j}$ and the remainder satisfies $W_0=0$, $|W_{t+1}|\le A_{b_{t+1}}|W_t|+\tfrac12$ (\lean{RestoGao.identidad_excursion}); after the exit $W$ continues multiplicatively. The same square-root drift as before gives $\E\sqrt{|W_t|}\le32$, so $\Prob(\exists\, t\le H: |W_t|>R)\le 32(H+1)/\sqrt R=1/(4Q)$ (\lean{coste_resto_ventana}). The normalized product $\Pi_t/(31/32)^t$ has a superharmonic square root with ratio $503/512<61/62$, whence $\Prob(\exists\, t\in[T_0,H]:\Pi_t>(31/32)^t)\le(61/62)^{T_0}\le 1/(4Q)$ (\lean{ProductoGao.producto_desde}; the last inequality is $4(T_0+1)61^{T_0}\le 62^{T_0}$ for $T_0\ge1024$). The choice of $T_0$ gives $(31/32)^{T_0}|c|/9\le1$. By \eqref{eq:H1} and \eqref{eq:H3}, $\Prob(\tau>T_0)\ge 1/Q$ and $\Prob(\tau>H)\le 1/(4Q)$. On the event $\{\tau>T_0\}$, outside the three bad events $\{\tau>H\}$, $\{\Pi_t>(31/32)^t$ for some $t\in[T_0,H]\}$ and $\{|W_t|>R$ for some $t\le H\}$, each of probability at most $1/(4Q)$, the excursion exits at some $\tau\in(T_0,H]$ with $|\Pi_\tau c/9|\le1$ and $|W_\tau|\le R$, so that $|c_\tau|=3|u_\tau|\le 3(1+R)=G$ (\lean{salida_controlada}). Hence the probability is at least $1/Q-3/(4Q)$. No independence between the events is used: the four bounds are combined on the same word (\lean{VentanaGao.ventana_cota}).
+\end{proof}
+
+\subsection{A universal absorbing word}
+
+\begin{proposition}[\lean{HormigasGao.palabra_hormigas}]\label{prop:hormigas}
+From every state $(1,c)$ there is a bit word of length at most
+\[
+D(c)=16\bigl(\lceil\log_2(2+|c|)\rceil+1\bigr)^2
+\]
+that leads the chain to $\fus$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+From level $1$, bits $0$ halve an even offset until it becomes odd, and a bit $1$ then either fuses (offset $1$) or descends to level $0$ with a positive gap $g\le|c|$; from $c=0$ the word $11001$ fuses. From a gap $g\ge1$ at level $0$, an explicit ``trip'' of at most $\lfloor\log_2 g\rfloor+4$ bits either fuses or reaches a gap $d$ with $6d\le 5g$. Since $2\cdot5^4<6^4$, four trips at least halve the gap, and induction on the bit length of the gap gives the quadratic bound. The constants are checked in Lean on the transition $P$ itself, with all signs.
+\end{proof}
+
+\subsection{One trial}
+Keep $C_0$ and the parameters above, and put
+\[
+D_0=16\bigl(\lceil\log_2(G+2)\rceil+1\bigr)^2,\qquad W=H+D_0,\qquad p=p(C_0)=\frac{2^{-D_0}}{4Q}.
+\]
+
+\begin{proposition}[\lean{EnsayoGao.ensayo_uniforme}]\label{prop:EF}
+For every integer $c$ with $|c|\le|C_0|$, the chain started at $(2,c)$ satisfies $\Prob(\sigma\le W)\ge p$.
+\end{proposition}
+
+\begin{proof}
+A word of length at most $D$ that leads to fusion has weight at least $2^{-D}$, and fusion is absorbing. Averaging over the first $H$ bits, on the event of Proposition~\ref{prop:VH} the chain is at some $(1,d)$ with $|d|\le G$ at a time $\tau\le H$, and Proposition~\ref{prop:hormigas} supplies a fusing word of length at most $D(d)\le D_0$, so fusion occurs by time $H+D_0=W$ with probability at least $2^{-D_0}/(4Q)$ (\lean{EnsayoGao.relevo}). No random time is substituted into a deterministic bound.
+\end{proof}
+
+\subsection{Guarded trials}
+An \emph{entry} is a step from level $1$ to level $2$. For an integer $C_0\ge0$ an entry is \emph{admissible} if it lands at $(2,c)$ with $|c|\le C_0$. Let $K_{C_0}(h)$ be the number of admissible entries among the positions $0,\dots,h$.
+
+\begin{proposition}[\lean{ConteoEnsayosGao.supervivencia_por_entradas}]\label{prop:guarded}
+For all $C_0,j,h\ge0$,
+\[
+\Prob(\sigma>h)\le \Prob\bigl(\sigma>h \text{ and } K_{C_0}(h)<1+j(W+2)\bigr)+(1-p)^j.
+\]
+\end{proposition}
+
+\begin{proof}[Sketch]
+Run the following protocol along a word. At an admissible entry with at least $W$ steps left before $h$, start a trial and observe $W$ bits. If the chain has not fused, clear the entry mark and search for the next admissible entry strictly after the end of the block; the search is truncated at $h$. Every decision depends only on the past. Proposition~\ref{prop:EF} bounds the failure probability of each admitted trial by $1-p$ given its starting state, so induction on the finite tree bounds the probability that $j$ trials are admitted and all fail by $(1-p)^j$ (\lean{Repeticion.lean}, \lean{GuardiasGao.fallos_evento}); no independence between trials is used. A block of $W$ steps consumes at most $W$ admissible positions and the restart at most one more. Hence survival up to $h$ together with $K_{C_0}(h)\ge 1+j(W+2)$ forces $j$ admitted failed trials (\lean{completa_bloques}).
+\end{proof}
+
+The first term keeps the event $\{\sigma>h\}$: a trajectory that has already fused is not required to have many entries.
+
+\subsection{Few admissible entries are unlikely}
+
+\begin{proposition}[\lean{LagartijasGao.lagartijas}]\label{prop:lagartijas}
+Let $m\ge10$, $N=2^m$, $h=N^6$ and $C_0=9h^4$. Then
+\[
+\Prob\bigl(\sigma>h \text{ and } K_{C_0}(h)<N\bigr)\le \frac3N+\frac{66}{h}+\frac1{4h^3}.
+\]
+\end{proposition}
+
+\begin{proof}[Sketch]
+Enlarge the state with the number $i$ of admissible entries seen so far, the age of the current gap since the last one, and a mark recording whether $u$ has exceeded $U=h^4$. The term $66/h$ is \eqref{eq:C1}; below the mark every entry has $|c|=9u\le 9U=C_0$ and is admissible.
+\begin{enumerate}
+\item \emph{Deterministic clock.} Fix $G_1$ with $NG_1\le h$. If no gap with $i<N$ reaches age $G_1$, the mark stays off and the chain survives up to $h$, then $t\le iG_1+(\text{age})$ at all times, which forces $K_{C_0}(h)\ge N$ (\lean{reloj_determinista}).
+\item \emph{A potential over gaps.} Let $R_n(z)$ be the probability of $n$ more steps without an admissible entry, alive and below the mark. The function $(N-1-i)q+R_{G_1-\text{age}}$, with $q$ a uniform bound for $R_{G_1}$ after an entry, is superharmonic and at least $1$ on the target event. Hence the probability of the event is at most $(N-1)q+R_{G_1}(\text{start})$ (\lean{cruce_dominado}). The union runs over the $N$ gaps, not over the $h$ instants.
+\item \emph{Gaps.} A gap consists of the rest of an excursion followed by a stay at the frontier. With $d=N^4(10m+3)$, \eqref{eq:H3} with $n=N^4$, $L=N^2$, $a=4m+2$, $s=6m$ gives $\Prob(\tau>d)\le 3/N^2$ uniformly in $c$ (\lean{riesgo_entrada}). At the frontier, put $V=24m$, $\theta=1+1/(4(V+3))$ and the weight $w=2\theta^{v_2(g)+1}$ at a state $(0,g)$; at a state $(1,c)$ put $w=2$ if $c$ is even and $w=\theta^{V+2}$ if $c$ is odd. Then $\theta\,\E[w(Z_{t+1})\mid Z_t]\le w(Z_t)$ off the entries, so the frontier stay exceeds $B$ steps with probability at most $\beta=2/\theta^{B}$ (\lean{deriva_frontera}, \lean{riesgo_frontera}).
+\item \emph{Parameters.} With $B=(96m+12)(19m+3)$ and $G_1=d+B+1$ one has $NG_1\le h$, and Bernoulli's inequality gives $\theta^B\ge 2^{19m+3}$, so $N\beta\le 1/(4h^3)$; also $(N-1)\cdot 3/N^2\le 3/N$ (\lean{presupuesto_lagartijas}).
+\end{enumerate}
+\end{proof}
+
+\subsection{Conclusion}
+Combining Propositions~\ref{prop:guarded} and~\ref{prop:lagartijas}, for $m\ge10$, $N=2^m$, $h=N^6$, $C_0=9h^4$ and every $J$ with $1+J(W+2)\le N$,
+\begin{equation}\label{eq:CFF}
+\Prob(\sigma>h)\le \frac3N+\frac{66}{h}+\frac1{4h^3}+(1-p)^J,
+\end{equation}
+where $W$ and $p$ are computed from $C_0$ (\lean{LagartijasGao.cf_f}); one may take $J=\lfloor (N-1)/(W+2)\rfloor$ (\lean{ensayos_caben}).
+
+\begin{proof}[Proof of Theorem~\ref{thm:martas}]
+With $C_0=9\cdot2^{24m}$ one has $T_0\le 1024m$, and writing $L_0=\lfloor\log_2T_0\rfloor$ all the parameters are powers of two in $L_0$: $W+2\le 2^{3L_0+17}$ and $D_0\le 16(8L_0+53)^2$. Hence $J\ge 2^{m-3L_0-18}$ and $p\ge 2^{-16(8L_0+53)^2-L_0-3}$. If $m\ge K+4l+62+16(8l+133)^2$ with $l=\lfloor\log_2 m\rfloor$, then $Jp\ge2^K$ (\lean{ensayos_grandes}), and Bernoulli's inequality gives $(1-p)^J\le 1/(1+Jp)\le 2^{-K}$ (\lean{cola_ensayos}). Such $m$ exist for every $K$ (\lean{existe_m}), so the right-hand side of \eqref{eq:CFF} tends to zero along $h=2^{6m}$. Since $\Prob(\sigma\le h)$ is nondecreasing in $h$ (\lean{fusion_monotona}), $\Prob(\sigma>h)\to0$.
+\end{proof}
+
+\begin{remark}[rate]\label{rem:rate}
+The bound \eqref{eq:CFF} is qualitative. The product $Jp$ first exceeds $1$ at $m=802923$, that is, for horizons $h=2^{6m}$ with $6m=4817538$. We do not know the true order of $\Prob(\sigma>t)$. By \eqref{eq:St} and Corollary~C, $1-\Prob(\sigma\le 32)=1-a(32)/2^{32}\approx0.564$, since $a(32)=1871137623$ \cite{OEIS}; the decay is slow on the computed range.
+\end{remark}
+
+\section{Density one: proof of Theorem A and Corollary C}\label{sec:density}
+
+\begin{proof}[Proof of Corollary~C]
+The residues counted by $a(t)$ are exactly those in $S_t$: fusion at time $t$ means equal values and equal odd counts at time $t$, and after a meeting both counts grow together. By \eqref{eq:St} and Theorem~\ref{thm:martas}, $a(t)/2^t=\Prob(\sigma\le t)\to1$.
+\end{proof}
+
+\begin{theorem}[\lean{TejonasGao.gao}]\label{thm:density}
+For every $\varepsilon>0$ there is $N_0$ such that $\#(\mathcal G\cap[0,N))\ge(1-\varepsilon)N$ for all $N\ge N_0$.
+\end{theorem}
+
+\begin{proof}
+Choose $t$ with $\Prob(\sigma\le t)\ge 1-\varepsilon/2$, so $|S_t|\ge(1-\varepsilon/2)2^t$. If $n\ge 4^t$ and $n\bmod 2^t\in S_t$, then $Z_t(n)=\fus$ by Proposition~\ref{prop:transport}, and Lemma~\ref{lem:classical} gives $C^{k}(n)=C^{k}(n+1)$ with $k\le 2t\le\lfloor\log_2 n\rfloor$; so $n\in\mathcal G$. Counting by blocks of length $2^t$ (\lean{conteo_bloques}),
+\[
+\#(\mathcal G\cap[0,N))\ \ge\ \Bigl\lfloor \frac N{2^t}\Bigr\rfloor |S_t|-4^t\ \ge\ \Bigl(\frac N{2^t}-1\Bigr)\Bigl(1-\frac\varepsilon2\Bigr)2^t-4^t,
+\]
+which is at least $(1-\varepsilon)N$ for $N$ large.
+\end{proof}
+
+Since $\#(\mathcal G\cap[0,N))\le N$, Theorem~\ref{thm:density} is Theorem~A. In Lean it is stated as a limit:
+
+\begin{Verbatim}[fontsize=\small]
+def f (n : ℕ) : ℕ := if n%2=0 then n/2 else 3*n+1
+def encuentro (m : ℕ) : Prop := ∃ k, k≤Nat.log 2 m ∧ f^[k] m=f^[k] (m+1)
+theorem conjetura_gao :
+    Tendsto
+      (fun N : ℕ => (((Finset.range N).filter encuentro).card:ℝ)/N)
+      atTop (𝓝 1)
+\end{Verbatim}
+
+\noindent (Line breaks are adjusted for display.) Here \texttt{Nat.log 2 m} is $\lfloor\log_2 m\rfloor$ for $m\ge1$ and $0$ for $m=0$; for an integer $k$, $k\le\log_2 m$ is the same as $k\le\lfloor\log_2 m\rfloor$. The theorem has no hypotheses.
+
+\section{Gao's literal form: proof of Theorem B}\label{sec:literal}
+
+\begin{lemma}[bridge; \lean{Hienas.puente}]\label{lem:bridge}
+Let $n\ge1$ and $j\le\lfloor\log_2 n\rfloor$ with $C^{j}(n)=C^{j}(n+1)$. Then $n$ and $n+1$ coalesce at step $j$ in the sense of Definition~\ref{def:coalesce}.
+\end{lemma}
+
+\begin{proof}
+Put $Y=C^{j}(n)=C^{j}(n+1)$; note that $2^j\le n$. One step of $C$ at most halves a positive number, so $x\le 2^iC^{i}(x)$ for all $i$ and $x$.
+
+\emph{No $1$.} If $C^{i}(n)=1$ with $i\le j$, then $n\le2^i\le2^j\le n$, so $i=j$ and $n=2^j$; but then $C^{j}(n+1)=1$ and $n+1\le 2^j=n$, a contradiction. If $C^{i}(n+1)=1$ with $i\le j$, then $n+1\le 2^j\le n$, again a contradiction.
+
+\emph{Equal halvings.} Suppose that among the first $i$ steps from $x$ there are $t$ odd steps and $m$ halvings. By induction on $i$,
+\begin{equation}\label{eq:invariant}
+3^{t}x\le 2^{m}C^{i}(x)\qquad\text{and}\qquad 3\cdot 2^{m}C^{i}(x)\le 3^{t}\,(3x+2^{i})
+\end{equation}
+(\lean{Hienas.invariante}). Let $(t_1,m_1)$ and $(t_2,m_2)$ be the counts for $n$ and $n+1$ at step $j$, so that $t_1+m_1=t_2+m_2=j$, and suppose $m_1<m_2$, say $m_2=m_1+e$ and $t_1=t_2+e$ with $e\ge1$. The first inequality for $n$ and the second for $n+1$ give
+\[
+3\cdot 2^{e}\,3^{t_2+e}\,n\ \le\ 3\cdot2^{e}\cdot 2^{m_1}Y\ =\ 3\cdot 2^{m_2}Y\ \le\ 3^{t_2}\bigl(3(n+1)+2^{j}\bigr),
+\]
+that is, $3\cdot6^{e}n\le 3n+3+2^j\le 4n+3$. With $e\ge1$ this says $18n\le 4n+3$, impossible for $n\ge1$. The case $m_2<m_1$ is symmetric and leads to $18(n+1)\le 3n+2^j\le 4n$, also impossible.
+\end{proof}
+
+\begin{proof}[Proof of Theorem B]
+If $n\in\mathcal G$ and $n<2^k$, then $n\ge1$ and the meeting step $j$ satisfies $j\le\lfloor\log_2 n\rfloor\le k-1$, so by Lemma~\ref{lem:bridge} $n$ and $n+1$ coalesce at a step $j\le k$. Hence
+\[
+2^k\dbar_k\ \ge\ \#(\mathcal G\cap[0,2^k))-1,
+\]
+the $-1$ accounting for $n=2^k-1$, which Gao's count excludes. By Theorem~A the right-hand side divided by $2^k$ tends to $1$, and $\dbar_k\le 1$. Likewise $d(x)\ge \#(\mathcal G\cap[0,x))/x\to1$ (\lean{Hienas.gao_de_lagarias}, \lean{Hienas.d_de_lagarias}).
+\end{proof}
+
+The definitions in Lean, in a file that imports only Mathlib, are:
+
+\begin{Verbatim}[fontsize=\small]
+def C (n : ℕ) : ℕ := if n % 2 = 0 then n / 2 else 3 * n + 1
+def mitades : ℕ → ℕ → ℕ        -- halvings among the first k steps
+  | 0, _ => 0
+  | k + 1, n => (if n % 2 = 0 then 1 else 0) + mitades k (C n)
+def coalescen (n k : ℕ) : Prop :=
+  C^[k] n = C^[k] (n + 1) ∧ mitades k n = mitades k (n + 1) ∧
+    ∀ i, i ≤ k → C^[i] n ≠ 1 ∧ C^[i] (n + 1) ≠ 1
+noncomputable def dbarra (k : ℕ) : ℝ :=
+  (((Finset.range (2 ^ k - 1)).filter
+      (fun n => ∃ j, j ≤ k ∧ coalescen n j)).card : ℝ) / 2 ^ k
+noncomputable def d (x : ℕ) : ℝ :=
+  (((Finset.range x).filter (fun n => ∃ j, coalescen n j)).card : ℝ) / x
+def FormaGao : Prop := Tendsto dbarra atTop (𝓝 1)
+def FormaGaoD : Prop := Tendsto d atTop (𝓝 1)
+theorem conjetura_gao_literal : Hienas.FormaGao ∧ Hienas.FormaGaoD
+\end{Verbatim}
+
+\noindent The same file restates Lagarias's form without importing anything from the project, and Lean checks that \lean{conjetura_gao} proves it as stated (\lean{GaoLiteral.lagarias}).
+
+\begin{lemma}[\lean{CondorasWu.racha_de_coalescencia}]\label{lem:same-height}
+If $n$ reaches $1$ and $n$, $n+1$ coalesce, then $n$ and $n+1$ have the same height and the same total stopping time.
+\end{lemma}
+
+\begin{proof}
+Let them coalesce at step $j$ and let $h$ be the height of $n$. Since $1$ does not occur up to step $j$, $j<h$. The trajectories agree from step $j$ on, so $C^{h}(n+1)=1$, and $1$ does not occur earlier in the trajectory of $n+1$: before step $j$ by condition~(3), after it because the trajectories agree. The halvings agree up to step $j$ by condition~(2), and afterwards the steps are the same.
+\end{proof}
+
+\section{Methods: formalization, checks and use of AI tools}\label{sec:formal}
+
+\subsection{The development}
+The formalization uses Lean~4.32.2 and Mathlib at commit \texttt{905b95818eb3} (tag v4.32.2), and is built with \texttt{lake build GaoCore GaoFormal}. The results of this paper use $26$ modules: the transition \lean{cadena_completa}, an earlier module \texttt{rachas} on runs of shared steps, and $24$ modules listed in Table~\ref{tab:files}. Together they have $6067$ lines, comments included, with $374$ theorems and lemmas and $142$ definitions. With the companion papers the project has $30$ modules and about $6900$ lines of Lean. The development does not use the measure theory or the probability theory of Mathlib: all the probabilities are finite averages over bit words (Section~\ref{sec:chain}), and the martingale, potential and drift arguments of Section~\ref{sec:absorption} are carried out on these finite sums. The sources are archived on Zenodo \cite{Artifact}, where the Lake project is the directory \lean{depuracion/gao20260920/formal}; the file \texttt{evidencia\_gao\_lean.json} of the archive records the build, the exit code of \texttt{leanchecker} for each module and, for the modules that state the main results, their SHA-256 hashes and the output of \texttt{\#print axioms}.
+
+\begin{table}[ht]
+\caption{Lean modules and the results of this paper.}\label{tab:files}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.50\textwidth}>{\raggedright\arraybackslash}p{0.44\textwidth}@{}}
+\toprule
+Modules & Content \\
+\midrule
+\lean{cadena_completa} & the transition $P$ \\
+\texttt{Momentos}, \texttt{Maximos} & square-root drift, \eqref{eq:C1}, finite maxima \\
+\texttt{Resto}, \texttt{Producto} & affine identity of an excursion; product bound \\
+\texttt{Supervivencia}, \texttt{Banda} & \eqref{eq:H1}, \eqref{eq:H2} \\
+\texttt{rachas}, \texttt{RachasEnteras}, \texttt{UmbralRachas}, \texttt{Reloj} & \eqref{eq:runs}, \eqref{eq:M6}, \eqref{eq:H3} \\
+\texttt{Palabras}, \texttt{SalidaPalabras}, \texttt{Ventana}, \texttt{ParametrosVentana} & Proposition~\ref{prop:VH} \\
+\texttt{Hormigas}, \texttt{Ensayo} & Propositions~\ref{prop:hormigas} and~\ref{prop:EF} \\
+\texttt{Repeticion}, \texttt{Guardias}, \texttt{ConteoEnsayos} & Proposition~\ref{prop:guarded} \\
+\texttt{Lagartijas} & Proposition~\ref{prop:lagartijas}, \eqref{eq:CFF} \\
+\texttt{Martas} & Theorem~\ref{thm:martas} \\
+\texttt{Tejonas}, \texttt{GaoEnunciado} & Section~\ref{sec:chain}; Theorems~\ref{thm:density} and~A \\
+\texttt{Hienas}, \texttt{GaoLiteral} & Lemma~\ref{lem:bridge}; Theorem~B \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{What is certified}\label{sec:certified}
+The command \texttt{\#print axioms} reports, for \lean{GaoEnunciado.conjetura_gao}, \lean{GaoLiteral.lagarias} and \lean{GaoLiteral.conjetura_gao_literal}, only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. The sources contain no \texttt{sorry}, \texttt{admit}, \lean{native_decide}, declared axioms, \texttt{extern} or \lean{implemented_by}, and no notation, macro or instance that changes the meaning of the statements; the only instances are \texttt{Decidable} instances obtained by \lean{infer_instance}. On 26 September 2026 the whole development was rebuilt from scratch, and the independent checker \texttt{leanchecker} replayed each of the $30$ modules of the project with exit code~$0$; runs of \texttt{leanchecker --fresh}, which also replays the Mathlib declarations, succeeded on the final statement modules. On 27 September 2026 the statement files were compiled again from the same sources, with the same axioms.
+
+Lean certifies that the displayed statements are proved; it does not certify that they mean what the text says. The statements above are short and self-contained, and we invite readers to check them against Definition~\ref{def:coalesce} and Gao's paper.
+
+The commands \texttt{\#guard} in \lean{GaoLiteral.lean} recompute Gao's Table~3 for $4\le k\le 12$ from the definitions of \lean{Hienas.lean}. They are evaluated by the Lean interpreter, not by the kernel, and no theorem depends on them.
+
+\subsection{Numerical checks}
+We also ran independent Python programs, which do not use the Lean code and are included in the archive \cite{Artifact}. They check the following facts.
+\begin{itemize}
+\item \emph{Definitions against Gao's tables.} With the definitions above, the numbers $2^k\dbar_k$ for $1\le k\le 24$ are
+0, 0, 0, 1, 4, 11, 29, 65, 145, 305, 641, 1317, 2733, 5565, 11397, 23181, 47181, 95589, 193901, 392157, 793277, 1601597, 3234269, 6522141.
+Rounded to three decimals, $\dbar_k$ reproduces all $21$ entries of Gao's Table~3. The values $d(10^j)$ for $2\le j\le 8$ are $0.310$, $0.365$, $0.4161$, $0.4502$, $0.4772$, $0.4965$ and $0.5124$, reproducing all seven entries of his Table~2. Gao's tables were computed with his own definitions, so this is a check of our reading of Definition~\ref{def:coalesce}.
+\item \emph{The bridge.} For all $1\le n<2^{22}$, every meeting within $\lfloor\log_2 n\rfloor$ steps is a coalescence in Gao's sense ($1567551$ meetings, no exception).
+\item \emph{The chain.} For the $262144$ pairs $(n,n+1)$ with $2^{18}\le n<2^{19}$, the state computed from the integers agrees with the chain at every time $t\le18$, the anchor words run through each residue class modulo $2^{18}$ exactly once, and each of the $103358$ pairs fused by time $18$ meets under $C$ within $2t$ steps, where $t$ is its fusion time.
+\end{itemize}
+These are finite checks of the definitions and of the reading of the statements; the universal statements rest on the Lean proofs.
+
+\subsection{Use of AI tools}\label{sec:ai}
+The formalization, the numerical checks and the first draft of this text were produced with extensive assistance from large language models of Anthropic's Claude family, used as programming and proof assistants: Claude Opus~5.5 for the final chain of results (September 2026), and Claude Opus~5 and Claude Fable~5 in earlier stages of the same project, according to the commit history. The models worked in an agentic coding environment: they wrote and edited the Lean sources and the Python programs, ran the Lean compiler and the checks, and revised the code according to the error messages.
+
+No output of a model was accepted on trust. A result counts as proved only when the Lean kernel accepts it, \texttt{\#print axioms} reports only the three standard axioms, and the constructs excluded in Section~\ref{sec:certified} are absent; \texttt{leanchecker} then replays every module independently. Scripts check that every Lean name cited in this text exists in the sources, and that every declaration in the Lean code displayed in Sections~\ref{sec:density} and~\ref{sec:literal} appears in the sources symbol by symbol. Every mathematical statement of the paper is either proved in Lean or labelled as a remark. The language models are not authors; the author directed the work and is responsible for the content.
+
+\subsection{What we ask reviewers to check}\label{sec:ask}
+The author is an independent researcher, and the development was written with the help of AI tools (Section~\ref{sec:ai}). For these reasons we ask reviewers for three separate verdicts, each of which can be answered by yes or no and located precisely.
+\begin{enumerate}
+\item \emph{The statements.} Do \lean{GaoEnunciado.conjetura_gao} and \lean{GaoLiteral.conjetura_gao_literal}, together with the definitions they use (in \lean{GaoEnunciado.lean}, \lean{Hienas.lean} and \lean{GaoLiteral.lean}), say what Theorems~A and~B say, and do these agree with Gao's conjecture \cite{Gao93} and with Lagarias's record of it \cite{Lag03}?
+\item \emph{The proofs.} Does the development prove these statements without \texttt{sorry}, declared axioms or hidden hypotheses? The commands \texttt{lake build GaoCore GaoFormal} and \texttt{\#print axioms}, and the file \texttt{evidencia\_gao\_lean.json} of the archive \cite{Artifact}, are the relevant evidence.
+\item \emph{The text.} Is the mathematical account of Sections~\ref{sec:chain}--\ref{sec:literal} faithful to the formal development, so that a reader who does not use Lean is not misled?
+\end{enumerate}
+A negative answer to any of them, with the place where it fails, is the most useful report we can receive.
+
+\section{Remarks and open questions}\label{sec:remarks}
+
+\begin{enumerate}
+\item \emph{A rate.} Remark~\ref{rem:rate} leaves open any quantitative form of Theorem~A. Numerically the density of the complement of $\mathcal G$ in $[0,N)$ decreases very slowly: $0.636$ at $N=2^{20}$ and $0.626$ at $N=2^{22}$.
+\item \emph{Garner's first conjecture.} If $n\in\mathcal G$, then by Lemmas~\ref{lem:bridge} and~\ref{lem:same-height} either both $n$ and $n+1$ reach $1$ with the same height, or neither does. Hence Theorem~A says that the height, taken in $\N\cup\{\infty\}$, agrees with that of the next integer for a set of density one. With finite heights, Garner's conjecture that a majority of integers have the height of a neighbour requires in addition that almost all integers reach $1$ (see \cite{SaidWu}). This remark is not formalized.
+\item \emph{Gao's question.} Gao asked whether $\operatorname{height}(n)=\operatorname{height}(n+1)$ implies $\sigma_\infty(n)=\sigma_\infty(n+1)$, and checked it for $n<2^{18}$ \cite[p.~266]{Gao93}. Our computation finds no counterexample for $n<2^{24}$. The argument of Lemma~\ref{lem:bridge} proves it when the trajectories meet within $\log_2 n$ steps, but not in general.
+\item \emph{Consequences.} The class structure behind Corollary~C yields arbitrarily long runs of consecutive integers of the same height and total stopping time \cite{SaidGarner}, which is Garner's second conjecture and implies the second conjecture of Wu. With Theorem~B, Wu's first conjecture becomes equivalent to the statement that the integers reaching $1$ have natural density one \cite{SaidWu}.
+\end{enumerate}
+
+\section*{Statements and Declarations}
+
+\subsection*{Funding}
+No funding was received for conducting this study.
+
+\subsection*{Competing interests}
+The author declares no competing interests.
+
+\subsection*{Author contributions}
+The author is the sole contributor. Large language models were used as described in Section~\ref{sec:ai}; they are not authors.
+
+\subsection*{Data and code availability}
+The Lean sources, the record of the build and the programs of the numerical checks are openly available on Zenodo at \url{https://doi.org/10.5281/zenodo.23003500} \cite{Artifact}. A port of the same development to Lean v4.35.0-rc2 is public at \url{https://github.com/theswordofthemorning/gao-palomar}. The numbers $a(t)$ of Corollary~C are sequence A398792 of the OEIS \cite{OEIS}.
+
+\subsection*{Preprint}
+An earlier version of this paper is available at \url{https://doi.org/10.5281/zenodo.23003524}.
+
+\begin{thebibliography}{99}
+
+\bibitem{Lean4} L.~de~Moura and S.~Ullrich, \emph{The Lean~4 theorem prover and programming language}, in: Automated Deduction -- CADE~28, Lecture Notes in Comput.\ Sci.\ 12699, Springer, 2021, 625--635. \url{https://doi.org/10.1007/978-3-030-79876-5_37}
+
+\bibitem{ET15} M.~Elia and A.~Tucker, \emph{Consecutive integers and the Collatz conjecture}, Integers 15 (2015), \#A54. arXiv:1511.09141.
+
+\bibitem{Eve77} C.~J.~Everett, \emph{Iteration of the number-theoretic function $f(2n)=n$, $f(2n+1)=3n+2$}, Adv.\ Math.\ 25 (1977), 42--45. \url{https://doi.org/10.1016/0001-8708(77)90087-1}
+
+\bibitem{Fri25} K.~Frinkle, S.~Rowland, J.~Pack, M.~Gordon, J.~Eskue, S.~Egbe and M.~Morris, \emph{Computing streaks of consecutive numbers with the same Collatz height}, J.~Supercomput.\ 81 (2025), art.~1338. \url{https://doi.org/10.1007/s11227-025-07820-8}
+
+\bibitem{Gao93} G.-G.~Gao, \emph{On consecutive numbers of the same height in the Collatz problem}, Discrete Math.\ 112 (1993), 261--267. \url{https://doi.org/10.1016/0012-365X(93)90240-T}
+
+\bibitem{Gar85} L.~E.~Garner, \emph{On heights in the Collatz $3n+1$ problem}, Discrete Math.\ 55 (1985), 57--64. \url{https://doi.org/10.1016/S0012-365X(85)80020-0}
+
+\bibitem{KL03} I.~Krasikov and J.~C.~Lagarias, \emph{Bounds for the $3x+1$ problem using difference inequalities}, Acta Arith.\ 109 (2003), 237--258. \url{https://doi.org/10.4064/aa109-3-4}
+
+\bibitem{LaD17} M.~D.~LaDue, \emph{Clusters of integers with equal total stopping times in the $3x+1$ problem}, arXiv:1709.02979, 2017.
+
+\bibitem{Lag85} J.~C.~Lagarias, \emph{The $3x+1$ problem and its generalizations}, Amer.\ Math.\ Monthly 92 (1985), 3--23. \url{https://doi.org/10.1080/00029890.1985.11971528}
+
+\bibitem{Lag03} J.~C.~Lagarias, \emph{The $3x+1$ problem: an annotated bibliography (1963--1999)}, arXiv:math/0309224, version of 2011.
+
+\bibitem{Lag10} J.~C.~Lagarias (ed.), \emph{The Ultimate Challenge: The $3x+1$ Problem}, Amer.\ Math.\ Soc., Providence, RI, 2010. \url{https://doi.org/10.1090/mbk/078}
+
+\bibitem{Mathlib} The mathlib Community, \emph{The Lean mathematical library}, in: Proc.\ 9th ACM SIGPLAN Int.\ Conf.\ on Certified Programs and Proofs (CPP 2020), 367--381. \url{https://doi.org/10.1145/3372885.3373824}
+
+\bibitem{OEIS} OEIS Foundation Inc., \emph{The On-Line Encyclopedia of Integer Sequences}, \url{https://oeis.org}, sequence A398792.
+
+\bibitem{SaidGarner} O.~J.~Said Duran, \emph{Arbitrarily long runs of consecutive integers with the same Collatz height}, preprint, Zenodo, 2026. \url{https://doi.org/10.5281/zenodo.23003526}
+
+\bibitem{Artifact} O.~J.~Said Duran, \emph{Formal proofs in Lean~4 of conjectures of Gao, Garner and Wu on consecutive integers in the Collatz problem}, software, version~1.0.0, Zenodo, 2026. \url{https://doi.org/10.5281/zenodo.23003500}
+
+\bibitem{SaidWu} O.~J.~Said Duran, \emph{On two conjectures of Wu on consecutive integers of the same height in the Collatz problem}, preprint, Zenodo, 2026. \url{https://doi.org/10.5281/zenodo.23003528}
+
+\bibitem{Tao22} T.~Tao, \emph{Almost all orbits of the Collatz map attain almost bounded values}, Forum Math.\ Pi 10 (2022), e12. \url{https://doi.org/10.1017/fmp.2022.8}
+
+\bibitem{Ter76} R.~Terras, \emph{A stopping time problem on the positive integers}, Acta Arith.\ 30 (1976), 241--252. \url{https://doi.org/10.4064/aa-30-3-241-252}
+
+\bibitem{WH01} J.~B.~Wu and G.~L.~Huang, \emph{Families of pairs of consecutive integers of the same height in the Collatz conjecture}, Math.\ Appl.\ (Wuhan) 14 (2001), suppl., 21--25.
+
+\bibitem{Wu92} J.~B.~Wu, \emph{A tendency of the proportion of consecutive numbers of the same height in the Collatz problem} (in Chinese), J.~Huazhong Univ.\ Sci.\ Tech.\ 20 (1992), no.~5, 171--174.
+
+\bibitem{Wu93} J.~B.~Wu, \emph{On the consecutive positive integers of the same height in the Collatz problem} (in Chinese), Math.\ Appl.\ 6 (1993), suppl., 150--153.
+
+\bibitem{Wu95} J.~B.~Wu, \emph{The monotonicity of pairs of coalescence numbers in the Collatz problem} (in Chinese), J.~Huazhong Univ.\ Sci.\ Tech.\ 23 (1995), suppl.~II, 170--172.
+
+\end{thebibliography}
+
+\end{document}

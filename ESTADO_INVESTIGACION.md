@@ -47,7 +47,10 @@ Garner.
 - **Artículos.** Tres `.tex` ([papers](papers/README.md)) y artefacto en
   Zenodo ([DOI](papers/zenodo/LEEME.md)). AFM rechazó el I. El I, versión 2,
   se envió a Qeios (envío 5962), sin pasar a *Version of Record*; II y III
-  esperan ([Qeios](papers/qeios/LEEME.md)). Palomar, 29-09: Gao en Lean
+  esperan ([Qeios](papers/qeios/LEEME.md)). **01-10: el I, adaptado, se
+  envió al *Journal of Automated Reasoning*** (SNAPP `6ea1db0a…`, en
+  revisión técnica; [JAR](papers/jar/LEEME.md)). Qeios queda descartado:
+  retiro del 5962 pedido el 01-10. Palomar, 29-09: Gao en Lean
   v4.35.0-rc2 en `theswordofthemorning/gao-palomar`, CI en verde, en
   verificación ([Palomar](papers/palomar/LEEME.md)). Zulip: publicado el 29-09
   ([registro](papers/qeios/ZULIP_borrador.md)); responder sólo con autorización.
