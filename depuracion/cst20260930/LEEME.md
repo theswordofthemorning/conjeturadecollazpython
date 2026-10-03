@@ -5,6 +5,21 @@ que la [segunda opinión](../transversal20260927/SEGUNDA_OPINION_20260928.md)
 proponía como frente principal. El objetivo candidato era el caso de dos rachas
 impares, y está cerrado.
 
+**Rhin, 02-10:** hipótesis literal y sólo para alturas grandes en
+[OcelotasRhin.lean](OcelotasRhin.lean); auditoría en [RHIN_LEAN.md](RHIN_LEAN.md).
+
+**Sin Rhin en Lean, 02-10:** [OcelotasLMN.lean](OcelotasLMN.lean) prueba
+`cst_lmn`, CST hasta diez rachas, con la cota publicada de
+Laurent–Mignotte–Nesterenko (1995) como única hipótesis externa:
+[LMN_LEAN.md](LMN_LEAN.md).
+
+**Rachas, 02-10:** con los convergentes de `log2 3`, no hay fallos de CST con
+hasta 17 rachas impares (barrido propio hasta `2^23`), ni con hasta 73 si se
+añade el corolario 5.4 de Rozier–Terracol. Para `k` de más de 3010 cifras
+basta la cota publicada de Laurent–Mignotte–Nesterenko (1995); ya no se usa
+Rhin. Prueba asistida por cálculo exacto, sin Lean:
+[RACHAS_CONVERGENTES.md](RACHAS_CONVERGENTES.md).
+
 **Revisión posterior:** [extensión exacta hasta diez rachas](REVISION_RACHAS.md),
 bajo `RhinEntera`, con prueba escrita, criba entera y cotejo independiente.
 El [cierre en Lean](CIERRE_LEAN.md) certifica la criba, el descenso finito
@@ -153,8 +168,24 @@ Siete módulos compilaron sin `sorryAx` ([registro](lean_cierre.txt)).
 La [quinta tanda](CONTADOR_LEAN.md) construye `Palabra` desde el contador
 canónico y prueba que no hay descenso antes del cruce. Ocho módulos
 compilan sin `sorryAx` ([registro](lean_contador.txt)).
-**Siguiente:** auditar el rango y las constantes de Rhin contra la fuente
-original y estudiar su descarga en Lean; revisión humana pendiente.
+La [sexta tanda](RHIN_LEAN.md), del 02-10, audita Rhin. El original no se
+pudo leer, pero las citas confirman la forma `H^(−13,3)` sin constante
+adicional. [OcelotasRhin.lean](OcelotasRhin.lean) toma como hipótesis la
+desigualdad real publicada, sólo en el caso homogéneo y sólo para
+`H ≥ H0 ≤ 131072`, y demuestra el paso a la forma entera (`cst_rhin`).
+`cst_rhin_tramo` admite cualquier umbral, con el tramo finito aparte. Un
+[certificado por convergentes](verificar_rhin_convergentes_salida.txt) da la
+forma entera para todo `k` hasta 3010 cifras. Nueve módulos sin `sorryAx`
+([registro](lean_rhin.txt)).
+La [séptima tanda](RACHAS_CONVERGENTES.md) sustituye la criba por `q` por
+intervalos entre convergentes. Da hasta 17 rachas sin datos externos y hasta
+73 con Rozier–Terracol.
+La [octava tanda](LMN_LEAN.md) lleva el esquema a Lean para diez rachas y
+sustituye Rhin por LMN.
+**Siguiente:** revisión humana de `LMNDebil` frente al corolario 2 de LMN
+(original no leído; la forma usada se apoya en citas y en las notas de
+Evertse). Decidir si se formaliza la séptima tanda, que exige CST en el
+núcleo para `n < 4,7·10^6`. Rhin (1987) sólo queda para `cst_rhin`.
 
 Se conservan los estudios preliminares [r_rachas.py](r_rachas.py)
 ([salida](r_rachas_salida.txt)) y [r_rachas_fino.py](r_rachas_fino.py)

@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30",
+  "version": "2026-10-02",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -936,6 +936,51 @@
       "fichero": "depuracion/cst20260930/REVISION_RACHAS.md",
       "fuente": "propio; Rhin externo, cotejado con Rozier-Terracol arXiv:2502.00948v5 proposicion 6.3; extension de Ocelotas",
       "notas": "Cierre en Lean mediante el contador canonico rachas n k, con RhinEntera como hipotesis externa explicita; no se demuestra Rhin ni existencia universal del primer cruce. OcelotasContador.lean prueba rachas_eq_card, extrae Palabra desde cualquier prefijo impar terminado en par, demuestra que el primer cruce termina en par y aplica ocelotas_diez. cst_contador prueba descenso en k y ausencia de descenso anterior; fallo_contador_exige_once exige al menos once rachas ante un fallo. OcelotasTrayectorias.lean deduce congruencias y control aditivo desde la orbita y reduce un fallo a k<131072. OcelotasFinito.lean certifica descenso y existencia del primer cruce k<=105 para 2<=n<=11214, sin Rhin, y reduce q a <=82696. OcelotasCriba.lean demuestra la correccion de intervalos enteros de escala 2^48; OcelotasCertificado.lean comprueba 81 bloques en el nucleo, prueba criba_certificada y la aplica en ocelotas_diez: desaparece hcriba. OcelotasCierre.lean incluye el caso par y fallo_exige_once, para fallos representados por rachas reales. Cotejo de cada uno de los 82696 marcos contra potencias exactas: 82593 casos por cota de semilla y 103 por criba lineal, coincidentes con el cotejo anterior. Se conservan el certificado original de 888 supervivientes, el cotejo de 1023 y las 11213 trayectorias coincidentes. Reconstruccion limpia de ocho modulos Lean 4.32.2, codigo 0, solo propext, Classical.choice y Quot.sound; sin sorryAx. Nuevo cotejo exacto independiente: 8191 palabras binarias de longitud hasta 12 y 33024 prefijos de orbita, incluidos bordes y rachas abiertas; cero fallos. Ver CONTADOR_LEAN.md, lean_contador.txt y cotejo_contador.json; evidencia aritmetica anterior conservada en CIERRE_LEAN.md y lean_cierre.txt. Pendiente: auditar rango y constantes de Rhin contra la fuente original y estudiar su descarga en Lean; revision humana y de novedad. Cifras para r>10 siguen exploratorias; salida 2^29 vacia no acredita terminacion."
+    },
+    {
+      "clave": "ocelotas_cst_diez_rachas_rhin_literal",
+      "enunciado": "OCELOTAS CON LA PROPOSICION DE RHIN LITERAL, SOLO PARA ALTURAS GRANDES: atajo T(n)=n/2 o (3n+1)/2; tau(n)=k el primer cruce del coeficiente. Si para algun H0 <= 131072 vale |u1 log 2 + u2 log 3| >= H^(-13,3) para todos los enteros u1, u2 con H = max(|u1|,|u2|) >= H0 (caso homogeneo de la proposicion de Rhin, 1987, p. 160), entonces para todo n >= 2 con primer cruce k y a lo sumo diez rachas impares en los k primeros pasos, n <= T^j(n) para j < k y T^k(n) < n. Con cualquier H0 basta anadir la forma entera 3^q <= (2^k-3^q)k^14 en el tramo 131072 <= k < H0.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasRhin.lean",
+      "fuente": "propio; hipotesis: G. Rhin, Progr. Math. 71 (1987) 155-164, proposicion de la p. 160, en la forma aplicada por Simons-de Weger, Acta Arith. 117 (2005), lema 12; original no consultado",
+      "notas": "cst_rhin y cst_rhin_tramo en OcelotasRhin.lean. desde_homogenea demuestra el paso, antes escrito a mano, de la desigualdad real a la forma entera: Delta = 3^q(e^Lambda - 1) >= 3^q Lambda >= 3^q k^(-13,3) >= 3^q k^(-14), con H = k porque q < k. La cadena de diez rachas solo usa Rhin en tiempo_diez, para descartar k >= 131072; se repiten los cuerpos de tiempo_diez, diez_de_certificado, descenso_contador y cst_contador con la hipotesis puntual, sin tocar los modulos certificados. desde_de_entera: la hipotesis nueva es mas debil que RhinEntera. Lean 4.32.2 y Mathlib del proyecto de Gao, con Mathlib.Analysis.SpecialFunctions.Pow.Real traido por lake exe cache get el 02-10; nueve modulos, codigo 0, solo propext, Classical.choice y Quot.sound (lean_rhin.txt). Auditoria de la fuente y estudio de descarga en RHIN_LEAN.md: el umbral de la proposicion no se pudo cotejar. PENDIENTE: original de Rhin, revision humana y de novedad."
+    },
+    {
+      "clave": "rhin_entera_convergentes",
+      "enunciado": "FORMA ENTERA DE RHIN POR CONVERGENTES: para todo k <= p_5777 (numerador del convergente 5777 de log2 3, un entero de 3010 cifras) y todo q con 2^(k-1) <= 3^q < 2^k, vale 3^q <= (2^k - 3^q) k^14. El exponente efectivo mu con Lambda = p^(-mu) no supera 1,32 en los convergentes superiores con p >= 1000.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/cst20260930/verificar_rhin_convergentes.py",
+      "fuente": "propio; reduccion por el teorema de Legendre",
+      "notas": "Si fallara en (k,q) con k >= 2, Lambda k^14 < 1 y la fraccion reducida seria un convergente superior de log2 3 con Lambda' k'^14 < 1 (|log2 3 - k'/q'| < 1/(2q'^2)). Encierro entero de log2 3 con 20000 bits por cuadrados sucesivos y redondeo dirigido; 5779 cocientes parciales comunes a las dos cotas, 4816 cotejados con decimal.ln; log 2 > 0,693 por la serie de exp con resto; 2889 convergentes superiores, siete tambien con enteros exactos (q <= 200000); barrido exacto q <= 3000 con menor cociente 5461 en q = 1. Calculo exacto, no Lean: hace inocuo un umbral de Rhin por debajo de p_5777 (cst_rhin_tramo)."
+    },
+    {
+      "clave": "cst_rachas_17_convergentes",
+      "enunciado": "CST HASTA 17 RACHAS POR CONVERGENTES: atajo T; tau(n)=k el primer cruce del coeficiente, q = S_k(n). Usando en la cola (q >= q_5778, k de unas 3010 cifras) la cota de Laurent-Mignotte-Nesterenko (1995) en la forma debil log Lambda >= -30 (log(2k)+21)^2, o bien Rhin, todo n >= 2 con tau(n) finito y a lo sumo 17 rachas impares en sus k primeros pasos cumple T^k(n) < n, luego t(n) = tau(n). Un fallo de CST necesita al menos 18 rachas impares.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/rachas_convergentes.py",
+      "fuente": "propio; teorema de mejor aproximacion de Lagrange; en la cola Laurent-Mignotte-Nesterenko, J. Number Theory 55 (1995), corolario 2 (o Rhin 1987)",
+      "notas": "Prueba: fallo_producto da (2^k-3^q) n < r 3^q, luego n < R/Lambda; criba_desde_trayectoria y cota_monotona dan q <= cota(R,m) si n+1 < 2^m (lemas en Lean); por la mejor aproximacion de Lagrange, para q_j <= q < q_(j+1) vale Lambda >= log 2/(q_j+q_(j+1)), asi que n < s_j = R(q_j+q_(j+1))/log 2 y cada intervalo sobrevive solo si cota(R, bits(s_j)) >= q_j; para q >= q_5778, con k <= 2q y cota(R,m) <= G_R m, G_R = 5(8^R-5^R)/(3*5^R), no hay supervivientes ni con Rhin (n < R k^14) ni con la forma debil de Laurent-Mignotte-Nesterenko (n < R e^(30(log 4q+21)^2)); ya no hace falta la proposicion de Rhin no leida. Todo fallo con r <= R tiene n < N_R. Calculo exacto con los 5779 cocientes certificados de verificar_rhin_convergentes.py; cotejo independiente: CST directa para n < 4674093, mejor aproximacion para q <= 200000 y Lambda exacta para q <= 3000 (cotejo_rachas_convergentes_salida.txt). No formalizado en Lean. Ver RACHAS_CONVERGENTES.md. Cierre con N_17 = 4674068 < 2^23: CST comprobada para 2 <= n < 2^23 en el barrido del 30-09 (verificar_r_rachas_23_salida.txt). El salto a 18 rachas lo causa el convergente 301994/190537 (N_18 = 280033091). PENDIENTE: Lean y revision humana."
+    },
+    {
+      "clave": "cst_rachas_73_rozier_terracol",
+      "enunciado": "CST HASTA 73 RACHAS, CONDICIONAL A ROZIER-TERRACOL: con las hipotesis de cst_rachas_17_convergentes y ademas el corolario 5.4 de Rozier-Terracol (t(n) = tau(n) para 2 <= n <= 2,8*10^19), todo n >= 2 con tau(n) finito y a lo sumo 73 rachas impares en sus k primeros pasos cumple T^k(n) < n. Un fallo de CST necesitaria al menos 74 rachas impares.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/rachas_convergentes.py",
+      "fuente": "propio; hipotesis externa: Rozier y Terracol, arXiv:2502.00948v5, corolario 5.4 (Discrete Math. 349 (2026) 115167), apoyado en tablas de Oliveira e Silva y Roosendaal",
+      "notas": "Prueba: fallo_producto da (2^k-3^q) n < r 3^q, luego n < R/Lambda; criba_desde_trayectoria y cota_monotona dan q <= cota(R,m) si n+1 < 2^m (lemas en Lean); por la mejor aproximacion de Lagrange, para q_j <= q < q_(j+1) vale Lambda >= log 2/(q_j+q_(j+1)), asi que n < s_j = R(q_j+q_(j+1))/log 2 y cada intervalo sobrevive solo si cota(R, bits(s_j)) >= q_j; para q >= q_5778, con k <= 2q y cota(R,m) <= G_R m, G_R = 5(8^R-5^R)/(3*5^R), no hay supervivientes ni con Rhin (n < R k^14) ni con la forma debil de Laurent-Mignotte-Nesterenko (n < R e^(30(log 4q+21)^2)); ya no hace falta la proposicion de Rhin no leida. Todo fallo con r <= R tiene n < N_R. Calculo exacto con los 5779 cocientes certificados de verificar_rhin_convergentes.py; cotejo independiente: CST directa para n < 4674093, mejor aproximacion para q <= 200000 y Lambda exacta para q <= 3000 (cotejo_rachas_convergentes_salida.txt). No formalizado en Lean. Ver RACHAS_CONVERGENTES.md. Cierre con N_73 = 14397378448011333217 <= 2,8*10^19; para R = 74, N_74 = 4,25*10^19 ya no cierra. La hipotesis de Rozier-Terracol es un calculo externo no repetido aqui."
+    },
+    {
+      "clave": "ocelotas_cst_diez_rachas_lmn",
+      "enunciado": "OCELOTAS SIN RHIN, EN LEAN: atajo T; tau(n)=k el primer cruce del coeficiente. Bajo LMNDebil (para 2 <= k y 2^(k-1) <= 3^q < 2^k: k log 2 - q log 3 >= exp(-27 (log(2k) + 21)^2), implicada por el corolario 2 de Laurent-Mignotte-Nesterenko 1995), todo n >= 2 con primer cruce k y a lo sumo diez rachas impares en sus k primeros pasos cumple n <= T^j(n) para j < k y T^k(n) < n. Un fallo de CST necesita al menos once rachas.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasLMN.lean",
+      "fuente": "propio; hipotesis: Laurent, Mignotte y Nesterenko, J. Number Theory 55 (1995) 285-321, corolario 2 (original no leido; forma tomada de las citas y de las notas de Evertse)",
+      "notas": "cst_lmn, ocelotas_diez_lmn y fallo_exige_once_lmn. q <= 82696: criba_certificada y semillas n <= 11214 sin cambios. 82696 < q < 53715833: lema lagrange (pares unimodulares de signos opuestos acotan |a log 2 - b log 3| para 0 < q < Q2) con los convergentes 11 a 16 de log2 3; log 2 y log 3 con veinte cifras por la serie de log(1-x) (64 y 42 terminos); |L_j| > 10^-8, luego n < 10^9 y q <= cota(10,30) = 5317. q >= 53715833: k >= 2^25 y LMNDebil da Lambda >= 2^(-19(t+33)^2), t = log2 k; 364(19(t+33)^2+5) < 2^t para t >= 25. Lean 4.32.2; cadena de diez modulos validada, 67 consultas de axiomas, solo propext, Classical.choice y Quot.sound (lean_lmn.txt). Las comparaciones 3^q frente a 2^p con q ~ 5*10^7 agotan la recursion del nucleo: se usan cotas reales. Ver LMN_LEAN.md. PENDIENTE: revision humana de LMNDebil frente al original de LMN."
     }
   ],
   "nodos": [

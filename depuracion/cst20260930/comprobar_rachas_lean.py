@@ -37,7 +37,7 @@ def main():
             entorno["LEAN_PATH"] = temporal + os.pathsep + entorno.get("LEAN_PATH", "")
             for nombre in ["Ocelotas", "OcelotasRachas", "OcelotasTrayectorias", "OcelotasFinito",
                            "OcelotasCriba", "OcelotasCertificado", "OcelotasCierre",
-                           "OcelotasContador"]:
+                           "OcelotasContador", "OcelotasRhin", "OcelotasLMN"]:
                 fuente = carpeta / (nombre + ".lean")
                 texto = fuente.read_text(encoding="utf-8")
                 if re.search(r"\b(sorry|sorryAx|admit|axiom|native_decide)\b", texto):

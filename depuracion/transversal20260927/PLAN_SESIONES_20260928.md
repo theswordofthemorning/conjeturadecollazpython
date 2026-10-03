@@ -48,6 +48,16 @@ congruencias de cada racha y un test por q dejan sólo `n <= 50`. Punto de
 decisión del paso 3 superado; los pasos 4–6 pasan a la extensión a tres o más
 rachas.
 
+**CST, 02-10:** Rhin auditado; en Lean es ahora hipótesis literal y sólo
+para alturas grandes ([OcelotasRhin](../cst20260930/RHIN_LEAN.md)). Con el
+certificado por convergentes no hay fallos hasta 17 rachas, o 73 con
+Rozier–Terracol ([ficha](../cst20260930/RACHAS_CONVERGENTES.md)). La
+herramienta nueva es la reducción a convergentes: la criba ya no recorre cada
+`q`. Con ella y la cota publicada de Laurent–Mignotte–Nesterenko, Lean prueba
+CST hasta diez rachas sin Rhin ([OcelotasLMN](../cst20260930/LMN_LEAN.md)).
+Pendiente: revisión humana de esa hipótesis y decidir la formalización de 17
+rachas.
+
 ## Bloque 1: Nashida
 
 **Sesión 1.** Localizar el texto primario y fijar su versión y el commit del

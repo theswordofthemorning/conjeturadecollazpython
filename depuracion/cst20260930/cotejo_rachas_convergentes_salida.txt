@@ -1,0 +1,8 @@
+1. CST directa para 2 <= n < 4674093: 4674091 enteros, sin fallos.
+   Mayor primer cruce: 224, en n = 1126015.
+2. Mejor aproximación para 1 <= q <= 200000: sin fallos; menor distancia * (q_j + q_(j+1)) = 1.003356, en q = 190537.
+3. Cota exacta de Lambda para 1 <= q <= 3000: sin fallos.
+
+real	0m19.726s
+user	0m0.015s
+sys	0m0.000s

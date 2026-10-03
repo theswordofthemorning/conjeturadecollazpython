@@ -1,0 +1,24 @@
+Forma entera de Rhin por convergentes de log2(3)
+Parámetros: bits = 20000, guarda = 256, q exacto <= 3000, convergentes exactos con q <= 200000
+
+1. Barrido exacto 0 <= q <= 3000: sin fallos.
+   En q = 0, k = 1 la desigualdad es la igualdad 1 <= 1.
+   Con q >= 1, menor cociente (2^k - 3^q) k^14 / 3^q = 5461, en k = 2, q = 1.
+
+2. log2(3) encerrado con 20000 bits; 5779 cocientes parciales certificados.
+   Primeros cocientes: [1, 1, 1, 2, 2, 3, 1, 5, 2, 23, 2, 2, 1, 1, 55, 1, 4, 3, 1, 1, 15, 1, 9, 2]
+   Mayor cociente parcial certificado: 8228 (índice 4312).
+
+3. Cotejo con decimal.ln a 6080 cifras de los primeros 4816 cocientes: coinciden.
+
+4. Convergentes superiores comprobados: 2889 (7 también con enteros exactos).
+   Último: índice 5777, numerador con 3010 cifras decimales.
+   Mayor exponente mu (Lambda = p^-mu) entre los comprobados: 1.7975, en el índice 1; con p >= 1000: 1.3121, en el índice 13.
+   (Rhin da mu <= 13,3; la forma entera necesita mu < 14.)
+
+CONCLUSIÓN: RhinEntera vale para todo k <= p_5777, un entero de 3010 cifras (y para k = 1).
+Más allá, la hipótesis sólo se apoya en Rhin (1987).
+
+real	0m29.477s
+user	0m0.031s
+sys	0m0.000s

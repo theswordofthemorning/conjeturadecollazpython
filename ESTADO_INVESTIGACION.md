@@ -1,9 +1,9 @@
-# Estado para continuar — 30-09-2026
+# Estado para continuar — 02-10-2026
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
 literal; de ella la de Garner (1985) sobre rachas y la conjetura 2 de Wu
 (1992). CST: Ocelotas hasta diez rachas contadas directamente,
-en Lean bajo Rhin.**
+en Lean sin Rhin, bajo Laurent–Mignotte–Nesterenko.**
 
 - **Gao, forma de Lagarias.** `GaoEnunciado.conjetura_gao`
   ([Tejonas](depuracion/gao20260920/Tejonas.md)): con el mapa clásico, los n
@@ -17,12 +17,15 @@ en Lean bajo Rhin.**
 - **Wu (1992).** `WuEnunciado` ([Condoras](depuracion/gao20260920/formal/Condoras.lean)):
   `lim L=∞`. La conjetura 1 equivale, dado Gao, a que casi todo n llegue a 1:
   sigue abierta. Citas leídas con la IA de CNKI; falta cotejar el original.
-- **Ocelotas.** [CST](depuracion/cst20260930/LEEME.md): bajo `RhinEntera`,
-  `cst_contador` prueba primer descenso = primer cruce hasta diez rachas
-  impares, con `RhinEntera` explícita. El contador canónico construye
-  `Palabra`; criba y descenso finito certificados. Caso par incluido.
-  Un fallo con primer cruce finito necesita al menos once rachas, bajo
-  Rhin. [Interfaz cerrada](depuracion/cst20260930/CONTADOR_LEAN.md).
+- **Ocelotas.** [CST](depuracion/cst20260930/LEEME.md): `cst_lmn` prueba
+  primer descenso = primer cruce hasta diez rachas impares, sin Rhin. La
+  única hipótesis externa es la cota publicada de Laurent–Mignotte–
+  Nesterenko (1995), en forma debilitada
+  ([OcelotasLMN](depuracion/cst20260930/LMN_LEAN.md), 02-10). Caso par
+  incluido. Con cálculo exacto por convergentes, sin Lean y sin Rhin (basta
+  Laurent–Mignotte–Nesterenko), un fallo necesita al menos 18 rachas, o 74
+  con Rozier–Terracol
+  ([séptima tanda](depuracion/cst20260930/RACHAS_CONVERGENTES.md)).
 
 Axiomas estándar en todo. **Pendiente de revisión humana.** Salvo en las
 rachas construidas, nada de esto afirma la llegada a 1.
@@ -45,11 +48,10 @@ Garner.
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
 - **Artículos.** Tres `.tex` ([papers](papers/README.md)) y artefacto en
-  Zenodo ([DOI](papers/zenodo/LEEME.md)). AFM rechazó el I. El I, versión 2,
-  se envió a Qeios (envío 5962), sin pasar a *Version of Record*; II y III
-  esperan ([Qeios](papers/qeios/LEEME.md)). **01-10: el I, adaptado, se
-  envió al *Journal of Automated Reasoning*** (SNAPP `6ea1db0a…`, en
-  revisión técnica; [JAR](papers/jar/LEEME.md)). Qeios queda descartado:
+  Zenodo ([DOI](papers/zenodo/LEEME.md)). AFM rechazó el I; II y III siguen
+  allí. **01-10: el I, adaptado, se envió al *Journal of Automated
+  Reasoning*** (SNAPP `6ea1db0a…`, en revisión técnica;
+  [JAR](papers/jar/LEEME.md)). [Qeios](papers/qeios/LEEME.md) descartado:
   retiro del 5962 pedido el 01-10. Palomar, 29-09: Gao en Lean
   v4.35.0-rc2 en `theswordofthemorning/gao-palomar`, CI en verde, en
   verificación ([Palomar](papers/palomar/LEEME.md)). Zulip: publicado el 29-09
@@ -59,7 +61,8 @@ Garner.
   citas y datos, no argumentos propios. A400486 y A400487 sin aprobar
   ([captura](depuracion/oeis20260917/A400486_A400487_20260930_publico.txt));
   si A400487 no se aprobara, retirar su referencia en A078441
-  ([respuesta del 28-09](papers/oeis/RESPUESTA_20260928.md)).
+  ([respuesta del 28-09](papers/oeis/RESPUESTA_20260928.md)). 02-10: Jason
+  Yuen añadió `more` a A400487, sin preguntas; sigue *proposed*.
 
 ## Ruta vigente y próximo bloque
 
@@ -68,25 +71,23 @@ presupuestos de exploración, no plazos.
 
 - [Nashida](depuracion/nashida20260928/LEEME.md): puente condicional de
   barrera para Wu 1.
-- [Pandas](depuracion/pandas20260930/LEEME.md), en Lean: la pregunta de Gao
-  (¿igual altura, igual σ∞?) tiene respuesta afirmativa con `Res < 4` y para
-  casi todo n. Marmotas: un contraejemplo necesita más de `2^21` pasos `3n+1`
-  sobre `2^20`.
-- [Wirsching](depuracion/wirsching20260930/LEEME.md), cerrado: sólo queda la
-  condición por residuos; (⋆1) literal falla en todo nivel `<=16` (el 34 no
-  tiene caminos con `l` impares y `l` pares); un 3-ádico malo en infinitos
-  niveles refutaría la conjetura 2. La versión útil equivale a un teorema local
-  límite.
+- [Pandas](depuracion/pandas20260930/LEEME.md), en Lean: sí a la pregunta
+  de Gao con `Res < 4` y para casi todo n. Marmotas: un contraejemplo
+  necesita más de `2^21` pasos `3n+1` sobre `2^20`.
+- [Wirsching](depuracion/wirsching20260930/LEEME.md), cerrado: queda la
+  condición por residuos, cuya versión útil equivale a un teorema local
+  límite; (⋆1) literal falla en todo nivel `<=16`.
 - [CST](depuracion/cst20260930/LEEME.md): Ocelotas, arriba.
 
-CST, [certificado exacto](depuracion/cst20260930/REVISION_RACHAS.md):
-888 candidatos q, `n<=11214`; descenso cotejado independientemente.
-[Cierre Lean](depuracion/cst20260930/CIERRE_LEAN.md): criba para
-1<=q<=82696 mediante 81 bloques enteros. Ocho módulos sin `sorryAx`;
-contador, extracción y ausencia de descenso anterior formalizados.
-Cotejo nuevo: 8191 palabras binarias y 33024 prefijos de órbita.
-Siguiente: auditar rango y constantes de Rhin en la fuente original y
-estudiar su descarga en Lean; revisión humana pendiente. No ampliar censos.
+CST: [certificado exacto](depuracion/cst20260930/REVISION_RACHAS.md) y
+criba Lean para `1<=q<=82696`; diez módulos sin `sorryAx`. El tramo
+`82696 < q < 53715833` lo cubren los convergentes 11 a 16 de `log2 3` y un
+lema de Lagrange; el resto, LMN.
+[Auditoría de Rhin](depuracion/cst20260930/RHIN_LEAN.md), 02-10: la
+proposición de la p. 160 no se leyó y Rhin–Toffin (1986) no alcanza
+`log 2, log 3`; con los convergentes y LMN, Rhin ya no hace falta.
+Siguiente: revisión humana de `LMNDebil`; decidir si se formaliza la
+séptima tanda. No ampliar censos.
 
 ## Evidencia y conservación
 
@@ -102,7 +103,7 @@ Contrastes finitos independientes: [cadena](depuracion/gao20260920/verificar_lag
 [Alpacas](depuracion/garner20260926/verificar_alpacas.py) y los scripts de
 cada ficha nueva. No sustituyen los certificados universales.
 
-Registro: 246 afirmaciones
+Registro: 251 afirmaciones
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar
 históricos. zootheorem permanece intacto.
