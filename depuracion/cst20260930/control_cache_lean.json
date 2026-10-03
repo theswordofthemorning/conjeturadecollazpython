@@ -1,0 +1,10 @@
+{
+  "acepta_identidad": true,
+  "rechaza_fuente_distinta": true,
+  "rechaza_prefijo_distinto": true,
+  "rechaza_objeto_alterado": true,
+  "rechaza_axioma_ajeno": true,
+  "rechaza_hueco": true,
+  "rechaza_auditoria_ausente": true,
+  "sha256_comprobador": "1b03c546eddf44cc3b848c3133be3ce1a85cea9f89b5be681c3c3168f81ac590"
+}

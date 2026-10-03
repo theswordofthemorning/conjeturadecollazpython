@@ -1,0 +1,135 @@
+SHA256 comprobador: bb964dd6bd9ebbdc16f71818573f7a9f331daba551770944fc899aff8e7e150f
+Comando: lake env lean --version
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+
+Codigo de salida: 0
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\Ocelotas.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\Ocelotas.lean
+'Ocelotas.finito_q' depends on axioms: [propext]
+'Ocelotas.finito_n' depends on axioms: [propext]
+'Ocelotas.ocelotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 Ocelotas.lean: 66c07f961fb3836fab7dffbcd4733d84acfe36da1fbf0ed0f5f5849faa3993b4
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasRachas.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasRachas.lean
+'OcelotasRachas.tres_cinco' depends on axioms: [propext]
+'OcelotasRachas.cota_paso_monotono' depends on axioms: [propext, Quot.sound]
+'OcelotasRachas.paso_cota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRachas.cota_acumulada' depends on axioms: [propext, Quot.sound]
+'OcelotasRachas.criba_desde_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRachas.cola_diez' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasRachas.lean: e0811c63414fd280b77cc74deabf39d7c2e3a8db31404c38f613b054f5ada332
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasTrayectorias.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasTrayectorias.lean
+'OcelotasTrayectorias.cuenta_impares' depends on axioms: [propext, Quot.sound]
+'OcelotasTrayectorias.congruencia_racha' depends on axioms: [propext, Quot.sound]
+'OcelotasTrayectorias.congruencias_acumuladas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.criba_desde_trayectoria' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.fallo_producto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.fallo_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.criba_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.cota_semilla' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTrayectorias.tiempo_diez' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasTrayectorias.lean: 4a4fd20a7459b563860b4ab549a826555fc57929518284c485cb9baf9bb50b3f
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasFinito.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasFinito.lean
+'OcelotasFinito.comprobar_correcto' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.semillas_comprobadas' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.existe_descenso_finito' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.descenso_finito' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.exponente_acotado' depends on axioms: [propext, Quot.sound]
+'OcelotasFinito.diez_de_certificado' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasFinito.lean: bfbdaf6cbd1ac97b78f13c72d776bb5a1110520b75d57f91c7cb96aea9a36a51
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasCriba.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasCriba.lean
+'OcelotasCriba.paso_encierra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCriba.acepta_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCriba.recorrer_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasCriba.lean: a15e286f63ef6237c837fba2fd3665d00c45286c490db7ec9ca25a241731ac66
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasCertificado.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasCertificado.lean
+'OcelotasCertificado.criba_certificada' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCertificado.ocelotas_diez' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasCertificado.lean: 6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasCierre.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasCierre.lean
+'OcelotasCierre.descenso_par' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCierre.fallo_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCierre.descenso_hasta_diez' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasCierre.lean: 2f37a08eba1a89f9cf7cc7d0e373563dfeeb05741caa4ee47728a770ba1ef109
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasContador.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasContador.lean
+'OcelotasContador.rachas_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.leer_prefijo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.extraer_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.cruce_termina_par' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.palabra_del_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.fallo_contador_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.no_desciende_antes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasContador.cst_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasContador.lean: cfc0214e2bd4687ae4463dab5d2ddc8bfc1b436031edede893c6d2c0f899a9f2
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasRhin.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasRhin.lean
+'OcelotasRhin.homogenea_de_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.desde_homogenea' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.desde_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.tiempo_diez_punto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.tiempo_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.ocelotas_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.cst_contador_desde' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.cst_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.cst_rhin_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.desde_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.cst_rhin_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.fallo_exige_once_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRhin.desde_de_entera' depends on axioms: [propext]
+
+Codigo de salida: 0
+SHA256 OcelotasRhin.lean: 9d97859e85a801475d323887014d296ee9235ce931481d585cc840c710b491ed
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasLMN.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasLMN.lean
+'OcelotasLMN.log_dos_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.log_tres_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.lagrange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.L_intervalos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.entera_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.cota_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.cola_lmn_entera' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.sin_fallo_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.ocelotas_diez_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.cst_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMN.fallo_exige_once_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasLMN.lean: aed41dd927ae0e8a62a1053ec798d79f9e19da92216feb7bb7d5ed85b87b16fa
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasLMNFuente.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasLMNFuente.lean
+'OcelotasLMNFuente.debil_de_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLMNFuente.cst_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasLMNFuente.lean: b8c269c1730b25b79942308be5fee3112792626603a399aad4374b4334ec991f
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasAfinada.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasAfinada.lean
+'OcelotasAfinada.paso_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasAfinada.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasAfinada.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasAfinada.aproximacion_superior' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasAfinada.lean: ae051c50820c9d147aa8747fdaf3496f70119189e9d7ad4b07a26b6d5524a3e0
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_lean_blc76dlr\OcelotasAfinadaTrayectorias.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasAfinadaTrayectorias.lean
+'OcelotasAfinadaTrayectorias.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasAfinadaTrayectorias.fallo_lambda' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasAfinadaTrayectorias.semilla_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasAfinadaTrayectorias.descenso_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasAfinadaTrayectorias.lean: a05ce71ecadc8abce0770807607da8b205d40c429d2dbae3b84b012b196665e8
+CADENA VALIDADA: solo axiomas estandar admitidos; ningun hueco.

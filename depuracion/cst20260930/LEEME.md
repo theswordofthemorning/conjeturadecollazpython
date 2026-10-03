@@ -5,6 +5,37 @@ que la [segunda opinión](../transversal20260927/SEGUNDA_OPINION_20260928.md)
 proponía como frente principal. El objetivo candidato era el caso de dos rachas
 impares, y está cerrado.
 
+**Cierre, 03-10:** [OcelotasVeintiuna.lean](OcelotasVeintiuna.lean) demuestra
+**CST hasta veintiuna rachas en Lean**, bajo el corolario de LMN especializado
+y suponiendo un primer cruce finito.
+Dos certificados por prefijos, divididos en bloques, resuelven los
+intervalos grandes; se conserva el certificado finito hasta n=4912740.
+[Prueba y alcance](VEINTIUNA_LEAN.md): 76 módulos auditados, sin `sorryAx`.
+Los cierres de [veinte](VEINTE_LEAN.md),
+[diecinueve](DIECINUEVE_LEAN.md),
+[dieciocho](DIECIOCHO_LEAN.md) y
+de [trece rachas](TRECE_LEAN.md) se conservan; 75 bajo Rozier–Terracol
+continúa con cálculo exacto y prueba escrita, sin cierre Lean completo.
+
+Sesión cerrada tras terminar esta tanda. Para 22 rachas se conservan tabla
+y prefijos cotejados y cola auxiliar Lean; faltan prefijos en Lean y ensamblaje.
+
+**Continuación, 03-10:** [aproximación por arriba](RACHAS_UNILATERALES.md)
+y criba logarítmica formalizadas, incluida su conexión con las órbitas:
+trece módulos Lean. Los certificados exactos reducen a `N_18=4912741` y
+`N_75=2685479559298935402` las cotas de semilla; el alcance continúa en
+18/75 rachas. Preparados 40 intervalos para intentar el cierre Lean a
+trece rachas; preparación cerrada después en [TRECE_LEAN.md](TRECE_LEAN.md).
+
+**Avance, 03-10:** la [criba afinada](RACHAS_AFINADAS.md) eleva el resultado
+a **18 rachas**, o **75 con Rozier–Terracol**, con cálculo racional exacto
+y cotejo independiente; en esa tanda usó el censo existente. El cierre
+Lean de 18 llegó después, arriba. Las [siete lecturas aportadas](LECTURAS_20261003.md)
+incluyen el original de LMN: su corolario 2 se cotejó visualmente y
+[OcelotasLMNFuente.lean](OcelotasLMNFuente.lean) certifica la traducción
+de su especialización literal a `LMNDebil`. Aquella cadena Lean tenía
+alcance de diez rachas; once módulos, sólo axiomas estándar.
+
 **Rhin, 02-10:** hipótesis literal y sólo para alturas grandes en
 [OcelotasRhin.lean](OcelotasRhin.lean); auditoría en [RHIN_LEAN.md](RHIN_LEAN.md).
 

@@ -1,0 +1,38 @@
+{
+  "resultado": "sin discrepancias",
+  "filas": 40,
+  "intervalos_descartados": 15,
+  "semilla_exclusiva": 31624,
+  "semillas_cotejadas": 31622,
+  "semillas_adicionales_Lean": 20409,
+  "mayor_cruce": {
+    "k": 105,
+    "n": 10087
+  },
+  "rachas_maximas": 25,
+  "semillas_con_trece_rachas": 17,
+  "bordes": {
+    "2": {
+      "k": 1,
+      "T_k": 1,
+      "rachas": 0
+    },
+    "11214": {
+      "k": 1,
+      "T_k": 5607,
+      "rachas": 0
+    },
+    "11215": {
+      "k": 10,
+      "T_k": 7985,
+      "rachas": 2
+    },
+    "31623": {
+      "k": 7,
+      "T_k": 20012,
+      "rachas": 2
+    }
+  },
+  "sha256_certificado": "4d0e3e7ba92cc06d62822cd7d36381c68147342520f6433ce5f271cf6569fd77",
+  "sha256_cotejador": "4cbdb221f7681b93eb963852f82d705e27adae1e2aa135462957d574f67ce741"
+}

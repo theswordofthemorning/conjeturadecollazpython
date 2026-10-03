@@ -1,0 +1,557 @@
+SHA256 comprobador: fcebb04cadd2b4d39a1c6351fb9075862928c2a75229804046dbf1b2cfd4d911
+Comando: lake env lean --version
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+
+Codigo de salida: 0
+SHA256 entorno: 6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e
+REUTILIZADO: Ocelotas; auditoria original conservada en el manifiesto.
+SHA256 Ocelotas.lean: 66c07f961fb3836fab7dffbcd4733d84acfe36da1fbf0ed0f5f5849faa3993b4
+SHA256 Ocelotas.olean: e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8
+REUTILIZADO: OcelotasRachas; auditoria original conservada en el manifiesto.
+SHA256 OcelotasRachas.lean: e0811c63414fd280b77cc74deabf39d7c2e3a8db31404c38f613b054f5ada332
+SHA256 OcelotasRachas.olean: 2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08
+REUTILIZADO: OcelotasTrayectorias; auditoria original conservada en el manifiesto.
+SHA256 OcelotasTrayectorias.lean: 4a4fd20a7459b563860b4ab549a826555fc57929518284c485cb9baf9bb50b3f
+SHA256 OcelotasTrayectorias.olean: 9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7
+REUTILIZADO: OcelotasFinito; auditoria original conservada en el manifiesto.
+SHA256 OcelotasFinito.lean: bfbdaf6cbd1ac97b78f13c72d776bb5a1110520b75d57f91c7cb96aea9a36a51
+SHA256 OcelotasFinito.olean: 86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1
+REUTILIZADO: OcelotasCriba; auditoria original conservada en el manifiesto.
+SHA256 OcelotasCriba.lean: a15e286f63ef6237c837fba2fd3665d00c45286c490db7ec9ca25a241731ac66
+SHA256 OcelotasCriba.olean: 23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319
+REUTILIZADO: OcelotasCertificado; auditoria original conservada en el manifiesto.
+SHA256 OcelotasCertificado.lean: 6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6
+SHA256 OcelotasCertificado.olean: 9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010
+REUTILIZADO: OcelotasCierre; auditoria original conservada en el manifiesto.
+SHA256 OcelotasCierre.lean: 2f37a08eba1a89f9cf7cc7d0e373563dfeeb05741caa4ee47728a770ba1ef109
+SHA256 OcelotasCierre.olean: bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15
+REUTILIZADO: OcelotasContador; auditoria original conservada en el manifiesto.
+SHA256 OcelotasContador.lean: cfc0214e2bd4687ae4463dab5d2ddc8bfc1b436031edede893c6d2c0f899a9f2
+SHA256 OcelotasContador.olean: a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6
+REUTILIZADO: OcelotasRhin; auditoria original conservada en el manifiesto.
+SHA256 OcelotasRhin.lean: 9d97859e85a801475d323887014d296ee9235ce931481d585cc840c710b491ed
+SHA256 OcelotasRhin.olean: efac0fb7eecb53336a506484b638f1d93063477c4ec9f1c667e650bc7152cd1e
+REUTILIZADO: OcelotasLMN; auditoria original conservada en el manifiesto.
+SHA256 OcelotasLMN.lean: aed41dd927ae0e8a62a1053ec798d79f9e19da92216feb7bb7d5ed85b87b16fa
+SHA256 OcelotasLMN.olean: 9904503f3e019fae1f5b9268785e57be5919bdf49a193f8cf54afc5e0c1ab357
+REUTILIZADO: OcelotasLMNFuente; auditoria original conservada en el manifiesto.
+SHA256 OcelotasLMNFuente.lean: b8c269c1730b25b79942308be5fee3112792626603a399aad4374b4334ec991f
+SHA256 OcelotasLMNFuente.olean: a6db94899ae070a6fcf251b709c652e71e9818b90f4203db52526365afb16dcc
+REUTILIZADO: OcelotasAfinada; auditoria original conservada en el manifiesto.
+SHA256 OcelotasAfinada.lean: ae051c50820c9d147aa8747fdaf3496f70119189e9d7ad4b07a26b6d5524a3e0
+SHA256 OcelotasAfinada.olean: f062602df7031e6531c889ccf9177eb141cf663cedb0b58ad1af652e23a37b88
+REUTILIZADO: OcelotasAfinadaTrayectorias; auditoria original conservada en el manifiesto.
+SHA256 OcelotasAfinadaTrayectorias.lean: a05ce71ecadc8abce0770807607da8b205d40c429d2dbae3b84b012b196665e8
+SHA256 OcelotasAfinadaTrayectorias.olean: 120f18cb36804d34975f2ca5fd919d00bf0530fd770799964d717c4b506067bd
+REUTILIZADO: OcelotasTreceBase; auditoria original conservada en el manifiesto.
+SHA256 OcelotasTreceBase.lean: 42e761f5540c24ed40f6395a77b9346843cf84e559b689968e1be061d6370e78
+SHA256 OcelotasTreceBase.olean: 57b0f8d4c905b6cbe3bfeecf30c6de02f49e30315491e0ee4a9871e825d591a1
+REUTILIZADO: OcelotasTreceTabla; auditoria original conservada en el manifiesto.
+SHA256 OcelotasTreceTabla.lean: 320a3cfdb5dfe9be0971c2819657b59065495e259109295248bb919ca5f44841
+SHA256 OcelotasTreceTabla.olean: c686a5397479c51b009dcdc293fec25679a61d07f4eb7fea1d3d918e196ced4c
+REUTILIZADO: OcelotasTreceFinito; auditoria original conservada en el manifiesto.
+SHA256 OcelotasTreceFinito.lean: 388c3fc948b28e1e16a90f0b519165309c740100fc1b4d3e8e292c5ec1066f1b
+SHA256 OcelotasTreceFinito.olean: b3339040110d8dc292d55f170bbd93ed207f2b30644a99a725ba9c3cc7662a0e
+REUTILIZADO: OcelotasTreceCola; auditoria original conservada en el manifiesto.
+SHA256 OcelotasTreceCola.lean: f1012151a556e1486ea1f8f6ef38af7ac4824a2b5b266e926a35fff180d33e09
+SHA256 OcelotasTreceCola.olean: 89708462d66ad4f4cb57e1662343814d33990a542abff27815f45bd55c51b4ca
+REUTILIZADO: OcelotasTrece; auditoria original conservada en el manifiesto.
+SHA256 OcelotasTrece.lean: a3b1b630e6f5692aa8d5678b7b1603371584150a8ac8f76d482c79b4cfd2c680
+SHA256 OcelotasTrece.olean: 7190f948ead41e237a224430294e34a88faebb326dd60d57b6952cdcc5830c35
+REUTILIZADO: OcelotasResiduos; auditoria original conservada en el manifiesto.
+SHA256 OcelotasResiduos.lean: 4cfbed60fd5977d1fa187908783af27ff19aa3b9c18dd27dcc63b6031a6c8c0f
+SHA256 OcelotasResiduos.olean: 2f10afec1d990e62f7cb05383a7b3368b8b3045db89147c36524f708bd24221f
+REUTILIZADO: OcelotasResiduosBloques; auditoria original conservada en el manifiesto.
+SHA256 OcelotasResiduosBloques.lean: 1940581940cff8f2d3144bd1f858f40becff802fac0bb68d479b54671081617a
+SHA256 OcelotasResiduosBloques.olean: 6fd8e6d9414e43653308a56f40ae197f8240b360797547c7bf3e43f1b8fe84a4
+REUTILIZADO: OcelotasResiduosFinito; auditoria original conservada en el manifiesto.
+SHA256 OcelotasResiduosFinito.lean: 4e9793d7e2e2a1a928083caa70fa0ad428aca2b45c173e00beb783105860f65f
+SHA256 OcelotasResiduosFinito.olean: ca68e6f7ed5624ea507cf37f08aa1b24ac47edffdcf3d993f048298eb6d11ddc
+REUTILIZADO: OcelotasNumerica; auditoria original conservada en el manifiesto.
+SHA256 OcelotasNumerica.lean: 438268155378d772ec796c367833a7b733f6c5357e888e53b8999f3fbab01e24
+SHA256 OcelotasNumerica.olean: 914a6695e8b6b863f19e16333052c44ec50d422991d9f853d73ef4d7846a7aec
+REUTILIZADO: OcelotasDieciochoTabla; auditoria original conservada en el manifiesto.
+SHA256 OcelotasDieciochoTabla.lean: f57828c6e1f07bd9f5bf23022408662ac368dcc08acc28889f9693e861a6de4c
+SHA256 OcelotasDieciochoTabla.olean: cb3fd5ec4181222deb9e752c7a70afdce379e46c29edb806f9c487dd19498607
+REUTILIZADO: OcelotasDieciochoCola; auditoria original conservada en el manifiesto.
+SHA256 OcelotasDieciochoCola.lean: 7eab32c2f8417fde3b302ed7ca671002980208f64d2cc561b4e2785293cadffc
+SHA256 OcelotasDieciochoCola.olean: ab6bbe09828ac381888452631dab240df4cda0156e6cc3b983bbbef45b1c6f31
+REUTILIZADO: OcelotasDieciocho; auditoria original conservada en el manifiesto.
+SHA256 OcelotasDieciocho.lean: 365a487ced064715317c269cbf1d1cfd009c2be70842afe852fef742cec2341c
+SHA256 OcelotasDieciocho.olean: 67e55b38c7e21d21af1288989503d7eee8359e88aaca957c1dea7a8b7753c52a
+REUTILIZADO: OcelotasGeometrica; auditoria original conservada en el manifiesto.
+SHA256 OcelotasGeometrica.lean: 8d1dca3d33069c6d1e55b600aedf2c17d11974e0d6cb711be23b1abe9fcffab2
+SHA256 OcelotasGeometrica.olean: 8045c14a5907d65cac574d0e75a5faf8e6b7aaadf2820e98386d0ad3b4b84775
+REUTILIZADO: OcelotasPrefijos; auditoria original conservada en el manifiesto.
+SHA256 OcelotasPrefijos.lean: 8258d1a92984d113d418af3b709a59743ca10d87e6acd0d62ccd216692434cfc
+SHA256 OcelotasPrefijos.olean: 36fd5999249a44e5cb937bed39f5179d2b9504a43aaf9d6ee06ed05259f20fce
+REUTILIZADO: OcelotasCribaPrefijos; auditoria original conservada en el manifiesto.
+SHA256 OcelotasCribaPrefijos.lean: ce324da1c365d70489f49a702a1474f68dc0fdcfb4e13c3bc4e628bc3b5764e0
+SHA256 OcelotasCribaPrefijos.olean: 730bd7381838bbe94e8a5ec0cd4a3dd3be0bcec6009defe8f435b47344ca38a1
+REUTILIZADO: OcelotasDiecinuevePrefijos; auditoria original conservada en el manifiesto.
+SHA256 OcelotasDiecinuevePrefijos.lean: a89f4158f3482fae82a1e28d38c011c61b4666274b66438c5b18336cd80faedd
+SHA256 OcelotasDiecinuevePrefijos.olean: 81391132956684544bac8a2382582a7105e598d79063213e8caaee25a61b7ab5
+REUTILIZADO: OcelotasDiecinueveTabla; auditoria original conservada en el manifiesto.
+SHA256 OcelotasDiecinueveTabla.lean: 2a04de5d787abf54a017cab43753280017a8347e745f18b42f0dc47f2a4efda1
+SHA256 OcelotasDiecinueveTabla.olean: 05324ae721e44d9c22ba09777e52e10eb9058952db317f1e2e6bb9a71b361ffa
+REUTILIZADO: OcelotasDiecinueveCola; auditoria original conservada en el manifiesto.
+SHA256 OcelotasDiecinueveCola.lean: 38205daf3c5ecd28d29547ecbd6ff0f2b45cbc8f88a1e98d23ef6a7f98298b39
+SHA256 OcelotasDiecinueveCola.olean: b957a31b5fd5eb87c2ae022dda6e043e0e10933abda1bfaa67b2d68231e6a30e
+REUTILIZADO: OcelotasDiecinueve; auditoria original conservada en el manifiesto.
+SHA256 OcelotasDiecinueve.lean: 45d1cc8aef5ef08707904ca235e582ba673c163ffdbea43589947110b105dd49
+SHA256 OcelotasDiecinueve.olean: 35869f21f22a7b06a5b7de3ab8aedf839830827664cba2869d3950985bf8e4ec
+REUTILIZADO: OcelotasPrefijosBloques; auditoria original conservada en el manifiesto.
+SHA256 OcelotasPrefijosBloques.lean: 22be32df2b9cecde6406e642122258e32310bb8fbac8aa140f744baf5bd6d16c
+SHA256 OcelotasPrefijosBloques.olean: 2e015360cf0c298a46c1a7aa01bb6fb43c3e7458600ed97fe1dee30dbf49ce17
+REUTILIZADO: OcelotasVeintePrefijos; auditoria original conservada en el manifiesto.
+SHA256 OcelotasVeintePrefijos.lean: d93a5be6c0c2a38e5066ef6c47d1106d40ec0356968905462d7bb454071d1486
+SHA256 OcelotasVeintePrefijos.olean: 8b652ec5ffaae0370ffcacc59ba0b9781616940a935efe6cbb2b95f176224bc4
+REUTILIZADO: OcelotasVeinteTabla; auditoria original conservada en el manifiesto.
+SHA256 OcelotasVeinteTabla.lean: ee6931f0c62c27303cc6a119d75c2cdc87444303f042d27898e823e922b7433c
+SHA256 OcelotasVeinteTabla.olean: f2cb67eaba90f7f4ad5ed63d3ec929f41856c21f1a63e8751c8ee634a9a0d66f
+REUTILIZADO: OcelotasVeinteCola; auditoria original conservada en el manifiesto.
+SHA256 OcelotasVeinteCola.lean: 6c54db62f7955b07dc1991eefb642f3b5be2cd0a8ceff839d42343e0de4fca05
+SHA256 OcelotasVeinteCola.olean: 2d195727d922cde839113d01f7e7164a141cb1ecab5fbdae4eb538f7a8596701
+REUTILIZADO: OcelotasVeinte; auditoria original conservada en el manifiesto.
+SHA256 OcelotasVeinte.lean: ad0a8d7b9033e9f2025882f93e70301c3018692f1eee3de788901024626b22a7
+SHA256 OcelotasVeinte.olean: c35be5985d3fcf4d5376377cdef160ea2405a29ed18f691c77e7c8e137c8b780
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasTiempoRacional.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasTiempoRacional.lean
+'OcelotasTiempoRacional.tiempo_racional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTiempoRacional.tiempo_ocho_quintos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasTiempoRacional.tiempo_del_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0
+SHA256 OcelotasTiempoRacional.lean: 2227a87a695d6450f6d1ce6423b9231645d2c7b99a45f6fcd0b3a0537d473c78
+SHA256 OcelotasTiempoRacional.olean: a5e2f59f8ca2cd0f3d4ef8ad0892157b8fa1e78c422d1322e6b52fbd02a62003
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas01.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas01.lean
+'OcelotasVeintiunaPrefijos.Bajo.nodo_2' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_13' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_14' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_16' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_17' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_20' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_21' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_23' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_24' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_28' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_29' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_31' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_32' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_35' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_36' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_38' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_39' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_44' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_45' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_47' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_48' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_51' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_52' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_54' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_55' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_57' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_60' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_61' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_63' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_64' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_70' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_71' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_73' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_74' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_77' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_78' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_80' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_81' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_85' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_86' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_88' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_89' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_90' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_91' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_93' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_95' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_100' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_101' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_103' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_104' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_107' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_108' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_110' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_111' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_115' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_116' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_118' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_119' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_120' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_121' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_130' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_131' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_133' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_134' does not depend on any axioms
+
+Codigo de salida: 0
+SHA256 OcelotasVeintiunaPrefijosHojas01.lean: aaf24dcf3c4a9f7852bbb5517f0d2a88c55e0957a024b3ec4d40a8c6f1fb2b2c
+SHA256 OcelotasVeintiunaPrefijosHojas01.olean: 1450dd4e414d25b20c1f9910b83268f06a413ad02282fb96fff95ef418fa0c3e
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas02.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas02.lean
+'OcelotasVeintiunaPrefijos.Bajo.nodo_137' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_138' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_140' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_141' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_145' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_146' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_148' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_149' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_150' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_155' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_156' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_158' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_159' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_162' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_163' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_165' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_166' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_170' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_171' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_173' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_174' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_177' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_178' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_180' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_181' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_183' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_186' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_189' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_190' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_192' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_193' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_197' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_198' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_200' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_201' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_204' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_205' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_207' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_208' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_210' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_216' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_217' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_219' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_220' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_223' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_224' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_226' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_227' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_229' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_232' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_233' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_235' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_236' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_237' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_245' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_246' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_248' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_249' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_252' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_253' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_255' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_256' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_260' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_261' does not depend on any axioms
+
+Codigo de salida: 0
+SHA256 OcelotasVeintiunaPrefijosHojas02.lean: e9b9fab1788536ff2a49b8f7bf96a68f9a84289e9799a7377de31a0479bdc234
+SHA256 OcelotasVeintiunaPrefijosHojas02.olean: 098378c5a431ae96d50b660ac2926e1ecc847a00ee4d823cd8a0ec726601950a
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas03.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas03.lean
+'OcelotasVeintiunaPrefijos.Bajo.nodo_263' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_264' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_267' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_268' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_270' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_271' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_276' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_277' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_279' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_280' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_283' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_284' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_286' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_287' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_291' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_292' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_294' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_295' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_298' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_299' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_301' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_302' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_308' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_309' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_311' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_312' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_315' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_316' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_318' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_319' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_323' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_324' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_326' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_327' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_330' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_331' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_333' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_334' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_339' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_340' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_342' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_343' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_346' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_347' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_349' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_350' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_354' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_355' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_357' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_358' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_359' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_366' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_367' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_369' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_370' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_373' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_374' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_376' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_377' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_381' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_382' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_384' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_385' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_388' does not depend on any axioms
+
+Codigo de salida: 0
+SHA256 OcelotasVeintiunaPrefijosHojas03.lean: f6879daff9812d9e6fe41b60d2019bc428e6c2202be63e2ca2807968a2a3ab84
+SHA256 OcelotasVeintiunaPrefijosHojas03.olean: 6fe86fa6df7f227599ed61d62e6304883d82ac1258764e894c13737b67cbea0f
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas04.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas04.lean
+'OcelotasVeintiunaPrefijos.Bajo.nodo_389' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_391' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_392' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_397' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_398' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_400' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_401' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_402' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_406' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_407' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_409' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_410' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_413' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_414' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_416' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_417' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_421' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_424' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_425' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_427' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_428' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_432' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_433' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_435' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_436' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_439' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_440' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_442' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_443' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_444' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_447' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_451' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_456' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_457' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_459' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_460' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_463' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_464' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_466' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_467' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_471' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_472' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_474' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_475' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_476' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_477' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_484' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_485' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_487' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_488' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_491' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_492' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_494' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_495' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_497' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_500' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_501' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_503' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_504' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_509' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_510' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_512' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_513' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_516' does not depend on any axioms
+
+Codigo de salida: 0
+SHA256 OcelotasVeintiunaPrefijosHojas04.lean: 8c6a79ef332dd05387ea18d2a99bd0d01b2ec499715d9b338f6afcb4de89f2a5
+SHA256 OcelotasVeintiunaPrefijosHojas04.olean: 9f910a5973545230b9df8d3acfb4a918e6daca1fe9d5ac7774e0bf00ac29be07
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas05.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas05.lean
+'OcelotasVeintiunaPrefijos.Bajo.nodo_517' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_519' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_520' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_524' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_525' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_527' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_528' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_531' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_532' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_534' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_535' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_537' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_542' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_543' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_545' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_546' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_547' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_551' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_552' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_554' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_555' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_558' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_559' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_561' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_562' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_563' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Bajo.nodo_564' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_2' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_13' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_14' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_16' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_17' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_20' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_21' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_23' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_24' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_28' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_29' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_31' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_32' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_35' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_36' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_38' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_39' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_44' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_45' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_47' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_48' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_51' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_52' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_54' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_55' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_57' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_60' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_61' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_63' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_64' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_70' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_71' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_73' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_74' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_77' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_78' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_80' does not depend on any axioms
+
+Codigo de salida: 0
+SHA256 OcelotasVeintiunaPrefijosHojas05.lean: 8b70cb5e08d3ea50283a678c997c2fc6b9e6d3acf648910cd26ccd2786faff52
+SHA256 OcelotasVeintiunaPrefijosHojas05.olean: c3e62d2b034274da16f56efb00df75d983a3db2ff96b89734fffdc8a7551b161
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas06.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas06.lean
+'OcelotasVeintiunaPrefijos.Alto.nodo_81' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_85' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_86' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_87' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_88' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_89' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_91' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_93' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_98' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_99' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_101' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_102' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_105' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_106' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_108' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_109' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_113' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_114' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_115' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_116' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_117' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_126' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_127' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_129' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_130' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_133' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_134' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_136' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_137' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_141' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_142' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_144' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_145' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_146' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_151' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_152' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_154' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_155' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_158' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_159' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_161' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_162' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_166' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_167' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_169' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_170' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_173' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_174' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_176' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_177' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_179' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_182' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_184' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_186' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_187' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_191' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_192' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_194' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_195' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_198' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_199' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_201' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_202' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_204' does not depend on any axioms
+
+Codigo de salida: 0
+SHA256 OcelotasVeintiunaPrefijosHojas06.lean: 2a4b08d8006f2edad7cd46ecf7b4dc15c785b5447bd9769ecf8098ef4ec72f47
+SHA256 OcelotasVeintiunaPrefijosHojas06.olean: 22ba2f9c46137b31016a16485b5851787572b6c920bb2194780c4a5d1a2d36b5
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas07Parte01.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas07Parte01.lean
+'OcelotasVeintiunaPrefijos.Alto.nodo_210' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_211_h0_h0' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_211_h0_h1_h0' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_211_h0_h1_h1_h0_h0' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_211_h0_h1_h1_h0_h1_h0' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_211_h0_h1_h1_h0_h1_h1' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_211_h0_h1_h1_h1' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_211_h1' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_213' does not depend on any axioms
+'OcelotasVeintiunaPrefijos.Alto.nodo_214' does not depend on any axioms
+
+Codigo de salida: 0
+SHA256 OcelotasVeintiunaPrefijosHojas07Parte01.lean: 02ac6586548317b20079db2ab05167788d83f11d7d4ff21dc68ad5cce4cd3e73
+SHA256 OcelotasVeintiunaPrefijosHojas07Parte01.olean: 1ccac43b2f1b652f24ee1f547ea85457f5b1436dfd7a53b0ee37ca11eb63c1e5
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_auditado_20261003\OcelotasVeintiunaPrefijosHojas07Parte02.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasVeintiunaPrefijosHojas07Parte02.lean
+
+Codigo de salida: 4294967295

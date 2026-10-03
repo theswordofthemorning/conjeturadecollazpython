@@ -1,0 +1,35 @@
+{
+  "resultado": "sin discrepancias",
+  "convergentes": 79,
+  "intervalos_revisados": 308,
+  "resultados": [
+    {
+      "rachas": 18,
+      "semilla_exclusiva": 7837377,
+      "intervalo_decisivo": 12,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 19,
+      "semilla_exclusiva": 295590485,
+      "intervalo_decisivo": 13,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 75,
+      "semilla_exclusiva": 14791827172614383442,
+      "intervalo_decisivo": 32,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 76,
+      "semilla_exclusiva": 43599691994443572162,
+      "intervalo_decisivo": 33,
+      "cola_diadica": true
+    }
+  ],
+  "metodo": "atanh racional y cola diadica; sin importar el certificador",
+  "sha256_certificado": "628913045fd7c6b4dd7c7fbff7287560d46726c35a6e90ea198904d9ebf8a2c8",
+  "sha256_cotejador": "2573fdee28048b438fe01038bf7332e2dca4145ffb9c10ba8f6ca26d4d988b14",
+  "censo_repetido": false
+}

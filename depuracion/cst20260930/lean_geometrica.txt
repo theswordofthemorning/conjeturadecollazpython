@@ -1,0 +1,8 @@
+Compilacion independiente del lema geometrico; Lean 4.32.2, Mathlib fijado.
+SHA256 fuente: 8d1dca3d33069c6d1e55b600aedf2c17d11974e0d6cb711be23b1abe9fcffab2
+Comando: lake env lean -R C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930 -o C:\Users\Home\AppData\Local\Temp\ocelotas_trece_20261003\OcelotasGeometrica.olean C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasGeometrica.lean
+'OcelotasGeometrica.cota_geometrica' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasGeometrica.cota_lineal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasGeometrica.cota_setenta_y_cinco' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo de salida: 0

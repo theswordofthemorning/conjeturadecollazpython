@@ -1,0 +1,49 @@
+{
+  "resultado": "sin discrepancias",
+  "mapa": "atajo T",
+  "dominio": [
+    2,
+    4912740
+  ],
+  "combustible": 225,
+  "conteos": {
+    "nodos": 243225,
+    "hojas_compartidas": 15466,
+    "hojas_individuales": 106147,
+    "pasos_individuales": 1549108,
+    "semillas_cubiertas": 4912739,
+    "orbitas_directas": 243226,
+    "mayor_cruce": 224,
+    "clases_disjuntas": 121613
+  },
+  "bordes": {
+    "2": {
+      "k": 1,
+      "T_k": 1,
+      "rachas": 0
+    },
+    "31623": {
+      "k": 7,
+      "T_k": 20012,
+      "rachas": 2
+    },
+    "31624": {
+      "k": 1,
+      "T_k": 15812,
+      "rachas": 0
+    },
+    "4912739": {
+      "k": 4,
+      "T_k": 2763416,
+      "rachas": 1
+    },
+    "4912740": {
+      "k": 1,
+      "T_k": 2456370,
+      "rachas": 0
+    }
+  },
+  "sha256_hojas": "613c0a31192fd8d311536aa2fa3d5f1461660f1ada9e5aac3b8f414068a406b5",
+  "sha256_cotejador": "d76f8033c1099797e8dedd446018008bc4a8ab1c2fed8d0cdafb4c7b65fb6e5e",
+  "segundos": 4.865
+}

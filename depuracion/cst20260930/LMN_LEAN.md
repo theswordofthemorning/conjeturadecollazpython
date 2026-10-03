@@ -1,5 +1,18 @@
 # Ocelotas en Lean sin Rhin — 02-10-2026
 
+**Extensión, 03-10:** [VEINTIUNA_LEAN.md](VEINTIUNA_LEAN.md) eleva de diez a
+veintiuna rachas el cierre Lean bajo LMN y primer cruce finito, con tabla,
+semillas y criba por prefijos.
+Se conserva abajo la prueba de diez rachas y su evidencia original.
+
+**Actualización, 03-10:** el original aportado se leyó visualmente en
+pp. 286–288; coincide con el corolario citado.
+[OcelotasLMNFuente.lean](OcelotasLMNFuente.lean) prueba
+`LMN23 -> LMNDebil` y `cst_corolario`, conservando el máximo y las
+constantes originales. [Lectura y límites](LECTURAS_20261003.md),
+[compilación de once módulos](lean_lmn_fuente.txt). La prueba general de
+LMN sigue externa y la revisión humana pendiente.
+
 Octava tanda de [CST](LEEME.md). [OcelotasLMN.lean](OcelotasLMN.lean) prueba
 en Lean CST hasta diez rachas impares **sin la cota de Rhin**. La única
 hipótesis externa es una forma debilitada del corolario 2 de Laurent,
@@ -33,8 +46,10 @@ con `log A_i ≥ max{h(α_i), |log α_i|/D, 1/D}` y `b' = b1/(D log A2) + b2/(D 
 - La versión de las notas de Evertse usa `log H(a_i)`. Da `b' ≤ 1,82 k` y el
   producto `log 2·log 3 = 0,76`, así que también implica `LMNDebil`.
 
-Lean certifica el enunciado, no esta lectura de la fuente; queda para la
-revisión humana.
+Desde el 03-10, Lean certifica también este debilitamiento a partir de
+`LMN23`, la especialización literal del corolario. La identificación de
+las alturas y la independencia multiplicativa se justifican por escrito
+en la [lectura del original](LECTURAS_20261003.md); requieren revisión humana.
 
 ## Prueba
 

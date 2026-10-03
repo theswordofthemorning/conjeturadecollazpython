@@ -1,0 +1,38 @@
+{
+  "resultados": {
+    "prefijos_21_bajo.json": {
+      "resultado": "sin discrepancias",
+      "conteos": {
+        "nodos": 161365,
+        "descenso": 4354,
+        "exceso_rachas": 0,
+        "criba": 15270,
+        "vacio": 61059,
+        "pendiente": 0,
+        "semillas_cubiertas": 817573,
+        "profundidad_maxima": 48
+      },
+      "hojas_no_vacias": 19624,
+      "sha256_hojas": "42c6cf8e8fc3629958545ab0b1eb509ea49606db9b047972b807b167aaeb1666",
+      "sha256_certificado": "4d427dce1a6cd92cc9a0f53aba45eee7f7c5515e3a30a82c942baa5776e28f44"
+    },
+    "prefijos_21_alto.json": {
+      "resultado": "sin discrepancias",
+      "conteos": {
+        "nodos": 670749,
+        "descenso": 9554,
+        "exceso_rachas": 0,
+        "criba": 173623,
+        "vacio": 152198,
+        "pendiente": 0,
+        "semillas_cubiertas": 320630928,
+        "profundidad_maxima": 51
+      },
+      "hojas_no_vacias": 183177,
+      "sha256_hojas": "b370a7dc5d59ed67839b58a59dd3fea6f1e22c345a8b66c3ace785ae343ca6e0",
+      "sha256_certificado": "32b7d05df92ecf295c15576be51414ba809e9a0989c20a2f6be2fd39af3c105a"
+    }
+  },
+  "limite": "cotejo exacto finito; no sustituye la prueba de la criba por prefijos",
+  "sha256_cotejador": "5da7929c2aa787e4ab12fef2288b05f8f3007d9b611a22b6eb2fc9a7c0d44e46"
+}

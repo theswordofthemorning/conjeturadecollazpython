@@ -1,0 +1,41 @@
+Registro tras CST de diecinueve rachas por prefijos, 2026-10-03.
+
+
+COMPROBACION 0 - el mapa de dependencias y la regla del avance
+  pendiente clasificacion_rutas -> AVANZABLE (padres comprobados)
+  pendiente cuadratica_M6      -> BLOQUEADO
+  pendiente recursion_bk       -> BLOQUEADO
+  pendiente empalme_por_visita -> AVANZABLE (padres comprobados)
+  pendiente lema_LA_piso       -> BLOQUEADO
+  pendiente lema_LB_ritmo      -> AVANZABLE (padres comprobados)
+  pendiente arranques_polinomiales -> AVANZABLE (padres comprobados)
+  pendiente phi_uno            -> BLOQUEADO
+  pendiente control_W_salida   -> AVANZABLE (padres comprobados)
+  -> nodos 63, aristas 96, sin ciclos, regla respetada.
+
+
+==============================================================================
+LAS AFIRMACIONES DEL LABORATORIO, ORDENADAS POR CUANTIFICADOR
+==============================================================================
+
+  afirmaciones : 258
+  correcciones : 85
+  constantes   : 20
+
+COMPROBACION 1 - el vocabulario cerrado
+  cuantificadores: todo_n, clase_residual, casi_todo_n, promedio, ciclos, verificado_hasta
+  estados        : demostrado, medido, conjeturado, refutado
+  filas fuera del vocabulario: 0
+  -> 0 fallos.
+
+COMPROBACION 2 - los ficheros citados existen, y las constantes traen lo suyo
+  ficheros distintos citados: 117
+  ../zootheorem/verify/verify_strata.py, ESTADO_INVESTIGACION.md, accesibilidad.py, aranas.py, arranquesporvisita.py, atacacst.lean, aterrizajen2.lean, auditoria_rigor.py, cabras.lean, cadenakc.lean, cadenaqnr.py, certificadocw.py, clasesfusion.py, collazmalla.py, conejas.lean, contracciondegatas.lean, coralprimos.py, correlacionafin.py, cruzarecords.py, depuracion/coherencia20260913/Matematica.md, depuracion/cst20260930/Ocelotas.lean, depuracion/cst20260930/OcelotasAfinadaTrayectorias.lean, depuracion/cst20260930/OcelotasDiecinueve.lean, depuracion/cst20260930/OcelotasDieciocho.lean, depuracion/cst20260930/OcelotasLMN.lean, depuracion/cst20260930/OcelotasRhin.lean, depuracion/cst20260930/OcelotasTrece.lean, depuracion/cst20260930/REVISION_RACHAS.md, depuracion/cst20260930/rachas_afinadas.py, depuracion/cst20260930/rachas_convergentes.py, depuracion/cst20260930/rachas_unilaterales.py, depuracion/cst20260930/verificar_rhin_convergentes.py, depuracion/frente20260910/Castoras.md, depuracion/frente20260910/Erizas.md, depuracion/frente20260910/Gacelas.md, depuracion/frente20260910/Mangostas.md, depuracion/frente20260910/invariantes.lean, depuracion/gao20260920/Cota_finita.md, depuracion/gao20260920/Ensamblaje_candidato.md, depuracion/gao20260920/Ensayo_finito.md, depuracion/gao20260920/Guardias_finitas.md, depuracion/gao20260920/Hienas.md, depuracion/gao20260920/Lagartijas.md, depuracion/gao20260920/Martas.md, depuracion/gao20260920/Reloj_bloques.md, depuracion/gao20260920/Reloj_global.md, depuracion/gao20260920/Salida_ampliada.md, depuracion/gao20260920/Tejonas.md, depuracion/gao20260920/Ventana_armonica.md, depuracion/gao20260920/Ventana_conjunta.md, depuracion/gao20260920/formal/WuEnunciado.lean, depuracion/garner20260926/Alpacas.md, depuracion/nashida20260928/CondorasBarrera.lean, depuracion/pandas20260930/Pandas.lean, depuracion/wirsching20260930/LEEME.md, depuracion/wirsching20260930/densidad_malos.py, depuracion/wirsching20260930/dispersion.py, depuracion/wirsching20260930/ventana_desplazada.py, descensoresto.py, diferenciales.py, dispersionc.py, dominacioncondicionada.py, elmasuno.py, empujarb.py, equidistribucionmixto.py, estratoscadena.py, excesocolision.py, firmaacoplamiento.py, flecosr.py, franjaeverett.py, gaviotas.py, gramaticaderetornos.py, guardarhilos.py, identidadexacta.py, itinerarios.py, lecturaracha.lean, lemadepandas.txt, lemasdeperras.lean, leydelborde.txt, liebres.py, mallaresiduos.py, mallascerradas.py, masasdeclase.py, medianareal.py, medianauniversal.py, minorizacion.py, monedacondicionada.py, moscas.py, notalb.txt, nuevasfusion.py, oscilacion.py, paseodeladeuda.py, pinzaciclos.py, pinzacw.py, pisoaltitud.py, pisoporarranque.py, pumasescalera.py, rachasreales.py, recordsincap.py, recursionvertical.lean, redhilos.py, reimpl.py, retorno11.py, retornoslambda.py, rondadeltronco.py, sombraexogena.py, subrenovacionc.py, teoremadekomodo3.lean, torredeladeuda.lean, trasvasel3.py, triangulodefusion.py, urracas.py, verificar_ciclos.py, verificar_constantes.py, verificar_everett.py, verificar_frontera_ciclos.py, verificar_fusiones.py
+  afirmaciones sin fichero (NULL): 32  <- medidas en scripts sueltos
+  ficheros citados que NO existen: 0
+  constantes de fuente ajena sin valor teorico: 0
+  constantes tramposas sin aviso              : 0 de 7 obligatorias
+  -> 0 fallos.
+
+BASE ESCRITA ATOMICAMENTE: afirmaciones.db; registro 2026-10-03
+COMPROBACION 3 OK: todas las tablas, integridad y referencias verificadas.

@@ -1,0 +1,23 @@
+{
+  "resultado": "sin discrepancias",
+  "filas": 42,
+  "intervalos_descartados": 5,
+  "semilla_exclusiva": 294539510,
+  "cola_desde_q": 2213511501,
+  "cotejo_semillas": "cotejo_residuos.json",
+  "intervalos_por_prefijos": [
+    [
+      35,
+      79335,
+      5184570
+    ],
+    [
+      36,
+      190537,
+      294539510
+    ]
+  ],
+  "cotejo_prefijos": "cotejo_prefijos_19.json",
+  "sha256_certificado": "449b3421aaceaf03463dd299db4bad0040f632fe9e4b09cb4f80108a74da7644",
+  "sha256_cotejador": "a35cad668c38a8b1075b78cc495a23f2a640279c4e5066205a201115ba212d2b"
+}

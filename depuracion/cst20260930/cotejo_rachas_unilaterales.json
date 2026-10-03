@@ -1,0 +1,65 @@
+{
+  "resultado": "sin discrepancias",
+  "parejas_unimodulares": 158,
+  "fronteras_revisadas": 316,
+  "filas_revisadas": 1422,
+  "resultados": [
+    {
+      "rachas": 10,
+      "semilla_exclusiva": 10699,
+      "intervalo_decisivo": 12,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 11,
+      "semilla_exclusiva": 12981,
+      "intervalo_decisivo": 14,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 12,
+      "semilla_exclusiva": 17835,
+      "intervalo_decisivo": 18,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 13,
+      "semilla_exclusiva": 31631,
+      "intervalo_decisivo": 24,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 17,
+      "semilla_exclusiva": 4639811,
+      "intervalo_decisivo": 35,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 18,
+      "semilla_exclusiva": 4912741,
+      "intervalo_decisivo": 35,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 19,
+      "semilla_exclusiva": 294601937,
+      "intervalo_decisivo": 36,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 75,
+      "semilla_exclusiva": 2685479559298935402,
+      "intervalo_decisivo": 86,
+      "cola_diadica": true
+    },
+    {
+      "rachas": 76,
+      "semilla_exclusiva": 42389654174194865579,
+      "intervalo_decisivo": 91,
+      "cola_diadica": true
+    }
+  ],
+  "censo_repetido": false,
+  "sha256_certificado": "bd79a7e13c6b5bb16ffcd6e7fd0af4f61c92a6dfe2a7a133adfa2ac9447b7742",
+  "sha256_cotejador": "1ef2a470598cb573d7d0fa32edbd76e80bde7ed99c01e82b200888fb810f7999"
+}

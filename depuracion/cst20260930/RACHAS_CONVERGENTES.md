@@ -1,5 +1,10 @@
 # CST hasta 17 rachas por los convergentes de log2 3 — 02-10-2026
 
+**Continuación, 03-10:** [RACHAS_AFINADAS.md](RACHAS_AFINADAS.md) recupera
+el margen de los redondeos y eleva 17 a 18 y 73 a 75, sin ampliar censos.
+El texto y los certificados de esta séptima tanda se conservan como
+evidencia del resultado anterior.
+
 Séptima tanda de [CST](LEEME.md). Usa el
 [certificado por convergentes](RHIN_LEAN.md#3-rango) en lugar de una criba por
 cada `q`. **Es una prueba asistida por cálculo exacto, no formalizada en

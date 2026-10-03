@@ -1,0 +1,38 @@
+{
+  "resultados": {
+    "prefijos_19_bajo.json": {
+      "resultado": "sin discrepancias",
+      "conteos": {
+        "nodos": 12201,
+        "descenso": 164,
+        "exceso_rachas": 0,
+        "criba": 2081,
+        "vacio": 3856,
+        "pendiente": 0,
+        "semillas_cubiertas": 271829,
+        "profundidad_maxima": 36
+      },
+      "hojas_no_vacias": 2245,
+      "sha256_hojas": "a06832989b5bacdba4fbd37cfd0161cb7967eccc1362baae75daa29881c832d5",
+      "sha256_certificado": "1bea6534f9adbc4f13cfe72fa01ae8516e8dcd7876914df2e721283e3d6a3b57"
+    },
+    "prefijos_19_alto.json": {
+      "resultado": "sin discrepancias",
+      "conteos": {
+        "nodos": 4047,
+        "descenso": 27,
+        "exceso_rachas": 0,
+        "criba": 1333,
+        "vacio": 664,
+        "pendiente": 0,
+        "semillas_cubiertas": 289626769,
+        "profundidad_maxima": 38
+      },
+      "hojas_no_vacias": 1360,
+      "sha256_hojas": "000fbd83b8fea6ffe4e4c9399181ab0c57b392b454dbc7bb7b1a252c8f90a8b4",
+      "sha256_certificado": "b1d9408d1fe686045f53806a7921e41e09a39cb1ec05e372c4c5401bafe5f450"
+    }
+  },
+  "limite": "cotejo exacto finito; no sustituye la prueba de la criba por prefijos",
+  "sha256_cotejador": "5da7929c2aa787e4ab12fef2288b05f8f3007d9b611a22b6eb2fc9a7c0d44e46"
+}
