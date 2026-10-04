@@ -1,0 +1,30 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'OcelotasPrefijosAfinados.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosAfinados.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosBinarios.buscar_cota' depends on axioms: [propext]
+'OcelotasPrefijosBinarios.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosBinarios.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasExponenteBinarioExacto.techo_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasExponenteBinarioExacto.buscar_exacto' depends on axioms: [propext, Quot.sound]
+'OcelotasExponenteBinarioExacto.exponente_igual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCribaPrefijosBinarios.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCribaPrefijosBinarios.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasPrefijosTestigos.lean:79:32: warning: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  simp [show ¬a < m by omega,̵ ̵h̵s̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'OcelotasPrefijosTestigos.cota_monotona_exponente' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_rama' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosTestigos.acepta_criba' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosTestigos.acepta_vacio' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_descenso' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_exceso' depends on axioms: [propext, Quot.sound]
+
+Codigo: 0

@@ -157,6 +157,10 @@ pendientes. No se amplía el censo conservado hasta `2^23`.
 
 ## Exploración siguiente: veintidós
 
+**Continuación cerrada:** [VEINTIDOS_LEAN.md](VEINTIDOS_LEAN.md) conserva
+la auditoría completa de 312 módulos y el cierre bajo LMN. Lo que sigue
+describe la preparación anterior a esa compilación.
+
 Con las mismas parejas, las cotas exclusivas de las dos semillas pasan
 a 6003187 y 341045748. El ensayo entero con combustible 128 y presupuesto
 de un millón de nodos por caso produjo:

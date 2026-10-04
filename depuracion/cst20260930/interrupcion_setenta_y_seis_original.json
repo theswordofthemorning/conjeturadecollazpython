@@ -1,0 +1,13 @@
+{
+  "fecha": "2026-10-03T20:48:37.0022475-03:00",
+  "estado": "interrupcion deliberada de una evaluacion redundante, no un fallo matematico",
+  "motivo": "Cierre de 76 por biseccion aceptado y equivalencia universal de verificadores formalizada. Se libera memoria para las nuevas pruebas.",
+  "sesion": 31998,
+  "pid": 14776,
+  "comando": "\"lean\" \"-R\" \"C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\" \"-o\" \"C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_extension_n4snpbj_\\OcelotasSetentaYSeisPrefijos.olean\" \"C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasSetentaYSeisPrefijos.lean\"",
+  "bytes_residentes": 2282192896,
+  "evidencia_cierre": "evidencia_setenta_y_seis_binarios.json",
+  "evidencia_equivalencia": "evidencia_verificadores_equivalentes.json",
+  "codigo_sesion_final": 1,
+  "codigo_compilador": "4294967295"
+}

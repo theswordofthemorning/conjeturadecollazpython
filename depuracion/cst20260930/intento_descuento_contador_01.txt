@@ -1,0 +1,56 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'OcelotasDescuentoRachas.paso_descontado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.cadena_descontada' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.congruencias_descontadas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosAfinados.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasDescuentoContador.lean:44:19: error(lean.unknownIdentifier): Unknown identifier `rachas_add_corte`
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasDescuentoContador.lean:76:17: error(lean.unknownIdentifier): Unknown identifier `rachas_add_corte`
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasDescuentoContador.lean:72:63: error: unsolved goals
+n k i R s : ℕ
+alfa beta : ℝ
+hn : 0 < n
+hk : PrimerCruce n k
+hi : i < k
+hcorte : i = 0 ∨ T^[i - 1] n % 2 = 0
+hr : rachas n k ≤ R
+hs : 0 < s
+hvalor : T^[i] n + 1 ≤ s
+ha : 1 ≤ alfa
+hb : 1 ≤ beta
+halfa : log 3 ≤ alfa * log 2
+hbeta : log ↑s ≤ beta * log 2
+ht : i + (k - i) = k
+hsuma : S k n = S i n + S (k - i) (T^[i] n)
+⊢ S k n ≤ S i n + (R - rachas n i) + OcelotasAfinada.cota alfa (beta - 1) (R - rachas n i)
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasDescuentoContador.lean:105:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  OcelotasAfinada.cota (1585 / 1000) (↑?B / 256) ?r
+in the target expression
+  S k n ≤ S i n + (R - rachas n i) + OcelotasPrefijosAfinados.cota (B - 256) (R - rachas n i)
+
+n k i R maximo B : ℕ
+hn : 0 < n
+hk : PrimerCruce n k
+hi : i < k
+hcorte : i = 0 ∨ T^[i - 1] n % 2 = 0
+hr : rachas n k ≤ R
+hvalor : T^[i] n ≤ maximo
+hB : 256 ≤ B
+hpot : (maximo + 1) ^ 256 ≤ 2 ^ B
+hbeta : log ↑(maximo + 1) ≤ ↑B / 256 * log 2
+hBreal : 256 ≤ ↑B
+hc : S k n ≤ S i n + (R - rachas n i) + OcelotasAfinada.cota (1585 / 1000) (↑B / 256 - 1) (R - rachas n i)
+he : ↑(B - 256) / 256 = ↑B / 256 - 1
+⊢ S k n ≤ S i n + (R - rachas n i) + OcelotasPrefijosAfinados.cota (B - 256) (R - rachas n i)
+'OcelotasDescuentoContador.domina_cota_anterior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoContador.criba_contador' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OcelotasDescuentoContador.criba_real_despues_corte' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OcelotasDescuentoContador.criba_desde_potencia' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+Codigo: 1

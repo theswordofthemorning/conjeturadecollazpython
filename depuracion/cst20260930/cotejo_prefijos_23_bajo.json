@@ -1,0 +1,22 @@
+{
+  "resultados": {
+    "prefijos_23_bajo_1m.json": {
+      "resultado": "sin discrepancias",
+      "conteos": {
+        "nodos": 528949,
+        "descenso": 20508,
+        "exceso_rachas": 0,
+        "criba": 19307,
+        "vacio": 224660,
+        "pendiente": 0,
+        "semillas_cubiertas": 1363318,
+        "profundidad_maxima": 60
+      },
+      "hojas_no_vacias": 39815,
+      "sha256_hojas": "28b77da209edcc7e041df9382d882da8bf6f95d0afd36a1dd88fde8d69334aa5",
+      "sha256_certificado": "8a0f8b9ea783ec7b03692a376388968b9361c4923d248d1c65bc087d7dba0b4c"
+    }
+  },
+  "limite": "cotejo exacto finito; no sustituye la prueba de la criba por prefijos",
+  "sha256_cotejador": "c7f9bd7beb75f4910ce0e5c0dab639779b89cd9da957ed53093497400e94d631"
+}

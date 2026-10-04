@@ -1,0 +1,465 @@
+{
+  "estado": "fuentes propuestas; requieren compilacion y auditoria Lean",
+  "certificado": "prefijos_77_afinados_5m.json",
+  "sha256_certificado": "de5ce13e37366c77a6d6276e7c343322429d1534618e740a3a4bac018919de48",
+  "sha256_cotejo": "15c8671e7e82d11bc2270b73ff1f4345deafcd14345c5cb50331491662eda7e1",
+  "sha256_generador": "a8321abe84528677f47669cf72e42ae5acf062d4eea4f2d0d66a4b11f007f50f",
+  "espacio": "OcelotasSetentaYSietePrefijos",
+  "nodos_subarbol": 2000,
+  "nodos_modulo": 20000,
+  "conteos": {
+    "nodos": 1420851,
+    "descenso": 58,
+    "exceso_rachas": 0,
+    "criba": 574299,
+    "vacio": 136069,
+    "pendiente": 0,
+    "semillas_cubiertas": 14938293471394771272,
+    "profundidad_maxima": 81
+  },
+  "sha256_hojas": "a8711ea0246c5cf1d3ca3ff5a6b07e5cf984176e41b50bf22adde5004701aedc",
+  "subarboles": 4896,
+  "uniones": 4895,
+  "partes": [
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte001",
+      "nodos_evaluados": 19016,
+      "subarboles": 92,
+      "sha256": "5a896e04f50e4caa05de42c532fd389792cc145e975acb85d4d452ed67c565e7"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte002",
+      "nodos_evaluados": 19958,
+      "subarboles": 90,
+      "sha256": "d62e0eb2e3bec5790c9fd131744e57986e05dc6a67849a91c333c9ec74998cf3"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte003",
+      "nodos_evaluados": 19981,
+      "subarboles": 119,
+      "sha256": "6d08314f8c92ada229519609ae098f69655a99ce2aab4a344b643eaa0d480720"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte004",
+      "nodos_evaluados": 19797,
+      "subarboles": 85,
+      "sha256": "bdc7c4135e11a3a27007273008c3527e683a8a9ab59b588565cf97492575ec81"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte005",
+      "nodos_evaluados": 19752,
+      "subarboles": 114,
+      "sha256": "63eeabe45a2d7bcb1b599854911aaeede85406ce8aef94da758147141b794027"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte006",
+      "nodos_evaluados": 19724,
+      "subarboles": 116,
+      "sha256": "2475b0087f8fd4b68c806ae23725e58c56b5394bd4ac6472254debdf246a2c2d"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte007",
+      "nodos_evaluados": 19938,
+      "subarboles": 84,
+      "sha256": "26d6b3edc49492bd4d9dcae0542098d2a2564f85d2d9c1f8e716cf1de94104cc"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte008",
+      "nodos_evaluados": 18361,
+      "subarboles": 131,
+      "sha256": "07b24b36e615283541c0c98c33dbc5b7c1f319328304f352e9df0f323266decc"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte009",
+      "nodos_evaluados": 18882,
+      "subarboles": 106,
+      "sha256": "f84dfdaaecc5d1d95ac989e3eb6c2e440ce752e744e8b4b2b7b7ae30e196b327"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte010",
+      "nodos_evaluados": 19816,
+      "subarboles": 88,
+      "sha256": "76147e379bebb95ff7a489d371d30eacf5c9a20cec8a072263880807774f1962"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte011",
+      "nodos_evaluados": 19168,
+      "subarboles": 118,
+      "sha256": "362ae294a1e31be429ab4e2497e7089a26a71ce70467cb9d0aff3abd81c25350"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte012",
+      "nodos_evaluados": 19999,
+      "subarboles": 105,
+      "sha256": "a5396495d961559c2361633b2ffa39f2dc2a1e34b65fb545edc1d3c555fb11b8"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte013",
+      "nodos_evaluados": 19690,
+      "subarboles": 146,
+      "sha256": "958b119c11d7b5a2366615543cb6f246f94b25e56ab680c5b612fd564eb794ab"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte014",
+      "nodos_evaluados": 19916,
+      "subarboles": 76,
+      "sha256": "99b54696db43f11679f9fb8c5c7839d68c40b5bbbb22c629e919eab17c1eba70"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte015",
+      "nodos_evaluados": 19945,
+      "subarboles": 115,
+      "sha256": "cc32086cbc9c1dcb14f7f4b7ed0d8ab65632248f1484bec31320359e0e43e694"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte016",
+      "nodos_evaluados": 19952,
+      "subarboles": 118,
+      "sha256": "d5e7eed015ef70a0413ffe6ab2284304e1909e8dfc76f856cd15b431b4528c74"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte017",
+      "nodos_evaluados": 19957,
+      "subarboles": 121,
+      "sha256": "035d1292205523c68b1bb09439d5babde8f22e38c7bfd6c52955f62fc9eaf303"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte018",
+      "nodos_evaluados": 19712,
+      "subarboles": 82,
+      "sha256": "c74e3f424af34b033504b964eb22a9c7f7efc85a072e885a25a06644b23fcac1"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte019",
+      "nodos_evaluados": 19958,
+      "subarboles": 114,
+      "sha256": "76a943af3a15bef69747df972fb238462f0b4ba6f53fbc86f7888668c644685b"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte020",
+      "nodos_evaluados": 19754,
+      "subarboles": 126,
+      "sha256": "7ff7e284a32ec02638510c75c08eb7e5ecb9920a790ebd7ce6eef78e08df3f62"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte021",
+      "nodos_evaluados": 19909,
+      "subarboles": 75,
+      "sha256": "f73cc550ec85c0924b91d8aa8b2393879a1beb30aa3925f659964540cff6a13e"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte022",
+      "nodos_evaluados": 19480,
+      "subarboles": 74,
+      "sha256": "68f2156010c6e561230740376c163963d1f35ff76dbf5d90189c2330ffc204fc"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte023",
+      "nodos_evaluados": 19873,
+      "subarboles": 101,
+      "sha256": "615c16553764712d73d852557a5c21b23ff0cea01d9b29762f6c098f3128c70e"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte024",
+      "nodos_evaluados": 18226,
+      "subarboles": 80,
+      "sha256": "2c56de09847049997cfbe49e40c46823b3bed7bf25ee351551548c42187c5320"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte025",
+      "nodos_evaluados": 18306,
+      "subarboles": 78,
+      "sha256": "2fab980f52389b46a59f248d5d2817e70546c1f1ba07c69a6a665e4ffab0048c"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte026",
+      "nodos_evaluados": 19833,
+      "subarboles": 81,
+      "sha256": "87c018310ae551682774b81981fa1ba68550188275b95d4792e318bdeda51c93"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte027",
+      "nodos_evaluados": 18168,
+      "subarboles": 88,
+      "sha256": "68b9724b82d1eba3e9471d1198173ac5400b10d403ff334bce8a7b59c5357deb"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte028",
+      "nodos_evaluados": 19822,
+      "subarboles": 74,
+      "sha256": "053cf673b0dba474322f542095a7d885ab109af12a47c1880bed00dbe16f5e85"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte029",
+      "nodos_evaluados": 19877,
+      "subarboles": 71,
+      "sha256": "182fbced6f64b0f37fc78c9493629151100c6c8203648dd066da398c0ac43f8d"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte030",
+      "nodos_evaluados": 19306,
+      "subarboles": 62,
+      "sha256": "5f204842b9e74bd662209ea886daf1e51ca7c8e902546e96a0e389669529957f"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte031",
+      "nodos_evaluados": 19697,
+      "subarboles": 61,
+      "sha256": "ea56d36eda7a6f87bfcf99ff988ad47c66fc4fab49a1762501ac49972b9b71f0"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte032",
+      "nodos_evaluados": 19798,
+      "subarboles": 46,
+      "sha256": "fd0d5a736c28901c24f25d25099965a65877a107e3425699c6d0b984f5aecf5e"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte033",
+      "nodos_evaluados": 19721,
+      "subarboles": 53,
+      "sha256": "b1b0dd9ccb557c8e4c9009d9bd8909b71a34e8aedcfee2de2faaf8575926e7e1"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte034",
+      "nodos_evaluados": 19813,
+      "subarboles": 49,
+      "sha256": "9f4714e1c132617d6471ee6ba26c77c31d438195c24143f19537f65b9f57a969"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte035",
+      "nodos_evaluados": 18494,
+      "subarboles": 44,
+      "sha256": "f4b8f9b22455fe9df17d7e8995fa75b0558b6b7ab17ac1e8c44ad65c47d855e3"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte036",
+      "nodos_evaluados": 18895,
+      "subarboles": 43,
+      "sha256": "e97c067686413d9b7d78aab77bf73a62e52ebbaab37491d18901d7cb4f3b6ba9"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte037",
+      "nodos_evaluados": 19495,
+      "subarboles": 47,
+      "sha256": "c8ca3ae29918f9630709bbf512cbb53640f2f44ee155fbce1a55767d688ff7af"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte038",
+      "nodos_evaluados": 19831,
+      "subarboles": 37,
+      "sha256": "b549cbfe097ffce95ceaecae3e54acbdf3c7112240aee00845f900fc0646d77c"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte039",
+      "nodos_evaluados": 19293,
+      "subarboles": 39,
+      "sha256": "456468ee43e18c1f38cfae855fab52904156c24165600412050dbfddd473f29b"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte040",
+      "nodos_evaluados": 19909,
+      "subarboles": 37,
+      "sha256": "fc5b85243f04430de0bdac8f99b02d256d87df3eb583a01d331220c8089c6b7b"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte041",
+      "nodos_evaluados": 19705,
+      "subarboles": 31,
+      "sha256": "4804a1a2261a923a95f20fc18dc1480c31d437adee2504b5c5886877742657c9"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte042",
+      "nodos_evaluados": 19066,
+      "subarboles": 30,
+      "sha256": "c67aeefe4916df96b0d35dcaedcd685b4ea0683d842baac85e90a494554e1148"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte043",
+      "nodos_evaluados": 19016,
+      "subarboles": 24,
+      "sha256": "5bbd419b456b84c0fb88cf11cffa1e45e5a3535cf54f64c142b1c61a38ebc837"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte044",
+      "nodos_evaluados": 19499,
+      "subarboles": 19,
+      "sha256": "f0f0d575dd5160afced8c64b7ee6965659b529830affa80ca0d7af411d6b87c3"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte045",
+      "nodos_evaluados": 19445,
+      "subarboles": 19,
+      "sha256": "e830d33b3ce5a83e8c8cc2b61cddfebc0aefcf843ccdcc726f330d68bfa10ab3"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte046",
+      "nodos_evaluados": 18138,
+      "subarboles": 14,
+      "sha256": "3eb9f1a6e1b512d7df7a9105f611311022f460ec152c52c2e0fc4d3d1df4c186"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte047",
+      "nodos_evaluados": 18760,
+      "subarboles": 18,
+      "sha256": "3e903f871b0bb4b37e39f43f4941374008b41559483f4647a3ad6c685dbfb441"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte048",
+      "nodos_evaluados": 18530,
+      "subarboles": 20,
+      "sha256": "5e35d36c6186ee313172f5f7780292423f3c2c86e254a4c30fa98ef7e31bfb49"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte049",
+      "nodos_evaluados": 19675,
+      "subarboles": 23,
+      "sha256": "ba782020daca9364fa4ec93c7c700d933ec271d3032d2a05dcfe45568bde96e1"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte050",
+      "nodos_evaluados": 19948,
+      "subarboles": 28,
+      "sha256": "fac674c53cbcec200b0f9c3370f2cb0ecaf68cfcd0da7f7cfd4ca081e850287d"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte051",
+      "nodos_evaluados": 19912,
+      "subarboles": 26,
+      "sha256": "d923fbc30b1dcf4f9ff4dcbf20b4a5cefe81aa72514f72a59661a0ce93da3270"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte052",
+      "nodos_evaluados": 18310,
+      "subarboles": 30,
+      "sha256": "c51d5bc0b22d18df9ad3b7e904b62f084256b3429300e4ec9a146c54e3a7857d"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte053",
+      "nodos_evaluados": 19703,
+      "subarboles": 35,
+      "sha256": "dfd953d0cfac8dfd9bf4de5c1c04f7aa18f9778d5c424c2b8714991355efb93d"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte054",
+      "nodos_evaluados": 19918,
+      "subarboles": 38,
+      "sha256": "1155bf4d50f968e9405ab3efde4fcfd92706b46c7bab1c3416dc5b79d52bbc57"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte055",
+      "nodos_evaluados": 19987,
+      "subarboles": 43,
+      "sha256": "ca994218fe7ef8e983837c05104859c582409a5c13f38cdccaa46a01d914acdd"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte056",
+      "nodos_evaluados": 18782,
+      "subarboles": 38,
+      "sha256": "6046a483fcf4a74515149765baf782b09f082114a7a411d688b4b841d424beed"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte057",
+      "nodos_evaluados": 19955,
+      "subarboles": 47,
+      "sha256": "b57f6c33dd2cd117a010bedeea8172e34eee16675283ed38d86158204b8b398c"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte058",
+      "nodos_evaluados": 18331,
+      "subarboles": 47,
+      "sha256": "6ebd728dd1840682b9a10516a141e088b9a791e8cafd43a47096c8bfc03a4632"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte059",
+      "nodos_evaluados": 19527,
+      "subarboles": 59,
+      "sha256": "0fb5820cfdb8fd34cfc36ef9e21190e2c8b5566dd3510a3abdfe91d08c352704"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte060",
+      "nodos_evaluados": 19755,
+      "subarboles": 51,
+      "sha256": "6ed8810ee8153802aaea6c5f6c81c7c319bfbb25820d9ca032637b30f82bc1e0"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte061",
+      "nodos_evaluados": 18477,
+      "subarboles": 53,
+      "sha256": "78235f7bc2d204b264a03aabe9d0bdf816d611642aa5f75ec0eed0f615d25965"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte062",
+      "nodos_evaluados": 19840,
+      "subarboles": 62,
+      "sha256": "51fa27b6b003c88587739d4ccc52d1aa0bc10c62490d3fecb674156fad12a432"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte063",
+      "nodos_evaluados": 19961,
+      "subarboles": 59,
+      "sha256": "a3f78d1f4274e44bb6421b9d0b1220f821e70b86e56c50ec2854e7d3bcc88f74"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte064",
+      "nodos_evaluados": 18224,
+      "subarboles": 62,
+      "sha256": "87194b14e467bc6404a73b22db26e1d1c9152a65734504ab7a0b6e4f1f0d2c83"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte065",
+      "nodos_evaluados": 19995,
+      "subarboles": 63,
+      "sha256": "d10f3bd36b00bf1d5a84c609f988bd44e4ed278f7325d590c0fb06a617142ad2"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte066",
+      "nodos_evaluados": 19560,
+      "subarboles": 76,
+      "sha256": "9b9254efdb435c5a05dae8acab7078c14e518469491c1fd99797c556d93f53b6"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte067",
+      "nodos_evaluados": 19809,
+      "subarboles": 53,
+      "sha256": "0e8e84459b24b6706e292818fa585c6ba19fdb279ba61359123d0e0353e2071d"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte068",
+      "nodos_evaluados": 19782,
+      "subarboles": 80,
+      "sha256": "00dd60288e8fa652349502a3d6147bffebad703b598f30350fb7538bbd00a6db"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte069",
+      "nodos_evaluados": 19860,
+      "subarboles": 62,
+      "sha256": "4ef15d9a106b78aeff7f0859e8e2717da6e08c04a76823d5011dd064759aa9b2"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte070",
+      "nodos_evaluados": 18869,
+      "subarboles": 87,
+      "sha256": "8232f36ed917dd4c2ec4e7477bb00ba5d89b2ccf86c81f0d5f9b73c4ec8af938"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte071",
+      "nodos_evaluados": 19711,
+      "subarboles": 67,
+      "sha256": "342af48514cc515a8dfd773ada49c88dd0148f3ea31279389e82039a6278d9bc"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte072",
+      "nodos_evaluados": 19784,
+      "subarboles": 92,
+      "sha256": "c5084982554f7fd59a6a3029844b690b5c443cacc9829030614e3d6e0a0f7f3c"
+    },
+    {
+      "modulo": "OcelotasSetentaYSietePrefijosParte073",
+      "nodos_evaluados": 15100,
+      "subarboles": 54,
+      "sha256": "ecf22f3da5a0a04565b383c2c72b293cc2e3639083f49a6f84247457eb5b7a67"
+    }
+  ],
+  "sha256_principal": "7abd9bd63044456859ff43b877ad76257c7bc2d141ff54b093310ad598d2be8b",
+  "segundos": 69.913
+}

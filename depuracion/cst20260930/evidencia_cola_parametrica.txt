@@ -1,0 +1,9 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'OcelotasColaParametrica.margen_cola' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.semilla_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.log_tiempo_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.region_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.region_del_fallo_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.cst_en_cola' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo: 0

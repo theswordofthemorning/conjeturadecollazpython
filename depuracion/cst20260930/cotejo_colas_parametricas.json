@@ -1,0 +1,43 @@
+{
+  "resultado": "sin discrepancias",
+  "filas": [
+    {
+      "R": 21,
+      "H": 32,
+      "resultado": "sin discrepancias"
+    },
+    {
+      "R": 22,
+      "H": 33,
+      "resultado": "sin discrepancias"
+    },
+    {
+      "R": 23,
+      "H": 34,
+      "resultado": "sin discrepancias"
+    },
+    {
+      "R": 50,
+      "H": 53,
+      "resultado": "sin discrepancias"
+    },
+    {
+      "R": 75,
+      "H": 70,
+      "resultado": "sin discrepancias"
+    },
+    {
+      "R": 100,
+      "H": 88,
+      "resultado": "sin discrepancias"
+    },
+    {
+      "R": 1000,
+      "H": 703,
+      "resultado": "sin discrepancias"
+    }
+  ],
+  "alcance": "Constantes exactas; la cola universal la demuestra Lean, no esta malla.",
+  "sha256_certificado": "7f22a60304f928697cd9dcc18780aa21ad616d944c71820f9e59932844926cb1",
+  "sha256_cotejador": "56b4f6cadbe1f45fbc237b64f73724bf89bbf2cad698fa0ece005bc32ec10fc6"
+}

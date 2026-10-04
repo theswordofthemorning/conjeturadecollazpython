@@ -1,0 +1,36 @@
+{
+  "resultado": "sin discrepancias",
+  "margen_base": 4294798295,
+  "polinomios_positivos": {
+    "paso_r": [
+      3961,
+      252,
+      4
+    ],
+    "paso_t": [
+      1022,
+      64,
+      1
+    ],
+    "dominio_m": [
+      1088,
+      65,
+      1
+    ]
+  },
+  "casos_recurrencia": 606,
+  "rango_r": [
+    0,
+    100
+  ],
+  "valores_m": [
+    0,
+    1,
+    2,
+    3,
+    16,
+    1000
+  ],
+  "limite": "Identidades exactas y malla de bordes; la universalidad corresponde a la derivacion escrita y a Lean. No es un censo de Collatz.",
+  "sha256_cotejador": "36a497fa5dad30ad19f01f235dc121eba0e930c054fd2e613daf85a4141f6c75"
+}

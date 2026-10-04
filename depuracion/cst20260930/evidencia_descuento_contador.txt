@@ -1,0 +1,23 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+MODULO: OcelotasDescuentoRachas; segundos: 21.651
+'OcelotasDescuentoRachas.paso_descontado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.cadena_descontada' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.congruencias_descontadas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasPrefijosAfinados; segundos: 20.491
+'OcelotasPrefijosAfinados.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosAfinados.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasDescuentoContador; segundos: 21.293
+'OcelotasDescuentoContador.domina_cota_anterior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoContador.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoContador.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoContador.criba_desde_potencia' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

@@ -1,0 +1,871 @@
+{
+  "resultado": "sin discrepancias",
+  "mapa": "T(n)=n/2 par; (3n+1)/2 impar",
+  "dominio": "semillas impares positivas; bloques completos, sin condicion de primer cruce",
+  "max_semilla": 65535,
+  "max_rachas": 8,
+  "contrastes": {
+    "semillas_impares": 32768,
+    "bloques": 262144,
+    "pasos_T": 1029796,
+    "maximo_observado": 260895248,
+    "igualdades_locales": 4812,
+    "igualdades_globales": 8
+  },
+  "tablas": {
+    "preparacion_veintitres_lean.json": {
+      "sha256": "0f99d0b18c9fba5ec6e5f40c7677ade614a82a8095b713b3f96f3b65d673de45",
+      "filas": [
+        {
+          "intervalo": 0,
+          "q_inicio": 1,
+          "anterior": 396482,
+          "descontada": 331667
+        },
+        {
+          "intervalo": 1,
+          "q_inicio": 3,
+          "anterior": 463827,
+          "descontada": 388317
+        },
+        {
+          "intervalo": 2,
+          "q_inicio": 5,
+          "anterior": 563425,
+          "descontada": 484801
+        },
+        {
+          "intervalo": 3,
+          "q_inicio": 17,
+          "anterior": 601570,
+          "descontada": 525679
+        },
+        {
+          "intervalo": 4,
+          "q_inicio": 29,
+          "anterior": 628424,
+          "descontada": 564453
+        },
+        {
+          "intervalo": 5,
+          "q_inicio": 41,
+          "anterior": 701657,
+          "descontada": 645576
+        },
+        {
+          "intervalo": 6,
+          "q_inicio": 94,
+          "anterior": 735343,
+          "descontada": 680342
+        },
+        {
+          "intervalo": 7,
+          "q_inicio": 147,
+          "anterior": 756728,
+          "descontada": 683189
+        },
+        {
+          "intervalo": 8,
+          "q_inicio": 200,
+          "anterior": 808731,
+          "descontada": 734412
+        },
+        {
+          "intervalo": 9,
+          "q_inicio": 253,
+          "anterior": 821557,
+          "descontada": 768396
+        },
+        {
+          "intervalo": 10,
+          "q_inicio": 306,
+          "anterior": 946742,
+          "descontada": 893052
+        },
+        {
+          "intervalo": 11,
+          "q_inicio": 971,
+          "anterior": 953488,
+          "descontada": 894645
+        },
+        {
+          "intervalo": 12,
+          "q_inicio": 1636,
+          "anterior": 954308,
+          "descontada": 894778
+        },
+        {
+          "intervalo": 13,
+          "q_inicio": 2301,
+          "anterior": 954313,
+          "descontada": 894778
+        },
+        {
+          "intervalo": 14,
+          "q_inicio": 2966,
+          "anterior": 959581,
+          "descontada": 894778
+        },
+        {
+          "intervalo": 15,
+          "q_inicio": 3631,
+          "anterior": 959621,
+          "descontada": 894778
+        },
+        {
+          "intervalo": 16,
+          "q_inicio": 4296,
+          "anterior": 975482,
+          "descontada": 905789
+        },
+        {
+          "intervalo": 17,
+          "q_inicio": 4961,
+          "anterior": 980113,
+          "descontada": 905791
+        },
+        {
+          "intervalo": 18,
+          "q_inicio": 5626,
+          "anterior": 995718,
+          "descontada": 941149
+        },
+        {
+          "intervalo": 19,
+          "q_inicio": 6291,
+          "anterior": 1002876,
+          "descontada": 941273
+        },
+        {
+          "intervalo": 20,
+          "q_inicio": 6956,
+          "anterior": 1023202,
+          "descontada": 941392
+        },
+        {
+          "intervalo": 21,
+          "q_inicio": 7621,
+          "anterior": 1026973,
+          "descontada": 946713
+        },
+        {
+          "intervalo": 22,
+          "q_inicio": 8286,
+          "anterior": 1027838,
+          "descontada": 953511
+        },
+        {
+          "intervalo": 23,
+          "q_inicio": 8951,
+          "anterior": 1027838,
+          "descontada": 954336
+        },
+        {
+          "intervalo": 24,
+          "q_inicio": 9616,
+          "anterior": 1027840,
+          "descontada": 959604
+        },
+        {
+          "intervalo": 25,
+          "q_inicio": 10281,
+          "anterior": 1035349,
+          "descontada": 975511
+        },
+        {
+          "intervalo": 26,
+          "q_inicio": 10946,
+          "anterior": 1078305,
+          "descontada": 996075
+        },
+        {
+          "intervalo": 27,
+          "q_inicio": 11611,
+          "anterior": 1081704,
+          "descontada": 1026996
+        },
+        {
+          "intervalo": 28,
+          "q_inicio": 12276,
+          "anterior": 1082871,
+          "descontada": 1027861
+        },
+        {
+          "intervalo": 29,
+          "q_inicio": 12941,
+          "anterior": 1112127,
+          "descontada": 1035205
+        },
+        {
+          "intervalo": 30,
+          "q_inicio": 13606,
+          "anterior": 1146528,
+          "descontada": 1079406
+        },
+        {
+          "intervalo": 31,
+          "q_inicio": 14271,
+          "anterior": 1165518,
+          "descontada": 1109994
+        },
+        {
+          "intervalo": 32,
+          "q_inicio": 14936,
+          "anterior": 1238933,
+          "descontada": 1163996
+        },
+        {
+          "intervalo": 33,
+          "q_inicio": 15601,
+          "anterior": 1350161,
+          "descontada": 1282386
+        },
+        {
+          "intervalo": 34,
+          "q_inicio": 47468,
+          "anterior": 1415451,
+          "descontada": 1336424
+        },
+        {
+          "intervalo": 35,
+          "q_inicio": 79335,
+          "anterior": 1500586,
+          "descontada": 1435666
+        },
+        {
+          "intervalo": 36,
+          "q_inicio": 190537,
+          "anterior": 1901002,
+          "descontada": 1844920
+        },
+        {
+          "intervalo": 37,
+          "q_inicio": 10781274,
+          "anterior": 2058782,
+          "descontada": 1985304
+        },
+        {
+          "intervalo": 38,
+          "q_inicio": 64497107,
+          "anterior": 2106489,
+          "descontada": 2032037
+        },
+        {
+          "intervalo": 39,
+          "q_inicio": 118212940,
+          "anterior": 2152859,
+          "descontada": 2093119
+        },
+        {
+          "intervalo": 40,
+          "q_inicio": 171928773,
+          "anterior": 2247826,
+          "descontada": 2191920
+        },
+        {
+          "intervalo": 41,
+          "q_inicio": 397573379,
+          "anterior": 2527605,
+          "descontada": 2462290
+        },
+        {
+          "intervalo": 42,
+          "q_inicio": 6586818670,
+          "anterior": 2786266,
+          "descontada": 2708967
+        }
+      ],
+      "filas_adicionales_excluidas": []
+    },
+    "preparacion_setenta_y_siete.json": {
+      "sha256": "27c3b8eee223be11fb059afb5cc29d355868e5596aefa21b79a54d487b989bd6",
+      "filas": [
+        {
+          "intervalo": 0,
+          "q_inicio": 1,
+          "anterior": 32742657346848089,
+          "descontada": 29372885496322240
+        },
+        {
+          "intervalo": 1,
+          "q_inicio": 3,
+          "anterior": 35680210256270288,
+          "descontada": 30699723370581077
+        },
+        {
+          "intervalo": 2,
+          "q_inicio": 5,
+          "anterior": 43218689446380371,
+          "descontada": 38340870355739123
+        },
+        {
+          "intervalo": 3,
+          "q_inicio": 17,
+          "anterior": 44434113220018595,
+          "descontada": 40881165517959263
+        },
+        {
+          "intervalo": 4,
+          "q_inicio": 29,
+          "anterior": 47919870617071914,
+          "descontada": 43261755430135325
+        },
+        {
+          "intervalo": 5,
+          "q_inicio": 41,
+          "anterior": 51897111894515187,
+          "descontada": 48446931531306190
+        },
+        {
+          "intervalo": 6,
+          "q_inicio": 94,
+          "anterior": 54815618891837718,
+          "descontada": 51194353245699491
+        },
+        {
+          "intervalo": 7,
+          "q_inicio": 147,
+          "anterior": 55263824156048706,
+          "descontada": 51760395029954784
+        },
+        {
+          "intervalo": 8,
+          "q_inicio": 200,
+          "anterior": 57359199155343022,
+          "descontada": 52027069449540288
+        },
+        {
+          "intervalo": 9,
+          "q_inicio": 253,
+          "anterior": 60433778561302595,
+          "descontada": 56662460722799999
+        },
+        {
+          "intervalo": 10,
+          "q_inicio": 306,
+          "anterior": 68354462173041758,
+          "descontada": 63521497283277927
+        },
+        {
+          "intervalo": 11,
+          "q_inicio": 971,
+          "anterior": 68501445522560897,
+          "descontada": 64796654771784440
+        },
+        {
+          "intervalo": 12,
+          "q_inicio": 1636,
+          "anterior": 68501445566533251,
+          "descontada": 65035459132537440
+        },
+        {
+          "intervalo": 13,
+          "q_inicio": 2301,
+          "anterior": 68501622772512888,
+          "descontada": 65035459439430529
+        },
+        {
+          "intervalo": 14,
+          "q_inicio": 2966,
+          "anterior": 68572031535502295,
+          "descontada": 65090233554467346
+        },
+        {
+          "intervalo": 15,
+          "q_inicio": 3631,
+          "anterior": 68575386655360731,
+          "descontada": 65090234390285013
+        },
+        {
+          "intervalo": 16,
+          "q_inicio": 4296,
+          "anterior": 69047998679860640,
+          "descontada": 65090259619373551
+        },
+        {
+          "intervalo": 17,
+          "q_inicio": 4961,
+          "anterior": 70291489013717046,
+          "descontada": 65090398127954207
+        },
+        {
+          "intervalo": 18,
+          "q_inicio": 5626,
+          "anterior": 70291522697098422,
+          "descontada": 65090535272507175
+        },
+        {
+          "intervalo": 19,
+          "q_inicio": 6291,
+          "anterior": 70428074270248735,
+          "descontada": 65555678759712103
+        },
+        {
+          "intervalo": 20,
+          "q_inicio": 6956,
+          "anterior": 71644168579611688,
+          "descontada": 67493046398849039
+        },
+        {
+          "intervalo": 21,
+          "q_inicio": 7621,
+          "anterior": 72468773548042307,
+          "descontada": 68286166466702640
+        },
+        {
+          "intervalo": 22,
+          "q_inicio": 8286,
+          "anterior": 72606573244383888,
+          "descontada": 68354469890964566
+        },
+        {
+          "intervalo": 23,
+          "q_inicio": 8951,
+          "anterior": 73701226517901652,
+          "descontada": 68501622772512965
+        },
+        {
+          "intervalo": 24,
+          "q_inicio": 9616,
+          "anterior": 73713439213990030,
+          "descontada": 68575115036695528
+        },
+        {
+          "intervalo": 25,
+          "q_inicio": 10281,
+          "anterior": 73808974757212254,
+          "descontada": 70291282883609948
+        },
+        {
+          "intervalo": 26,
+          "q_inicio": 10946,
+          "anterior": 73831037852859512,
+          "descontada": 70428069483872099
+        },
+        {
+          "intervalo": 27,
+          "q_inicio": 11611,
+          "anterior": 75955718197340915,
+          "descontada": 72468729105599741
+        },
+        {
+          "intervalo": 28,
+          "q_inicio": 12276,
+          "anterior": 77124612491484219,
+          "descontada": 73365896468687263
+        },
+        {
+          "intervalo": 29,
+          "q_inicio": 12941,
+          "anterior": 78672906553051909,
+          "descontada": 73791297265998697
+        },
+        {
+          "intervalo": 30,
+          "q_inicio": 13606,
+          "anterior": 79112153492953788,
+          "descontada": 73831039900754515
+        },
+        {
+          "intervalo": 31,
+          "q_inicio": 14271,
+          "anterior": 82120740258722216,
+          "descontada": 77936335810734795
+        },
+        {
+          "intervalo": 32,
+          "q_inicio": 14936,
+          "anterior": 85502104388533326,
+          "descontada": 81208634795117786
+        },
+        {
+          "intervalo": 33,
+          "q_inicio": 15601,
+          "anterior": 93113867324665176,
+          "descontada": 89636715877142116
+        },
+        {
+          "intervalo": 34,
+          "q_inicio": 47468,
+          "anterior": 95787537667570303,
+          "descontada": 91480522349592894
+        },
+        {
+          "intervalo": 35,
+          "q_inicio": 79335,
+          "anterior": 103168021508601624,
+          "descontada": 98460855826083769
+        },
+        {
+          "intervalo": 36,
+          "q_inicio": 190537,
+          "anterior": 128662983566655064,
+          "descontada": 125037607560076144
+        },
+        {
+          "intervalo": 37,
+          "q_inicio": 10781274,
+          "anterior": 138796177025732459,
+          "descontada": 133635410475911307
+        },
+        {
+          "intervalo": 38,
+          "q_inicio": 64497107,
+          "anterior": 140991372624659437,
+          "descontada": 136736441264562590
+        },
+        {
+          "intervalo": 39,
+          "q_inicio": 118212940,
+          "anterior": 144100597678908346,
+          "descontada": 138916462649588440
+        },
+        {
+          "intervalo": 40,
+          "q_inicio": 171928773,
+          "anterior": 149764799437572607,
+          "descontada": 146363030277177391
+        },
+        {
+          "intervalo": 41,
+          "q_inicio": 397573379,
+          "anterior": 168258600349501455,
+          "descontada": 163521377472215278
+        },
+        {
+          "intervalo": 42,
+          "q_inicio": 6586818670,
+          "anterior": 182057752977315115,
+          "descontada": 177270860833787237
+        },
+        {
+          "intervalo": 43,
+          "q_inicio": 72057431991,
+          "anterior": 185480179070375538,
+          "descontada": 182056579080463781
+        },
+        {
+          "intervalo": 44,
+          "q_inicio": 137528045312,
+          "anterior": 198187324270049999,
+          "descontada": 193754379750003342
+        },
+        {
+          "intervalo": 45,
+          "q_inicio": 890638885193,
+          "anterior": 198751858980913526,
+          "descontada": 194082827111062302
+        },
+        {
+          "intervalo": 46,
+          "q_inicio": 1643749725074,
+          "anterior": 199229736414484324,
+          "descontada": 195467370146885418
+        },
+        {
+          "intervalo": 47,
+          "q_inicio": 2396860564955,
+          "anterior": 201465540783535481,
+          "descontada": 197113384269888634
+        },
+        {
+          "intervalo": 48,
+          "q_inicio": 3149971404836,
+          "anterior": 202496159975116725,
+          "descontada": 198187351424032169
+        },
+        {
+          "intervalo": 49,
+          "q_inicio": 3903082244717,
+          "anterior": 203961239219779312,
+          "descontada": 199278148264477793
+        },
+        {
+          "intervalo": 50,
+          "q_inicio": 4656193084598,
+          "anterior": 207165597709863823,
+          "descontada": 203146030873897092
+        },
+        {
+          "intervalo": 51,
+          "q_inicio": 5409303924479,
+          "anterior": 214800523994045227,
+          "descontada": 210088531716890145
+        },
+        {
+          "intervalo": 52,
+          "q_inicio": 11571718688839,
+          "anterior": 223505706714941915,
+          "descontada": 220053968060614578
+        },
+        {
+          "intervalo": 53,
+          "q_inicio": 64021008208555,
+          "anterior": 225187598544453157,
+          "descontada": 220186908850041304
+        },
+        {
+          "intervalo": 54,
+          "q_inicio": 116470297728271,
+          "anterior": 225622927867097612,
+          "descontada": 220197852866396766
+        },
+        {
+          "intervalo": 55,
+          "q_inicio": 168919587247987,
+          "anterior": 227870008966568281,
+          "descontada": 223122944925889956
+        },
+        {
+          "intervalo": 56,
+          "q_inicio": 221368876767703,
+          "anterior": 228611709553236179,
+          "descontada": 223471316944416924
+        },
+        {
+          "intervalo": 57,
+          "q_inicio": 273818166287419,
+          "anterior": 228637248066965989,
+          "descontada": 225187598544453234
+        },
+        {
+          "intervalo": 58,
+          "q_inicio": 326267455807135,
+          "anterior": 231699225078556505,
+          "descontada": 227870008966568358
+        },
+        {
+          "intervalo": 59,
+          "q_inicio": 378716745326851,
+          "anterior": 233866449432793350,
+          "descontada": 228865280474235109
+        },
+        {
+          "intervalo": 60,
+          "q_inicio": 431166034846567,
+          "anterior": 237347114558015416,
+          "descontada": 233871667835363824
+        },
+        {
+          "intervalo": 61,
+          "q_inicio": 914781359212850,
+          "anterior": 237377207320802958,
+          "descontada": 233923002945198589
+        },
+        {
+          "intervalo": 62,
+          "q_inicio": 1398396683579133,
+          "anterior": 238732078681476190,
+          "descontada": 233942059144574045
+        },
+        {
+          "intervalo": 63,
+          "q_inicio": 1882012007945416,
+          "anterior": 240639846816911806,
+          "descontada": 236536924372973541
+        },
+        {
+          "intervalo": 64,
+          "q_inicio": 2365627332311699,
+          "anterior": 241969570935030142,
+          "descontada": 237183812756086982
+        },
+        {
+          "intervalo": 65,
+          "q_inicio": 2849242656677982,
+          "anterior": 242000116413902985,
+          "descontada": 237312777358740655
+        },
+        {
+          "intervalo": 66,
+          "q_inicio": 3332857981044265,
+          "anterior": 242032482745076291,
+          "descontada": 237347114558015493
+        },
+        {
+          "intervalo": 67,
+          "q_inicio": 3816473305410548,
+          "anterior": 242578249096579725,
+          "descontada": 238732078681483017
+        },
+        {
+          "intervalo": 68,
+          "q_inicio": 4300088629776831,
+          "anterior": 245435135885333070,
+          "descontada": 241969570935030219
+        },
+        {
+          "intervalo": 69,
+          "q_inicio": 4783703954143114,
+          "anterior": 247147191496497060,
+          "descontada": 242499654652596413
+        },
+        {
+          "intervalo": 70,
+          "q_inicio": 5267319278509397,
+          "anterior": 250394504820642246,
+          "descontada": 245435139142470516
+        },
+        {
+          "intervalo": 71,
+          "q_inicio": 5750934602875680,
+          "anterior": 253754455439589876,
+          "descontada": 250394506120924461
+        },
+        {
+          "intervalo": 72,
+          "q_inicio": 11985484530117643,
+          "anterior": 253788629327945969,
+          "descontada": 250411709142894814
+        },
+        {
+          "intervalo": 73,
+          "q_inicio": 18220034457359606,
+          "anterior": 253788832770020668,
+          "descontada": 250417033734317396
+        },
+        {
+          "intervalo": 74,
+          "q_inicio": 24454584384601569,
+          "anterior": 255695560758443342,
+          "descontada": 250417041498967783
+        },
+        {
+          "intervalo": 75,
+          "q_inicio": 30689134311843532,
+          "anterior": 255805342217329543,
+          "descontada": 250549271693210653
+        },
+        {
+          "intervalo": 76,
+          "q_inicio": 36923684239085495,
+          "anterior": 255832386842559514,
+          "descontada": 250740145924443685
+        },
+        {
+          "intervalo": 77,
+          "q_inicio": 43158234166327458,
+          "anterior": 255854071544588575,
+          "descontada": 250766996236882910
+        },
+        {
+          "intervalo": 78,
+          "q_inicio": 49392784093569421,
+          "anterior": 255866122844752847,
+          "descontada": 251081987693434643
+        },
+        {
+          "intervalo": 79,
+          "q_inicio": 55627334020811384,
+          "anterior": 258003551622837523,
+          "descontada": 252886844225441701
+        },
+        {
+          "intervalo": 80,
+          "q_inicio": 61861883948053347,
+          "anterior": 258003761621623355,
+          "descontada": 253702695292422071
+        },
+        {
+          "intervalo": 81,
+          "q_inicio": 68096433875295310,
+          "anterior": 258012274393174946,
+          "descontada": 253705423342308136
+        },
+        {
+          "intervalo": 82,
+          "q_inicio": 74330983802537273,
+          "anterior": 258963175738003718,
+          "descontada": 253788661574880612
+        },
+        {
+          "intervalo": 83,
+          "q_inicio": 80565533729779236,
+          "anterior": 259181282834446715,
+          "descontada": 255805328748749802
+        },
+        {
+          "intervalo": 84,
+          "q_inicio": 86800083657021199,
+          "anterior": 259181934821542475,
+          "descontada": 255854049318482987
+        },
+        {
+          "intervalo": 85,
+          "q_inicio": 93034633584263162,
+          "anterior": 261379821461391960,
+          "descontada": 257983370249882336
+        },
+        {
+          "intervalo": 86,
+          "q_inicio": 99269183511505125,
+          "anterior": 262445491018128082,
+          "descontada": 258012255445267631
+        },
+        {
+          "intervalo": 87,
+          "q_inicio": 105503733438747088,
+          "anterior": 263286500567485231,
+          "descontada": 259181279513356316
+        },
+        {
+          "intervalo": 88,
+          "q_inicio": 111738283365989051,
+          "anterior": 264519068280283596,
+          "descontada": 261033336622283549
+        },
+        {
+          "intervalo": 89,
+          "q_inicio": 117972833293231014,
+          "anterior": 267559754085356158,
+          "descontada": 263286494070442121
+        },
+        {
+          "intervalo": 90,
+          "q_inicio": 124207383220472977,
+          "anterior": 271686320429060503,
+          "descontada": 266690006156059568
+        },
+        {
+          "intervalo": 91,
+          "q_inicio": 130441933147714940,
+          "anterior": 279891216255508740,
+          "descontada": 275152765128433630
+        },
+        {
+          "intervalo": 92,
+          "q_inicio": 397560349370386783,
+          "anterior": 293986083825791483,
+          "descontada": 289196277530149535
+        },
+        {
+          "intervalo": 93,
+          "q_inicio": 4640282259296926456,
+          "anterior": 305675624086965307,
+          "descontada": 302111373196007352
+        },
+        {
+          "intervalo": 94,
+          "q_inicio": 27444133206411171953,
+          "anterior": 311070850461655378,
+          "descontada": 307620941191202337
+        },
+        {
+          "intervalo": 95,
+          "q_inicio": 77692117359936589403,
+          "anterior": 318561920312304179,
+          "descontada": 314126952007090943
+        },
+        {
+          "intervalo": 96,
+          "q_inicio": 205632218873398596256,
+          "anterior": 340534642940324838,
+          "descontada": 336989044418646968
+        }
+      ],
+      "filas_adicionales_excluidas": []
+    }
+  },
+  "alcance": "Contraste finito de identidades y cotas; no prueba universal ni nuevo cierre CST.",
+  "sha256_cotejador": "b34426042475d5c6a2592fbfdc2fb082daff1ffec35adf7d860408e2c6f8ff56"
+}

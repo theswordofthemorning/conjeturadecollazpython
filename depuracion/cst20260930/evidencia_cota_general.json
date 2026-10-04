@@ -1,0 +1,265 @@
+{
+  "estado": "compilado y auditado; prefijo reutilizado por huellas",
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "entorno": "6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e",
+  "comando": [
+    "lake",
+    "env",
+    "lean",
+    "-R",
+    "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+    "-o",
+    "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_extension_ypt9okp0\\OcelotasCotaGeneral.olean",
+    "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasCotaGeneral.lean"
+  ],
+  "sha256_comprobador": "3d5ae2553069787e9e5a96d5ca0fb5b41f1e0cc3d1cf0e40cc0b2524fa9df24e",
+  "sha256_comprobador_base": "f731e63716f0e1850e3479929a73e5fe3691ee4f5db6b8609f6c353e8732d612",
+  "dependencias_directas_y_transitivas": [
+    "Ocelotas",
+    "OcelotasCertificado",
+    "OcelotasCierre",
+    "OcelotasContador",
+    "OcelotasCriba",
+    "OcelotasFinito",
+    "OcelotasLMN",
+    "OcelotasLMNFuente",
+    "OcelotasRachas",
+    "OcelotasTiempoRacional",
+    "OcelotasTrayectorias"
+  ],
+  "prefijo_auditado": {
+    "Ocelotas": {
+      "fuente": "66c07f961fb3836fab7dffbcd4733d84acfe36da1fbf0ed0f5f5849faa3993b4",
+      "prefijo": "6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e",
+      "objeto": "e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8",
+      "auditoria": "'Ocelotas.finito_q' depends on axioms: [propext]\n'Ocelotas.finito_n' depends on axioms: [propext]\n'Ocelotas.ocelotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasRachas": {
+      "fuente": "e0811c63414fd280b77cc74deabf39d7c2e3a8db31404c38f613b054f5ada332",
+      "prefijo": "98c3e74272ea6d99a392f304d08cb3f47695731866b563accd779cfd0ed8e8e7",
+      "objeto": "2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08",
+      "auditoria": "'OcelotasRachas.tres_cinco' depends on axioms: [propext]\n'OcelotasRachas.cota_paso_monotono' depends on axioms: [propext, Quot.sound]\n'OcelotasRachas.paso_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRachas.cota_acumulada' depends on axioms: [propext, Quot.sound]\n'OcelotasRachas.criba_desde_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRachas.cola_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTrayectorias": {
+      "fuente": "4a4fd20a7459b563860b4ab549a826555fc57929518284c485cb9baf9bb50b3f",
+      "prefijo": "b7b8d48c32770829bb27bfe0b9071badf46c46c3ce5289b8f6bfd0afdd093a3f",
+      "objeto": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7",
+      "auditoria": "'OcelotasTrayectorias.cuenta_impares' depends on axioms: [propext, Quot.sound]\n'OcelotasTrayectorias.congruencia_racha' depends on axioms: [propext, Quot.sound]\n'OcelotasTrayectorias.congruencias_acumuladas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.criba_desde_trayectoria' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.fallo_producto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.fallo_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.criba_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.cota_semilla' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.tiempo_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasFinito": {
+      "fuente": "bfbdaf6cbd1ac97b78f13c72d776bb5a1110520b75d57f91c7cb96aea9a36a51",
+      "prefijo": "f1861c4887705ee16e35207da4d80cd7fb2782a329384ee21057a306b06b4bf7",
+      "objeto": "86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1",
+      "auditoria": "'OcelotasFinito.comprobar_correcto' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.semillas_comprobadas' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.existe_descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.exponente_acotado' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.diez_de_certificado' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCriba": {
+      "fuente": "a15e286f63ef6237c837fba2fd3665d00c45286c490db7ec9ca25a241731ac66",
+      "prefijo": "d2df72ae9ff361c57cb4077d4c72b4ee44e34852fbfffcc29afa82742fdf3c60",
+      "objeto": "23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319",
+      "auditoria": "'OcelotasCriba.paso_encierra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCriba.acepta_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCriba.recorrer_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCertificado": {
+      "fuente": "6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6",
+      "prefijo": "279b2290258968ae7a245a946d8b06cfd15bb47300c9419a76642c3646de32a2",
+      "objeto": "9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010",
+      "auditoria": "'OcelotasCertificado.criba_certificada' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCertificado.ocelotas_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCierre": {
+      "fuente": "2f37a08eba1a89f9cf7cc7d0e373563dfeeb05741caa4ee47728a770ba1ef109",
+      "prefijo": "181b6129779cdab43fcccd3f2c2098e1c54685bb6d01663a6fc86b0a583caddd",
+      "objeto": "bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15",
+      "auditoria": "'OcelotasCierre.descenso_par' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCierre.fallo_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCierre.descenso_hasta_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasContador": {
+      "fuente": "cfc0214e2bd4687ae4463dab5d2ddc8bfc1b436031edede893c6d2c0f899a9f2",
+      "prefijo": "f7b3a50c52595a637557e225506ef161e8723d0622029e3d2d09a374bba70fe2",
+      "objeto": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6",
+      "auditoria": "'OcelotasContador.rachas_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.leer_prefijo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.extraer_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.cruce_termina_par' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.palabra_del_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.fallo_contador_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.no_desciende_antes' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.cst_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasRhin": {
+      "fuente": "9d97859e85a801475d323887014d296ee9235ce931481d585cc840c710b491ed",
+      "prefijo": "6d2ea610800575e0861357cdc93c6a7bf7836fdd76a8ce2981522331c112530c",
+      "objeto": "efac0fb7eecb53336a506484b638f1d93063477c4ec9f1c667e650bc7152cd1e",
+      "auditoria": "'OcelotasRhin.homogenea_de_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_homogenea' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.tiempo_diez_punto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.tiempo_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.ocelotas_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_contador_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.fallo_exige_once_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_de_entera' depends on axioms: [propext]\n"
+    },
+    "OcelotasLMN": {
+      "fuente": "aed41dd927ae0e8a62a1053ec798d79f9e19da92216feb7bb7d5ed85b87b16fa",
+      "prefijo": "cfea84e0ff1f48ccf652ed11748238a01a0731ec72e52cfc36e27ffe38fdd535",
+      "objeto": "9904503f3e019fae1f5b9268785e57be5919bdf49a193f8cf54afc5e0c1ab357",
+      "auditoria": "'OcelotasLMN.log_dos_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.log_tres_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.lagrange' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.L_intervalos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.entera_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cota_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cola_lmn_entera' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.sin_fallo_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.ocelotas_diez_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cst_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.fallo_exige_once_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasLMNFuente": {
+      "fuente": "b8c269c1730b25b79942308be5fee3112792626603a399aad4374b4334ec991f",
+      "prefijo": "2c09ffb7ea68f19a1cef494956817f7f210b1077bbefdaa40942eb5d8e290135",
+      "objeto": "a6db94899ae070a6fcf251b709c652e71e9818b90f4203db52526365afb16dcc",
+      "auditoria": "'OcelotasLMNFuente.debil_de_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMNFuente.cst_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasAfinada": {
+      "fuente": "ae051c50820c9d147aa8747fdaf3496f70119189e9d7ad4b07a26b6d5524a3e0",
+      "prefijo": "4aa6d8a65c1ec91678a22748b924d5f2272cc2ba3fc7cd569151c67d018320f3",
+      "objeto": "f062602df7031e6531c889ccf9177eb141cf663cedb0b58ad1af652e23a37b88",
+      "auditoria": "'OcelotasAfinada.paso_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.aproximacion_superior' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasAfinadaTrayectorias": {
+      "fuente": "a05ce71ecadc8abce0770807607da8b205d40c429d2dbae3b84b012b196665e8",
+      "prefijo": "8b9e6cf4929eb4b00750fce1dd6023015894c568d5ea84a1f347bf7a43090380",
+      "objeto": "120f18cb36804d34975f2ca5fd919d00bf0530fd770799964d717c4b506067bd",
+      "auditoria": "'OcelotasAfinadaTrayectorias.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.fallo_lambda' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.semilla_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.descenso_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTreceBase": {
+      "fuente": "42e761f5540c24ed40f6395a77b9346843cf84e559b689968e1be061d6370e78",
+      "prefijo": "9a1481d16487d97879ebfcca2a6574bad22b63e59f538888a07b46e18033cc73",
+      "objeto": "57b0f8d4c905b6cbe3bfeecf30c6de02f49e30315491e0ee4a9871e825d591a1",
+      "auditoria": "'OcelotasTreceBase.alfa_valida' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.beta_de_potencia' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.lambda_de_pareja' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.pequeno_por_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.imposible_por_criba' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTreceTabla": {
+      "fuente": "320a3cfdb5dfe9be0971c2819657b59065495e259109295248bb919ca5f44841",
+      "prefijo": "a4c77f0049d56eb75a3d35a2c609f544d934f3dd48c07e9bc5e091996892f4bd",
+      "objeto": "c686a5397479c51b009dcdc293fec25679a61d07f4eb7fea1d3d918e196ced4c",
+      "auditoria": "'OcelotasTreceTabla.pequeno_de_tabla' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTreceFinito": {
+      "fuente": "388c3fc948b28e1e16a90f0b519165309c740100fc1b4d3e8e292c5ec1066f1b",
+      "prefijo": "8c7614fa7be908645bbd5ac72a2cdeb91399f732984d2c6c9468fde2dfaf29c6",
+      "objeto": "b3339040110d8dc292d55f170bbd93ed207f2b30644a99a725ba9c3cc7662a0e",
+      "auditoria": "'OcelotasTreceFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n'OcelotasTreceFinito.existe_descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasTreceFinito.descenso_finito' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "OcelotasTreceCola": {
+      "fuente": "f1012151a556e1486ea1f8f6ef38af7ac4824a2b5b266e926a35fff180d33e09",
+      "prefijo": "7803e44c0bb05add44f593e54969bb9c6a8e298ef3f1eddc94cac051d08bc0ae",
+      "objeto": "89708462d66ad4f4cb57e1662343814d33990a542abff27815f45bd55c51b4ca",
+      "auditoria": "'OcelotasTreceCola.cota_trece_lineal' depends on axioms: [propext, Quot.sound]\n'OcelotasTreceCola.cola_trece_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceCola.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTrece": {
+      "fuente": "a3b1b630e6f5692aa8d5678b7b1603371584150a8ac8f76d482c79b4cfd2c680",
+      "prefijo": "a1fb56f40c5846e64714339d7e91ef81ac66d3430bfa9a19f6fb15bcaf5f448e",
+      "objeto": "7190f948ead41e237a224430294e34a88faebb326dd60d57b6952cdcc5830c35",
+      "auditoria": "'OcelotasTrece.descenso_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.cst_trece_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.cst_trece_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.fallo_exige_catorce' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasResiduos": {
+      "fuente": "4cfbed60fd5977d1fa187908783af27ff19aa3b9c18dd27dcc63b6031a6c8c0f",
+      "prefijo": "f49e576c68024b0edf4d5eaa2ad023bf911c4b8353c85be95fb27fcb47296def",
+      "objeto": "2f10afec1d990e62f7cb05383a7b3368b8b3045db89147c36524f708bd24221f",
+      "auditoria": "'OcelotasResiduos.paso_afin' depends on axioms: [propext, Quot.sound]\n'OcelotasResiduos.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasResiduos.intervalo_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasResiduos.acepta_rama' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "OcelotasResiduosBloques": {
+      "fuente": "1940581940cff8f2d3144bd1f858f40becff802fac0bb68d479b54671081617a",
+      "prefijo": "a737b6bb15c6b66d3713bd4f3be49c25ba2aa43b3d010e4cce1f5ef99934f119",
+      "objeto": "6fd8e6d9414e43653308a56f40ae197f8240b360797547c7bf3e43f1b8fe84a4",
+      "auditoria": "'OcelotasResiduosBloques.nodo_57' does not depend on any axioms\n'OcelotasResiduosBloques.nodo_105' does not depend on any axioms\n'OcelotasResiduosBloques.nodo_147' does not depend on any axioms\n'OcelotasResiduosBloques.nodo_179' does not depend on any axioms\n'OcelotasResiduosBloques.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "OcelotasResiduosFinito": {
+      "fuente": "4e9793d7e2e2a1a928083caa70fa0ad428aca2b45c173e00beb783105860f65f",
+      "prefijo": "c408e70eb418e4b88a422741795af5eda31be32491ad22ea6f15b5666fcc293b",
+      "objeto": "ca68e6f7ed5624ea507cf37f08aa1b24ac47edffdcf3d993f048298eb6d11ddc",
+      "auditoria": "'OcelotasResiduosFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n'OcelotasResiduosFinito.existe_descenso_finito' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasResiduosFinito.descenso_finito' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasNumerica": {
+      "fuente": "438268155378d772ec796c367833a7b733f6c5357e888e53b8999f3fbab01e24",
+      "prefijo": "aed784115aec1fb54565d00297fa2f033f4b25a873a144513ddf97e060a26e31",
+      "objeto": "914a6695e8b6b863f19e16333052c44ec50d422991d9f853d73ef4d7846a7aec",
+      "auditoria": "'OcelotasNumerica.pequeno_por_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasNumerica.imposible_por_criba' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDieciochoTabla": {
+      "fuente": "f57828c6e1f07bd9f5bf23022408662ac368dcc08acc28889f9693e861a6de4c",
+      "prefijo": "746376d42f0355dbd38ed9bbb5ca36f3685bf4891e4f68a9ef5ec4d3b7854067",
+      "objeto": "cb3fd5ec4181222deb9e752c7a70afdce379e46c29edb806f9c487dd19498607",
+      "auditoria": "'OcelotasDieciochoTabla.pequeno_de_tabla' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDieciochoCola": {
+      "fuente": "7eab32c2f8417fde3b302ed7ca671002980208f64d2cc561b4e2785293cadffc",
+      "prefijo": "b2adfa67331372d2c64e4e57f8e1f2a6e13c0af20883082725329bc211f11a04",
+      "objeto": "ab6bbe09828ac381888452631dab240df4cda0156e6cc3b983bbbef45b1c6f31",
+      "auditoria": "'OcelotasDieciochoCola.cota_dieciocho_lineal' depends on axioms: [propext, Quot.sound]\n'OcelotasDieciochoCola.cola_dieciocho_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciochoCola.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDieciocho": {
+      "fuente": "365a487ced064715317c269cbf1d1cfd009c2be70842afe852fef742cec2341c",
+      "prefijo": "01bad7179c6a0f7d12cf9db25a12164211ff71e801d21f26ed0c419ea1d91cf8",
+      "objeto": "67e55b38c7e21d21af1288989503d7eee8359e88aaca957c1dea7a8b7753c52a",
+      "auditoria": "'OcelotasDieciocho.descenso_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.cst_dieciocho_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.cst_dieciocho_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.fallo_exige_diecinueve' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasGeometrica": {
+      "fuente": "8d1dca3d33069c6d1e55b600aedf2c17d11974e0d6cb711be23b1abe9fcffab2",
+      "prefijo": "c335e6326e5d3357e341b13aaea93391e8fc9407e39f4a5d7fe6ab259136b3bc",
+      "objeto": "8045c14a5907d65cac574d0e75a5faf8e6b7aaadf2820e98386d0ad3b4b84775",
+      "auditoria": "'OcelotasGeometrica.cota_geometrica' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasGeometrica.cota_lineal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasGeometrica.cota_setenta_y_cinco' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasPrefijos": {
+      "fuente": "8258d1a92984d113d418af3b709a59743ca10d87e6acd0d62ccd216692434cfc",
+      "prefijo": "7788fe1487c4ca81dd05beabb3bb260a20b6e10b55e1f8a46eff0b7a117d7abf",
+      "objeto": "36fd5999249a44e5cb937bed39f5179d2b9504a43aaf9d6ee06ed05259f20fce",
+      "auditoria": "'OcelotasPrefijos.rachas_monotonas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijos.rachas_add_corte' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijos.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijos.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCribaPrefijos": {
+      "fuente": "ce324da1c365d70489f49a702a1474f68dc0fdcfb4e13c3bc4e628bc3b5764e0",
+      "prefijo": "6281f9a3339d848adfc330a588c4f7b915ea9c1ba1ff360a24c8378248f26c57",
+      "objeto": "730bd7381838bbe94e8a5ec0cd4a3dd3be0bcec6009defe8f435b47344ca38a1",
+      "auditoria": "'OcelotasCribaPrefijos.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCribaPrefijos.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDiecinuevePrefijos": {
+      "fuente": "a89f4158f3482fae82a1e28d38c011c61b4666274b66438c5b18336cd80faedd",
+      "prefijo": "7fcc0893edf508fe3a0cd85ae8cd88558b5cf1eb9f48af79fa653604727d6114",
+      "objeto": "81391132956684544bac8a2382582a7105e598d79063213e8caaee25a61b7ab5",
+      "auditoria": "'OcelotasDiecinuevePrefijos.certificado_bajo' does not depend on any axioms\n'OcelotasDiecinuevePrefijos.certificado_alto' does not depend on any axioms\n'OcelotasDiecinuevePrefijos.descenso_bajo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDiecinuevePrefijos.descenso_alto' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDiecinueveTabla": {
+      "fuente": "2a04de5d787abf54a017cab43753280017a8347e745f18b42f0dc47f2a4efda1",
+      "prefijo": "110d45702cee04a40a3f7914154a664944e550fad9f28f20184735c47cdd513b",
+      "objeto": "05324ae721e44d9c22ba09777e52e10eb9058952db317f1e2e6bb9a71b361ffa",
+      "auditoria": "'OcelotasDiecinueveTabla.pequeno_de_tabla' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDiecinueveCola": {
+      "fuente": "38205daf3c5ecd28d29547ecbd6ff0f2b45cbc8f88a1e98d23ef6a7f98298b39",
+      "prefijo": "6f2df183bd61f562e0e6c21e8ee964765781660b1434a3832742c80482b35401",
+      "objeto": "b957a31b5fd5eb87c2ae022dda6e043e0e10933abda1bfaa67b2d68231e6a30e",
+      "auditoria": "'OcelotasDiecinueveCola.cota_diecinueve_lineal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDiecinueveCola.cola_diecinueve_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDiecinueveCola.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDiecinueve": {
+      "fuente": "45d1cc8aef5ef08707904ca235e582ba673c163ffdbea43589947110b105dd49",
+      "prefijo": "fc747acb19d32e0aa45883b3af0aa17809ce65e4aa739382ae6a1688bd97fc5e",
+      "objeto": "35869f21f22a7b06a5b7de3ab8aedf839830827664cba2869d3950985bf8e4ec",
+      "auditoria": "'OcelotasDiecinueve.descenso_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDiecinueve.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDiecinueve.cst_diecinueve_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDiecinueve.cst_diecinueve_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDiecinueve.fallo_exige_veinte' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasPrefijosBloques": {
+      "fuente": "22be32df2b9cecde6406e642122258e32310bb8fbac8aa140f744baf5bd6d16c",
+      "prefijo": "cf914b528bb577fff27cbaea7f85c0759eff0dfb8c52e96a2879b84ac977f288",
+      "objeto": "2e015360cf0c298a46c1a7aa01bb6fb43c3e7458600ed97fe1dee30dbf49ce17",
+      "auditoria": "'OcelotasPrefijosBloques.acepta_rama' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "OcelotasVeintePrefijos": {
+      "fuente": "d93a5be6c0c2a38e5066ef6c47d1106d40ec0356968905462d7bb454071d1486",
+      "prefijo": "496c1244fd919ca0c410cde7e03d0f256fd8db32361afe63e4681bae7873defa",
+      "objeto": "8b652ec5ffaae0370ffcacc59ba0b9781616940a935efe6cbb2b95f176224bc4",
+      "auditoria": "'OcelotasVeintePrefijos.certificado_bajo' depends on axioms: [propext, Quot.sound]\n'OcelotasVeintePrefijos.certificado_alto' depends on axioms: [propext, Quot.sound]\n'OcelotasVeintePrefijos.descenso_bajo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintePrefijos.descenso_alto' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasVeinteTabla": {
+      "fuente": "ee6931f0c62c27303cc6a119d75c2cdc87444303f042d27898e823e922b7433c",
+      "prefijo": "4dc14f5161222c66648a3aec3274aa51ac66a20939b09f86e4416b737d279896",
+      "objeto": "f2cb67eaba90f7f4ad5ed63d3ec929f41856c21f1a63e8751c8ee634a9a0d66f",
+      "auditoria": "'OcelotasVeinteTabla.pequeno_de_tabla' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasVeinteCola": {
+      "fuente": "6c54db62f7955b07dc1991eefb642f3b5be2cd0a8ceff839d42343e0de4fca05",
+      "prefijo": "ec5cac8d5a23d16baa3a4f46eef2f50e8eed9bed5dc3f70913b25fb31021ea7a",
+      "objeto": "2d195727d922cde839113d01f7e7164a141cb1ecab5fbdae4eb538f7a8596701",
+      "auditoria": "'OcelotasVeinteCola.cota_veinte_lineal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeinteCola.cola_veinte_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeinteCola.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasVeinte": {
+      "fuente": "ad0a8d7b9033e9f2025882f93e70301c3018692f1eee3de788901024626b22a7",
+      "prefijo": "9d3f119f5db20d25c319d69212ea82d57a52adf0f8d9852d2b04108e045c8891",
+      "objeto": "c35be5985d3fcf4d5376377cdef160ea2405a29ed18f691c77e7c8e137c8b780",
+      "auditoria": "'OcelotasVeinte.descenso_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeinte.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeinte.cst_veinte_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeinte.cst_veinte_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeinte.fallo_exige_veintiuna' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTiempoRacional": {
+      "fuente": "2227a87a695d6450f6d1ce6423b9231645d2c7b99a45f6fcd0b3a0537d473c78",
+      "prefijo": "74c66904972f6b4b8172147f688e633f70c018ed186c21d3f10ff1010a462c40",
+      "objeto": "a5e2f59f8ca2cd0f3d4ef8ad0892157b8fa1e78c422d1322e6b52fbd02a62003",
+      "auditoria": "'OcelotasTiempoRacional.tiempo_racional' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTiempoRacional.tiempo_ocho_quintos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTiempoRacional.tiempo_del_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  },
+  "modulo": "OcelotasCotaGeneral",
+  "fuente": "d1490dc646478865381d638ea635939dec800540bc05be7c06c17d3609fe5cd1",
+  "objeto": "5ff7a95546943b956c402b83456fc70497e6afc33086c0c2408dff3b1934add0",
+  "auditoria": "'OcelotasCotaGeneral.cota_binaria' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.margen_inicial' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.margen_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.semilla_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.log_tiempo_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.tiempo_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.region_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.region_del_fallo_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCotaGeneral.descenso_de_tiempo_grande' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "consultas": 9
+}

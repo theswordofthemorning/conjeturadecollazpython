@@ -4,7 +4,9 @@
 la criba y su aplicación a trayectorias, y reduce las cotas de semilla
 mediante aproximaciones por arriba. Se conserva abajo la evidencia de
 esta primera versión. El cierre posterior de
-[18 rachas en Lean](DIECIOCHO_LEAN.md) está completo; el de 75 sigue pendiente.
+[18 rachas en Lean](DIECIOCHO_LEAN.md) está completo. También se terminó
+el [ensamblaje de 76](SETENTA_Y_SEIS_LEAN.md), bajo LMN y Rozier–Terracol
+explícitos; abajo se conserva la etapa escrita anterior.
 
 Se afina la [prueba por convergentes](RACHAS_CONVERGENTES.md) sin ampliar
 el censo de semillas. **Prueba escrita asistida por cálculo racional

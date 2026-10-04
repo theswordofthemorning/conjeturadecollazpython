@@ -1,0 +1,186 @@
+{
+  "estado": "compilado y auditado; objetos persistentes comprobados por huellas",
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "entorno_base": "6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e",
+  "entorno": "9452d2fef24941a5fcb813d373800ac681531d736ad9727f31b2bf143315e004",
+  "sha256_comprobador": "a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b",
+  "sha256_comprobador_base": "f731e63716f0e1850e3479929a73e5fe3691ee4f5db6b8609f6c353e8732d612",
+  "modulo": "OcelotasSueloNumerica",
+  "prefijo_auditado": {
+    "Ocelotas": {
+      "fuente": "66c07f961fb3836fab7dffbcd4733d84acfe36da1fbf0ed0f5f5849faa3993b4",
+      "prefijo": "6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e",
+      "objeto": "e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8",
+      "auditoria": "'Ocelotas.finito_q' depends on axioms: [propext]\n'Ocelotas.finito_n' depends on axioms: [propext]\n'Ocelotas.ocelotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasRachas": {
+      "fuente": "e0811c63414fd280b77cc74deabf39d7c2e3a8db31404c38f613b054f5ada332",
+      "prefijo": "98c3e74272ea6d99a392f304d08cb3f47695731866b563accd779cfd0ed8e8e7",
+      "objeto": "2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08",
+      "auditoria": "'OcelotasRachas.tres_cinco' depends on axioms: [propext]\n'OcelotasRachas.cota_paso_monotono' depends on axioms: [propext, Quot.sound]\n'OcelotasRachas.paso_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRachas.cota_acumulada' depends on axioms: [propext, Quot.sound]\n'OcelotasRachas.criba_desde_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRachas.cola_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTrayectorias": {
+      "fuente": "4a4fd20a7459b563860b4ab549a826555fc57929518284c485cb9baf9bb50b3f",
+      "prefijo": "b7b8d48c32770829bb27bfe0b9071badf46c46c3ce5289b8f6bfd0afdd093a3f",
+      "objeto": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7",
+      "auditoria": "'OcelotasTrayectorias.cuenta_impares' depends on axioms: [propext, Quot.sound]\n'OcelotasTrayectorias.congruencia_racha' depends on axioms: [propext, Quot.sound]\n'OcelotasTrayectorias.congruencias_acumuladas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.criba_desde_trayectoria' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.fallo_producto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.fallo_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.criba_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.cota_semilla' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.tiempo_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasFinito": {
+      "fuente": "bfbdaf6cbd1ac97b78f13c72d776bb5a1110520b75d57f91c7cb96aea9a36a51",
+      "prefijo": "f1861c4887705ee16e35207da4d80cd7fb2782a329384ee21057a306b06b4bf7",
+      "objeto": "86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1",
+      "auditoria": "'OcelotasFinito.comprobar_correcto' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.semillas_comprobadas' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.existe_descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.exponente_acotado' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.diez_de_certificado' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCriba": {
+      "fuente": "a15e286f63ef6237c837fba2fd3665d00c45286c490db7ec9ca25a241731ac66",
+      "prefijo": "d2df72ae9ff361c57cb4077d4c72b4ee44e34852fbfffcc29afa82742fdf3c60",
+      "objeto": "23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319",
+      "auditoria": "'OcelotasCriba.paso_encierra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCriba.acepta_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCriba.recorrer_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCertificado": {
+      "fuente": "6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6",
+      "prefijo": "279b2290258968ae7a245a946d8b06cfd15bb47300c9419a76642c3646de32a2",
+      "objeto": "9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010",
+      "auditoria": "'OcelotasCertificado.criba_certificada' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCertificado.ocelotas_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCierre": {
+      "fuente": "2f37a08eba1a89f9cf7cc7d0e373563dfeeb05741caa4ee47728a770ba1ef109",
+      "prefijo": "181b6129779cdab43fcccd3f2c2098e1c54685bb6d01663a6fc86b0a583caddd",
+      "objeto": "bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15",
+      "auditoria": "'OcelotasCierre.descenso_par' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCierre.fallo_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCierre.descenso_hasta_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasContador": {
+      "fuente": "cfc0214e2bd4687ae4463dab5d2ddc8bfc1b436031edede893c6d2c0f899a9f2",
+      "prefijo": "f7b3a50c52595a637557e225506ef161e8723d0622029e3d2d09a374bba70fe2",
+      "objeto": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6",
+      "auditoria": "'OcelotasContador.rachas_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.leer_prefijo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.extraer_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.cruce_termina_par' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.palabra_del_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.fallo_contador_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.no_desciende_antes' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.cst_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasRhin": {
+      "fuente": "9d97859e85a801475d323887014d296ee9235ce931481d585cc840c710b491ed",
+      "prefijo": "6d2ea610800575e0861357cdc93c6a7bf7836fdd76a8ce2981522331c112530c",
+      "objeto": "efac0fb7eecb53336a506484b638f1d93063477c4ec9f1c667e650bc7152cd1e",
+      "auditoria": "'OcelotasRhin.homogenea_de_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_homogenea' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.tiempo_diez_punto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.tiempo_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.ocelotas_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_contador_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.fallo_exige_once_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_de_entera' depends on axioms: [propext]\n"
+    },
+    "OcelotasLMN": {
+      "fuente": "aed41dd927ae0e8a62a1053ec798d79f9e19da92216feb7bb7d5ed85b87b16fa",
+      "prefijo": "cfea84e0ff1f48ccf652ed11748238a01a0731ec72e52cfc36e27ffe38fdd535",
+      "objeto": "9904503f3e019fae1f5b9268785e57be5919bdf49a193f8cf54afc5e0c1ab357",
+      "auditoria": "'OcelotasLMN.log_dos_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.log_tres_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.lagrange' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.L_intervalos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.entera_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cota_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cola_lmn_entera' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.sin_fallo_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.ocelotas_diez_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cst_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.fallo_exige_once_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasLMNFuente": {
+      "fuente": "b8c269c1730b25b79942308be5fee3112792626603a399aad4374b4334ec991f",
+      "prefijo": "2c09ffb7ea68f19a1cef494956817f7f210b1077bbefdaa40942eb5d8e290135",
+      "objeto": "a6db94899ae070a6fcf251b709c652e71e9818b90f4203db52526365afb16dcc",
+      "auditoria": "'OcelotasLMNFuente.debil_de_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMNFuente.cst_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasAfinada": {
+      "fuente": "ae051c50820c9d147aa8747fdaf3496f70119189e9d7ad4b07a26b6d5524a3e0",
+      "prefijo": "4aa6d8a65c1ec91678a22748b924d5f2272cc2ba3fc7cd569151c67d018320f3",
+      "objeto": "f062602df7031e6531c889ccf9177eb141cf663cedb0b58ad1af652e23a37b88",
+      "auditoria": "'OcelotasAfinada.paso_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.aproximacion_superior' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasAfinadaTrayectorias": {
+      "fuente": "a05ce71ecadc8abce0770807607da8b205d40c429d2dbae3b84b012b196665e8",
+      "prefijo": "8b9e6cf4929eb4b00750fce1dd6023015894c568d5ea84a1f347bf7a43090380",
+      "objeto": "120f18cb36804d34975f2ca5fd919d00bf0530fd770799964d717c4b506067bd",
+      "auditoria": "'OcelotasAfinadaTrayectorias.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.fallo_lambda' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.semilla_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.descenso_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTreceBase": {
+      "fuente": "42e761f5540c24ed40f6395a77b9346843cf84e559b689968e1be061d6370e78",
+      "prefijo": "9a1481d16487d97879ebfcca2a6574bad22b63e59f538888a07b46e18033cc73",
+      "objeto": "57b0f8d4c905b6cbe3bfeecf30c6de02f49e30315491e0ee4a9871e825d591a1",
+      "auditoria": "'OcelotasTreceBase.alfa_valida' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.beta_de_potencia' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.lambda_de_pareja' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.pequeno_por_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.imposible_por_criba' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  },
+  "extensiones": {
+    "OcelotasSueloRachas": {
+      "fuente": "897ef6591f79a8f772e6097f6bfac5069912e4fa35a999d0f746e66bb42f38a3",
+      "objeto": "e1d1ce958925a0da8758c856af6a6006cfa66e9c4ecdb3fdae854f0ae3d991ae",
+      "dependencias": {
+        "OcelotasAfinada": {
+          "fuente": "ae051c50820c9d147aa8747fdaf3496f70119189e9d7ad4b07a26b6d5524a3e0",
+          "objeto": "f062602df7031e6531c889ccf9177eb141cf663cedb0b58ad1af652e23a37b88"
+        },
+        "OcelotasTrayectorias": {
+          "fuente": "4a4fd20a7459b563860b4ab549a826555fc57929518284c485cb9baf9bb50b3f",
+          "objeto": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7"
+        }
+      },
+      "auditoria": "'OcelotasSueloRachas.paso_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloRachas.cadena_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloRachas.congruencias_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloRachas.paso_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 4,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_descuento_20261003\\OcelotasSueloRachas.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasSueloRachas.lean"
+      ],
+      "segundos_compilacion": 24.574,
+      "reutilizado": true
+    },
+    "OcelotasSueloCriba": {
+      "fuente": "8551c858e04ec1252de6c86e8e8e733c0cc98d87e62ec590540909c98741eb6b",
+      "objeto": "0f1e12cb5a441aebf6bb5c524de79ccbea5a6ded06a87a67ec02906ba8955eb4",
+      "dependencias": {
+        "OcelotasSueloRachas": {
+          "fuente": "897ef6591f79a8f772e6097f6bfac5069912e4fa35a999d0f746e66bb42f38a3",
+          "objeto": "e1d1ce958925a0da8758c856af6a6006cfa66e9c4ecdb3fdae854f0ae3d991ae"
+        },
+        "OcelotasContador": {
+          "fuente": "cfc0214e2bd4687ae4463dab5d2ddc8bfc1b436031edede893c6d2c0f899a9f2",
+          "objeto": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6"
+        }
+      },
+      "auditoria": "'OcelotasSueloCriba.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.doble_indice' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.cota_le_anterior' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.criba_primer_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 6,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_descuento_20261003\\OcelotasSueloCriba.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasSueloCriba.lean"
+      ],
+      "segundos_compilacion": 22.12,
+      "reutilizado": true
+    },
+    "OcelotasSueloNumerica": {
+      "fuente": "b9a6b981ecc63f5f1eb6c5ff77615fe872c48531a2820bfbf66d809fb1491656",
+      "objeto": "50df02ba46abf521cacb1cfcb122535496e102a7729f0491df67fbeb8c52a90e",
+      "dependencias": {
+        "OcelotasSueloCriba": {
+          "fuente": "8551c858e04ec1252de6c86e8e8e733c0cc98d87e62ec590540909c98741eb6b",
+          "objeto": "0f1e12cb5a441aebf6bb5c524de79ccbea5a6ded06a87a67ec02906ba8955eb4"
+        },
+        "OcelotasTreceBase": {
+          "fuente": "42e761f5540c24ed40f6395a77b9346843cf84e559b689968e1be061d6370e78",
+          "objeto": "57b0f8d4c905b6cbe3bfeecf30c6de02f49e30315491e0ee4a9871e825d591a1"
+        }
+      },
+      "auditoria": "'OcelotasSueloNumerica.gamma_valida' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloNumerica.doble_indice' depends on axioms: [propext, Quot.sound]\n'OcelotasSueloNumerica.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloNumerica.criba_desde_potencia' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 4,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_descuento_20261003\\OcelotasSueloNumerica.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasSueloNumerica.lean"
+      ],
+      "segundos_compilacion": 22.668,
+      "reutilizado": false
+    }
+  },
+  "compilados": 1,
+  "reutilizados": 2,
+  "consultas": 14,
+  "auditoria": "'OcelotasSueloRachas.paso_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloRachas.cadena_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloRachas.congruencias_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloRachas.paso_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.doble_indice' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.cota_le_anterior' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloCriba.criba_primer_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloNumerica.gamma_valida' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloNumerica.doble_indice' depends on axioms: [propext, Quot.sound]\n'OcelotasSueloNumerica.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasSueloNumerica.criba_desde_potencia' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "segundos": 22.714
+}

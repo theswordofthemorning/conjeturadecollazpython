@@ -1,0 +1,1144 @@
+{
+  "estado": "compilado y auditado; objetos persistentes comprobados por huellas",
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "entorno_base": "6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e",
+  "entorno": "fdb38a84bcc06e830a471708925c2caeaf970ffcb6bc16c600bbc8731fab5dda",
+  "sha256_comprobador": "a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b",
+  "sha256_comprobador_base": "f731e63716f0e1850e3479929a73e5fe3691ee4f5db6b8609f6c353e8732d612",
+  "modulo": "OcelotasVeintitresPrefijosBajo",
+  "prefijo_auditado": {
+    "Ocelotas": {
+      "fuente": "66c07f961fb3836fab7dffbcd4733d84acfe36da1fbf0ed0f5f5849faa3993b4",
+      "prefijo": "6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e",
+      "objeto": "e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8",
+      "auditoria": "'Ocelotas.finito_q' depends on axioms: [propext]\n'Ocelotas.finito_n' depends on axioms: [propext]\n'Ocelotas.ocelotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasRachas": {
+      "fuente": "e0811c63414fd280b77cc74deabf39d7c2e3a8db31404c38f613b054f5ada332",
+      "prefijo": "98c3e74272ea6d99a392f304d08cb3f47695731866b563accd779cfd0ed8e8e7",
+      "objeto": "2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08",
+      "auditoria": "'OcelotasRachas.tres_cinco' depends on axioms: [propext]\n'OcelotasRachas.cota_paso_monotono' depends on axioms: [propext, Quot.sound]\n'OcelotasRachas.paso_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRachas.cota_acumulada' depends on axioms: [propext, Quot.sound]\n'OcelotasRachas.criba_desde_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRachas.cola_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTrayectorias": {
+      "fuente": "4a4fd20a7459b563860b4ab549a826555fc57929518284c485cb9baf9bb50b3f",
+      "prefijo": "b7b8d48c32770829bb27bfe0b9071badf46c46c3ce5289b8f6bfd0afdd093a3f",
+      "objeto": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7",
+      "auditoria": "'OcelotasTrayectorias.cuenta_impares' depends on axioms: [propext, Quot.sound]\n'OcelotasTrayectorias.congruencia_racha' depends on axioms: [propext, Quot.sound]\n'OcelotasTrayectorias.congruencias_acumuladas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.criba_desde_trayectoria' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.fallo_producto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.fallo_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.criba_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.cota_semilla' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrayectorias.tiempo_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasFinito": {
+      "fuente": "bfbdaf6cbd1ac97b78f13c72d776bb5a1110520b75d57f91c7cb96aea9a36a51",
+      "prefijo": "f1861c4887705ee16e35207da4d80cd7fb2782a329384ee21057a306b06b4bf7",
+      "objeto": "86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1",
+      "auditoria": "'OcelotasFinito.comprobar_correcto' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.semillas_comprobadas' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.existe_descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.exponente_acotado' depends on axioms: [propext, Quot.sound]\n'OcelotasFinito.diez_de_certificado' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCriba": {
+      "fuente": "a15e286f63ef6237c837fba2fd3665d00c45286c490db7ec9ca25a241731ac66",
+      "prefijo": "d2df72ae9ff361c57cb4077d4c72b4ee44e34852fbfffcc29afa82742fdf3c60",
+      "objeto": "23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319",
+      "auditoria": "'OcelotasCriba.paso_encierra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCriba.acepta_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCriba.recorrer_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCertificado": {
+      "fuente": "6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6",
+      "prefijo": "279b2290258968ae7a245a946d8b06cfd15bb47300c9419a76642c3646de32a2",
+      "objeto": "9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010",
+      "auditoria": "'OcelotasCertificado.criba_certificada' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCertificado.ocelotas_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasCierre": {
+      "fuente": "2f37a08eba1a89f9cf7cc7d0e373563dfeeb05741caa4ee47728a770ba1ef109",
+      "prefijo": "181b6129779cdab43fcccd3f2c2098e1c54685bb6d01663a6fc86b0a583caddd",
+      "objeto": "bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15",
+      "auditoria": "'OcelotasCierre.descenso_par' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCierre.fallo_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCierre.descenso_hasta_diez' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasContador": {
+      "fuente": "cfc0214e2bd4687ae4463dab5d2ddc8bfc1b436031edede893c6d2c0f899a9f2",
+      "prefijo": "f7b3a50c52595a637557e225506ef161e8723d0622029e3d2d09a374bba70fe2",
+      "objeto": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6",
+      "auditoria": "'OcelotasContador.rachas_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.leer_prefijo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.extraer_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.cruce_termina_par' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.palabra_del_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.fallo_contador_exige_once' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.no_desciende_antes' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasContador.cst_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasRhin": {
+      "fuente": "9d97859e85a801475d323887014d296ee9235ce931481d585cc840c710b491ed",
+      "prefijo": "6d2ea610800575e0861357cdc93c6a7bf7836fdd76a8ce2981522331c112530c",
+      "objeto": "efac0fb7eecb53336a506484b638f1d93063477c4ec9f1c667e650bc7152cd1e",
+      "auditoria": "'OcelotasRhin.homogenea_de_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_homogenea' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.tiempo_diez_punto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.tiempo_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.ocelotas_diez_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_contador_desde' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin_proposicion' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.cst_rhin_tramo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.fallo_exige_once_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasRhin.desde_de_entera' depends on axioms: [propext]\n"
+    },
+    "OcelotasLMN": {
+      "fuente": "aed41dd927ae0e8a62a1053ec798d79f9e19da92216feb7bb7d5ed85b87b16fa",
+      "prefijo": "cfea84e0ff1f48ccf652ed11748238a01a0731ec72e52cfc36e27ffe38fdd535",
+      "objeto": "9904503f3e019fae1f5b9268785e57be5919bdf49a193f8cf54afc5e0c1ab357",
+      "auditoria": "'OcelotasLMN.log_dos_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.log_tres_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.lagrange' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.L_intervalos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.entera_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cota_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cola_lmn_entera' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.sin_fallo_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.ocelotas_diez_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.cst_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMN.fallo_exige_once_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasLMNFuente": {
+      "fuente": "b8c269c1730b25b79942308be5fee3112792626603a399aad4374b4334ec991f",
+      "prefijo": "2c09ffb7ea68f19a1cef494956817f7f210b1077bbefdaa40942eb5d8e290135",
+      "objeto": "a6db94899ae070a6fcf251b709c652e71e9818b90f4203db52526365afb16dcc",
+      "auditoria": "'OcelotasLMNFuente.debil_de_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasLMNFuente.cst_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasAfinada": {
+      "fuente": "ae051c50820c9d147aa8747fdaf3496f70119189e9d7ad4b07a26b6d5524a3e0",
+      "prefijo": "4aa6d8a65c1ec91678a22748b924d5f2272cc2ba3fc7cd569151c67d018320f3",
+      "objeto": "f062602df7031e6531c889ccf9177eb141cf663cedb0b58ad1af652e23a37b88",
+      "auditoria": "'OcelotasAfinada.paso_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinada.aproximacion_superior' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasAfinadaTrayectorias": {
+      "fuente": "a05ce71ecadc8abce0770807607da8b205d40c429d2dbae3b84b012b196665e8",
+      "prefijo": "8b9e6cf4929eb4b00750fce1dd6023015894c568d5ea84a1f347bf7a43090380",
+      "objeto": "120f18cb36804d34975f2ca5fd919d00bf0530fd770799964d717c4b506067bd",
+      "auditoria": "'OcelotasAfinadaTrayectorias.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.fallo_lambda' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.semilla_de_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasAfinadaTrayectorias.descenso_intervalo' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTreceBase": {
+      "fuente": "42e761f5540c24ed40f6395a77b9346843cf84e559b689968e1be061d6370e78",
+      "prefijo": "9a1481d16487d97879ebfcca2a6574bad22b63e59f538888a07b46e18033cc73",
+      "objeto": "57b0f8d4c905b6cbe3bfeecf30c6de02f49e30315491e0ee4a9871e825d591a1",
+      "auditoria": "'OcelotasTreceBase.alfa_valida' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.beta_de_potencia' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.lambda_de_pareja' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.pequeno_por_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceBase.imposible_por_criba' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTreceTabla": {
+      "fuente": "320a3cfdb5dfe9be0971c2819657b59065495e259109295248bb919ca5f44841",
+      "prefijo": "a4c77f0049d56eb75a3d35a2c609f544d934f3dd48c07e9bc5e091996892f4bd",
+      "objeto": "c686a5397479c51b009dcdc293fec25679a61d07f4eb7fea1d3d918e196ced4c",
+      "auditoria": "'OcelotasTreceTabla.pequeno_de_tabla' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTreceFinito": {
+      "fuente": "388c3fc948b28e1e16a90f0b519165309c740100fc1b4d3e8e292c5ec1066f1b",
+      "prefijo": "8c7614fa7be908645bbd5ac72a2cdeb91399f732984d2c6c9468fde2dfaf29c6",
+      "objeto": "b3339040110d8dc292d55f170bbd93ed207f2b30644a99a725ba9c3cc7662a0e",
+      "auditoria": "'OcelotasTreceFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n'OcelotasTreceFinito.existe_descenso_finito' depends on axioms: [propext, Quot.sound]\n'OcelotasTreceFinito.descenso_finito' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "OcelotasTreceCola": {
+      "fuente": "f1012151a556e1486ea1f8f6ef38af7ac4824a2b5b266e926a35fff180d33e09",
+      "prefijo": "7803e44c0bb05add44f593e54969bb9c6a8e298ef3f1eddc94cac051d08bc0ae",
+      "objeto": "89708462d66ad4f4cb57e1662343814d33990a542abff27815f45bd55c51b4ca",
+      "auditoria": "'OcelotasTreceCola.cota_trece_lineal' depends on axioms: [propext, Quot.sound]\n'OcelotasTreceCola.cola_trece_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTreceCola.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasTrece": {
+      "fuente": "a3b1b630e6f5692aa8d5678b7b1603371584150a8ac8f76d482c79b4cfd2c680",
+      "prefijo": "a1fb56f40c5846e64714339d7e91ef81ac66d3430bfa9a19f6fb15bcaf5f448e",
+      "objeto": "7190f948ead41e237a224430294e34a88faebb326dd60d57b6952cdcc5830c35",
+      "auditoria": "'OcelotasTrece.descenso_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.cst_trece_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.cst_trece_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasTrece.fallo_exige_catorce' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasResiduos": {
+      "fuente": "4cfbed60fd5977d1fa187908783af27ff19aa3b9c18dd27dcc63b6031a6c8c0f",
+      "prefijo": "f49e576c68024b0edf4d5eaa2ad023bf911c4b8353c85be95fb27fcb47296def",
+      "objeto": "2f10afec1d990e62f7cb05383a7b3368b8b3045db89147c36524f708bd24221f",
+      "auditoria": "'OcelotasResiduos.paso_afin' depends on axioms: [propext, Quot.sound]\n'OcelotasResiduos.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasResiduos.intervalo_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasResiduos.acepta_rama' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "OcelotasResiduosBloques": {
+      "fuente": "1940581940cff8f2d3144bd1f858f40becff802fac0bb68d479b54671081617a",
+      "prefijo": "a737b6bb15c6b66d3713bd4f3be49c25ba2aa43b3d010e4cce1f5ef99934f119",
+      "objeto": "6fd8e6d9414e43653308a56f40ae197f8240b360797547c7bf3e43f1b8fe84a4",
+      "auditoria": "'OcelotasResiduosBloques.nodo_57' does not depend on any axioms\n'OcelotasResiduosBloques.nodo_105' does not depend on any axioms\n'OcelotasResiduosBloques.nodo_147' does not depend on any axioms\n'OcelotasResiduosBloques.nodo_179' does not depend on any axioms\n'OcelotasResiduosBloques.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n"
+    },
+    "OcelotasResiduosFinito": {
+      "fuente": "4e9793d7e2e2a1a928083caa70fa0ad428aca2b45c173e00beb783105860f65f",
+      "prefijo": "c408e70eb418e4b88a422741795af5eda31be32491ad22ea6f15b5666fcc293b",
+      "objeto": "ca68e6f7ed5624ea507cf37f08aa1b24ac47edffdcf3d993f048298eb6d11ddc",
+      "auditoria": "'OcelotasResiduosFinito.intervalo_comprobado' depends on axioms: [propext, Quot.sound]\n'OcelotasResiduosFinito.existe_descenso_finito' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasResiduosFinito.descenso_finito' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasNumerica": {
+      "fuente": "438268155378d772ec796c367833a7b733f6c5357e888e53b8999f3fbab01e24",
+      "prefijo": "aed784115aec1fb54565d00297fa2f033f4b25a873a144513ddf97e060a26e31",
+      "objeto": "914a6695e8b6b863f19e16333052c44ec50d422991d9f853d73ef4d7846a7aec",
+      "auditoria": "'OcelotasNumerica.pequeno_por_cota' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasNumerica.imposible_por_criba' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDieciochoTabla": {
+      "fuente": "f57828c6e1f07bd9f5bf23022408662ac368dcc08acc28889f9693e861a6de4c",
+      "prefijo": "746376d42f0355dbd38ed9bbb5ca36f3685bf4891e4f68a9ef5ec4d3b7854067",
+      "objeto": "cb3fd5ec4181222deb9e752c7a70afdce379e46c29edb806f9c487dd19498607",
+      "auditoria": "'OcelotasDieciochoTabla.pequeno_de_tabla' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDieciochoCola": {
+      "fuente": "7eab32c2f8417fde3b302ed7ca671002980208f64d2cc561b4e2785293cadffc",
+      "prefijo": "b2adfa67331372d2c64e4e57f8e1f2a6e13c0af20883082725329bc211f11a04",
+      "objeto": "ab6bbe09828ac381888452631dab240df4cda0156e6cc3b983bbbef45b1c6f31",
+      "auditoria": "'OcelotasDieciochoCola.cota_dieciocho_lineal' depends on axioms: [propext, Quot.sound]\n'OcelotasDieciochoCola.cola_dieciocho_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciochoCola.sin_fallo_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasDieciocho": {
+      "fuente": "365a487ced064715317c269cbf1d1cfd009c2be70842afe852fef742cec2341c",
+      "prefijo": "01bad7179c6a0f7d12cf9db25a12164211ff71e801d21f26ed0c419ea1d91cf8",
+      "objeto": "67e55b38c7e21d21af1288989503d7eee8359e88aaca957c1dea7a8b7753c52a",
+      "auditoria": "'OcelotasDieciocho.descenso_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.cst_dieciocho_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.cst_dieciocho_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasDieciocho.fallo_exige_diecinueve' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasGeometrica": {
+      "fuente": "8d1dca3d33069c6d1e55b600aedf2c17d11974e0d6cb711be23b1abe9fcffab2",
+      "prefijo": "c335e6326e5d3357e341b13aaea93391e8fc9407e39f4a5d7fe6ab259136b3bc",
+      "objeto": "8045c14a5907d65cac574d0e75a5faf8e6b7aaadf2820e98386d0ad3b4b84775",
+      "auditoria": "'OcelotasGeometrica.cota_geometrica' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasGeometrica.cota_lineal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasGeometrica.cota_setenta_y_cinco' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    "OcelotasPrefijos": {
+      "fuente": "8258d1a92984d113d418af3b709a59743ca10d87e6acd0d62ccd216692434cfc",
+      "prefijo": "7788fe1487c4ca81dd05beabb3bb260a20b6e10b55e1f8a46eff0b7a117d7abf",
+      "objeto": "36fd5999249a44e5cb937bed39f5179d2b9504a43aaf9d6ee06ed05259f20fce",
+      "auditoria": "'OcelotasPrefijos.rachas_monotonas' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijos.rachas_add_corte' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijos.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijos.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  },
+  "extensiones": {
+    "OcelotasPrefijosAfinados": {
+      "fuente": "dc6cdd7d7cea1b674f448172059e8389a733bc9ce9c705a2895f3715ae3d8833",
+      "objeto": "3caded2bfedb257400985f29d916774fa030854a0338630ff3434b34b8a278ff",
+      "dependencias": {
+        "OcelotasPrefijos": {
+          "fuente": "8258d1a92984d113d418af3b709a59743ca10d87e6acd0d62ccd216692434cfc",
+          "objeto": "36fd5999249a44e5cb937bed39f5179d2b9504a43aaf9d6ee06ed05259f20fce"
+        },
+        "OcelotasNumerica": {
+          "fuente": "438268155378d772ec796c367833a7b733f6c5357e888e53b8999f3fbab01e24",
+          "objeto": "914a6695e8b6b863f19e16333052c44ec50d422991d9f853d73ef4d7846a7aec"
+        }
+      },
+      "auditoria": "'OcelotasPrefijosAfinados.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.potencia_exponente' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijosAfinados.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 6,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasPrefijosAfinados.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasPrefijosAfinados.lean"
+      ],
+      "segundos_compilacion": 20.48,
+      "reutilizado": false
+    },
+    "OcelotasPrefijosBinarios": {
+      "fuente": "662d25b9fb885a4eb50fb5f6a788cb80025f66f29b599a3977943ee30b5438b2",
+      "objeto": "16307885f2e9e85df512925764d4985d037df53c4a919cbe31bb202f66b90d25",
+      "dependencias": {
+        "OcelotasPrefijosAfinados": {
+          "fuente": "dc6cdd7d7cea1b674f448172059e8389a733bc9ce9c705a2895f3715ae3d8833",
+          "objeto": "3caded2bfedb257400985f29d916774fa030854a0338630ff3434b34b8a278ff"
+        }
+      },
+      "auditoria": "'OcelotasPrefijosBinarios.buscar_cota' depends on axioms: [propext]\n'OcelotasPrefijosBinarios.potencia_exponente' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijosBinarios.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 3,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasPrefijosBinarios.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasPrefijosBinarios.lean"
+      ],
+      "segundos_compilacion": 19.769,
+      "reutilizado": false
+    },
+    "OcelotasExponenteBinarioExacto": {
+      "fuente": "a43dcc4909de530aa35c4c2a25bbcf7a8ee4264c4cafe0b9c9d67e6edab4eb87",
+      "objeto": "1b3c503b8afb760f3837d6e43d08395ba6b325ebeca06104b7b4153817f24682",
+      "dependencias": {
+        "OcelotasPrefijosBinarios": {
+          "fuente": "662d25b9fb885a4eb50fb5f6a788cb80025f66f29b599a3977943ee30b5438b2",
+          "objeto": "16307885f2e9e85df512925764d4985d037df53c4a919cbe31bb202f66b90d25"
+        }
+      },
+      "auditoria": "'OcelotasExponenteBinarioExacto.techo_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasExponenteBinarioExacto.buscar_exacto' depends on axioms: [propext, Quot.sound]\n'OcelotasExponenteBinarioExacto.exponente_igual' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 3,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasExponenteBinarioExacto.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasExponenteBinarioExacto.lean"
+      ],
+      "segundos_compilacion": 19.922,
+      "reutilizado": false
+    },
+    "OcelotasCribaPrefijosBinarios": {
+      "fuente": "3193c55c12d4631860936e966bcfe25450a847862e711b314ba5e1fce9041592",
+      "objeto": "9cf00d923b99e3921b17b7a012c61b91b7d4f8d61293c03876d6f79275f04b52",
+      "dependencias": {
+        "OcelotasPrefijos": {
+          "fuente": "8258d1a92984d113d418af3b709a59743ca10d87e6acd0d62ccd216692434cfc",
+          "objeto": "36fd5999249a44e5cb937bed39f5179d2b9504a43aaf9d6ee06ed05259f20fce"
+        },
+        "OcelotasPrefijosBinarios": {
+          "fuente": "662d25b9fb885a4eb50fb5f6a788cb80025f66f29b599a3977943ee30b5438b2",
+          "objeto": "16307885f2e9e85df512925764d4985d037df53c4a919cbe31bb202f66b90d25"
+        },
+        "OcelotasResiduos": {
+          "fuente": "4cfbed60fd5977d1fa187908783af27ff19aa3b9c18dd27dcc63b6031a6c8c0f",
+          "objeto": "2f10afec1d990e62f7cb05383a7b3368b8b3045db89147c36524f708bd24221f"
+        }
+      },
+      "auditoria": "'OcelotasCribaPrefijosBinarios.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCribaPrefijosBinarios.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 2,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasCribaPrefijosBinarios.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasCribaPrefijosBinarios.lean"
+      ],
+      "segundos_compilacion": 31.821,
+      "reutilizado": false
+    },
+    "OcelotasPrefijosTestigos": {
+      "fuente": "3448f7b350c12111029920580264dcaa43c71a49bea3188c9f1e53eb7b3e7c78",
+      "objeto": "781f737b663e16eda06bff4dd604cc52e91b7f5ae5882b30588dc0beb59291f7",
+      "dependencias": {
+        "OcelotasExponenteBinarioExacto": {
+          "fuente": "a43dcc4909de530aa35c4c2a25bbcf7a8ee4264c4cafe0b9c9d67e6edab4eb87",
+          "objeto": "1b3c503b8afb760f3837d6e43d08395ba6b325ebeca06104b7b4153817f24682"
+        },
+        "OcelotasCribaPrefijosBinarios": {
+          "fuente": "3193c55c12d4631860936e966bcfe25450a847862e711b314ba5e1fce9041592",
+          "objeto": "9cf00d923b99e3921b17b7a012c61b91b7d4f8d61293c03876d6f79275f04b52"
+        }
+      },
+      "auditoria": "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasPrefijosTestigos.lean:79:32: warning: This simp argument is unused:\n  hs\n\nHint: Omit it from the simp argument list.\n  simp [show ¬a < m by omega,̵ ̵h̵s̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n'OcelotasPrefijosTestigos.cota_monotona_exponente' depends on axioms: [propext]\n'OcelotasPrefijosTestigos.acepta_rama' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijosTestigos.acepta_criba' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosTestigos.acepta_vacio' depends on axioms: [propext]\n'OcelotasPrefijosTestigos.acepta_descenso' depends on axioms: [propext]\n'OcelotasPrefijosTestigos.acepta_exceso' depends on axioms: [propext, Quot.sound]\n",
+      "consultas": 6,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasPrefijosTestigos.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasPrefijosTestigos.lean"
+      ],
+      "segundos_compilacion": 19.94,
+      "reutilizado": false
+    },
+    "OcelotasCertificadosTestigos": {
+      "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+      "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353",
+      "dependencias": {
+        "OcelotasPrefijosTestigos": {
+          "fuente": "3448f7b350c12111029920580264dcaa43c71a49bea3188c9f1e53eb7b3e7c78",
+          "objeto": "781f737b663e16eda06bff4dd604cc52e91b7f5ae5882b30588dc0beb59291f7"
+        }
+      },
+      "auditoria": "'OcelotasCertificadosTestigos.verificar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCertificadosTestigos.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 2,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasCertificadosTestigos.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasCertificadosTestigos.lean"
+      ],
+      "segundos_compilacion": 19.03,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte001": {
+      "fuente": "f6a4d6610f0fbd28ca2078a741622b69ab5a627814775b7634dca5e051a07f57",
+      "objeto": "470d6733a6b2b4443783cc8931c4fee5e98eb80c1e3636f9cb59e63615b9c812",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_0' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_1' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_5' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_8' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_10' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_11' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_13' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_15' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_16' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_22' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_24' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_25' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_28' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 16,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte001.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte001.lean"
+      ],
+      "segundos_compilacion": 29.016,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte002": {
+      "fuente": "deb805e6a4ea86615118aa832d3613ac789fa59d5b6279c7275ca214b94f9ec9",
+      "objeto": "a5608c951288df788c536b8925537ecf38b8ab6d2176d5fc92c10ff90177f26b",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_29' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_31' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_32' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_34' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_38' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_39' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_41' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_42' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_44' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_48' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_49' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_51' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_53' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_54' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 14,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte002.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte002.lean"
+      ],
+      "segundos_compilacion": 28.158,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte003": {
+      "fuente": "9701968d822ec20524934b57ae00cd1f39fd35db3ef0a06b7cbf9ced3e23b99e",
+      "objeto": "f870048bd3313dbaf25e30c4adf9691b723386ee748acf238a9e443ef6a76e47",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_56' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_58' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_63' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_64' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_66' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_67' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_69' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_71' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_72' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_76' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_77' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_79' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_82' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_83' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_85' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_87' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_89' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 17,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte003.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte003.lean"
+      ],
+      "segundos_compilacion": 29.95,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte004": {
+      "fuente": "0ce51092a988717150bbd0403dc1640b509ab625c1637162d80c63f9d6fbc81d",
+      "objeto": "be881a1588996e78e3eb4a1f2c43af3e269c38960ed6535fad9b892b6c5fa893",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_93' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_94' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_96' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_98' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_99' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_101' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_102' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_104' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_107' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_108' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_112' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_113' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_115' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_117' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_120' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_123' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_124' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_126' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_128' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 19,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte004.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte004.lean"
+      ],
+      "segundos_compilacion": 30.49,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte005": {
+      "fuente": "b09546a6624f2d3a544d91153e1fc257ed2eb57d53771c462025e0579119cf30",
+      "objeto": "78e3f83e4bf233e47b03a647dc41bd4496c3aff272fd5c13bb2b4ca0f625b5a2",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_129' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_131' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_133' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_134' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_137' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_138' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_142' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_143' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_145' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_147' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_150' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_152' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_155' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_157' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_158' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_160' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_162' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_163' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_165' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_166' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 20,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte005.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte005.lean"
+      ],
+      "segundos_compilacion": 30.606,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte006": {
+      "fuente": "f35496e93fc06f0d18073bef3ccda7119c8e8246fd4bf1222ac6d46c7d443fed",
+      "objeto": "464e29824f7b938d740d448823ee96b8b715ce3f7ee840dbc96db6b4a8b30094",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_168' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_171' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_172' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_176' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_177' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_179' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_181' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_183' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_186' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_187' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_189' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_191' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_192' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_194' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_195' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_197' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_201' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 17,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte006.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte006.lean"
+      ],
+      "segundos_compilacion": 30.933,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte007": {
+      "fuente": "8ea4c15586fd5389ed5d5f87c2bb5addf2cb8deee3d64d0cba6655c4592a333d",
+      "objeto": "09747e0707b4a4480a2b154d566bc49e2ada4d53961b87d7e3d042f8388cf04a",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_202' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_204' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_206' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_207' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_210' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_211' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_213' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_214' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_217' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_218' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_220' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_221' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_223' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_229' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_230' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 15,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte007.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte007.lean"
+      ],
+      "segundos_compilacion": 30.303,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte008": {
+      "fuente": "1db357eecc5379670f0970c9ad5d3cf1135b502d2f0836921c1f95a0f9a40d2c",
+      "objeto": "f314354b0a369e3787eea5a52aaa0f68a98e394929051992c072c389a24e5b64",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_232' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_234' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_236' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_237' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_239' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_241' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_243' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_244' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_250' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_251' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_253' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_255' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_257' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_258' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_260' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_262' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_263' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_265' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 18,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte008.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte008.lean"
+      ],
+      "segundos_compilacion": 31.902,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte009": {
+      "fuente": "f583d73e5605c9b4bcda6aa786f9ff46429ce25bb464daef7564e3039124decd",
+      "objeto": "f69ed1a154dee1e649c0b382cef302f5ef2baa815d676a86919995225e2f9e38",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_266' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_268' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_269' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_271' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_277' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_280' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_281' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_283' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_284' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_286' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_287' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_291' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_292' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_294' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_297' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_298' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 16,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte009.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte009.lean"
+      ],
+      "segundos_compilacion": 30.926,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte010": {
+      "fuente": "42479d0c78c3d587bd8898b77c50ffd1fd914b937443dba472beb6ae325c1b9c",
+      "objeto": "3fdc33a0f2e61102d5ea301cd0f1713a699567da13fa463c4fd3fb45ab4b5017",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_300' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_302' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_305' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_306' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_308' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_310' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_312' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_315' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_317' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_320' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_321' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_323' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_324' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_327' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_328' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_330' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_331' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_333' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_337' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_338' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 20,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte010.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte010.lean"
+      ],
+      "segundos_compilacion": 30.85,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte011": {
+      "fuente": "fc5e723f68226f1b9f80dea9485397b30c0308ce25c4d057f370592fc4ee7a14",
+      "objeto": "300cce98329ba7f90d020abfc7f65e95e50af2e3d97e327d31b08140676259c2",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_340' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_341' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_343' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_347' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_348' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_350' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_352' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_353' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_355' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_357' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_358' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_363' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_364' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_366' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_368' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 15,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte011.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte011.lean"
+      ],
+      "segundos_compilacion": 30.48,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte012": {
+      "fuente": "d0e01a066ba38a7c67ce124c832fc0dea7a336f8acbf545a9432dea1da5785bd",
+      "objeto": "8c7f512cce7d1db7674319f2224245220f4efaafa31ecb2bcd54c966e1e9258b",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_369' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_371' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_373' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_374' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_378' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_379' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_381' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_383' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_385' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_389' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_390' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_392' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_394' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_395' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_397' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 15,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte012.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte012.lean"
+      ],
+      "segundos_compilacion": 29.521,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte013": {
+      "fuente": "394c6132419b40f1292481baa47e8be2d27dfa08ccced138422cf4a52c20d6b0",
+      "objeto": "1f00673e57608e1826b0c0a29b16cdbe43cd118acb745fa3b5d8f7670f4a6f91",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_399' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_400' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_404' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_405' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_407' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_408' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_410' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_414' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_415' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_417' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_419' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_421' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_422' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_424' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 14,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte013.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte013.lean"
+      ],
+      "segundos_compilacion": 29.901,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte014": {
+      "fuente": "e8e8a5deedc8a33178dc122c42a24e0db528352ce632eec79fc592c91090ca35",
+      "objeto": "802212f9d79e7cb9fcf4e6777785c4de65d7a6b3958ffb1f71cd3f308b5feb67",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_426' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_427' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_432' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_433' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_435' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_436' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_438' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_441' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_442' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_444' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_445' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_448' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_449' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_451' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 14,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte014.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte014.lean"
+      ],
+      "segundos_compilacion": 30.606,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte015": {
+      "fuente": "fb5ff77963074815289155cd854878a5fdc4f07f82156799c26c80f16fa920a2",
+      "objeto": "9469309d22b889e77d70802a56c3a6aa81ac970e5dcc37a786f0069218572db2",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_452' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_457' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_458' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_460' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_462' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_463' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_466' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_467' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_469' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_470' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_472' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_477' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_478' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_480' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_481' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 15,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte015.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte015.lean"
+      ],
+      "segundos_compilacion": 29.752,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte016": {
+      "fuente": "77f73c447315f316e3f80e608363c332ab0ee304ed9afec95305f7af31f6edd3",
+      "objeto": "81c3d2fbc1b118ccbf82ea059616cd71aaddf17699d52e054aed3e3abbfc16aa",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_483' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_486' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_487' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_489' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_492' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_493' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_495' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_497' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_498' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_500' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_507' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_508' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_510' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_511' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 14,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte016.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte016.lean"
+      ],
+      "segundos_compilacion": 29.594,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte017": {
+      "fuente": "e6714c04d003b5bde4424f73a1795d65e123d9fb542078525e2830cc43d3e1ca",
+      "objeto": "508890eaf6c6df39b5d9026281bb62410c5afe2aebe1d6638f5f0415427e2d95",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_513' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_514' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_516' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_520' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_521' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_523' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_525' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_528' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_529' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_531' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_533' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_534' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_536' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_537' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_539' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_543' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 16,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte017.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte017.lean"
+      ],
+      "segundos_compilacion": 30.311,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte018": {
+      "fuente": "dcde24924792cb0c39feb07a4e5f14bf9da9b4b7d55ddb4b4c26cb9d7ab1203d",
+      "objeto": "f04f7aa1326c635024046412973497ed1f0e3b8753fb678674851c5aef64ba80",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_544' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_546' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_548' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_549' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_552' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_553' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_555' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_557' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_558' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_560' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_562' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_563' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_570' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_571' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 14,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte018.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte018.lean"
+      ],
+      "segundos_compilacion": 30.062,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte019": {
+      "fuente": "d611a53fa8e251e20a29fbff0411e0710e535ebf7b409cd1405dbf00dc64616f",
+      "objeto": "6d61620e09f8a251fe4c49ce5a7e03248c2e14cd323308b5b9888d08f1c527cb",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_573' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_575' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_577' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_578' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_580' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_581' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_583' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_585' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_588' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_589' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_591' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_595' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_596' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_598' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_600' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_602' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_604' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_609' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 18,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte019.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte019.lean"
+      ],
+      "segundos_compilacion": 32.899,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte020": {
+      "fuente": "dbca67687a3223dea309f6d5d124649ce486634119d1f5e5cd59ed0fb7382d60",
+      "objeto": "27601bbffd4390f7c5207b0093e579b5b5da039d33a3d2694b693d23c35a4116",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_610' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_612' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_614' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_615' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_618' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_619' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_621' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_624' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_625' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_627' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_629' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_630' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_633' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_634' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_636' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 15,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte020.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte020.lean"
+      ],
+      "segundos_compilacion": 31.175,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte021": {
+      "fuente": "e2d92315abc84ea1cee5942d6b4b3c738e1852ab7d8e08ca63154bc073cae2bf",
+      "objeto": "6f569f702318626f307caaf664834c35c97f86e2aac00b362fe3ae7ad7c3ba0c",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_639' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_640' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_642' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_644' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_645' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_650' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_651' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_653' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_655' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_657' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_658' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_660' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_661' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_663' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_664' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_666' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 16,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte021.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte021.lean"
+      ],
+      "segundos_compilacion": 31.226,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte022": {
+      "fuente": "c6beddb7d6a200139c0c7215121ce459e452476ffe0187824d912df0b19dd492",
+      "objeto": "345dec66c6757c0384a52437b48ace62a384697d302e7588379c0f8ef32f1f71",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_672' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_673' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_675' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_677' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_679' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_681' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_682' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_684' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_685' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_687' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_688' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_690' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_694' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_695' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_697' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_702' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_703' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_705' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_707' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_709' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 20,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte022.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte022.lean"
+      ],
+      "segundos_compilacion": 31.04,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte023": {
+      "fuente": "3fa4fbed936c903b85dc23754ced6438465b1adb47c353bbe08a62353a31cec1",
+      "objeto": "aa2e4bf4a924ac14fe291e686bb92f6bb6511aa5c6e3612a9c382fa5ba739576",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_711' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_712' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_714' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_716' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_718' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_719' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_721' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_723' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_724' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_727' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_728' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_730' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_735' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_741' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_742' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_744' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_746' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 17,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte023.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte023.lean"
+      ],
+      "segundos_compilacion": 30.46,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte024": {
+      "fuente": "eb8c338e54ac97556d5c90606929e5414aef82ec359b8d030bade27d6a2d6bb8",
+      "objeto": "176b8b74f309dbc1734dc8950bffd5f12237c0651d1313fff581d2a7608d76b3",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_747' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_749' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_750' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_752' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_755' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_756' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_760' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_761' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_763' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_765' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_768' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_770' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_772' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_773' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_775' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_776' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_778' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_779' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_781' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 19,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte024.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte024.lean"
+      ],
+      "segundos_compilacion": 35.313,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte025": {
+      "fuente": "864846b7cf534f891d5623f879e39756725de37136547b2af9a4fd8b458a326f",
+      "objeto": "45d56c1c333e6aaf1522cdf09ecf13f13532607dea2d836525eba54c3f2b0de8",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_785' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_786' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_788' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_791' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_792' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_794' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_796' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_798' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_801' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_802' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_804' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_805' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_807' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_810' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_811' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_813' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_816' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 17,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte025.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte025.lean"
+      ],
+      "segundos_compilacion": 34.55,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte026": {
+      "fuente": "bf1884bbf4a3a343ebc648ddc475d7d889850fb2cc052cb83753a3599d06305e",
+      "objeto": "22ef83812bd93fa0da076a4d6fec6155c75ee5aa1ae00a5c3a20d948d50477e5",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_817' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_819' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_821' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_822' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_826' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_827' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_829' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_831' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_832' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_834' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_835' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_837' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_842' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_843' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_845' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 15,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte026.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte026.lean"
+      ],
+      "segundos_compilacion": 30.62,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte027": {
+      "fuente": "8e8497ca0070bae9c912d65ff4ea7bfbaffe19ef98b1c99b789a506fea32d465",
+      "objeto": "515d5d500cca25b0000003631ea8d8a113ac00804ccae33ddbfa692629c213f6",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_846' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_848' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_849' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_851' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_855' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_856' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_858' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_860' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_865' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_866' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_868' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_870' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_872' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_873' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_875' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_877' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_878' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_881' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 18,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte027.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte027.lean"
+      ],
+      "segundos_compilacion": 30.792,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajoParte028": {
+      "fuente": "40ec249bfd515ab952dc6e2c5251bf4dbfd1dc1a8231f4a0394d3fdca8dbeec1",
+      "objeto": "8a12719f660bc85d92efce97e5d7422c4900f426ba494a0c83bfb6403a4117ae",
+      "dependencias": {
+        "OcelotasCertificadosTestigos": {
+          "fuente": "37257524b6160ee48622d95f07a9dad5171419226da72fabcca6ae0b30467e92",
+          "objeto": "4b74b79e4fa5f9d39db881a55e403e2184d4c50aa36b2ac77ff4c69000ea9353"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.nodo_882' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_885' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_886' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_888' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_892' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_896' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_898' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_901' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_903' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 9,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajoParte028.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajoParte028.lean"
+      ],
+      "segundos_compilacion": 23.453,
+      "reutilizado": false
+    },
+    "OcelotasVeintitresPrefijosBajo": {
+      "fuente": "15ba7ab47c94569ed50ed59dd21550122cdad0b7e6e301bdb4604987d58e3bb3",
+      "objeto": "c5d822ce43bc4e491d5c2aceeedfcec1a0326ef920913382665acc1b83abdcf2",
+      "dependencias": {
+        "OcelotasVeintitresPrefijosBajoParte001": {
+          "fuente": "f6a4d6610f0fbd28ca2078a741622b69ab5a627814775b7634dca5e051a07f57",
+          "objeto": "470d6733a6b2b4443783cc8931c4fee5e98eb80c1e3636f9cb59e63615b9c812"
+        },
+        "OcelotasVeintitresPrefijosBajoParte002": {
+          "fuente": "deb805e6a4ea86615118aa832d3613ac789fa59d5b6279c7275ca214b94f9ec9",
+          "objeto": "a5608c951288df788c536b8925537ecf38b8ab6d2176d5fc92c10ff90177f26b"
+        },
+        "OcelotasVeintitresPrefijosBajoParte003": {
+          "fuente": "9701968d822ec20524934b57ae00cd1f39fd35db3ef0a06b7cbf9ced3e23b99e",
+          "objeto": "f870048bd3313dbaf25e30c4adf9691b723386ee748acf238a9e443ef6a76e47"
+        },
+        "OcelotasVeintitresPrefijosBajoParte004": {
+          "fuente": "0ce51092a988717150bbd0403dc1640b509ab625c1637162d80c63f9d6fbc81d",
+          "objeto": "be881a1588996e78e3eb4a1f2c43af3e269c38960ed6535fad9b892b6c5fa893"
+        },
+        "OcelotasVeintitresPrefijosBajoParte005": {
+          "fuente": "b09546a6624f2d3a544d91153e1fc257ed2eb57d53771c462025e0579119cf30",
+          "objeto": "78e3f83e4bf233e47b03a647dc41bd4496c3aff272fd5c13bb2b4ca0f625b5a2"
+        },
+        "OcelotasVeintitresPrefijosBajoParte006": {
+          "fuente": "f35496e93fc06f0d18073bef3ccda7119c8e8246fd4bf1222ac6d46c7d443fed",
+          "objeto": "464e29824f7b938d740d448823ee96b8b715ce3f7ee840dbc96db6b4a8b30094"
+        },
+        "OcelotasVeintitresPrefijosBajoParte007": {
+          "fuente": "8ea4c15586fd5389ed5d5f87c2bb5addf2cb8deee3d64d0cba6655c4592a333d",
+          "objeto": "09747e0707b4a4480a2b154d566bc49e2ada4d53961b87d7e3d042f8388cf04a"
+        },
+        "OcelotasVeintitresPrefijosBajoParte008": {
+          "fuente": "1db357eecc5379670f0970c9ad5d3cf1135b502d2f0836921c1f95a0f9a40d2c",
+          "objeto": "f314354b0a369e3787eea5a52aaa0f68a98e394929051992c072c389a24e5b64"
+        },
+        "OcelotasVeintitresPrefijosBajoParte009": {
+          "fuente": "f583d73e5605c9b4bcda6aa786f9ff46429ce25bb464daef7564e3039124decd",
+          "objeto": "f69ed1a154dee1e649c0b382cef302f5ef2baa815d676a86919995225e2f9e38"
+        },
+        "OcelotasVeintitresPrefijosBajoParte010": {
+          "fuente": "42479d0c78c3d587bd8898b77c50ffd1fd914b937443dba472beb6ae325c1b9c",
+          "objeto": "3fdc33a0f2e61102d5ea301cd0f1713a699567da13fa463c4fd3fb45ab4b5017"
+        },
+        "OcelotasVeintitresPrefijosBajoParte011": {
+          "fuente": "fc5e723f68226f1b9f80dea9485397b30c0308ce25c4d057f370592fc4ee7a14",
+          "objeto": "300cce98329ba7f90d020abfc7f65e95e50af2e3d97e327d31b08140676259c2"
+        },
+        "OcelotasVeintitresPrefijosBajoParte012": {
+          "fuente": "d0e01a066ba38a7c67ce124c832fc0dea7a336f8acbf545a9432dea1da5785bd",
+          "objeto": "8c7f512cce7d1db7674319f2224245220f4efaafa31ecb2bcd54c966e1e9258b"
+        },
+        "OcelotasVeintitresPrefijosBajoParte013": {
+          "fuente": "394c6132419b40f1292481baa47e8be2d27dfa08ccced138422cf4a52c20d6b0",
+          "objeto": "1f00673e57608e1826b0c0a29b16cdbe43cd118acb745fa3b5d8f7670f4a6f91"
+        },
+        "OcelotasVeintitresPrefijosBajoParte014": {
+          "fuente": "e8e8a5deedc8a33178dc122c42a24e0db528352ce632eec79fc592c91090ca35",
+          "objeto": "802212f9d79e7cb9fcf4e6777785c4de65d7a6b3958ffb1f71cd3f308b5feb67"
+        },
+        "OcelotasVeintitresPrefijosBajoParte015": {
+          "fuente": "fb5ff77963074815289155cd854878a5fdc4f07f82156799c26c80f16fa920a2",
+          "objeto": "9469309d22b889e77d70802a56c3a6aa81ac970e5dcc37a786f0069218572db2"
+        },
+        "OcelotasVeintitresPrefijosBajoParte016": {
+          "fuente": "77f73c447315f316e3f80e608363c332ab0ee304ed9afec95305f7af31f6edd3",
+          "objeto": "81c3d2fbc1b118ccbf82ea059616cd71aaddf17699d52e054aed3e3abbfc16aa"
+        },
+        "OcelotasVeintitresPrefijosBajoParte017": {
+          "fuente": "e6714c04d003b5bde4424f73a1795d65e123d9fb542078525e2830cc43d3e1ca",
+          "objeto": "508890eaf6c6df39b5d9026281bb62410c5afe2aebe1d6638f5f0415427e2d95"
+        },
+        "OcelotasVeintitresPrefijosBajoParte018": {
+          "fuente": "dcde24924792cb0c39feb07a4e5f14bf9da9b4b7d55ddb4b4c26cb9d7ab1203d",
+          "objeto": "f04f7aa1326c635024046412973497ed1f0e3b8753fb678674851c5aef64ba80"
+        },
+        "OcelotasVeintitresPrefijosBajoParte019": {
+          "fuente": "d611a53fa8e251e20a29fbff0411e0710e535ebf7b409cd1405dbf00dc64616f",
+          "objeto": "6d61620e09f8a251fe4c49ce5a7e03248c2e14cd323308b5b9888d08f1c527cb"
+        },
+        "OcelotasVeintitresPrefijosBajoParte020": {
+          "fuente": "dbca67687a3223dea309f6d5d124649ce486634119d1f5e5cd59ed0fb7382d60",
+          "objeto": "27601bbffd4390f7c5207b0093e579b5b5da039d33a3d2694b693d23c35a4116"
+        },
+        "OcelotasVeintitresPrefijosBajoParte021": {
+          "fuente": "e2d92315abc84ea1cee5942d6b4b3c738e1852ab7d8e08ca63154bc073cae2bf",
+          "objeto": "6f569f702318626f307caaf664834c35c97f86e2aac00b362fe3ae7ad7c3ba0c"
+        },
+        "OcelotasVeintitresPrefijosBajoParte022": {
+          "fuente": "c6beddb7d6a200139c0c7215121ce459e452476ffe0187824d912df0b19dd492",
+          "objeto": "345dec66c6757c0384a52437b48ace62a384697d302e7588379c0f8ef32f1f71"
+        },
+        "OcelotasVeintitresPrefijosBajoParte023": {
+          "fuente": "3fa4fbed936c903b85dc23754ced6438465b1adb47c353bbe08a62353a31cec1",
+          "objeto": "aa2e4bf4a924ac14fe291e686bb92f6bb6511aa5c6e3612a9c382fa5ba739576"
+        },
+        "OcelotasVeintitresPrefijosBajoParte024": {
+          "fuente": "eb8c338e54ac97556d5c90606929e5414aef82ec359b8d030bade27d6a2d6bb8",
+          "objeto": "176b8b74f309dbc1734dc8950bffd5f12237c0651d1313fff581d2a7608d76b3"
+        },
+        "OcelotasVeintitresPrefijosBajoParte025": {
+          "fuente": "864846b7cf534f891d5623f879e39756725de37136547b2af9a4fd8b458a326f",
+          "objeto": "45d56c1c333e6aaf1522cdf09ecf13f13532607dea2d836525eba54c3f2b0de8"
+        },
+        "OcelotasVeintitresPrefijosBajoParte026": {
+          "fuente": "bf1884bbf4a3a343ebc648ddc475d7d889850fb2cc052cb83753a3599d06305e",
+          "objeto": "22ef83812bd93fa0da076a4d6fec6155c75ee5aa1ae00a5c3a20d948d50477e5"
+        },
+        "OcelotasVeintitresPrefijosBajoParte027": {
+          "fuente": "8e8497ca0070bae9c912d65ff4ea7bfbaffe19ef98b1c99b789a506fea32d465",
+          "objeto": "515d5d500cca25b0000003631ea8d8a113ac00804ccae33ddbfa692629c213f6"
+        },
+        "OcelotasVeintitresPrefijosBajoParte028": {
+          "fuente": "40ec249bfd515ab952dc6e2c5251bf4dbfd1dc1a8231f4a0394d3fdca8dbeec1",
+          "objeto": "8a12719f660bc85d92efce97e5d7422c4900f426ba494a0c83bfb6403a4117ae"
+        }
+      },
+      "auditoria": "'OcelotasVeintitresPrefijosBajo.certificado' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "consultas": 2,
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003\\OcelotasVeintitresPrefijosBajo.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasVeintitresPrefijosBajo.lean"
+      ],
+      "segundos_compilacion": 21.579,
+      "reutilizado": false
+    }
+  },
+  "compilados": 35,
+  "reutilizados": 0,
+  "consultas": 477,
+  "auditoria": "'OcelotasPrefijosAfinados.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.potencia_exponente' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijosAfinados.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosAfinados.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosBinarios.buscar_cota' depends on axioms: [propext]\n'OcelotasPrefijosBinarios.potencia_exponente' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijosBinarios.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasExponenteBinarioExacto.techo_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasExponenteBinarioExacto.buscar_exacto' depends on axioms: [propext, Quot.sound]\n'OcelotasExponenteBinarioExacto.exponente_igual' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCribaPrefijosBinarios.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCribaPrefijosBinarios.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]\nC:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\cst20260930\\OcelotasPrefijosTestigos.lean:79:32: warning: This simp argument is unused:\n  hs\n\nHint: Omit it from the simp argument list.\n  simp [show ¬a < m by omega,̵ ̵h̵s̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n'OcelotasPrefijosTestigos.cota_monotona_exponente' depends on axioms: [propext]\n'OcelotasPrefijosTestigos.acepta_rama' depends on axioms: [propext, Quot.sound]\n'OcelotasPrefijosTestigos.acepta_criba' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasPrefijosTestigos.acepta_vacio' depends on axioms: [propext]\n'OcelotasPrefijosTestigos.acepta_descenso' depends on axioms: [propext]\n'OcelotasPrefijosTestigos.acepta_exceso' depends on axioms: [propext, Quot.sound]\n'OcelotasCertificadosTestigos.verificar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasCertificadosTestigos.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_0' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_1' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_5' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_8' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_10' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_11' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_13' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_15' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_16' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_22' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_24' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_25' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_28' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_29' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_31' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_32' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_34' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_38' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_39' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_41' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_42' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_44' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_48' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_49' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_51' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_53' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_54' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_56' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_58' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_63' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_64' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_66' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_67' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_69' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_71' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_72' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_76' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_77' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_79' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_82' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_83' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_85' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_87' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_89' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_93' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_94' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_96' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_98' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_99' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_101' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_102' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_104' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_107' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_108' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_112' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_113' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_115' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_117' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_120' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_123' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_124' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_126' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_128' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_129' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_131' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_133' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_134' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_137' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_138' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_142' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_143' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_145' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_147' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_150' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_152' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_155' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_157' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_158' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_160' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_162' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_163' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_165' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_166' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_168' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_171' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_172' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_176' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_177' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_179' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_181' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_183' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_186' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_187' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_189' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_191' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_192' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_194' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_195' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_197' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_201' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_202' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_204' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_206' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_207' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_210' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_211' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_213' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_214' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_217' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_218' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_220' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_221' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_223' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_229' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_230' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_232' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_234' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_236' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_237' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_239' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_241' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_243' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_244' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_250' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_251' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_253' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_255' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_257' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_258' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_260' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_262' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_263' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_265' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_266' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_268' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_269' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_271' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_277' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_280' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_281' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_283' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_284' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_286' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_287' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_291' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_292' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_294' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_297' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_298' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_300' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_302' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_305' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_306' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_308' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_310' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_312' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_315' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_317' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_320' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_321' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_323' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_324' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_327' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_328' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_330' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_331' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_333' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_337' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_338' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_340' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_341' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_343' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_347' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_348' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_350' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_352' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_353' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_355' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_357' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_358' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_363' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_364' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_366' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_368' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_369' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_371' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_373' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_374' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_378' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_379' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_381' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_383' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_385' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_389' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_390' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_392' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_394' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_395' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_397' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_399' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_400' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_404' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_405' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_407' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_408' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_410' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_414' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_415' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_417' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_419' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_421' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_422' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_424' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_426' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_427' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_432' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_433' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_435' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_436' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_438' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_441' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_442' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_444' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_445' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_448' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_449' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_451' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_452' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_457' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_458' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_460' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_462' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_463' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_466' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_467' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_469' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_470' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_472' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_477' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_478' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_480' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_481' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_483' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_486' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_487' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_489' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_492' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_493' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_495' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_497' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_498' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_500' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_507' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_508' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_510' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_511' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_513' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_514' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_516' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_520' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_521' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_523' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_525' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_528' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_529' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_531' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_533' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_534' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_536' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_537' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_539' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_543' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_544' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_546' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_548' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_549' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_552' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_553' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_555' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_557' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_558' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_560' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_562' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_563' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_570' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_571' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_573' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_575' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_577' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_578' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_580' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_581' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_583' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_585' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_588' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_589' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_591' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_595' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_596' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_598' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_600' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_602' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_604' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_609' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_610' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_612' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_614' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_615' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_618' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_619' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_621' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_624' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_625' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_627' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_629' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_630' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_633' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_634' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_636' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_639' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_640' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_642' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_644' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_645' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_650' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_651' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_653' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_655' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_657' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_658' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_660' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_661' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_663' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_664' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_666' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_672' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_673' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_675' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_677' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_679' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_681' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_682' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_684' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_685' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_687' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_688' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_690' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_694' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_695' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_697' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_702' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_703' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_705' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_707' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_709' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_711' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_712' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_714' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_716' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_718' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_719' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_721' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_723' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_724' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_727' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_728' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_730' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_735' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_741' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_742' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_744' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_746' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_747' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_749' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_750' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_752' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_755' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_756' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_760' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_761' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_763' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_765' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_768' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_770' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_772' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_773' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_775' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_776' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_778' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_779' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_781' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_785' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_786' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_788' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_791' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_792' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_794' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_796' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_798' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_801' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_802' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_804' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_805' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_807' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_810' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_811' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_813' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_816' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_817' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_819' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_821' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_822' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_826' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_827' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_829' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_831' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_832' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_834' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_835' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_837' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_842' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_843' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_845' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_846' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_848' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_849' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_851' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_855' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_856' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_858' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_860' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_865' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_866' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_868' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_870' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_872' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_873' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_875' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_877' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_878' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_881' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_882' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_885' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_886' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_888' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_892' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_896' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_898' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_901' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.nodo_903' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.certificado' depends on axioms: [propext, Classical.choice, Quot.sound]\n'OcelotasVeintitresPrefijosBajo.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "segundos": 1008.948
+}

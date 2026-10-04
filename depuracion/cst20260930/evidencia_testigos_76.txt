@@ -1,0 +1,98 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+MODULO: OcelotasPrefijosAfinados; segundos: 19.245
+'OcelotasPrefijosAfinados.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosAfinados.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasPrefijosBinarios; segundos: 18.565
+'OcelotasPrefijosBinarios.buscar_cota' depends on axioms: [propext]
+'OcelotasPrefijosBinarios.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosBinarios.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasExponenteBinarioExacto; segundos: 18.687
+'OcelotasExponenteBinarioExacto.techo_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasExponenteBinarioExacto.buscar_exacto' depends on axioms: [propext, Quot.sound]
+'OcelotasExponenteBinarioExacto.exponente_igual' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCribaPrefijosBinarios; segundos: 29.369
+'OcelotasCribaPrefijosBinarios.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCribaPrefijosBinarios.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasPrefijosTestigos; segundos: 18.563
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasPrefijosTestigos.lean:79:32: warning: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  simp [show ¬a < m by omega,̵ ̵h̵s̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'OcelotasPrefijosTestigos.cota_monotona_exponente' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_rama' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosTestigos.acepta_criba' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosTestigos.acepta_vacio' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_descenso' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_exceso' depends on axioms: [propext, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCertificadosTestigos; segundos: 18.594
+'OcelotasCertificadosTestigos.verificar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCertificadosTestigos.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasSetentaYSeisTestigosParte001; segundos: 54.412
+'OcelotasSetentaYSeisTestigos.nodo_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_9' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_29' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_31' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_33' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_35' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_37' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_39' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_41' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_43' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_45' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_47' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_49' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_51' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_53' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_55' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_57' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_59' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_61' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_63' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_65' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_67' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_69' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_71' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_73' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_75' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_77' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_79' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_81' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_83' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_85' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_87' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_89' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_91' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_93' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.nodo_95' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasSetentaYSeisTestigos; segundos: 19.434
+'OcelotasSetentaYSeisTestigos.certificado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSetentaYSeisTestigos.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

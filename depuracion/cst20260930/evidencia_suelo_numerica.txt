@@ -1,0 +1,10 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasSueloRachas; auditoria original conservada.
+REUTILIZADO: OcelotasSueloCriba; auditoria original conservada.
+MODULO: OcelotasSueloNumerica; segundos: 22.668
+'OcelotasSueloNumerica.gamma_valida' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloNumerica.doble_indice' depends on axioms: [propext, Quot.sound]
+'OcelotasSueloNumerica.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloNumerica.criba_desde_potencia' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

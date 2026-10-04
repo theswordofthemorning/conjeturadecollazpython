@@ -1,0 +1,14 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+MODULO: OcelotasPrefijosBinarios; segundos: 21.045
+'OcelotasPrefijosBinarios.buscar_cota' depends on axioms: [propext]
+'OcelotasPrefijosBinarios.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosBinarios.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+REUTILIZADO: OcelotasDescuentoRachas; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoContador; auditoria original conservada.
+MODULO: OcelotasCribaPrefijosDescuento; segundos: 32.228
+'OcelotasCribaPrefijosDescuento.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCribaPrefijosDescuento.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

@@ -1,0 +1,22 @@
+{
+  "resultados": {
+    "prefijos_77_afinados_5m.json": {
+      "resultado": "sin discrepancias",
+      "conteos": {
+        "nodos": 1420851,
+        "descenso": 58,
+        "exceso_rachas": 0,
+        "criba": 574299,
+        "vacio": 136069,
+        "pendiente": 0,
+        "semillas_cubiertas": 14938293471394771272,
+        "profundidad_maxima": 81
+      },
+      "hojas_no_vacias": 574357,
+      "sha256_hojas": "a8711ea0246c5cf1d3ca3ff5a6b07e5cf984176e41b50bf22adde5004701aedc",
+      "sha256_certificado": "de5ce13e37366c77a6d6276e7c343322429d1534618e740a3a4bac018919de48"
+    }
+  },
+  "limite": "cotejo exacto finito; no sustituye la prueba de la criba por prefijos",
+  "sha256_cotejador": "c7f9bd7beb75f4910ce0e5c0dab639779b89cd9da957ed53093497400e94d631"
+}

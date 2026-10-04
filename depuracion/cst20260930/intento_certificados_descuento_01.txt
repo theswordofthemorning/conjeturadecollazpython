@@ -1,0 +1,49 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosBinarios; auditoria original conservada.
+MODULO: OcelotasExponenteBinarioExacto; segundos: 19.044
+'OcelotasExponenteBinarioExacto.techo_equiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasExponenteBinarioExacto.buscar_exacto' depends on axioms: [propext, Quot.sound]
+'OcelotasExponenteBinarioExacto.exponente_igual' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCribaPrefijosBinarios; segundos: 29.761
+'OcelotasCribaPrefijosBinarios.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCribaPrefijosBinarios.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasPrefijosTestigos; segundos: 18.985
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasPrefijosTestigos.lean:79:32: warning: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  simp [show ¬a < m by omega,̵ ̵h̵s̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'OcelotasPrefijosTestigos.cota_monotona_exponente' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_rama' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosTestigos.acepta_criba' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosTestigos.acepta_vacio' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_descenso' depends on axioms: [propext]
+'OcelotasPrefijosTestigos.acepta_exceso' depends on axioms: [propext, Quot.sound]
+Codigo: 0
+REUTILIZADO: OcelotasDescuentoRachas; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoContador; auditoria original conservada.
+REUTILIZADO: OcelotasCribaPrefijosDescuento; auditoria original conservada.
+MODULO: OcelotasPrefijosDescuentoTestigos; segundos: 18.432
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasPrefijosDescuentoTestigos.lean:59:38: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasPrefijosDescuentoTestigos.lean:80:43: warning: This simp argument is unused:
+  if_pos hs
+
+Hint: Omit it from the simp argument list.
+  simp only [if_neg (by omega : ¬a < m),̵ ̵i̵f̵_̵p̵o̵s̵ ̵h̵s̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'OcelotasPrefijosDescuentoTestigos.exponente_minimo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosDescuentoTestigos.acepta_rama' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosDescuentoTestigos.acepta_criba' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OcelotasPrefijosDescuentoTestigos.acepta_vacio' depends on axioms: [propext]
+'OcelotasPrefijosDescuentoTestigos.acepta_descenso' depends on axioms: [propext]
+'OcelotasPrefijosDescuentoTestigos.acepta_exceso' depends on axioms: [propext, Quot.sound]
+Codigo: 1

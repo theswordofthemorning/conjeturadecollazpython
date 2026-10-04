@@ -2,8 +2,9 @@
 
 **Cierres posteriores:** [trece](TRECE_LEAN.md) y
 [dieciocho rachas](DIECIOCHO_LEAN.md) en Lean bajo LMN. Se conservan
-la preparación y los certificados de esta tanda; el cierre a 75
-rachas continúa sin formalización completa.
+la preparación y los certificados de esta tanda. El posterior
+[cierre condicional a 76](SETENTA_Y_SEIS_LEAN.md) ya está formalizado,
+con LMN y el corolario finito de Rozier–Terracol como hipótesis explícitas.
 
 Continuación de la [criba afinada](RACHAS_AFINADAS.md). Se formalizan sus
 lemas universales y la conexión con las trayectorias, y se mejoran las

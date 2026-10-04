@@ -1,0 +1,33 @@
+{
+  "estado": "fuentes propuestas; requieren compilacion y auditoria Lean",
+  "certificado": "prefijos_76_afinados_5m.json",
+  "sha256_certificado": "98182f07c9dcf54d6108233911bf7d2c0e14cd8974f492fa5d77307357277259",
+  "sha256_cotejo": "a20ccc343ec49214fd52c71b231d6afa924b478ae965715d4d1d15d613b5a411",
+  "sha256_generador": "a8321abe84528677f47669cf72e42ae5acf062d4eea4f2d0d66a4b11f007f50f",
+  "espacio": "OcelotasSetentaYSeisTestigos",
+  "nodos_subarbol": 2000,
+  "nodos_modulo": 20000,
+  "conteos": {
+    "nodos": 11225,
+    "descenso": 2,
+    "exceso_rachas": 0,
+    "criba": 4908,
+    "vacio": 703,
+    "pendiente": 0,
+    "semillas_cubiertas": 14380653296441592424,
+    "profundidad_maxima": 77
+  },
+  "sha256_hojas": "98e9b7658377559039d7335a2c5cacd0941c3690b1e9dda676f11eaf0cde26d1",
+  "subarboles": 49,
+  "uniones": 48,
+  "partes": [
+    {
+      "modulo": "OcelotasSetentaYSeisTestigosParte001",
+      "nodos_evaluados": 11177,
+      "subarboles": 49,
+      "sha256": "915189e0068e1cbf89b4c98cb85b636b8e113702e35224ae0b41826b0cab9ea1"
+    }
+  ],
+  "sha256_principal": "6edd9997a531fb9c1c96bdecc06301747f8c1ec94349a9dd029d0c37ff1d3a9f",
+  "segundos": 0.583
+}

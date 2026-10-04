@@ -1,0 +1,27 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasDescuentoRachas.lean:66:2: error: linarith failed to find a contradiction
+n r i : ℕ
+a b : ℕ → ℕ
+hn : 0 < n
+hw : Palabra n a b r
+hi : i < r
+ha : 1 ≤ a i
+hb : 1 ≤ b i
+h2 : 2 ^ a i = 2 * 2 ^ (a i - 1)
+h3 : 3 ^ a i = 3 * 3 ^ (a i - 1)
+hpot : 2 ≤ 2 ^ b i
+he : 2 ^ b i * T^[tiempo a b (i + 1)] n = T^[tiempo a b i + a i] n
+ho : 2 * 2 ^ (a i - 1) * (T^[tiempo a b i + a i] n + 1) = 3 * 3 ^ (a i - 1) * (T^[tiempo a b i] n + 1)
+hy : 0 < T^[tiempo a b (i + 1)] n
+hle : 2 * T^[tiempo a b (i + 1)] n ≤ T^[tiempo a b i + a i] n
+hm : 2 * 2 ^ (a i - 1) * (2 * T^[tiempo a b (i + 1)] n) ≤ 2 * 2 ^ (a i - 1) * T^[tiempo a b i + a i] n
+a✝ : 3 ^ (a i - 1) * (T^[tiempo a b i] n + 1) < 2 ^ (a i - 1) * (T^[tiempo a b (i + 1)] n + 1)
+⊢ False
+failed
+'OcelotasDescuentoRachas.paso_descontado' depends on axioms: [propext, sorryAx]
+'OcelotasDescuentoRachas.cadena_descontada' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.congruencias_descontadas' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_palabra' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+
+Codigo: 1

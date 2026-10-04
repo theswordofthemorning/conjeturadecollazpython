@@ -1,0 +1,16 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+MODULO: OcelotasSueloRachas; segundos: 24.574
+'OcelotasSueloRachas.paso_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloRachas.cadena_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloRachas.congruencias_suelo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloRachas.paso_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasSueloCriba; segundos: 22.120
+'OcelotasSueloCriba.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloCriba.doble_indice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloCriba.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloCriba.cota_le_anterior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloCriba.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasSueloCriba.criba_primer_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

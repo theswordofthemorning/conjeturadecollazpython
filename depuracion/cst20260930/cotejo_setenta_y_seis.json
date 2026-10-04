@@ -1,0 +1,15 @@
+{
+  "resultado": "sin discrepancias",
+  "filas": 97,
+  "filas_por_cota_semilla": 91,
+  "filas_por_criba": 5,
+  "filas_por_prefijos": 1,
+  "cotejo_prefijos": "cotejo_prefijos_76_afinados.json",
+  "sha256_cotejo_prefijos": "a20ccc343ec49214fd52c71b231d6afa924b478ae965715d4d1d15d613b5a411",
+  "semilla_exclusiva": 42380653296441592425,
+  "cola_desde_q": 2389894509120846565669,
+  "limite_externo_inclusivo": 28000000000000000000,
+  "alcance": "Cotejo exacto de tabla, logaritmos y cola. Rozier-Terracol 5.4 permanece externo; no es un censo nuevo.",
+  "sha256_certificado": "16c8a1cde2a2b043e7bcab6b73142522015281f116f1f0a714ef8674df34db36",
+  "sha256_cotejador": "5fd8f94e49c7fa29eaa0c10b590adfedd09120de260b1880fcf472491acfe109"
+}

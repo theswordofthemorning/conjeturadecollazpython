@@ -1,0 +1,22 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosBinarios; auditoria original conservada.
+REUTILIZADO: OcelotasExponenteBinarioExacto; auditoria original conservada.
+REUTILIZADO: OcelotasCribaPrefijosBinarios; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosTestigos; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoRachas; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoContador; auditoria original conservada.
+REUTILIZADO: OcelotasCribaPrefijosDescuento; auditoria original conservada.
+MODULO: OcelotasPrefijosDescuentoTestigos; segundos: 18.970
+'OcelotasPrefijosDescuentoTestigos.exponente_minimo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosDescuentoTestigos.acepta_rama' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosDescuentoTestigos.acepta_criba' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosDescuentoTestigos.acepta_vacio' depends on axioms: [propext]
+'OcelotasPrefijosDescuentoTestigos.acepta_descenso' depends on axioms: [propext]
+'OcelotasPrefijosDescuentoTestigos.acepta_exceso' depends on axioms: [propext, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCertificadosDescuento; segundos: 18.866
+'OcelotasCertificadosDescuento.verificar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCertificadosDescuento.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

@@ -1,0 +1,15 @@
+{
+  "fecha_utc": "2026-10-04T00:35:20.581937+00:00",
+  "estado": "comprobacion en ejecucion; no hay cierre Lean completo de 23",
+  "sesion_herramienta": 27647,
+  "modulo_final": "OcelotasVeintitres",
+  "partes_altas_aceptadas": 15,
+  "partes_altas_totales": 62,
+  "ultima_parte_aceptada": "OcelotasVeintitresPrefijosAltoParte015",
+  "huella_ultima_fuente": "7b07f294c477c0ca1f503a2dfc315508b9729eccbbade744f5038b8fd2d3838d",
+  "huella_manifiesto_parcial": "62a945257128f5cd323b262181600690fa25251435ecdf91c033a7be97c861ee",
+  "cache_local": "C:\\Users\\Home\\AppData\\Local\\Temp\\ocelotas_veintitres_20261003",
+  "salida_final_prevista": "depuracion/cst20260930/evidencia_veintitres_lean.json",
+  "salida_viva_no_incluida_en_commit": "depuracion/cst20260930/evidencia_veintitres_lean.txt",
+  "nota": "Foto del avance al cerrar la tanda. No sustituye la auditoria completa. Consultar el proceso y despues el resultado; no reiniciar mientras siga vivo. La ventana baja ya fue aceptada. No se modifica el registro matematico por partes parciales."
+}

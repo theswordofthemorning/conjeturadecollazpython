@@ -5,20 +5,40 @@ que la [segunda opinión](../transversal20260927/SEGUNDA_OPINION_20260928.md)
 proponía como frente principal. El objetivo candidato era el caso de dos rachas
 impares, y está cerrado.
 
-**Cierre, 03-10:** [OcelotasVeintiuna.lean](OcelotasVeintiuna.lean) demuestra
-**CST hasta veintiuna rachas en Lean**, bajo el corolario de LMN especializado
+**Cierre, 03-10:** [OcelotasVeintidos.lean](OcelotasVeintidos.lean) demuestra
+**CST hasta veintidós rachas en Lean**, bajo el corolario de LMN especializado
 y suponiendo un primer cruce finito.
 Dos certificados por prefijos, divididos en bloques, resuelven los
 intervalos grandes; se conserva el certificado finito hasta n=4912740.
-[Prueba y alcance](VEINTIUNA_LEAN.md): 76 módulos auditados, sin `sorryAx`.
-Los cierres de [veinte](VEINTE_LEAN.md),
+[Prueba y alcance](VEINTIDOS_LEAN.md): 312 módulos auditados, sin `sorryAx`.
+Los cierres de [veintiuna](VEINTIUNA_LEAN.md), [veinte](VEINTE_LEAN.md),
 [diecinueve](DIECINUEVE_LEAN.md),
 [dieciocho](DIECIOCHO_LEAN.md) y
-de [trece rachas](TRECE_LEAN.md) se conservan; 75 bajo Rozier–Terracol
-continúa con cálculo exacto y prueba escrita, sin cierre Lean completo.
+de [trece rachas](TRECE_LEAN.md) se conservan. El ensamblaje de
+[76 rachas](SETENTA_Y_SEIS_LEAN.md) quedó formalizado bajo **LMN y el
+corolario finito de Rozier–Terracol**, ambos explícitos: 123 consultas
+de axiomas y cotejo independiente de 97 filas y la ventana de prefijos,
+sin nuevo censo. Se conserva el cierre de [75](SETENTA_Y_CINCO_LEAN.md).
 
-Sesión cerrada tras terminar esta tanda. Para 22 rachas se conservan tabla
-y prefijos cotejados y cola auxiliar Lean; faltan prefijos en Lean y ensamblaje.
+La continuación cerró [77 rachas en Lean](SETENTA_Y_SIETE_LEAN.md),
+bajo las mismas dos hipótesis externas: 91 módulos, 5030 consultas
+estándar, sin `sorryAx`. Un fallo necesita al menos 78 rachas.
+Los certificados explicitan cada hoja y guardan cada avance. Se formalizó además una
+[región finita para cualquier cantidad fija de rachas](COTA_GENERAL.md),
+bajo LMN, afinada mediante un [criterio geométrico uniforme](COLA_PARAMETRICA.md).
+La [bisección del exponente](PREFIJOS_BINARIOS_LEAN.md) conserva el
+veredicto del verificador para todo estado y combustible, en Lean.
+La [preparación de 23 sin Rozier–Terracol](VEINTITRES_PROPUESTA.md)
+tiene 43 filas y ambas ventanas cotejadas; la baja y el piloto alto
+están aceptados en Lean y la cadena completa está en curso. Todavía no es un cierre.
+El [descuento de una entrada por racha](DESCUENTO_RACHAS_LEAN.md) mejora
+universalmente la criba anterior y se aplica tras un corte par, en Lean
+sin LMN. No elimina filas adicionales en las tablas de 23 y 77;
+su verificador de árboles y un piloto de 76 están aceptados en Lean.
+La [criba con suelo](SUELO_RACHAS_LEAN.md) conserva una cota inferior
+de los valores intermedios: prueba universal y especialización entera
+aceptadas, sin LMN ni censo externo. Faltan su aplicación tras cortes
+y su verificador de árboles; no constituye otro cierre de CST.
 
 **Continuación, 03-10:** [aproximación por arriba](RACHAS_UNILATERALES.md)
 y criba logarítmica formalizadas, incluida su conexión con las órbitas:
@@ -72,6 +92,14 @@ hipótesis externa es la forma entera de Rhin, que figura explícita en el
 enunciado.
 
 ## Literatura (sesión 1)
+
+**Alcance frente a Tao (2019).** Su
+[teorema](https://arxiv.org/abs/1909.03562) acota el mínimo de la órbita
+por cualquier función que tienda a infinito, para casi todo entero en
+densidad logarítmica. Ocelotas trata el descenso en el primer cruce para
+recorridos con un número limitado de rachas, bajo hipótesis explícitas.
+Estos alcances no establecen que Ocelotas mejore el resultado de Tao.
+La formalización tampoco certifica prioridad histórica.
 
 - La conjetura CST es de Terras (1976), y el nombre, de Lagarias. Rozier y
   Terracol la verifican para `n <= 2,8·10^19` (arXiv:2502.00948v5, corolario

@@ -1,0 +1,41 @@
+{
+  "resultado": "sin discrepancias",
+  "suelo": 4095,
+  "max_semilla": 65535,
+  "max_rachas": 8,
+  "gamma": "4095/4096",
+  "gamma_comprobada_por_potencia": true,
+  "conteos": {
+    "semillas": 30721,
+    "bloques": 133694,
+    "pasos_T": 534231,
+    "pasos_suelo_comprobados": 107689,
+    "finales_bajo_suelo": 26005,
+    "igualdades_paso": 0,
+    "igualdades_cota": 5
+  },
+  "bordes_razon": [
+    {
+      "y": 4094,
+      "margen": -1
+    },
+    {
+      "y": 4095,
+      "margen": 0
+    },
+    {
+      "y": 4096,
+      "margen": 1
+    },
+    {
+      "y": 8190,
+      "margen": 4095
+    },
+    {
+      "y": 18446744073709551616,
+      "margen": 18446744073709547521
+    }
+  ],
+  "alcance": "Cotejo finito. Incluye bloques finales que bajan del suelo; no supone llegada a 1 ni ley probabilistica.",
+  "sha256_cotejador": "c27ed1484cd2917300aff445f69affaeb438b5999de25bf4eb4eed6aba2ebda9"
+}

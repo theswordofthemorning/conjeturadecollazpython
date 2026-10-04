@@ -1,0 +1,67 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosBinarios; auditoria original conservada.
+REUTILIZADO: OcelotasExponenteBinarioExacto; auditoria original conservada.
+REUTILIZADO: OcelotasCribaPrefijosBinarios; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosTestigos; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoRachas; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoContador; auditoria original conservada.
+REUTILIZADO: OcelotasCribaPrefijosDescuento; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosDescuentoTestigos; auditoria original conservada.
+REUTILIZADO: OcelotasCertificadosDescuento; auditoria original conservada.
+MODULO: OcelotasDescuentoPilotoSetentaYSeisParte001; segundos: 57.642
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_9' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_29' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_31' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_33' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_35' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_37' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_39' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_41' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_43' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_45' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_47' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_49' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_51' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_53' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_55' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_57' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_59' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_61' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_63' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_65' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_67' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_69' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_71' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_73' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_75' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_77' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_79' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_81' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_83' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_85' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_87' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_89' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_91' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_93' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.nodo_95' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasDescuentoPilotoSetentaYSeis; segundos: 22.934
+'OcelotasDescuentoPilotoSetentaYSeis.certificado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoPilotoSetentaYSeis.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

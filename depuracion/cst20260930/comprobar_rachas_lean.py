@@ -41,6 +41,8 @@ def main():
                             help="Conservar .olean y manifiesto; sin --reutilizar recompila todo")
     analizador.add_argument("--reutilizar", action="store_true",
                             help="Reutilizar el prefijo auditado cuyo entorno, fuentes y .olean coincidan")
+    analizador.add_argument("--hasta", type=int, choices=(21, 22), default=21,
+                            help="Ultimo cierre que comprobar; conserva la cadena historica de 21")
     argumentos = analizador.parse_args()
     if argumentos.reutilizar and not argumentos.compilados:
         analizador.error("--reutilizar necesita --compilados")
@@ -108,6 +110,27 @@ def main():
                 cadena.append(modulo)
             cadena.extend(["OcelotasVeintiunaPrefijos", "OcelotasVeintiunaTabla",
                            "OcelotasVeintiunaCola", "OcelotasVeintiuna"])
+            if argumentos.hasta == 22:
+                conocidos, pendientes = set(cadena), set()
+
+                def agregar(nombre):
+                    if nombre in conocidos:
+                        return
+                    if nombre in pendientes:
+                        raise RuntimeError(f"Importaciones circulares en {nombre}")
+                    pendientes.add(nombre)
+                    fuente = carpeta / (nombre + ".lean")
+                    texto = fuente.read_text(encoding="utf-8")
+                    for linea in re.findall(r"^import ([^\n]+)", texto, flags=re.MULTILINE):
+                        for dependencia in linea.split():
+                            if (carpeta / (dependencia + ".lean")).is_file():
+                                agregar(dependencia)
+                    pendientes.remove(nombre)
+                    conocidos.add(nombre)
+                    cadena.append(nombre)
+
+                agregar("OcelotasVeintidosCola")
+                agregar("OcelotasVeintidos")
             for nombre in cadena:
                 fuente = carpeta / (nombre + ".lean")
                 texto = fuente.read_text(encoding="utf-8")
@@ -125,6 +148,7 @@ def main():
                     print(aviso, flush=True)
                 else:
                     conservar = False
+                    print(f"COMPILANDO: {nombre}", flush=True)
                     salida = ejecutar(["lake", "env", "lean", "-R", str(carpeta),
                                        "-o", str(objeto), str(fuente)], entorno)
                     auditar(salida, fuente)

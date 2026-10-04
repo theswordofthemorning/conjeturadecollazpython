@@ -1,0 +1,24 @@
+{
+  "estado": "exploracion exacta; comprobar por separado la aceptacion del caso en Lean",
+  "inicio": 4912741,
+  "limite": 6276058,
+  "q_min": 79335,
+  "criba": "afinada",
+  "max_nodos": 1000000,
+  "rachas": 23,
+  "combustible": 128,
+  "conteos": {
+    "nodos": 528949,
+    "descenso": 20508,
+    "exceso_rachas": 0,
+    "criba": 19307,
+    "vacio": 224660,
+    "pendiente": 0,
+    "semillas_cubiertas": 1363318,
+    "profundidad_maxima": 60
+  },
+  "pendientes": [],
+  "sha256_hojas": "28b77da209edcc7e041df9382d882da8bf6f95d0afd36a1dd88fde8d69334aa5",
+  "sha256_explorador": "9a819a4bcd6888ab891139180b5c5bc8fa9232a01045d2ce15559023c4cb64b0",
+  "segundos": 2.871
+}

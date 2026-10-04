@@ -1,0 +1,5 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'OcelotasLogaritmosPrecisos.log_dos_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLogaritmosPrecisos.log_tres_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+Codigo: 0
