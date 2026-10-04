@@ -11,6 +11,14 @@ El texto publicado es el de abajo, con dos cambios: el título se acortó (Zulip
 admite 60 caracteres) y se añadió la línea «Its CI passes `lake comparator`, and
 it has just been submitted to Palomar.»
 
+**Borrado a los cinco minutos.** A las 18:50 la moderación borró el mensaje
+y suspendió la cuenta un día. Las normas de la comunidad Lean no permiten
+usar IA para escribir mensajes en Zulip ni en GitHub, ni siquiera en parte;
+una nueva falta duplica la suspensión. El aviso llegó por correo y no quedó
+registrado aquí hasta el 04-10 ([correos](../CORREOS_20261004.md)). **No volver a publicar
+allí texto redactado ni traducido por IA**: si el usuario escribe, ha de ser
+con sus propias palabras.
+
 - Canal propuesto: **#Machine Learning for Theorem Proving**, donde se
   discuten las formalizaciones hechas con IA. Las dudas sobre el envío van
   al canal #Palomar.

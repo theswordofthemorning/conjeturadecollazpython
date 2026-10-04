@@ -3,22 +3,29 @@
 27-09-2026. **Publicados en Zenodo y enviados a *Annals of Formalized
 Mathematics*.** Detalle en [zenodo/LEEME.md](zenodo/LEEME.md).
 
-29-09-2026. **AFM rechazó el I sin dar motivos. El I, en versión 2, se envió
-a Qeios como preprint** (envío 5962): [qeios/LEEME.md](qeios/LEEME.md).
-El II y el III esperan.
+28-09-2026. **AFM rechazó los tres sin dar motivos**, con tres correos a
+las 17:39 (hora de Chile). Hasta el 04-10 estas notas decían que sólo había
+rechazado el I y que el II y el III esperaban
+([correos](CORREOS_20261004.md)).
+
+29-09-2026. **El I, en versión 2, se envió a Qeios como preprint** (envío
+5962): [qeios/LEEME.md](qeios/LEEME.md).
 
 01-10-2026. **Se envió el I, adaptado a la revista, al *Journal of
 Automated Reasoning*** (Springer). Envío `6ea1db0a…` en SNAPP, en revisión
 técnica: [jar/LEEME.md](jar/LEEME.md). Qeios queda descartado; el retiro
-del 5962 se pidió ese día a las 19:01. Por qué JAR:
-[revistas/LEEME.md](revistas/LEEME.md).
+del 5962 se pidió ese día a las 19:01 y Qeios lo confirmó el 02-10. Por qué
+JAR: [revistas/LEEME.md](revistas/LEEME.md).
+
+04-10-2026. JAR no ha escrito desde el acuse del 01-10. El II y el III
+están libres; adónde enviarlos lo decide el autor.
 
 | | Zenodo | AFM |
 |---|---|---|
 | Artefacto Lean | 10.5281/zenodo.23003500 | — |
-| Artículo I | 10.5281/zenodo.23003524 | #19502 |
-| Artículo II | 10.5281/zenodo.23003526 | #19503 |
-| Artículo III | 10.5281/zenodo.23003528 | #19504 |
+| Artículo I | 10.5281/zenodo.23003524 | #19502, rechazado el 28-09 |
+| Artículo II | 10.5281/zenodo.23003526 | #19503, rechazado el 28-09 |
+| Artículo III | 10.5281/zenodo.23003528 | #19504, rechazado el 28-09 |
 
 El usuario los pidió el 26-09 «como si fueran para arXiv», con nombres
 completos y fechas, bien explicados y revisados antes. No se envía nada sin
@@ -106,6 +113,10 @@ visto, y el III lo dice. PDF recompilados el 27-09 por la tarde.
      afines (I).
 
    Detalle en la [ruta transversal](../depuracion/transversal20260927/LEEME.md).
+4. **ORCID sin obras.** El 04-10 el registro público
+   (0009-0009-1418-2558) no mostraba nada, y los artículos y la carta a JAR
+   lo enlazan. Falta añadir los cuatro DOI de Zenodo; es un cambio en la
+   cuenta del autor.
 
 ## Revisión
 
@@ -118,12 +129,11 @@ borradores y los controles automáticos de los textos.
 
 ## OEIS
 
-Enviadas el 27-09 con autorización del usuario; las tres en *proposed*
-([oeis/](oeis/LEEME.md)):
+Enviadas el 27-09 con autorización del usuario ([oeis/](oeis/LEEME.md)):
 
-- A400486: Gao, la tabla 3 en cuentas;
-- A400487: Wu, la cuenta K;
-- la revisión #31 de A078441: Garner.
+- A400486: Gao, la tabla 3 en cuentas; aprobada el 04-10;
+- A400487: Wu, la cuenta K; en *proposed*;
+- la revisión #31 de A078441: Garner; aprobada el 30-09.
 
 No citan los artículos. Las líneas que los citarán esperan al DOI.
 

@@ -49,15 +49,18 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
 - **Artículos.** [Tres `.tex`](papers/README.md), [Zenodo](papers/zenodo/LEEME.md).
-  AFM rechazó I; II/III siguen allí. I en revisión técnica de
-  [JAR](papers/jar/LEEME.md). [Qeios](papers/qeios/LEEME.md): retiro
-  solicitado. [Palomar](papers/palomar/LEEME.md): Gao en verificación,
-  Lean v4.35.0-rc2 y CI verde. [Zulip](papers/qeios/ZULIP_borrador.md)
-  publicado; responder sólo con autorización.
-- **OEIS.** [A078441 aprobada](depuracion/oeis20260917/A078441_20260930_aprobada.txt);
-  no valida pruebas. [A400486/A400487](depuracion/oeis20260917/A400486_A400487_20260930_publico.txt)
-  siguen pendientes; `more` añadido a A400487. Si se rechaza, retirar
-  su referencia en A078441: [seguimiento](papers/oeis/RESPUESTA_20260928.md).
+  AFM rechazó los tres el 28-09 ([correos](papers/CORREOS_20261004.md)):
+  II y III quedan libres. I en revisión técnica de
+  [JAR](papers/jar/LEEME.md), sin noticias al 04-10.
+  [Qeios](papers/qeios/LEEME.md): retiro confirmado.
+  [Palomar](papers/palomar/LEEME.md): Gao en verificación, Lean
+  v4.35.0-rc2 y CI verde. [Zulip](papers/qeios/ZULIP_borrador.md): la
+  moderación borró el anuncio por estar escrito con IA.
+- **OEIS.** Aprobadas [A078441](depuracion/oeis20260917/A078441_20260930_aprobada.txt)
+  (30-09) y [A400486](depuracion/oeis20260917/A400486_20261004_aprobada.txt)
+  (04-10; Irvine añadió a(29)–a(30)); no validan pruebas. A400487 sigue
+  pendiente, con `more`. Si se rechaza, retirar su referencia en A078441:
+  [seguimiento](papers/oeis/RESPUESTA_20260928.md).
 
 ## Ruta vigente y próximo bloque
 

@@ -41,8 +41,9 @@ desconocía otra vía: el perfil no muestra el envío. Texto literal:
 > Omar Javier Said Duran
 
 No se contestó a la pregunta sobre credenciales ni se tocó la cuenta, cuyo
-perfil está vacío. Falta la confirmación de Qeios: anotarla aquí cuando
-llegue.
+perfil está vacío. **Qeios confirmó el retiro el 02-10 a las 13:36**: el
+artículo salió de su proceso y no se publicará
+([correos](../CORREOS_20261004.md)).
 
 | Campo | Valor enviado |
 |---|---|
@@ -118,7 +119,8 @@ sin avisos. `revisar_tex.py`, `nombres_lean.py` y `codigo_lean.py`: OK
 
 - **Zulip de Lean**: autorizado por el usuario el 29-09. Sin sesión en
   Chrome; el usuario debe entrar o crear la cuenta. Borrador en
-  [ZULIP_borrador.md](ZULIP_borrador.md).
+  [ZULIP_borrador.md](ZULIP_borrador.md). Se publicó el 29-09 a las 18:45 y
+  la moderación lo borró a las 18:50, porque estaba escrito con IA.
 - **Palomar** ([anuncio de Tao, 18-08-2026](https://terrytao.wordpress.com/2026/08/18/palomar-a-registry-of-lean-verified-mathematics/),
   [instrucciones](https://palomar-registry.org/how-to-submit)): registro de
   matemáticas verificadas en Lean, respaldado por el Lean FRO, que admite

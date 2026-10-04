@@ -92,14 +92,16 @@ propuestas se cerraron.
 
 Palomar no manda correos. El enlace de estado es privado, porque permite
 retirar el envío, y está en `papers/palomar/ENLACE_PRIVADO.txt`, excluido de
-Git. Posibles resultados de la revisión: `neutral`, `revision_required` o
+Git. El 04-10 ese archivo no estaba en este clon.
+Posibles resultados de la revisión: `neutral`, `revision_required` o
 `rejected`. Sólo se hacen públicos si se completa el registro.
 
 ## Pendiente
 
 1. Seguir el estado del envío; si pide revisión, corregir y enviar un commit
    nuevo.
-2. Zulip: publicado el 29-09 a las 18:45 ([registro](../qeios/ZULIP_borrador.md)). Leer las
-   respuestas y contestar sólo con autorización.
+2. Zulip: publicado el 29-09 a las 18:45 y borrado por la moderación a las
+   18:50, porque la comunidad no admite textos escritos con IA
+   ([registro](../qeios/ZULIP_borrador.md)). No hay respuestas que leer.
 3. No consultar la API de GitHub sin autenticar en bucle: el cupo es de 60
    peticiones por hora y por IP, y el 29-09 se agotó.

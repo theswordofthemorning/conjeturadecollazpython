@@ -34,12 +34,13 @@ oficial de cada revista ese día salvo donde se indica.
 
 ## Muros que siguen en pie
 
-- **Envío simultáneo.** Garner (#19503) y Wu (#19504) siguen en AFM sin
-  respuesta. Ninguna revista los acepta mientras estén allí: retirarlos de
-  AFM antes de enviarlos a otro sitio. Gao está libre (AFM lo rechazó).
+- **Envío simultáneo: ya no existe.** Hasta el 04-10 estas notas daban a
+  Garner (#19503) y Wu (#19504) por pendientes en AFM. En realidad AFM los
+  había rechazado el 28-09, junto con Gao ([correos](../CORREOS_20261004.md)):
+  los tres están libres.
 - **Qeios 5962** era un preprint, no una revista, y no bloqueaba a
-  Springer. Aun así se pidió su retiro el 01-10 a las 19:01
-  ([qeios/LEEME.md](../qeios/LEEME.md)).
+  Springer. Aun así se pidió su retiro el 01-10 a las 19:01, y Qeios lo
+  confirmó el 02-10 ([qeios/LEEME.md](../qeios/LEEME.md)).
 - **Texto escrito por IA.** JIS y Taylor & Francis lo prohíben. Para ellas
   Omar tendría que escribir el texto (en español; la traducción con IA la
   admite T&F, JIS no lo aclara).

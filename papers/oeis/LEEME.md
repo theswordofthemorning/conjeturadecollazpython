@@ -1,5 +1,15 @@
 # Borradores OEIS: Gao, Wu y Garner
 
+**04-10-2026: A400486 aprobada** por Sean A. Irvine (revisión #8, 04-10
+18:29 EDT). En la #7 añadió a(29) = 216253629 y a(30) = 435078205, con su
+`%E`. Los demás campos coinciden con
+[borrador_1_gao.txt](borrador_1_gao.txt); OEIS sólo añadió `new` a `%K`
+([ficha aprobada](../../depuracion/oeis20260917/A400486_20261004_aprobada.txt)).
+No hemos recalculado esos dos términos; cumplen la cota de Gao
+`a(n+1) >= 2*a(n)`. A400487 sigue en *proposed*: Jason Yuen añadió `more`
+el 02-10 y la discusión está vacía. La web muestra «My Drafts (1)»: 1 de 3
+cupos ocupado.
+
 **30-09-2026: A078441 aprobada** (revisión #40, 29-09 23:52), con el
 bloque firmado y los enlaces
 ([ficha aprobada](../../depuracion/oeis20260917/A078441_20260930_aprobada.txt)).

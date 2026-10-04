@@ -41,6 +41,11 @@ Cómo se hizo:
 | Financiación | No |
 | Agradecimientos | vacío |
 
+La fila «Publicación previa» quedó inexacta: AFM había rechazado Garner y
+Wu el 28-09, y estas notas no lo recogieron hasta el 04-10
+([correos](../CORREOS_20261004.md)). No afecta al I; si la revista pregunta,
+aclararlo.
+
 Si hace falta escribir a la oficina editorial, la página de seguimiento da
 el correo dharaniprakash.devaraj@springernature.com. **No escribir sin
 autorización del usuario.**
@@ -104,10 +109,13 @@ La matemática (secciones 2 a 5) no cambia.
 
 - Esperar el correo de la revisión técnica y, después, el del editor. Leer
   cada informe por su contenido y preparar las respuestas, pero **no
-  contestar sin autorización del usuario**.
+  contestar sin autorización del usuario**. Al 04-10 sólo habían llegado los
+  acuses del 01-10: Springer a las 18:50 y Research Square a las 18:53. Ver
+  el estado en SNAPP exige entrar con la cuenta de Google del usuario.
 - Qeios 5962: la carta y el formulario lo declaran como preprint sin
   publicar. Con permiso del usuario, el retiro se pidió el 01-10 a las 19:01,
-  después del envío a JAR ([../qeios/LEEME.md](../qeios/LEEME.md)). Si la
-  revista pregunta, decir que nunca llegó a publicarse y que se retiró.
-- Garner y Wu siguen en AFM (#19503 y #19504): no enviarlos a otro sitio
-  mientras sigan allí.
+  después del envío a JAR, y Qeios lo confirmó el 02-10
+  ([../qeios/LEEME.md](../qeios/LEEME.md)). Si la revista pregunta, decir
+  que nunca llegó a publicarse y que se retiró.
+- Garner y Wu (#19503 y #19504): AFM los rechazó el 28-09, así que están
+  libres. Adónde enviarlos lo decide el usuario.
