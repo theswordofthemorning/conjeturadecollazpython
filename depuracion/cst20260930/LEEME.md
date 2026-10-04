@@ -37,8 +37,9 @@ sin LMN. No elimina filas adicionales en las tablas de 23 y 77;
 su verificador de árboles y un piloto de 76 están aceptados en Lean.
 La [criba con suelo](SUELO_RACHAS_LEAN.md) conserva una cota inferior
 de los valores intermedios: prueba universal y especialización entera
-aceptadas, sin LMN ni censo externo. Faltan su aplicación tras cortes
-y su verificador de árboles; no constituye otro cierre de CST.
+aceptadas, sin LMN ni censo externo. Su [aplicación tras cortes,
+verificador y piloto](SUELO_CORTES_LEAN.md) también están aceptados en
+Lean; no constituye otro cierre de CST.
 
 **Continuación, 03-10:** [aproximación por arriba](RACHAS_UNILATERALES.md)
 y criba logarítmica formalizadas, incluida su conexión con las órbitas:

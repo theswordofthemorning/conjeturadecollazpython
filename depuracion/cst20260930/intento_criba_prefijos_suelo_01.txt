@@ -1,0 +1,44 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosBinarios; auditoria original conservada.
+REUTILIZADO: OcelotasSueloRachas; auditoria original conservada.
+REUTILIZADO: OcelotasSueloCriba; auditoria original conservada.
+REUTILIZADO: OcelotasSueloNumerica; auditoria original conservada.
+REUTILIZADO: OcelotasSueloContador; auditoria original conservada.
+MODULO: OcelotasCribaPrefijosSuelo; segundos: 45.559
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasCribaPrefijosSuelo.lean:90:21: error: Application type mismatch: The argument
+  hsuelo
+has type
+  0 < n
+but is expected to have type
+  4095 ≤ n
+in the application
+  OcelotasSueloContador.criba_desde_potencia hk hki hsuelo
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasCribaPrefijosSuelo.lean:148:14: error: Function expected at
+  4095
+but this term has type
+  ?m.22
+
+Note: Expected a function because this term is being applied to the argument
+  ?inicio
+C:\Users\Home\Desktop\conjeturadecollazpython\depuracion\cst20260930\OcelotasCribaPrefijosSuelo.lean:154:21: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 0
+  a ≥ 0
+where
+ a := ↑limite
+ b := ↑R
+ c := ↑(rachas n k)
+ d := ↑(S k n)
+ e := ↑qmin
+ f := ↑(T^[k] n)
+'OcelotasCribaPrefijosSuelo.comprobar_correcto' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'OcelotasCribaPrefijosSuelo.certificado_descenso' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+Codigo: 1

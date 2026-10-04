@@ -1,0 +1,38 @@
+{
+  "resultado": "sin discrepancias",
+  "modos": {
+    "anterior": {
+      "nodos": 349,
+      "hojas": 175,
+      "semillas": 4097,
+      "motivos": {
+        "criba": 76,
+        "vacio": 88,
+        "descenso": 11
+      }
+    },
+    "descuento": {
+      "nodos": 345,
+      "hojas": 173,
+      "semillas": 4097,
+      "motivos": {
+        "criba": 76,
+        "vacio": 86,
+        "descenso": 11
+      }
+    },
+    "suelo": {
+      "nodos": 339,
+      "hojas": 170,
+      "semillas": 4097,
+      "motivos": {
+        "criba": 76,
+        "vacio": 83,
+        "descenso": 11
+      }
+    }
+  },
+  "alcance": "Cobertura finita disjunta, prefijos por orbitas directas, cotas por Fraction. No demuestra una mejora universal de complejidad.",
+  "sha256_certificado": "a622b2acb891ec9434adfe1aa8fa14f3e940f20e92cde1b807431e02c04bf493",
+  "sha256_cotejador": "a29112762917133e6ddf070fbc6eed580a525d28be6e2c6a5df63b69de7958fc"
+}

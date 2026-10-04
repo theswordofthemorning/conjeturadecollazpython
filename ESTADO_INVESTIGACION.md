@@ -84,9 +84,9 @@ Permitió cerrar 76. [77 aceptado](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.m
 43 filas y dos ventanas cotejadas; baja y piloto alto aceptados, cadena en curso.
 El [descuento por racha](depuracion/cst20260930/DESCUENTO_RACHAS_LEAN.md)
 mejora universalmente la criba; verificador y piloto de 76 aceptados en Lean.
-La [cota con suelo](depuracion/cst20260930/SUELO_RACHAS_LEAN.md) tiene prueba
-universal y especialización entera aceptadas, sin LMN; faltan el puente
-tras cortes y su verificador.
+La [cota con suelo tras cortes](depuracion/cst20260930/SUELO_CORTES_LEAN.md)
+ya tiene conexión universal, verificador y piloto en Lean, sin LMN:
+339 nodos frente a 345 con descuento en el mismo caso pequeño.
 [Tanda cerrada](depuracion/cst20260930/CIERRE_TANDA_20261003.md) con 77;
 23 queda en ejecución y pendiente. Siguiente:
 recoger su resultado y auditarlo. El censo hasta `2^23` se conserva.

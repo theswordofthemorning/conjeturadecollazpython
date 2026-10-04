@@ -107,11 +107,11 @@ palabra con primer cruce finito, n>=4095, n+1<=s y s^256<=2^B.
 
 ## Límite y reproducción
 
-Esta tanda certifica palabras completas hasta el primer cruce.
-Quedan fuera de ella la conexión con el tramo posterior a un corte y
-un verificador de árboles que use esta cota. El
-[verificador descontado](DESCUENTO_RACHAS_LEAN.md) utiliza la mejora
-anterior y sí tiene un piloto concreto aceptado.
+La [continuación tras cortes](SUELO_CORTES_LEAN.md) ya certifica la
+aplicación desde un punto intermedio, su verificador por residuos y un
+piloto concreto en Lean. Permite pares iniciales y no exige un primer
+cruce propio del sufijo. Falta trasladar los certificados con testigos
+a ventanas grandes; el piloto no constituye un cierre nuevo de CST.
 
 ```text
 python -B -X utf8 depuracion/cst20260930/cotejar_suelo_rachas.py --suelo 4095 --max-semilla 65535 --max-rachas 8 --salida depuracion/cst20260930/cotejo_suelo_rachas.json

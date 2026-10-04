@@ -1,0 +1,16 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosBinarios; auditoria original conservada.
+REUTILIZADO: OcelotasSueloRachas; auditoria original conservada.
+REUTILIZADO: OcelotasSueloCriba; auditoria original conservada.
+REUTILIZADO: OcelotasSueloNumerica; auditoria original conservada.
+REUTILIZADO: OcelotasSueloContador; auditoria original conservada.
+MODULO: OcelotasCribaPrefijosSuelo; segundos: 46.940
+'OcelotasCribaPrefijosSuelo.comprobar_correcto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCribaPrefijosSuelo.certificado_descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasSueloPiloto; segundos: 31.245
+'OcelotasSueloPiloto.acepta' depends on axioms: [propext]
+'OcelotasSueloPiloto.descenso' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

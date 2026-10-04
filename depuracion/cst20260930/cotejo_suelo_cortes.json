@@ -1,0 +1,43 @@
+{
+  "resultado": "sin discrepancias",
+  "inicio": 4095,
+  "limite": 8191,
+  "max_pasos": 4096,
+  "conteos": {
+    "semillas": 4097,
+    "pasos_T": 14253,
+    "cortes": 7131,
+    "cortes_vacios": 4097,
+    "cortes_interiores": 3034,
+    "sufijos_iniciados_en_par": 3558,
+    "sufijos_sin_impares": 3083,
+    "cruces_finales_bajo_suelo": 2830,
+    "cotas_comprobadas": 28524,
+    "congruencias_comprobadas": 9984
+  },
+  "bordes": [
+    {
+      "n": 4095,
+      "k": 51,
+      "impares": 32,
+      "rachas": 11,
+      "valor_final": 3371
+    },
+    {
+      "n": 4096,
+      "k": 1,
+      "impares": 0,
+      "rachas": 0,
+      "valor_final": 2048
+    },
+    {
+      "n": 8191,
+      "k": 43,
+      "impares": 27,
+      "rachas": 8,
+      "valor_final": 7102
+    }
+  ],
+  "alcance": "Cotejo finito de todos los cortes admisibles; incluye pares iniciales, resto sin rachas, dos cotas de valor y dos presupuestos de rachas. No prueba existencia universal del primer cruce.",
+  "sha256_cotejador": "09522819684bf01896e210dc588b6aab2deba82faa6d28029bc826953a04ec89"
+}
