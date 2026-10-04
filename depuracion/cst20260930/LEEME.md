@@ -5,14 +5,14 @@ que la [segunda opinión](../transversal20260927/SEGUNDA_OPINION_20260928.md)
 proponía como frente principal. El objetivo candidato era el caso de dos rachas
 impares, y está cerrado.
 
-**Cierre, 03-10; auditado el 04-10:** [OcelotasVeintitres.lean](OcelotasVeintitres.lean) demuestra
-**CST hasta veintitrés rachas en Lean**, bajo el corolario de LMN especializado
-y suponiendo un primer cruce finito.
+**Cierre, 04-10:** [OcelotasVeinticuatro.lean](OcelotasVeinticuatro.lean) demuestra
+**CST hasta veinticuatro rachas en Lean**, bajo el corolario de LMN especializado
+y suponiendo un primer cruce finito. Un fallo necesita al menos 25 rachas.
 Dos certificados por prefijos, divididos en bloques, resuelven los
 intervalos grandes; se conserva el certificado finito hasta n=4912740.
-[Prueba y alcance](VEINTITRES_LEAN.md): 105 módulos de extensión,
-11806 consultas y 38 módulos de base verificados, sin `sorryAx`.
-Los cierres de [veintidós](VEINTIDOS_LEAN.md), [veintiuna](VEINTIUNA_LEAN.md), [veinte](VEINTE_LEAN.md),
+[Prueba y alcance](VEINTICUATRO_LEAN.md): 650 módulos de extensión,
+26022 consultas y 38 módulos de base verificados, sin `sorryAx`.
+Los cierres de [veintitrés](VEINTITRES_LEAN.md), [veintidós](VEINTIDOS_LEAN.md), [veintiuna](VEINTIUNA_LEAN.md), [veinte](VEINTE_LEAN.md),
 [diecinueve](DIECINUEVE_LEAN.md),
 [dieciocho](DIECIOCHO_LEAN.md) y
 de [trece rachas](TRECE_LEAN.md) se conservan. El ensamblaje de
@@ -32,6 +32,9 @@ veredicto del verificador para todo estado y combustible, en Lean.
 La [preparación de 23 sin Rozier–Terracol](VEINTITRES_PROPUESTA.md)
 tiene 43 filas y ambas ventanas cotejadas; la cadena completa está
 aceptada en Lean. Un fallo con primer cruce finito necesita al menos 24 rachas.
+La de 24, con la misma estructura y piezas de 50000 nodos, se compiló con
+un [comprobador paralelo](comprobar_extension_paralela.py) y subió el
+mínimo a 25 rachas.
 El [descuento de una entrada por racha](DESCUENTO_RACHAS_LEAN.md) mejora
 universalmente la criba anterior y se aplica tras un corte par, en Lean
 sin LMN. No elimina filas adicionales en las tablas de 23 y 77;

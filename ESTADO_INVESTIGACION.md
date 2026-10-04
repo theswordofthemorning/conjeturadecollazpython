@@ -7,7 +7,7 @@ servir como hipótesis de prueba.
 
 **Demostradas en Lean: la conjetura de Gao (1993), también en su forma
 literal; de ella la de Garner (1985) sobre rachas y la conjetura 2 de Wu
-(1992). CST: Ocelotas hasta veintitrés rachas contadas directamente,
+(1992). CST: Ocelotas hasta veinticuatro rachas contadas directamente,
 en Lean sin Rhin, bajo Laurent–Mignotte–Nesterenko.**
 
 - **Gao, forma de Lagarias.** `GaoEnunciado.conjetura_gao`
@@ -22,14 +22,14 @@ en Lean sin Rhin, bajo Laurent–Mignotte–Nesterenko.**
 - **Wu (1992).** `WuEnunciado` ([Condoras](depuracion/gao20260920/formal/Condoras.lean)):
   `lim L=∞`. La conjetura 1 equivale, dado Gao, a que casi todo n llegue a 1:
   sigue abierta. Citas leídas con la IA de CNKI; falta cotejar el original.
-- **Ocelotas.** [Veintitrés rachas en Lean](depuracion/cst20260930/VEINTITRES_LEAN.md):
-  `cst_veintitres_corolario` prueba primer descenso = primer cruce, supuesto
+- **Ocelotas.** [Veinticuatro rachas en Lean](depuracion/cst20260930/VEINTICUATRO_LEAN.md):
+  `cst_veinticuatro_corolario` prueba primer descenso = primer cruce, supuesto
   existente y finito, bajo el
   corolario especializado de Laurent–Mignotte–Nesterenko (1995), con caso
   par incluido. Tabla, semillas pequeñas, prefijos y cola certificadas.
   Original cotejado y `LMN23 -> LMNDebil` en Lean
   ([lecturas](depuracion/cst20260930/LECTURAS_20261003.md)). La
-  criba por prefijos exige **al menos 24 rachas** para un fallo, en Lean.
+  criba por prefijos exige **al menos 25 rachas** para un fallo, en Lean.
   El [cierre de 77](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md) también está
   formalizado: exige **78 con LMN y Rozier–Terracol** como hipótesis externas.
 
@@ -83,16 +83,17 @@ acotan una región posible de fallos para cualquier límite de rachas.
 [Bisección equivalente en Lean](depuracion/cst20260930/PREFIJOS_BINARIOS_LEAN.md).
 [77 aceptado](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md):
 91 módulos y 5030 consultas estándar.
-[23 sin Rozier–Terracol](depuracion/cst20260930/VEINTITRES_LEAN.md):
-43 filas y dos ventanas cotejadas; cadena completa aceptada.
+[24 sin Rozier–Terracol](depuracion/cst20260930/VEINTICUATRO_LEAN.md):
+43 filas, dos ventanas cotejadas y 650 módulos aceptados; 23 se conserva.
 El [descuento por racha](depuracion/cst20260930/DESCUENTO_RACHAS_LEAN.md)
 mejora universalmente la criba; verificador y piloto de 76 aceptados en Lean.
 La [cota con suelo tras cortes](depuracion/cst20260930/SUELO_CORTES_LEAN.md)
 ya tiene conexión universal, verificador y piloto en Lean, sin LMN:
 339 nodos frente a 345 con descuento en el mismo caso pequeño.
-23 terminó el 03-10 a las 23:59:59, con huellas finales comprobadas.
-Siguiente: estudiar argumentos generales para la existencia del primer
-cruce; no ampliar automáticamente a 24. El censo hasta `2^23` se conserva.
+24 terminó el 04-10 a las 20:15:31, a petición del usuario, y se cotejó
+por separado. Siguiente: estudiar argumentos generales para la existencia
+del primer cruce; no ampliar automáticamente a 25. El censo hasta `2^23`
+se conserva.
 
 ## Evidencia y conservación
 
@@ -105,7 +106,7 @@ nuevos dejan sus registros de `lake env lean`.
 Cada ficha enlaza sus contrastes independientes y certificados;
 los cálculos finitos no sustituyen las pruebas universales.
 
-Registro: 269 afirmaciones: 164 demostradas, 86 medidas, 12 conjeturadas
+Registro: 270 afirmaciones: 165 demostradas, 86 medidas, 12 conjeturadas
 y siete refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar
