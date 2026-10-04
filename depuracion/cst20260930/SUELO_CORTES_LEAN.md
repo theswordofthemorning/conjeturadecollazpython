@@ -111,8 +111,9 @@ la tabla comparativa está cotejada independientemente en Python.
 Queda disponible la criba con suelo en un verificador universal y un
 piloto pequeño. Falta adaptar los certificados de árboles con testigos
 para usarla en ventanas grandes; no se ha certificado con ella una
-frontera nueva de rachas. Siguen vigentes 22 bajo LMN y 77 bajo LMN y
-Rozier–Terracol; la cadena de 23 sigue su ejecución independiente.
+frontera nueva de rachas mediante esta criba. La cadena independiente de
+[23 bajo LMN](VEINTITRES_LEAN.md) terminó el 03-10 a las 23:59:59;
+también siguen vigentes 77 bajo LMN y Rozier–Terracol.
 No se demuestra existencia universal del primer cruce ni llegada a 1.
 Revisión humana y prioridad histórica pendientes.
 

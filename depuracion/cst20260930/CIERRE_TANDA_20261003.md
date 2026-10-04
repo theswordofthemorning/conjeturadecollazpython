@@ -36,15 +36,24 @@ pasaron los controles de catálogo, integridad, atomicidad y captura
 literal. Los cotejos matemáticos independientes están enlazados en
 cada ficha. Se preservan intentos fallidos y evidencia histórica.
 
-## Comprobación que sigue en ejecución
+## Estado de la comprobación al cerrar esa tanda
 
-[23 sin Rozier–Terracol](VEINTITRES_PROPUESTA.md) sigue pendiente de
+[23 sin Rozier–Terracol](VEINTITRES_PROPUESTA.md) quedó pendiente de
 la cadena Lean completa. La ventana baja y el cotejo independiente
-de ambas ventanas están completos. La
+de ambas ventanas estaban completos. La
 [foto del avance al cierre](avance_veintitres_cierre_20261003.json)
 registra las partes altas aceptadas; no acredita el resultado final.
 
-La sesión 27647 continúa. Su salida `.txt`, todavía cambiante, queda
-fuera del commit de cierre. No iniciar otra ejecución sobre su caché.
-Siguiente acción: recoger la terminación, verificar huellas y axiomas,
-y sólo entonces decidir si corresponde registrar el cierre de 23.
+La sesión 27647 se dejó activa. Su salida `.txt`, todavía cambiante,
+quedó fuera de aquel commit. Se acordó recoger la terminación y verificar
+huellas y axiomas antes de registrar el resultado.
+
+## Actualización del 04-10-2026
+
+La cadena terminó el 03-10 a las **23:59:59**, con código 0:
+[23 rachas aceptadas bajo LMN](VEINTITRES_LEAN.md), 105 módulos de
+extensión y 11806 consultas sin `sorryAx`. Fuentes, objetos y auditores
+cotejados después. Registro actual: **269 afirmaciones, 164 demostradas**.
+También quedó aceptada la [conexión del suelo tras cortes](SUELO_CORTES_LEAN.md),
+con verificador y piloto. Las cifras anteriores conservan el estado
+del primer cierre; no se inicia una extensión automática a 24.
