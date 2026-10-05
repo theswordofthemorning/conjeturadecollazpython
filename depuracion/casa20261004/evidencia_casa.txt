@@ -1,0 +1,22 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+== CasaPlano (35.899 s, codigo 0)
+'CasaPlano.iter_uno' depends on axioms: [propext, Quot.sound]
+'CasaPlano.no_baja' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.llega_iff' depends on axioms: [propext, Quot.sound]
+'CasaPlano.collatz_iff_atajo' depends on axioms: [propext, Quot.sound]
+'CasaPlano.techo' depends on axioms: [propext, Quot.sound]
+'CasaPlano.muros_de_collatz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.collatz_iff_muros' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.dos_fallas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.llega_no_fuga' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.primerCruce_de_cruza' depends on axioms: [propext]
+'CasaPlano.muroA_sin_circuitos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.fuga_pura_no_llega' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.muroB_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.casa_sin_fallas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaPlano.muroA_de_cst' depends on axioms: [propext]
+'CasaPlano.tramo_de_descenso' depends on axioms: [propext]
+'CasaPlano.muroA_de_tramos' depends on axioms: [propext]
+== CasaOcelotas (33.579 s, codigo 0)
+'CasaOcelotas.muroA_hasta_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CasaOcelotas.grieta_exige_25' depends on axioms: [propext, Classical.choice, Quot.sound]

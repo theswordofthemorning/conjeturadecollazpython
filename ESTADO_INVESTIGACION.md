@@ -51,7 +51,8 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 - **Artículos.** [Tres `.tex`](papers/README.md), [Zenodo](papers/zenodo/LEEME.md).
   AFM rechazó los tres el 28-09 ([correos](papers/CORREOS_20261004.md)):
   II y III quedan libres. I en revisión técnica de
-  [JAR](papers/jar/LEEME.md), sin noticias al 04-10.
+  [JAR](papers/jar/LEEME.md), sin noticias al 04-10. Borrador del
+  [IV, Ocelotas](papers/articulo_IV_ocelotas.tex), sin enviar.
   [Qeios](papers/qeios/LEEME.md): retiro confirmado.
   [Palomar](papers/palomar/LEEME.md): Gao en verificación, Lean
   v4.35.0-rc2 y CI verde. [Zulip](papers/qeios/ZULIP_borrador.md): la
@@ -91,9 +92,12 @@ La [cota con suelo tras cortes](depuracion/cst20260930/SUELO_CORTES_LEAN.md)
 ya tiene conexión universal, verificador y piloto en Lean, sin LMN:
 339 nodos frente a 345 con descuento en el mismo caso pequeño.
 24 terminó el 04-10 a las 20:15:31, a petición del usuario, y se cotejó
-por separado. Siguiente: estudiar argumentos generales para la existencia
-del primer cruce; no ampliar automáticamente a 25. El censo hasta `2^23`
-se conserva.
+por separado. Siguiente: la ruta B, elegida por el usuario el 04-10
+([plano de la casa](depuracion/casa20261004/LEEME.md)): inventario de lo
+que necesita la prueba, con los muros que faltan. El plano ya está en
+Lean: Collatz equivale a los dos muros, sin hipótesis externas. Sin
+fuerza bruta: no se amplía a 25 rachas. Siguiente: el retrato del
+fugitivo. El censo hasta `2^23` se conserva.
 
 ## Evidencia y conservación
 
@@ -106,7 +110,7 @@ nuevos dejan sus registros de `lake env lean`.
 Cada ficha enlaza sus contrastes independientes y certificados;
 los cálculos finitos no sustituyen las pruebas universales.
 
-Registro: 270 afirmaciones: 165 demostradas, 86 medidas, 12 conjeturadas
+Registro: 271 afirmaciones: 166 demostradas, 86 medidas, 12 conjeturadas
 y siete refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar
