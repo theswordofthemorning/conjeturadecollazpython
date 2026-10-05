@@ -1,0 +1,584 @@
+% Artículo IV: la conjetura CST de Terras por número de rachas (Ocelotas).
+% BORRADOR del 04-10-2026, escrito a pedido del usuario. NO ENVIADO.
+% Pendiente antes de enviarlo: lectura humana; novedad en MathSciNet/zbMATH;
+% depósito público del artefacto Lean (DOI) y su cita en "Data availability";
+% confirmar el modelo de ChatGPT en "Use of AI tools"; elegir revista.
+% Compilar con: tectonic -X compile articulo_IV_ocelotas.tex   (o pdflatex, dos pasadas)
+\documentclass[11pt]{amsart}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\fi
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{fancyvrb}
+\usepackage{newunicodechar}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={On Terras's coefficient stopping time conjecture for Collatz sequences with few local maxima},pdfauthor={Omar Javier Said Duran}}
+\usepackage{xurl}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{∃}{\ensuremath{\exists}}
+\newunicodechar{∧}{\ensuremath{\wedge}}
+\newunicodechar{∨}{\ensuremath{\vee}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≠}{\ensuremath{\ne}}
+\newunicodechar{…}{\ensuremath{\dots}}
+
+\newtheorem{mainthm}{Theorem}
+\renewcommand{\themainthm}{\Alph{mainthm}}
+\newtheorem{maincor}[mainthm]{Corollary}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\lean}[1]{\nolinkurl{#1}}
+\newcommand{\Nzero}{4\,912\,740}
+
+\raggedbottom
+
+\begin{document}
+
+\title[CST with few local maxima]{On Terras's coefficient stopping time conjecture for Collatz sequences with few local maxima}
+
+\author[O. J. Said Duran]{Omar Javier Said Duran}
+\address{Independent Researcher}
+\email{omarsaid24@gmail.com}
+\urladdr{https://orcid.org/0009-0009-1418-2558}
+
+\date{4 October 2026 (draft)}
+
+\begin{abstract}
+Let $T(n)=n/2$ for even $n$ and $T(n)=(3n+1)/2$ for odd $n$. The coefficient stopping time $\tau(n)$ is the least $k\ge1$ with $3^{q}<2^{k}$, where $q$ is the number of odd terms among $n,T(n),\dots,T^{k-1}(n)$, and the stopping time $\sigma(n)$ is the least $k\ge1$ with $T^{k}(n)<n$. Terras conjectured in 1976 that $\sigma(n)=\tau(n)$ for all $n\ge2$. Following a suggestion recorded by Rozier and Terracol, we study this coefficient stopping time (CST) conjecture according to the number of runs of odd terms, equivalently of local maxima, in the first $\tau(n)$ steps. We prove that $T^{\tau(n)}(n)<n$ whenever $\tau(n)$ is finite and there are at most $24$ such runs; using in addition the verification of the conjecture up to $2.8\cdot10^{19}$ by Rozier and Terracol, the same holds with at most $77$ runs. For every fixed number of runs we give an explicit finite region that contains all possible counterexamples. The method is that of Simons and de Weger for $m$-cycles, transferred to the first crossing: an affine identity, a congruence sieve along the runs, the lower bound of Laurent, Mignotte and Nesterenko for linear forms in two logarithms, a one-sided approximation lemma for $\log_2 3$, and exact finite certificates organized as trees of residue classes. The proofs are formalized in Lean~4 with Mathlib; the bound of Laurent, Mignotte and Nesterenko and the external verification enter as explicit hypotheses, and only the standard axioms are used. Nothing is proved about the existence of $\tau(n)$ for every $n$, and the consequence for cycles is weaker than the known bounds.
+\end{abstract}
+
+\subjclass[2020]{Primary 11B83; Secondary 11J86, 11Y55, 68V20}
+\keywords{Collatz problem, $3x+1$ problem, stopping time, coefficient stopping time, linear forms in logarithms, formal verification, Lean}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+Let $T$ be the Collatz map in its shortcut form, $T(n)=n/2$ for even $n$ and $T(n)=(3n+1)/2$ for odd $n$. For $n\ge1$ and $j\ge0$ let $S_j(n)$ be the number of odd terms among $n,T(n),\dots,T^{j-1}(n)$. Terras \cite{Ter76} introduced the \emph{stopping time} and the \emph{coefficient stopping time}
+\[
+\sigma(n)=\min\{k\ge1: T^{k}(n)<n\},\qquad \tau(n)=\min\{k\ge1: 3^{S_k(n)}<2^{k}\},
+\]
+with $\min\emptyset=\infty$. The name of $\tau$ comes from the affine formula $2^{j}T^{j}(n)=3^{S_j(n)}n+\beta_j(n)$ with $\beta_j(n)\ge0$ (Lemma~\ref{lem:affine}): the coefficient $3^{S_j(n)}/2^{j}$ predicts whether $T^{j}(n)$ lies below $n$, up to the additive term. Since $\beta_j(n)\ge0$, the orbit cannot descend below $n$ before the coefficient does, so $\tau(n)\le\sigma(n)$. Terras \cite{Ter76} and Everett \cite{Eve77} proved that $\sigma(n)<\infty$ for a set of $n$ of natural density one, and the Collatz conjecture is equivalent to $\sigma(n)<\infty$ for every $n\ge2$ \cite{Lag85,Lag10}.
+
+Terras conjectured that $\sigma(n)=\tau(n)$ for all $n\ge2$ \cite{Ter76}. Lagarias \cite{Lag85} named this the \emph{coefficient stopping time} (CST) conjecture and noted that it excludes nontrivial cycles: the least element of a cycle other than $(1,2)$ has a finite coefficient stopping time but never descends (Corollary~\ref{cor:cycles} below). Rozier and Terracol \cite{RT26} call a finite sequence $n,T(n),\dots,T^{j}(n)$ \emph{paradoxical} if $3^{S_j(n)}<2^{j}$ and $T^{j}(n)\ge n$; a counterexample $n$ to the CST conjecture with $\tau(n)<\infty$ gives the paradoxical sequence of length $j=\tau(n)$. They verified the conjecture for $2\le n\le 2.8\cdot10^{19}$ \cite[Corollary~5.4]{RT26}, showed by an elementary argument that no acyclic paradoxical sequence has a single local maximum \cite[Appendix~A]{RT26}, and proposed, following a suggestion of Simons, to study the conjecture for sequences with a fixed number of local maxima \cite[Remark~5.5]{RT26}.
+
+That approach has a long history for cycles. A cycle of $T$ is an \emph{$m$-cycle} if its parity vector has $m$ runs of odd terms, equivalently $m$ local maxima. Steiner \cite{Ste77} excluded nontrivial $1$-cycles using Baker's theory of linear forms in logarithms. Simons and de Weger \cite{SdW05} combined a lower bound for linear forms in two logarithms with congruences along the runs and a large computation, and excluded nontrivial $m$-cycles for $m\le68$ ($m\le75$ in a later version of their preprint); Hercher \cite{Her23} reached $m\le91$.
+
+\subsection*{Results}
+For $n\ge2$ with $\tau(n)=k<\infty$, let $r(n)$ be the number of runs of odd terms in the parity vector $(T^{i}(n)\bmod2)_{0\le i<k}$, that is, the number of maximal blocks of consecutive odd terms among $n,T(n),\dots,T^{k-1}(n)$. Since $T(x)>x$ for odd $x$ and $T(x)<x$ for even $x\ge2$, $r(n)$ is also the number of local maxima of the finite sequence $n,T(n),\dots,T^{k}(n)$ (Remark~\ref{rem:maxima}).
+
+\begin{mainthm}\label{thm:A}
+Let $n\ge2$ be an integer with $\tau(n)<\infty$ and $r(n)\le24$. Then $T^{\tau(n)}(n)<n$, that is, $\sigma(n)=\tau(n)$.
+\end{mainthm}
+
+\begin{mainthm}\label{thm:B}
+Using in addition the verification of the CST conjecture for $2\le n\le 2.8\cdot10^{19}$ \cite[Corollary~5.4]{RT26}, the conclusion of Theorem~\ref{thm:A} holds for every $n\ge2$ with $\tau(n)<\infty$ and $r(n)\le77$.
+\end{mainthm}
+
+Equivalently, a counterexample to the CST conjecture with finite coefficient stopping time has at least $25$ local maxima before its coefficient stopping time, and at least $78$ if \cite[Corollary~5.4]{RT26} is taken into account. Both theorems, and the next one, rest on the lower bound of Laurent, Mignotte and Nesterenko \cite{LMN95} (Theorem~\ref{thm:lmn}). For each fixed number of runs, that bound alone confines the possible counterexamples to an explicit finite region:
+
+\begin{mainthm}\label{thm:C}
+Let $n\ge2$ with $\tau(n)=k<\infty$ and $T^{k}(n)\ge n$, and let $r=r(n)$. Then
+\[
+k<2^{2r+32}\qquad\text{and}\qquad n<2^{19(2r+65)^2+r}.
+\]
+\end{mainthm}
+
+Theorem~\ref{thm:C} is far from optimal, and Proposition~\ref{prop:tail} sharpens it; the point is that it holds for every $r$ with one proof. The cases $r\le24$ and $r\le77$ are closed by exact computations inside the corresponding regions. As for cycles:
+
+\begin{maincor}\label{cor:cycles}
+Every cycle of $T$ other than $(1,2)$ has at least $25$ local maxima, and at least $78$ if \cite[Corollary~5.4]{RT26} is used.
+\end{maincor}
+
+Corollary~\ref{cor:cycles} is weaker than the results of \cite{SdW05,Her23} and is stated only as a consistency check: our method is theirs, applied to the first crossing instead of a full period.
+
+\subsection*{What is not proved}
+Theorems~\ref{thm:A} and~\ref{thm:B} assume that $\tau(n)$ is finite. A number with $\tau(n)=\infty$ would have an unbounded orbit (Remark~\ref{rem:infinite}); the finiteness of $\tau(n)$ for every $n$ is open, although it holds for a set of density one \cite{Ter76,Eve77}. The CST conjecture itself remains open for sequences with $25$ or more local maxima, and the theorems say nothing about whether orbits reach $1$.
+
+\subsection*{Method}
+The proof follows \cite{SdW05}. A failure of the CST conjecture at $k=\tau(n)$ forces $\Lambda n<r$, where $\Lambda=k\log2-q\log3>0$ and $q=S_k(n)$ (Corollary~\ref{cor:failure}). Each run of odd terms imposes a congruence on the value at its start, and these congruences bound $q$ in terms of $\log(n+1)$ and $r$ (Proposition~\ref{prop:sieve}). For large $k$ the lower bound of \cite{LMN95} makes $\Lambda$ too large for the two bounds to be compatible (Section~\ref{sec:region}). For moderate $q$ a one-sided best approximation lemma bounds $\Lambda$ from below on explicit intervals of $q$ (Section~\ref{sec:moderate}). What remains is a finite set of seeds, which is checked by certificates organized as trees of residue classes, with the congruence sieve restarted after each even term (Section~\ref{sec:certificates}). The tail and the table of intervals depend on $r$ only through explicit constants, while the size of the finite certificates grows quickly with $r$ (Remark~\ref{rem:cost}).
+
+\subsection*{Formal verification}
+All the steps above, including the evaluation of the finite certificates, are formalized in Lean~4 with Mathlib \cite{Lean4,Mathlib}. The only external mathematical inputs are the specialization of the corollary of \cite{LMN95} to the logarithms of $2$ and $3$ and, for Theorem~\ref{thm:B}, the finite verification of \cite[Corollary~5.4]{RT26}; both are explicit hypotheses of the formal statements. Section~\ref{sec:formal} gives the statements, the axioms used and the size of the computation.
+
+\subsection*{Novelty}
+Apart from the case of one local maximum in \cite[Appendix~A]{RT26}, we have not found a treatment of the CST conjecture by number of local maxima in the literature. Our search (arXiv and general search engines, October 2026) did not include MathSciNet or zbMATH.
+
+\section{The first crossing and the affine identity}\label{sec:affine}
+
+Throughout, $\log$ is the natural logarithm and $\log_2$ the binary one. We write $\varepsilon_i(n)=T^{i}(n)\bmod 2$.
+
+\begin{lemma}[Terras \cite{Ter76}]\label{lem:affine}
+Let $n\ge1$ and $j\ge0$.
+\begin{enumerate}
+\item There is an integer $\beta_j(n)\ge0$ with $2^{j}T^{j}(n)=3^{S_j(n)}n+\beta_j(n)$.
+\item If $0\le \rho<2^{j}$ and $u\ge0$, then $\varepsilon_i(\rho+2^{j}u)=\varepsilon_i(\rho)$ for $i<j$, $S_j(\rho+2^{j}u)=S_j(\rho)$ and $T^{j}(\rho+2^{j}u)=3^{S_j(\rho)}u+T^{j}(\rho)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) Put $\beta_0=0$, and $\beta_{j+1}=3\beta_j+2^{j}$ if $T^{j}(n)$ is odd, $\beta_{j+1}=\beta_j$ otherwise; induction on $j$. (2) By induction on $i\le j$ one has $T^{i}(\rho+2^{j}u)=3^{S_i(\rho)}2^{j-i}u+T^{i}(\rho)$; for $i<j$ the first summand is even, so the parities agree, and both cases of $T$ preserve the form.
+\end{proof}
+
+\begin{lemma}\label{lem:before}
+Let $n\ge2$ with $k=\tau(n)<\infty$.
+\begin{enumerate}
+\item $T^{j}(n)\ge n$ for $0\le j<k$.
+\item If $n$ is even, then $k=1$ and $T(n)<n$.
+\item If $n$ is odd, then $k\ge2$, $T^{k-1}(n)$ is even, and $q:=S_k(n)=S_{k-1}(n)$ satisfies $2^{k-1}\le3^{q}<2^{k}$. Hence $q\ge1$, $q<k$, and $\Lambda:=k\log2-q\log3$ satisfies $0<\Lambda\le\log2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) For $1\le j<k$ we have $3^{S_j(n)}\ge2^{j}$, so $T^{j}(n)\ge 3^{S_j(n)}n/2^{j}\ge n$ by Lemma~\ref{lem:affine}. (2) $S_1(n)=0$ and $3^0<2$. (3) $S_1(n)=1$ and $3\ge2$, so $k\ge2$. If $T^{k-1}(n)$ were odd, then $3^{S_k(n)}=3\cdot3^{S_{k-1}(n)}\ge3\cdot2^{k-1}>2^{k}$. Thus $S_k(n)=S_{k-1}(n)$ and $2^{k-1}\le3^{q}<2^{k}$; the remaining claims follow.
+\end{proof}
+
+By (1), the CST conjecture says exactly that $T^{\tau(n)}(n)<n$ whenever $\tau(n)<\infty$. We call $n\ge2$ a \emph{failure} if $k=\tau(n)<\infty$ and $T^{k}(n)\ge n$. By (2), failures are odd.
+
+\begin{definition}\label{def:runs}
+Let $n\ge2$ be odd with $k=\tau(n)<\infty$. By Lemma~\ref{lem:before} the parity word $\varepsilon_0(n)\cdots\varepsilon_{k-1}(n)$ begins with $1$ and ends with $0$, so it can be written uniquely as
+\[
+1^{a_1}0^{b_1}1^{a_2}0^{b_2}\cdots1^{a_r}0^{b_r},\qquad a_i,b_i\ge1,
+\]
+and $r=r(n)\ge1$ is its number of \emph{runs}. For even $n$ we put $r(n)=0$. We write $A_0=0$, $A_i=a_1+\dots+a_i$ (so $A_r=q$), $\ell_1=0$, $\ell_{i+1}=\ell_i+a_i+b_i$ (so $\ell_{r+1}=k$), and $x_i=T^{\ell_i}(n)$ for $1\le i\le r+1$. In the formalization, $r(n)$ is computed directly from the orbit as the number of $i<k$ with $T^{i}(n)$ odd and either $i=0$ or $T^{i-1}(n)$ even.
+\end{definition}
+
+\begin{remark}\label{rem:maxima}
+For $x\ge1$ odd, $T(x)=(3x+1)/2>x$, and for $x\ge2$ even, $T(x)<x$. Hence the sequence $n,T(n),\dots,T^{k}(n)$ increases exactly on the steps from odd terms. Its local maxima are the terms $T^{i}(n)$, $0<i<k$, with $T^{i-1}(n)$ odd and $T^{i}(n)$ even; the endpoints are not maxima because the word begins with $1$ and ends with $0$. So $r(n)$ is the number of local maxima.
+\end{remark}
+
+\begin{lemma}\label{lem:additive}
+Let $n\ge2$ be odd with $k=\tau(n)<\infty$, $q=S_k(n)$ and $r=r(n)$. Then $2^{k}T^{k}(n)=3^{q}n+B$ with
+\[
+B=\sum_{i=1}^{r}2^{\ell_i}\,3^{q-A_i}\,\bigl(3^{a_i}-2^{a_i}\bigr),\qquad 0<B<r\,3^{q}.
+\]
+\end{lemma}
+
+\begin{proof}
+For odd $y$ we have $T(y)+1=\tfrac32(y+1)$, so a block of $a$ odd terms starting at $y$ gives $2^{a}(T^{a}(y)+1)=3^{a}(y+1)$, and a block of $b$ even terms divides by $2^{b}$. Hence
+\[
+2^{a_i+b_i}x_{i+1}=3^{a_i}x_i+3^{a_i}-2^{a_i}\qquad(1\le i\le r),
+\]
+and multiplying by $2^{\ell_i}$ and iterating gives the identity. Next,
+\[
+\frac{B}{3^{q}}=\sum_{i=1}^{r}\frac{2^{\ell_i}}{3^{A_{i-1}}}\Bigl(1-\bigl(\tfrac23\bigr)^{a_i}\Bigr).
+\]
+For $i=1$ the prefactor is $1$; for $i\ge2$ we have $1\le\ell_i<k$ and $S_{\ell_i}(n)=A_{i-1}$, so $2^{\ell_i}\le3^{A_{i-1}}$ by the definition of $\tau(n)$. Each summand lies in $(0,1)$.
+\end{proof}
+
+\begin{corollary}\label{cor:failure}
+Let $n$ be a failure, $k=\tau(n)$, $q=S_k(n)$, $r=r(n)$, $\Delta=2^{k}-3^{q}$ and $\Lambda=k\log2-q\log3$. Then
+\[
+\Delta\, n\le B<r\,3^{q}\qquad\text{and}\qquad \Lambda\, n<r .
+\]
+\end{corollary}
+
+\begin{proof}
+$2^{k}n\le2^{k}T^{k}(n)=3^{q}n+B$ gives the first inequality, and $\Lambda\le e^{\Lambda}-1=\Delta/3^{q}$ gives the second.
+\end{proof}
+
+\begin{example}\label{ex:39}
+The margin can be very small. For $n=39$ the orbit is $39,59,89,134,67,101,152,76,38$, with parity word $1110\,1100$; so $\tau(39)=8$, $q=5$, $3^{5}=243<256=2^{8}$, $r=2$, and $T^{8}(39)=38=n-1$.
+\end{example}
+
+\section{Congruences along the runs}\label{sec:sieve}
+
+We keep the notation of Definition~\ref{def:runs}.
+
+\begin{lemma}\label{lem:congruence}
+Let $n\ge2$ be odd with $\tau(n)<\infty$. For $1\le i\le r$,
+\[
+2^{a_i}\mid x_i+1\qquad\text{and}\qquad 2^{a_i}(x_{i+1}+1)\le3^{a_i}(x_i+1).
+\]
+Consequently $2^{A_i}\le(n+1)\,3^{A_{i-1}}$ for $1\le i\le r$.
+\end{lemma}
+
+\begin{proof}
+From $2^{a_i}(T^{a_i}(x_i)+1)=3^{a_i}(x_i+1)$ and $\gcd(2,3)=1$ we get $2^{a_i}\mid x_i+1$, and since $x_{i+1}=T^{a_i}(x_i)/2^{b_i}\le T^{a_i}(x_i)$, also the inequality. Chaining the inequalities gives $x_i+1\le(3/2)^{A_{i-1}}(n+1)$, and $x_i+1\ge2^{a_i}$ by divisibility; multiply by $2^{A_{i-1}}$.
+\end{proof}
+
+The congruences do not use the definition of $\tau(n)$; they hold for any word of the form $1^{a_1}0^{b_1}\cdots1^{a_r}0^{b_r}$ read along an orbit, which is used again in Section~\ref{sec:certificates}.
+
+\begin{proposition}[the sieve]\label{prop:sieve}
+Let $\alpha\ge1$ and $\beta\ge0$ be real numbers with $\log3\le\alpha\log2$, and define $C_0=0$ and $C_{j+1}=\lfloor\beta+\alpha C_j\rfloor$. If $n$ is odd with $\tau(n)<\infty$ and $\log(n+1)\le\beta\log2$, then $A_i\le C_i$ for $0\le i\le r$. The sequence $(C_j)$ is nondecreasing, so $q\le C_R$ whenever $r\le R$.
+\end{proposition}
+
+\begin{proof}
+Taking $\log_2$ in Lemma~\ref{lem:congruence}, $A_{i}\le\log_2(n+1)+A_{i-1}\log_2 3\le\beta+\alpha C_{i-1}$, and $A_i$ is an integer. Monotonicity follows by induction from $C_1=\lfloor\beta\rfloor\ge0$.
+\end{proof}
+
+We use two instances. In the \emph{refined sieve}, $\alpha=317/200$ (note $\log_2 3<1.58497<1.585$) and $\beta=B/256$, where $B$ is an integer with $s^{256}\le2^{B}$ for some integer $s\ge n+1$; then
+\begin{equation}\label{eq:refined}
+C_{j+1}=\Bigl\lfloor\frac{25B+10144\,C_j}{6400}\Bigr\rfloor,
+\end{equation}
+and we write $C_R(B)$ for $C_R$. In the \emph{binary sieve} one uses $3^{5}<2^{8}$ and an integer $m$ with $n+1<2^{m}$: raising Lemma~\ref{lem:congruence} to the fifth power gives $5A_i<5m+8A_{i-1}$, hence $A_i\le c(i,m)$, where
+\begin{equation}\label{eq:binary}
+c(0,m)=0,\qquad c(j+1,m)=\Bigl\lfloor\frac{5m+8\,c(j,m)-1}{5}\Bigr\rfloor .
+\end{equation}
+
+\begin{lemma}\label{lem:geometric}
+For all $j,m\ge0$, $3\cdot5^{j}c(j,m)+5^{j+1}m\le5\cdot8^{j}m$, and $c(j,m)+m\le2^{j}m$. In particular, if $5\cdot8^{R}\le(3A+5)5^{R}$, then $c(j,m)\le Am$ for all $j\le R$.
+\end{lemma}
+
+\begin{proof}
+For the first inequality, the case $j=0$ is an equality. From $5c(j+1,m)\le5m+8c(j,m)$, multiplying by $3\cdot5^{j}$ and adding $5^{j+2}m$ gives eight times the left-hand side for $j$. The second follows from $c(j+1,m)+m\le2m+\tfrac85c(j,m)\le2(c(j,m)+m)$. The last claim uses monotonicity in $j$.
+\end{proof}
+
+\begin{lemma}\label{lem:time}
+If $q\ge1$ and $2^{k-1}\le3^{q}$, then $5k\le8q+5$; in particular $k\le2q+1$.
+\end{lemma}
+
+\begin{proof}
+$2^{5(k-1)}\le3^{5q}=243^{q}<256^{q}=2^{8q}$.
+\end{proof}
+
+\section{Linear forms in two logarithms}\label{sec:lmn}
+
+The following is Corollary~2 of \cite{LMN95}, which we checked against the original (p.~288).
+
+\begin{theorem}[Laurent, Mignotte, Nesterenko]\label{thm:lmn}
+Let $\alpha_1,\alpha_2$ be multiplicatively independent positive real algebraic numbers, $b_1,b_2$ positive integers and $\Lambda=b_2\log\alpha_2-b_1\log\alpha_1$. Put $D=[\mathbb{Q}(\alpha_1,\alpha_2):\mathbb{Q}]/[\mathbb{R}(\alpha_1,\alpha_2):\mathbb{R}]$ and let $A_1,A_2>1$ satisfy $\log A_i\ge\max\{h(\alpha_i),|\log\alpha_i|/D,1/D\}$, where $h$ is the absolute logarithmic height. With $b'=b_1/(D\log A_2)+b_2/(D\log A_1)$,
+\[
+\log|\Lambda|\ge-24.34\,D^{4}\bigl(\max\{\log b'+0.14,\,21/D,\,1/2\}\bigr)^{2}\log A_1\log A_2 .
+\]
+\end{theorem}
+
+\begin{lemma}\label{lem:lmn23}
+For all integers $k,q\ge1$,
+\[
+\log|k\log2-q\log3|\ge-24.34\,\log3\,\bigl(\max\{\log(q+k/\log3)+0.14,\,21\}\bigr)^{2}.
+\]
+\end{lemma}
+
+\begin{proof}
+Take $\alpha_1=3$, $\alpha_2=2$, $b_1=q$, $b_2=k$ in Theorem~\ref{thm:lmn}. Then $D=1$, $h(3)=\log3>1$ and $h(2)=\log2<1$, so we may take $A_1=3$ and $A_2=e$. The numbers $2$ and $3$ are multiplicatively independent, $b'=q+k/\log3$, and $\max\{\cdot,21,1/2\}=\max\{\cdot,21\}$.
+\end{proof}
+
+\begin{lemma}\label{lem:weak}
+Let $k\ge2$ and $q$ be integers with $3^{q}<2^{k}\le2\cdot3^{q}$, put $\Lambda=k\log2-q\log3$ and $t=\lfloor\log_2k\rfloor$. Then
+\[
+\Lambda\ge\exp\bigl(-27(\log(2k)+21)^{2}\bigr)\ge2^{-19(t+33)^{2}}.
+\]
+\end{lemma}
+
+\begin{proof}
+The hypotheses give $1\le q<k$ and $\Lambda>0$. Since $\log3>1$, $b'=q+k/\log3<2k$, so the maximum in Lemma~\ref{lem:lmn23} is at most $\log(2k)+21$; and $24.34\log3<26.75\le27$. This gives the first inequality. For the second, $\log(2k)\le(t+2)\log2$ and $21\le31\log2$, so $\log(2k)+21\le(t+33)\log2$, and $27\log2<18.72\le19$.
+\end{proof}
+
+\begin{corollary}\label{cor:lmnfail}
+A failure $n$ with $k=\tau(n)$, $r=r(n)$ and $t=\lfloor\log_2k\rfloor$ satisfies $n<r\cdot2^{19(t+33)^{2}}$.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:before}(3), $k\ge2$ and $3^{q}<2^{k}\le2\cdot3^{q}$; combine Corollary~\ref{cor:failure} and Lemma~\ref{lem:weak}.
+\end{proof}
+
+\section{A finite region for each number of runs}\label{sec:region}
+
+\begin{proof}[Proof of Theorem~\ref{thm:C}]
+Let $n$ be a failure with $k$, $q$, $r$, $t$ as above, and put $E=19(t+33)^{2}$. By Corollary~\ref{cor:lmnfail}, $n<r2^{E}\le2^{E+r}$, so $n+1<2^{E+r+1}$ and, by the binary sieve and Lemma~\ref{lem:geometric}, $q\le c(r,E+r+1)<2^{r}(E+r+1)$. By Lemma~\ref{lem:time}, $2^{t}\le k\le2q+1$. Suppose $t\ge2r+32$. Then $r\le t$ and $E+r+1\le20(t+33)^{2}$, so
+\[
+2^{t}\le40\cdot2^{r}(t+33)^{2}+1 .
+\]
+But $40\cdot2^{r}(t+33)^{2}+1<2^{t}$ for all $t\ge2r+32$: at $r=0$, $t=32$ the margin is $2^{32}-40\cdot65^{2}-1=4\,294\,798\,295$; raising $r$ by one multiplies the right-hand side at $t=2r+32$ by $4$ and the left by at most $4$, because $(2r+67)^{2}\le2(2r+65)^{2}$; and raising $t$ by one doubles the right-hand side, while $(t+34)^{2}\le2(t+33)^{2}$. Hence $t\le2r+31$, that is, $k<2^{2r+32}$, and then $n<2^{E+r}\le2^{19(2r+65)^{2}+r}$.
+\end{proof}
+
+The following criterion replaces the crude constants by a certificate of three integer inequalities, and is what we use for $R=24$ and $R=77$.
+
+\begin{proposition}\label{prop:tail}
+Let $R,A,c,H$ be natural numbers with
+\[
+R\le2^{c},\qquad 5\cdot8^{R}\le(3A+5)\,5^{R},\qquad 8A\bigl(19(H+33)^{2}+c+1\bigr)+5<5\cdot2^{H}.
+\]
+If $n$ is a failure with $r(n)\le R$, then $\tau(n)<2^{H}$ and $n<2^{19(H+32)^{2}+c}$.
+\end{proposition}
+
+\begin{proof}
+With $E=19(t+33)^{2}$, Corollary~\ref{cor:lmnfail} gives $n<R\,2^{E}\le2^{E+c}$, so $n+1<2^{E+c+1}$. By the binary sieve, monotonicity in the number of runs and Lemma~\ref{lem:geometric}, $q\le c(R,E+c+1)\le A(E+c+1)$, and by Lemma~\ref{lem:time},
+\[
+5\cdot2^{t}\le5k\le8A\bigl(19(t+33)^{2}+c+1\bigr)+5 .
+\]
+The third hypothesis contradicts this for $t=H$. The contradiction persists for all $t\ge H$, because doubling the left-hand side dominates the change on the right:
+\[
+2\bigl(19(t+33)^{2}+c+1\bigr)-\bigl(19(t+34)^{2}+c+1\bigr)=19t^{2}+1216t+19419+c\ge0 .
+\]
+Hence $t<H$, so $k<2^{H}$ and $t+33\le H+32$.
+\end{proof}
+
+For $R=24$ the constants $(A,c,H)=(132\,046,\,5,\,35)$ satisfy the hypotheses, and for $R=77$ the constants $(8\,691\,353\,499\,027\,139,\,7,\,72)$ do. In general one may take $A=\lceil5(8^{R}-5^{R})/(3\cdot5^{R})\rceil$ and the least $c$ with $R\le2^{c}$; the least admissible $H$ then grows roughly linearly in $R$ (for instance $H=88$ for $R=100$ and $H=703$ for $R=1000$), much more slowly than the exponent $2R+32$ of Theorem~\ref{thm:C}.
+
+\section{Moderate values of \texorpdfstring{$q$}{q}: one-sided approximations}\label{sec:moderate}
+
+By Proposition~\ref{prop:tail} a failure with $r(n)\le R$ has $q<k<2^{H}$. To bound $n$ for $q$ below this limit we use that $\Lambda$ is \emph{positive} at the first crossing.
+
+\begin{lemma}\label{lem:onesided}
+Let $x,y$ be real, $L(a,b)=ax-by$, and let $(P,Q)$ and $(p,q')$ be integer pairs with $Q,q'>0$, $Pq'-pQ=1$ and $L(P,Q)>0>L(p,q')$. If $(k,b)$ are integers with $0<b<Q+q'$ and $L(k,b)>0$, then $L(k,b)\ge L(P,Q)$.
+\end{lemma}
+
+\begin{proof}
+Write $(k,b)=u(P,Q)+v(p,q')$ with $u=kq'-pb$ and $v=Pb-kQ$, which is possible because the determinant is $1$. If $u\le0$, then $b>0$ forces $v\ge1$, and $L(k,b)=uL(P,Q)+vL(p,q')<0$, a contradiction. So $u\ge1$. If $v\ge1$, then $b\ge Q+q'$, again a contradiction. So $v\le0$ and $L(k,b)\ge uL(P,Q)\ge L(P,Q)$.
+\end{proof}
+
+No coprimality of $k$ and $b$ is needed, and the pairs need not be convergents. With $x=\log2$, $y=\log3$ and $(k,b)=(\tau(n),q)$, Lemma~\ref{lem:onesided} bounds $\Lambda$ from below on the interval $Q\le q<Q+q'$.
+
+\begin{proposition}\label{prop:row}
+Let $(P,Q)$, $(p,q')$ be as in Lemma~\ref{lem:onesided} for $x=\log2$, $y=\log3$, let $c_0>0$ be a rational number with $c_0\le P\log2-Q\log3$, let $R\ge1$, $s=\lceil R/c_0\rceil$, and let $B$ be an integer with $s^{256}\le2^{B}$. If $n$ is a failure with $r(n)\le R$ and $Q\le q<Q+q'$, then $n<s$ and $q\le C_R(B)$. In particular, if $C_R(B)<Q$ there is no such failure.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:onesided}, $\Lambda\ge c_0$, so $n<r/\Lambda\le R/c_0\le s$ by Corollary~\ref{cor:failure}. Then $n+1\le s$ and the refined sieve applies with $\beta=B/256$.
+\end{proof}
+
+The signs of $L(P,Q)$ and $L(p,q')$ and the rational numbers $c_0$ are certified with enclosures of $\log2$ and $\log3$ to $55$ decimal places, which are proved in Lean from the power series of $\log(1-x)$ with Mathlib's explicit remainder bound. The pairs are produced by a mediant (Stern--Brocot) process for $\log_23$, and consecutive rows tile an interval of values of $q$.
+
+For $R=24$ the table has $43$ rows covering $1\le q<39\,123\,338\,641$; it is reproduced in Appendix~\ref{app:table}. In $35$ rows the bound is $s\le N_0+1$, where $N_0=\Nzero$; in $6$ rows $C_{24}(B)<Q$; and two rows leave larger seeds: $79\,335\le q<190\,537$ with $n\le6\,548\,930$, and $190\,537\le q<10\,781\,274$ with $n\le372\,049\,745$. For $R=77$ the table has $97$ rows and covers $1\le q<Q^{*}$, where $Q^{*}=4\,857\,481\,135\,601\,629\,720\,741$. In $91$ rows the bound is $n\le2.8\cdot10^{19}$, $5$ rows are empty, and one row leaves the seeds $n\le N_3$ with $q\ge q_3$, where $N_3=42\,938\,293\,471\,394\,771\,272$ and $q_3=130\,441\,933\,147\,714\,940$. Since $39\,123\,338\,641>2^{35}$ and $Q^{*}>2^{72}$, each table reaches the range of Proposition~\ref{prop:tail}.
+
+\section{Finite certificates}\label{sec:certificates}
+
+\subsection{Residue classes}
+By Lemma~\ref{lem:affine}(2), the integers $n\ge\rho$ with $n\equiv\rho\pmod{2^{i}}$ share their first $i$ parities, and $T^{i}(n)=au+c$ for $n=\rho+mu$, $u\ge0$, where $m=2^{i}$, $a=3^{S_i(\rho)}$ and $c=T^{i}(\rho)$. A \emph{state} $(\rho,m,a,c)$ represents this class. Writing $u=2v+b$ with $b\in\{0,1\}$ splits it into the two states with residues $\rho$ and $\rho+m$, modulus $2m$, and, according to the parity of $ab+c$, multiplier $a$ or $3a$ and constant $T(ab+c)$. Along a branch on which $a\ge m$ at every earlier node, the first node with $a<m$ is the first crossing for every member of the class, and if moreover $c<\rho$, then $au+c<\rho+mu$ for all $u\ge0$: the whole class satisfies $T^{\tau(n)}(n)<n$.
+
+\subsection{Small seeds}
+
+\begin{proposition}\label{prop:small}
+For $2\le n\le N_0=\Nzero$, $\tau(n)\le224$ and $T^{\tau(n)}(n)<n$.
+\end{proposition}
+
+This is a finite statement. It is proved in Lean by a verified tree of states starting from $(2,1,1,2)$: a node is accepted if its class contains no integer up to $N_0$, or if the coefficient has crossed and $c<\rho$; when only one integer of the class remains below $N_0$, it is checked individually by iteration; a node whose coefficient has crossed with $c\ge\rho$, or whose fuel is exhausted, is rejected. A theorem proved in Lean shows that acceptance of the root implies the proposition. The tree has $243\,225$ nodes, with $15\,466$ shared leaves and $106\,147$ individual leaves. No bound for linear forms in logarithms is used here, and the number of runs plays no role. An independent program reconstructs the $121\,613$ classes, checks that they are disjoint and cover exactly $4\,912\,739$ integers, and iterates two representatives of each.
+
+\subsection{Restarting the sieve after an even term}
+Let $n$ be odd with $k=\tau(n)<\infty$ and let $0\le i<k$ be a \emph{cut}: $i=0$, or $T^{i-1}(n)$ is even. Then no run crosses the cut, and
+\[
+r(n)=s_i+r_i'(n),\qquad s_i=\#\{\text{runs that start before } i\},
+\]
+where $r_i'(n)$ is the number of runs of the word $\varepsilon_i(n)\cdots\varepsilon_{k-1}(n)$. That word ends with $0$, so after removing its initial zeros it has the shape of Definition~\ref{def:runs}, and Lemma~\ref{lem:congruence} and Proposition~\ref{prop:sieve} apply to it with $T^{i}(n)$ in place of $n$; no first-crossing property of the shifted word is needed.
+
+\begin{lemma}\label{lem:restart}
+Let $i$ be a cut, $r(n)\le R$, and let $s,B$ be integers with $T^{i}(n)+1\le s$ and $s^{256}\le2^{B}$. Then $S_k(n)\le S_i(n)+C_{R-s_i}(B)$.
+\end{lemma}
+
+\subsection{The window verifier}
+A \emph{window} is given by integers $N_1\le N_2$, a number of runs $R$ and a threshold $q_{\min}$; it asserts that there is no failure $n$ with $N_1\le n\le N_2$, $r(n)\le R$ and $S_{\tau(n)}(n)\ge q_{\min}$. The verifier explores states enriched with $S_i$, $s_i$ and the parity of the previous term, starting from the class of all $n\ge N_1$. For a state of index $i$, the largest value of $T^{i}(n)$ for members $n\le N_2$ is $X=a\lfloor(N_2-\rho)/m\rfloor+c$, and $B$ is the least integer with $(X+1)^{256}\le2^{B}$, computed by bisection. A node is
+\begin{enumerate}
+\item accepted if $\rho>N_2$ (no member in the window);
+\item if $a<m$ (the first crossing), accepted when $c<\rho$ and rejected otherwise;
+\item accepted if $s_i>R$;
+\item accepted if $i$ is a cut and $S_i+C_{R-s_i}(B)<q_{\min}$;
+\end{enumerate}
+and otherwise split into its two children. Exhausting the fuel rejects.
+
+\begin{proposition}\label{prop:window}
+If the verifier accepts the root of a window, the window assertion holds.
+\end{proposition}
+
+\begin{proof}[Sketch]
+By induction on the fuel: an accepted node cannot contain a failure with the stated properties, by the remark at the end of the first subsection for rule (2), by $r(n)\ge s_i$ for rule (3), and by Lemma~\ref{lem:restart} for rule (4), since $S_{\tau(n)}(n)\ge q_{\min}$; a split node is accepted only if both children are. The full proof is formalized (Section~\ref{sec:formal}).
+\end{proof}
+
+Since $B$ enters the recurrence~\eqref{eq:refined} monotonically, a certificate may also supply at each leaf any $B$ with $(X+1)^{256}\le2^{B}$, which the kernel checks directly. The windows needed for Theorems~\ref{thm:A} and~\ref{thm:B} are listed in Table~\ref{tab:windows}. The windows $W_1$ and $W_2$ overlap; only the threshold $q_{\min}$ distinguishes them.
+
+\begin{table}[ht]
+\caption{Windows certified by the verifier. Seeds are counted inclusively; ``leaves'' are the accepted leaves that contain integers of the window.}\label{tab:windows}
+\small
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+& $N_1$ & $N_2$ & $q_{\min}$ & $R$ & nodes & leaves & depth \\
+\midrule
+$W_1$ & $4\,912\,741$ & $6\,548\,930$ & $79\,335$ & $24$ & $756\,925$ & $47\,048$ & $62$ \\
+$W_2$ & $4\,912\,741$ & $372\,049\,745$ & $190\,537$ & $24$ & $29\,403\,783$ & $3\,939\,127$ & $65$ \\
+$W_3$ & $2.8\cdot10^{19}+1$ & $N_3$ & $q_3$ & $77$ & $1\,420\,851$ & $574\,357$ & $81$ \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\raggedright\footnotesize $N_3$ and $q_3$ are given in Section~\ref{sec:moderate}. The fuel was $128$ for $W_1,W_2$ and $256$ for $W_3$.
+\end{table}
+
+\subsection{Evaluation in the kernel}
+The trees are cut into subtrees of at most $2\,000$ nodes. The acceptance of each subtree is a closed Boolean computation, proved with \texttt{decide +kernel}, so it is evaluated by the Lean kernel without compiled code; the acceptance of the root then follows from a proved lemma that combines the conclusions of two children. For $W_1$ and $W_2$ this gives $664$ and $25\,275$ subtrees, joined by $663$ and $25\,274$ unions, in $39$ and $596$ modules; for $W_3$, $4\,896$ subtrees in $73$ modules.
+
+\section{Proofs of Theorems~\ref{thm:A} and~\ref{thm:B} and Corollary~\ref{cor:cycles}}\label{sec:proofs}
+
+\begin{proof}[Proof of Theorem~\ref{thm:A}]
+Suppose that $n$ is a failure with $r(n)\le24$, and let $k=\tau(n)$ and $q=S_k(n)$. Then $n$ is odd, and Proposition~\ref{prop:tail} with $(R,A,c,H)=(24,132\,046,5,35)$ gives $k<2^{35}$; since $q<k$, $q<39\,123\,338\,641$, so $q$ lies in one of the $43$ rows of Appendix~\ref{app:table}. Proposition~\ref{prop:row} excludes the six rows marked ``sieve'' and gives $n\le N_0$ in $35$ rows, contradicting Proposition~\ref{prop:small}. In the remaining two rows, either $n\le N_0$, again impossible, or $n$ lies in $W_1$ (if $q\ge79\,335$ and $n\le6\,548\,930$) or in $W_2$ (if $q\ge190\,537$ and $n\le372\,049\,745$), contradicting Proposition~\ref{prop:window}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:B}]
+The argument is the same. Proposition~\ref{prop:tail} is applied with $R=77$, $c=7$, $H=72$ and
+\[
+A=8\,691\,353\,499\,027\,139;
+\]
+the table has $97$ rows; Corollary~5.4 of \cite{RT26} replaces Proposition~\ref{prop:small}; and the window is $W_3$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:cycles}]
+Let $\mu$ be the least element of a cycle of length $L$ other than $(1,2)$, with $K$ odd terms and $M$ local maxima. Then $\mu$ is odd, and the term before $\mu$ in the cycle is even, since an odd predecessor $x$ would satisfy $x=(2\mu-1)/3<\mu$. So the parity word of the cycle read from $\mu$ begins with $1$, ends with $0$ and has $M$ runs. Lemma~\ref{lem:affine} over one period gives $2^{L}\mu=3^{K}\mu+\beta_L(\mu)$ with $\beta_L(\mu)>0$, so $3^{K}<2^{L}$ and $\tau(\mu)\le L$; the parity word up to $\tau(\mu)$ is a prefix of the cycle word, with at most $M$ runs. Since the orbit never goes below $\mu$, $\mu$ is a failure, and Theorems~\ref{thm:A} and~\ref{thm:B} give $M\ge25$, respectively $M\ge78$.
+\end{proof}
+
+\section{Formal verification}\label{sec:formal}
+
+The proofs are formalized in Lean~4.32.2 (commit \lean{f3b06c705e6c}) with Mathlib at commit \lean{905b95818eb3}. The identifiers are in Spanish. In the statements below, \texttt{PrimerCruce n k} says that $\tau(n)=k$, and \texttt{rachas n k} is the number of runs of $n$ up to step $k$.
+
+\begin{Verbatim}[fontsize=\small]
+def T (n : ℕ) : ℕ := if n % 2 = 0 then n / 2 else (3 * n + 1) / 2
+def S : ℕ → ℕ → ℕ
+  | 0, _ => 0
+  | k + 1, n => n % 2 + S k (T n)
+def PrimerCruce (n k : ℕ) : Prop :=
+  (∀ j, j < k → 1 ≤ j → 2 ^ j ≤ 3 ^ S j n) ∧ 3 ^ S k n < 2 ^ k
+def rachas (n : ℕ) : ℕ → ℕ
+  | 0 => 0
+  | k + 1 => rachas n k +
+      if T^[k] n % 2 = 1 ∧ (k = 0 ∨ T^[k - 1] n % 2 = 0) then 1 else 0
+def LMN23 : Prop :=
+  ∀ k q : ℕ, 0 < k → 0 < q →
+    -(24.34 * (max (log ((q : ℝ) + k / log 3) + 0.14)
+      (max 21 (1 / 2))) ^ 2 * log 3) ≤
+        log |(k : ℝ) * log 2 - q * log 3|
+def RozierTerracol54 : Prop :=
+  ∀ {n k : ℕ}, 2 ≤ n → n ≤ 28000000000000000000 →
+    PrimerCruce n k → T^[k] n < n
+theorem cst_veinticuatro_corolario (hL : LMN23) {n k : ℕ}
+    (hn : 2 ≤ n) (hk : PrimerCruce n k) (hr : rachas n k ≤ 24) :
+    (∀ j, j < k → n ≤ T^[j] n) ∧ T^[k] n < n
+theorem cst_condicional (hL : LMN23) (hRT : RozierTerracol54)
+    {n k : ℕ} (hn : 2 ≤ n) (hk : PrimerCruce n k)
+    (hr : rachas n k ≤ 77) :
+    (∀ j, j < k → n ≤ T^[j] n) ∧ T^[k] n < n
+\end{Verbatim}
+
+\noindent The first theorem is in the module \lean{OcelotasVeinticuatro}, together with \lean{fallo_exige_veinticinco}, which states that a failure has at least $25$ runs; the second is in \lean{OcelotasSetentaYSiete}, together with \lean{fallo_exige_setenta_y_ocho}. Line breaks are adjusted for display. \texttt{LMN23} is Lemma~\ref{lem:lmn23}, and \lean{debil_de_corolario} derives from it the first inequality of Lemma~\ref{lem:weak}; the passage from Theorem~\ref{thm:lmn} to Lemma~\ref{lem:lmn23} (Section~\ref{sec:lmn}) is not formalized. \texttt{RozierTerracol54} is the content of \cite[Corollary~5.4]{RT26}. Theorem~\ref{thm:C} is \lean{region_del_fallo} in \lean{OcelotasCotaGeneral}, and Proposition~\ref{prop:tail} is in \lean{OcelotasColaParametrica}.
+
+\emph{Axioms.} The two external results are hypotheses of the theorems, not axioms. For the proof of Theorem~\ref{thm:A}, the $650$ new modules contain $26\,022$ \texttt{\#print axioms} queries: $26\,013$ report exactly \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, five report \texttt{propext} and \texttt{Quot.sound}, and four report only \texttt{propext}. None reports \texttt{sorryAx}, the sources contain no \texttt{native\_decide}, \texttt{implemented\_by}, \texttt{extern} or declared axiom, and the $38$ modules of the common base were checked by hash, with $156$ further queries. For Theorem~\ref{thm:B}, the $91$ new modules contain $5\,030$ queries with the same three axioms at most. Most queries concern individual pieces of the certificates; they are not independent results.
+
+\emph{Cost.} The proof of Theorem~\ref{thm:A} took about $11.3$ hours of Lean processing in total (several modules compiled in parallel), and its compiled objects occupy $11.1$~GiB; the window $W_2$ accounts for most of both. The audit run for Theorem~\ref{thm:B}, which reused the common base, took about $1.7$ hours.
+
+\emph{Independent checks.} Separate programs, which do not import the generators of the certificates, recompute the tables with rational series for $\operatorname{artanh}$ and exact integer powers, rebuild every leaf of the windows from direct iteration of $T$ on representatives, check that the leaves are disjoint and cover the windows, and recompute the hashes of all sources, compiled objects and audit records. These checks found no discrepancy. They are finite checks of the interpretation; the universal inferences are the theorems proved in Lean.
+
+Lean certifies the displayed statements; whether they express Theorems~\ref{thm:A} and~\ref{thm:B} is for the reader to check against the definitions above.
+
+\section{Remarks}\label{sec:remarks}
+
+\begin{remark}[Orbits without a first crossing]\label{rem:infinite}
+If $\tau(n)=\infty$, then $3^{S_j(n)}\ge2^{j}$ for all $j\ge1$, so $T^{j}(n)\ge n$ for all $j$ by Lemma~\ref{lem:affine}. If the orbit of such an $n$ were eventually periodic, then, as in the proof of Corollary~\ref{cor:cycles}, each period would multiply the coefficient by some $3^{K}/2^{L}<1$, and the coefficient would eventually fall below $1$. Hence the orbit of $n$ is unbounded. Our theorems say nothing about such $n$.
+\end{remark}
+
+\begin{remark}[Cost of the certificates]\label{rem:cost}
+The tail (Proposition~\ref{prop:tail}) and the table (Proposition~\ref{prop:row}) depend on $R$ only through explicit constants, and Proposition~\ref{prop:small} does not depend on $R$. The growth is in the windows. For the analogue of $W_2$ (seeds above $N_0$ with $q\ge190\,537$), the number of nodes was $4\,047$, $67\,649$, $670\,749$, $3\,840\,535$, $12\,368\,501$ and $29\,403\,783$ for $R=19,\dots,24$; the first four used the binary sieve and the last two the refined sieve. The ratio between consecutive values decreases, but each new value of $R$ requires a new and larger computation. As for $m$-cycles, extending $R$ one step at a time does not lead to the full conjecture; that would require a reduction from words with many runs to words with fewer, which we do not have. Such a reduction would in particular exclude all nontrivial cycles.
+\end{remark}
+
+\begin{remark}[Earlier stages]
+The same method, with the bound of Rhin \cite{Rhi87} in place of \cite{LMN95}, first gave the case of two runs, where everything reduces to $n\le50$ and the tightest case is Example~\ref{ex:39}. Intermediate formalizations for $10$, $13$ and $18$ to $23$ runs are subsumed by Theorem~\ref{thm:A}.
+\end{remark}
+
+\section*{Use of AI tools}
+The proofs, the certificates, the formalization, the numerical checks and the first draft of this text were produced with extensive assistance from large language models used as programming and proof assistants: Anthropic's Claude Opus~5.5 and OpenAI's ChatGPT, between 30 September and 4 October 2026, according to the commit history. The author is responsible for the content.
+
+\section*{Data availability}
+The Lean sources, the certificates in JSON format, their generators, the independent checkers and the audit records are available from the author. % PENDIENTE: depositarlos en un archivo público y citar aquí su DOI.
+They will be deposited in a public archive before publication.
+
+\begin{thebibliography}{99}
+
+\bibitem{Eve77} C.~J.~Everett, \emph{Iteration of the number-theoretic function $f(2n)=n$, $f(2n+1)=3n+2$}, Adv.\ Math.\ 25 (1977), 42--45.
+
+\bibitem{Her23} C.~Hercher, \emph{There are no Collatz $m$-cycles with $m\le91$}, J.~Integer Seq.\ 26 (2023), Article 23.3.5.
+
+\bibitem{Lag85} J.~C.~Lagarias, \emph{The $3x+1$ problem and its generalizations}, Amer.\ Math.\ Monthly 92 (1985), 3--23.
+
+\bibitem{Lag10} J.~C.~Lagarias (ed.), \emph{The Ultimate Challenge: The $3x+1$ Problem}, Amer.\ Math.\ Soc., Providence, RI, 2010.
+
+\bibitem{LMN95} M.~Laurent, M.~Mignotte and Yu.~Nesterenko, \emph{Formes linéaires en deux logarithmes et déterminants d'interpolation}, J.~Number Theory 55 (1995), 285--321.
+
+\bibitem{Lean4} L.~de Moura and S.~Ullrich, \emph{The Lean~4 theorem prover and programming language}, in: Automated Deduction -- CADE 28, Lecture Notes in Comput.\ Sci.\ 12699, Springer, 2021, 625--635.
+
+\bibitem{Mathlib} The mathlib Community, \emph{The Lean mathematical library}, in: Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020), ACM, 2020, 367--381.
+
+\bibitem{Rhi87} G.~Rhin, \emph{Approximants de Padé et mesures effectives d'irrationalité}, in: Séminaire de Théorie des Nombres, Paris 1985--86, Progr.\ Math.\ 71, Birkhäuser, Boston, 1987, 155--164.
+
+\bibitem{RT26} O.~Rozier and C.~Terracol, \emph{Paradoxical behavior in Collatz sequences}, Discrete Math.\ 349 (2026), Article 115167. doi:10.1016/j.disc.2026.115167. arXiv:2502.00948.
+
+\bibitem{SdW05} J.~L.~Simons and B.~M.~M.~de Weger, \emph{Theoretical and computational bounds for $m$-cycles of the $3n+1$ problem}, Acta Arith.\ 117 (2005), 51--70.
+
+\bibitem{Ste77} R.~P.~Steiner, \emph{A theorem on the Syracuse problem}, in: Proceedings of the 7th Manitoba Conference on Numerical Mathematics and Computing, Congr.\ Numer.\ 20, Utilitas Math., Winnipeg, 1978, 553--559.
+
+\bibitem{Ter76} R.~Terras, \emph{A stopping time problem on the positive integers}, Acta Arith.\ 30 (1976), 241--252.
+
+\end{thebibliography}
+
+\appendix
+
+\section{The table for 24 runs}\label{app:table}
+
+Row $j$ covers $Q_j\le q<Q_{j+1}$, with $Q_{43}=39\,123\,338\,641$. Its upper pair is $(P_j,Q_j)$, with $P_j\log2-Q_j\log3>0$; the lower pair $(p_j,q'_j)$ of Lemma~\ref{lem:onesided} is determined by $q'_j=Q_{j+1}-Q_j$ and $p_j=(P_jq'_j-1)/Q_j$. The column $s_j$ is the exclusive bound of Proposition~\ref{prop:row}, $B_j$ the least integer with $s_j^{256}\le2^{B_j}$, and $C_{24}(B_j)$ the bound of the refined sieve. The last column says how the row is closed: by Proposition~\ref{prop:small} ($n\le N_0$), by the sieve ($C_{24}(B_j)<Q_j$), or by a window of Table~\ref{tab:windows}. The exact rational lower bounds $c_0$ are part of the certificate.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}rrrrrrl@{}}
+\toprule
+$j$ & $Q_j$ & $P_j$ & $s_j$ & $B_j$ & $C_{24}(B_j)$ & closed by \\
+\midrule
+0 & 1 & 2 & 84 & 1\,637 & 632\,735 & $n\le N_0$ \\
+1 & 3 & 5 & 142 & 1\,831 & 735\,348 & $n\le N_0$ \\
+2 & 5 & 8 & 461 & 2\,266 & 894\,630 & $n\le N_0$ \\
+3 & 17 & 27 & 623 & 2\,377 & 954\,317 & $n\le N_0$ \\
+4 & 29 & 46 & 960 & 2\,537 & 1\,002\,885 & $n\le N_0$ \\
+5 & 41 & 65 & 2\,094 & 2\,825 & 1\,163\,984 & $n\le N_0$ \\
+6 & 94 & 149 & 2\,561 & 2\,899 & 1\,165\,529 & $n\le N_0$ \\
+7 & 147 & 233 & 3\,294 & 2\,992 & 1\,212\,574 & $n\le N_0$ \\
+8 & 200 & 317 & 4\,617 & 3\,117 & 1\,282\,331 & $n\le N_0$ \\
+9 & 253 & 401 & 7\,717 & 3\,306 & 1\,320\,577 & $n\le N_0$ \\
+10 & 306 & 485 & 23\,478 & 3\,717 & 1\,511\,292 & $n\le N_0$ \\
+11 & 971 & 1\,539 & 24\,526 & 3\,733 & 1\,512\,592 & $n\le N_0$ \\
+12 & 1\,636 & 2\,593 & 25\,671 & 3\,750 & 1\,512\,600 & $n\le N_0$ \\
+13 & 2\,301 & 3\,647 & 26\,928 & 3\,768 & 1\,520\,950 & $n\le N_0$ \\
+14 & 2\,966 & 4\,701 & 28\,315 & 3\,787 & 1\,521\,014 & $n\le N_0$ \\
+15 & 3\,631 & 5\,755 & 29\,852 & 3\,806 & 1\,546\,153 & $n\le N_0$ \\
+16 & 4\,296 & 6\,809 & 31\,566 & 3\,827 & 1\,546\,163 & $n\le N_0$ \\
+17 & 4\,961 & 7\,863 & 33\,489 & 3\,849 & 1\,578\,228 & $n\le N_0$ \\
+18 & 5\,626 & 8\,917 & 35\,661 & 3\,872 & 1\,589\,573 & $n\le N_0$ \\
+19 & 6\,291 & 9\,971 & 38\,135 & 3\,897 & 1\,594\,697 & $n\le N_0$ \\
+20 & 6\,956 & 11\,025 & 40\,977 & 3\,923 & 1\,627\,767 & $n\le N_0$ \\
+21 & 7\,621 & 12\,079 & 44\,277 & 3\,952 & 1\,629\,138 & $n\le N_0$ \\
+22 & 8\,286 & 13\,133 & 48\,156 & 3\,983 & 1\,629\,138 & $n\le N_0$ \\
+23 & 8\,951 & 14\,187 & 52\,778 & 4\,017 & 1\,629\,142 & $n\le N_0$ \\
+24 & 9\,616 & 15\,241 & 58\,383 & 4\,054 & 1\,629\,988 & $n\le N_0$ \\
+25 & 10\,281 & 16\,295 & 65\,320 & 4\,095 & 1\,642\,957 & $n\le N_0$ \\
+26 & 10\,946 & 17\,349 & 74\,126 & 4\,142 & 1\,710\,838 & $n\le N_0$ \\
+27 & 11\,611 & 18\,403 & 85\,678 & 4\,195 & 1\,714\,521 & $n\le N_0$ \\
+28 & 12\,276 & 19\,457 & 101\,495 & 4\,258 & 1\,728\,196 & $n\le N_0$ \\
+29 & 12\,941 & 20\,511 & 124\,475 & 4\,333 & 1\,762\,738 & $n\le N_0$ \\
+30 & 13\,606 & 21\,565 & 160\,905 & 4\,428 & 1\,836\,269 & $n\le N_0$ \\
+31 & 14\,271 & 22\,619 & 227\,483 & 4\,556 & 1\,847\,365 & $n\le N_0$ \\
+32 & 14\,936 & 23\,673 & 388\,044 & 4\,753 & 1\,963\,811 & $n\le N_0$ \\
+33 & 15\,601 & 24\,727 & 1\,319\,074 & 5\,205 & 2\,159\,221 & $n\le N_0$ \\
+34 & 47\,468 & 75\,235 & 2\,195\,861 & 5\,393 & 2\,243\,510 & $n\le N_0$ \\
+35 & 79\,335 & 125\,743 & 6\,548\,931 & 5\,797 & 2\,378\,451 & $W_1$ \\
+36 & 190\,537 & 301\,994 & 372\,049\,746 & 7\,289 & 3\,013\,116 & $W_2$ \\
+37 & 10\,781\,274 & 17\,087\,915 & 1\,966\,087\,807 & 7\,904 & 3\,263\,200 & sieve \\
+38 & 64\,497\,107 & 102\,225\,496 & 2\,747\,757\,915 & 8\,028 & 3\,338\,902 & sieve \\
+39 & 118\,212\,940 & 187\,363\,077 & 4\,561\,172\,410 & 8\,215 & 3\,425\,372 & sieve \\
+40 & 171\,928\,773 & 272\,500\,658 & 13\,413\,694\,944 & 8\,613 & 3\,562\,837 & sieve \\
+41 & 397\,573\,379 & 630\,138\,897 & 226\,749\,896\,056 & 9\,657 & 4\,007\,065 & sieve \\
+42 & 6\,586\,818\,670 & 10\,439\,860\,591 & 2\,370\,809\,334\,049 & 10\,524 & 4\,417\,608 & sieve \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

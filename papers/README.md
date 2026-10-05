@@ -20,6 +20,13 @@ JAR: [revistas/LEEME.md](revistas/LEEME.md).
 04-10-2026. JAR no ha escrito desde el acuse del 01-10. El II y el III
 están libres; adónde enviarlos lo decide el autor.
 
+04-10-2026, noche. **Borrador del IV, Ocelotas**, escrito a pedido del
+usuario («escríbelo y déjalo en papers, lo mandaremos un día a revista»).
+**No enviado.** Antes de enviarlo faltan la lectura humana, la búsqueda de
+novedad en MathSciNet y zbMATH, el depósito público del artefacto con su
+DOI (la sección *Data availability* lo deja pendiente) y confirmar qué
+modelo de ChatGPT nombrar en *Use of AI tools*.
+
 | | Zenodo | AFM |
 |---|---|---|
 | Artefacto Lean | 10.5281/zenodo.23003500 | — |
@@ -36,6 +43,7 @@ su autorización.
 | I | *Consecutive integers coalesce with density one under the Collatz map: a formally verified proof of a conjecture of Gao* | [articulo_I_gao.tex](articulo_I_gao.tex), 15 págs. | `GaoEnunciado.conjetura_gao`, `GaoLiteral.conjetura_gao_literal` |
 | II | *Arbitrarily long runs of consecutive integers with the same Collatz height* | [articulo_II_garner.tex](articulo_II_garner.tex), 8 págs. | `GarnerEnunciado.conjetura_garner` |
 | III | *On two conjectures of Wu on consecutive integers of the same height in the Collatz problem* | [articulo_III_wu.tex](articulo_III_wu.tex), 6 págs. | `WuEnunciado.conjetura_wu_dos`, `conjetura_wu_uno` |
+| IV | *On Terras's coefficient stopping time conjecture for Collatz sequences with few local maxima* (borrador) | [articulo_IV_ocelotas.tex](articulo_IV_ocelotas.tex), 15 págs. | `OcelotasVeinticuatro.cst_veinticuatro_corolario`, `OcelotasSetentaYSiete.cst_condicional` |
 
 Los PDF se regeneran desde los `.tex`. En inglés, clase `amsart`, con la
 bibliografía dentro. El II y el III citan al I; conviene leerlos en ese
@@ -61,7 +69,9 @@ bajada el 26-09 a la carpeta temporal):
 tectonic -X compile articulo_I_gao.tex
 ```
 
-Los tres compilan sin avisos. Los símbolos de Lean (ℕ, →, 𝓝…) se mapean con
+Los tres compilan sin avisos, y el IV también (04-10, con Tectonic 0.17.0
+bajado otra vez de su GitHub oficial a la carpeta temporal de la sesión).
+Los símbolos de Lean (ℕ, →, 𝓝…) se mapean con
 `newunicodechar`, y los nombres largos se cortan con `xurl`. Hay una rama
 para pdfLaTeX (`\ifPDFTeX`), **sin probar**.
 
