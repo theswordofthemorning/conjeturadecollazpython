@@ -3,13 +3,13 @@
   "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
   "entorno_base": "6c4bc9b4cf7a5e8e73e856fcf757b11b249eca210ae48952c23839125a24493e",
   "entorno_extension": "2525aa4fb4bf84d37ba8850ffb106bb5600be3e9c848e9fa6f34dbc8bef7a36e",
-  "sha256_comprobador": "88c196f581df25650fd3ad64668b307944142a8b4eebb514f86fba54742a13d1",
+  "sha256_comprobador": "27c656983c8600db27da0f1461eb78279b02b70f9e9e0f837cdb01dfa945e8a2",
   "sha256_auxiliar": "f731e63716f0e1850e3479929a73e5fe3691ee4f5db6b8609f6c353e8732d612",
   "modulos": {
     "CasaPlano": {
       "fuente": "29d28c7fb6183b398fa502bf4722befd78d8e5fc50bcd4f2633278cef92595a8",
       "objeto": "ae0e96b4e5361cbf8acc517984411442da010dddfec47d43bf3cb824c5af05dc",
-      "segundos": 40.746,
+      "segundos": 37.26,
       "axiomas": {
         "CasaPlano.iter_uno": [
           "propext",
@@ -92,14 +92,14 @@
         "-R",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
         "-o",
-        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_chx_4uiw\\CasaPlano.olean",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaPlano.olean",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaPlano.lean"
       ]
     },
     "CasaOcelotas": {
       "fuente": "9f5e9e36c175ac6d392e74bd338df82e158112edb00aed8952f81e57daf964c1",
       "objeto": "3f95560cd62f72965fc6ee47988c0057a9921d47e079424313941e56cb412c6f",
-      "segundos": 40.375,
+      "segundos": 38.06,
       "axiomas": {
         "CasaOcelotas.muroA_hasta_24": [
           "propext",
@@ -119,14 +119,14 @@
         "-R",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
         "-o",
-        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_chx_4uiw\\CasaOcelotas.olean",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaOcelotas.olean",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaOcelotas.lean"
       ]
     },
     "CasaRetrato": {
       "fuente": "69f41e9ed8891418ea930e614051a42f06d10bc5e6acc051ef96201378eb834d",
       "objeto": "a1a92d667c7eae2336734eeebb88995a18bac0f92d0bede47e2b4ac5bc479800",
-      "segundos": 34.353,
+      "segundos": 29.082,
       "axiomas": {
         "CasaRetrato.fuga_pura_dos": [
           "propext",
@@ -220,14 +220,14 @@
         "-R",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
         "-o",
-        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_chx_4uiw\\CasaRetrato.olean",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaRetrato.olean",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaRetrato.lean"
       ]
     },
     "CasaTablero": {
       "fuente": "0840e25308819bb64d39452ca25115674c9639ecd4420e182eba39012596b0dc",
       "objeto": "94144b4831bc110b62d21592a9ef15c02de181f1f71341b35a0ebcd0f8e0e045",
-      "segundos": 30.795,
+      "segundos": 26.561,
       "axiomas": {
         "CasaTablero.collatz_iff_sin_intrusos": [
           "propext",
@@ -324,12 +324,564 @@
         "-R",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
         "-o",
-        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_chx_4uiw\\CasaTablero.olean",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaTablero.olean",
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaTablero.lean"
+      ]
+    },
+    "CasaPlaneador": {
+      "fuente": "18b3b49336fd399e38a001288ec28548dc2aaa42fcfda8045a6ec929fc1e91f3",
+      "objeto": "8158dd43d8d838e0686244e1ebfd46f9b2c7d2f31f0be1117d0300e19eec2e15",
+      "segundos": 38.801,
+      "axiomas": {
+        "CasaPlaneador.casiFuga_cero": [
+          "propext",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.casi_fuga_de_bajo": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.pocos_patrones_nivel": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.cuenta_casi_fugas": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.chico_si_bajo": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.tiempos_bajos": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.tiempos_bajos_mul": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.sin_planeador_fuerte": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.pronostico_sin_techo": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.tiempos_bajos_potencia": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.techo_crece": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.tiempos_bajos_raros": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.cohete_o_planeador_intermitente": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.fuga_no_repite": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.fuga_inyectiva": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.tamano_en_franja": [
+          "propext",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.estela": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.fuga_sale_de_franja": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.acotada_baja": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.ninguna_orbita_en_franja": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.atras_acotado": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.fantasma_arriba": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.fantasma_abajo": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.fantasma_paso": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.patron_realizable": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.cuenta_patron_fantasma": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaPlaneador.fantasma_planeador": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaPlaneador.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaPlaneador.lean"
+      ]
+    },
+    "CasaGrieta": {
+      "fuente": "3b14e020511e781188295fd3ed80af8575b5bdad8ddf4ce0d9447c20a2841621",
+      "objeto": "07d63ca09c88e96d8d2f24f71ff5bd1cbf910908c74a4525605ff1ba2ba4f482",
+      "segundos": 27.921,
+      "axiomas": {
+        "CasaGrieta.muroA_iff_sin_grietas": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.desciende_de_cruce": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.desciende_si_grande": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.chico_si_no_baja": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.primer_cruce_antes": [
+          "propext"
+        ],
+        "CasaGrieta.cuenta_sin_descenso_bloques": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.cuenta_sin_descenso": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.casi_todo_desciende": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.margen_lmn": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.desciende_lmn": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.teorema_E_lmn": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.quince_exp": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.desciende_rhin": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.teorema_E_rhin": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.grieta_no_baja": [
+          "propext"
+        ],
+        "CasaGrieta.grieta_no_llega": [
+          "propext",
+          "Quot.sound"
+        ],
+        "CasaGrieta.grieta_tarde": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.grieta_lmn": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.grieta_rhin": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.circuito_tiene_grieta": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.crias_sin_muroA": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.sin_retorno_raros": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.rachas_mono": [],
+        "CasaGrieta.circuito_exige_25": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.fuga_tiende": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.crecimiento_alto": [
+          "propext",
+          "Quot.sound"
+        ],
+        "CasaGrieta.fuga_sube": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaGrieta.retrato_grieta": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaGrieta.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaGrieta.lean"
+      ]
+    },
+    "CasaVentana": {
+      "fuente": "aa746123a52617a398d67b516b125df022561956c4a09742e46e552d1fd86328",
+      "objeto": "9fee4bd0b6b06040b1c29cc8671e23874115d425468216c0e9ca36da78b2b352",
+      "segundos": 28.302,
+      "axiomas": {
+        "CasaVentana.tamano_general": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.pocos_patrones_pesos": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.cuenta_korec": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.margen_pronostico": [
+          "propext"
+        ],
+        "CasaVentana.margen_viento": [
+          "propext"
+        ],
+        "CasaVentana.margen_viento_debil": [
+          "propext"
+        ],
+        "CasaVentana.margen_pesos": [
+          "propext"
+        ],
+        "CasaVentana.baja_korec": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.cuenta_korec_bloque": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.cuenta_korec_potencias": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.densidad_de_bloques": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.korec_opaco": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.casi_todo_baja_08": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.densidad_de_cuenta": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.cuenta_sin_cst_bloques": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaVentana.casi_todo_cst": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaVentana.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaVentana.lean"
+      ]
+    },
+    "CasaKorec": {
+      "fuente": "add63de50ae11be49d16ff8710935c1ff27d280da61a31fa024e37f9e922f6cc",
+      "objeto": "4b0303b554125f92b3960a6cdf54b1e2cca7824729c196496f91faccbbc85bae",
+      "segundos": 32.715,
+      "axiomas": {
+        "CasaKorec.entropia_real": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.margen_entropia": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.baja_param": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.cuenta_param": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.cuenta_param_bloque": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.existe_potencia": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.margenes_como_potencias": [
+          "propext"
+        ],
+        "CasaKorec.existe_bloque": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.korec_param": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.korec": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.korec_real": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.margen_6309": [
+          "propext"
+        ],
+        "CasaKorec.margen_pesos_lagarias": [
+          "propext"
+        ],
+        "CasaKorec.subidas_lagarias": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaKorec.rareza_lagarias": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaKorec.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaKorec.lean"
+      ]
+    },
+    "CasaTerras": {
+      "fuente": "6d786921b9cb7188b84f09397a0262a856e233865d2cf8719a2c87ab7028d167",
+      "objeto": "d65465b0c14742ecb228346765d71399b9396cbcd914b9ecdbf7ccedde63da23",
+      "segundos": 31.838,
+      "axiomas": {
+        "CasaTerras.paso_congruente": [
+          "propext",
+          "Quot.sound"
+        ],
+        "CasaTerras.congruentes_mismo_baile": [
+          "propext",
+          "Quot.sound"
+        ],
+        "CasaTerras.subidas_iguales": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.baja_iff_cruza": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.cruza_resto": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.cuenta_resto": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.cuenta_periodica": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.densidad_terras": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.restos_sin_cruce": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.terras_tiende_a_uno": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.teorema_B": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.primer_cruce_resto": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "CasaTerras.teorema_C": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "comando": [
+        "lake",
+        "env",
+        "lean",
+        "-R",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004",
+        "-o",
+        "C:\\Users\\Home\\AppData\\Local\\Temp\\casa_qp7jink4\\CasaTerras.olean",
+        "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\casa20261004\\CasaTerras.lean"
       ]
     }
   },
-  "consultas": 54,
+  "consultas": 153,
   "prefijo_ocelotas": {
     "Ocelotas": {
       "origen": "base",

@@ -1,4 +1,4 @@
-# Estado para continuar — 06-10-2026
+# Estado para continuar — 07-10-2026
 
 [Premisa del usuario](PREMISA_DE_INVESTIGACION.md): interpreta los resultados
 acumulados como evidencia de que Collatz es verdadero y busca cerrar la
@@ -73,31 +73,28 @@ presupuestos de exploración, no plazos.
 - [Pandas](depuracion/pandas20260930/LEEME.md), en Lean: sí a la pregunta
   de Gao con `Res < 4` y para casi todo n. Marmotas: un contraejemplo
   necesita más de `2^21` pasos `3n+1` sobre `2^20`.
-- [Wirsching](depuracion/wirsching20260930/LEEME.md), cerrado: queda la
-  condición por residuos, cuya versión útil equivale a un teorema local
-  límite; (⋆1) literal falla en todo nivel `<=16`.
+- [Wirsching](depuracion/wirsching20260930/LEEME.md), cerrado: la versión
+  útil de la condición por residuos equivale a un teorema local límite.
 - [CST](depuracion/cst20260930/LEEME.md): Ocelotas, arriba.
 
-[Cota general](depuracion/cst20260930/COTA_GENERAL.md) y
-[criterio geométrico](depuracion/cst20260930/COLA_PARAMETRICA.md) formalizados:
-acotan una región posible de fallos para cualquier límite de rachas.
-[Bisección equivalente en Lean](depuracion/cst20260930/PREFIJOS_BINARIOS_LEAN.md).
-[77 aceptado](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md):
-91 módulos y 5030 consultas estándar.
-[24 sin Rozier–Terracol](depuracion/cst20260930/VEINTICUATRO_LEAN.md):
-43 filas, dos ventanas cotejadas y 650 módulos aceptados; 23 se conserva.
-El [descuento por racha](depuracion/cst20260930/DESCUENTO_RACHAS_LEAN.md)
-mejora universalmente la criba; verificador y piloto de 76 aceptados en Lean.
-La [cota con suelo tras cortes](depuracion/cst20260930/SUELO_CORTES_LEAN.md)
-ya tiene conexión universal, verificador y piloto en Lean, sin LMN:
-339 nodos frente a 345 con descuento en el mismo caso pequeño.
-24 terminó el 04-10 y se cotejó por separado. Ruta B, elegida por el
-usuario el 04-10 ([plano de la casa](depuracion/casa20261004/LEEME.md)),
-sin fuerza bruta: no se amplía a 25 rachas. En Lean, sin hipótesis
-externas: Collatz equivale a los dos muros, y el retrato del fugitivo
-tiene siete rasgos (06-10). La primera ronda de choques (06-10) no halló
-choque: falta un rasgo que use a la vez que el fugitivo es un número
-común y algo propio del 3. El censo hasta `2^23` se conserva.
+Ruta B, elegida por el usuario el 04-10
+([plano de la casa](depuracion/casa20261004/LEEME.md)), sin fuerza
+bruta: no se amplía a 25 rachas. En Lean, sin hipótesis externas:
+Collatz equivale a los dos muros, y el retrato del fugitivo tiene ocho
+rasgos. La
+[segunda ronda de choques](depuracion/casa20261004/LEEME.md#paso-3-segunda-ronda-el-planeador)
+(07-10) halló el primer choque, sólo contra una subespecie: ningún
+fugitivo tiene el pronóstico acotado; además, ninguna órbita vuela en
+franja. Quedan el cohete y el planeador intermitente, fuera del alcance
+de todo conteo. El
+[retrato de la grieta](depuracion/casa20261004/LEEME.md#el-retrato-de-la-grieta)
+(07-10), el intruso del muro A, le dio a ese muro su tramo de «casi todo
+número» (Terras, Everett) y el teorema E de Lagarias con constante
+escrita bajo LMN, sin choque. Ventanas, también en Lean: el teorema de
+Korec completo (casi toda órbita baja por debajo de `n^θ`, para todo
+`θ > log 3/log 4`), CST para casi todo número, la rareza `x^0,95` de
+Lagarias y los teoremas A, B y C de Terras. El censo hasta `2^23` se
+conserva.
 
 ## Evidencia y conservación
 
@@ -110,7 +107,7 @@ nuevos dejan sus registros de `lake env lean`.
 Cada ficha enlaza sus contrastes independientes y certificados;
 los cálculos finitos no sustituyen las pruebas universales.
 
-Registro: 273 afirmaciones: 168 demostradas, 86 medidas, 12 conjeturadas
+Registro: 278 afirmaciones: 173 demostradas, 86 medidas, 12 conjeturadas
 y siete refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar

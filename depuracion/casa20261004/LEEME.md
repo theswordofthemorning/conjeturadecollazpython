@@ -11,6 +11,33 @@ de n a los j pasos es `3^S_j(n)/2^j`, donde S_j(n) cuenta las subidas
 pronóstico baja de 1. El **primer descenso** σ(n) es el primer j con
 `T^j(n)<n`. Siempre τ(n) ≤ σ(n).
 
+## La casa en una página
+
+Estado al 07-10-2026, todo en Lean y sin `sorry`.
+
+- **El techo y los muros.** Collatz equivale a dos muros: A, «si el
+  pronóstico dice abajo, el número termina bajando», y B, «el pronóstico
+  siempre llega a decir abajo». Los dos están en pie para casi todo
+  número, y ninguno para todos.
+- **Los dos intrusos.** Toda falla de Collatz pasa por una **fuga pura**
+  (el intruso del muro B, un avión que nunca aterriza) o por una
+  **grieta** (el del muro A, un paracaidista cuyo altímetro dice «suelo»
+  mientras sigue en el aire). De los dos hay retrato: el fugitivo tiene
+  ocho rasgos y la grieta los suyos, y los dos son raros.
+- **El primer choque.** No hay planeador fuerte: un fugitivo no puede
+  volar siempre bajo, porque cada aterrizaje necesitaría una pista nueva
+  en un país casi sin pistas (la estela). Quedan dos especies, el cohete
+  y el planeador intermitente, y contra ellas no alcanza ningún conteo.
+- **Las ventanas.** Están en Lean los teoremas clásicos de «casi todos»:
+  los A, B y C de Terras, el descenso y el teorema E (con constante
+  escrita), la rareza x^0,95 de Lagarias y el teorema de Korec completo.
+  Dejan ver cómo se porta casi todo número, pero el fugitivo y la grieta
+  viven en el conjunto de densidad cero.
+- **Lo que falta.** Los dos muros completos: «no hay circuitos» (el
+  dominó del muro A) y «no hay fugas puras» (el cohete y el planeador
+  intermitente del muro B). Son los dos problemas abiertos del centro de
+  Collatz; nadie sabe hacerlos.
+
 ## La norma: qué hace que una casa sea casa
 
 Collatz sólo puede fallar de dos maneras. Si la órbita de un número no
@@ -61,18 +88,28 @@ mientras no estén completos, por ahí se puede colar un contraejemplo.
 | Llegar a 1 es lo mismo con el mapa clásico que con el atajo | ✔ Lean | `llega_iff` |
 | Sólo hay dos fallas posibles: circuito o fuga | ✔ Lean | `dos_fallas` |
 | Antes del primer cruce, el tamaño va pegado al pronóstico: `n·3^S/2^k ≤ T^k(n) ≤ (n + S/3)·3^S/2^k` | ✔ Lean | `tamano_antes_del_cruce` |
+| Ninguna órbita vuela en franja: para todo número y todo c, el pronóstico sale alguna vez de la franja entre 1/3^c y 3^c | ✔ Lean | `ninguna_orbita_en_franja` |
+| Si el pronóstico cruza por primera vez en el paso k y k·2^k ≤ 3n, el número baja en ese mismo paso (Terras) | ✔ Lean | `desciende_si_grande`, `desciende_de_cruce` |
+| Hacia atrás: si u llega a v sin que su pronóstico baje de 1/3^c, entonces u ≤ 3^c·v | ✔ Lean | `atras_acotado` |
 
 ### Muro A: el pronóstico no se equivoca
 
 | Tramo | Estado | Dónde |
 |---|---|---|
+| Casi todo número (densidad 1) baja de sí mismo: por debajo de 2^(104m), los que nunca bajan son a lo sumo (100m+2)·2^(100m) | ✔ Lean | `casi_todo_desciende`, `cuenta_sin_descenso`; Terras (1976), Everett (1977) |
+| Casi todo número cumple CST: baja justo en su primer cruce | ✔ Lean | `casi_todo_cst`; Terras (1976) |
+| Para cada k, los que bajan en a lo sumo k pasos tienen densidad exacta F(k) = (restos módulo 2^k que cruzan en k pasos)/2^k, y F(k) → 1 | ✔ Lean | `densidad_terras`, `terras_tiende_a_uno`: el teorema A de Terras (1976), completo; también los teoremas B y C (`teorema_B`, `teorema_C`) |
 | Con hasta 24 picos antes del cruce acierta exacto (CST) | ✔ Lean, bajo LMN | [24 rachas](../cst20260930/VEINTICUATRO_LEAN.md); en el plano, `muroA_hasta_24` |
 | El muro A solo, aunque sea sin el B, ya excluye los circuitos | ✔ Lean | `muroA_sin_circuitos` |
+| El menor valor de todo circuito es una grieta | ✔ Lean | `circuito_tiene_grieta` |
+| Una grieta cruza tarde para su tamaño: 3n < k·2^k, con k su primer cruce | ✔ Lean | `grieta_tarde` |
+| Con primer cruce k ≥ 2^16, sólo el menor número de su clase módulo 2^k podría ser grieta (teorema E de Lagarias, con la constante escrita) | ✔ Lean, bajo LMN | `teorema_E_lmn`; con la cota de Rhin, desde k = 98: `teorema_E_rhin` |
 | En la casa del vecino (5n+1) el muro A se cae: el 13 cruza y nunca baja de sí mismo | ✔ Lean | `vecino_grieta`: la prueba del muro A tiene que usar algo propio del 3 |
 | Con hasta 77 picos, sumando el cálculo de Rozier–Terracol | ✔ Lean, dos hipótesis externas | [77 rachas](../cst20260930/SETENTA_Y_SIETE_LEAN.md) |
 | Para cada cantidad fija de picos, los fallos posibles caben en una región finita explícita | ✔ Lean, bajo LMN | [Cota general](../cst20260930/COTA_GENERAL.md), [cola](../cst20260930/COLA_PARAMETRICA.md) |
 | CST comprobada para todo n ≤ 2,8·10^19 | ✔ externo | Rozier–Terracol (2026), corolario 5.4 |
 | Ningún circuito tiene 91 picos o menos | ✔ externo | Hercher (2023) |
+| Ningún circuito tiene 24 picos o menos: desde su menor valor, una vuelta tiene al menos 25 rachas | ✔ Lean, bajo LMN | `circuito_exige_25` |
 | Cualquier cantidad de picos | ✘ | haría falta el «dominó»: reducir muchos picos a menos |
 
 El muro A completo implica que no hay circuitos, un problema abierto.
@@ -89,10 +126,16 @@ El muro A completo implica que no hay circuitos, un problema abierto.
 | Sube en al menos 63 de cada 100 pasos, en todo momento | ✔ Lean | `rasgo_sube` |
 | Su patrón de subidas y bajadas nunca se vuelve periódico | ✔ Lean | `rasgo_no_periodico` |
 | Por debajo de 2^(100m) hay a lo sumo 2·2^(96m) números sin primer cruce (unos x^0,96 por debajo de x) | ✔ Lean | `rasgo_pocos` |
+| Con el exponente de Lagarias: por debajo de x = 2^(10000m), a lo sumo 2·x^0,95 números sin primer cruce | ✔ Lean | `rareza_lagarias`; Lagarias (1985), teorema F |
 | En su órbita hay puntos sin retorno, tan lejos como se quiera: valores de los que nunca vuelve a bajar | ✔ Lean | `rasgo_minimos` |
 | Su tamaño va pegado a su pronóstico, en todo momento | ✔ Lean | `rasgo_tamano` |
 | Es cohete (su pronóstico crece sin límite y su órbita está llena de fugas puras) o planeador (vuelve una y otra vez a tamaños que crecen apenas como el tiempo) | ✔ Lean | `rasgo_cohete_o_planeador` |
+| Su pronóstico no tiene techo: pasa cualquier nivel, tan tarde como se quiera; no hay planeador fuerte, que vuele siempre bajo; en los primeros k = 2^(100m) pasos pasa de k^0,0158 | ✔ Lean | `sin_planeador_fuerte`, `pronostico_sin_techo`, `techo_crece` |
+| Casi nunca está bajo: para cada nivel, los momentos con el pronóstico por debajo tienen densidad cero; en los primeros 2^(100m) pasos el pronóstico pasa de 3^m salvo en una fracción 3·(3/8)^m | ✔ Lean | `tiempos_bajos_raros`, `tiempos_bajos_potencia` |
+| Es cohete o planeador intermitente, que vuelve bajo cada vez más de tarde en tarde | ✔ Lean | `cohete_o_planeador_intermitente` |
 | Con el muro A nunca anda solo: sus puntos sin retorno son fugas puras | ✔ Lean | `crias_con_muroA`, `fugas_sin_tope` |
+| Sin el muro A, los puntos sin retorno de toda órbita que crece sin límite son fugas puras o grietas, y son raros: por debajo de 2^(104m), a lo sumo (100m+2)·2^(100m) | ✔ Lean | `crias_sin_muroA`, `sin_retorno_raros` |
+| Toda órbita que crece sin límite, pura o no, termina subiendo en al menos 63 de cada 100 pasos, salvo una constante | ✔ Lean | `fuga_sube`; Lagarias (1985), (2.31) |
 | Con el tramo de Ocelotas, sus puntos sin retorno son fugas puras o cruzan con al menos 25 picos | ✔ Lean, bajo LMN | `crias_con_ocelotas` |
 | Si ninguna órbita crece sin límite, el muro B está en pie | ✔ Lean | `muroB_de_sin_fugas` |
 | Todo número, sin excepción | ✘ | es «no hay fugas puras», abierto |
@@ -100,6 +143,13 @@ El muro A completo implica que no hay circuitos, un problema abierto.
 ### Ventanas: dejan entrar luz, pero no sostienen la casa
 
 - Todo número hasta 2^71 llega a 1 (verificación externa, Barina 2025).
+- Casi toda órbita baja por debajo de n^θ en a lo sumo log₂ n pasos,
+  para todo θ mayor que log 3/log 4 ≈ 0,7925: el teorema de Korec (1994),
+  completo en Lean (`korec_real`), sin hipótesis externas; para θ = 0,8,
+  también con las constantes escritas (`casi_todo_baja_08`). Sección
+  «Una ventana: Korec».
+- Casi todo número cumple CST: baja justo en su primer cruce
+  (`casi_todo_cst`, en Lean; Terras, 1976). Misma sección.
 - Gao, Garner y Wu 2, en Lean: casi todos los pares de consecutivos se
   juntan pronto, y hay bloques tan largos como se quiera de consecutivos
   que llegan juntos a 1. Son familias que llegan, no todo número.
@@ -305,14 +355,404 @@ que use las dos cosas juntas: ése es el puente que falta, y es justo lo
 que nadie sabe hacer. La ronda se cierra con su presupuesto; las
 posibles segundas rondas están en «Ruta a seguir».
 
+## Paso 3, segunda ronda: el planeador
+
+07-10-2026: el pendiente (a), dentro de la meta que el usuario dio a la
+sesión («avanza con la investigación»). [CasaPlaneador.lean](CasaPlaneador.lean),
+sin hipótesis externas.
+
+**El primer choque: no hay planeador fuerte.** Un planeador *fuerte*
+sería un fugitivo cuyo pronóstico se queda para siempre por debajo de un
+mismo nivel. No existe (`sin_planeador_fuerte`): el pronóstico de todo
+fugitivo pasa cualquier nivel, y lo vuelve a pasar tan tarde como se
+quiera (`pronostico_sin_techo`).
+
+La prueba es una **estela**. Cada momento en que el fugitivo vuela bajo,
+con pronóstico a lo sumo 3^c, deja atrás un número que:
+
+- es chico: en el paso j vale a lo sumo 3^c·(n + j) (`chico_si_bajo`, del
+  rasgo 6);
+- es **casi fugitivo** de nivel 3^c: desde allí el pronóstico puede bajar,
+  pero nunca más que el factor 3^c (`casi_fuga_de_bajo`);
+- es distinto de todos los anteriores, porque la órbita nunca repite un
+  valor (rasgo 2).
+
+Si volara siempre bajo, en k pasos dejaría k casi fugitivos distintos,
+todos menores que 3^c·(n + k). Pero los casi fugitivos son raros, como los
+fugitivos, con un factor 2^c más (`cuenta_casi_fugas`, por la misma cuenta
+de patrones del rasgo 4): por debajo de x hay a lo sumo unos 2^c·x^0,96.
+Para k grande no alcanzan. Es un avión que tendría que aterrizar cada minuto en
+una pista nueva, en un país casi sin pistas. Chocan tres piezas del
+retrato: el rasgo 2, el 6 y la rareza del rasgo 4 llevada a los casi
+fugitivos.
+
+**Rasgo 8: casi nunca está bajo.** La misma estela cuenta los momentos
+bajos de cualquier fugitivo (`tiempos_bajos`). Para cada nivel tienen
+densidad cero (`tiempos_bajos_raros`). En cifras: para un fugitivo menor
+que 2^(100m), en sus primeros 2^(100m) pasos el pronóstico pasa de 3^m
+salvo en una fracción 3·(3/8)^m de los momentos (`tiempos_bajos_potencia`,
+útil desde m = 2). Como 3^m es k^0,0158 con k = 2^(100m), el pronóstico
+pasa casi todo el tiempo por encima de una potencia pequeña del tiempo, y
+en esos k pasos llega a pasarla (`techo_crece`): el techo que no tiene se
+aleja al menos a ese ritmo.
+
+**Las dos especies que quedan** (`cohete_o_planeador_intermitente`):
+
+- el **cohete**: su pronóstico termina pasando cualquier nivel y ya no
+  vuelve a bajar de él;
+- el **planeador intermitente**: vuelve por debajo de un nivel una y otra
+  vez, pero cada vez más de tarde en tarde, y entre medio pasa cualquier
+  techo.
+
+**Ninguna órbita vuela en franja.** La estela no necesita un fugitivo
+puro: basta que la órbita crezca sin límite, porque entonces tampoco
+repite valores (`fuga_inyectiva`), y el tamaño sigue pegado al pronóstico
+mientras éste no baje de 1/3^c (`tamano_en_franja`). Con eso, para todo
+número y todo nivel, el pronóstico sale alguna vez de la franja entre
+1/3^c y 3^c (`ninguna_orbita_en_franja`). Si la órbita está acotada, cae
+en un circuito y el pronóstico se hunde hacia cero (`acotada_baja`); si
+crece sin límite, la estela lo saca por arriba o por abajo
+(`fuga_sale_de_franja`). Es una terminación del plano clásico: ninguna
+fuga, pura o no, vuela siempre a media altura. En particular, una grieta
+del muro A cuya órbita escape tampoco vuela en franja.
+
+**El tablero, con el rasgo 8.**
+
+| Rasgo | Lean | ¿Fantasma? | ¿Vecino? | Tipo |
+|---|---|---|---|---|
+| 8. Su pronóstico no tiene techo y casi nunca está bajo | `pronostico_sin_techo`, `tiempos_bajos_raros` | no lo cumple: hay un fantasma que vuela siempre entre 1 y 3 | la prueba no pasa: allí los casi fugitivos abundan | de carne y hueso y del 3 |
+
+Es el primer rasgo de los dos tipos a la vez, el puente que la primera
+ronda echó en falta, aunque por ahora sólo alcanza a la subespecie del
+planeador fuerte.
+
+- **El fantasma que vuela bajo** sube en el paso j justo cuando hace falta
+  para que 3^subidas no baje de 2^j. Su pronóstico queda siempre entre 1 y
+  3, su baile nunca es periódico y su órbita no repite valores; pero es un
+  número con infinitas cifras binarias, sin tamaño, y su estela no se puede
+  contar. En Lean, tramo por tramo: para cada L hay un número menor que 2^L
+  cuyos primeros L pasos son los de un planeador fuerte
+  (`fantasma_planeador`). Por eso el choque necesita todos los pasos y el
+  tamaño del número: mirar una cantidad fija de pasos nunca basta.
+- **En la casa del vecino** (5n+1), entre los números menores que 2^16, el
+  18 % no baja de 1 en 80 pasos y el 51 % no baja de 1/5: los casi fugitivos no son raros y la
+  cuenta no da nada. Si allí hay fugitivos de pronóstico acotado, no se
+  sabe.
+
+**Lo que ya se sabía.** El pariente conocido más cercano es de Lagarias
+(1985, §2, teorema F y ecuación 2.32, leídos el 07-10 en la versión web de
+su artículo): los números con tiempo de parada infinito son a lo sumo
+c₁·x^(1−η) por debajo de x, con η ≈ 0,05004, y por eso los puntos sin
+retorno de una órbita que escapa también lo son: «los elementos de una
+trayectoria divergente no pueden ir al infinito demasiado despacio». Eso
+no basta contra el planeador fuerte: a una órbita que crece como el
+tiempo le pueden quedar muy pocos puntos sin retorno, del orden del
+logaritmo del tiempo. La estela cuenta, en cambio, todos los momentos de
+pronóstico bajo, gracias a los casi fugitivos. Es un refinamiento modesto
+de ese argumento clásico; no se buscó más en la literatura y no se
+pretende prioridad. La rareza en Lean de ese día (x^0,96) era algo más
+débil que la de Lagarias (x^0,95); más tarde, el mismo 07-10,
+`rareza_lagarias` la alcanzó para las fugas puras (sección «Una ventana:
+Korec»).
+
+**Lo que no funcionó: la vuelta de circuito.** La idea anotada en (a) era
+ver el tramo entre dos regresos como una vuelta de circuito y usar LMN.
+No da: que el pronóstico regrese a un nivel no obliga a que el tamaño
+regrese a un valor (la órbita crece hacia el infinito), así que no aparece
+ninguna casi igualdad entre 3^s y 2^p que LMN pueda prohibir. Funcionó la
+otra herramienta del 3, la cuenta de patrones, que la primera ronda sólo
+había usado para contar fugitivos y no para seguir a uno.
+
+**Lo que sigue abierto.** El cohete y el planeador intermitente esquivan
+la estela: pasan casi todo el tiempo arriba, donde los números son enormes
+y la estela se dispersa. La cuenta de patrones sólo asegura que por
+debajo de x hay a lo sumo unos x^0,96 casi fugitivos de cada nivel (en
+Lean), y aun afinada no baja de x^0,95, el límite de contar bailes; por
+eso el método no da más que una potencia pequeña del tiempo. Para acorralar
+al cohete hace falta otra cosa: la cuenta de patrones no distingue a un
+número común de un fantasma que sube sin techo, y fantasmas así hay de
+sobra (el −1 es uno). Es el muro de siempre de los argumentos de conteo:
+dan «casi todos», no «todos».
+
+**Los pendientes (b) y (c), con la herramienta nueva.** Revisados el 07-10,
+con su presupuesto.
+
+- **(b) La pinza** cerró para el planeador fuerte: allí la propia estela da
+  el brazo «si hay uno, hay muchos». Para el fugitivo general no cierra.
+  Hacia atrás, un número que llega a un fugitivo v sin que su pronóstico
+  baje de 1/3^c es a lo sumo 3^c·v (`atras_acotado`), así que el árbol de v
+  aporta sólo un puñado de casi fugitivos de cada nivel. Con todas las
+  fugas, la pinza pide que las órbitas que escapan sean menos de x^0,84
+  por debajo de x, y eso incluye que tengan densidad cero: no conocemos
+  prueba de eso (Lagarias, 2021, §8, da por abierta incluso su existencia),
+  y la densidad de Terras no alcanza, porque una órbita puede bajar primero
+  y escapar después. Se cierra sin más avance.
+- **(c) El dominó del muro A** no se mueve con la estela. Una grieta es un
+  circuito o una órbita que escapa. Contra los circuitos la estela no sirve,
+  porque un circuito repite valores y su pronóstico se hunde hacia cero; de
+  las que escapan sólo dice que su pronóstico tampoco vuela en franja. El
+  dominó sigue siendo el problema de los m-ciclos; se cierra con su
+  presupuesto.
+
+[cotejo_planeador.py](cotejo_planeador.py) lo contrasta sin Lean: los
+patrones de largo 100m con 2^(100m) ≤ 3^c·3^|A| quedan bajo el tope
+2^c·2^(96m) para m ≤ 6 y c ≤ 30; entre 0 y 2^L − 1 hay justo C(L, s)
+números con s subidas, para L ≤ 18; con 5n+1, los patrones de largo 100
+que no cruzan al final son unos 2^99,85, más que el tope 2^96; el
+fantasma vuela 2000 pasos entre 1 y 3, con 803 unos y 797 ceros en sus
+primeras 1600 cifras y sin periodo ≤ 300, y sus recortes a L ≤ 400 cifras
+son números menores que 2^L que siguen su baile durante L pasos, como dice
+`fantasma_planeador`; y en los récords de pasos sin
+cruzar por debajo de 2^22 (el mayor, 1 126 015, aguanta 224 pasos) las
+cotas de `chico_si_bajo` y `casi_fuga_de_bajo` se cumplen en cada momento
+bajo, y el pronóstico pasa por debajo de 3 sólo entre el 3 y el 9 % del
+camino.
+
+## El retrato de la grieta
+
+07-10-2026, dentro de la meta que el usuario dio a la sesión («avanza
+hasta nuevo aviso»). [CasaGrieta.lean](CasaGrieta.lean).
+
+La casa tenía el retrato del intruso del muro B, el fugitivo, pero no el
+del muro A. Ese intruso es la **grieta**: un número cuyo pronóstico baja
+de 1 pero que nunca baja de sí mismo. Es como un paracaidista cuyo
+altímetro marca «ya llegaste al suelo» mientras él sigue en el aire. El
+muro A dice exactamente que no hay grietas (`muroA_iff_sin_grietas`).
+Aquí se la supone y se anota lo que tendría que cumplir, como con el
+fugitivo.
+
+**El viento sólo levanta a los livianos.** El pronóstico mira sólo las
+subidas y las bajadas. El tamaño real lleva además el +1 de cada subida,
+que empuja hacia arriba como el viento. Hasta el primer cruce, ese
+empuje suma a lo sumo S/3 veces el pronóstico (`tamano_antes_del_cruce`).
+Por eso, si el pronóstico cruza por primera vez en el paso k y el número
+es grande comparado con k·2^k, el viento no alcanza y el número baja
+justo en ese paso (`desciende_si_grande`; la forma exacta,
+`desciende_de_cruce`, pide S·3^S < 3n). Es el teorema C(b) de Terras
+(1976), con la cota escrita. Una grieta, en cambio, tiene que ser liviana
+para su pronóstico (**rasgo G1**, `grieta_tarde`): cruza en un paso k ≥ 2
+con 3n < k·2^k.
+
+**Casi todo número baja de sí mismo** (`casi_todo_desciende`; Terras,
+1976, y Everett, 1977). Un número que nunca baja, o aguanta 100m pasos
+sin cruzar, y ésos son pocos por la cuenta de patrones del retrato, o
+cruza antes y entonces es chico, por G1. En cifras
+(`cuenta_sin_descenso`): por debajo de 2^(104m), los que nunca bajan son
+a lo sumo (100m+2)·2^(100m). Con eso el muro A gana su tramo de «casi
+todo número», como el muro B tenía el suyo desde el 06-10. Lagarias
+(1985, teorema F) da una cota mejor, a lo sumo c₁·x^0,95 por debajo de x;
+la de Lean se acerca a x^0,962, por un factor logarítmico, y no usa LMN.
+
+**Con LMN, sólo el primero de la fila** (`teorema_E_lmn`). Los números que
+bailan igual en sus primeros k pasos forman una fila: los de una misma
+clase módulo 2^k. LMN impide que 3^S quede demasiado pegado a 2^k, así
+que el viento tendría que ser todavía más fuerte. Bajo LMN, una grieta
+cumple 3n ≤ k·2^(19(log₂ k + 33)²) (`grieta_lmn`), y si su primer cruce es
+k ≥ 2^16, es menor que 2^k: el primero de su fila. Es el teorema E de
+Lagarias (1985), que deja la constante como «efectivamente calculable»;
+aquí queda escrita. Con la cota de Rhin, la de Ocelotas, basta k ≥ 98, y
+la grieta cumple 3n ≤ k^15 (`teorema_E_rhin`, `grieta_rhin`). El umbral
+de validez de Rhin sigue sin cotejar con la fuente
+([RHIN_LEAN](../cst20260930/RHIN_LEAN.md)); por eso la versión principal
+es la de LMN.
+
+**Los dos intrusos se reducen a dos clases de números.** El menor valor
+de todo circuito es una grieta (`circuito_tiene_grieta`). Y, sin el muro
+A, cada punto sin retorno de una órbita que crece sin límite es una fuga
+pura o una grieta (`crias_sin_muroA`). Esos puntos son raros: una órbita
+pasa por a lo sumo (100m+2)·2^(100m) de ellos por debajo de 2^(104m)
+(`sin_retorno_raros`, la (2.32) de Lagarias en cifras). Toda falla de
+Collatz pasa, pues, por fugas puras o por grietas, y de las dos clases
+hay prueba en Lean de que son raras. Pero raras no es ninguna.
+
+Como el menor valor de un circuito es una grieta, el tramo de Ocelotas
+(toda grieta necesita al menos 25 picos antes de su primer cruce) dice,
+bajo LMN, que ningún circuito tiene 24 picos o menos en una vuelta
+(`circuito_exige_25`). Hercher (2023) llegó a 91, fuera de Lean; esto es
+el mismo tramo de Ocelotas, ahora leído como cota para los circuitos.
+
+**La grieta que escapa sube como el fugitivo.** Toda órbita que crece sin
+límite, pura o no, termina subiendo en al menos 63 de cada 100 pasos,
+salvo una constante (`fuga_sube`, la (2.31) de Lagarias). Cuando los
+valores ya pasan de 1000, el +1 de cada subida casi no pesa
+(`crecimiento_alto`), y 3001^63 ≤ 2^100·1000^63 hace el resto. Vale para
+una grieta cuya órbita escapa, que el retrato del fugitivo no cubría.
+
+**El tablero, con la grieta.**
+
+| Rasgo | Lean | ¿Fantasma? | ¿Vecino? | Tipo |
+|---|---|---|---|---|
+| G1. Cruza tarde para su tamaño | `grieta_tarde` | no tiene sentido: habla del tamaño | vale con 5: el 13 y el 17 son grietas y lo cumplen | de carne y hueso |
+| G2. Con LMN, es la primera de su fila | `teorema_E_lmn` | no tiene sentido | no la distingue: con una cota de Baker para 2 y 5 valdría igual (no se calculó); el 13 cruza en el paso 7, demasiado pronto para que aplique | de carne y hueso |
+| El menor valor de un circuito es una grieta | `circuito_tiene_grieta` | no lo cumplen los circuitos negativos: en el del −5 el pronóstico nunca baja de 1 | vale: el 13 y el 17 | de carne y hueso |
+| Ningún circuito tiene 24 picos o menos | `circuito_exige_25` | no lo cumplen: los circuitos negativos tienen 1 o 2 rachas por vuelta | no vale: el circuito del 13 tiene 1 racha | de carne y hueso y del 3, pero sólo por tramos |
+
+La rareza, «casi todo número baja», es del 3, como la del rasgo 4: en la
+casa del vecino no vale. La fila de los 24 picos usa las dos cosas, como
+el rasgo 8, pero hereda el defecto de Ocelotas: vale para una cantidad
+fija de picos, no para todas a la vez.
+
+**Lo que ya se sabía.** Todo esto es clásico; se leyó el 07-10 en la
+versión web de Lagarias (1985, §2). El descenso de los números grandes es
+el teorema C(b), de Terras. «Casi todo número baja» es el teorema A, de
+Terras (1976) y de Everett (1977). «Sólo el primero de la fila» es el
+teorema E, que usa la teoría de Baker. La rareza de los puntos sin
+retorno es la (2.32). Lo nuevo es sólo la forma: en Lean, sin `sorry`,
+con las constantes escritas (2^16 bajo LMN, 98 bajo Rhin). No se buscó si
+esas constantes ya están publicadas; no se pretende prioridad.
+
+**Lo que no da.** No hay choque. Como el del fugitivo, el retrato de la
+grieta dice «raras», no «ninguna». Para los circuitos, G1 da una cota
+mucho más débil que las conocidas (Hercher, 2023: ningún circuito tiene
+91 picos o menos), y no mueve el dominó. Lo que sí deja es el mapa de las
+dos clases de intrusos, fugas puras (muro B) y grietas (muro A), cada
+una con su rareza demostrada en Lean.
+
+[cotejo_grieta.py](cotejo_grieta.py) lo contrasta sin Lean. Para
+2 ≤ n < 2^20, el primer descenso llega justo en el primer cruce, y la
+condición de `desciende_de_cruce` cubre al 96,7 % (la de
+`desciende_si_grande`, al 96,4 %). Los 34 381 restantes tienen un cruce
+largo para su tamaño (hasta 183 pasos, en n = 1 027 431) y también bajan
+en su cruce, aunque eso Lean no lo prueba. k^15 < 3·2^k vale desde
+k = 98 y falla en 97; la desigualdad de LMN vale desde k = 43 790, y Lean
+usa 2^16 = 65 536. En la casa del vecino, el 13 y el 17 son grietas de
+verdad: cruzan a los 7 pasos, cumplen 5n ≤ S·5^S y son el menor valor de
+su circuito. Y entre los n < 2^14, el 17,5 % pasa de 2^200 sin bajar
+nunca. Para toda fuga: 3001^63 ≤ 2^100·1000^63, con margen de 2^0,117, y
+la cota de `crecimiento_alto` se cumple en 3 505 289 tramos de órbitas
+reales. Los circuitos que sí existen (el 13 y el 17 en 5n+1; el −1, el
+−5 y el −17 con negativos) tienen 1 o 2 rachas por vuelta.
+
+## Una ventana: Korec
+
+07-10-2026, misma meta. [CasaVentana.lean](CasaVentana.lean), sin
+hipótesis externas.
+
+Las ventanas no sostienen la casa, pero dejan ver cómo se porta casi
+todo número. Terras probó que casi todo número baja alguna vez de sí
+mismo. Korec (1994) probó mucho más: para todo exponente mayor que
+log 3/log 4 ≈ 0,7925, casi todo número n baja alguna vez por debajo de
+n elevado a ese exponente. Aquí está en Lean el caso 0,8: **casi toda
+órbita baja por debajo de n^0,8 en a lo sumo log₂ n pasos**
+(`casi_todo_baja_08`).
+
+**Por qué 0,7925.** Un número típico sube en la mitad de los pasos y baja
+en la otra mitad. En log₂ n pasos su pronóstico queda en
+(3/4)^(log₂ n / 2) = n^(−0,2075), y el número, en n^0,7925. Para bajar más
+hace falta subir menos que la mitad de las veces, y eso es cada vez más
+raro. Para 0,8 basta poco: en bloques de 1000 pasos, menos de 503 subidas
+(`baja_korec`). Los patrones con 503 subidas o más son menos que 2^1000
+(`margen_pesos`), pero por un margen finísimo: 2^0,026 por bloque.
+
+**Cómo se cuenta.** Es la misma cuenta de patrones del retrato del
+fugitivo, con pesos 503 y 497 en vez de 2 y 1 (`pocos_patrones_pesos`),
+para contar «más de la mitad de subidas». El viento, el +1 de cada
+subida, se acota para cualquier camino (`tamano_general`). Las
+desigualdades con números de miles de cifras se comprueban en el núcleo
+de Lean (`decide +kernel`), y en la parte con números reales esas
+constantes quedan como números opacos (`korec_opaco`).
+
+**Lo que dicen los números de verdad.** [cotejo_ventana.py](cotejo_ventana.py)
+lo contrasta sin Lean. Además de los márgenes y de la cuenta exacta de
+patrones (2^998,81 de 2^1000), mide cuántos bajan de verdad. Hasta 2^19,
+entre el 60 y el 63 % de los números de cada tramo baja por debajo de
+n^0,8 en a lo sumo log₂ n pasos; con 0,75, por debajo del umbral, entre
+el 48 y el 55 %, en lenta caída. El «casi todos» de Korec es asintótico:
+con un margen tan fino llega para números astronómicos, y el teorema no
+dice desde cuándo. La cota de `tamano_general` se cumple en 1 200 000
+casos.
+
+**Lo que ya se sabía.** Es el teorema de Korec (*A density estimate for
+the 3x+1 problem*, Math. Slovaca 44, 1994, págs. 85 a 89), para todo
+exponente mayor que log 3/log 4; Korec cita como antecedente a Allouche
+(1979), y Tao (2019) llegó mucho más lejos: casi toda órbita alcanza
+valores casi acotados. Aquí está el caso 0,8, en Lean y con las
+constantes escritas, y el teorema completo en `CasaKorec` (abajo). El
+artículo de Korec no se leyó: el enunciado viene de su ficha en EuDML y
+de reseñas, y la prueba se rehízo aquí con la cuenta de patrones.
+
+**Korec completo** ([CasaKorec.lean](CasaKorec.lean)). El mismo argumento
+vale para todo exponente mayor que log 3/log 4, con bloques que crecen al
+acercarse al umbral: de largo 2c, con umbral de c + 1 subidas y pesos
+c + 1 y c. Los patrones de largo 2c con al menos c + 1 subidas son menos
+que 4^c (`margen_entropia`). Para cada exponente racional u/v con
+3^v < 4^u hay un bloque que sirve (`existe_bloque`), y entonces casi toda
+órbita baja por debajo de n^(u/v) en a lo sumo log₂ n pasos (`korec`).
+Como entre log 3/log 4 y cualquier exponente mayor hay un racional, vale
+para todo exponente real mayor que log 3/log 4 (`korec_real`): es el
+teorema de Korec tal como se enuncia. [cotejo_korec.py](cotejo_korec.py)
+lo contrasta sin Lean: el bloque mínimo es de 18 pasos para 0,95, 26
+para 0,9, 48 para 0,85, 372 para 0,8 y 1108 para 0,795; y hasta 2^17
+baja por debajo de n^θ en a lo sumo log₂ n pasos el 92 % de los números
+con 0,95, el 85 % con 0,9, el 72 % con 0,85 y el 62 % con 0,8.
+
+**La rareza, al nivel de Lagarias.** Con la misma cuenta, en bloques de
+10 000 pasos y pesos 6309 y 3691, la rareza de las fugas puras pasa de
+x^0,96 a x^0,95: por debajo de x = 2^(10000m) hay a lo sumo 2·x^0,95
+(`rareza_lagarias`). Es el exponente del teorema F de Lagarias (1985),
+η ≈ 0,05, para el primer cruce. El cotejo cuenta los patrones de largo
+10 000 con al menos 6309 subidas: son 2^9494,13, bajo el tope de 2^9500.
+
+**Otra ventana, del muro A: CST para casi todo número** (`casi_todo_cst`).
+El descenso de Terras da algo más fuerte que «casi todo número baja»:
+casi todo número baja justo en su primer cruce, como pide CST, la forma
+reforzada del muro A. Los que no lo cumplen, o aguantan 100m pasos sin
+cruzar, o son menores que 100m·2^(100m) (`cuenta_sin_cst_bloques`); y
+toda cuenta así tiene densidad cero (`densidad_de_cuenta`). Es el teorema
+de Terras (1976).
+
+**La densidad exacta de Terras** ([CasaTerras.lean](CasaTerras.lean)).
+Es el teorema A de Terras tal como lo enuncia Lagarias: los números que
+bajan de sí mismos en a lo sumo k pasos tienen una densidad exacta F(k),
+y F(k) tiende a 1. La llave es que dos números congruentes módulo 2^k
+bailan igual sus primeros k pasos (`congruentes_mismo_baile`, el
+recíproco de un lema del retrato), así que cruzar en k pasos depende sólo
+del resto módulo 2^k; y para n grande, bajar en k pasos es lo mismo que
+cruzar (`baja_iff_cruza`). Entonces F(k) es la proporción de restos
+módulo 2^k que cruzan (`densidad_terras`), y por la cuenta de patrones,
+1 − F(k) ≤ 2/16^m si k ≥ 100m (`terras_tiende_a_uno`): una caída
+exponencial, como en el teorema D de la reseña de Lagarias, con un
+exponente algo peor (0,04 en vez de 0,05). Con las mismas piezas salen el
+teorema B (cada patrón de largo k corresponde a exactamente un resto
+módulo 2^k: `teorema_B`) y el C (el primer cruce depende sólo del resto,
+y para n grande el tiempo de parada es exactamente el primer cruce:
+`primer_cruce_resto`, `teorema_C`). Con esto, los teoremas A, B y C de
+la sección 2 de la reseña de Lagarias están en Lean, y el D con un
+exponente algo peor.
+[cotejo_terras.py](cotejo_terras.py): F(k) coincide exactamente con la
+proporción real de los números entre 2^20 y 2^21 que bajan en a lo sumo
+k pasos; F(1) = 0,5, F(10) = 0,9375 y F(18) = 0,9714. Y para k < 15, los
+2^k restos dan 2^k patrones distintos, como dice el teorema B.
+
+**Lo que no da.** Son ventanas: dicen «casi todos», y el fugitivo y la
+grieta viven en el conjunto de densidad cero. No tocan ningún muro.
+
+## Mapa de los módulos
+
+Los nueve archivos, en el orden en que se importan. Ninguno usa
+hipótesis externas salvo donde se dice.
+
+| Módulo | Qué trae | Consultas |
+|---|---|---|
+| [CasaPlano](CasaPlano.lean) | el plano: Collatz equivale a los dos muros; las dos fallas; el techo | 17 |
+| [CasaOcelotas](CasaOcelotas.lean) | el tramo de hasta 24 picos del muro A, bajo LMN | 2 |
+| [CasaRetrato](CasaRetrato.lean) | el retrato del fugitivo, rasgos 1 a 4, y su rareza | 17 |
+| [CasaTablero](CasaTablero.lean) | rasgos 5 a 7, el plano clásico, el fantasma y el vecino | 18 |
+| [CasaPlaneador](CasaPlaneador.lean) | la estela: no hay planeador fuerte; rasgo 8; ninguna órbita vuela en franja | 27 |
+| [CasaGrieta](CasaGrieta.lean) | el retrato de la grieta: descenso de Terras, teorema E (bajo LMN o Rhin), circuitos, toda fuga | 28 |
+| [CasaVentana](CasaVentana.lean) | Korec con exponente 0,8 y CST para casi todo número | 16 |
+| [CasaKorec](CasaKorec.lean) | el teorema de Korec completo y la rareza x^0,95 de Lagarias | 15 |
+| [CasaTerras](CasaTerras.lean) | los teoremas A, B y C de Terras: la densidad exacta del tiempo de parada | 13 |
+
 ## Comprobación
 
 [comprobar_casa.py](comprobar_casa.py) verificó por huellas los 670
 módulos de Ocelotas importados (20 de la base y 650 del cierre de 24).
-El 06-10 compiló los cuatro archivos en 41, 40, 34 y 31 segundos y
-auditó sus 54 consultas (17 del plano, 2 del enganche con Ocelotas, 17
-del retrato y 18 del tablero): sólo `propext`, `Classical.choice` y
-`Quot.sound`, sin `sorryAx` ni avisos
+El 07-10 compiló los nueve archivos en 37, 38, 29, 27, 39, 28, 28, 33 y 32
+segundos y auditó sus 153 consultas (17 del plano, 2 del enganche con
+Ocelotas, 17 del retrato, 18 del tablero, 27 del planeador, 28 de la
+grieta, 16 de las ventanas, 15 de Korec y 13 de Terras): sólo `propext`,
+`Classical.choice` y `Quot.sound`, sin `sorryAx` ni avisos
 ([evidencia](evidencia_casa.json), [salida](evidencia_casa.txt)).
 Lean 4.32.2. Para reproducirlo, desde la raíz:
 
@@ -342,18 +782,22 @@ Orden de trabajo, de lo más chico a lo más grande:
    fugitivo en Lean»). Los cuatro rasgos previstos están en Lean: órbita
    no acotada, patrón nunca periódico, al menos 63 subidas de cada 100
    pasos y densidad cero. El mismo día el tablero sumó tres más: puntos
-   sin retorno, tamaño pegado al pronóstico y cohete o planeador.
-3. **Buscar choques** (abierto; primera ronda hecha el 06-10, sección
-   «Paso 3: el tablero del choque», sin choque). Dos rasgos del fugitivo
-   que se contradigan, o uno que choque con algo ya demostrado. Si
+   sin retorno, tamaño pegado al pronóstico y cohete o planeador. El 07-10
+   llegó el rasgo 8: su pronóstico no tiene techo y casi nunca está bajo.
+   El mismo día, el retrato de la grieta, el intruso del muro A (sección
+   «El retrato de la grieta»): casi todo número baja, y una grieta cruza
+   tarde y, bajo LMN, es la primera de su fila.
+3. **Buscar choques** (abierto; primera ronda el 06-10, sin choque;
+   segunda ronda el 07-10, sección «Paso 3, segunda ronda: el planeador»,
+   con el primer choque, sólo contra el planeador fuerte). Dos rasgos del
+   fugitivo que se contradigan, o uno que choque con algo ya demostrado. Si
    aparece, el muro B queda en pie. Nadie lo ha logrado; ésta es la
    apuesta. El choque tiene que usar que el fugitivo es un número común y
    no un fantasma 2-ádico, y no debe valer en la casa del vecino (5n+1),
    donde el muro A se cae de verdad (el 13) y todo indica que hay
-   fugitivos (el 7). Segundas rondas posibles: cerrar la pinza (que un
-   fugitivo obligue a que haya muchos), estudiar por separado las dos
-   especies, cohete y planeador, o pasar al paso 4.
-4. **El dominó del muro A** (abierto). Una reducción que convierta una
+   fugitivos (el 7). Lo que sigue está en «Pendientes», más abajo.
+4. **El dominó del muro A** (abierto; revisado el 07-10 con la estela y
+   con el retrato de la grieta, sin avance). Una reducción que convierta una
    grieta con R+1 picos en otra con menos, o una desigualdad que valga
    para todo R a la vez. Completar el muro A incluye demostrar que no hay
    circuitos.
@@ -364,6 +808,62 @@ Orden de trabajo, de lo más chico a lo más grande:
 Cada pieza se trabaja con presupuesto acotado, como en el
 [plan del 28-09](../transversal20260927/PLAN_SESIONES_20260928.md): si no
 avanza, se escribe por qué y se cierra.
+
+**Pendientes (06-10).** El usuario los aprobó como ruta, en este orden.
+Los tres apuntan al mismo hueco: el puente entre lo de carne y hueso y
+lo propio del 3.
+
+- **(a) Estudiar al planeador** (recomendado). El planeador tiene dos
+  mitades: su pronóstico vuelve una y otra vez por debajo de un mismo C,
+  y su tamaño vuelve una y otra vez a crecer apenas como el tiempo,
+  `3·T^k(n) ≤ C·(3n + k)`. La primera mitad sola no alcanza: la cumple el
+  baile que sube justo lo necesario para no cruzar (su pronóstico queda
+  siempre entre 1 y 3), y todo baile es el de algún número 2-ádico. La
+  segunda es de carne y hueso. La idea: si el planeador regresa a tamaños
+  parecidos, el tramo entre dos regresos se parece a una vuelta de
+  circuito, y contra los circuitos hay herramientas propias del 3 (LMN y
+  el tramo de Ocelotas). Riesgo, según una primera cuenta a mano: un
+  regreso aproximado deja el pronóstico del tramo cerca de 1, pero LMN
+  sólo impide que el tamaño sea enorme comparado con el largo del tramo,
+  y un planeador lo cumple sin problema. También contra los circuitos LMN
+  alcanza sólo junto con mucho cálculo, y para pocos picos.
+  **Hecho el 07-10** (sección «Paso 3, segunda ronda: el planeador»): el
+  riesgo se confirmó y la vuelta de circuito no dio; funcionó la cuenta de
+  patrones. Primer choque: no hay planeador fuerte. Quedan el cohete y el
+  planeador intermitente.
+- **(b) Cerrar la pinza.** Falta que un fugitivo obligue a que haya
+  muchos. Hacia atrás eso ya pasa, pero con otra población: todo número
+  cuya órbita pasa por una fuga es una fuga (no acotada, aunque no sea
+  pura), y Krasikov y Lagarias (2003) probaron que, para x grande, por
+  debajo de x hay al menos x^0,84 números cuya órbita pasa por un número
+  dado que no sea múltiplo de 3. Si se probara que las fugas, todas y no
+  sólo las puras, son menos que eso, no habría fugas y
+  `muroB_de_sin_fugas` daría el muro B. Riesgo: nuestra rareza vale sólo
+  para las fugas puras y es de x^0,96; contar bailes no baja de x^0,95, y
+  en 5n+1 casi todas las órbitas parecen escaparse. Hace falta una idea
+  nueva, propia del 3. **Revisado el 07-10:** cerró para el planeador
+  fuerte; para el fugitivo general no cierra (misma sección).
+- **(c) El dominó del muro A** (paso 4 de la lista), si (a) y (b) no
+  avanzan con su presupuesto. **Revisado el 07-10:** la estela no lo
+  mueve (misma sección).
+
+**Después de los pendientes (07-10).** Quedan dos especies de fugitivo,
+el cohete y el planeador intermitente, y las dos pasan casi todo el
+tiempo arriba, donde la cuenta de patrones no las alcanza. La siguiente
+pieza la elige el usuario. Una idea anotada, sin formalizar: cada mínimo
+«de ahí en adelante» del pronóstico de un cohete deja un fugitivo puro
+(`fuga_de_minimo`), y de un mínimo al siguiente el pronóstico crece a lo
+sumo el factor 3/2, porque el paso que sigue a un mínimo es una subida.
+Un cohete deja así al menos log₁,₅(D) crías en momentos en que su
+pronóstico es a lo sumo D: muchas, pero sólo logarítmicamente; la pinza
+pediría una potencia.
+
+Con la meta «avanza hasta nuevo aviso» se hizo después, el mismo 07-10,
+el retrato de la grieta (sección propia): el muro A gana su tramo de
+«casi todo número» y el teorema E de Lagarias con constante escrita, sin
+choque. Y las ventanas: Korec con exponente 0,8, Korec completo, CST para
+casi todo número, la rareza de Lagarias y la densidad exacta de Terras
+(sección «Una ventana: Korec»).
 
 **Duda abierta del usuario, 04-10:** «¿para terminar de construir los
 muros necesitamos la racha 25, 26 y así sucesivamente? Eso nos dejaría
