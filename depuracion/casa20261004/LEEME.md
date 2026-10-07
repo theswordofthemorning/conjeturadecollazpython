@@ -865,6 +865,35 @@ choque. Y las ventanas: Korec con exponente 0,8, Korec completo, CST para
 casi todo número, la rareza de Lagarias y la densidad exacta de Terras
 (sección «Una ventana: Korec»).
 
+La [continuación de Perdices](../perdices20261007/LEEME.md), tras recuperar
+la sesión local del 05-10, conecta esa cadena independiente con la ley de
+Syracuse de Tao. Formaliza el olvido del arranque tras m subidas módulo
+`3^m` y delimita el condicionamiento: una palabra sesgada puede olvidar
+todo el arranque y seguir concentrada en un residuo. La cota binomial
+para arranques uniformes tiene prueba escrita; la mezcla fina y el control
+de la palabra de un fugitivo siguen pendientes. Evidencia exacta hasta
+m=6, sin ampliar los censos de órbitas.
+
+La [frontera y reserva](../perdices20261007/UMBRAL.md) precisa ahora el
+sesgo de no-cruce y conecta con `tiempos_bajos_raros`: un fugitivo fijo
+tendría reserva para toda continuación de longitud fija en una proporción
+de tiempos que tiende a uno. No prueba que sus bits sean uniformes.
+
+La continuación [tamaño y regresos](../perdices20261007/TAMANO.md)
+prueba en Lean `T^k(n)/P_k=o(k)` para cada fugitivo. La identidad
+multiplicativa y la inyectividad dan además una prueba escrita de
+`(T^k(n)/P_k)^6<=n^6(S_k+1)`; su ordenación y telescopio quedan por
+formalizar. Restringe los regresos del planeador a una cota de sexta
+raíz del tiempo, todavía compatible con una fuga lenta.
+
+**Próxima tanda tras el cierre del 07-10:** completar en Lean la sexta
+raíz y su cuenta de regresos; cruzar el intervalo de valores con la
+cuenta de casi fugitivos; buscar una frecuencia mínima incompatible.
+Los entregables y límites están en el
+[plan de tamaño](../perdices20261007/TAMANO.md#qué-debe-aportar-el-siguiente-paso).
+El [cierre pedagógico](../perdices20261007/CIERRE_SESION.md) explica su
+papel en la casa. Cohete, planeador intermitente y grieta siguen abiertos.
+
 **Duda abierta del usuario, 04-10:** «¿para terminar de construir los
 muros necesitamos la racha 25, 26 y así sucesivamente? Eso nos dejaría
 exactamente al principio del problema». No: ese camino no termina

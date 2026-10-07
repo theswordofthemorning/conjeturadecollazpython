@@ -1,0 +1,610 @@
+{
+  "estado": "compilado y auditado",
+  "contexto": {
+    "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+    "comprobador": "d785e13b120ad88b95ba278b09d54482888f4350f2185f423c4ecafb97d645ae",
+    "toolchain": "ad754bf869b81954d95894d3b1324f5ec031819b8e9c8a4cdd4a485b271f0793",
+    "mathlib": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+    "formal": "C:\\Users\\GordoLaEspadaDelAlba\\Desktop\\conjeturadecollazpython\\depuracion\\gao20260920\\formal",
+    "lean_path_previo": ""
+  },
+  "modulos": {
+    "Ocelotas": {
+      "fuente": "depuracion/cst20260930/Ocelotas.lean",
+      "sha256": "576cb1ca5ea94f200ee6525a4132bd0c70498bdeb1253581d909335ab59456a6",
+      "dependencias": {},
+      "objeto": "e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8",
+      "axiomas": {
+        "Ocelotas.finito_q": [
+          "propext"
+        ],
+        "Ocelotas.finito_n": [
+          "propext"
+        ],
+        "Ocelotas.ocelotas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 54.06
+    },
+    "OcelotasRachas": {
+      "fuente": "depuracion/cst20260930/OcelotasRachas.lean",
+      "sha256": "14e57ea46813cfe8ab8284a67862cead876cf5af939b01650f160edc95f29bde",
+      "dependencias": {},
+      "objeto": "2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08",
+      "axiomas": {
+        "OcelotasRachas.tres_cinco": [
+          "propext"
+        ],
+        "OcelotasRachas.cota_paso_monotono": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasRachas.paso_cota": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasRachas.cota_acumulada": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasRachas.criba_desde_congruencias": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasRachas.cola_diez": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 9.497
+    },
+    "OcelotasTrayectorias": {
+      "fuente": "depuracion/cst20260930/OcelotasTrayectorias.lean",
+      "sha256": "a352ac46cd0571166b8ce023a7e9fc36c5abe1af9fa5da24780517b3111310d0",
+      "dependencias": {
+        "Ocelotas": "e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8",
+        "OcelotasRachas": "2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08"
+      },
+      "objeto": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7",
+      "axiomas": {
+        "OcelotasTrayectorias.cuenta_impares": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.congruencia_racha": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.congruencias_acumuladas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.criba_desde_trayectoria": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.fallo_producto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.fallo_rhin": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.criba_fallo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.cota_semilla": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasTrayectorias.tiempo_diez": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 14.624
+    },
+    "OcelotasFinito": {
+      "fuente": "depuracion/cst20260930/OcelotasFinito.lean",
+      "sha256": "852bd08f85934fed543016aad6876d4c0895b2aae372f9e18b51847ad8837eb1",
+      "dependencias": {
+        "OcelotasTrayectorias": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7"
+      },
+      "objeto": "86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1",
+      "axiomas": {
+        "OcelotasFinito.comprobar_correcto": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasFinito.intervalo_comprobado": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasFinito.semillas_comprobadas": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasFinito.existe_descenso_finito": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasFinito.descenso_finito": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasFinito.exponente_acotado": [
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasFinito.diez_de_certificado": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 31.918
+    },
+    "OcelotasCriba": {
+      "fuente": "depuracion/cst20260930/OcelotasCriba.lean",
+      "sha256": "c37e34807acf72d8706b84ae09bfe5b90eb7f3d6c86bad854e5b3471307767ef",
+      "dependencias": {
+        "OcelotasFinito": "86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1"
+      },
+      "objeto": "23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319",
+      "axiomas": {
+        "OcelotasCriba.paso_encierra": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasCriba.acepta_correcto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasCriba.recorrer_correcto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 17.719
+    },
+    "OcelotasCertificado": {
+      "fuente": "depuracion/cst20260930/OcelotasCertificado.lean",
+      "sha256": "6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6",
+      "dependencias": {
+        "OcelotasCriba": "23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319"
+      },
+      "objeto": "9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010",
+      "axiomas": {
+        "OcelotasCertificado.criba_certificada": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasCertificado.ocelotas_diez": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 55.479
+    },
+    "OcelotasCierre": {
+      "fuente": "depuracion/cst20260930/OcelotasCierre.lean",
+      "sha256": "6be2843e91fb39cb52167327be11f5a0569a1dd44e5606e88a062a366f73c229",
+      "dependencias": {
+        "OcelotasCertificado": "9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010"
+      },
+      "objeto": "bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15",
+      "axiomas": {
+        "OcelotasCierre.descenso_par": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasCierre.fallo_exige_once": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasCierre.descenso_hasta_diez": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 8.693
+    },
+    "OcelotasContador": {
+      "fuente": "depuracion/cst20260930/OcelotasContador.lean",
+      "sha256": "db5e74df0882240da8ea8f913f191488602950ab4cc83be25efb36bc5ffe379a",
+      "dependencias": {
+        "OcelotasCierre": "bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15"
+      },
+      "objeto": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6",
+      "axiomas": {
+        "OcelotasContador.rachas_eq_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.leer_prefijo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.extraer_palabra": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.cruce_termina_par": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.palabra_del_cruce": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.descenso_contador": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.fallo_contador_exige_once": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.no_desciende_antes": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "OcelotasContador.cst_contador": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 11.916
+    },
+    "CasaPlano": {
+      "fuente": "depuracion/casa20261004/CasaPlano.lean",
+      "sha256": "1b01f42d4fb4cf1f4f74fbbbd377d89b0502ae892385b56a81544968452c8484",
+      "dependencias": {
+        "OcelotasContador": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6"
+      },
+      "objeto": "ae0e96b4e5361cbf8acc517984411442da010dddfec47d43bf3cb824c5af05dc",
+      "axiomas": {
+        "CasaPlano.iter_uno": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.no_baja": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.llega_iff": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.collatz_iff_atajo": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.techo": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.muros_de_collatz": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.collatz_iff_muros": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.dos_fallas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.llega_no_fuga": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.primerCruce_de_cruza": [
+          "propext"
+        ],
+        "CasaPlano.muroA_sin_circuitos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.fuga_pura_no_llega": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.muroB_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.casa_sin_fallas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.muroA_de_cst": [
+          "propext"
+        ],
+        "CasaPlano.tramo_de_descenso": [
+          "propext"
+        ],
+        "CasaPlano.muroA_de_tramos": [
+          "propext"
+        ]
+      },
+      "segundos": 10.37
+    },
+    "CasaRetrato": {
+      "fuente": "depuracion/casa20261004/CasaRetrato.lean",
+      "sha256": "3e2bd667f0af2303aa350b74ba663e9ba128906556d4791af86e5d7a0da9b2f6",
+      "dependencias": {
+        "CasaPlano": "ae0e96b4e5361cbf8acc517984411442da010dddfec47d43bf3cb824c5af05dc"
+      },
+      "objeto": "a1a92d667c7eae2336734eeebb88995a18bac0f92d0bede47e2b4ac5bc479800",
+      "axiomas": {
+        "CasaRetrato.fuga_pura_dos": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.sesenta_y_tres": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.rasgo_sube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.ciclo_cruza": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.rasgo_sin_repetir": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.rasgo_infinito": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.rasgo_fuga": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.misma_paridad_congruentes": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.mismo_patron_iguales": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.rasgo_no_periodico": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.card_subidas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.cuenta_por_bloques": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.pocos_patrones": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.cuenta_sin_cruce": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.rasgo_raro_cuenta": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.rasgo_raro": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaRetrato.retrato": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 26.686
+    },
+    "PerdicesEstela": {
+      "fuente": "depuracion/perdices20261007/PerdicesEstela.lean",
+      "sha256": "f7a5a0d6691413f36c55dc6586ff3c2123ec89e1b7aea5e1dc3b2fe8d22c8e18",
+      "dependencias": {
+        "CasaRetrato": "a1a92d667c7eae2336734eeebb88995a18bac0f92d0bede47e2b4ac5bc479800"
+      },
+      "objeto": "ae723e3d45db76e5442c98d64aba314e83de45df712e2633b708e3d1f5e85d62",
+      "axiomas": {
+        "PerdicesEstela.S_le_pasos": [
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.tamano_antes_del_cruce": [
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.casiFuga_cero": [
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.casi_fuga_de_bajo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.pocos_patrones_nivel": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.cuenta_casi_fugas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.chico_si_bajo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.tiempos_bajos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.tiempos_bajos_mul": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesEstela.tiempos_bajos_raros": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 27.675
+    },
+    "PerdicesTamano": {
+      "fuente": "depuracion/perdices20261007/PerdicesTamano.lean",
+      "sha256": "483798a2cbccbd7c4c4d20ed01ae0abef3b5a50ae2dab2afad6f84e86c3871e0",
+      "dependencias": {
+        "PerdicesEstela": "ae723e3d45db76e5442c98d64aba314e83de45df712e2633b708e3d1f5e85d62"
+      },
+      "objeto": "d282ae088b7ab65a30609662a7422897a5a33e08f65383b18726ee2321aedf8a",
+      "axiomas": {
+        "PerdicesTamano.inverso_pos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.inverso_le_uno": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.normalizado_paso": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.identidad_afin": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.normalizado_paso_producto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.identidad_producto": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.normalizado_cota": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.suma_inversos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.normalizado_por_bajos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.normalizado_cota_explicita": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.normalizado_sublineal": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.tamano_de_normalizado": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.regresos_sublineales": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "PerdicesTamano.factor_sexta": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "segundos": 10.001
+    }
+  },
+  "consultas": 100
+}

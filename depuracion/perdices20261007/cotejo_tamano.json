@@ -1,0 +1,28 @@
+{
+  "estado": "contraste exacto terminado",
+  "sha256": "5dbccf9d58581f065cf8c4429064f61327f51df8d36bf0bc465b46c25e8aa3c9",
+  "parametros": {
+    "n_max": 2048,
+    "pasos": 100,
+    "nivel_max": 6
+  },
+  "semillas": 2051,
+  "cuentas": {
+    "identidades": 207151,
+    "productos": 207050,
+    "prefijos_vivos": 9508,
+    "cotas_por_bajos": 66556,
+    "cotas_regreso": 56900,
+    "cotas_sexta": 94397
+  },
+  "factores_y_telescopios_sexta": 500,
+  "control_tras_cruce": {
+    "n": 1,
+    "k": 2,
+    "pronostico": [
+      3,
+      4
+    ]
+  },
+  "alcance": "Contraste finito; sublinealidad en Lean, cota de sexta raíz con prueba escrita."
+}
