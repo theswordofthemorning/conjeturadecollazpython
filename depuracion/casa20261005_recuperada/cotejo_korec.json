@@ -1,0 +1,159 @@
+{
+  "hasta": 18,
+  "enteros": 2000,
+  "momento_dos": {
+    "K": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "todos_iguales_a_K_2K": true
+  },
+  "chebyshev_casos": 190,
+  "muchas_por_residuos_casos": 273,
+  "cota_muchas": {
+    "casos": 67,
+    "muestra [E, m, k, s, c, cota]": [
+      [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2,
+        2,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        4,
+        3,
+        1,
+        4
+      ],
+      [
+        0,
+        2,
+        4,
+        4,
+        0,
+        4
+      ],
+      [
+        0,
+        3,
+        6,
+        5,
+        1,
+        10
+      ],
+      [
+        0,
+        3,
+        6,
+        6,
+        0,
+        10
+      ],
+      [
+        0,
+        4,
+        8,
+        7,
+        1,
+        32
+      ],
+      [
+        0,
+        4,
+        8,
+        8,
+        0,
+        32
+      ],
+      [
+        0,
+        5,
+        10,
+        9,
+        1,
+        102
+      ],
+      [
+        0,
+        5,
+        10,
+        10,
+        0,
+        102
+      ],
+      [
+        0,
+        6,
+        12,
+        11,
+        1,
+        341
+      ],
+      [
+        0,
+        6,
+        12,
+        12,
+        0,
+        341
+      ]
+    ]
+  },
+  "baja_de_potencia_casos": 79960,
+  "condicion_casos": 384,
+  "umbral_efectivo_4_5": {
+    "E0": 106,
+    "M": 1822,
+    "log2_N_minimo": 390122,
+    "nota": "la prueba es asintótica: el primer N cubierto tiene unos 117438 dígitos"
+  },
+  "ilustracion_exponente_20_pasos": {
+    "muestra": 74899,
+    "cuantiles_del_minimo_en_20_pasos": {
+      "0.10": 0.536,
+      "0.25": 0.6283,
+      "0.50": 0.7493,
+      "0.75": 0.8498,
+      "0.90": 0.9286
+    },
+    "cuantiles_del_valor_tras_20_pasos": {
+      "0.10": 0.5466,
+      "0.25": 0.6336,
+      "0.50": 0.788,
+      "0.75": 0.9484,
+      "0.90": 1.0308
+    },
+    "umbral_log3_log4": 0.79248,
+    "nota": "ilustración, no evidencia"
+  },
+  "resultado": "OK"
+}

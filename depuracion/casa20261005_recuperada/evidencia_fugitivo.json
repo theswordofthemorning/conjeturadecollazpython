@@ -1,0 +1,632 @@
+{
+  "estado": "compilado desde las fuentes en carpeta temporal nueva, sin cachés",
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "sha256_comprobador": "b1043da6fafaee283a42ff85f04aceb0f3b2d360a47eaa0ae893f51cce5209a6",
+  "toolchain": "ad754bf869b81954d95894d3b1324f5ec031819b8e9c8a4cdd4a485b271f0793",
+  "manifiesto": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+  "modulos": {
+    "Ocelotas": {
+      "fuente": "depuracion/cst20260930/Ocelotas.lean",
+      "sha256": "576cb1ca5ea94f200ee6525a4132bd0c70498bdeb1253581d909335ab59456a6",
+      "segundos": 44.082
+    },
+    "OcelotasRachas": {
+      "fuente": "depuracion/cst20260930/OcelotasRachas.lean",
+      "sha256": "14e57ea46813cfe8ab8284a67862cead876cf5af939b01650f160edc95f29bde",
+      "segundos": 8.456
+    },
+    "OcelotasTrayectorias": {
+      "fuente": "depuracion/cst20260930/OcelotasTrayectorias.lean",
+      "sha256": "a352ac46cd0571166b8ce023a7e9fc36c5abe1af9fa5da24780517b3111310d0",
+      "segundos": 13.884
+    },
+    "OcelotasFinito": {
+      "fuente": "depuracion/cst20260930/OcelotasFinito.lean",
+      "sha256": "852bd08f85934fed543016aad6876d4c0895b2aae372f9e18b51847ad8837eb1",
+      "segundos": 29.821
+    },
+    "OcelotasCriba": {
+      "fuente": "depuracion/cst20260930/OcelotasCriba.lean",
+      "sha256": "c37e34807acf72d8706b84ae09bfe5b90eb7f3d6c86bad854e5b3471307767ef",
+      "segundos": 15.294
+    },
+    "OcelotasCertificado": {
+      "fuente": "depuracion/cst20260930/OcelotasCertificado.lean",
+      "sha256": "6a58d9c959ef61b4e2c6404af3263f8df0f8bd0bf05f3f9632200febe0d4dfb6",
+      "segundos": 57.964
+    },
+    "OcelotasCierre": {
+      "fuente": "depuracion/cst20260930/OcelotasCierre.lean",
+      "sha256": "6be2843e91fb39cb52167327be11f5a0569a1dd44e5606e88a062a366f73c229",
+      "segundos": 9.565
+    },
+    "OcelotasContador": {
+      "fuente": "depuracion/cst20260930/OcelotasContador.lean",
+      "sha256": "db5e74df0882240da8ea8f913f191488602950ab4cc83be25efb36bc5ffe379a",
+      "segundos": 10.922
+    },
+    "CasaPlano": {
+      "fuente": "depuracion/casa20261004/CasaPlano.lean",
+      "sha256": "1b01f42d4fb4cf1f4f74fbbbd377d89b0502ae892385b56a81544968452c8484",
+      "segundos": 10.504,
+      "axiomas": {
+        "CasaPlano.iter_uno": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.no_baja": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.llega_iff": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.collatz_iff_atajo": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.techo": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.muros_de_collatz": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.collatz_iff_muros": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.dos_fallas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.llega_no_fuga": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.primerCruce_de_cruza": [
+          "propext"
+        ],
+        "CasaPlano.muroA_sin_circuitos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.fuga_pura_no_llega": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.muroB_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.casa_sin_fallas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPlano.muroA_de_cst": [
+          "propext"
+        ],
+        "CasaPlano.tramo_de_descenso": [
+          "propext"
+        ],
+        "CasaPlano.muroA_de_tramos": [
+          "propext"
+        ]
+      }
+    },
+    "CasaFugitivo": {
+      "fuente": "depuracion/casa20261004/CasaFugitivo.lean",
+      "sha256": "6cd97a97ee0baab648ca066e0b9072a9e16246f3f22f1a501fb625ad63cf26bb",
+      "segundos": 11.408,
+      "axiomas": {
+        "CasaFugitivo.cruza_de_ciclo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.fugitivo_no_acotado": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.fugitivo_no_vuelve": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.S_congr": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.iguales_de_paridades": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.fugitivo_no_periodico": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.fugitivo_proporcion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.fugitivo_63": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.fugitivo_tres_mod_cuatro": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.suma_pesos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.cota_sinCruce": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.proporcion_sin_cruce": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.filtro_por_residuos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.proporcion_fugitivos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.fugitivos_densidad_cero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaFugitivo.retrato_del_fugitivo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaCasiTodos": {
+      "fuente": "depuracion/casa20261004/CasaCasiTodos.lean",
+      "sha256": "a2a5ac97862513bb4ce118e04e77cd3a1b198d200362ad6ecbbfd7b21c0d215a",
+      "segundos": 10.748,
+      "axiomas": {
+        "CasaCasiTodos.cota_superior": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCasiTodos.desciende_de_cruce_grande": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCasiTodos.noDescienden_por_residuos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCasiTodos.casi_todos_descienden": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaChoques": {
+      "fuente": "depuracion/casa20261004/CasaChoques.lean",
+      "sha256": "3200e446384f71f97fc85fb0de4e09a469e819e0d2db7442aabe969494ef7c7a",
+      "segundos": 10.262,
+      "axiomas": {
+        "CasaChoques.sin_cruce_hasta": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaChoques.sin_choque_finito": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaChoques.periodico_iff_acotada": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaChoques.sin_fugas_iff_periodicidad": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaChoques.muroB_de_periodicidad": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaTerras": {
+      "fuente": "depuracion/casa20261004/CasaTerras.lean",
+      "sha256": "889acd79502ecc32d4f86853f5fa5f50b9d93f727afd296513fa711461361ff1",
+      "segundos": 12.197,
+      "axiomas": {
+        "CasaTerras.noBaja_iff_sobrevive": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTerras.sobreviven_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTerras.sobreviven_ge": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTerras.terras_error": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTerras.terras_distribucion": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTerras.terras_limite": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaDomino": {
+      "fuente": "depuracion/casa20261004/CasaDomino.lean",
+      "sha256": "dcfc0ed8931a8d42f77de1e4602f7cb40f5136f04509a487bba8044ff2b11b28",
+      "segundos": 10.771,
+      "axiomas": {
+        "CasaDomino.grieta_desigualdad": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaDomino.grieta_pequena": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaDomino.minimo_de_cola": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaDomino.minimos_no_bajan": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaDomino.contraejemplo_con_muroA": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaKorec": {
+      "fuente": "depuracion/casa20261004/CasaKorec.lean",
+      "sha256": "66b7dbad8acf6492a13caf8a3f4dbcca3c5dc50e0af4b52f13e77cc36f47eb3a",
+      "segundos": 12.706,
+      "axiomas": {
+        "CasaKorec.suma_transferencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.momento_dos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.cota_chebyshev": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.baja_de_potencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.korec_cota": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.korec": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.korec_cuatro_quintos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.korec_cerca_del_umbral": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaKorec.allouche": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaPotencia": {
+      "fuente": "depuracion/casa20261004/CasaPotencia.lean",
+      "sha256": "f7123809139689259f5f7677523b5e9dbac8e4b9687cbe37e6a8ebc98d98db46",
+      "segundos": 12.067,
+      "axiomas": {
+        "CasaPotencia.razon_fugitivos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.razon_potencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.fugitivos_en_sinCruce": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.fugitivos_potencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.contraejemplo_minimo_no_baja": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.bloque_paso": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.bloques_tres": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.potencia_de_bloques": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.noDescienden_potencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.fallaCST_bloqueable": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.fallasCST_potencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaPotencia.fallasCST_iff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaTres": {
+      "fuente": "depuracion/casa20261004/CasaTres.lean",
+      "sha256": "185309653f02ee85510000a6b0bb91dbe1b52be52c6a89bcef70c4d1866630cf",
+      "segundos": 10.322,
+      "axiomas": {
+        "CasaTres.T_progresion": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.iter_afin": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.S_afin": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.tres_determinado": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.fibra_inyectiva": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.fibra_contenida": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.paridad_independiente": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.T_mod_tres": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.T_impar_mod_tres": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.todo_par": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaTres.sin_multiplos_de_tres": [
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaLMN": {
+      "fuente": "depuracion/casa20261004/CasaLMN.lean",
+      "sha256": "4c79f5d2107ceebcc933e97d1032790ea0f10ec51c53356269e5fbbac99e11e5",
+      "segundos": 12.097,
+      "axiomas": {
+        "CasaLMN.cruce_justo": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.falla_dos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.falla_acotada": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.tres_cuatro_base": [
+          "propext"
+        ],
+        "CasaLMN.tres_cuatro": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.tres_cuatro_k": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.tres_dos_base": [
+          "propext"
+        ],
+        "CasaLMN.tres_dos_k": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.falla_tardia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.falla_en_sinCruce": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.fallasAltas_dos": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.fallasCST_lmn_potencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaLMN.noDescienden_lmn_potencia": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "CasaCadena": {
+      "fuente": "depuracion/casa20261004/CasaCadena.lean",
+      "sha256": "b16a23bc2ce81b4a964172cfb0ac3038c963ae76056e3d50e78ce86d4007ca0c",
+      "segundos": 9.982,
+      "axiomas": {
+        "CasaCadena.dos_medio": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.paso_T": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.cadena_mod": [
+          "propext"
+        ],
+        "CasaCadena.cadena_correcta": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.palabra_congr": [
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.congr_de_palabra": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.palabra_sobre": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.palabra_inyectiva": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.coordenadas_inyectivas": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "CasaCadena.ley_de_la_cadena": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  },
+  "consultas": 108
+}

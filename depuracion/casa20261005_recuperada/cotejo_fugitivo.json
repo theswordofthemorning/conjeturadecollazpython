@@ -1,0 +1,322 @@
+{
+  "mapa": "T(n)=n/2 si par, (3n+1)/2 si impar",
+  "hasta": 22,
+  "comprobado": [
+    "generatriz binomial",
+    "S_K periódica mod 2^K",
+    "c_K^2 2^K <= (1+√3)^(2K)",
+    "sin cruce hasta 2 => 3 mod 4",
+    "cota superior del término aditivo",
+    "cruce con n >= 3^k es descenso",
+    "error de Terras por órbitas directas"
+  ],
+  "terras": [
+    {
+      "K": 0,
+      "N": 262144,
+      "no_bajan": 262144,
+      "N_d_K_sobre_2K": 262144.0,
+      "cota_error": 2
+    },
+    {
+      "K": 1,
+      "N": 262144,
+      "no_bajan": 131073,
+      "N_d_K_sobre_2K": 131072.0,
+      "cota_error": 4
+    },
+    {
+      "K": 2,
+      "N": 262144,
+      "no_bajan": 65538,
+      "N_d_K_sobre_2K": 65536.0,
+      "cota_error": 10
+    },
+    {
+      "K": 3,
+      "N": 262144,
+      "no_bajan": 65538,
+      "N_d_K_sobre_2K": 65536.0,
+      "cota_error": 29
+    },
+    {
+      "K": 4,
+      "N": 262144,
+      "no_bajan": 49154,
+      "N_d_K_sobre_2K": 49152.0,
+      "cota_error": 84
+    },
+    {
+      "K": 5,
+      "N": 262144,
+      "no_bajan": 32770,
+      "N_d_K_sobre_2K": 32768.0,
+      "cota_error": 247
+    },
+    {
+      "K": 6,
+      "N": 262144,
+      "no_bajan": 32770,
+      "N_d_K_sobre_2K": 32768.0,
+      "cota_error": 737
+    },
+    {
+      "K": 7,
+      "N": 262144,
+      "no_bajan": 26626,
+      "N_d_K_sobre_2K": 26624.0,
+      "cota_error": 2200
+    },
+    {
+      "K": 8,
+      "N": 262144,
+      "no_bajan": 19458,
+      "N_d_K_sobre_2K": 19456.0,
+      "cota_error": 6580
+    },
+    {
+      "K": 9,
+      "N": 262144,
+      "no_bajan": 19458,
+      "N_d_K_sobre_2K": 19456.0,
+      "cota_error": 19721
+    },
+    {
+      "K": 10,
+      "N": 262144,
+      "no_bajan": 16386,
+      "N_d_K_sobre_2K": 16384.0,
+      "cota_error": 59113
+    },
+    {
+      "K": 11,
+      "N": 262144,
+      "no_bajan": 16386,
+      "N_d_K_sobre_2K": 16384.0,
+      "cota_error": 177275
+    },
+    {
+      "K": 12,
+      "N": 262144,
+      "no_bajan": 14466,
+      "N_d_K_sobre_2K": 14464.0,
+      "cota_error": 531667
+    },
+    {
+      "K": 13,
+      "N": 262144,
+      "no_bajan": 11746,
+      "N_d_K_sobre_2K": 11744.0,
+      "cota_error": 1594690
+    },
+    {
+      "K": 14,
+      "N": 262144,
+      "no_bajan": 11746,
+      "N_d_K_sobre_2K": 11744.0,
+      "cota_error": 4783703
+    },
+    {
+      "K": 15,
+      "N": 262144,
+      "no_bajan": 10362,
+      "N_d_K_sobre_2K": 10360.0,
+      "cota_error": 14350202
+    },
+    {
+      "K": 16,
+      "N": 262144,
+      "no_bajan": 8458,
+      "N_d_K_sobre_2K": 8456.0,
+      "cota_error": 43048835
+    }
+  ],
+  "enteros": 20000,
+  "casos_cruce_grande": 102880,
+  "filas": [
+    {
+      "K": 0,
+      "c_K": 1,
+      "d_K": 1,
+      "proporcion_c": 1.0,
+      "proporcion_d": 1.0,
+      "cota_rho_K": 1.0
+    },
+    {
+      "K": 1,
+      "c_K": 1,
+      "d_K": 1,
+      "proporcion_c": 0.5,
+      "proporcion_d": 0.5,
+      "cota_rho_K": 0.9659258262890682
+    },
+    {
+      "K": 2,
+      "c_K": 1,
+      "d_K": 1,
+      "proporcion_c": 0.25,
+      "proporcion_d": 0.25,
+      "cota_rho_K": 0.9330127018922192
+    },
+    {
+      "K": 3,
+      "c_K": 4,
+      "d_K": 2,
+      "proporcion_c": 0.5,
+      "proporcion_d": 0.25,
+      "cota_rho_K": 0.9012210650134379
+    },
+    {
+      "K": 4,
+      "c_K": 5,
+      "d_K": 3,
+      "proporcion_c": 0.3125,
+      "proporcion_d": 0.1875,
+      "cota_rho_K": 0.870512701892219
+    },
+    {
+      "K": 5,
+      "c_K": 6,
+      "d_K": 4,
+      "proporcion_c": 0.1875,
+      "proporcion_d": 0.125,
+      "cota_rho_K": 0.840850700870371
+    },
+    {
+      "K": 6,
+      "c_K": 22,
+      "d_K": 8,
+      "proporcion_c": 0.34375,
+      "proporcion_d": 0.125,
+      "cota_rho_K": 0.8121994080239552
+    },
+    {
+      "K": 7,
+      "c_K": 29,
+      "d_K": 13,
+      "proporcion_c": 0.2265625,
+      "proporcion_d": 0.1015625,
+      "cota_rho_K": 0.784524384307031
+    },
+    {
+      "K": 8,
+      "c_K": 37,
+      "d_K": 19,
+      "proporcion_c": 0.14453125,
+      "proporcion_d": 0.07421875,
+      "cota_rho_K": 0.7577923641556914
+    },
+    {
+      "K": 9,
+      "c_K": 130,
+      "d_K": 38,
+      "proporcion_c": 0.25390625,
+      "proporcion_d": 0.07421875,
+      "cota_rho_K": 0.7319712155026327
+    },
+    {
+      "K": 10,
+      "c_K": 176,
+      "d_K": 64,
+      "proporcion_c": 0.171875,
+      "proporcion_d": 0.0625,
+      "cota_rho_K": 0.7070299011541941
+    },
+    {
+      "K": 11,
+      "c_K": 562,
+      "d_K": 128,
+      "proporcion_c": 0.2744140625,
+      "proporcion_d": 0.0625,
+      "cota_rho_K": 0.6829384414834431
+    },
+    {
+      "K": 12,
+      "c_K": 794,
+      "d_K": 226,
+      "proporcion_c": 0.19384765625,
+      "proporcion_d": 0.05517578125,
+      "cota_rho_K": 0.6596678783944633
+    },
+    {
+      "K": 13,
+      "c_K": 1093,
+      "d_K": 367,
+      "proporcion_c": 0.1334228515625,
+      "proporcion_d": 0.0447998046875,
+      "cota_rho_K": 0.6371902405145284
+    },
+    {
+      "K": 14,
+      "c_K": 3473,
+      "d_K": 734,
+      "proporcion_c": 0.21197509765625,
+      "proporcion_d": 0.0447998046875,
+      "cota_rho_K": 0.615478509572326
+    },
+    {
+      "K": 15,
+      "c_K": 4944,
+      "d_K": 1295,
+      "proporcion_c": 0.15087890625,
+      "proporcion_d": 0.039520263671875,
+      "cota_rho_K": 0.5945065879218132
+    },
+    {
+      "K": 16,
+      "c_K": 6885,
+      "d_K": 2114,
+      "proporcion_c": 0.1050567626953125,
+      "proporcion_d": 0.032257080078125,
+      "cota_rho_K": 0.574249267172672
+    },
+    {
+      "K": 17,
+      "c_K": 21778,
+      "d_K": 4228,
+      "proporcion_c": 0.1661529541015625,
+      "proporcion_d": 0.032257080078125,
+      "cota_rho_K": 0.554682197889655
+    },
+    {
+      "K": 18,
+      "c_K": 31180,
+      "d_K": 7495,
+      "proporcion_c": 0.1189422607421875,
+      "proporcion_d": 0.028591156005859375,
+      "cota_rho_K": 0.5357818603244014
+    },
+    {
+      "K": 19,
+      "c_K": 94184,
+      "d_K": 14990,
+      "proporcion_c": 0.1796417236328125,
+      "proporcion_d": 0.028591156005859375,
+      "cota_rho_K": 0.5175255361445417
+    },
+    {
+      "K": 20,
+      "c_K": 137980,
+      "d_K": 27328,
+      "proporcion_c": 0.13158798217773438,
+      "proporcion_d": 0.02606201171875,
+      "cota_rho_K": 0.4998912811261094
+    },
+    {
+      "K": 21,
+      "c_K": 198440,
+      "d_K": 46611,
+      "proporcion_c": 0.09462356567382812,
+      "proporcion_d": 0.02222585678100586,
+      "cota_rho_K": 0.48285789877643814
+    },
+    {
+      "K": 22,
+      "c_K": 600370,
+      "d_K": 93222,
+      "proporcion_c": 0.14313936233520508,
+      "proporcion_d": 0.02222585678100586,
+      "cota_rho_K": 0.46640491485583424
+    }
+  ]
+}

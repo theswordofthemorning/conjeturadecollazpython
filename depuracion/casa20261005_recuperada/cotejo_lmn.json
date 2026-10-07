@@ -1,0 +1,20 @@
+{
+  "bases": {
+    "bits_de_3^(2^17)": 207745,
+    "tres_cuatro_base_margen_bits": 6897,
+    "tres_dos_base_margen_bits": 2707
+  },
+  "paso_induccion_t<=1e5": true,
+  "cruce_justo_casos": 99999,
+  "holgura_LMNEntera": {
+    "k_max": 3000,
+    "peor_log2(3^q/D)_aprox": 10,
+    "en_(k,q)": [
+      2593,
+      1636
+    ],
+    "exponente_permitido_19(t+33)^2": 36784,
+    "nota": "la hipótesis sólo prohíbe D < 3^q / 2^(19(t+33)^2); en este rango sobra muchísimo"
+  },
+  "resultado": "OK"
+}

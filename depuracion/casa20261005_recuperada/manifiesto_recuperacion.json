@@ -1,0 +1,211 @@
+{
+  "base_local": "d296b3d",
+  "prioridad_github": "58e8f97",
+  "archivos": [
+    {
+      "origen": "ESTADO_INVESTIGACION.md",
+      "recuperado": "depuracion/casa20261005_recuperada/sesion_original/ESTADO_INVESTIGACION.md",
+      "sha256": "f73e8ccc8d82f5887862bb84958109f6136852064f07675454af50e625bf5fec"
+    },
+    {
+      "origen": "afirmaciones.db",
+      "recuperado": "depuracion/casa20261005_recuperada/sesion_original/afirmaciones.db",
+      "sha256": "358a5e19e4e6fc6d8bec7b85a4fe2ee6c459c219203614072934003d18ffecf2"
+    },
+    {
+      "origen": "depuracion/casa20261004/CHINCHILLAS.md",
+      "recuperado": "depuracion/casa20261005_recuperada/CHINCHILLAS.md",
+      "sha256": "624418a3a9f439de101b23435b9f32929ca4b1a4bb71ddf8c7860ae294303276"
+    },
+    {
+      "origen": "depuracion/casa20261004/CORZAS.md",
+      "recuperado": "depuracion/casa20261005_recuperada/CORZAS.md",
+      "sha256": "23b6088335774b19f218a405dbd2702e3eda7d1b81b4b28b209ba9b36644ff94"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaCadena.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaCadena.lean",
+      "sha256": "b16a23bc2ce81b4a964172cfb0ac3038c963ae76056e3d50e78ce86d4007ca0c"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaCasiTodos.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaCasiTodos.lean",
+      "sha256": "a2a5ac97862513bb4ce118e04e77cd3a1b198d200362ad6ecbbfd7b21c0d215a"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaChoques.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaChoques.lean",
+      "sha256": "3200e446384f71f97fc85fb0de4e09a469e819e0d2db7442aabe969494ef7c7a"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaDomino.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaDomino.lean",
+      "sha256": "dcfc0ed8931a8d42f77de1e4602f7cb40f5136f04509a487bba8044ff2b11b28"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaFugitivo.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaFugitivo.lean",
+      "sha256": "6cd97a97ee0baab648ca066e0b9072a9e16246f3f22f1a501fb625ad63cf26bb"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaKorec.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaKorec.lean",
+      "sha256": "66b7dbad8acf6492a13caf8a3f4dbcca3c5dc50e0af4b52f13e77cc36f47eb3a"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaLMN.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaLMN.lean",
+      "sha256": "4c79f5d2107ceebcc933e97d1032790ea0f10ec51c53356269e5fbbac99e11e5"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaOcelotas.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaOcelotas.lean",
+      "sha256": "fcb4d448841f2f8c9e5802aea27c19d351e07900b621a06f912cc3e46a647c7c"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaPlano.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaPlano.lean",
+      "sha256": "1b01f42d4fb4cf1f4f74fbbbd377d89b0502ae892385b56a81544968452c8484"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaPotencia.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaPotencia.lean",
+      "sha256": "f7123809139689259f5f7677523b5e9dbac8e4b9687cbe37e6a8ebc98d98db46"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaTerras.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaTerras.lean",
+      "sha256": "889acd79502ecc32d4f86853f5fa5f50b9d93f727afd296513fa711461361ff1"
+    },
+    {
+      "origen": "depuracion/casa20261004/CasaTres.lean",
+      "recuperado": "depuracion/casa20261005_recuperada/CasaTres.lean",
+      "sha256": "185309653f02ee85510000a6b0bb91dbe1b52be52c6a89bcef70c4d1866630cf"
+    },
+    {
+      "origen": "depuracion/casa20261004/LEEME.md",
+      "recuperado": "depuracion/casa20261005_recuperada/LEEME.md",
+      "sha256": "0b76e075bc2a7e918fff578e1e1a1a2faddcb4d27ba1ababda078204b75e0e9d"
+    },
+    {
+      "origen": "depuracion/casa20261004/PERDICES.md",
+      "recuperado": "depuracion/casa20261005_recuperada/PERDICES.md",
+      "sha256": "725f2b2fbd6c7c84f6fe48a995a8b664869c2da2d654d269d5b1797141927120"
+    },
+    {
+      "origen": "depuracion/casa20261004/comprobar_casa.py",
+      "recuperado": "depuracion/casa20261005_recuperada/comprobar_casa.py",
+      "sha256": "d1242f27bd0de6b7d09304afcefd0af46f18c82caece5c4f71b9ab3a9f8213da"
+    },
+    {
+      "origen": "depuracion/casa20261004/comprobar_fugitivo.py",
+      "recuperado": "depuracion/casa20261005_recuperada/comprobar_fugitivo.py",
+      "sha256": "b1043da6fafaee283a42ff85f04aceb0f3b2d360a47eaa0ae893f51cce5209a6"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejar_cadena.py",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejar_cadena.py",
+      "sha256": "e045c87160588afdfec32d0f6f0c5f33992a5d5a5dd12697639b0038d5db3a17"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejar_fugitivo.py",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejar_fugitivo.py",
+      "sha256": "fbbe9a603f1b750a5b9f5777286de395b99918a70806e3bdf0d1cd6f17e7be8c"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejar_korec.py",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejar_korec.py",
+      "sha256": "415d0b59e5812cdf423cbe37e1079391fec91de84a1a73f9a7ed3568adf513cf"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejar_lmn.py",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejar_lmn.py",
+      "sha256": "2f33a6abd1848390f58086fd39a58d1f648fb444b24e80a46707d1182f8db0e3"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejar_potencia.py",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejar_potencia.py",
+      "sha256": "68cbda0d8dc0162d87c36df65e03e8dca1b9dacefe4bbe9d082f0a97609683c5"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejar_tres.py",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejar_tres.py",
+      "sha256": "9152a2516bbe556e6728b80ca2adb7925dd953730bb014357a771536da6daaa6"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejo_cadena.json",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejo_cadena.json",
+      "sha256": "c56b8c9bc49e5d96d128b98f79949d3830703841d8b667347ef8a15eb82e4429"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejo_fugitivo.json",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejo_fugitivo.json",
+      "sha256": "071512921e7d6c2e616574addf1624ff42ab4d13fbd1ee53f08d78eb486c0f97"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejo_korec.json",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejo_korec.json",
+      "sha256": "7622569804c02d6e7878ddd095b201ad1c4b0bd085f78fdfa8fbc5301d14945f"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejo_lmn.json",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejo_lmn.json",
+      "sha256": "d63e33308d1f6cd0f4e111811bc93f381a367f7c16570ebe2c2043e7e07459b8"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejo_potencia.json",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejo_potencia.json",
+      "sha256": "e2f6cfa3089d3fd3565ca0de756f4c5a3eff9bc243e322b21a661e4725408128"
+    },
+    {
+      "origen": "depuracion/casa20261004/cotejo_tres.json",
+      "recuperado": "depuracion/casa20261005_recuperada/cotejo_tres.json",
+      "sha256": "96df21dc50654c281548957461fec0a1ada83ff30e3d655c91ccb6de333a2082"
+    },
+    {
+      "origen": "depuracion/casa20261004/evidencia_casa.json",
+      "recuperado": "depuracion/casa20261005_recuperada/evidencia_casa.json",
+      "sha256": "a4f99d87bf0ffe25ed6f93fb35d2bb953246c7a956b8291a30b1cf8603aca462"
+    },
+    {
+      "origen": "depuracion/casa20261004/evidencia_casa.txt",
+      "recuperado": "depuracion/casa20261005_recuperada/evidencia_casa.txt",
+      "sha256": "302360d1cd14e59be8074e2e25e49abdf2d797d7594f657ce9d2c6335106dfcf"
+    },
+    {
+      "origen": "depuracion/casa20261004/evidencia_fugitivo.json",
+      "recuperado": "depuracion/casa20261005_recuperada/evidencia_fugitivo.json",
+      "sha256": "07f0a95e5d98e52c71d201fad1aea8b47fd959dc884c04cc1fac3e571fc06850"
+    },
+    {
+      "origen": "depuracion/casa20261004/evidencia_fugitivo.txt",
+      "recuperado": "depuracion/casa20261005_recuperada/evidencia_fugitivo.txt",
+      "sha256": "bccab114ab44d6fa356c7391037a4d969bc16e5eafe785dd4f5557fcb9499ac2"
+    },
+    {
+      "origen": "depuracion/casa20261004/medicion_mezcla_tres.json",
+      "recuperado": "depuracion/casa20261005_recuperada/medicion_mezcla_tres.json",
+      "sha256": "dc9d7e5175d30f2186d67e73a193f18e74f173b500c7cd29dc308def85c5d214"
+    },
+    {
+      "origen": "depuracion/casa20261004/medir_mezcla_tres.py",
+      "recuperado": "depuracion/casa20261005_recuperada/medir_mezcla_tres.py",
+      "sha256": "3d70a700f61ed6235aa944fdded05ce991c5b26f1f09e6a871ffe095149a85eb"
+    },
+    {
+      "origen": "depuracion/casa20261004/registro_casa.txt",
+      "recuperado": "depuracion/casa20261005_recuperada/registro_casa.txt",
+      "sha256": "7d33c89a2befb741d3c9094b55e33bdcf85dee8bf9165d29e67c07a89859d235"
+    },
+    {
+      "origen": "depuracion/coherencia20260913/registro.json",
+      "recuperado": "depuracion/casa20261005_recuperada/sesion_original/depuracion/coherencia20260913/registro.json",
+      "sha256": "0883917ce4a5860fc73c06ec16fdaad8ca6b95fd4a3eb4176f45c04bb1023011"
+    },
+    {
+      "origen": "depuracion/coherencia20260913/verificar_registro.py",
+      "recuperado": "depuracion/casa20261005_recuperada/sesion_original/depuracion/coherencia20260913/verificar_registro.py",
+      "sha256": "ccf06861a9518d1eb81aa97a25bb6130775781c87913f3fdcc7fea790e77f59c"
+    }
+  ]
+}

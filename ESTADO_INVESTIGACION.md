@@ -112,3 +112,9 @@ y siete refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar
 históricos. zootheorem permanece intacto.
+
+Sesión local del 05-10 [recuperada el 07-10](depuracion/casa20261005_recuperada/RECUPERACION.md):
+Corzas, Chinchillas y Perdices, incluida la cadena módulo `3^m`, se conservan
+como implementación independiente. GitHub mantiene prioridad; catálogo
+activo sin cambios. Huellas históricas verificadas y contraste de la cadena
+repetido; falta conciliar las altas locales con el catálogo vigente.

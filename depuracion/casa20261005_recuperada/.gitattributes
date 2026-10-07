@@ -1,0 +1,4 @@
+# Conservar bytes y huellas de las fuentes y evidencias recuperadas.
+* -text whitespace=cr-at-eol
+# El registro histórico termina con una línea vacía que forma parte de su huella.
+registro_casa.txt whitespace=cr-at-eol,-blank-at-eof

@@ -1,0 +1,1659 @@
+{
+  "version": "2026-10-05",
+  "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
+  "base_filas": 208,
+  "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
+  "correcciones_afirmaciones": [
+    {
+      "id": 4,
+      "antes": {
+        "enunciado": "eps = ln( 2^B / (3^A * n) ) es identicamente igual a la suma de ln(1 + 1/(3x)) sobre los impares de la trayectoria",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "elmasuno.py",
+        "fuente": "propio",
+        "notas": "Ambito: todo n >= 1. El grosor de la lamina y el sobrante de la fraccion impar son el MISMO numero en dos coordenadas. 20.011 casos en racionales exactos, 0 fallos. El residuo 1,7e-7 que se habia medido era ruido de coma flotante, no del enunciado."
+      },
+      "despues": {
+        "enunciado": "Sobre una trayectoria clasica que alcanza 1, hasta su primera llegada: eps=ln(2^B/(3^A*n)) es la suma de ln(1+1/(3x)) sobre sus entradas impares.",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "elmasuno.py",
+        "fuente": "propio",
+        "notas": "La identidad esta condicionada a terminacion; no presupone Collatz para todo n. Ver la ficha historica A4 y su veredicto literal. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 5,
+      "antes": {
+        "enunciado": "eps >= 0 siempre, con igualdad exactamente en las potencias de 2",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "elmasuno.py",
+        "fuente": "propio",
+        "notas": "Ambito: todo n >= 1. (Decia 'eps > 0 siempre, y vale 0 en las potencias', que leido literal se contradice; corregido por el trio del 02-08-2026.) Cada factor (1+1/(3x)) es > 1 con x entero positivo, luego el producto es > 1. collazlamina.py -retirado en la purga del 01-08-2026- lo habia MEDIDO en 6.555 pares; ahora esta demostrado en una linea para todos los n. Cuidado con el borde: sobre trayectorias enteras Res(n) = 2^B/(3^A*n) >= 1 NO es estricta, vale 1 clavado en las potencias de 2 -que no tienen ni un paso impar- y solo en ellas."
+      },
+      "despues": {
+        "enunciado": "Hasta la primera llegada a 1, si la trayectoria termina, eps>=0, con igualdad exactamente para potencias de 2 (incluido n=1).",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "elmasuno.py",
+        "fuente": "propio",
+        "notas": "La condicion de terminacion y la primera llegada forman parte del enunciado; iterar el ciclo terminal cambia eps. Ver ficha historica A5. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 21,
+      "antes": {
+        "enunciado": "dos consecutivos se funden para todos los infinitos m >= 1 de la clase exactamente cuando S_k(r) == S_k(r+1) y T^k(r) == T^k(r+1)",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "clasesfusion.py",
+        "fuente": "propio; Wu-Huang 2001 y Elia-Tucker 2015 lo enuncian casi textual",
+        "notas": "Ambito: todo k, todo r, y m >= 1. Comprobacion finita que vale para infinitos numeros. Verificado contra fuerza bruta en 9.672 pares, 0 fallos. Y es la regla R3 de la criba industrial de Barina, que le ahorra 18%. EL m >= 1 NO ES ADORNO (01-08-2026): en m = 0 el criterio es falso -(5,6) da alturas 5 y 8, y (4,5) da 2 y 5- y fallan exactamente 3 clases, r = 2, 4 y 5, estables de k=5 a k=22. Nadie lo vio porque la fuerza bruta de clasesfusion.py empieza en range(1, 40), o sea que por construccion no podia ver el unico m que rompe. La cota del 43,57% no se mueve."
+      },
+      "despues": {
+        "enunciado": "Para un indice fijo k, T^k(r)=T^k(r+1) con igual conteo impar equivale a la misma igualdad balanceada en todos los levantamientos de la clase modulo 2^k, incluidos m=0.",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "clasesfusion.py",
+        "fuente": "propio; Wu-Huang 2001 y Elia-Tucker 2015 lo enuncian casi textual",
+        "notas": "Terras iguala las pendientes. La restriccion m>=1 pertenece al corolario de igual altura finita: excluye primeras llegadas anteriores a k y ademas exige que la cola comun alcance 1. No pertenece a la fusion. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 22,
+      "antes": {
+        "enunciado": "a(32) = 1.871.137.623 clases mod 2^32 se funden: cota inferior DEMOSTRADA del 43,5658% de los pares consecutivos",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "clasesfusion.py",
+        "fuente": "propio",
+        "notas": "Ambito: k <= 32. Confirmado por dos caminos independientes, el secuencial y el repartido por nucleos de clasesparalelo.py. No depende de muestreo ni de ajuste, y por eso es lo unico duro de esa seccion. La sucesion no esta en OEIS (28 consultas)."
+      },
+      "despues": {
+        "enunciado": "a(32)=1871137623 clases de fusion balanceada modulo 2^32; a(32)/2^32 es una cota inferior de la densidad natural inferior del conjunto de tales fusiones.",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "clasesfusion.py",
+        "fuente": "propio",
+        "notas": "Conteo exacto historico por dos caminos; ver zootheorem/papers/01-merging-classes.md. La cota para alturas FINITAS es condicional a convergencia de las colas comunes. A398792 esta publicada; no usar el antiguo no-results como estado actual. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 24,
+      "antes": {
+        "enunciado": "(8k+4, 8k+5) CONFLUYEN siempre en 3 pasos para todo k >= 0, y tienen la MISMA ALTURA para todo k >= 1",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "verificar_fusiones.py",
+        "fuente": "Garner 1985",
+        "notas": "SON DOS ENUNCIADOS Y HAY QUE SEPARARLOS (01-08-2026). La CONFLUENCIA vale para todo k >= 0: los dos caen en 6k+4 en 3 pasos, gastando 2 pares y 1 impar cada uno; 200.000 casos, 0 fallos, y es una identidad algebraica, no una medida. EL COROLARIO DE MISMA ALTURA FALLA EN k = 0: altura(4) = 2 y altura(5) = 5, porque el 4 llega al 1 ANTES del paso 3 en el que se encontrarian. De k = 1 a k = 20.000, 0 fallos, asi que el enunciado de altura lleva k >= 1. Es exactamente el mismo agujero que el m >= 1 del criterio de clases, encontrado por dos caminos distintos el mismo dia. Rederivado desde el criterio: r = 4, k = 3 da T^3(4) = T^3(5) = 2 con S = 1 en los dos."
+      },
+      "despues": {
+        "enunciado": "Garner: (8k+4,8k+5) confluyen tras tres pasos de T en 3k+2 para k>=0; para k>=1 tienen igual altura finita si la cola comun alcanza 1.",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "verificar_fusiones.py",
+        "fuente": "Garner 1985",
+        "notas": "Tres pasos de ATAJO: T^3(4)=T^3(5)=2; para k=1 el encuentro es 5. Los 6k+4 de la nota anterior eran el encuentro tras tres pasos CLASICOS, no del atajo. k=0 tiene alturas clasicas 2 y 5. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 36,
+      "antes": {
+        "enunciado": "para todo j par, el par (2^j - 2, 2^j - 1) se funde por primera vez en el paso j+2, con vortice en el repunit ternario b = (3^(j-1) - 1)/2: la clase 2^j - 2 es NUEVA mod 2^(j+2)",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "nuevasfusion.py",
+        "fuente": "propio",
+        "notas": "La familia extremal de las nuevas (03-08-2026). Demostracion de cuatro lineas en el comentario de la COMPROBACION 5: un lado hace j impares hasta 3^j - 1 y dos pares; el otro gasta un par, hace j-1 impares y el encuentro cuadra exacto (3b + 1 = (3^j - 1)/2), con S = j en ambos. Corolario: b(j+2) >= 1 para todo j par - las nuevas nunca se acaban. Comprobada j = 4..60. Que ese b sea el MAXIMO del nivel esta solo medido (k <= 15). Y el patron 'todo b es 1 mod 3' se REFUTO antes de publicarse: b = 2255 en k+1 = 15."
+      },
+      "despues": {
+        "enunciado": "Para todo j par >=2, (2^j-2,2^j-1) funde por primera vez en j+2 pasos de T, en el valor (3^j-1)/4; es una clase nueva del nivel j+2.",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "nuevasfusion.py",
+        "fuente": "propio",
+        "notas": "w=(3^(j-1)-1)/2 es el menor valor en j+1, antes del encuentro, no el valor terminal. Los valores en j+1 son w y 3w+1; en j+2 ambos son (3^j-1)/4, con S=j en ambos. Determinismo y desigualdad en j+1 excluyen todo encuentro anterior. Con b(n)=a(n+1)-2a(n), el corolario es b(j+1)>=1. La ficha OEIS A398793 confunde w con el encuentro; correccion externa preparada pero bloqueada por limite de ediciones. Cotejo entero j=2..20 pares y Lean 4.32.2 el 17-09: depuracion/oeis20260917/ANALISIS_TARDE.md. Historial original conservado en guardarafirmaciones.py y antes."
+      }
+    },
+    {
+      "id": 39,
+      "antes": {
+        "enunciado": "la clase r = 2^(k-1) - 3 (k par) / 3*2^(k-1) - 3 (k impar) -el vecino izquierdo del perdedor de |M| = 2, con r IMPAR- es nueva en el nivel k+1 con mixtos en [0, 1, 2, k]: el estrato |M| = 4 tiene al menos una clase por nivel, con formula",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "nuevasfusion.py",
+        "fuente": "propio",
+        "notas": "COMPROBACION 8 (03-08-2026). Los dos primeros pasos se calculan a mano: el par (w-3, w-2) con w = c*2^(k-1) se contrae en dos pasos a (3c*2^(k-3) - 2, 3c*2^(k-3) - 1) - VUELVE A SER CONSECUTIVO (d2 = 1) - y ese es el lema general con C = 3c, q = k-3. LOS ESTRATOS SE REDUCEN UNOS A OTROS: |M| = 4 es dos mixtos de preludio mas un |M| = 2 desplazado, y esa reduccion es la forma de la recursion del triangulo. La UNICIDAD de |M| = 4 sigue solo medida (1 por nivel, k <= 15): faltaria descartar los demas patrones de posiciones. Comprobada k = 4..60."
+      },
+      "despues": {
+        "enunciado": "Para k>=4, la clase r = 2^(k-1) - 3 (k par) / 3*2^(k-1) - 3 (k impar) -el vecino izquierdo del perdedor de |M| = 2, con r IMPAR- es nueva en el nivel k+1 con mixtos en [0, 1, 2, k]: el estrato |M| = 4 tiene al menos una clase por nivel, con formula",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "nuevasfusion.py",
+        "fuente": "propio",
+        "notas": "COMPROBACION 8 (03-08-2026). Los dos primeros pasos se calculan a mano: el par (w-3, w-2) con w = c*2^(k-1) se contrae en dos pasos a (3c*2^(k-3) - 2, 3c*2^(k-3) - 1) - VUELVE A SER CONSECUTIVO (d2 = 1) - y ese es el lema general con C = 3c, q = k-3. LOS ESTRATOS SE REDUCEN UNOS A OTROS: |M| = 4 es dos mixtos de preludio mas un |M| = 2 desplazado, y esa reduccion es la forma de la recursion del triangulo. La UNICIDAD de |M| = 4 sigue solo medida (1 por nivel, k <= 15): faltaria descartar los demas patrones de posiciones. Comprobada k = 4..60. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 50,
+      "antes": {
+        "enunciado": "LEMA DE LA EQUIVALENCIA DE PANDAS (condicional a Res < 3): si H(n) = H(n+1), tau y S coinciden y las trayectorias del atajo se encuentran AL MISMO INDICE - porque 6^d = (n/(n+1)) * (Res(n)/Res(n+1)) y con 1 <= Res < 3 el lado derecho no alcanza ninguna potencia entera de 6 salvo 6^0. COROLARIO (con el reciproco de Jirafas): phi = d - la medida 2-adica de fusion ES la densidad natural de Gao (0,512 medida a 10^8)",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "03-08-2026, noche; lemadepandas.txt. CORRECCION EN VIVO, registrada en el propio documento: la primera version decia Res < 6 y era INSUFICIENTE para d = -1 (el factor n/(n+1) baja el piso a 1/12); la condicion limpia es Res < 3 (n >= 2; n = 1 vacuo). Ultra debil igual (max conocido 1,2532; incondicional bajo 2^71). LETRAS (orden del revisor): phi = lim a(k)/2^k (2-adica), d = densidad natural de Gao - eran objetos distintos y el puente es el reciproco de Jirafas: fusion balanceada <=> evento de clase (union monotona => densidad natural = medida 2-adica). Verificado: 477.245 pares bajo 10^6, cero excepciones."
+      },
+      "despues": {
+        "enunciado": "PANDAS, implicacion condicional: si las dos trayectorias llegan a 1, tienen igual altura clasica y sus residuos satisfacen 1<=Res<3, entonces sus tiempos de atajo y conteos impares coinciden.",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "lemadepandas.txt",
+        "fuente": "propio",
+        "notas": "Se retira el corolario general phi=d: la union creciente de clases solo entrega densidad natural inferior(F)>=phi. El intercambio de limites anterior es falso en general. Ver lemadepandas.txt y depuracion/coherencia20260913/Matematica.md. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro. Formalizado el 30-09-2026 en depuracion/pandas20260930/Pandas.lean (pandas_escrito), con la forma afilada Res(n) <= 6, Res(n+1) < 6n/(n+1)."
+      }
+    },
+    {
+      "id": 54,
+      "antes": {
+        "enunciado": "c4 ES A079583: la sucesion del estrato minimo del piso h coincide termino a termino con la entrada catalogada 3*2^n - n - 2 (con n = m - 6), lo que CONFIRMA la forma cerrada por via independiente; b4 (la hermana con 7 en vez de 6) NO esta catalogada. Y LA LEY DEL GERMEN UNICO, medida en los TRES pisos: cada estrato nuevo entra cada dos niveles con EXACTAMENTE una clase",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "03-08-2026, madrugada. A079583 esta catalogada como forma pura sin contexto Collatz: la coincidencia no es prioridad ajena sino confirmacion del ajuste (la misma formula, verificada por otro camino). La ley del germen unico: piso a (estratos 2, 4 entran con 1 - teoremas), pisos b y c (estratos 6@8, 8@10, 10@12, 12@14 entran con 1 en ambos - medido). Sugiere una recursion universal del triangulo: germen unico + ley de crecimiento por estrato."
+      },
+      "despues": {
+        "enunciado": "La formula propuesta para c4 se reindexa como 3*2^n-n-2 (n=m-6), coincidente con A079583. Esa coincidencia no demuestra la identificacion con el conteo Collatz.",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "La prueba o el barrido de preludios respalda el conteo; una formula catalogada no verifica independientemente que cuente este objeto. El germen unico es una observacion limitada al rango de las series indicadas. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 63,
+      "antes": {
+        "enunciado": "EL LEMA GENERAL DEL PRELUDIO DEL PISO h, DEMOSTRADO - y con el, c4(m) = 3*2^(m-6) - m + 4 ES TEOREMA PARA TODO m: (1) D1 = -3 SIEMPRE tras el primer mixto (calculo de una linea, con w par excluido porque D1 = 12w-2 fuerza tercer mixto); (2) la dinamica de D desde -3 vive en el grafo finito {-3, -5} con aterrizajes exactos {-2, -8}; (3) hay UN camino por largo (la alternancia fuerza la palabra) y el hueco L = 4 es imposible (-2 aterriza en largos impares, -8 en pares mas 2 divisiones); (4) Terras da UNA clase por palabra",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "03-08-2026, madrugada; la corona de la rafaga: el eslabon que faltaba, encontrado al escribir el argumento del reparto de mixtos. El esqueleto completo cabe en diez lineas sobre el grafo {-3, -5}; el detalle fino (palabra de paridades <-> clase, via E) queda para la formalizacion. Explica ademas por que los aterrizajes +4 y -32 solo aparecen en estratos >= 6 (entran por otros D iniciales, no desde -3). El piso g (D0 = 6w+1 impar, mixed0 es aterrizaje tambien) es el analogo pendiente - mismo metodo, otro grafo."
+      },
+      "despues": {
+        "enunciado": "EL LEMA GENERAL DEL PRELUDIO DEL PISO h, DEMOSTRADO - y con el, c4(m) = 3*2^(m-6) - m + 4 ES TEOREMA PARA TODO m>=7: (1) D1 = -3 SIEMPRE tras el primer mixto (calculo de una linea, con w par excluido porque D1 = 12w-2 fuerza tercer mixto); (2) la dinamica de D desde -3 vive en el grafo finito {-3, -5} con aterrizajes exactos {-2, -8}; (3) hay UN camino por largo (la alternancia fuerza la palabra) y el hueco L = 4 es imposible (-2 aterriza en largos impares, -8 en pares mas 2 divisiones); (4) Terras da UNA clase por palabra",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "03-08-2026, madrugada; la corona de la rafaga: el eslabon que faltaba, encontrado al escribir el argumento del reparto de mixtos. El esqueleto completo cabe en diez lineas sobre el grafo {-3, -5}; el detalle fino (palabra de paridades <-> clase, via E) queda para la formalizacion. Explica ademas por que los aterrizajes +4 y -32 solo aparecen en estratos >= 6 (entran por otros D iniciales, no desde -3). El piso g (D0 = 6w+1 impar, mixed0 es aterrizaje tambien) es el analogo pendiente - mismo metodo, otro grafo. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 68,
+      "antes": {
+        "enunciado": "LA COMPLETACION DE b4: b4(m) = 7*2^(m-7) - m + 4 ES TEOREMA PARA TODO m. La cadena: (1) la puerta impar mete a g en h en un paso, luego sus largos son 1 + L_h con unicidad HEREDADA del lema de h - y el hueco en 5 es la imagen del hueco en 4; (2) la ruta w = 2 (mod 4) con u impar da el largo 3 (germen unico mod 8, decide); (3) las rutas de la torre gastan un mixto por piso (toda forma de gap impar es un mixto) y NUNCA alcanzan preludios 2-mixtos: no aportan al estrato 4; (4) la suma de ventanas sobre {3} U {1 + L_h} reproduce la formula exacta (verificado algebraicamente m = 7..19)",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "03-08-2026, madrugada; el segundo teorema de forma cerrada completo de la sesion (el primero fue c4 via el grafo). CON LOS DOS, LAS MASAS EXACTAS DE LAS SUB-RENOVACIONES DEL ESTRATO MINIMO ESTAN COMPLETAS: el sistema de phi tiene sus primeros terminos en forma cerrada demostrada, que era el criterio de la revision externa para 'resultado fuerte'. Nota fina pendiente de formalizacion (como en h): la palabra de paridades <-> clase via Terras, y el germen L = 3 por decide - ambos ya verificados computacionalmente."
+      },
+      "despues": {
+        "enunciado": "LA COMPLETACION DE b4: b4(m) = 7*2^(m-7) - m + 4 ES TEOREMA PARA TODO m>=7. La cadena: (1) la puerta impar mete a g en h en un paso, luego sus largos son 1 + L_h con unicidad HEREDADA del lema de h - y el hueco en 5 es la imagen del hueco en 4; (2) la ruta w = 2 (mod 4) con u impar da el largo 3 (germen unico mod 8, decide); (3) las rutas de la torre gastan un mixto por piso (toda forma de gap impar es un mixto) y NUNCA alcanzan preludios 2-mixtos: no aportan al estrato 4; (4) la suma de ventanas sobre {3} U {1 + L_h} reproduce la formula exacta (verificado algebraicamente m = 7..19)",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "03-08-2026, madrugada; el segundo teorema de forma cerrada completo de la sesion (el primero fue c4 via el grafo). CON LOS DOS, LAS MASAS EXACTAS DE LAS SUB-RENOVACIONES DEL ESTRATO MINIMO ESTAN COMPLETAS: el sistema de phi tiene sus primeros terminos en forma cerrada demostrada, que era el criterio de la revision externa para 'resultado fuerte'. Nota fina pendiente de formalizacion (como en h): la palabra de paridades <-> clase via Terras, y el germen L = 3 por decide - ambos ya verificados computacionalmente. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 77,
+      "antes": {
+        "enunciado": "LA CONJETURA DE LA ESCALERA, FALLADA EN e8 Y REGISTRADA: la prediccion 'e8 cubica en su cola' es FALSA en los niveles medidos - e8 = 3,7,15,27,45,73,111,166,237 (N = 10..18) con terceras diferencias 0,2,4,0,7,-1: no constantes, no polinomial en el rango. DIAGNOSTICO: el insumo de e8 (las nuevas de estrato 6 reducidas: 3,5,8,14,22,34) tampoco es polinomial aun - el argumento de composicion es correcto pero el regimen polinomial de los pisos profundos no ha empezado en los niveles alcanzables",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "auditoria_rigor.py",
+        "fuente": "propio",
+        "notas": "04-08-2026; prediccion fallada y anotada, como las otras dos de la sesion. LO QUE QUEDA EN PIE: e2, e4 (constantes = 1), e6 cuadratica confirmada por prediccion, y las formas cerradas b4/c4 - la escalera existe hasta el tercer peldano; el cuarto exige la contabilidad de canales completa (rutas r=3, composiciones dobles, empalmes), no una extrapolacion de forma. La leccion: 'cada estrato es la integral del anterior' vale como MECANISMO demostrable, no como formula que se adivina - los empalmes mandan en los niveles bajos."
+      },
+      "despues": {
+        "enunciado": "e8 no coincide con un polinomio cubico en la ventana medida n=10..18: las terceras diferencias no son constantes. No se excluye una formula eventual que empiece despues.",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "auditoria_rigor.py",
+        "fuente": "propio",
+        "notas": "e8(9)=1, omitido de la tabla historica. Buscar una formula en un prefijo no decide su forma eventual. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 95,
+      "antes": {
+        "enunciado": "EL RECIPROCO DE JIRAFAS, y con el LA CARACTERIZACION: una fusion en el indice t esta S-balanceada SI Y SOLO SI es un evento de clase mod 2^t",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "03-08-2026, noche; teoremadejirafas.txt seccion 9. La ida es Jirafas (igualar coeficientes); el reciproco es nuevo: con Sx = Sy las pendientes son iguales y la diferencia es CONSTANTE en la clase - cero para un r, cero para todos. VEREDICTO DE RANGO ACEPTADO: Jirafas baja a LEMA (caracterizacion) en toda numeracion externa; el zoologico es interno. Es la pieza que cierra el puente phi = d de Pandas."
+      },
+      "despues": {
+        "enunciado": "EL RECIPROCO DE JIRAFAS, y con el LA CARACTERIZACION: una fusion en el indice t esta S-balanceada SI Y SOLO SI es un evento de clase mod 2^t",
+        "cuantificador": "clase_residual",
+        "estado": "demostrado",
+        "fichero": "identidadexacta.py",
+        "fuente": "propio",
+        "notas": "Caracterizacion algebraica por coeficientes de Terras, teoremadejirafas.txt seccion 9. No demuestra la igualdad general entre medida 2-adica y densidad natural; ver Matematica.md. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 101,
+      "antes": {
+        "enunciado": "casi todas las orbitas de Collatz alcanzan valores casi acotados",
+        "cuantificador": "casi_todo_n",
+        "estado": "demostrado",
+        "fichero": null,
+        "fuente": "Tao 2019",
+        "notas": "Casi todo n en densidad logaritmica. El resultado general mas fuerte que existe sobre la conjetura, y sigue sin tocarla."
+      },
+      "despues": {
+        "enunciado": "Tao: para cualquier funcion f(N) que tienda a infinito, casi todos los enteros en densidad LOGARITMICA tienen algun iterado menor que f(N).",
+        "cuantificador": "casi_todo_n",
+        "estado": "demostrado",
+        "fichero": null,
+        "fuente": "Tao 2019",
+        "notas": "Densidad logaritmica, no densidad natural; no afirma llegada a 1. Se conserva la referencia bibliografica de la fila. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 124,
+      "antes": {
+        "enunciado": "sobre todo Z los unicos ciclos son {1,2,4}, {-1,-2}, {-5,-7,-10,-14,-20} y el de 18 terminos desde -17",
+        "cuantificador": "ciclos",
+        "estado": "medido",
+        "fichero": "pinzaciclos.py",
+        "fuente": "estandar en la literatura",
+        "notas": "Supervivientes de k = 1..30 (2.147.483.646 restos) y barrido hasta 10^6 con 0 sin clasificar. La ecuacion no mira el signo de m, asi que el barrido resolvio el problema sobre Z sin proponerselo: dividen(k) = 2 + 2*[2|k] + 3*[3|k] + 11*[11|k], 0 desacuerdos."
+      },
+      "despues": {
+        "enunciado": "Ciclos no nulos conocidos y recuperados por el barrido declarado: {1,2,4}, {-1,-2}, {-5,-7,-10,-14,-20} y el ciclo clasico de 18 terminos desde -17.",
+        "cuantificador": "ciclos",
+        "estado": "medido",
+        "fichero": "pinzaciclos.py",
+        "fuente": "estandar en la literatura",
+        "notas": "Tambien existe el punto fijo 0. El barrido k<=30 y de semillas hasta 10^6 no excluye ciclos fuera de su alcance; no es una clasificacion universal sobre Z. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 127,
+      "antes": {
+        "enunciado": "el unico ciclo positivo, escrito con la identidad del repo, es 2^2 = 3^1 + 1, o sea 4 = 3 + 1",
+        "cuantificador": "ciclos",
+        "estado": "demostrado",
+        "fichero": "collazmalla.py",
+        "fuente": "propio",
+        "notas": "A=1, B=2, C=1. De los 95 candidatos enteros positivos que aparecieron, los 95 ciclan de verdad y son n en {1,2,4} dando 1, 2 o 3 vueltas. Cero impostores. Y desde el 02-08-2026 la identidad del ciclo la certifica el nucleo de Lean (depuracion/lean/A63.lean): demostrado, no solo contado."
+      },
+      "despues": {
+        "enunciado": "El ciclo positivo conocido {1,2,4} tiene A=1, B=2 y C=1: 2^2=3+1. La identidad se certifica en Lean; no se prueba unicidad global de ciclos positivos.",
+        "cuantificador": "ciclos",
+        "estado": "demostrado",
+        "fichero": "collazmalla.py",
+        "fuente": "propio",
+        "notas": "depuracion/lean/A63.lean certifica el ciclo concreto. Los candidatos encontrados en el barrido finito no establecen que no haya otros ciclos. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 129,
+      "antes": {
+        "enunciado": "el espejo base 10 tiene 44.451 dos-ciclos (mas 1.098 palindromos fijos) bajo 100.000, y Collatz tiene UN ciclo positivo",
+        "cuantificador": "ciclos",
+        "estado": "demostrado",
+        "fichero": null,
+        "fuente": "propio",
+        "notas": "CORREGIDO EL 02-08-2026, y subio de categoria: el 44.450 publicado era un off-by-one, y el numero bueno sale en cerrado, no contando: bajo 100.000 hay 90.000 numeros sin cero final y 1.098 palindromos, luego (90.000 - 1.098)/2 = 44.451 dos-ciclos. Reproducido ademas por conteo directo (45.549 ciclos contando los fijos). El A/B de control se queda -la maquinaria discrimina- y el ejemplo vuelve a ser reproducible sin el fichero retirado."
+      },
+      "despues": {
+        "enunciado": "El espejo decimal tiene 44451 dos-ciclos y 1098 puntos fijos bajo 100000, segun el convenio del experimento. Como comparacion, el ciclo positivo conocido de Collatz es {1,2,4}.",
+        "cuantificador": "ciclos",
+        "estado": "demostrado",
+        "fichero": null,
+        "fuente": "propio",
+        "notas": "(90000-1098)/2=44451. La cuenta del espejo es finita; no prueba unicidad global del ciclo positivo de Collatz. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 148,
+      "antes": {
+        "enunciado": "TEOREMA DE LEONAS - LA CADENA (k, c): todo estado de par vivo es una forma {v, 3^k v + c} (nucleo, k >= 1) o {v, v+g} (frontera, k = 0), y la dinamica entera del par son SEIS LEYES exactas de una linea decididas por un solo bit fresco (la paridad del menor, moneda de Terras). El zoologico completo -Gatas, Perras, el vortice (1,1), el rebote (2,2), la forma h (2,-1), las puertas P1-P3, las torres T1/T2, el grafo {-3,-5}- son estados y transiciones de esta unica cadena",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "paseodeladeuda.py",
+        "fuente": "propio",
+        "notas": "04-08-2026. Las seis leyes verificadas en 181.400 instancias (0 fallos) y DEMOSTRADAS en Lean con coeficiente impar arbitrario p (mas general que 3^k): cadenakc.lean, nucleo puro, 0 sorryAx. El programa de fusion entero es un sistema simbolico con una sola absorcion: (1,1) con bit 1. CUALIFICADA por la 6a revision (09-08-2026, rondadeltronco.py): la unicidad de la absorcion vale a nivel de CLASES, y la moneda es la paridad del ANCLA, no del menor -- ver la fila de la ronda del tronco y su correccion."
+      },
+      "despues": {
+        "enunciado": "TEOREMA DE LEONAS - LA CADENA (k, c): todo estado de par vivo es una forma {v, 3^k v + c} (nucleo, k >= 1) o {v, v+g} (frontera, k = 0), y la dinamica entera del par son SEIS LEYES exactas de una linea decididas por un solo bit fresco (la paridad del ancla, moneda de Terras). El zoologico completo -Gatas, Perras, el vortice (1,1), el rebote (2,2), la forma h (2,-1), las puertas P1-P3, las torres T1/T2, el grafo {-3,-5}- son estados y transiciones de esta unica cadena",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "paseodeladeuda.py",
+        "fuente": "propio",
+        "notas": "04-08-2026. Las seis leyes verificadas en 181.400 instancias (0 fallos) y DEMOSTRADAS en Lean con coeficiente impar arbitrario p (mas general que 3^k): cadenakc.lean, nucleo puro, 0 sorryAx. El programa de fusion entero es un sistema simbolico con una sola absorcion: (1,1) con bit 1. CUALIFICADA por la 6a revision (09-08-2026, rondadeltronco.py): la unicidad de la absorcion vale a nivel de CLASES, y la moneda es la paridad del ANCLA, no del menor -- ver la fila de la ronda del tronco y su correccion. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 153,
+      "antes": {
+        "enunciado": "TEOREMA DE ZORRAS - LA INVERSION DEL GOAL DE LAMBDA: b(t+2) >= N_t(1,2) como igualdad de enteros (el estado (1,2) fusiona en exactamente 2 pasos y prefijos distintos dan fusiones distintas), con s_t = N_t(1,2)/vivas >= 0,015 medido. Si phi < 1 entonces lambda = 2; contrapositivo: lambda < 2 => phi = 1 (Gao-Wu cierta). El autovalor NO puede separar: demostrar lambda < 2 no daria f < 1, daria f = 1",
+        "cuantificador": "todo_n",
+        "estado": "medido",
+        "fichero": "retornoslambda.py",
+        "fuente": "propio",
+        "notas": "04-08-2026, el cierre del goal. La desigualdad es exacta; el piso s_t >= 0,015 es medido (t = 8..32), por eso el estado es medido y no demostrado. Complemento demostrado por truncados (matriztransferencia.py): lambda >= 1,9754 (K=11, seis truncados anidados, conteo entero de caminos) y el LEMA DE LA LIBERTAD: la unica absorcion es (1,1)-bit1, ningun truncado finito puede demostrar lambda < 2."
+      },
+      "despues": {
+        "enunciado": "TEOREMA DE ZORRAS - LA INVERSION DEL GOAL DE LAMBDA: b(t+2) >= N_t(1,2) como desigualdad entre conteos enteros (el estado (1,2) fusiona en exactamente 2 pasos y prefijos distintos dan fusiones distintas), con s_t = N_t(1,2)/vivas >= 0,015 medido. Si phi < 1 entonces lambda = 2; contrapositivo: lambda < 2 => phi = 1 (Gao-Wu cierta). El autovalor NO puede separar: demostrar lambda < 2 no daria f < 1, daria f = 1",
+        "cuantificador": "todo_n",
+        "estado": "medido",
+        "fichero": "retornoslambda.py",
+        "fuente": "propio",
+        "notas": "04-08-2026, el cierre del goal. La desigualdad es exacta; el piso s_t >= 0,015 es medido (t = 8..32), por eso el estado es medido y no demostrado. Complemento demostrado por truncados (matriztransferencia.py): lambda >= 1,9754 (K=11, seis truncados anidados, conteo entero de caminos) y el LEMA DE LA LIBERTAD: la unica absorcion es (1,1)-bit1, ningun truncado finito puede demostrar lambda < 2. La implicacion espectral debe leerse con las hipotesis exactas de retornoslambda.py; un piso observado no es uniforme. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 155,
+      "antes": {
+        "enunciado": "TEOREMA DE TIGRESAS - EL MULTIPLICADOR: escribiendo cada transicion de la cadena como c' = m*c + s, en el NUCLEO (k >= 1) y la frontera par toda transicion tiene |m| = 1/2 en una rama y |m| = 3/2 en la otra - cada paso es MONEDA JUSTA entre contraer y expandir: E[m] = 1 EXACTO, E[log2 m] = -0,2075 < 0. La dinamica de c es una PERPETUIDAD DE KESTEN CRITICA (kappa = 1 es la unica solucion positiva de E[m^kappa] = 1). La unica excepcion es la frontera impar: ambas ramas |m| = 3/2 (la bomba de reentrada)",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "subrenovacionc.py",
+        "fuente": "propio",
+        "notas": "04-08-2026, el mecanismo de la densidad con nombre. El mismo balance 3/2-1/2 que hace B/A -> 2: la criticidad ES la constante del problema. Verificado en 1.368 estados (con el pliegue del valor absoluto tratado aparte). LECTURA (no teorema): kappa = 1 => estacionaria tensa de cola 1/x => piso de absorcion por visita => con el paseo recurrente, phi = 1. Por que no es teorema: los (m, s) no son i.i.d. (el shift crece 3^k con la torre) y el piso exige uniformidad. El peso de los shifts SI es sumable (2^-k * log 3^k): por ahi entra la formalizacion."
+      },
+      "despues": {
+        "enunciado": "TIGRESAS: en el nucleo y la frontera par, las magnitudes de los multiplicadores de c son 1/2 y 3/2 con bits justos. E[m]=1 y E[log2(m)]<0. La frontera impar requiere su tratamiento aparte.",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "subrenovacionc.py",
+        "fuente": "propio",
+        "notas": "El exponente formal E[m^kappa]=1 tiene solucion positiva kappa=1 para esta moneda. No identifica la cadena dependiente con una perpetuidad iid ni demuestra una cola estacionaria 1/x. Criticidad de primer momento no es E[log m]=0. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 156,
+      "antes": {
+        "enunciado": "TEOREMA DE CABRAS - LAS LEYES MOD 3 DE LA CADENA: (a) cada puerta de entrada al nucleo trae SU clase - directa (3g+1)/2 = 2 (mod 3), vuelco (3g-1)/2 = 1 (mod 3); ninguna trae 0; (b) c = 0 (mod 3) es INALCANZABLE en el nucleo (el mayor es 3^k v + c = c mod 3: es Komodo 3 en coordenadas de la cadena; masa CERO medida exacta en la foto de t = 34); (c) la absorcion (1,1) vive en la clase del vuelco: LA PUERTA QUE FUNDE ES LA DEL VUELCO",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "subrenovacionc.py",
+        "fuente": "propio",
+        "notas": "04-08-2026. (a) algebraico (g < 4001 verificado); (b) invariancia por las seis leyes + Komodo (teoremadekomodo3.lean); (c) 1 = 1 (mod 3). El reparto medido en k = 1 (clase 1 : clase 2 = 1 : 2) es la huella de las dos puertas."
+      },
+      "despues": {
+        "enunciado": "CABRAS: en la coordenada firmada de la cadena, ambas puertas desde un gap impar g dan c=(3g+1)/2 o c=(1-3g)/2, las dos congruentes con 2 modulo 3. Desde frontera se conserva c no divisible por 3 en el nucleo.",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "cabras.lean",
+        "fuente": "propio",
+        "notas": "La frase la puerta que funde es la del vuelco se retira: (0,1)--0-->(1,2)--0-->(1,1)--1-->fusion entra por la directa. cabras.lean demuestra el invariante, no la atribucion exclusiva a una puerta. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 162,
+      "antes": {
+        "enunciado": "EL PISO DE ABSORCION POR VISITA, LA ULTIMA PIEZA DEL PROGRAMA DE LA DENSIDAD (enunciado preciso al cierre del 04-08-2026): sea p_t = masa de palabras vivas en el pre-vortice (1, c=1) sobre la masa viva en k = 1, al nivel t. Medido p_34 = 0,0457. LA PREGUNTA: liminf p_t > 0 o p_t -> 0? Si NO se desvanece (mas uniformidad sobre las visitas), la absorcion es casi segura y phi = 1: la conjetura de Gao-Wu en densidad es CIERTA. Si se desvanece, phi < 1 con techo calculable: el techo exacto de la densidad de fusion. Con Leonas (la cadena), Tigresas (kappa = 1), Aranas (la sombra) y Moscas (la tension uniforme) demostrados, TODO el problema de los 51% de Gao vive en este unico numero",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "aranas.py",
+        "fuente": "propio",
+        "notas": "04-08-2026, el cierre. La via candidata a teorema esta escrita en RutaTeoremas.md (ataque 2): Moscas da masa acotada lejos del origen, luego hay masa que vuelve a |u| chico, donde los estados con k = 1 forman una rejilla FINITA; si se demuestra visita con frecuencia acotada abajo mas alcance de (1,1) desde ahi con probabilidad acotada abajo (bloque de bits explicito), el piso es teorema. El nombre tecnico a buscar: minorizacion de Doeblin sobre un conjunto pequenio. AVISO REGISTRADO: la lectura 'kappa = 1 => tensa => phi = 1' es HEURISTICA; Moscas demostro la tension INCONDICIONAL, y el condicional a vivo pierde la cota si phi = 1. No escribir phi = 1 sin ese paso."
+      },
+      "despues": {
+        "enunciado": "El cociente p_t de masa en (1,1) entre masa en k=1 fue medido en tiempo determinista (p_34~0,0457). No decide por si solo la absorcion por visitas.",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "aranas.py",
+        "fuente": "propio",
+        "notas": "Se retira p_t->0 => phi<1. Riesgos p_i=1/(i+1) tienden a cero y su producto de supervivencia es 1/(N+1)->0. Hace falta controlar las probabilidades condicionales a las visitas reales y su suma. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 168,
+      "antes": {
+        "enunciado": "TEOREMA DE AGUILAS: para la familia (qx+r)/2 con q, r impares, el multiplicador de los pasos compartidos es moneda justa entre 1/2 y q/2, luego E[m] = (1+q)/4 -- y E[m] = 1 EXACTAMENTE cuando q = 3: la criticidad kappa = 1 de Tigresas CARACTERIZA al mapa de Collatz dentro de la familia",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "cadenaqnr.py",
+        "fuente": "propio",
+        "notas": "09-08-2026. La linea es exacta; la LECTURA dinamica ('la fusion se apaga para q >= 5') fue REFUTADA por la propia tabla (correccion 46): las densidades son monotonas y positivas (phi_7 >= 0,107 subiendo). Lo defendible: razones de b < 2 para q >= 5 => phi_q < 1 PLAUSIBLE, medido sin mecanismo. Series a_5 y a_7 medidas por primera vez; no estan en OEIS (consultado con control 09-08); propuestas como A398794 y (pendiente) A398795."
+      },
+      "despues": {
+        "enunciado": "TEOREMA DE AGUILAS: para la familia (qx+r)/2 con q, r impares, el multiplicador de los pasos compartidos es moneda justa entre 1/2 y q/2, luego E[m] = (1+q)/4 -- y E[m] = 1 EXACTAMENTE cuando q = 3: la criticidad kappa = 1 de Tigresas CARACTERIZA al mapa de Collatz dentro de la familia",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "cadenaqnr.py",
+        "fuente": "propio",
+        "notas": "La esperanza (1+q)/4 es de pasos compartidos con bit de Terras justo. Para multiplicadores no negativos se usa q positivo impar. No demuestra una densidad limite menor que 1 para q>=5. A398794 y A398795 estan publicadas. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 176,
+      "antes": {
+        "enunciado": "CONEJAS, FORMALIZADA (el 18o .lean): para todo j PAR, el par (2^j - 2, 2^j - 1) llega al MISMO x = 3t + 2 en EXACTAMENTE j + 2 pasos del atajo, con 3^(j-1) = 4t + 3 (el testigo de por que j debe ser par) y el vortice en el repunit ternario w = 2t + 1. COROLARIO CON NUCLEO DETRAS: b(j+2) >= 1 para todo j par -- las nuevas nunca se acaban, maquina-verificado",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "conejas.lean",
+        "fuente": "propio",
+        "notas": "09-08-2026 (madrugada), 0 sorryAx. Arquitectura: PasoT con testigos sin division, CaminoN con largo exacto, el peldano 3^p 2^(q+1) - 1 -> 3^(p+1) 2^q - 1 y la escalera por induccion; separados_antes (en j+1 los valores son w y 3w+1, impar contra par: el encuentro es de verdad) y el caso j = 2 instanciando el teorema. Revision adversarial propia antes de entrar (A1-A5, 0 fallos): trayectorias reales paso a paso j = 2..20. Este fichero formaliza 'a mas tardar en j+2'; la PRIMERA vez sigue siendo del barrido (nuevasfusion.py C5)."
+      },
+      "despues": {
+        "enunciado": "CONEJAS: para j par >=2, las trayectorias (2^j-2,2^j-1) tienen encuentro en j+2 pasos; el archivo Lean construye los caminos y sus valores terminales.",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "conejas.lean",
+        "fuente": "propio",
+        "notas": "Lean construye el valor terminal 3t+2, con 3^(j-1)=4t+3, es decir (3^j-1)/4. El repunit w=2t+1 es previo. La exactitud de primer encuentro exige ademas determinismo y desigualdad en j+1; esa deduccion y el conteo no estan ensamblados en el teorema Lean. El corolario usa b(j+1), con b(n)=a(n+1)-2a(n). Revalidado el 17-09-2026 con Lean 4.32.2; axiomas propext y Quot.sound, sin sorryAx. Ver depuracion/oeis20260917/ANALISIS_TARDE.md. Historial literal conservado."
+      }
+    },
+    {
+      "id": 194,
+      "antes": {
+        "enunciado": "L3 ES TEOREMA Y EL TEOREMA V2 QUEDA AUTOCONTENIDO (la pieza analitica del programa, escrita entera en teoremav2.txt): (i) el limite local de la reversion = LEMA D de comparacion de densidades -- P(sufijo | tau=t) = P~+(sufijo revertido) * D(t,r,y) con D -> 1 (r fijo) y sup_{r<=t/2} D <= C (el peor caso teorico 2^(3/2) = 2,8284; medido EXACTO por DP: 2,823) -- desde el LLT del paseo perezoso absorbido, DEMOSTRADO tambien (reflexion + CLT local + reloj binomial; c0 = 4/sqrt(pi) = 2,2568, medido 2,255 por DP); (ii) la serie revertida converge (ya demostrada); (iii) el trasvase: sufijo/medio/primera mitad, con el LEMA DEL MAXIMO elemental (Hoeffding + ruina del jugador + LLT-b: P(max k >= 2 sqrt(t log t) | tau = t) -> 0) y el aniquilamiento de la primera mitad (medido: mediana e-14 -> e-63 -> e-265). CONCLUSION: phi_V2(x) >= c/sqrt(log x) con ventana K = M + 1 universal -- L-A DEMOSTRADO PARA V2, autocontenido modulo Stirling",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "trasvasel3.py",
+        "fuente": "propio",
+        "notas": "11-08-2026 (2), la tercera pasada de la tarde. El texto entero en teoremav2.txt (LLT incluido, ya sin cita externa); las verificaciones: DP exacto (perfil (y-1) a <2%, D y su sup, c0 a 0,1%) + MC (primera mitad, truncamiento err_640 = 0,000 estable en T). HALLAZGO DE TASA registrado: eta_R decae gaussiano-con-deriva (-0,057R +- 0,6 sqrt(R)) -- exponencial recien desde R ~ 300; al teorema no le afecta (R -> inf antes que T) pero toda version cuantitativa en x pagara ese sqrt(R). PENDIENTE: revision externa de la tanda entera, y la transferencia a la cadena real (P2) que es otro teorema. NO dice nada de Collatz por si solo: es el modelo autonomo V2 (la diana que la prueba de circularidad legitimo). PASO LA 9a REVISION (adv 2): el nucleo aguanta -- telescopio exacto en racionales (2.352 sufijos), parada exacta en fracciones, c0 por tres caminos --, con tres reparaciones aplicadas: (LLT-b) reescrita con la identidad de binomiales consecutivos, el factor 2 del tramo (3) corregido (-0,014t), y el pago del condicionamiento declarado. Acta: actarevision1108c.txt."
+      },
+      "despues": {
+        "enunciado": "L3 ES TEOREMA Y EL TEOREMA V2 QUEDA AUTOCONTENIDO (la pieza analitica del programa, escrita entera en teoremav2.txt): (i) el limite local de la reversion = LEMA D de comparacion de densidades -- P(sufijo | tau=t) = P~+(sufijo revertido) * D(t,r,y) con D -> 1 (r fijo) y sup_{r<=t/2} D <= C (el peor caso teorico 2^(3/2) = 2,8284; medido EXACTO por DP: 2,823) -- desde el LLT del paseo perezoso absorbido, DEMOSTRADO tambien (reflexion + CLT local + reloj binomial; c0 = 4/sqrt(pi) = 2,2568, medido 2,255 por DP); (ii) la serie revertida converge (ya demostrada); (iii) el trasvase: sufijo/medio/primera mitad, con el LEMA DEL MAXIMO elemental (Hoeffding + ruina del jugador + LLT-b: P(max k >= 2 sqrt(t log t) | tau = t) -> 0) y el aniquilamiento de la primera mitad (medido: mediana e-14 -> e-63 -> e-265). CONCLUSION: phi_V2(x) >= c/sqrt(log x) con ventana K = M + 1 universal -- L-A DEMOSTRADO PARA V2, autocontenido modulo Stirling",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "trasvasel3.py",
+        "fuente": "propio",
+        "notas": "11-08-2026 (2), la tercera pasada de la tarde. El texto entero en teoremav2.txt (LLT incluido, ya sin cita externa); las verificaciones: DP exacto (perfil (y-1) a <2%, D y su sup, c0 a 0,1%) + MC (primera mitad, truncamiento err_640 = 0,000 estable en T). HALLAZGO DE TASA registrado: eta_R decae gaussiano-con-deriva (-0,057R +- 0,6 sqrt(R)) -- exponencial recien desde R ~ 300; al teorema no le afecta (R -> inf antes que T) pero toda version cuantitativa en x pagara ese sqrt(R). PENDIENTE: revision externa de la tanda entera, y la transferencia a la cadena real (P2) que es otro teorema. NO dice nada de Collatz por si solo: es el modelo autonomo V2 (la diana que la prueba de circularidad legitimo). PASO LA 9a REVISION (adv 2): el nucleo aguanta -- telescopio exacto en racionales (2.352 sufijos), parada exacta en fracciones, c0 por tres caminos --, con tres reparaciones aplicadas: (LLT-b) reescrita con la identidad de binomiales consecutivos, el factor 2 del tramo (3) corregido (-0,014t), y el pago del condicionamiento declarado. Acta: actarevision1108c.txt. Estado vigente: la revision 9 esta registrada, pero la transferencia a la cadena real y el control W siguen abiertos; ver Gacelas y ESTADO_INVESTIGACION.md. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 197,
+      "antes": {
+        "enunciado": "VIBORAS (la lectura): la racha que sigue a un mixto y el salto de recarga LEEN los bits bajos de c -- para todo c impar y todo j, racha >= j <=> 2^(j+1) | 3c+1 (bit 0) / 2^(j+1) | c - 3^(k-1) (bit 1, k >= 3); y en el compartido bit 1 con v2(c) = A, salto >= s <=> 2^(A+1+s) | 3c+1-3^k. Cada evento es UNA SOLA clase de c (x3 es inyectivo mod 2^n, por induccion). Consecuencia: las 'dos equidistribuciones' de la 9a son UN objeto: c mod 2^m",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "lecturaracha.lean",
+        "fuente": "propio",
+        "notas": "12-08-2026. Nucleo puro, 0 sorryAx; testigos sin division estilo tortolas.lean; instancia adversarial de la 9a por decide (3*1398101+1 = 2^22). El cuantificador k >= 3 del bit 1 vive en el parametro p del teorema, no en su enunciado: cotejo Lean <-> cadena en el encargo de la 10a (a1)."
+      },
+      "despues": {
+        "enunciado": "VIBORAS: si h es el hijo de un mixto, 2^j divide h si y solo si 2^(j+1) divide 3c+1 (bit 0) o c-3^(k-1) (bit 1, k>=3). Son congruencias del HIJO, no la duracion realizada de una racha.",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "lecturaracha.lean",
+        "fuente": "propio",
+        "notas": "(2,1398101)--0-->(3,2^21), pero un bit compartido 1 produce 3145715 impar. La probabilidad de L>=21 desde ese hijo es 2^-20. El nucleo aritmetico Lean permanece valido; Mangostas resuelve la duracion. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 200,
+      "antes": {
+        "enunciado": "LA EQUIDISTRIBUCION DE c mod 2^m, MEDIDA EXACTA (la Pieza B convertida en numeros): por DP de conteos ENTEROS de palabras sobre (k, c mod 2^(M-t)), C_j <= 2,95 en toda celda con peso esperado >= 8 (t = 12..24, ambos bits, tres arranques incluido c0 = -3^(-1) mod 2^21) tendiendo a ~1; la version ADAPTADA al k-camino da C_j <= 1,000 en celdas gruesas; la constante de colision L2 (m=8) es 1,038-1,039 a t=24 (piso uniforme = 1); y el salto de recarga da C_s <= 2,04 rondando 1 (la Geom(1/2) que la 9a predijo). El transitorio adversarial (racha_1 forzada >= 20) reproducido y muerto a t >= 12",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "equidistribucionmixto.py",
+        "fuente": "propio",
+        "notas": "12-08-2026. El salto de recarga en recargaexacta.py (mismo DP, premisa v2 = A). Cruce independiente (regla de los tres): enumeracion exhaustiva 2^14 sin codigo comun, igualdad COMO ENTEROS en los tres arranques (E1/R2). Horizonte finito t <= 24: nada asintotico. Las celdas de granularidad (peso < 8) se reportan sin exigir: alli habla el residuo determinista del c0."
+      },
+      "despues": {
+        "enunciado": "LA EQUIDISTRIBUCION DE c mod 2^m, MEDIDA EXACTA (la Pieza B convertida en numeros): por DP de conteos ENTEROS de palabras sobre (k, c mod 2^(M-t)), C_j <= 2,95 en toda celda con peso esperado >= 8 (t = 12..24, ambos bits, tres arranques incluido c0 = -3^(-1) mod 2^21) tendiendo a ~1; la version ADAPTADA al k-camino da C_j <= 1,000 en celdas gruesas; la constante de colision L2 (m=8) es 1,038-1,039 a t=24 (piso uniforme = 1); y el salto de recarga da C_s <= 2,04 rondando 1 (la Geom(1/2) que la 9a predijo). La alta divisibilidad del hijo adversarial no equivale a una racha forzada de 20 pasos",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "equidistribucionmixto.py",
+        "fuente": "propio",
+        "notas": "12-08-2026. El salto de recarga en recargaexacta.py (mismo DP, premisa v2 = A). Cruce independiente (regla de los tres): enumeracion exhaustiva 2^14 sin codigo comun, igualdad COMO ENTEROS en los tres arranques (E1/R2). Horizonte finito t <= 24: nada asintotico. Las celdas de granularidad (peso < 8) se reportan sin exigir: alli habla el residuo determinista del c0. La interpretacion de racha forzada fue corregida por Mangostas el 10-09. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 201,
+      "antes": {
+        "enunciado": "TORTUGAS (el reloj polinomial): tau_i <= i^(2+eps) eventualmente c.s. para todo eps > 0 -- CONDICIONAL a la dominacion (D) del reloj (el teorema de conteo pendiente, en version L-infinito o L2). Reflexion del paseo critico desde k0 = 2 + Chernoff adaptado sobre (D) + presupuesto quenched (prefijo <= log2|c_i|) + Borel-Cantelli. Supera el e^(o(i^2)) que la reduccion (13) pide con margen infinito",
+        "cuantificador": "casi_todo_n",
+        "estado": "conjeturado",
+        "fichero": "notalb.txt",
+        "fuente": "propio",
+        "notas": "12-08-2026. CONDICIONAL: el eslabon (D) no esta demostrado; la cuenta L2 del Chernoff esta POR REHACER (declarado); el cualificador log|c_i| = o(i^2) descansa en beta = 0 MEDIDO (arranquesporvisita). Coherente con eta = 2,082 medido. El estado 'conjeturado' es por el condicional: las piezas clasicas (a),(c),(d) si estan escritas."
+      },
+      "despues": {
+        "enunciado": "TORTUGAS: el reloj global de visitas es una obligacion pendiente del ensamblaje. El antiguo argumento polinomial era condicional a dominacion y control de arranques.",
+        "cuantificador": "casi_todo_n",
+        "estado": "conjeturado",
+        "fichero": "notalb.txt",
+        "fuente": "propio",
+        "notas": "El corolario nuevo de Mangostas-Gacelas controla una excursion (2,c_i)->k=1 uniformemente en c_i, pero faltan los tramos de frontera antes de declararlo un reloj global. Ver ESTADO_INVESTIGACION.md y Matematica.md. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 203,
+      "antes": {
+        "enunciado": "PIRANAS (se comen el exceso) + EL BLANCO MULTI-ESCALA: el telescopio de primer desvio del teorema de conteo es CRITICO EXACTO (Sigma 2^-i = 1: cero holgura -- la obstruccion nombrada), pero el exceso de colision e_t = C2(t) - 1 se contrae con razon MEDIA ~0,7 (t = 8..26; la serie a escala fija NO es monotona paso a paso -- picos > 1: A t=22->23 x1,38 --, contraccion de TENDENCIA; el objeto monotono es la razon multi-escala; de 255 a 0,025 en 26 pasos, uniforme en tres arranques), y la razon MULTI-ESCALA e_(t+1)(m)/e_t(m+1) -- el objeto correcto, porque el DP intercambia tiempo por escala -- queda en [0,15, 0,44] en toda celda medida (t >= 12, m = 6..9): BAJO el umbral critico 1/2 con margen 13%. Un teorema de UNA transicion con rho < 1/2 cerraria el telescopio solo: e_t <= 2^m (2 rho)^t -> 0",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "excesocolision.py",
+        "fuente": "propio",
+        "notas": "12-08-2026. X1-X4 con SystemExit; los umbrales t >= 12 y m = 6..9 son ELECCION del autor (declarado en el encargo de la 10a, d2); a escala fija hay celdas con e_t/e_(t-1) > 1 (t = 17, 23 en A): la geometria es de TENDENCIA. El teorema de conteo sigue ABIERTO: esto es su blanco, no su demostracion."
+      },
+      "despues": {
+        "enunciado": "PIRANAS (se comen el exceso) + EL BLANCO MULTI-ESCALA: el telescopio de primer desvio del teorema de conteo es CRITICO EXACTO (Sigma 2^-i = 1: cero holgura -- la obstruccion nombrada), pero el exceso de colision e_t = C2(t) - 1 se contrae con razon MEDIA ~0,7 (t = 8..26; la serie a escala fija NO es monotona paso a paso -- picos > 1: A t=22->23 x1,38 --, contraccion de TENDENCIA; el objeto monotono es la razon multi-escala; de 255 a 0,025 en 26 pasos, uniforme en tres arranques), y la razon MULTI-ESCALA e_(t+1)(m)/e_t(m+1) -- el objeto correcto, porque el DP intercambia tiempo por escala -- queda en [0,15, 0,44] en toda celda medida (t >= 12, m = 6..9): BAJO el umbral critico 1/2 con margen 13%. Un teorema de UNA transicion con rho < 1/2 cerraria el telescopio solo: e_t <= 2^m (2 rho)^t -> 0",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "excesocolision.py",
+        "fuente": "propio",
+        "notas": "12-08-2026. X1-X4 con SystemExit; los umbrales t >= 12 y m = 6..9 son ELECCION del autor (declarado en el encargo de la 10a, d2); a escala fija hay celdas con e_t/e_(t-1) > 1 (t = 17, 23 en A): la geometria es de TENDENCIA. El teorema de conteo sigue ABIERTO: esto es su blanco, no su demostracion. Erizas (10-09) descarta el rho<1/2 fijo para todas las escalas y tiempos grandes, incluso en leyes alcanzables. La observacion finita se conserva; el blanco uniforme ya no esta abierto. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 206,
+      "antes": {
+        "enunciado": "EL CONTRAEJEMPLO AL ENUNCIADO DEL COFRE: para k IMPAR, tau_k(u) = 3u + s_k tiene EXACTAMENTE dos ciclos de largo 2^(m-1) sobre Z/2^m; luego con chi = +1 en un ciclo y -1 en el otro, p_eps = (1 + eps*chi)/2^m es probabilidad legitima, tiene exceso e = eps^2 ARBITRARIAMENTE CHICO y da gamma_CENTRADO = 1 EXACTO. El enunciado universal 'Sigma p p(tau) <= gamma C2 con gamma < 1 para tau afin impar no trivial' es FALSO en la forma centrada, que es la que la recursion usa",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "correlacionafin.py",
+        "fuente": "propio",
+        "notas": "12-08-2026 (3), C2-C3. Ciclos enumerados m = 4..10; el contraejemplo verificado como igualdad de racionales en m = 6, 8, 10 y eps = 1/10, 1/100, 1/1000. Y sin gap que lo rescate: ortogonal al obstructor el siguiente autovalor es cos(2 pi / 2^(m-1)) = 1 - O(4^-m). Refuta el pendiente No 1 tal como estaba enunciado en notaequidistribucion 3-bis.viii(c)."
+      },
+      "despues": {
+        "enunciado": "EL CONTRAEJEMPLO AL ENUNCIADO DEL COFRE: para k IMPAR y m>=2, tau_k(u) = 3u + s_k tiene EXACTAMENTE dos ciclos de largo 2^(m-1) sobre Z/2^m; luego con chi = +1 en un ciclo y -1 en el otro, p_eps = (1 + eps*chi)/2^m es probabilidad legitima, tiene exceso e = eps^2 ARBITRARIAMENTE CHICO y da gamma_CENTRADO = 1 EXACTO. El enunciado universal 'Sigma p p(tau) <= gamma C2 con gamma < 1 para tau afin impar no trivial' es FALSO en la forma centrada, que es la que la recursion usa",
+        "cuantificador": "todo_n",
+        "estado": "demostrado",
+        "fichero": "correlacionafin.py",
+        "fuente": "propio",
+        "notas": "12-08-2026 (3), C2-C3. Ciclos enumerados m = 4..10; el contraejemplo verificado como igualdad de racionales en m = 6, 8, 10 y eps = 1/10, 1/100, 1/1000. Y sin gap que lo rescate: ortogonal al obstructor el siguiente autovalor es cos(2 pi / 2^(m-1)) = 1 - O(4^-m). Refuta el pendiente No 1 tal como estaba enunciado en notaequidistribucion 3-bis.viii(c). El contraejemplo de alturas impares no se extiende a los operadores de alturas 2 y 3: Suricatas prueba que sus invariantes comunes son constantes. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    },
+    {
+      "id": 208,
+      "antes": {
+        "enunciado": "LA FORMA QUE LE QUEDA AL TEOREMA DE CONTEO, POR DOS NEGATIVOS MEDIDOS: (a) la cota Cauchy-Schwarz CRUDA (Sigma_i w_i sqrt(E_ii))^2 / E00 -- lo peor posible si toda cruzada saturara C-S con signo + -- SUPERA 1 (peor 1,156 en m = 6..9), luego ninguna demostracion que acote las cruzadas en VALOR ABSOLUTO puede servir; (b) el signo de la cruzada del par bueno CAMBIA con la escala m (A k'=4: +0,127 / +0,103 / +0,115 / -0,259 / -0,125 en m = 5..9), luego tampoco sirve apoyarse en el signo. Lo unico estable es el BRANCHING de las corrientes propias (Sigma w^2 <= 0,37) mas una acotacion CONJUNTA del resto",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "correlacionafin.py",
+        "fuente": "propio",
+        "notas": "12-08-2026 (3), C9-C10. Contabilidad exacta rho_ms = Sigma_ij w_i w_j E_ij / E00 con SystemExit sobre su cierre en las 12 celdas; barrido de escala m = 5..9, t = 24, tres arranques. De regalo: rho_ms se mantiene en 0,23-0,43 en TODA escala m = 6..9 -- el blanco de 3-bis.vii con una dimension mas de evidencia. MEDICION a horizonte finito, no teorema."
+      },
+      "despues": {
+        "enunciado": "En la ventana estudiada, la cota Cauchy-Schwarz saturada no basta; el signo de una cruzada cambia con la escala. Esto no descarta toda cota en valor absoluto.",
+        "cuantificador": "verificado_hasta",
+        "estado": "medido",
+        "fichero": "correlacionafin.py",
+        "fuente": "propio",
+        "notas": "La revision 11 reprobo el titular: con los valores absolutos realizados las 12 celdas t=24,m=8 dan maximo 0,4767<1/2. El barrido de rho_ms incluye cuatro cruces de 1/2, peor 0,5151; rho_ms no es rho_cond. Ver actarevision1208.txt y el frente 10-09. Correccion de coherencia 13-09-2026; historial literal conservado en guardarafirmaciones.py y en este registro."
+      }
+    }
+  ],
+  "altas": [
+    {
+      "clave": "suricatas",
+      "enunciado": "SURICATAS: los invariantes comunes de tau_2(x)=3x-4 y tau_3(x)=3x-13, periodicos modulo 2^m, son constantes para todo m.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/frente20260910/invariantes.lean",
+      "fuente": "propio",
+      "notas": "Prueba Lean; la contraccion a cada escala finita no implica margen uniforme. Revision 12, tanda 1."
+    },
+    {
+      "clave": "castoras",
+      "enunciado": "CASTORAS: balance exacto de cuatro corrientes con paridad y supervivencia, mas contraejemplos sinteticos a la contraccion para leyes arbitrarias.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/frente20260910/Castoras.md",
+      "fuente": "propio",
+      "notas": "Algebra e ingredientes Lean; enlace con leyes alcanzables explicitado. No demuestra un margen uniforme. Revision 12, tanda 2."
+    },
+    {
+      "clave": "erizas",
+      "enunciado": "ERIZAS: ninguna semilla fija admite rho<1/2 uniforme en todos los tiempos grandes y escalas; tampoco L2 uniforme en todo un sector lineal.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/frente20260910/Erizas.md",
+      "fuente": "propio",
+      "notas": "Prueba escrita e ingredientes Lean; formalizacion probabilistica integral no realizada. No descarta escala fija. Revision 12, tanda 3."
+    },
+    {
+      "clave": "mangostas",
+      "enunciado": "MANGOSTAS: dado (k,c), L=r si r<A y L=A+Geom(1/2) si r=A, A=v2(3^k-1), r=min(v2(c),A).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/frente20260910/Mangostas.md",
+      "fuente": "propio",
+      "notas": "k>=2, c entero, r=A para c=0. Probabilidades con bits futuros justos. Ley escrita e ingredientes Lean. El O(n) sugerido por la revision 12 no se adopta como teorema."
+    },
+    {
+      "clave": "gacelas",
+      "enunciado": "GACELAS: h=k-1 armonica en la cadena de excursion; supervivencia >=1/sqrt(2t+3) y control exponencial del fallo del producto.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/frente20260910/Gacelas.md",
+      "fuente": "propio",
+      "notas": "Pruebas escritas G1-G5, ocho ingredientes Lean. No identifica Q con supervivencia futura ni controla W. Revision 12, tanda 5."
+    },
+    {
+      "clave": "mangostas_gacelas_reloj",
+      "enunciado": "Corolario de MANGOSTAS y GACELAS: desde (2,c0), P(tau>t)<=C sqrt(log(t+2)/(t+1)) con C absoluta, tau primera llegada a k=1.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/coherencia20260913/Matematica.md",
+      "fuente": "propio",
+      "notas": "Deduccion escrita de M6 y paseo de alturas; no formalizada integralmente en Lean ni revisada externamente en esta tanda. No incluye el reloj de frontera."
+    },
+    {
+      "clave": "piso_w",
+      "enunciado": "P2: buscar M finito y p positivo uniformes con P(|W_tau|<=M | tau>T(c0))>=p bajo la ley real y el dominio de arranques declarado.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "ESTADO_INVESTIGACION.md",
+      "fuente": "propio",
+      "notas": "Obligacion pendiente, condicion suficiente propuesta; no se afirma su verdad ni que cierre por si sola todo el ensamblaje."
+    },
+    {
+      "clave": "estratos_oeis",
+      "enunciado": "Estratos nuevos e8,e10,e12: primeros terminos no nulos en n=9,11,13; e8(9)=1 con r=65 modulo 512.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "../zootheorem/verify/verify_strata.py",
+      "fuente": "propio",
+      "notas": "Enumeracion directa n=1..20 y cruce simbolico. Los 33 terminos originales n=10..20 coinciden. n=21..29 quedan como datos del calculo simbolico historico, sin nuevo barrido directo."
+    },
+    {
+      "clave": "moscas_mangostas_gacelas_global",
+      "enunciado": "Corolario escrito de MOSCAS, MANGOSTAS y GACELAS: bajo bits iid justos en la cadena absorbente original, sobre no absorcion, S_i=O_omega(i^4) y |c_(S_i)|=O_omega(i^16) casi seguramente, S_i entrada a k=2 desde k=1.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Reloj_global.md",
+      "fuente": "propio",
+      "notas": "Arranque fijo en k=0,1 o (2,c0), frontera positiva y offsets firmados. Prueba escrita local de rachas y Borel-Cantelli; constantes aleatorias dependientes del arranque, sin suponer masa positiva de no absorcion. cadena_completa.lean certifica todas las transiciones; formal/Momentos.lean enlaza dominacion real, promedio de 2^t hojas y momento, con cota 32 desde (0,1). No hay formalizacion integral del reloj ni revision externa; ensamblaje final sigue candidato."
+    },
+    {
+      "clave": "gacelas_moscas_ventana_creciente",
+      "enunciado": "Corolario escrito de GACELAS y MOSCAS: desde (2,c0), con T,H,G explicitos en V3, P(T<tau<=H, |c_tau|<=G)>=1/(4sqrt(2T+3)); T=O(log(2+|c0|)), H=O(T^2 log(T+2)), G=O(T^5 log(T+2)^2).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Salida_ampliada.md",
+      "fuente": "propio",
+      "notas": "c0 entero firmado; tau primera llegada a k=1. formal/Resto.lean certifica identidad afin incluida la salida, W prolongado multiplicativamente, V1, V2 y coste <=1/(4Q). formal/Producto.lean mejora a (61/62)^T el control del producto en cualquier horizonte finito desde T. Tres sustracciones y leyes de excursion siguen escritas, sin formalizacion integral de V3. No prueba P2 de ventana fija ni condiciona bits frescos al futuro."
+    },
+    {
+      "clave": "hormigas_cota_cuadratica",
+      "enunciado": "HORMIGAS: todo estado (1,c), c entero firmado, admite una palabra de fusion de longitud a lo sumo 16(ceil(log2(2+|c|))+1)^2.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Salida_ampliada.md",
+      "fuente": "propio",
+      "notas": "Hormigas.lean certifica la existencia sobre la transicion original, mediante divisiones, viajes de contraccion <=5/6 y grupos de cuatro viajes. Incluye c=0 y signos. No reutiliza la constante historica 2,5. Ensayo_finito.md documenta el certificado universal y el contraste independiente de 4127 offsets."
+    },
+    {
+      "clave": "gao_ensamblaje_20260920",
+      "enunciado": "CANDIDATO: reloj y arranques polinomicos, ventana de salida creciente y ensayos no solapados implicarian absorcion casi segura, phi=1 y densidad uno de fusion clasica antes de log2(n).",
+      "cuantificador": "casi_todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/gao20260920/Ensamblaje_candidato.md",
+      "fuente": "propio",
+      "notas": "No anunciar resolucion. Desarrollo universal de cilindros en Cilindros.md y cierre propuesto por supermartingala. Segunda auditoria: ruta alternativa explicita CF en Cota_finita.md. Pendiente enlace formal probabilistico y lectura primaria de Gao. No demuestra llegada a 1 ni igualdad de alturas finitas incondicional."
+    },
+    {
+      "clave": "gao_cota_finita_20260920",
+      "enunciado": "COTA CANDIDATA CF: desde (0,1), para m>=10, N=2^m y h=N^6, P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p_m)^J_m, con parametros explicitos en Cota_finita.md cuyo ultimo termino tenderia a cero.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/gao20260920/Cota_finita.md",
+      "fuente": "propio",
+      "notas": "Segunda auditoria: evento bueno, reloj para porciones incompletas y guardias al inicio sin condicionamiento futuro. cota_finita.lean certifica presupuestos e induccion abstracta de riesgos. formal/Momentos.lean certifica C1 sobre la cadena completa: maximo hasta h con coste <=66/h y probabilidad como conteo de hojas. Faltan excursiones y ensayos guardados; CF sigue conjeturada. La aritmetica hasta m=1000000 no es un censo. Si se valida CF, daria phi=1."
+    },
+    {
+      "clave": "gacelas_control_armonico",
+      "enunciado": "GACELAS, control armonico de la primera excursion desde (2,c0): P(tau>t)>=1/(t+1). Si M_h cuenta pasos mixtos hasta h o salida, P(M_h>=n)<=1/L+(L-1)/n para todo L,n>=1, h>=0 y c0 entero.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Ventana_armonica.md",
+      "fuente": "propio",
+      "notas": "Supervivencia.lean y Banda.lean certifican la cadena detenida, altura armonica, energia de banda, contador, acoplamiento y cotas sobre arboles finitos. Reloj.lean enlaza ahora los mixtos con el tiempo fisico mediante M6/H3; registro separado. El contraste de H1/H2 por pares positivos cubre h=0..10, 8 semillas y 5 techos."
+    },
+    {
+      "clave": "gao_cota_armonica_20260920",
+      "enunciado": "COTA CANDIDATA CF_H: mismo presupuesto global de CF, con ventana Q=T+1, n=256Q^2, R=[128(H+1)Q]^2 y G=3(R+1). El piso p_m=2^(-D_m)/(4Q_m) implicaria P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p_m)^J_m y tenderia a cero.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/gao20260920/Ventana_armonica.md",
+      "fuente": "propio",
+      "notas": "H1/H2, M6/H3, VH y Hormigas certificados. Ensayo.lean entrega un piso uniforme antes de H+D. Ese resultado local fundamenta CF_F con otro numero de ensayos; no certifica automaticamente el protocolo variable de CF_H. Quedan ensamblaje global y transporte a clases. No anuncia Gao ni Collatz."
+    },
+    {
+      "clave": "mangostas_reloj_armonico",
+      "enunciado": "MANGOSTAS-GACELAS, reloj de la excursion desde (2,c0): para a>=2+floor(log2(n+2)), H=n(a+s+1), P(tau>H y M_H<n)<=n*2^(-s). Para L,n>=1, P(tau>H)<=1/L+(L-1)/n+n*2^(-s). c0 entero firmado y bits iid justos de paridad del ancla; tau es llegada a k=1 y M cuenta mixtos hasta h o salida, incluido el paso de salida.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Reloj_bloques.md",
+      "fuente": "propio",
+      "notas": "RachasEnteras.lean, UmbralRachas.lean y Reloj.lean certifican conteo, umbral diadico, invariante de altura, bloques deterministas y M6/H3 sobre la cadena original detenida. 22 consultas de axiomas sin sorryAx. Contraste independiente: 832 conteos de rachas, 280 M6, 720 H3, h<=16. No demuestra VH conjunta ni CF_H; no confundir la salida con fusion."
+    },
+    {
+      "clave": "gacelas_ventana_armonica",
+      "enunciado": "GACELAS, ventana VH: para C,c enteros con |c|<=|C|, m=ceil(log2(2+|C|)), T=32 max(32,m), Q=T+1, L=16Q, n=L^2, a=2+floor(log2(n+2)), s=3 ceil(log2(n+1)), H=n(a+s+1), R=[128(H+1)Q]^2, G=3(R+1), la primera excursion desde (2,c) satisface P(T<tau<=H y |c_tau|<=G)>=1/(4Q).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Ventana_conjunta.md",
+      "fuente": "propio",
+      "notas": "Palabras.lean, SalidaPalabras.lean, Ventana.lean y ParametrosVentana.lean certifican el evento conjunto sobre los mismos bits justos, la primera salida, todas las condiciones aritmeticas y la uniformidad con parametros fijados por C. 22 consultas de axiomas sin sorryAx. Contraste finito: 3577 palabras, 114716 inclusiones y 315 cotas. No prueba CF_H ni el P2 antiguo de ventana constante; no identifica salida con fusion."
+    },
+    {
+      "clave": "hormigas_ensayo_finito",
+      "enunciado": "HORMIGAS-GACELAS, ensayo EF: con los parametros T(C),Q(C),H(C),G(C) de VH y D(C)=16(ceil(log2(G(C)+2))+1)^2, para todo C,c enteros con |c|<=|C|, P_(2,c)(sigma<=H(C)+D(C))>=2^(-D(C))/(4Q(C)). Sigma es fusion de la cadena original bajo bits iid justos de paridad del ancla.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Ensayo_finito.md",
+      "fuente": "propio",
+      "notas": "Hormigas.lean y Ensayo.lean prueban palabra universal, peso de una palabra, relevo desde la excursion detenida y piso uniforme de fusion a horizonte fijo. 12 consultas de axiomas sin sorryAx. Contraste: 8221 viajes, 4127 offsets y 147 relevos. No prueba la repeticion global de ensayos ni phi=1."
+    },
+    {
+      "clave": "gao_cota_fija_20260920",
+      "enunciado": "CF_F: con N=2^m, h=N^6, C=9h^4, m>=10, W=H(C)+D(C), p=2^-D(C)/(4Q(C)) y todo J con 1+J(W+2)<=N (en particular J_F=floor((N-1)/(W+2))), P(sigma>h)<=3/N+66/h+1/(4h^3)+(1-p)^J. Cadena original desde ((0,1),false), bits iid justos; ensayos de duracion fija W con guardias conocidas al inicio.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Lagartijas.md",
+      "fuente": "propio",
+      "notas": "Conjeturada hasta el 24-09-2026. Demostrada el 25-09 en Lagartijas.lean (cf_f, ensayos_caben) con supervivencia_por_entradas de ConteoEnsayos.lean. 19 consultas de axiomas sin sorryAx. No prueba el limite J_F*p_m -> infinito (J_F*p_m>1 solo desde m=802923), ni el transporte a clases, ni phi=1."
+    },
+    {
+      "clave": "hormigas_gacelas_ensayos_guardados",
+      "enunciado": "HORMIGAS-GACELAS, repeticion finita: con C natural, W=H(C)+D(C), p=2^-D(C)/(4Q(C)), K_C(h) contador de entradas marcadas 1->2 con |c|<=C, P(sigma>h)<=P(sigma>h y K_C(h)<1+j(W+2))+(1-p)^j para todo j,h naturales. Cadena original, bits iid justos; raiz ((0,1),false).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Guardias_finitas.md",
+      "fuente": "propio",
+      "notas": "Repeticion.lean, Guardias.lean y ConteoEnsayos.lean: evento booleano, promedio recursivo, guardias conocidas al inicio, inclusion por conteo y cota geometrica. 16 consultas nuevas sin sorryAx. Contraste auxiliar finito: 24564 casos y 528 comparaciones racionales. La cota global del evento de pocas entradas es Lagartijas (25-09-2026); juntas dan CF_F. No demuestra phi=1."
+    },
+    {
+      "clave": "lagartijas_pocas_entradas",
+      "enunciado": "LAGARTIJAS: con N=2^m, h=N^6, C=9h^4 y m>=10, P(sigma>h y K_C(h)<N)<=3/N+66/h+1/(4h^3), donde K_C(h) cuenta las posiciones 0..h con entrada marcada 1->2 y |c|<=C. Cadena original desde ((0,1),false), bits iid justos.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Lagartijas.md",
+      "fuente": "propio",
+      "notas": "Lagartijas.lean: reloj determinista por la edad del hueco desde la ultima entrada guardada, potencial superarmonico por huecos (cruce_dominado), cola H3 dentro de la excursion y potencial geometrico con v2 en la frontera. Sin uniones sobre todos los instantes ni rachas C2. Contrastes: cadena reimplementada (inclusion en 65536 y 32768 palabras, frontera 144 y excursion 19 comparaciones) y 262144 pares reales (n,n+1): estado, biyeccion de clases y fusiones exactas hasta t=18."
+    },
+    {
+      "clave": "martas_fusion_casi_segura",
+      "enunciado": "MARTAS: la cadena original desde (0,1) fusiona casi seguramente: para todo eps>0 existe h0 con P(sigma>h)<=eps para todo h>=h0. Equivale a que el lado derecho de CF_F tiende a cero cuando m crece.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Martas.md",
+      "fuente": "propio",
+      "notas": "Martas.lean: parametros de EF acotados por potencias de dos (W+2<=2^(3L+17), D<=16(8L+53)^2, T<=1024m), J_F*p_m>=2^K para m>=K+4l+62+16(8l+133)^2, (1-p)^J<=1/(1+Jp) y monotonia de la fusion. Sin sorryAx. Ritmo pesimo: J_F*p_m>1 solo desde m=802923."
+    },
+    {
+      "clave": "tejonas_transporte",
+      "enunciado": "TEJONAS, transporte: para todo par de enteros con sus conteos impares bajo el mapa atajo, el estado canonico (ancla = menos impares, o el menor si empatan; k=|P-Q|, c=otro-3^k*ancla) evoluciona por la transicion de la cadena con la paridad del ancla; y para toda f, sum_{n<2^t} f(estado del par (n,n+1) en t) = 2^t E[f(cadena en t desde (0,1))].",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Tejonas.md",
+      "fuente": "propio",
+      "notas": "Tejonas.lean: canon_paso, canon_rep, paso_rep, bit_rep, suma_rep, transporte, canon_modulo. Sin sorryAx. Contraste: 262144 pares reales con estado, biyeccion de clases, fusiones exactas hasta t=18 y periodicidad modulo 2^18."
+    },
+    {
+      "clave": "gao_densidad_uno",
+      "enunciado": "CONJETURA DE GAO (1993), segun el resumen de Lagarias: con f(n)=n/2 (par) o 3n+1 (impar), el conjunto de n tales que f^k(n)=f^k(n+1) para algun k<=log2(n) tiene densidad natural 1.",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Tejonas.md",
+      "fuente": "propio",
+      "notas": "Teorema TejonasGao.gao en Lean 4.32.2 con Mathlib fijado: para todo eps>0 existe N0 con #(G y [0,N))>=(1-eps)N para N>=N0. Cadena EF/VH/Hormigas/H3/C1/protocolo -> Lagartijas -> Martas -> Tejonas; #print axioms solo muestra propext, Classical.choice y Quot.sound. Densidad observada 0,374 en 2^22 (ritmo pesimo, no contradice). Cotejo del articulo primario hecho el 25-09: coincide con el resumen de Lagarias, no literalmente con Gao; la forma literal se deduce en hienas_gao_literal. PENDIENTE: revision humana del enunciado. No afirma llegada a 1."
+    },
+    {
+      "clave": "hienas_gao_literal",
+      "enunciado": "HIENAS, CONJETURA DE GAO (1993) EN SU FORMA LITERAL: con C(n)=n/2 (par) o 3n+1 (impar), n y n+1 coalescen en el paso k si C^k(n)=C^k(n+1), con el mismo numero de divisiones por 2 en los k primeros pasos y sin 1 en C^0..C^k. Entonces d_barra(k)=2^-k #{n<2^k-1: coalescen tras <=k pasos} tiende a 1, y d(x)=x^-1 #{n<x: coalescen} tiende a 1. Puente: todo encuentro en k<=log2 n pasos es coalescencia de Gao.",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/Hienas.md",
+      "fuente": "propio",
+      "notas": "Hienas.lean, que solo importa Mathlib (puente, equilibrio, sin_uno, gao_de_lagarias, d_de_lagarias), y GaoLiteral.lean (lagarias, conjetura_gao_literal y #guard de la tabla 3 de Gao hasta k=12). #print axioms: propext, Classical.choice, Quot.sound; leanchecker con codigo 0. verificar_hienas.py: los 21 valores de la tabla 3 (k=4..24) y 0 fallos del puente en n<2^24. PENDIENTE: revision humana. No afirma llegada a 1: coalescer da la misma altura solo si ambas llegan."
+    },
+    {
+      "clave": "alpacas_garner",
+      "enunciado": "ALPACAS, CONJETURA DE GARNER (1985) SOBRE RACHAS: con C(n)=n/2 (par) o 3n+1 (impar), para cada L y cada N hay n>=N tal que n, n+1, ..., n+L tienen la misma altura (minimo h con C^h=1) y el mismo tiempo total de parada (divisiones por 2 hasta llegar a 1), en el sentido de Gao (1993, pag. 262). Construccion: un bloque de L+1 pares (r+i,r+i+1) fusionados por clases hasta t (cota de union sobre Martas); los 2^t*u+r+i comparten 3^a*u+A con 3 sin dividir a A; como 2 es raiz primitiva modulo 3^a se elige u con 3^a*u+A=2^m. Altura t+a+m y mitades t+m.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/garner20260926/Alpacas.md",
+      "fuente": "propio",
+      "notas": "Alpacas.lean (bloque, bloque_fusion, cuatro, dos_genera, orbita, tres, altura_potencia, alpacas) y GarnerEnunciado.lean (conjetura_garner, definiciones literales de Gao y #guard de 943-949, 7083-7099 y 57346-57370). #print axioms: propext, Classical.choice, Quot.sound; leanchecker con codigo 0. verificar_alpacas.py: rachas de L+1 para L=1..22 (t<=20) con altura t+a+m y mitades t+m iterando de verdad, orden de 2 modulo 3^k, tabla 1 de Gao entera. Depende de Martas y Tejonas. No se hallo prueba publicada (Lagarias 1963-2009, Gao, Wu, Elia-Tucker, OEIS, resumen de Frinkle et al. 2025); faltan zbMATH y MathSciNet. Garner (1) con alturas finitas sigue abierta. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "condoras_wu",
+      "enunciado": "CONDORAS, CONJETURAS DE WU (1992): Wu Jiabang, J. Huazhong Univ. Sci. Tech. 20(5) (1992) 171-174, define K = #{n en [1,M) en una w-upla (w>=2) de consecutivos de igual altura}, d(M)=K/(M-1), y conjetura lim d(M)=1 y lim L=inf (L la upla mas larga en [1,M)). Conjetura 2 demostrada: lim L=inf, de Garner (Alpacas). Conjetura 1 reducida: con d(x)->1 de Gao (Hienas), lim d(M)=1 equivale a que los n que llegan a 1 tengan densidad natural 1, problema abierto.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/gao20260920/formal/WuEnunciado.lean",
+      "fuente": "propio",
+      "notas": "Condoras.lean (wu_dos, racha_de_coalescencia, cota_llegan, diferencia, wu_uno) y WuEnunciado.lean (definiciones literales, conjetura_wu_dos, conjetura_wu_uno, #guard de la 176-upla desde 722067240 con altura 190 y de d(2^10)=620/1023). #print axioms: propext, Classical.choice, Quot.sound. Las citas de las conjeturas vienen de CNKI AI (texto completo, cuenta de prueba del usuario) y falta cotejarlas con el original. La conjetura 1 misma sigue abierta. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "condoras_barrera_condicional",
+      "enunciado": "CONDORAS, PUENTE CONDICIONAL DE BARRERA: mapa clasico C, E(X,B)=#{1<=n<=X: para todo j>=0, C^j(n)>B}. Para todo perfil real error, si E(X,B)<=error(B)X para todos B>=1 y X>=0, y todos los enteros 1<=n<=B llegan a 1 para una barrera B>=1, entonces rho(M)>=1-error(B) para M>=2; dWu(M)>=1-error(B)-(M-G(M))/(M-1) para M>=2, donde G(M) cuenta las coalescencias de Gao en [0,M); y para todo eps>0 eventualmente dWu(M)>=1-error(B)-eps. Esta ultima conclusion usa Gao mediante CondorasWu.diferencia. La cota externa y la cobertura inclusiva de la barrera son hipotesis explicitas.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/nashida20260928/CondorasBarrera.lean",
+      "fuente": "propio; extension condicional de Condoras motivada por Nashida r8 (2026), DOI 10.5281/zenodo.22986671",
+      "notas": "Prueba escrita independiente en depuracion/nashida20260928/LEEME.md; Lean 4.32.2: no_llega_iff_sobre, cuenta_complementaria, cota_rho, cota_finita_dWu, cota_eventual_dWu, compilacion codigo 0 y axiomas estandar sin sorryAx (lean_local.txt). Perfil generico: Nashida corresponderia a error(B)=K*B^(-c). No se ha reproducido ni importado la formalizacion externa; no se demuestra CotaBarrera, no se descarga Cubierta B, no se resuelve Wu 1. Forma eventual formalizada; el liminf es su lectura matematica. No se reivindica novedad bibliografica. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "pandas_gao_lean",
+      "enunciado": "PANDAS EN LEAN Y PREGUNTA DE GAO (1993, pag. 266): mapa clasico C; altura y sigma_inf (divisiones por 2 hasta la primera llegada a 1) de GarnerEnunciado; S = pasos 3n+1; Res(n) = 2^sigma_inf/(3^S n). (i) Res(n) >= 1 si n llega a 1. (ii) Si n y n+1 tienen la misma altura, Res(n) <= 6 y Res(n+1) < 6n/(n+1), coinciden sigma_inf y S; en particular con Res < 3 en los dos (lemadepandas.txt). Vale igual en un encuentro C^j(n) = C^j(n+1) con los residuos parciales. (iii) Si todo residuo es menor que 4, igual altura implica igual sigma_inf. (iv) Un encuentro en el paso j con 2^j + 3 < 15n es equilibrado (Hienas pedia 2^j <= n).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/pandas20260930/Pandas.lean",
+      "fuente": "propio; pregunta de G.-G. Gao, Discrete Math. 112 (1993) 261-267, pag. 266",
+      "notas": "Lean 4.32.2 con lake env lean desde depuracion/gao20260920/formal, codigo 0; #print axioms: propext, Classical.choice, Quot.sound (depuracion/pandas20260930/lean_local.txt). Teoremas: residuo_ge_uno, seis, pandas_encuentro, pandas, pandas_escrito, gao_de_residuo, equilibrio_quince. #guard: Res(993) exacto con altura 93 y la racha 943..949. Cotejo independiente verificar_pandas.py: formula del producto exacta hasta 2^14, Res >= 1 y maximo 1,253142144 en 993 hasta 2^20, nucleo seis por fuerza bruta, 500898 pares de igual altura sin distinto sigma_inf. La pregunta de Gao para todo n sigue abierta: falta una cota universal del residuo. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "pandas_gao_densidad",
+      "enunciado": "PREGUNTA DE GAO EN DENSIDAD, SIN HIPOTESIS: los n tales que n y n+1 tienen la misma altura clasica y distinto sigma_inf forman un conjunto de densidad natural 0. Si n y n+1 coalescen en el sentido de Gao y tienen igual altura, tienen igual sigma_inf; y la coalescencia tiene densidad 1 (GaoLiteral, Hienas).",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/pandas20260930/Pandas.lean",
+      "fuente": "propio; corolario de Hienas (d(x) -> 1)",
+      "notas": "Teoremas mitades_de_coalescencia y gao_casi_siempre; axiomas estandar. Corolario directo de la cadena ya demostrada; no dice nada de los n de densidad cero que no coalescen. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "marmotas_escalas",
+      "enunciado": "MARMOTAS, COMBINAR ESCALAS PARA EL RESIDUO: si las k primeras iteradas de x no bajan de B, 2^m C^k(x) (3B)^S <= 3^S x (3B+1)^S, es decir, residuo parcial <= (1+1/(3B))^S con S los pasos 3n+1. Si todo m < B con altura tiene Res(m) <= a/b y la orbita de x entra en [1,B) en el paso k tras S pasos 3n+1 hechos en valores >= B, entonces Res(x) <= (a/b)(1+1/(3B))^S. Con S <= 2B el factor es <= 3; con a/b < 4/3, Res(x) < 4, y un par n, n+1 de igual altura que cumpla esa entrada tiene igual sigma_inf. Con B = 2^20 la base es un calculo exacto (max Res = 1,253142144 < 4/3): todo contraejemplo a la pregunta de Gao exige que la orbita de n o la de n+1 haga mas de 2^21 pasos 3n+1 por encima de 2^20 antes de bajar de 2^20.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/pandas20260930/Pandas.lean",
+      "fuente": "propio; tecnica de combinar escalas incorporada al plan del 28-09 tras la lectura de Nashida (2026)",
+      "notas": "Lean: transporte, residuo_por_escalas, potencia_tres (Bernoulli, sin exponencial), residuo_menor_cuatro, gao_por_escalas; axiomas estandar. La base en [1, 2^20) es hipotesis del enunciado Lean; su comprobacion es finita y exacta (verificar_pandas.py y pandas_gao.py coinciden). No hay cota demostrada del numero de pasos por encima de B: la condicion de entrada no se ha probado para todo n. Esa es la obstruccion precisa del bloque. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "wirsching_ceros_elka",
+      "enunciado": "WIRSCHING (2003), CONDICION (*1) LITERAL: funcion Elka e_l(k,a) = caminos del atajo que llegan a a con k pasos n/2 y l pasos (3n+1)/2. Para cada 2 <= l <= 16 hay unidades a mod 3^l con e_l(l,a) = 0: 2, 7, 20, 58, ..., 1963154 clases en l=16 (6,8% de las unidades); el exceso maximo del coste minimo c_l(a) - l es <= 5. El entero 34 no tiene predecesores con l impares y a lo sumo l pares para 2 <= l <= 16, y e_16(19,34) = 9 frente a la media 141,5. Los conjuntos S_l de clases malas en todo nivel de [8,l] no se vacian hasta l = 16 (1247348 clases; tasa de elevaciones malas 0,76-0,81).",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/wirsching20260930/LEEME.md",
+      "fuente": "propio; condicion (*1) de G. J. Wirsching, DCDS 9 (2003) 771-787",
+      "notas": "Calculo exacto en enteros: costo.py (DP min-plus por residuos), elka.py (recurrencia cotejada con enumeracion de palabras l <= 7 y con sum_a e = C(k+l,k)), predecesores_34.py (busqueda sobre enteros, independiente de los residuos; coincide nivel a nivel con costo.py), densidad_malos.py y reformulacion.py. Finito: no dice nada de l grande. El 7 tiene ceros para 4 <= l <= 13 y deja de tenerlos en l = 14."
+    },
+    {
+      "clave": "wirsching_dispersion_cascada",
+      "enunciado": "DISPERSION DE LAS FUNCIONES ELKA: con r = e_l(k,a)/ebar_l(k) sobre las unidades mod 3^l, M2 = E[r^2] en k = l crece casi linealmente de 1,67 a 2,71 para l = 2..14 (en k = l + floor(sqrt l), de 1,32 a 1,84); la mediana baja despacio y el 10% mas cargado reune el 41% de la masa. Heuristica: r_l(a) = sum_j w_j r_(l-1)(hijo_j) con w_j ~ 3*2^-(j+1) es una cascada multiplicativa con E[sum w] = 1, E[sum w^2] = 1 exacto (punto critico de L^2) y E[sum w log w] = log(3/4) < 0: limite no degenerado con cola de indice 2 y sin cota inferior uniforme en a.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/wirsching20260930/dispersion.py",
+      "fuente": "propio",
+      "notas": "Los momentos son exactos y finitos (l <= 14). La cascada es un modelo heuristico con hijos tratados como independientes; no esta demostrada. Predice que la lectura global (uniforme en a) de (*1) falla y que la lectura por unidad puede valer para casi toda a."
+    },
+    {
+      "clave": "wirsching_reduccion_conjetura2",
+      "enunciado": "REDUCCION: si un 3-adico a* cumple e_l(l,a*) = 0 para infinitos l, entonces (*1) falla en a* para todo delta y mu (la sucesion k_l = l esta en toda ventana A_delta), en la lectura global y en la de cada unidad; como g_l <= e_l (e = p*g con p(0) = 1), tambien falla (*3). Si (*4) es cierta (Tavares 2026, teorema 11.1), la Conjetura 2 de Wirsching es falsa tal como esta escrita sobre Z_3^x. Por compacidad basta que los conjuntos encajados S_l de clases malas en todo nivel >= l0 no sean vacios.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/wirsching20260930/LEEME.md",
+      "fuente": "propio; cadena de Wirsching (2003) y R. A. Tavares, arXiv:2608.27617v1 (sin arbitrar)",
+      "notas": "Prueba escrita y elemental en la ficha; no formalizada. La refutacion depende de la hipotesis (existencia de a*), que no esta demostrada, y de (*4), demostrada por Tavares en un preprint que no se audito entero (solo §§3, 4, 11, 12)."
+    },
+    {
+      "clave": "wirsching_W1",
+      "enunciado": "CANDIDATA W1: para todo l >= 8 hay unidades a mod 3^l con e_j(j, a mod 3^j) = 0 para todo j en [8, l]; equivalentemente existe un 3-adico a* con e_l(l,a*) = 0 para todo l >= 8. Refutaria la Conjetura 2 de Wirsching tal como esta escrita.",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/wirsching20260930/densidad_malos.py",
+      "fuente": "propio",
+      "notas": "Evidencia finita: los S_l crecen hasta l = 16 (1217, 2841, ..., 1247348). La tasa de supervivencia por elevacion baja despacio (0,81 -> 0,76): no se puede extrapolar sin un mecanismo. Candidatos estructurados: 399 racionales p/q (|p| <= 400, q <= 40) son malos en todo nivel de [8,16], muchos en todo [2,16] (347/2 y -49/20 con exceso 3 en l = 16; el entero -164, del arbol del ciclo de -17). Para q impar su arbol hacia atras es el de la dinamica 3x+q (racionales_malos.py)."
+    },
+    {
+      "clave": "wirsching_W2_ventana",
+      "enunciado": "WIRSCHING, VENTANA DESPLAZADA EN ENTEROS FIJOS (W2): para a en {5, 7, 11, 13, 17, 34, 43, 56248}, el minimo de e_l(k,a)/ebar_l(k) en k - l en [6, 6 + isqrt(l)] baja despacio entre l = 6 y l = 21 (por ejemplo 34: 0,31 -> 0,117; 5: 0,80 -> 0,49; 17: 1,49 -> 1,20); en 7, 34 y 43 el descenso se frena al final.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/wirsching20260930/ventana_desplazada.py",
+      "fuente": "propio",
+      "notas": "Busqueda exacta sobre enteros, independiente de los residuos. Compatible con limites positivos alcanzados despacio y con decaimiento lento: no decide W2, que equivale a un teorema local limite para la suma de Syracuse en clases fijas."
+    },
+    {
+      "clave": "ocelotas_cst_dos_rachas",
+      "enunciado": "OCELOTAS, CST DE TERRAS PARA DOS RACHAS, BAJO RhinEntera: atajo T; tau(n) = k el primer cruce del coeficiente (3^S_j >= 2^j para 1 <= j < k y 3^S_k < 2^k). Suponiendo 3^q <= (2^k-3^q)*k^14 para 2^(k-1) <= 3^q < 2^k, si n >= 2 y su palabra de paridad de longitud k es 1^a 0^b 1^c 0^d con a, b, c, d >= 1, entonces T^k(n) < n: CST (t(n) = tau(n)) para todas esas n, con exponentes sin cota. Con el apendice A de Rozier-Terracol (una racha), bajo la misma hipotesis, un contraejemplo necesita al menos tres rachas impares.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/Ocelotas.lean",
+      "fuente": "propio; usa la cota de G. Rhin (1987) para |k log 2 - q log 3|; programa sugerido en Rozier-Terracol, arXiv:2502.00948v5, observacion 5.5",
+      "notas": "Prueba: tramos y congruencias 2^a | n+1, 2^c | T^(a+b)(n)+1; nucleo 2^q Delta^3 < 18*27^q; con Rhin (forma entera 3^q <= (2^k - 3^q) k^14) k <= 1023; finito_q (q <= 645) deja k <= 27 y n <= 50; finito_n comprueba CST para n <= 50. Lean 4.32.2, recompilado en la revision del 30-09, codigo 0, axiomas propext, Classical.choice, Quot.sound; RhinEntera es un argumento explicito, no un axioma listado por #print axioms. Cotejos anteriores conservados: dos_rachas.py (3803188 ternas), cotejo_dos_rachas.py y supervivientes.py. El apendice A usa un argumento elemental solo para el caso aciclico. Ver REVISION_RACHAS.md para alcance, fuentes y extension hasta diez rachas en Lean para palabras reales Palabra, bajo Rhin. Novedad no certificada. PENDIENTE: revision humana."
+    },
+    {
+      "clave": "ocelotas_cst_diez_rachas_condicional",
+      "enunciado": "EXTENSION DE OCELOTAS BAJO RhinEntera: sea T(n)=n/2 para n par, (3n+1)/2 para n impar, n>=2. Si tau(n)=k es finito y la palabra de paridad hasta k tiene a lo sumo diez rachas impares, entonces T^k(n)<n y t(n)=tau(n). Un fallo con primer cruce finito necesita al menos once rachas, bajo la hipotesis externa 3^q <= (2^k-3^q)*k^14 cuando 2^(k-1)<=3^q<2^k.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/REVISION_RACHAS.md",
+      "fuente": "propio; Rhin externo, cotejado con Rozier-Terracol arXiv:2502.00948v5 proposicion 6.3; extension de Ocelotas",
+      "notas": "Cierre en Lean mediante el contador canonico rachas n k, con RhinEntera como hipotesis externa explicita; no se demuestra Rhin ni existencia universal del primer cruce. OcelotasContador.lean prueba rachas_eq_card, extrae Palabra desde cualquier prefijo impar terminado en par, demuestra que el primer cruce termina en par y aplica ocelotas_diez. cst_contador prueba descenso en k y ausencia de descenso anterior; fallo_contador_exige_once exige al menos once rachas ante un fallo. OcelotasTrayectorias.lean deduce congruencias y control aditivo desde la orbita y reduce un fallo a k<131072. OcelotasFinito.lean certifica descenso y existencia del primer cruce k<=105 para 2<=n<=11214, sin Rhin, y reduce q a <=82696. OcelotasCriba.lean demuestra la correccion de intervalos enteros de escala 2^48; OcelotasCertificado.lean comprueba 81 bloques en el nucleo, prueba criba_certificada y la aplica en ocelotas_diez: desaparece hcriba. OcelotasCierre.lean incluye el caso par y fallo_exige_once, para fallos representados por rachas reales. Cotejo de cada uno de los 82696 marcos contra potencias exactas: 82593 casos por cota de semilla y 103 por criba lineal, coincidentes con el cotejo anterior. Se conservan el certificado original de 888 supervivientes, el cotejo de 1023 y las 11213 trayectorias coincidentes. Reconstruccion limpia de ocho modulos Lean 4.32.2, codigo 0, solo propext, Classical.choice y Quot.sound; sin sorryAx. Nuevo cotejo exacto independiente: 8191 palabras binarias de longitud hasta 12 y 33024 prefijos de orbita, incluidos bordes y rachas abiertas; cero fallos. Ver CONTADOR_LEAN.md, lean_contador.txt y cotejo_contador.json; evidencia aritmetica anterior conservada en CIERRE_LEAN.md y lean_cierre.txt. Pendiente: auditar rango y constantes de Rhin contra la fuente original y estudiar su descarga en Lean; revision humana y de novedad. Cifras para r>10 siguen exploratorias; salida 2^29 vacia no acredita terminacion."
+    },
+    {
+      "clave": "ocelotas_cst_diez_rachas_rhin_literal",
+      "enunciado": "OCELOTAS CON LA PROPOSICION DE RHIN LITERAL, SOLO PARA ALTURAS GRANDES: atajo T(n)=n/2 o (3n+1)/2; tau(n)=k el primer cruce del coeficiente. Si para algun H0 <= 131072 vale |u1 log 2 + u2 log 3| >= H^(-13,3) para todos los enteros u1, u2 con H = max(|u1|,|u2|) >= H0 (caso homogeneo de la proposicion de Rhin, 1987, p. 160), entonces para todo n >= 2 con primer cruce k y a lo sumo diez rachas impares en los k primeros pasos, n <= T^j(n) para j < k y T^k(n) < n. Con cualquier H0 basta anadir la forma entera 3^q <= (2^k-3^q)k^14 en el tramo 131072 <= k < H0.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasRhin.lean",
+      "fuente": "propio; hipotesis: G. Rhin, Progr. Math. 71 (1987) 155-164, proposicion de la p. 160, en la forma aplicada por Simons-de Weger, Acta Arith. 117 (2005), lema 12; original no consultado",
+      "notas": "cst_rhin y cst_rhin_tramo en OcelotasRhin.lean. desde_homogenea demuestra el paso, antes escrito a mano, de la desigualdad real a la forma entera: Delta = 3^q(e^Lambda - 1) >= 3^q Lambda >= 3^q k^(-13,3) >= 3^q k^(-14), con H = k porque q < k. La cadena de diez rachas solo usa Rhin en tiempo_diez, para descartar k >= 131072; se repiten los cuerpos de tiempo_diez, diez_de_certificado, descenso_contador y cst_contador con la hipotesis puntual, sin tocar los modulos certificados. desde_de_entera: la hipotesis nueva es mas debil que RhinEntera. Lean 4.32.2 y Mathlib del proyecto de Gao, con Mathlib.Analysis.SpecialFunctions.Pow.Real traido por lake exe cache get el 02-10; nueve modulos, codigo 0, solo propext, Classical.choice y Quot.sound (lean_rhin.txt). Auditoria de la fuente y estudio de descarga en RHIN_LEAN.md: el umbral de la proposicion no se pudo cotejar. PENDIENTE: original de Rhin, revision humana y de novedad."
+    },
+    {
+      "clave": "rhin_entera_convergentes",
+      "enunciado": "FORMA ENTERA DE RHIN POR CONVERGENTES: para todo k <= p_5777 (numerador del convergente 5777 de log2 3, un entero de 3010 cifras) y todo q con 2^(k-1) <= 3^q < 2^k, vale 3^q <= (2^k - 3^q) k^14. El exponente efectivo mu con Lambda = p^(-mu) no supera 1,32 en los convergentes superiores con p >= 1000.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/cst20260930/verificar_rhin_convergentes.py",
+      "fuente": "propio; reduccion por el teorema de Legendre",
+      "notas": "Si fallara en (k,q) con k >= 2, Lambda k^14 < 1 y la fraccion reducida seria un convergente superior de log2 3 con Lambda' k'^14 < 1 (|log2 3 - k'/q'| < 1/(2q'^2)). Encierro entero de log2 3 con 20000 bits por cuadrados sucesivos y redondeo dirigido; 5779 cocientes parciales comunes a las dos cotas, 4816 cotejados con decimal.ln; log 2 > 0,693 por la serie de exp con resto; 2889 convergentes superiores, siete tambien con enteros exactos (q <= 200000); barrido exacto q <= 3000 con menor cociente 5461 en q = 1. Calculo exacto, no Lean: hace inocuo un umbral de Rhin por debajo de p_5777 (cst_rhin_tramo)."
+    },
+    {
+      "clave": "cst_rachas_17_convergentes",
+      "enunciado": "CST HASTA 17 RACHAS POR CONVERGENTES: atajo T; tau(n)=k el primer cruce del coeficiente, q = S_k(n). Usando en la cola (q >= q_5778, k de unas 3010 cifras) la cota de Laurent-Mignotte-Nesterenko (1995) en la forma debil log Lambda >= -30 (log(2k)+21)^2, o bien Rhin, todo n >= 2 con tau(n) finito y a lo sumo 17 rachas impares en sus k primeros pasos cumple T^k(n) < n, luego t(n) = tau(n). Un fallo de CST necesita al menos 18 rachas impares.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/rachas_convergentes.py",
+      "fuente": "propio; teorema de mejor aproximacion de Lagrange; en la cola Laurent-Mignotte-Nesterenko, J. Number Theory 55 (1995), corolario 2 (o Rhin 1987)",
+      "notas": "Prueba: fallo_producto da (2^k-3^q) n < r 3^q, luego n < R/Lambda; criba_desde_trayectoria y cota_monotona dan q <= cota(R,m) si n+1 < 2^m (lemas en Lean); por la mejor aproximacion de Lagrange, para q_j <= q < q_(j+1) vale Lambda >= log 2/(q_j+q_(j+1)), asi que n < s_j = R(q_j+q_(j+1))/log 2 y cada intervalo sobrevive solo si cota(R, bits(s_j)) >= q_j; para q >= q_5778, con k <= 2q y cota(R,m) <= G_R m, G_R = 5(8^R-5^R)/(3*5^R), no hay supervivientes ni con Rhin (n < R k^14) ni con la forma debil de Laurent-Mignotte-Nesterenko (n < R e^(30(log 4q+21)^2)); ya no hace falta la proposicion de Rhin no leida. Todo fallo con r <= R tiene n < N_R. Calculo exacto con los 5779 cocientes certificados de verificar_rhin_convergentes.py; cotejo independiente: CST directa para n < 4674093, mejor aproximacion para q <= 200000 y Lambda exacta para q <= 3000 (cotejo_rachas_convergentes_salida.txt). No formalizado en Lean. Ver RACHAS_CONVERGENTES.md. Cierre con N_17 = 4674068 < 2^23: CST comprobada para 2 <= n < 2^23 en el barrido del 30-09 (verificar_r_rachas_23_salida.txt). El salto a 18 rachas lo causa el convergente 301994/190537 (N_18 = 280033091). PENDIENTE: Lean y revision humana."
+    },
+    {
+      "clave": "cst_rachas_73_rozier_terracol",
+      "enunciado": "CST HASTA 73 RACHAS, CONDICIONAL A ROZIER-TERRACOL: con las hipotesis de cst_rachas_17_convergentes y ademas el corolario 5.4 de Rozier-Terracol (t(n) = tau(n) para 2 <= n <= 2,8*10^19), todo n >= 2 con tau(n) finito y a lo sumo 73 rachas impares en sus k primeros pasos cumple T^k(n) < n. Un fallo de CST necesitaria al menos 74 rachas impares.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/rachas_convergentes.py",
+      "fuente": "propio; hipotesis externa: Rozier y Terracol, arXiv:2502.00948v5, corolario 5.4 (Discrete Math. 349 (2026) 115167), apoyado en tablas de Oliveira e Silva y Roosendaal",
+      "notas": "Prueba: fallo_producto da (2^k-3^q) n < r 3^q, luego n < R/Lambda; criba_desde_trayectoria y cota_monotona dan q <= cota(R,m) si n+1 < 2^m (lemas en Lean); por la mejor aproximacion de Lagrange, para q_j <= q < q_(j+1) vale Lambda >= log 2/(q_j+q_(j+1)), asi que n < s_j = R(q_j+q_(j+1))/log 2 y cada intervalo sobrevive solo si cota(R, bits(s_j)) >= q_j; para q >= q_5778, con k <= 2q y cota(R,m) <= G_R m, G_R = 5(8^R-5^R)/(3*5^R), no hay supervivientes ni con Rhin (n < R k^14) ni con la forma debil de Laurent-Mignotte-Nesterenko (n < R e^(30(log 4q+21)^2)); ya no hace falta la proposicion de Rhin no leida. Todo fallo con r <= R tiene n < N_R. Calculo exacto con los 5779 cocientes certificados de verificar_rhin_convergentes.py; cotejo independiente: CST directa para n < 4674093, mejor aproximacion para q <= 200000 y Lambda exacta para q <= 3000 (cotejo_rachas_convergentes_salida.txt). No formalizado en Lean. Ver RACHAS_CONVERGENTES.md. Cierre con N_73 = 14397378448011333217 <= 2,8*10^19; para R = 74, N_74 = 4,25*10^19 ya no cierra. La hipotesis de Rozier-Terracol es un calculo externo no repetido aqui."
+    },
+    {
+      "clave": "ocelotas_cst_diez_rachas_lmn",
+      "enunciado": "OCELOTAS SIN RHIN, EN LEAN: atajo T; tau(n)=k el primer cruce del coeficiente. Bajo LMNDebil (para 2 <= k y 2^(k-1) <= 3^q < 2^k: k log 2 - q log 3 >= exp(-27 (log(2k) + 21)^2), implicada por el corolario 2 de Laurent-Mignotte-Nesterenko 1995), todo n >= 2 con primer cruce k y a lo sumo diez rachas impares en sus k primeros pasos cumple n <= T^j(n) para j < k y T^k(n) < n. Un fallo de CST necesita al menos once rachas.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasLMN.lean",
+      "fuente": "propio; hipotesis: Laurent, Mignotte y Nesterenko, J. Number Theory 55 (1995) 285-321, corolario 2, p. 288; original aportado y cotejado visualmente el 03-10-2026",
+      "notas": "cst_lmn, ocelotas_diez_lmn y fallo_exige_once_lmn. q <= 82696: criba_certificada y semillas n <= 11214 sin cambios. 82696 < q < 53715833: lema lagrange (pares unimodulares de signos opuestos acotan |a log 2 - b log 3| para 0 < q < Q2) con los convergentes 11 a 16 de log2 3; log 2 y log 3 con veinte cifras por la serie de log(1-x) (64 y 42 terminos); |L_j| > 10^-8, luego n < 10^9 y q <= cota(10,30) = 5317. q >= 53715833: k >= 2^25 y LMNDebil da Lambda >= 2^(-19(t+33)^2), t = log2 k; 364(19(t+33)^2+5) < 2^t para t >= 25. Lean 4.32.2; cadena de diez modulos validada, 67 consultas de axiomas, solo propext, Classical.choice y Quot.sound (lean_lmn.txt). Las comparaciones 3^q frente a 2^p con q ~ 5*10^7 agotan la recursion del nucleo: se usan cotas reales. Ver LMN_LEAN.md. 03-10: OcelotasLMNFuente.lean formaliza LMN23 (especializacion literal del corolario, con coeficientes positivos, maximo y constantes originales), debil_de_corolario : LMN23 -> LMNDebil y cst_corolario. Once modulos recompilados con Lean 4.32.2, solo axiomas estandar, sin sorryAx (lean_lmn_fuente.txt). Se cotejaron alturas, dominio y constantes en pp. 286-288 del original. El teorema trascendente general sigue externo; especializacion algebraica justificada por escrito, revision humana pendiente. Ver LECTURAS_20261003.md."
+    },
+    {
+      "clave": "ocelotas_cst_18_rachas_afinadas",
+      "enunciado": "OCELOTAS, CRIBA AFINADA: T(n)=n/2 si par, (3n+1)/2 si impar; n>=2 y primer cruce del coeficiente tau(n)=k finito. Bajo la cota de Laurent-Mignotte-Nesterenko en la cola, si los k primeros pasos tienen a lo sumo 18 rachas impares, entonces T^k(n)<n y no hay descenso anterior: t(n)=tau(n). Todo fallo necesita al menos 19 rachas.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/rachas_afinadas.py",
+      "fuente": "propio, extension de Ocelotas; LMN 1995 corolario 2 externo; mejor aproximacion de Lagrange",
+      "notas": "Prueba escrita asistida por calculo racional exacto, NO formalizacion Lean completa. De las congruencias de trayectoria: 2^A_(i+1)<=(n+1)3^A_i. Si n<s_j=ceil(1000 R(q_j+q_(j+1))/693), entonces n+1<=s_j; cotas superiores racionales b>log2(s_j), a>log2(3) dan C_0=0, C_(i+1)=floor(b+a C_i), q<=C_R. Se eliminan los intervalos con C_R<q_j. R=18, j=13: C_R=189768<190537; maximo restante N_18=7837377, j=12. Cierre con censo historico 2<=n<2^23 (verificar_r_rachas_23_salida.txt), no repetido. 79 convergentes certificados con 256 bits, semillas con 128 bits; cola LMN desde q=51700032084971999781389768164307758537. Cotejo independiente por series de atanh, matrices y cola diadica: 308 intervalos para R=18,19,75,76; cero discrepancias (cotejo_rachas_afinadas.json). R=19 exige n<295590485, fuera de ese censo. El cotejo independiente antiguo de orbitas solo cubria n<4674093. Ver RACHAS_AFINADAS.md. No afirma existencia universal de tau ni llegada a 1. Pendientes: Lean de la extension, revision humana y de novedad."
+    },
+    {
+      "clave": "ocelotas_cst_75_rachas_rozier_terracol",
+      "enunciado": "OCELOTAS HASTA 75 RACHAS EN LEAN, CON LMN Y ROZIER-TERRACOL EXPLICITOS: para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2 y primer cruce finito k del coeficiente, bajo LMN23 y el corolario 5.4 de Rozier-Terracol v5 (CST para 2<=n<=28000000000000000000), si rachas(n,k)<=75 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Todo fallo necesita al menos 76 rachas bajo ambas hipotesis externas.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasSetentaYCinco.lean",
+      "fuente": "propio, extension de Ocelotas; LMN 1995 externo y Rozier-Terracol arXiv:2502.00948v5, corolario 5.4 p. 17, cotejado en el PDF aportado",
+      "notas": "Etapa escrita anterior, conservada: Misma criba exacta de ocelotas_cst_18_rachas_afinadas. N_75=14791827172614383442, intervalo j=32, menor que el umbral externo 28000000000000000000. R=76 exige N_76=43599691994443572162, j=33, y no cierra. Certificado rachas_afinadas.json y cotejo_rachas_afinadas.json. Prueba escrita asistida por calculo, no Lean completo; se asume el resultado computacional externo, no se repiten sus tablas. El resultado de Hercher para ciclos con hasta 91 minimos locales no se importa a CST. Ver RACHAS_AFINADAS.md y LECTURAS_20261003.md. Revision humana y de novedad pendientes. Actualizacion del 03-10: ensamblaje condicional completado en OcelotasSetentaYCinco.lean; cst_condicional y fallo_exige_setenta_y_seis. LMN23 y RozierTerracol54 son argumentos explicitos; no se formalizan la prueba trascendente ni el computo externo. Once modulos compilados, 110 consultas con axiomas estandar y sin sorryAx; 38 modulos previos reutilizados por huellas verificadas. Tabla de 97 intervalos hasta q<1361733414753853584389, con 91 cotas de semilla y seis exclusiones por criba afinada. Logaritmos con 55 decimales certificados por series; cola parametrica con A=3395059960557476, c=7, H=70. Cotejo independiente por atanh, enteros y recurrencia de denominador 6400, sin discrepancias. La tabla Lean remite al umbral externo; el maximo auxiliar de semillas supervivientes es 2684909333528212357. Evidencia completa en evidencia_setenta_y_cinco.json y evidencia_setenta_y_cinco.txt; detalles en SETENTA_Y_CINCO_LEAN.md. No hay censo nuevo ni ley probabilistica; no afirma existencia universal del primer cruce ni llegada a 1. Revision humana y prioridad pendientes."
+    },
+    {
+      "clave": "ocelotas_criba_afinada_lean",
+      "enunciado": "OCELOTAS, CRIBA LOGARITMICA Y EXCLUSION DE INTERVALOS EN LEAN: T es el atajo y tau(n)=k finito, n impar>=2, rachas(n,k)<=R. Sea Lambda=k log 2-S_k(n) log 3. Para c>0 con c<=Lambda y R<=s*c, alfa>=1, beta>=0 con log 3<=alfa log 2 y log s<=beta log 2, defina C_0=0, C_(i+1)=floor(beta+alfa C_i). Si qmin<=S_k(n) y C_R<qmin, entonces T^k(n)<n.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasAfinadaTrayectorias.lean",
+      "fuente": "propio, extension de Ocelotas; lemas elementales universales sin LMN en este enunciado",
+      "notas": "OcelotasAfinada.lean prueba paso_real, criba_congruencias y cota_monotona. OcelotasAfinadaTrayectorias.lean conecta las congruencias reales de Palabra mediante criba_palabra, demuestra Lambda*n<r ante un fallo (fallo_lambda), deduce n<s (semilla_de_cota) y excluye el intervalo desde el contador canonico (descenso_intervalo). Trece modulos Lean 4.32.2 recompilados, codigo 0; 77 consultas de axiomas solo propext, Classical.choice, Quot.sound, sin sorryAx (lean_afinada.txt). Este modulo no certifica las tablas; el cierre posterior de trece rachas esta en OcelotasTrece.lean (TRECE_LEAN.md). Ver RACHAS_UNILATERALES.md. La preparacion exacta separada de 40 intervalos fue descargada en el cierre posterior de R=13. Revision humana pendiente."
+    },
+    {
+      "clave": "ocelotas_reduccion_unilateral",
+      "enunciado": "OCELOTAS, REDUCCION UNILATERAL DE SEMILLAS: para el atajo T, n>=2, primer cruce finito y bajo LMN en la cola, todo fallo de CST con a lo sumo R rachas tiene n<N_R, con N_18=4912741 y N_75=2685479559298935402. El censo propio n<2^23 cierra R=18; el corolario externo de Rozier-Terracol n<=2,8*10^19 cierra R=75. Los vecinos R=19 y R=76 no cierran con esas coberturas.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/rachas_unilaterales.py",
+      "fuente": "propio, extension de Ocelotas; LMN corolario 2 externo; Rozier-Terracol solo para el cierre R=75",
+      "notas": "Lema unilateral demostrado en OcelotasAfinada.aproximacion_superior: para U=(P,Q), V=(p,q), Q,q>0, P*q-p*Q=1 y L(U)>0>L(V), todo error positivo L(k,b) con 0<b<Q+q es >=L(U), sin exigir coprimalidad de k,b. Mediantes con signos certificados generan 158 intervalos contiguos hasta q=11322003431549588082278945047. Se toma c=(693/1000)*(P-Q*alfa_superior), s=ceil(R/c) y se aplica la criba afinada. Tabla por cuadrados racionales (256 y 128 bits); cotejo independiente por atanh: 158 parejas, 316 bordes y 1422 filas para R=10,11,12,13,17,18,19,75,76, sin discrepancias; cola comprobada por duplicaciones. N_19=294601937, N_76=42389654174194865579. La tabla de esta tanda se conserva; el cierre posterior de R=18 esta en OcelotasDieciocho.lean, con certificado finito por residuos. R=75 sigue sin cierre Lean completo. El censo empirico no se repite; el cotejo orbital independiente antiguo no cubre N_18 completo. Ver RACHAS_UNILATERALES.md, rachas_unilaterales.json y cotejo_rachas_unilaterales.json. Revision humana y novedad pendientes. El obstaculo de R=19 de esta tabla fue resuelto despues mediante criba por prefijos en OcelotasDiecinueve.lean; ver DIECINUEVE_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_cst_trece_rachas_lmn_lean",
+      "enunciado": "OCELOTAS: CST HASTA TRECE RACHAS EN LEAN BAJO LMN. Sea T(n)=n/2 si par, (3n+1)/2 si impar, n>=2, k el primer cruce finito del coeficiente. Bajo LMN23 (corolario 2 de Laurent-Mignotte-Nesterenko especializado en 2 y 3), si rachas(n,k)<=13, entonces n<=T^j(n) para j<k y T^k(n)<n. Todo fallo necesita al menos catorce rachas. Caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasTrece.lean",
+      "fuente": "propio, extension de Ocelotas; LMN 1995 corolario 2, p. 288, como hipotesis externa explicita",
+      "notas": "cst_trece_lmn desde LMNDebil; cst_trece_corolario desde LMN23 mediante la traduccion ya formalizada; fallo_exige_catorce. OcelotasTreceBase conecta las cotas racionales con logaritmos y la criba. OcelotasTreceTabla certifica cuarenta intervalos hasta q<171928773: 25 obligan a n<31624, 15 se eliminan; decide +kernel verifica potencias y norm_num verifica los pisos reales. El generador y el JSON solo proponen constantes. OcelotasTreceFinito reutiliza las semillas hasta 11214 y certifica 20409 adicionales hasta 31623 en el nucleo, con combustible 225 cuyo agotamiento rechaza. OcelotasTreceCola demuestra cota(13,m)<=751*m y excluye k>=2^27 bajo LMN por induccion con 1502*(19*(t+33)^2+5)<2^t para t>=27. Ensamblaje desde el contador real. Modulos nuevos compilados en Lean 4.32.2 con axiomas estandar, sin sorryAx; reconstruccion completa y hashes en lean_trece.txt. Cotejo independiente por atanh, enteros y orbitas directas: 40 filas y 31622 semillas sin discrepancias, mayor cruce 105, 17 semillas con trece rachas (cotejo_trece_lean.json). No afirma que el primer cruce siempre exista ni llegada a 1; la prueba trascendente de LMN sigue externa. No se amplia el censo empirico. Este cierre fue ampliado posteriormente a 18 en OcelotasDieciocho.lean; 75 sigue sin cierre Lean completo. Ver TRECE_LEAN.md. Revision humana y novedad pendientes."
+    },
+    {
+      "clave": "ocelotas_cst_dieciocho_rachas_lmn_lean",
+      "enunciado": "OCELOTAS: CST HASTA DIECIOCHO RACHAS EN LEAN BAJO LMN. Para el atajo T, n>=2 y un primer cruce finito k del coeficiente, bajo LMN23 (corolario 2 de Laurent-Mignotte-Nesterenko especializado en 2 y 3), si rachas(n,k)<=18, entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo necesita al menos diecinueve rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasDieciocho.lean",
+      "fuente": "propio, extension de Ocelotas; LMN 1995 corolario 2 p. 288 como hipotesis externa explicita",
+      "notas": "cst_dieciocho_corolario y fallo_exige_diecinueve. OcelotasNumerica parametriza las interfaces. OcelotasDieciochoTabla certifica 42 intervalos para q<2213511501: 36 dan n<4911698 y seis se excluyen por la criba. OcelotasDieciochoCola certifica cota(18,m)<=7869*m y excluye k>=2^31 por induccion: 15738*(19*(t+33)^2+6)<2^t. OcelotasResiduos demuestra la correccion de un verificador con estados n=r+m*u y T^i(n)=a*u+c; separa u par/impar y continua individualmente cuando queda una semilla. OcelotasResiduosBloques divide el calculo en 64 bloques a profundidad diez, comprobados por decide +kernel y ensamblados en Lean; no importa resultados del censo. OcelotasResiduosFinito certifica 2<=n<=4912740 con primer cruce<=224 y descenso. Teorema final compilado en Lean 4.32.2, solo axiomas estandar, sin sorryAx; reconstruccion limpia y hashes en lean_dieciocho.txt. Cotejos independientes: 42 filas por atanh racional y potencias, 121613 clases disjuntas que cubren 4912739 semillas, 243226 orbitas directas y bordes, sin discrepancias (cotejo_dieciocho_lean.json, cotejo_residuos.json). No afirma existencia universal del primer cruce ni llegada a 1. LMN sigue externo; 75 bajo Rozier-Terracol sigue sin cierre Lean completo. El rango empirico hasta 2^23 no se amplia. Ver DIECIOCHO_LEAN.md. Revision humana y novedad pendientes."
+    },
+    {
+      "clave": "ocelotas_cst_diecinueve_rachas_prefijos_lean",
+      "enunciado": "OCELOTAS: CST HASTA DIECINUEVE RACHAS EN LEAN BAJO LMN. Para el atajo T, n>=2 y primer cruce finito k del coeficiente, bajo LMN23 especializado en 2 y 3, si rachas(n,k)<=19 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo necesita al menos veinte rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasDiecinueve.lean",
+      "fuente": "propio, extension de Ocelotas mediante criba por prefijos; Laurent-Mignotte-Nesterenko 1995 corolario 2 p. 288 como hipotesis externa explicita",
+      "notas": "OcelotasPrefijos prueba suma exacta del contador al cortar tras una entrada par, criba_contador con ceros iniciales y criba_despues_corte. OcelotasCribaPrefijos prueba un verificador con n=r+m*u, T^i(n)=a*u+c, numero de impares, rachas y paridad anterior: para X=a*floor((L-r)/m)+c y M=floor(log2(X+1))+1, q_i+cota(R-s,M)<q_min excluye el fallo. Agotar combustible rechaza. OcelotasDiecinuevePrefijos certifica con decide +kernel dos dominios inclusivos: 4912741..5184569 con q>=79335, y 4912741..294539509 con q>=190537; combustible 64, profundidades 36/38, 12201/4047 nodos. Ambas declaraciones booleanas libres de axiomas. Cotejo independiente reconstruye los prefijos por orbitas directas, verifica 3605 hojas no vacias y sus clases disjuntas, sin discrepancias (cotejo_prefijos_19.json). OcelotasDiecinueveTabla certifica 42 filas: 35 remiten al certificado finito hasta 4912740, dos usan prefijos y cinco la criba afinada; cotejo independiente por atanh y enteros (cotejo_diecinueve_lean.json). OcelotasDiecinueveCola usa la cota geometrica general y cota(19,m)<=12592*m; induccion de cola desde k>=2^31 con 25184*(19*(t+33)^2+6)<2^t. El ensamblaje desde el contador real compilo en Lean 4.32.2 con axiomas estandar y sin sorryAx; reconstruccion limpia y hashes en lean_diecinueve.txt. No requiere un censo individual hasta 294539509 ni amplifica el censo consecutivo conservado hasta 2^23. No afirma existencia universal del primer cruce ni llegada a 1. LMN sigue externo; revision humana y novedad pendientes. Ver DIECINUEVE_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_cst_veinte_rachas_prefijos_lean",
+      "enunciado": "OCELOTAS: CST HASTA VEINTE RACHAS EN LEAN BAJO LMN. Para el atajo T, n>=2 y primer cruce finito k del coeficiente, bajo LMN23 especializado en 2 y 3, si rachas(n,k)<=20 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo necesita al menos veintiuna rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasVeinte.lean",
+      "fuente": "propio, extension de Ocelotas mediante criba por prefijos; Laurent-Mignotte-Nesterenko 1995 corolario 2 p. 288 como hipotesis externa explicita",
+      "notas": "cst_veinte_corolario y fallo_exige_veintiuna, ensamblados desde el contador real y compilados en Lean 4.32.2, axiomas estandar y sin sorryAx. Conserva OcelotasPrefijos, OcelotasCribaPrefijos y el certificado hasta n=4912740. OcelotasVeinteTabla certifica 42 intervalos para q<4598951775: 35 remiten a semillas pequenas, cinco se excluyen por criba afinada y dos usan prefijos. Certificados inclusivos: 4912741..5457441 con q>=79335 y 4912741..310041588 con q>=190537, rachas<=20, combustible 96; 55811/67649 nodos y profundidades 43/46. OcelotasPrefijosBloques une subarboles evaluados con decide +kernel: 64/50 bloques no terminales a profundidad diez. Cotejo independiente de 30348 hojas no vacias por orbitas directas y clases disjuntas; dominios solapados, no sumar cardinalidades. Cotejo racional independiente de las 42 filas, sin discrepancias. OcelotasVeinteCola usa cota(20,m)<=20148*m e induccion desde t>=32: 40296*(19*(t+33)^2+6)<2^t; el factor 19 es la constante de LMN. No requiere un censo individual hasta 310041588 ni amplifica el censo consecutivo conservado hasta 2^23. No afirma existencia universal del primer cruce ni llegada a 1. LMN sigue externo; revision humana y novedad pendientes. Reconstruccion completa y evidencia en VEINTE_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_cst_veintiuna_rachas_prefijos_lean",
+      "enunciado": "OCELOTAS: CST HASTA VEINTIUNA RACHAS EN LEAN BAJO LMN. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2 y primer cruce finito k del coeficiente (3^S_j>=2^j para 1<=j<k y 3^S_k<2^k, S_j numero de entradas impares), bajo LMN23 especializado en 2 y 3, si rachas(n,k)<=21 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo necesita al menos veintidos rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasVeintiuna.lean",
+      "fuente": "propio, extension de Ocelotas mediante criba por prefijos; Laurent-Mignotte-Nesterenko 1995 corolario 2 p. 288 como hipotesis externa explicita",
+      "notas": "cst_veintiuna_corolario y fallo_exige_veintidos, ensamblados desde el contador de bloques maximales de entradas impares. Lean 4.32.2: auditoria acumulada de 76 modulos y 943 consultas (180 listas de axiomas estandar, 763 sin axiomas; consultas no necesariamente distintas), sin sorryAx. Reanudacion: 31 compilados y 45 reutilizados por huellas verificadas; no es una reconstruccion limpia de los 76. Evidencia original completa y SHA256 en evidencia_veintiuna_lean.json; salida final en lean_veintiuna.txt. Conserva el certificado hasta n=4912740. Tabla de 42 intervalos para q<4598951775: 35 remiten a semillas pequenas, cinco se excluyen por criba afinada y dos usan prefijos. Intervalos inclusivos: 4912741..5730313 con q>=79335 y 4912741..325543668 con q>=190537, rachas<=21, combustible 128; 161365/670749 nodos y profundidades 48/51. Cotejo independiente de las 42 filas y 202801 hojas no vacias por orbitas directas, cotas y clases disjuntas; sin discrepancias. Los intervalos se solapan: no sumar cardinalidades. Evaluacion de prefijos con decide +kernel, repartida para controlar memoria. La cola usa cota(21,m)<=32237*m y 5k<=8q+5; induccion desde t>=32 sobre 8*32237*(19*(t+33)^2+6)+5<5*2^t. El factor 19 es la constante de LMN. Sin ley probabilistica ni condicionamiento muestral. No amplia el censo conservado hasta 2^23 ni afirma existencia universal del primer cruce o llegada a 1. LMN sigue externo; revision humana y novedad pendientes. Detalles en VEINTIUNA_LEAN.md. Veintidos rachas y el cierre Lean de setenta y cinco permanecen pendientes."
+    },
+    {
+      "clave": "ocelotas_region_finita_rachas_arbitrarias_lean",
+      "enunciado": "OCELOTAS: REGION FINITA UNIFORME PARA FALLOS DE CST BAJO LMN. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2, primer cruce finito k del coeficiente (3^S_j>=2^j para 1<=j<k y 3^S_k<2^k, S_j cuenta entradas impares), y r=rachas(n,k), bajo LMN23 especializado en 2 y 3, un fallo n<=T^k(n) exige simultaneamente k<2^(2r+32) y n<2^(19(2r+65)^2+r). Vale para cualquier numero de rachas; no afirma que la region sea vacia.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasCotaGeneral.lean",
+      "fuente": "propio, continuacion de las cotas de Ocelotas; Laurent-Mignotte-Nesterenko 1995 como hipotesis externa explicita",
+      "notas": "region_del_fallo desde LMNDebil y region_del_fallo_corolario desde LMN23, conectados con el contador real; descenso_de_tiempo_grande excluye fallos cuando 2^(2r+32)<=k. Para rachas<=R se obtiene una region finita por monotonia de las cotas. Se combinan D*n<r*3^q, la cota entera LMN con E=19*(floor(log2 k)+33)^2, cota(r,m)+m<=2^r*m y 5k<=8q+5. Dos inducciones prueban 40*2^r*(t+33)^2+1<2^t para t>=2r+32. Lean 4.32.2: un modulo compilado, nueve consultas con solo propext, Classical.choice, Quot.sound, sin sorryAx; 38 modulos de prefijo reutilizados por hashes verificados. Evidencia completa en evidencia_cota_general.json y evidencia_cota_general.txt. Derivacion escrita y cotejo independiente de identidades polinomicas exactas y 606 casos racionales de borde; la malla no sustituye la prueba universal. No hay ley probabilistica ni censo nuevo. Las cotas son holgadas y no cierran CST para r arbitrario ni demuestran existencia universal del primer cruce. La idea de una cola finita para R fijo ya figura en REVISION_RACHAS.md; esta continuacion da una formula uniforme formalizada bajo LMN. Revision humana y prioridad historica pendientes. Ver COTA_GENERAL.md. El cierre especifico de 22 sigue en comprobacion independiente de este resultado."
+    },
+    {
+      "clave": "ocelotas_cola_parametrica_geometrica_lean",
+      "enunciado": "OCELOTAS: CRITERIO GEOMETRICO UNIFORME PARA LA COLA. Para el atajo T, n>=2, primer cruce finito k, rachas(n,k)<=R y naturales R,A,c,H con R<=2^c, 5*8^R<=(3A+5)*5^R y 8A*(19(H+33)^2+c+1)+5<5*2^H, bajo LMN23 un fallo n<=T^k(n) exige k<2^H y n<2^(19(H+32)^2+c). Por tanto, un primer cruce con k>=2^H desciende y es el primer descenso.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasColaParametrica.lean",
+      "fuente": "propio, continuacion de la cota geometrica de Ocelotas; LMN 1995 como hipotesis externa explicita",
+      "notas": "region_del_fallo, region_del_fallo_corolario y cst_en_cola desde el contador real. Se combinan la identidad afin, LMN, congruencias de rachas y 5k<=8q+5; la tercera desigualdad persiste para t>=H por induccion. OcelotasColasCertificadas.lean verifica tres desigualdades enteras para cada R=21,22,23,50,75,100,1000; H=32,33,34,53,70,88,703 respectivamente. Son cotas de la region posible de fallos, no cierres completos de CST para esos R. Dos modulos compilados en Lean 4.32.2, 13 consultas con axiomas estandar y sin sorryAx; prefijo de 38 modulos reutilizado por huellas. Evidencia en evidencia_colas_certificadas.json; cotejo independiente mediante suma racional iterada y verificacion de la minimalidad de H para las constantes elegidas. No hay ley probabilistica ni censo nuevo. No demuestra existencia universal del primer cruce ni vacuidad de la region finita. Revision humana y prioridad historica pendientes. Ver COLA_PARAMETRICA.md."
+    },
+    {
+      "clave": "ocelotas_criba_afinada_despues_corte_lean",
+      "enunciado": "OCELOTAS: CRIBA AFINADA DESPUES DE UN CORTE. Para el atajo T sobre naturales, S_i entradas impares y r_i bloques maximales de entradas impares, sean k un primer cruce finito, i<k, r_k<=R y T^i(n)<=X. Si i=0 o la entrada T^(i-1)(n) es par, entonces S_k(n)<=S_i(n)+C(B,R-r_i), donde B=ceil(log2((X+1)^256)), C(B,0)=0 y C(B,j+1)=floor((25B+10144*C(B,j))/6400). Se toma B=0 cuando X=0. No requiere LMN ni resultado finito externo.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasPrefijosAfinados.lean",
+      "fuente": "propio, combinacion de la criba afinada de Ocelotas y la aditividad de rachas al cortar despues de una entrada par",
+      "notas": "criba_contador permite entradas pares iniciales; criba_real_despues_corte demuestra la version con cotas reales arbitrarias; criba_despues_corte especializa alfa=317/200 y beta=B/256. El tramo restante solo necesita acabar en una entrada par, no tener su primer cruce en k-i. cota_real identifica exactamente la recurrencia entera y potencia_exponente incluye s=0,1. OcelotasCribaPrefijosAfinados conserva el verificador previo y prueba la correccion de otro que usa esta cota; agotar combustible rechaza. Dos modulos compilados en Lean 4.32.2, ocho consultas con axiomas estandar, sin sorryAx; 27 modulos de prefijo reutilizados por huellas. Evidencia en evidencia_criba_prefijos_afinados.json y .txt. Derivacion independiente: las congruencias acotan cada bloque, la recurrencia usa pisos exactos y los contadores se suman despues de un par. Cotejo de la propuesta de 76 mediante orbitas directas, busqueda binaria para B y Fraction para C: 11225 nodos, 4910 clases no vacias y cobertura disjunta, sin discrepancias. El cotejo se completo despues con el certificado concreto y el cierre de 76 en Lean mediante la variante binaria. OcelotasExponenteBinarioExacto prueba igualdad del exponente para toda entrada y OcelotasVerificadoresEquivalentes igualdad del veredicto para todo estado y combustible: seis modulos nuevos, 17 consultas estandar, evidencia_verificadores_equivalentes.json. Son optimizaciones del mismo criterio; no se cuenta una afirmacion adicional por cambiar la implementacion. No hay ley probabilistica ni censo nuevo. Revision humana y prioridad historica pendientes. Ver PREFIJOS_AFINADOS_LEAN.md. Continuacion de implementacion: OcelotasCertificadosTestigos demuestra que la aceptacion de un arbol con motivos de hojas implica la del verificador binario. Se certifica la potencia para el B propuesto y se unen ramas sin repetir la criba. Seis modulos y 22 consultas estandar en evidencia_certificados_testigos.json; piloto de 76 aceptado en ocho modulos y 73 consultas, con reutilizacion de los ocho validada por huellas. No se cuenta como una afirmacion matematica adicional. Ver TESTIGOS_PREFIJOS_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_cst_76_rachas_rozier_terracol_lean",
+      "enunciado": "OCELOTAS: CST HASTA SETENTA Y SEIS RACHAS EN LEAN BAJO LMN Y ROZIER-TERRACOL. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2 y primer cruce finito k del coeficiente (3^S_j>=2^j para 1<=j<k y 3^S_k<2^k, S_j cuenta entradas impares), suponiendo LMN23 especializado en 2 y 3 y el resultado finito de Rozier-Terracol 5.4 para 2<=n<=28000000000000000000, si rachas(n,k)<=76 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo con estas hipotesis necesita al menos 77 rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasSetentaYSeisBinarios.lean",
+      "fuente": "propio, continuacion de Ocelotas; Laurent-Mignotte-Nesterenko 1995 y Rozier-Terracol arXiv:2502.00948v5 corolario 5.4 como hipotesis externas explicitas",
+      "notas": "cst_condicional y fallo_exige_setenta_y_siete desde el contador real de bloques maximales. Tabla de 97 intervalos para q<2389894509120846565669: 91 remiten al rango externo, cinco se excluyen por criba y una por el nuevo certificado de prefijos. Ventana inclusiva 28000000000000000001..42380653296441592424, q>=130441933147714940, hasta 76 rachas, combustible 256: 11225 nodos, 4910 clases no vacias y profundidad 77. El certificado se evalua mediante decide +kernel con exponente por ocho bisecciones; igualdad con el exponente anterior formalizada por separado. Cotejo independiente por orbitas directas, otra busqueda binaria, Fraction y cobertura disjunta; tabla cotejada por series atanh racionales, determinantes, pisos y potencias. La cola parametrica usa R=76, A=5432095936891962, c=7, H=71. Lean 4.32.2: quince modulos compilados, 123 consultas con axiomas estandar, sin sorryAx; 38 modulos anteriores reutilizados por huellas verificadas. Evidencia completa en evidencia_setenta_y_seis_binarios.json y .txt; fuentes actuales cotejadas con hashes. No es una reconstruccion limpia de toda la base ni una verificacion del censo externo. Los dos resultados externos son argumentos del teorema, no axiomas anadidos a Lean. No hay ley probabilistica, no se amplia el censo hasta 2^23 y no se afirma existencia universal del primer cruce, llegada a 1 ni CST general. Revision humana y prioridad historica pendientes; este alcance no establece una mejora del teorema de Tao de 2019. Se conserva la evaluacion anterior de 76 por separado, aun activa al cerrarse esta variante. Ver SETENTA_Y_SEIS_LEAN.md. La continuacion de 77 quedo despues aceptada en Lean y se registra por separado; ver SETENTA_Y_SIETE_LEAN.md. La evaluacion monolitica original se interrumpio despues para liberar memoria, sin alterar el cierre binario ya aceptado ni la igualdad universal de verificadores; identidad del proceso y motivo en interrupcion_setenta_y_seis_original.json. Su salida parcial no es una auditoria completa ni un contraejemplo."
+    },
+    {
+      "clave": "ocelotas_cst_22_rachas_lean_lmn",
+      "enunciado": "OCELOTAS: CST HASTA VEINTIDOS RACHAS EN LEAN BAJO LMN. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2 y primer cruce finito k del coeficiente (3^S_j>=2^j para 1<=j<k y 3^S_k<2^k, S_j cuenta entradas impares), bajo LMN23 especializado en 2 y 3, si rachas(n,k)<=22 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo necesita al menos veintitres rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasVeintidos.lean",
+      "fuente": "propio, extension de Ocelotas por prefijos; Laurent-Mignotte-Nesterenko 1995 corolario 2 p. 288 como unica hipotesis matematica externa explicita",
+      "notas": "cst_veintidos_corolario y cst_veintidos_lmn desde el contador real de bloques maximales. fallo_exige_veintitres se formula con LMNDebil, derivado formalmente de LMN23. Tabla de 42 intervalos para q<4598951775: 35 remiten a n<=4912740, cinco se excluyen por criba y dos usan prefijos. Intervalos inclusivos 4912741..6003186 con q>=79335 y 4912741..341045747 con q>=190537, rachas<=22 y combustible 128. Los intervalos se solapan; no sumar sus coberturas. Cotejo independiente de 42 filas y 862805 hojas no vacias por aritmetica racional, orbitas directas y cobertura disjunta: sin discrepancias. 339401 y 3840535 nodos, profundidades 55 y 57. Evaluacion de prefijos con decide +kernel repartida en 230 modulos, 1896 hojas y 1330 uniones internas adicionales. Cola: cota(22,m)<=51580*m y exclusion por induccion desde k>=2^33; OcelotasVentanaRacional cubre 2^32<=k<2^33 tras q>=4598951775. La auditoria acumulada registra Lean 4.32.2, 312 modulos, 236 compilados y 76 reutilizados; 3420 consultas, 317 con listas de axiomas estandar y 3103 sin axiomas, no necesariamente distintas. Sin sorryAx; fuentes, objetos, prefijos y numero de consultas cotejados despues de terminar con codigo 0. Evidencia y manifiesto completos en evidencia_veintidos_lean.json, salida en lean_veintidos.txt. No es una reconstruccion limpia de toda la cadena. El certificado de semillas pequenas esta dentro del repositorio; no se usa Rozier-Terracol como hipotesis de este cierre. No hay ley probabilistica ni nuevo censo; se conserva el rango empirico hasta 2^23. No afirma existencia universal del primer cruce, llegada a 1 ni CST general. Revision humana y prioridad historica pendientes. Ver VEINTIDOS_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_descuento_una_entrada_por_racha_lean",
+      "enunciado": "OCELOTAS: DESCUENTO DE UNA ENTRADA IMPAR POR RACHA. Para el atajo T sobre n>=1, una palabra real de r bloques completos de a_i>=1 entradas impares seguidas de b_i>=1 pares y r<=R, con alfa>=1, beta>=1, log(3)<=alfa*log(2), n+1<=s y log(s)<=beta*log(2), el numero de entradas impares cumple A_r<=R+C(alfa,beta-1,R)<=C(alfa,beta,R), donde C(alfa,gamma,0)=0 y C(alfa,gamma,j+1)=floor(gamma+alfa*C(alfa,gamma,j)). No requiere LMN ni primer cruce. La cota se extiende a tramos con pares iniciales y final par, y se conecta con cortes tras un par de un primer cruce finito.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasDescuentoContador.lean",
+      "fuente": "propio, continuacion de Ocelotas desde identidades exactas de bloques impares y pares; prioridad historica pendiente",
+      "notas": "OcelotasDescuentoRachas prueba paso_descontado, cadena_descontada, congruencias_descontadas y la criba de palabras. Se define D_i=A_i-i: 2^D_i*(x_i+1)<=3^D_i*(n+1), y 2^(D_(i+1)+1)<=(n+1)*3^D_i. La positividad n>=1 es explicita; el ciclo 1,2,1 da igualdad. OcelotasDescuentoContador formaliza domina_cota_anterior para todo alfa,beta>=1, la version del contador y criba_desde_potencia: para n>0, primer cruce finito k, i<k, corte vacio o tras par, r_k<=R, T^i(n)<=X, B>=256 y (X+1)^256<=2^B, S_k<=S_i+(R-r_i)+C_entero(B-256,R-r_i), con C_entero(B,j+1)=floor((25B+10144*C_entero(B,j))/6400). Derivacion independiente: 2^a(z+1)=3^a(x+1), z=2^b*y>=2y, y>=1 implica 3(y+1)<=2(z+1), de donde el paso descontado. Contraste por orbitas directas y Fraction: 32768 semillas impares de 1 a 65535, ocho bloques por semilla, 262144 bloques y 1029796 pasos, sin discrepancias. Lean 4.32.2: cadena final de tres modulos compilados, 15 consultas con axiomas estandar, sin sorryAx, 27 modulos de base reutilizados por huellas. Incluye dos modulos nuevos y OcelotasPrefijosAfinados previo; no contar consultas repetidas como teoremas nuevos. Evidencia en evidencia_descuento_contador.json y cotejo_descuento_rachas.json; fuente y consultas cotejadas. No elimina filas adicionales en las tablas de 23 y 77, aunque baja sus cotas. Continuacion aceptada: OcelotasCribaPrefijosDescuento, OcelotasPrefijosDescuentoTestigos y OcelotasCertificadosDescuento formalizan el verificador descontado y su correccion universal, con positividad explicita. evidencia_certificados_descuento.json contiene diez modulos (dos compilados y ocho reutilizados), 39 consultas estandar. Piloto concreto de 76: 10027 nodos, 4366 clases no vacias, 49 subarboles; evidencia_descuento_piloto_76.json acepta dos modulos nuevos y diez reutilizados, 90 consultas sin sorryAx. No contar una afirmacion adicional por esta implementacion. El cotejo independiente de la ventana alta de 23 con descuento tambien termino: 10491273 nodos y 1861414 hojas no vacias; no se ha evaluado ese arbol completo en Lean. No es un nuevo cierre de CST ni afirma llegada a 1; no hay ley probabilistica. Revision humana pendiente. Ver DESCUENTO_RACHAS_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_criba_con_suelo_lean",
+      "enunciado": "OCELOTAS: CRIBA CON UN SUELO DE LA TRAYECTORIA. Para el atajo T sobre naturales y una palabra real de r bloques de a_i>=1 entradas impares seguidas de b_i>=1 pares, sea x_i su valor inicial y A_i la suma de las a_j para j<i. Si x_i>=N para i<r, r<=R, alfa>=3/2, beta>=2, gamma<=1, log(3)<=alfa*log(2), n+1<=s y log(s)<=beta*log(2), gamma*log(2)<=log(2N+1)-log(N+1), entonces A_r<=C_R, con C_0=0 y C_(j+1)=floor(beta+alfa*C_j-gamma*j). La recurrencia es monotona, C_j>=2j, y para gamma>=0 no supera la criba original. Si la palabra termina en un primer cruce finito, basta N<=n para obtener el suelo en i<r. No se exige suelo al valor final ni fallo de CST. Aplicacion tras un corte: si k es el primer cruce global, i<k, i=0 o la entrada anterior es par, n>=4095, r_k<=R, T^i(n)<=X, B>=512 y (X+1)^256<=2^B, entonces S_k<=S_i+C(B,R-r_i), con C(B,0)=0 y C(B,j+1)=(400B+162304*C(B,j)-102375*j) div 102400. No se exige un primer cruce propio del sufijo.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasSueloContador.lean",
+      "fuente": "propio, continuacion de Ocelotas desde identidades exactas de bloques y el descenso previo al primer cruce; prioridad historica pendiente",
+      "notas": "Derivacion independiente: para un bloque x -> z -> y, 2^a*(z+1)=3^a*(x+1), z=2^b*y>=2y y (N+1)*(2y+1)-(2N+1)*(y+1)=y-N. Al encadenar solo hasta el comienzo del bloque i se obtiene (2N+1)^i*2^(A_(i+1))<=(n+1)*(N+1)^i*3^A_i; no se usa el suelo al final del ultimo bloque. OcelotasSueloRachas y OcelotasSueloCriba formalizan la identidad, las congruencias, la cota y su enlace con PrimerCruce. OcelotasSueloNumerica certifica 2^4095*4096^4096<=8191^4096 mediante decide +kernel y especializa N=4095, alfa=317/200, beta=B/256 y gamma=4095/4096. Para n>=4095, B>=512 y s^256<=2^B, la recurrencia entera C(B,j+1)=(400B+162304*C(B,j)-102375*j) div 102400 da la misma cota; se prueba que la resta natural no trunca indebidamente. Lean 4.32.2: evidencia_suelo_numerica.json registra tres modulos, uno compilado y dos reutilizados, 14 consultas con axiomas estandar, sin sorryAx; fuentes y consultas actuales cotejadas. Cotejo independiente por orbitas directas, enteros y Fraction: 30721 semillas impares de 4095 a 65535, hasta ocho bloques, 133694 bloques y 534231 pasos; incluye 26005 bloques finales bajo el suelo y bordes N-1, N y N+1, sin discrepancias. Evidencia en cotejo_suelo_rachas.json; el barrido finito no sustituye la prueba universal. No requiere LMN ni censo externo. Continuacion del 03-10 aceptada: OcelotasSueloContador formaliza el contador con pares iniciales, la cota real tras cortes y su especializacion entera; OcelotasCribaPrefijosSuelo demuestra la correccion universal del verificador con n>=4095. El primer cruce global conserva el suelo hasta antes del extremo final. Cotejo independiente de todos los cortes admisibles en 4097 semillas de 4095 a 8191: 7131 cortes, 14253 pasos y 28524 cotas, sin discrepancias; incluye finales bajo el suelo, pares iniciales y sufijos sin impares. OcelotasSueloPiloto acepta por decide +kernel el intervalo 4095..8191, q>=60, R=4 y combustible 64. El cotejo independiente por orbitas directas, Fraction y cobertura disjunta cuenta 339 nodos frente a 345 del descuento y 349 de la criba original; no es una garantia universal de rendimiento. evidencia_suelo_piloto.json contiene ocho modulos (dos compilados y seis reutilizados), 30 consultas con axiomas estandar y sin sorryAx, 27 modulos de base comprobados por huellas. Las siete declaraciones consultadas en los tres archivos nuevos no se registran como siete afirmaciones adicionales. Se conserva un intento inicial fallido por transcripcion de desigualdades. Pendiente: adaptar los certificados con testigos a ventanas grandes. Ver SUELO_CORTES_LEAN.md, cotejo_suelo_cortes.json y cotejo_piloto_suelo.json. No hay ley probabilistica, nuevo cierre de CST, existencia universal de primer cruce ni llegada a 1. Revision humana pendiente. Ver SUELO_RACHAS_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_cst_77_rachas_rozier_terracol_lean",
+      "enunciado": "OCELOTAS: CST HASTA SETENTA Y SIETE RACHAS EN LEAN BAJO LMN Y ROZIER-TERRACOL. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2 y primer cruce finito k del coeficiente (3^S_j>=2^j para 1<=j<k y 3^S_k<2^k, S_j cuenta entradas impares), suponiendo LMN23 especializado en 2 y 3 y el resultado finito de Rozier-Terracol 5.4 para 2<=n<=28000000000000000000, si rachas(n,k)<=77 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo con estas hipotesis necesita al menos 78 rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasSetentaYSiete.lean",
+      "fuente": "propio, continuacion de Ocelotas; Laurent-Mignotte-Nesterenko 1995 y Rozier-Terracol arXiv:2502.00948v5 corolario 5.4 como hipotesis externas explicitas",
+      "notas": "cst_condicional y fallo_exige_setenta_y_ocho desde el contador real de bloques maximales. Tabla de 97 intervalos para q<4857481135601629720741: 91 remiten al rango externo, cinco se excluyen por criba y una por prefijos. Ventana inclusiva 28000000000000000001..42938293471394771272, q>=130441933147714940, hasta 77 rachas y combustible 256: 1420851 nodos, 574357 clases no vacias, profundidad 81, cobertura disjunta de 14938293471394771272 semillas. El certificado con motivos de hojas se reparte en 73 partes, 4896 subarboles y 4895 uniones, evaluados con decide +kernel y lemas de union. Cotejo independiente por orbitas directas, Fraction y cobertura; tabla por series atanh racionales, determinantes, pisos y potencias. Cola parametrica R=77, A=8691353499027139, c=7, H=72. Lean 4.32.2: sesion 64800 terminada con codigo 0; 91 modulos de extension, 85 compilados y seis reutilizados, 5030 consultas con axiomas estandar, sin sorryAx; 38 modulos de base reutilizados por huellas. Fuentes, objetos y cantidad de consultas cotejados tras el cierre. No contar cada consulta como un resultado cientifico distinto. Evidencia completa en evidencia_setenta_y_siete.json y .txt; 6084,780 segundos de esa ejecucion, sin pretension de comparacion de rendimiento. No es una reconstruccion limpia de toda la base ni una verificacion del censo externo. LMN23 y RozierTerracol54 son argumentos del teorema, no axiomas anadidos a Lean. No hay ley probabilistica ni nuevo censo, y no se afirma existencia universal de primer cruce, llegada a 1 ni CST general. Revision humana y prioridad historica pendientes; este alcance no establece una mejora del teorema de Tao de 2019. Ver SETENTA_Y_SIETE_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_cst_23_rachas_lean_lmn",
+      "enunciado": "OCELOTAS: CST HASTA VEINTITRES RACHAS EN LEAN BAJO LMN. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2 y primer cruce finito k del coeficiente (3^S_j>=2^j para 1<=j<k y 3^S_k<2^k, S_j cuenta entradas impares), bajo LMN23 especializado en 2 y 3, si rachas(n,k)<=23 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo con estas hipotesis necesita al menos veinticuatro rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasVeintitres.lean",
+      "fuente": "propio, continuacion de Ocelotas; Laurent-Mignotte-Nesterenko 1995, corolario 2, como hipotesis externa explicita",
+      "notas": "cst_veintitres_lmn, cst_veintitres_corolario y fallo_exige_veinticuatro. No usa Rozier-Terracol. Tabla de 43 intervalos q<19362882631: 35 remiten al certificado interno n<=4912740, seis se excluyen por criba y dos por prefijos. Ventana baja inclusiva 4912741..6276058, q>=79335: 528949 nodos, 39815 hojas no vacias, 1363318 semillas, 28 partes. Alta 4912741..356547672, q>=190537: 12368501 nodos, 2189377 hojas no vacias, 351634932 semillas, 62 partes. Ambas usan R=23 y combustible 128, profundidad maxima 60, sin pendientes; las ventanas se solapan. Cola parametrica A=82528,c=5,H=34. Cotejos independientes de tabla y cola por atanh racional, enteros y Fraction; prefijos por orbitas directas y cobertura disjunta. Lean 4.32.2: sesion 27647 terminada con codigo 0 el 03-10-2026 a las 23:59:59 local; 105 modulos de extension (69 compilados, 36 reutilizados), 11806 consultas con axiomas estandar sin sorryAx, 38 modulos de base reutilizados por huellas. Duracion de esta ejecucion persistente: 11834,236 segundos; no es reconstruccion desde cero. El 04-10 se cotejaron todas las fuentes y objetos de la extension y de la base, los dos auditores y las consultas. Evidencia final: evidencia_veintitres_lean.json y .txt; sha256 del JSON ece5b16a27b4edd95e1171908bb3e55d38499ed4c0f5643c1e947aabd26b62c9. No contar cada consulta como una afirmacion cientifica distinta. No hay ley probabilistica ni nuevo censo, y no se afirma existencia universal de primer cruce, llegada a 1 ni CST general. Revision humana y prioridad historica pendientes. Ver VEINTITRES_LEAN.md."
+    },
+    {
+      "clave": "ocelotas_cst_24_rachas_lean_lmn",
+      "enunciado": "OCELOTAS: CST HASTA VEINTICUATRO RACHAS EN LEAN BAJO LMN. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, n>=2 y primer cruce finito k del coeficiente (3^S_j>=2^j para 1<=j<k y 3^S_k<2^k, S_j cuenta entradas impares), bajo LMN23 especializado en 2 y 3, si rachas(n,k)<=24 entonces n<=T^j(n) para todo j<k y T^k(n)<n. Un fallo con estas hipotesis necesita al menos veinticinco rachas; caso par incluido.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/OcelotasVeinticuatro.lean",
+      "fuente": "propio, continuacion de Ocelotas; Laurent-Mignotte-Nesterenko 1995, corolario 2, como hipotesis externa explicita",
+      "notas": "cst_veinticuatro_lmn, cst_veinticuatro_corolario y fallo_exige_veinticinco. No usa Rozier-Terracol. Tabla de 43 intervalos q<39123338641: 35 remiten al certificado interno n<=4912740, seis se excluyen por criba y dos por prefijos. Ventana baja inclusiva 4912741..6548930, q>=79335: 756925 nodos, 47048 hojas no vacias, 1636190 semillas, profundidad 62, 39 partes. Alta 4912741..372049745, q>=190537: 29403783 nodos, 3939127 hojas no vacias, 367137005 semillas, profundidad 65, 596 partes de hasta 50000 nodos. Ambas usan R=24, combustible 128 y criba afinada, sin pendientes; las ventanas se solapan. Cola parametrica A=132046,c=5,H=35. Cotejos independientes de tabla y cola por atanh racional, enteros y Fraction; prefijos por orbitas directas y cobertura disjunta; las 635 partes compiladas coinciden con las generadas. Lean 4.32.2 con comprobar_extension_paralela.py, copia del comprobador persistente que solo reparte las compilaciones; en la ventana baja dio los mismos 46 modulos que el secuencial. 650 modulos de extension: 473 compilados y 177 reutilizados (46 de esa prueba y 131 de un primer intento cortado a las 17:12 por falta de memoria libre). 26022 consultas con axiomas estandar sin sorryAx; 38 modulos de base comprobados por huellas. Terminado el 04-10-2026 a las 20:15:31 local; la ultima ejecucion duro 7992,84 segundos con cuatro compilaciones simultaneas, y los tiempos de compilacion suman 40766 segundos. Cotejo separado de huellas, cierre de importaciones, dependencias, consultas y axiomas: cotejar_evidencia_veinticuatro.py y cotejo_evidencia_veinticuatro.txt, sin fallos. Evidencia final: evidencia_veinticuatro_lean.json y .txt; sha256 del JSON f349f71280aa6ab480347007d8245e0dd3da97a99401efb7b2c2e91f985a0839, calculado sobre la copia de Windows con CRLF. No contar cada consulta como una afirmacion cientifica distinta. No hay ley probabilistica ni nuevo censo, y no se afirma existencia universal de primer cruce, llegada a 1 ni CST general. Revision humana y prioridad historica pendientes. Ver VEINTICUATRO_LEAN.md."
+    },
+    {
+      "clave": "casa_plano_collatz_dos_muros_lean",
+      "enunciado": "PLANO DE LA CASA: COLLATZ EQUIVALE A DOS MUROS. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar y el mapa clasico C, sea Cruza(n) que 3^S_k(n)<2^k para algun k (primer cruce finito) y Desciende(n) que T^k(n)<n para algun k>=1. Con el muro A (para todo n>=2, Cruza(n) implica Desciende(n)) y el muro B (Cruza(n) para todo n>=2), la conjetura de Collatz, todo n>=1 llega a 1 con C, equivale a tener los dos muros. Ademas: llegar a 1 con C equivale a llegar con T; una orbita que no llega a 1 contiene un circuito distinto de 1-2 o no esta acotada; el muro A excluye por si solo los circuitos; el muro B equivale a que ningun n>=2 carezca de primer cruce; la conjetura CST, o CST para cada cantidad de rachas, implica el muro A.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaPlano.lean",
+      "fuente": "propio, ruta B del 04-10-2026; reune argumentos elementales conocidos en sus partes (Terras 1976, Lagarias 1985), sin pretension de prioridad",
+      "notas": "collatz_iff_muros, techo, llega_iff, dos_fallas, muroA_sin_circuitos, casa_sin_fallas, muroB_iff, fuga_pura_no_baja, fuga_pura_no_llega, muroA_de_cst, tramo_de_descenso y muroA_de_tramos, sin hipotesis externas. CasaOcelotas.lean enlaza el cierre de 24 rachas: muroA_hasta_24 y grieta_exige_25 bajo LMN23; una grieta en el muro A necesita al menos 25 rachas antes del primer cruce. Lean 4.32.2 con comprobar_casa.py: 670 modulos de Ocelotas verificados por huellas (20 de la base y 650 del cierre de 24), dos modulos compilados, 19 consultas con axiomas estandar, sin sorryAx ni avisos. Evidencia en evidencia_casa.json y .txt. Los muros son definiciones: no se afirma que se cumplan, ni CST general, ni existencia universal del primer cruce, ni llegada a 1. Ruta acordada: sin fuerza bruta; siguiente, el retrato del fugitivo. Revision humana pendiente. Ver depuracion/casa20261004/LEEME.md."
+    },
+    {
+      "clave": "corzas_retrato_fugitivo_lean",
+      "enunciado": "CORZAS: EL RETRATO DEL FUGITIVO. Para el atajo T(n)=n/2 si n es par y (3n+1)/2 si es impar, sea fugitivo un n con 2^k<=3^S_k(n) para todo k (sin primer cruce; S_k cuenta pasos impares). Todo fugitivo tiene orbita no acotada y nunca repite un valor, cumple n<T^k(n) para k>=1, su patron de paridades nunca es finalmente periodico, cumple 63k<100 S_k(n) para todo k>=1 (y qk<pS_k(n) si 3^q<2^p) y es congruente con 3 modulo 4. Ademas, dos naturales con la misma sucesion completa de paridades son iguales y S_k depende solo del residuo modulo 2^k.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaFugitivo.lean",
+      "fuente": "propio, ruta B, paso 2, del 05-10-2026; rasgos conocidos en sus partes (Terras 1976, Lagarias 1985), sin pretension de prioridad",
+      "notas": "retrato_del_fugitivo, fugitivo_no_acotado, fugitivo_no_repite, fugitivo_no_vuelve, fugitivo_no_periodico, fugitivo_63, fugitivo_proporcion_estricta, fugitivo_tres_mod_cuatro, iguales_de_paridades, S_congr, cruza_de_ciclo; sin hipotesis externas. Lean 4.32.2 con comprobar_fugitivo.py: los ocho modulos de Ocelotas que importa CasaPlano, CasaPlano, CasaFugitivo, CasaCasiTodos, CasaChoques, CasaTerras y CasaDomino (y, en la reconstruccion final del 05-10, tambien CasaKorec, CasaPotencia, CasaTres y CasaLMN) compilados desde las fuentes en carpeta temporal nueva, sin caches; codigo 0, sin sorry ni avisos en los modulos de la casa; 53 consultas de esos seis modulos (98 en total con los cuatro nuevos) con axiomas estandar (propext, Classical.choice, Quot.sound), sin sorryAx. Evidencia en evidencia_fugitivo.json y .txt. Contraste independiente con enteros exactos en cotejar_fugitivo.py hasta K=22 (cotejo_fugitivo.json). La positividad es indispensable: en los enteros T(-1)=-1 sube siempre con orbita acotada. No se afirma el muro B ni que no haya fugitivos. Revision humana pendiente. Ver depuracion/casa20261004/CORZAS.md."
+    },
+    {
+      "clave": "corzas_terras_densidad_lean",
+      "enunciado": "CORZAS: TEOREMA DE TERRAS Y DENSIDAD CERO DE LOS QUE NO BAJAN. Para el atajo T, sea d_K el numero de residuos r<2^K con 2^j<=3^S_j(r) para todo j<=K. La proporcion de n<N con T^j(n)>=n para todo 1<=j<=K tiende a d_K/2^K cuando N crece, con error a lo sumo (d_K+3^K)/N, y d_K/2^K tiende a 0. La proporcion de residuos con 2^K<=3^S_K(r) es a lo sumo rho^K, rho=(1+sqrt3)/(2 sqrt2)~0,966. Los fugitivos y los n que nunca bajan de si mismos tienen densidad natural 0.",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaTerras.lean",
+      "fuente": "Terras (1976) y Everett (1977), formalizados en la ruta B el 05-10-2026; la cota con raices es una forma de Chernoff",
+      "notas": "terras_distribucion, terras_error, terras_limite, noBaja_iff_sobrevive (CasaTerras.lean); casi_todos_descienden, cota_superior 2^k T^k(n)+2^k<=3^S_k(n) n+3^k, desciende_de_cruce_grande (CasaCasiTodos.lean); fugitivos_densidad_cero, proporcion_sin_cruce, cota_sinCruce, suma_pesos (generatriz binomial) en CasaFugitivo.lean. Sin hipotesis externas. Lean 4.32.2 con comprobar_fugitivo.py: los ocho modulos de Ocelotas que importa CasaPlano, CasaPlano, CasaFugitivo, CasaCasiTodos, CasaChoques, CasaTerras y CasaDomino (y, en la reconstruccion final del 05-10, tambien CasaKorec, CasaPotencia, CasaTres y CasaLMN) compilados desde las fuentes en carpeta temporal nueva, sin caches; codigo 0, sin sorry ni avisos en los modulos de la casa; 53 consultas de esos seis modulos (98 en total con los cuatro nuevos) con axiomas estandar (propext, Classical.choice, Quot.sound), sin sorryAx. Evidencia en evidencia_fugitivo.json y .txt. Contraste independiente con enteros exactos en cotejar_fugitivo.py hasta K=22 (cotejo_fugitivo.json). Por orbitas directas, para N=2^18 y K<=16 el numero de n<N con sigma(n)>K es exactamente N d_K/2^K+2 (0 y 1). No es Wu 1: bajar una vez no garantiza llegar a 1. Revision humana pendiente. Ver CORZAS.md."
+    },
+    {
+      "clave": "corzas_choques_periodicidad_lean",
+      "enunciado": "CORZAS: DONDE PUEDE ESTAR UN CHOQUE. Para el atajo T: para cada K, 2^(K+2)-1 es un n>=2 con 2^j<=3^S_j(n) para todo j<=K, de modo que ningun tramo finito del pronostico contradice la existencia de fugitivos. El patron de paridades de n es finalmente periodico si y solo si la orbita de n esta acotada; por tanto, que ninguna orbita sea no acotada equivale a que todo natural tenga patron finalmente periodico, y esto implica el muro B (todo n>=2 tiene primer cruce).",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaChoques.lean",
+      "fuente": "propio, ruta B, paso 3 con presupuesto acotado, 05-10-2026; la periodicidad es la conjetura de Lagarias (1985) restringida a los naturales, cita de memoria pendiente de cotejo",
+      "notas": "sin_choque_finito, sin_cruce_hasta, iter_unos, periodico_iff_acotada, sin_fugas_iff_periodicidad, muroB_de_periodicidad; sin hipotesis externas. Lean 4.32.2 con comprobar_fugitivo.py: los ocho modulos de Ocelotas que importa CasaPlano, CasaPlano, CasaFugitivo, CasaCasiTodos, CasaChoques, CasaTerras y CasaDomino (y, en la reconstruccion final del 05-10, tambien CasaKorec, CasaPotencia, CasaTres y CasaLMN) compilados desde las fuentes en carpeta temporal nueva, sin caches; codigo 0, sin sorry ni avisos en los modulos de la casa; 53 consultas de esos seis modulos (98 en total con los cuatro nuevos) con axiomas estandar (propext, Classical.choice, Quot.sound), sin sorryAx. Evidencia en evidencia_fugitivo.json y .txt. Contraste independiente con enteros exactos en cotejar_fugitivo.py hasta K=22 (cotejo_fugitivo.json). El paso 3 queda delimitado sin avance de fondo: el choque que falta exige usar a la vez el patron infinito y que n sea natural. No se afirma la periodicidad ni el muro B. Revision humana pendiente. Ver CORZAS.md."
+    },
+    {
+      "clave": "corzas_grieta_domino_lean",
+      "enunciado": "CORZAS: COMO TENDRIA QUE SER UNA GRIETA DEL MURO A. Para el atajo T: si 3^S_k(n)<2^k y n<=T^k(n), entonces (2^k-3^S_k(n)) n+2^k<=3^k; por tanto, si n nunca baja de si mismo, todo paso k con 3^S_k(n)<2^k cumple n<3^k. En toda orbita de n>=1 que no llega a 1 hay, mas alla de cualquier indice, valores >=2 que nunca bajan de si mismos (minimos de las colas); con el muro A (todo n>=2 con primer cruce baja de si mismo), la orbita de un contraejemplo de Collatz contiene infinitos numeros sin primer cruce.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaDomino.lean",
+      "fuente": "propio, ruta B, paso 4 con presupuesto acotado, 05-10-2026; desigualdad elemental de Terras, sin pretension de prioridad",
+      "notas": "grieta_desigualdad, grieta_pequena, minimo_de_cola, minimos_no_bajan, contraejemplo_con_muroA; sin hipotesis externas. Mismo comprobador y evidencia que las otras altas de Corzas (comprobar_fugitivo.py, evidencia_fugitivo.json). El paso 4 queda delimitado sin avance de fondo: n<3^k deja sitio cuando el primer cruce es tardio; lo que falta para todas las rachas es la cota palabra por palabra, que es CST. No se afirma el muro A. Revision humana pendiente. Ver CORZAS.md."
+    },
+    {
+      "clave": "chinchillas_korec_lean",
+      "enunciado": "CHINCHILLAS: KOREC (1994). Para el atajo T y naturales p<=q con 3^q<4^p (es decir p/q>log 3/log 4 ~ 0,79248), la proporcion de n<N cuya orbita nunca baja de n^(p/q) (n^p<=T^j(n)^q para todo j) tiende a 0. Casos c=4/5, c=191/241 (a menos de 5e-5 del umbral) y c=87/100 (Allouche 1979: c>0,869). Por el camino: sum_{r<2^K}(2 S_K(r)-K)^2 = K 2^K y la cota de Chebyshev de los residuos con muchas subidas.",
+      "cuantificador": "casi_todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaKorec.lean",
+      "fuente": "propio, ruta B, 05-10-2026; teoremas conocidos de Korec (1994) y Allouche (1979), citas de memoria pendientes de cotejo; sin pretension de prioridad",
+      "notas": "suma_transferencia, momento_dos, cota_chebyshev, muchas_por_residuos, cota_muchas, baja_de_potencia, altos_por_residuos, korec_cota, potencias_ganan, condicion, korec, korec_cuatro_quintos, korec_cerca_del_umbral, allouche; sin hipotesis externas. El enunciado con exponente real no esta escrito en Lean: los modulos de logaritmos de Mathlib no estan compilados en esta instalacion; 3^q<4^p equivale a p/q>log 3/log 4 y los racionales son densos. Lean 4.32.2 con comprobar_fugitivo.py: los ocho modulos de Ocelotas que importa CasaPlano y los diez modulos de la casa (CasaPlano, CasaFugitivo, CasaCasiTodos, CasaChoques, CasaTerras, CasaDomino, CasaKorec, CasaPotencia, CasaTres, CasaLMN) compilados desde las fuentes en carpeta temporal nueva, sin caches; codigo 0, sin sorry ni avisos en los modulos de la casa; 98 consultas con axiomas estandar (propext, Classical.choice, Quot.sound), sin sorryAx. Evidencia en evidencia_fugitivo.json y .txt. Cotejo independiente con enteros exactos y orbitas directas en cotejar_korec.py (cotejo_korec.json): momento_dos y Chebyshev para K<=18 (190 casos), conteo por residuos (273), cota_muchas (67), baja_de_potencia en barrido exhaustivo n<2000, k<=20, p<=q<=4 (79960 casos con las hipotesis), condicion en el peor caso (384). La prueba es asintotica: para c=4/5 el primer N cubierto tiene unas 117438 cifras. Barrera 2-adica: con log2 n pasos el valor tipico es n^(log 3/log 4); ilustracion, no evidencia: mediana de log T^20(n)/log n = 0,788 en [2^19,2^20). No es Wu 1. Revision humana pendiente. Ver CHINCHILLAS.md."
+    },
+    {
+      "clave": "chinchillas_potencia_lean",
+      "enunciado": "CHINCHILLAS: AHORRO DE POTENCIA. Para el atajo T y N>=2: (#fugitivos menores que N)^20<(2N)^19, es decir menos de (2N)^0,95; (#{n<N que nunca bajan de si mismos})^32<5^32 3^31 N^31, es decir menos de 14,5 N^(31/32); y la conjetura CST de Terras falla (primer cruce k sin T^k(n)<n) en menos de 14,5 N^(31/32) numeros menores que N. El menor contraejemplo de Collatz, si existe, nunca baja de si mismo.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaPotencia.lean",
+      "fuente": "propio, ruta B, 05-10-2026; consecuencia directa del conteo de Chernoff con raiz de 3; puede estar en la literatura, no cotejado; sin pretension de prioridad",
+      "notas": "razon_fugitivos ((1+sqrt3)/sqrt2)^20<2^19, razon_potencia (3 rho)^32<3^31, fugitivos_en_sinCruce, fugitivos_potencia, contraejemplo_minimo_no_baja, Bloqueable, bloque_paso, bloques_tres, potencia_de_bloques, noDesciende_bloqueable, noDescienden_potencia, fallasCST, fallaCST_bloqueable, fallasCST_potencia, fallasCST_iff; sin hipotesis externas. Exponentes log2((1+sqrt3)/sqrt2) ~ 0,94998 (la entropia H(log 2/log 3) ~ 0,94996 es el optimo de Chernoff para ese umbral) y 1+log3 rho ~ 0,96844 < 31/32. Lean 4.32.2 con comprobar_fugitivo.py: los ocho modulos de Ocelotas que importa CasaPlano y los diez modulos de la casa (CasaPlano, CasaFugitivo, CasaCasiTodos, CasaChoques, CasaTerras, CasaDomino, CasaKorec, CasaPotencia, CasaTres, CasaLMN) compilados desde las fuentes en carpeta temporal nueva, sin caches; codigo 0, sin sorry ni avisos en los modulos de la casa; 98 consultas con axiomas estandar (propext, Classical.choice, Quot.sound), sin sorryAx. Evidencia en evidencia_fugitivo.json y .txt. Cotejo independiente en cotejar_potencia.py (cotejo_potencia.json): las tres constantes en Z[sqrt3], c_K^20<2^(19K) para K<=20, bloques J<=10 (en J=10, 20297 candidatos frente a la cota por residuos 30448 y a 6(3 rho)^10 ~ 250497), y por orbitas directas bajo 3^11: solo 0 y 1 nunca bajan, solo 0 y 1 fallan en CST y todo numero tiene primer cruce. Las cotas acotan contraejemplos posibles; no se afirma que esos conjuntos sean vacios ni finitos. Revision humana pendiente. Ver CHINCHILLAS.md."
+    },
+    {
+      "clave": "perdices_tres_adico_lean",
+      "enunciado": "PERDICES: EL LADO 3-ADICO DE LA ORBITA. Para el atajo T: T^k(r+2^k t) = T^k(r)+3^S_k(r) t (identidad afin); T^k(n) es congruente con T^k(n mod 2^k) modulo 3^S_k(n); en la clase r mod 2^k, con S=S_k(r)<=j, los t<3^(j-S) dan valores distintos de T^k modulo 3^j, todos en la misma fibra modulo 3^S; si m<=S_k(r), r y r+2^k dan el mismo T^k modulo 3^m y paridades opuestas; tras la primera subida la orbita nunca vuelve a un multiplo de 3.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaTres.lean",
+      "fuente": "propio, ruta B, 05-10-2026, primer paso hacia Tao (2019); hechos elementales conocidos (Terras, Lagarias), sin pretension de prioridad",
+      "notas": "T_progresion, iter_afin, S_afin, tres_determinado, fibra_inyectiva, fibra_contenida, paridad_independiente, T_mod_tres, T_impar_mod_tres, todo_par, sin_multiplos_de_tres; sin hipotesis externas. Lean 4.32.2 con comprobar_fugitivo.py: los ocho modulos de Ocelotas que importa CasaPlano y los diez modulos de la casa, CasaTres y CasaLMN incluidos, compilados desde las fuentes en carpeta temporal nueva, sin caches; codigo 0, sin sorry ni avisos en los modulos de la casa; 98 consultas con axiomas estandar (propext, Classical.choice, Quot.sound), sin sorryAx. Evidencia en evidencia_fugitivo.json y .txt. Cotejo independiente por orbitas directas en cotejar_tres.py (cotejo_tres.json): iter_afin 655320 casos, tres_determinado 620000, fibras 32764, paridad_independiente 1114112, sin_multiplos_de_tres 1179950. Con paridad_independiente y T_mod_tres, T^k(r) mod 3^m sigue en palabras la cadena X -> X/2, (3X+1)/2 en Z/3^m; el enunciado probabilistico no esta en Lean. No es la mezcla fina de Tao, que queda sin prueba. Revision humana pendiente. Ver PERDICES.md."
+    },
+    {
+      "clave": "perdices_mezcla_medida",
+      "enunciado": "PERDICES: MEZCLA FINA 3-ADICA MEDIDA. Para la ley estacionaria nu_m de la cadena X -> X/2, (3X+1)/2 en Z/3^m con monedas justas (version para el atajo de la variable de Syracuse de Tao), m<=14: el maximo de |phi_m(xi)| con 3 sin dividir a xi baja de 0,577 a 0,0191, con razones sucesivas de 0,65 a 0,87 y exponente polinomico efectivo de 1,5 a 2,0; la oscilacion fina osc(m-1,m) baja de 0,476 a 0,130 y osc(1,m) sube hacia 0,84.",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/casa20261004/medir_mezcla_tres.py",
+      "fuente": "propio, ruta B, 05-10-2026; comparacion con las proposiciones 1.14 y 1.17 de Tao (2019), numeros citados de memoria pendientes de cotejo",
+      "notas": "Ley estacionaria exacta en coma flotante con numpy hasta 3^14 = 4782969 estados; comprobado que la proyeccion de nu_m es nu_(m-1) y la recurrencia phi_m(xi) = phi_m(h xi)/2 + e(h xi/3^m) phi_(m-1)(h xi)/2, h = 2^-1 mod 3^m, con error maximo 3,6e-16 para m<=10. Contraste por conteo directo de los r<2^20 con S_20(r)>=7: distancia total 0,040 a nu_7 (efecto de k finito). Compatible con O_A(m^-A) para todo A; no sugiere un atajo elemental: desenrollar dos niveles da un factor c(xi)<1 sin cota uniforme (frecuencias con h xi = 2^t). Medicion en horizonte finito, no teorema. Salida en medicion_mezcla_tres.json. Ver PERDICES.md."
+    },
+    {
+      "clave": "chinchillas_lmn_potencia_lean",
+      "enunciado": "CHINCHILLAS, BAJO LA FORMA ENTERA DE LMN: para el atajo T, si n>=2 falla en CST con primer cruce k (n<=T^k(n)), entonces n 2^(k-1) < 3^k 2^(19(t+33)^2) para todo t con k<2^(t+1); si ademas n>=2^125000, entonces 2n<2^k (el primer cruce llega despues de log2 n + 1 pasos). Para N>=2, las fallas de CST n>=2^125000 menores que N cumplen #^20<3^20 (2N)^19 y los n>=2^125000 menores que N que nunca bajan de si mismos cumplen #^20<4^20 (2N)^19: exponente 0,95 en vez de 31/32.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/casa20261004/CasaLMN.lean",
+      "fuente": "propio, ruta B, 05-10-2026; bajo la hipotesis explicita LMNEntera, el enunciado de OcelotasLMN.cola_lmn_entera (Laurent-Mignotte-Nesterenko 1995); sin pretension de prioridad",
+      "notas": "LMNEntera, dos_pred, cruce_justo, falla_dos, falla_acotada, tres_cuatro_base y tres_dos_base (decide +kernel, sin native_decide), tres_cuatro (induccion en t desde 17), tres_cuatro_k, tres_dos_k, falla_tardia, falla_en_sinCruce, fallasAltas, fallasAltas_dos, fallasCST_lmn_potencia, noDescienden_lmn_potencia. LMNEntera es un argumento de los teoremas, no un axioma; el enlace LMNDebil -> LMNEntera es OcelotasLMN.cola_lmn_entera, que usa logaritmos reales y no se compila en esta instalacion. Lean 4.32.2 con comprobar_fugitivo.py: los ocho modulos de Ocelotas que importa CasaPlano y los diez modulos de la casa compilados desde las fuentes en carpeta temporal nueva, sin caches; codigo 0, sin sorry ni avisos en los modulos de la casa; 98 consultas con axiomas estandar (propext, Classical.choice, Quot.sound), sin sorryAx. Evidencia en evidencia_fugitivo.json y .txt. Cotejo independiente en cotejar_lmn.py (cotejo_lmn.json): las dos bases con enteros de Python (margenes de 6897 y 2707 bits), el paso de induccion para t<=1e5, cruce_justo en 99999 primeros cruces, y la holgura de LMNEntera para k<=3000 (peor log2(3^q/D) = 10 frente a 36784 permitidos). La cota 2^125000 es holgada. No se afirma CST, el muro A ni que haya fallas. Revision humana pendiente. Ver CHINCHILLAS.md."
+    }
+  ],
+  "nodos": [
+    {
+      "nombre": "condoras_barrera",
+      "antes": null,
+      "despues": [
+        "condoras_barrera",
+        "demostrado",
+        "CONDORAS, puente condicional: una cota E(X,B)<=error(B)X y terminacion de todo 1<=n<=B dan eventualmente dWu(M)>=1-error(B)-eps para cada eps>0. La cota externa sigue siendo hipotesis; no resuelve Wu 1."
+      ]
+    },
+    {
+      "nombre": "hormigas_accesibilidad",
+      "antes": [
+        "hormigas_accesibilidad",
+        "demostrado",
+        "HORMIGAS: desde todo estado hay palabra finita a la fusion; largo <= 2.5(k + log2|c| + 1) (accesibilidad.py)"
+      ],
+      "despues": [
+        "hormigas_accesibilidad",
+        "demostrado",
+        "Accesibilidad cualitativa por una palabra finita. La constante 2,5 fue refutada; no se conserva como cota universal."
+      ]
+    },
+    {
+      "nombre": "lema_LA_piso",
+      "antes": [
+        "lema_LA_piso",
+        "pendiente",
+        "L-A, EL PISO POR ARRANQUE: phi(c0) >= C*c0^(-gamma(c0)) con gamma -> 0. La forma 1/sqrt(log) EXCLUIDA (7a); el test decisivo de gamma por decadas es pisoporarranque.py (escalera emparejada); la prueba de circularidad V1/V2/V3 es sombraexogena.py. DONDE EL PROGRAMA SE DECIDE"
+      ],
+      "despues": [
+        "lema_LA_piso",
+        "pendiente",
+        "Piso por arranque: falta W condicionado a salida real. Un mal ajuste finito no refuta una cota asintotica c/sqrt(log x). Ver ESTADO_INVESTIGACION.md, P2."
+      ]
+    },
+    {
+      "nombre": "lema_LB_ritmo",
+      "antes": [
+        "lema_LB_ritmo",
+        "pendiente",
+        "L-B, EL RITMO DE VISITAS: tau_i <= e^(o(i^2)) c.s. La medicion (arranquesporvisita.py): reloj polinomial eta ~ 2 - un reloj polinomial cumple con margen infinito; falta el teorema (la via: paseo critico + reloj de rachas de tortolas.lean)"
+      ],
+      "despues": [
+        "lema_LB_ritmo",
+        "pendiente",
+        "Nueva deduccion escrita del reloj global S_i=O_omega(i^4) en depuracion/gao20260920/Reloj_global.md. Nodo historico pendiente de segunda auditoria conjunta del nuevo ensamblaje; no seguir suponiendo frontera ausente."
+      ]
+    },
+    {
+      "nombre": "arranques_polinomiales",
+      "antes": [
+        "arranques_polinomiales",
+        "medido",
+        "LA CONDICION BETA: |c_i| = O(i^beta) en probabilidad a lo largo de las visitas. MEDIDO beta = 0,000 (planos hasta i = 1325, arranquesporvisita.py); esquema de demostracion via Moscas + cota local del retorno + Holder en notamoscasinducida.txt (H1-H4 abiertos, sin adversarial)"
+      ],
+      "despues": [
+        "arranques_polinomiales",
+        "pendiente",
+        "Nueva deduccion escrita |c_(S_i)|=O_omega(i^16) sobre no absorcion en Reloj_global.md, via envolvente simultanea y reloj. El nodo permanece pendiente de segunda auditoria del ensamblaje; no afirma la medicion beta=0."
+      ]
+    },
+    {
+      "nombre": "phi_uno",
+      "antes": [
+        "phi_uno",
+        "pendiente",
+        "phi = 1 (Gao-Wu en densidad). LA CADENA VIGENTE (post-7a): Golondrinas + Markov fuerte + Levy-B-C exigen SOLO L-A (piso con gamma -> 0) y L-B (ritmo) + arranques polinomiales; Liebres da la equivalencia con la recurrencia y Gaviotas certifica el balance de Lyapunov bajo el umbral en todo T computado"
+      ],
+      "despues": [
+        "phi_uno",
+        "pendiente",
+        "Objetivo phi=1 de la ruta antigua (L-A, L-B, arranques). Obtenido el 25-09 por otra via en Lean: Lagartijas, Martas y Tejonas dan a(t)/2^t=P(sigma<=t)->1; ver nodo gao_densidad. Los nodos L-A y L-B siguen pendientes y ya no son necesarios; el nodo se conserva pendiente por sus aristas historicas."
+      ]
+    },
+    {
+      "nombre": "estratos_medidos",
+      "antes": [
+        "estratos_medidos",
+        "medido",
+        "tabla de estratos k <= 15: |M|=2 y 4 unicos, altos polinomicos"
+      ],
+      "despues": [
+        "estratos_medidos",
+        "medido",
+        "Conteos finitos por estratos. e8(9)=1. La busqueda de P(n)+correccion periodica no excluye cuasipolinomios generales ni formulas eventuales."
+      ]
+    },
+    {
+      "nombre": "suricatas",
+      "antes": null,
+      "despues": [
+        "suricatas",
+        "demostrado",
+        "SURICATAS: los invariantes comunes de tau_2(x)=3x-4 y tau_3(x)=3x-13, periodicos modulo 2^m, son constantes para todo m. Prueba Lean; la contraccion a cada escala finita no implica margen uniforme. Revision 12, tanda 1."
+      ]
+    },
+    {
+      "nombre": "castoras",
+      "antes": null,
+      "despues": [
+        "castoras",
+        "demostrado",
+        "CASTORAS: balance exacto de cuatro corrientes con paridad y supervivencia, mas contraejemplos sinteticos a la contraccion para leyes arbitrarias. Algebra e ingredientes Lean; enlace con leyes alcanzables explicitado. No demuestra un margen uniforme. Revision 12, tanda 2."
+      ]
+    },
+    {
+      "nombre": "erizas",
+      "antes": null,
+      "despues": [
+        "erizas",
+        "demostrado",
+        "ERIZAS: ninguna semilla fija admite rho<1/2 uniforme en todos los tiempos grandes y escalas; tampoco L2 uniforme en todo un sector lineal. Prueba escrita e ingredientes Lean; formalizacion probabilistica integral no realizada. No descarta escala fija. Revision 12, tanda 3."
+      ]
+    },
+    {
+      "nombre": "mangostas",
+      "antes": null,
+      "despues": [
+        "mangostas",
+        "demostrado",
+        "MANGOSTAS: dado (k,c), L=r si r<A y L=A+Geom(1/2) si r=A, A=v2(3^k-1), r=min(v2(c),A). k>=2, c entero, r=A para c=0. Probabilidades con bits futuros justos. Ley escrita e ingredientes Lean. El O(n) sugerido por la revision 12 no se adopta como teorema."
+      ]
+    },
+    {
+      "nombre": "gacelas",
+      "antes": null,
+      "despues": [
+        "gacelas",
+        "demostrado",
+        "GACELAS: h=k-1 armonica en la cadena de excursion; supervivencia >=1/sqrt(2t+3) y control exponencial del fallo del producto. Pruebas escritas G1-G5, ocho ingredientes Lean. No identifica Q con supervivencia futura ni controla W. Revision 12, tanda 5."
+      ]
+    },
+    {
+      "nombre": "reloj_excursion",
+      "antes": null,
+      "despues": [
+        "reloj_excursion",
+        "demostrado",
+        "Corolario escrito de Mangostas-Gacelas: cola O(sqrt(log t/t)) uniforme en c0. M6 y la cota finita H3 quedan formalizadas en Reloj.lean el 20-09; la cota asintotica y el reloj global no quedan certificados por esa compilacion."
+      ]
+    },
+    {
+      "nombre": "control_W_salida",
+      "antes": null,
+      "despues": [
+        "control_W_salida",
+        "pendiente",
+        "Ventana fija para W bajo supervivencia futura en la ley real; condicion suficiente de P2, aun sin demostrar."
+      ]
+    },
+    {
+      "nombre": "lagartijas",
+      "antes": null,
+      "despues": [
+        "lagartijas",
+        "demostrado",
+        "LAGARTIJAS: P(sigma>h y menos de N entradas guardadas)<=3/N+66/h+1/(4h^3) con N=2^m, h=N^6, C=9h^4. Lean sin sorryAx; con ConteoEnsayos da CF_F. No prueba el limite ni phi=1."
+      ]
+    },
+    {
+      "nombre": "martas",
+      "antes": null,
+      "despues": [
+        "martas",
+        "demostrado",
+        "MARTAS: P(sigma>h)->0 desde (0,1); el lado derecho de CF_F tiende a cero. Lean sin sorryAx."
+      ]
+    },
+    {
+      "nombre": "tejonas",
+      "antes": null,
+      "despues": [
+        "tejonas",
+        "demostrado",
+        "TEJONAS: pares reales siguen la cadena; transporte a clases residuales exacto. Lean sin sorryAx."
+      ]
+    },
+    {
+      "nombre": "gao_densidad",
+      "antes": null,
+      "despues": [
+        "gao_densidad",
+        "demostrado",
+        "Conjetura de Gao segun Lagarias: densidad natural 1 de n con f^k(n)=f^k(n+1) para algun k<=log2 n. Lean sin sorryAx; pendiente revision humana; Gao primario cotejado, forma literal en hienas."
+      ]
+    },
+    {
+      "nombre": "hienas",
+      "antes": null,
+      "despues": [
+        "hienas",
+        "demostrado",
+        "HIENAS: conjetura de Gao literal (d_barra(k)->1 y d(x)->1) desde la forma de Lagarias; todo encuentro en k<=log2 n pasos es coalescencia de Gao. Lean sin sorryAx; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "alpacas",
+      "antes": null,
+      "despues": [
+        "alpacas",
+        "demostrado",
+        "ALPACAS: conjetura de Garner (1985), rachas arbitrariamente largas de consecutivos con la misma altura y el mismo tiempo total de parada. Lean sin sorryAx; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "condoras",
+      "antes": null,
+      "despues": [
+        "condoras",
+        "demostrado",
+        "CONDORAS: conjetura 2 de Wu (1992), lim L=inf; y lim d(M)=1 equivale a densidad 1 de los que llegan a 1. Lean sin sorryAx; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "pandas",
+      "antes": null,
+      "despues": [
+        "pandas",
+        "demostrado",
+        "PANDAS: igual altura y residuos acotados dan igual sigma_inf; pregunta de Gao con Res<4, y en densidad 0 sin hipotesis. Lean sin sorryAx; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "marmotas",
+      "antes": null,
+      "despues": [
+        "marmotas",
+        "demostrado",
+        "MARMOTAS: transporte del residuo entre escalas; un contraejemplo a Gao exige mas de 2^21 pasos 3n+1 sobre 2^20. Lean sin sorryAx; base numerica finita; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "ocelotas",
+      "antes": null,
+      "despues": [
+        "ocelotas",
+        "demostrado",
+        "OCELOTAS: CST de Terras para palabras de dos rachas impares hasta el primer cruce; usa la cota de Rhin (1987) como hipotesis explicita. Lean sin sorryAx; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "corzas",
+      "antes": null,
+      "despues": [
+        "corzas",
+        "demostrado",
+        "CORZAS: retrato del fugitivo (sin primer cruce) y teorema de Terras sobre la distribucion del tiempo de parada; delimita el paso 3 de la ruta B. Lean sin sorryAx ni hipotesis externas; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "chinchillas",
+      "antes": null,
+      "despues": [
+        "chinchillas",
+        "demostrado",
+        "CHINCHILLAS: Korec (casi todo n baja por debajo de n^c si c>log 3/log 4) y ahorro de potencia N^0,969 para los que nunca bajan y para las fallas de CST. Lean sin sorryAx ni hipotesis externas; pendiente revision humana."
+      ]
+    },
+    {
+      "nombre": "perdices",
+      "antes": null,
+      "despues": [
+        "perdices",
+        "demostrado",
+        "PERDICES: puente 2-adico/3-adico de la orbita (identidad afin, residuo 3-adico fijado, paridad independiente) en Lean; mezcla fina de Tao medida, sin prueba; paso delimitado. Lean sin sorryAx ni hipotesis externas; pendiente revision humana."
+      ]
+    }
+  ],
+  "dependencias_nuevas": [
+    [
+      "condoras_barrera",
+      "condoras"
+    ],
+    [
+      "suricatas",
+      "cadena_kc"
+    ],
+    [
+      "castoras",
+      "cadena_kc"
+    ],
+    [
+      "erizas",
+      "cadena_kc"
+    ],
+    [
+      "mangostas",
+      "cadena_kc"
+    ],
+    [
+      "gacelas",
+      "mangostas"
+    ],
+    [
+      "reloj_excursion",
+      "mangostas"
+    ],
+    [
+      "reloj_excursion",
+      "gacelas"
+    ],
+    [
+      "control_W_salida",
+      "gacelas"
+    ],
+    [
+      "lema_LA_piso",
+      "control_W_salida"
+    ],
+    [
+      "lema_LB_ritmo",
+      "reloj_excursion"
+    ],
+    [
+      "lagartijas",
+      "reloj_excursion"
+    ],
+    [
+      "martas",
+      "lagartijas"
+    ],
+    [
+      "tejonas",
+      "martas"
+    ],
+    [
+      "gao_densidad",
+      "tejonas"
+    ],
+    [
+      "hienas",
+      "gao_densidad"
+    ],
+    [
+      "alpacas",
+      "martas"
+    ],
+    [
+      "alpacas",
+      "tejonas"
+    ],
+    [
+      "condoras",
+      "alpacas"
+    ],
+    [
+      "condoras",
+      "hienas"
+    ],
+    [
+      "pandas",
+      "hienas"
+    ],
+    [
+      "marmotas",
+      "pandas"
+    ],
+    [
+      "corzas",
+      "ocelotas"
+    ],
+    [
+      "chinchillas",
+      "corzas"
+    ],
+    [
+      "perdices",
+      "chinchillas"
+    ],
+    [
+      "chinchillas",
+      "ocelotas"
+    ]
+  ],
+  "correcciones_nuevas": [
+    [
+      "La union creciente de clases residuales tiene densidad igual al limite de densidades.",
+      "Contraejemplo j mod 2^(j+2): uniones finitas con densidad <1/4, union total N_+.",
+      "Solo se obtiene densidad inferior>=phi sin control adicional de colas."
+    ],
+    [
+      "p_t->0 implica phi<1.",
+      "Riesgos 1/(i+1) tienen supervivencia 1/(N+1)->0.",
+      "Estudiar riesgos condicionales a visitas y su suma, no solo limites de cocientes."
+    ],
+    [
+      "Un tope de calculo agotado es un contraejemplo de Collatz.",
+      "La semilla 3 termina, pero agota un tope de un paso.",
+      "Informar inconcluso y el prefijo realmente verificado."
+    ],
+    [
+      "La puerta que funde es exclusivamente la del vuelco.",
+      "(0,1)->(1,2)->(1,1)->fusion entra por la directa; las puertas firmadas dan ambas c=2 mod 3.",
+      "No sustituir la coordenada firmada por su valor absoluto."
+    ],
+    [
+      "La revision 12 entrega O(n) para el reloj con una media a t=24.",
+      "La suma de A(k_i) requiere una cota uniforme, ausente en esa medicion.",
+      "Conservar O(n log n) y usar su corolario de cola sin inflar la revision."
+    ],
+    [
+      "El buscador de estratos descarta cuasipolinomios de grado<=8 y periodo<=8.",
+      "Solo ajusta P(n)+correccion periodica; hay parametros sin suficientes datos.",
+      "Separar no hay ajuste, falta muestra y enunciados infinitos."
+    ],
+    [
+      "A398793 identifica el encuentro de (2^j-2,2^j-1) con el repunit (3^(j-1)-1)/2.",
+      "El repunit es el menor valor en j+1; el encuentro en j+2 es (3^j-1)/4. En j=2 se encuentran en 2, no en 1.",
+      "Distinguir coordenada previa y valor terminal. Cotejo entero y Lean 4.32.2 el 17-09-2026; correccion OEIS preparada, pendiente por limite de ediciones."
+    ]
+  ]
+}
