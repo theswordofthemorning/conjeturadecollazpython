@@ -1,4 +1,4 @@
-# Estado para continuar — 04-10-2026
+# Estado para continuar — 06-10-2026
 
 [Premisa del usuario](PREMISA_DE_INVESTIGACION.md): interpreta los resultados
 acumulados como evidencia de que Collatz es verdadero y busca cerrar la
@@ -91,13 +91,13 @@ mejora universalmente la criba; verificador y piloto de 76 aceptados en Lean.
 La [cota con suelo tras cortes](depuracion/cst20260930/SUELO_CORTES_LEAN.md)
 ya tiene conexión universal, verificador y piloto en Lean, sin LMN:
 339 nodos frente a 345 con descuento en el mismo caso pequeño.
-24 terminó el 04-10 a las 20:15:31, a petición del usuario, y se cotejó
-por separado. Siguiente: la ruta B, elegida por el usuario el 04-10
-([plano de la casa](depuracion/casa20261004/LEEME.md)): inventario de lo
-que necesita la prueba, con los muros que faltan. El plano ya está en
-Lean: Collatz equivale a los dos muros, sin hipótesis externas. Sin
-fuerza bruta: no se amplía a 25 rachas. Siguiente: el retrato del
-fugitivo. El censo hasta `2^23` se conserva.
+24 terminó el 04-10 y se cotejó por separado. Ruta B, elegida por el
+usuario el 04-10 ([plano de la casa](depuracion/casa20261004/LEEME.md)),
+sin fuerza bruta: no se amplía a 25 rachas. En Lean, sin hipótesis
+externas: Collatz equivale a los dos muros, y el retrato del fugitivo
+tiene siete rasgos (06-10). La primera ronda de choques (06-10) no halló
+choque: falta un rasgo que use a la vez que el fugitivo es un número
+común y algo propio del 3. El censo hasta `2^23` se conserva.
 
 ## Evidencia y conservación
 
@@ -110,7 +110,7 @@ nuevos dejan sus registros de `lake env lean`.
 Cada ficha enlaza sus contrastes independientes y certificados;
 los cálculos finitos no sustituyen las pruebas universales.
 
-Registro: 271 afirmaciones: 166 demostradas, 86 medidas, 12 conjeturadas
+Registro: 273 afirmaciones: 168 demostradas, 86 medidas, 12 conjeturadas
 y siete refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar

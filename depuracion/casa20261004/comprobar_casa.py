@@ -8,11 +8,11 @@ Uso, desde la raíz del repositorio:
         --salida depuracion/casa20261004/evidencia_casa.json
 
 Antes de compilar comprueba, por huellas SHA-256, que cada módulo de Ocelotas que
-importan `CasaPlano` y `CasaOcelotas` coincide con su fuente actual y con el objeto
-auditado de su manifiesto, y que las firmas de entorno de las dos cachés son las
-esperadas. Después compila los dos módulos en una carpeta temporal, exige código 0,
-cuenta las consultas `#print axioms` y rechaza `sorryAx` o cualquier axioma distinto
-de propext, Classical.choice y Quot.sound. Las cachés sólo se leen.
+importan `CasaPlano`, `CasaOcelotas`, `CasaRetrato` y `CasaTablero` coincide con su fuente
+actual y con el objeto auditado de su manifiesto, y que las firmas de entorno de las dos
+cachés son las esperadas. Después compila los cuatro módulos en una carpeta temporal,
+exige código 0, cuenta las consultas `#print axioms` y rechaza `sorryAx` o cualquier
+axioma distinto de propext, Classical.choice y Quot.sound. Las cachés sólo se leen.
 """
 
 import argparse
@@ -33,7 +33,7 @@ FORMAL = RAIZ / "depuracion" / "gao20260920" / "formal"
 sys.path.insert(0, str(CST))
 from comprobar_rachas_lean import auditar, huella  # noqa: E402
 
-MODULOS = ["CasaPlano", "CasaOcelotas"]
+MODULOS = ["CasaPlano", "CasaOcelotas", "CasaRetrato", "CasaTablero"]
 PROHIBIDAS = re.compile(r"\b(sorry|sorryAx|admit|axiom|native_decide|implemented_by|extern|"
                         r"unsafe|ofReduceBool|trustCompiler)\b")
 RESPUESTA = re.compile(r"^'([^']+)' (?:depends on axioms: \[(.*?)\]|does not depend on any axioms)",
