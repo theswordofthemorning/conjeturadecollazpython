@@ -1,0 +1,81 @@
+{
+  "estado": "contraste finito exacto; la familia cambia de semilla con k",
+  "parametros": {
+    "n_max": 512,
+    "pasos": 256,
+    "nivel_max": 4,
+    "k_max": 128
+  },
+  "sha256": "18e9f100b088c72dde1bed3b5c7d1f4eb3ac0de1dd51e593dfabd31058fa9224",
+  "cuentas": {
+    "intervalos": 4737,
+    "unitarios": 4514,
+    "regulares_no_unitarios": 49,
+    "irregulares": 174,
+    "bloques": 341,
+    "familia": 119,
+    "bloques_familia": 7140
+  },
+  "ejemplos": [
+    {
+      "k": 10,
+      "b": 1,
+      "m": 1,
+      "n": 1073741819,
+      "u": 27,
+      "v": 31,
+      "h": 1,
+      "pares_interiores": 1,
+      "ultimo_par": 2,
+      "minimo_modular": true
+    },
+    {
+      "k": 16,
+      "b": 2,
+      "m": 1,
+      "n": 281474976710651,
+      "u": 27,
+      "v": 50,
+      "h": 7,
+      "pares_interiores": 1,
+      "ultimo_par": 3,
+      "minimo_modular": true
+    },
+    {
+      "k": 32,
+      "b": 4,
+      "m": 5,
+      "n": 396140812571321687967719751675,
+      "u": 27,
+      "v": 100,
+      "h": 23,
+      "pares_interiores": 1,
+      "ultimo_par": 5,
+      "minimo_modular": true
+    },
+    {
+      "k": 64,
+      "b": 10,
+      "m": 517,
+      "n": 3245261597194913954903103131798363537124917764787905843167227,
+      "u": 27,
+      "v": 202,
+      "h": 55,
+      "pares_interiores": 1,
+      "ultimo_par": 11,
+      "minimo_modular": true
+    },
+    {
+      "k": 128,
+      "b": 21,
+      "m": 1784837,
+      "n": 70326158533554133093806485095220027233017106600279736434480828154753721309473766896044804739570028177590379482335246548987,
+      "u": 27,
+      "v": 405,
+      "h": 119,
+      "pares_interiores": 1,
+      "ultimo_par": 22,
+      "minimo_modular": true
+    }
+  ]
+}

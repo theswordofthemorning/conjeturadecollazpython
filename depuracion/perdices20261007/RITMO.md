@@ -162,6 +162,10 @@ excursión, luego su P>C≥P_u y q>1. En consecuencia,
 2^(s_(i+1)+e_i) ≤ 3^s_i(x_u+1+i),     0≤i<h.        (9)
 ```
 
+**Cierre posterior:** [Balance](BALANCE.md#2-presupuesto-orbital-con-las-longitudes-pares)
+formaliza (9) desde la excursión real mediante una inducción entera.
+El telescopado racional de (8) conserva su prueba escrita.
+
 La cota `≤x_u+1+i` se usa **antes** del bloque final. En el extremo
 final sólo sabemos q_h>1/2; no se extiende (9) inventando q_h≥1.
 Así se aprovechan todas las longitudes pares y el techo interior.
@@ -197,8 +201,8 @@ Si faltan objetos, reproducir primero el [cierre previo](EXCURSIONES.md#4-formal
 No se reclama prioridad bibliográfica. El cohete, la grieta y el
 planeador con suficientes rachas siguen abiertos.
 
-**Siguiente trabajo:** estudiar si (8)-(9), junto con la congruencia
-de cada bloque, fuerzan suficiente suma de longitudes pares en una
-misma órbita. Antes de postularla, contrastar las secuencias extremas
-compatibles con el techo y la realizabilidad modular. Formalizar (7)
-es un pendiente distinto; por sí solo no eliminaría el planeador.
+**Continuación:** [Balance](BALANCE.md) construye excursiones con pares
+interiores de longitud uno al variar la semilla, pero excluye en Lean
+una cola del patrón interior 110 para una misma fuga con infinitos
+regresos. El siguiente trabajo permite un número acotado de bloques que
+rompan ese patrón. Formalizar (7) sigue como pendiente distinto.

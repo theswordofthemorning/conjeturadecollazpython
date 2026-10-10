@@ -56,34 +56,30 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Perdices: ritmo](depuracion/perdices20261007/RITMO.md)
-reduce la pérdida `2^h` a `(8/5)^h`. Para una misma fuga pura con
-infinitos regresos bajo C=3^c fijo, Lean prueba que
-`(8/5)^(6h)/(u+1)^4` es no acotado en toda cola de excursiones.
-Fortalece las [rachas no acotadas](depuracion/perdices20261007/EXCURSIONES.md):
-exige superar una escala logarítmica en tiempos arbitrariamente tardíos.
-Incluye intervalos unitarios y enumeración; no afirma crecimiento de todos.
+**Avance del 10-10:** [Perdices: balance](depuracion/perdices20261007/BALANCE.md)
+formaliza el presupuesto con longitudes pares. Bajo una misma fuga pura
+y techo C=3^c fijo, infinitos regresos exigen excursiones tardías que
+rompan `(110)^(h−1)11 0^b`. La congruencia `8^(h−1) | x_u+5`
+limita la duración según la entrada, sin acotar h ni b por constantes.
 
-Diez lemas nuevos, 16 módulos previos auditados sin recompilar, 152
-consultas acumuladas. Contraste exacto: 4737 intervalos, 341 bloques
-y 42405 controles del reloj séxtico.
+Trece lemas nuevos, 17 módulos previos auditados sin recompilar, 165
+consultas acumuladas. Contraste exacto: 4737 intervalos y 119 miembros
+de una familia que concentra la compensación par al final cambiando n.
 
-Una prueba escrita más fina da
-`limsup h_i/log2(t_i+1) ≥ 21/(25 log2(log2 3)) ≈ 1,26421`;
-esta tasa y la identidad que conserva las longitudes pares aún no
-están formalizadas. Ambas mantienen n y c.
-[Cruce](depuracion/perdices20261007/CRUCE.md) conserva la cuenta `O(K^(4/25))`.
+[Ritmo](depuracion/perdices20261007/RITMO.md) conserva la base 8/5 y
+el factor normalizado no acotado, en Lean. La tasa escrita más fina
+`limsup h_i/log2(t_i+1) ≥ 21/(25 log2(log2 3))` sigue por formalizar.
+[Cruce](depuracion/perdices20261007/CRUCE.md) conserva `O(K^(4/25))`.
 
 La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
-A y B. Cohete, planeador con suficientes rachas y grieta siguen abiertos.
+A y B. Planeador general, cohete y grieta siguen sin excluirse.
 [Jinetas](depuracion/jinetas20261010/RACHAS.md) no obtuvo inducción;
 la [reserva](depuracion/perdices20261007/UMBRAL.md) tiene medidas por
 formalizar. Mahler permanece separado.
 
-**Siguiente:** contrastar si las congruencias y la identidad de bloques
-fuerzan suficiente suma de longitudes pares en una misma órbita.
-Examinar realizabilidad modular antes de postular esa cota.
-Formalizar la tasa más fina es un pendiente distinto.
+**Siguiente:** comprimir cadenas consecutivas de bloques 110 y estudiar
+si también se excluye un número acotado de bloques que rompen ese patrón.
+Hay que controlar sus entradas intermedias conservando n y c.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -96,7 +92,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 291 afirmaciones: 185 demostradas, 86 medidas, 12 conjeturadas
+Registro: 293 afirmaciones: 187 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

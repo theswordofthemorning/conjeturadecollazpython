@@ -17,7 +17,9 @@ rachas no acotadas. El [cierre orbital en Lean](../perdices20261007/EXCURSIONES.
 ya incluye extracción y enumeración de regresos; la exclusión universal
 sigue abierta. El [ritmo de rachas](../perdices20261007/RITMO.md) reduce
 la base de 2 a 8/5 y exige superar una escala logarítmica en toda cola.
-El próximo bloque estudia el balance de longitudes pares y sus congruencias.
+El [balance par](../perdices20261007/BALANCE.md) ya está enlazado con la órbita:
+excluye una cola de excursiones interiores 110, aunque tengan rachas no
+acotadas. Siguiente: permitir un número acotado de bloques que rompan ese patrón.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
