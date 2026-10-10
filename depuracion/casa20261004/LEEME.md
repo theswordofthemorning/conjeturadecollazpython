@@ -15,7 +15,9 @@ con constantes y cadena Lean auditadas. El [estudio de separaciones](../perdices
 acota la duración por rachas: un planeador necesitaría excursiones con
 rachas no acotadas. El [cierre orbital en Lean](../perdices20261007/EXCURSIONES.md)
 ya incluye extracción y enumeración de regresos; la exclusión universal
-sigue abierta. El próximo bloque estudia la pérdida exponencial en h.
+sigue abierta. El [ritmo de rachas](../perdices20261007/RITMO.md) reduce
+la base de 2 a 8/5 y exige superar una escala logarítmica en toda cola.
+El próximo bloque estudia el balance de longitudes pares y sus congruencias.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió

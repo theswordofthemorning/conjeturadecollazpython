@@ -1,0 +1,11 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesRitmo.paso_ocho_quintos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.impares_ocho_quintos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.duracion_ocho_quintos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.duracion_orbital' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.entrada_sexta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.reloj_sextico' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.salto_de_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.factor_no_acotado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.enumerar_regresos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRitmo.infinitos_exigen_ritmo' depends on axioms: [propext, Classical.choice, Quot.sound]

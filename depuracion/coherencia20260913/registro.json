@@ -1323,6 +1323,24 @@
       "fichero": "depuracion/perdices20261007/EXCURSIONES.md",
       "fuente": "cierre del enlace escrito de PerdicesSeparacion mediante PerdicesSexta y extraccion canonica de OcelotasContador; 10-10-2026, sin pretension de prioridad",
       "notas": "PerdicesExcursiones.lean: diez lemas nuevos, incluido infinitos_exigen_rachas. Lean 4.32.2, solo propext, Classical.choice y Quot.sound. Un modulo nuevo compilado, 15 objetos previos auditados sin recompilar, 16 modulos y 142 consultas en total. Prueba entera sin logaritmos: (x+1)^2<=4*(C*n)^6*(u+1), L=x+1 en la cota de rachas y reloj cuadratico abstracto; trata intervalos unitarios, colas con t_0>0 y D=0. El teorema final no recibe hipotesis externas de LMN o Rhin. Contraste independiente con orbitas directas, transiciones de paridad, agrupacion y bloques afines: 7292 entradas, 4737 intervalos (4514 unitarios y 223 no unitarios, hasta 13 rachas), 3717 pares omitidos rechazados, 10289 controles de reloj en 3575 colas y 42405 de recurrencia abstracta maximal. Semillas 2..512, 256 pasos, c=0..4; solo prefijos anteriores al primer cruce, sin certificar fugas. La familia modular general anterior sigue con prueba escrita; este cierre no excluye rachas no acotadas, cohete ni grieta. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_ritmo_formal",
+      "enunciado": "PERDICES: RITMO FORMAL DE LAS RACHAS. Atajo T, misma FugaPura n y techo fijo C=3^c. Para una palabra real con h bloques impares/pares desde un regreso, entrada x y x+1<=2^L, 5^h*d<=(3L+2c)*8^h. Para toda excursion consecutiva u<v, incluida d=1, 5^h*d<=(3+2c)*8^h*(x_u+1). Si existen infinitos regresos, para todos B,U naturales existen u>U y v consecutivos con B*5^(6h)*(u+1)^4<8^(6h), donde h=rachas(T^u(n),v-u). Equivale a que (8/5)^(6h)/(u+1)^4 sea no acotado en toda cola; no afirma que toda excursion satisfaga la desigualdad ni existencia de fuga.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/RITMO.md",
+      "fuente": "deduccion elemental de congruencias orbitales, sexta raiz y exclusion del reloj sextico; 10-10-2026, sin pretension de prioridad",
+      "notas": "Diez lemas nuevos en PerdicesRitmo.lean, incluido infinitos_exigen_ritmo. Lean 4.32.2; solo propext, Classical.choice, Quot.sound, sin avisos ni pruebas incompletas. Un modulo compilado y 16 previos auditados sin recompilar: 17 modulos y 152 consultas. Usa 3^5<=2^8, induccion 5*s_(i+1)<=5L+8*s_i, (x_u+1)^6<=64*(C*n)^6*(u+1), cancelacion positiva y reloj abstracto: d_i^6<=D*(t_i+1)^5 implica t_i+1<=(D+t_0+1)*(i+1)^6. Contraste exacto: 4737 intervalos (4514 unitarios), 341 bloques, 9474 implicaciones de salto y 42405 relojes maximales con raiz sexta entera. Prefijos finitos no certifican fuga ni infinitud. En RITMO.md se separa una tasa escrita mas fuerte que Lean no certifica. Revision humana pendiente; Collatz sigue abierto."
+    },
+    {
+      "clave": "perdices_ritmo_logaritmico_pares",
+      "enunciado": "PERDICES: TASA LOGARITMICA Y CONTABILIDAD PAR (PRUEBA ESCRITA). Con la misma FugaPura n, C=3^c fijo e infinitos regresos consecutivos t_i, sus rachas h_i cumplen limsup h_i/log2(t_i+1)>=21/(25*log2(log2(3))). Se omite t_i=0. Para cada excursion no unitaria, s_i y e_i cuentan pasos impares y pares anteriores al bloque i, q_i=3^s_i/2^(s_i+e_i), z_i=x_(u+s_i+e_i)+1: z_i/q_i=x_u+1+sum_(l<i)(1-2^(-b_l))/q_(l+1). Para 0<=i<h, 2^(s_(i+1)+e_i)<=3^s_i*(x_u+1+i). No se extiende q_i>=1 al extremo final de la excursion.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/RITMO.md",
+      "fuente": "derivacion escrita de las cotas orbitales y las identidades afines de bloques; 10-10-2026, sin pretension de prioridad",
+      "notas": "RITMO.md secciones 4 y 5. Con alfa=log2(3), s_(i+1)<=L+alfa*s_i da d<=alfa*c+alfa*L*(alfa^h-1)/(alfa-1). Sexta raiz implica L=O(log(u+2)). Una eventual cota h_i<=eta*log2(t_i+1), eta<21/(25*log2(alfa)), da saltos O(t_i^a), a<21/25, y por concavidad un reloj de exponente 1/(1-a)<25/4, incompatible con la cuenta de regresos. La identidad de z/q telescopa la formula exacta de bloques; q_i>1 en extremos interiores y divisibilidad 2^a_i|z_i dan la cota que conserva e_i. Cotejo independiente con Fraction: 341 bloques. Tasa e identidad tienen prueba escrita, no formalizacion general en Lean; perdices_ritmo_formal certifica un enunciado mas conservador. El techo solo da cota superior para e_i, no la cota inferior adicional necesaria para cancelar el crecimiento. Sin exclusion del planeador general, cohete ni grieta. Revision humana pendiente."
     }
   ],
   "nodos": [

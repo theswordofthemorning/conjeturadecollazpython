@@ -1,0 +1,147 @@
+{
+  "estado": "módulo compilado; 16 módulos previos auditados sin recompilar",
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "modulos": 17,
+  "consultas": 152,
+  "consultas_nuevas": 10,
+  "axiomas": {
+    "PerdicesRitmo.paso_ocho_quintos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.impares_ocho_quintos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.duracion_ocho_quintos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.duracion_orbital": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.entrada_sexta": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.reloj_sextico": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.salto_de_factor": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.factor_no_acotado": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.enumerar_regresos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesRitmo.infinitos_exigen_ritmo": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "objeto": "ee98486d5764379c9beaf397b93473acfb1a32afa4f0dba6620cbc3505a16ae1",
+  "dependencias": {
+    "PerdicesExcursiones": "7c2bb9797c64824edeaaf373798883cadce909d5f2ad7537e03b314f3035e6bc"
+  },
+  "objetos_previos": {
+    "Ocelotas": "e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8",
+    "OcelotasRachas": "2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08",
+    "OcelotasTrayectorias": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7",
+    "OcelotasFinito": "86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1",
+    "OcelotasCriba": "23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319",
+    "OcelotasCertificado": "9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010",
+    "OcelotasCierre": "bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15",
+    "OcelotasContador": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6",
+    "CasaPlano": "ae0e96b4e5361cbf8acc517984411442da010dddfec47d43bf3cb824c5af05dc",
+    "CasaRetrato": "a1a92d667c7eae2336734eeebb88995a18bac0f92d0bede47e2b4ac5bc479800",
+    "PerdicesEstela": "ae723e3d45db76e5442c98d64aba314e83de45df712e2633b708e3d1f5e85d62",
+    "PerdicesTamano": "d282ae088b7ab65a30609662a7422897a5a33e08f65383b18726ee2321aedf8a",
+    "PerdicesSexta": "e689cd511357487f3791da1ba43dabbb149fae06a945e8b71dc6f1c2ea7b6963",
+    "PerdicesCruce": "b8e0882ceac575f6cf4612ee0574228b1fb85de5d65c7cbb64a6649e163d2834",
+    "PerdicesSeparacion": "ead4e57fa822d3367e2c37b395dab1b2eae32e13f829c49c4adc37ed80d9f346",
+    "PerdicesExcursiones": "7c2bb9797c64824edeaaf373798883cadce909d5f2ad7537e03b314f3035e6bc"
+  },
+  "archivos": {
+    "depuracion/perdices20261007/comprobar_ritmo.py": {
+      "sha256_bytes": "687ba90da628e4f04d2023c7bd18446764f3b6b6c7590952659f65db7fc43f96",
+      "sha256_lf": "687ba90da628e4f04d2023c7bd18446764f3b6b6c7590952659f65db7fc43f96"
+    },
+    "depuracion/perdices20261007/comprobar_cruce.py": {
+      "sha256_bytes": "d85788504576fc3ebb1f11f36c752a5a490e7721d1f965c2028d56864ec590d0",
+      "sha256_lf": "d85788504576fc3ebb1f11f36c752a5a490e7721d1f965c2028d56864ec590d0"
+    },
+    "depuracion/perdices20261007/auditar_cruce.py": {
+      "sha256_bytes": "8bd2b9e897e5400471315c32771b3f725d3efd6157ede20e95c3ef44907d9cfd",
+      "sha256_lf": "8bd2b9e897e5400471315c32771b3f725d3efd6157ede20e95c3ef44907d9cfd"
+    },
+    "depuracion/perdices20261007/evidencia_cruce.json": {
+      "sha256_bytes": "f835f5525fddc59e85935d113e9af4ddb8b3bc6e9871e202a9022cfb6b0c61ca",
+      "sha256_lf": "c7e29e1e1afe300b2f7c21cf4005c9e0e5e37a4d9c9750cd73072941fda9e8e5"
+    },
+    "depuracion/perdices20261007/auditoria_cruce.json": {
+      "sha256_bytes": "9621c2cb843314d9c5886d72b5656e69778b88666e0586bdf5dbf99647477b2c",
+      "sha256_lf": "68efff98c0dfe76e935e4147e09f2da171c559073cb9b221b3e2b19bb48ee83c"
+    },
+    "depuracion/gao20260920/formal/lean-toolchain": {
+      "sha256_bytes": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+      "sha256_lf": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273"
+    },
+    "depuracion/gao20260920/formal/lake-manifest.json": {
+      "sha256_bytes": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+      "sha256_lf": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26"
+    },
+    "depuracion/perdices20261007/evidencia_separacion.json": {
+      "sha256_bytes": "231725dd5f1284a3f327e1abe8b8e3b0d29efa9e4dd15ae0628c4f9df1a35fc4",
+      "sha256_lf": "4d44bcc03dbaf2baebfef7d2668cd784bcac5a102a9b130a63ea17687adf57d0"
+    },
+    "depuracion/perdices20261007/evidencia_separacion.txt": {
+      "sha256_bytes": "f2583d3ae22617a2b854a0d8ac3864e000f79bb4e45e9506064f641c66fbe2bf",
+      "sha256_lf": "95c2e57dc4fd9ce4df44075360daa5a7428be598b3cb5297238bcb4a7f2087e8"
+    },
+    "depuracion/perdices20261007/PerdicesSeparacion.lean": {
+      "sha256_bytes": "3de2561764e8652b23cf53c74387ffa62c2b15f21029e76977881e5170e0ba86",
+      "sha256_lf": "3de2561764e8652b23cf53c74387ffa62c2b15f21029e76977881e5170e0ba86"
+    },
+    "depuracion/perdices20261007/comprobar_separacion.py": {
+      "sha256_bytes": "fcf50a8443f2aa903cf3d499f5cca60f27ca40bb0a8b82f240c2248e086e30e6",
+      "sha256_lf": "fcf50a8443f2aa903cf3d499f5cca60f27ca40bb0a8b82f240c2248e086e30e6"
+    },
+    "depuracion/perdices20261007/evidencia_excursiones.json": {
+      "sha256_bytes": "76ac812b56f802d924dc437fad218c855a52c88d201ee2d31512e5e0140f1f9f",
+      "sha256_lf": "c6d3878d0d9ddce0c192dce40ceb6ca74e45a6765d0142bf254463e29080e0d1"
+    },
+    "depuracion/perdices20261007/evidencia_excursiones.txt": {
+      "sha256_bytes": "a261e47fde778be6f1f72a2386e450483e3838421402188ecd72ff206f3d42b3",
+      "sha256_lf": "8ed91d5a207ec5542b0cfc308ff67dc599a8baf3fd210c07fe2c49b867333947"
+    },
+    "depuracion/perdices20261007/PerdicesExcursiones.lean": {
+      "sha256_bytes": "85ed8841ca0bac878e26d04404d964c3ee00ee6d4c18b8e42466d7680fd1e1f8",
+      "sha256_lf": "85ed8841ca0bac878e26d04404d964c3ee00ee6d4c18b8e42466d7680fd1e1f8"
+    },
+    "depuracion/perdices20261007/comprobar_excursiones.py": {
+      "sha256_bytes": "35f507e7578e7523daf058a7d02ca178d88bdb8c17cb93bdb6a02d59d95fc940",
+      "sha256_lf": "35f507e7578e7523daf058a7d02ca178d88bdb8c17cb93bdb6a02d59d95fc940"
+    },
+    "depuracion/perdices20261007/PerdicesRitmo.lean": {
+      "sha256_bytes": "f17b12c689416389f9dd64d5816e950b347de34044bddab238c66b318434e74e",
+      "sha256_lf": "f17b12c689416389f9dd64d5816e950b347de34044bddab238c66b318434e74e"
+    }
+  }
+}

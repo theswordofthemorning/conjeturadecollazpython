@@ -163,8 +163,9 @@ Se cierra el pendiente formal de la ruta existente, sin reclamar
 prioridad bibliográfica. No se excluye un planeador con rachas no
 acotadas, ni el cohete ni la grieta; Collatz sigue abierto.
 
-Siguiente: estudiar cuánto se pierde en `s_(i+1)≤L+2s_i`, origen de
-`2^h`, usando las longitudes pares y el hecho de permanecer por encima
-del techo dentro de una excursión. Una mejora útil debe controlar h
-junto con x manteniendo **la misma semilla y el mismo techo**. Mejorar
-solamente una constante para H fijo ya no cambia esta exclusión.
+**Continuación:** [Ritmo](RITMO.md) reduce `2^h` a `(8/5)^h` y obtiene
+una condición formal más fuerte: `(8/5)^(6h)/(u+1)^4` es no acotado en
+toda cola. Conserva la misma semilla y el mismo techo. Añade una tasa
+logarítmica más fina y una identidad con todas las longitudes pares,
+ambas con prueba escrita. El siguiente trabajo estudia si las
+congruencias de los bloques fuerzan un balance par suficiente.
