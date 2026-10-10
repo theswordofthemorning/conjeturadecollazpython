@@ -23,7 +23,8 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Rachas de Garner (1985): misma altura, todo largo | [Alpacas](depuracion/garner20260926/Alpacas.md); `formal/Alpacas.lean`, `formal/GarnerEnunciado.lean`; [plan](depuracion/garner20260926/LEEME.md) |
 | Ruta transversal: pregunta de Gao y Pandas, Wu 1 con Nashida, predecesores; lista de ccchallenge | [Transversal](depuracion/transversal20260927/LEEME.md); `pandas_gao.py`, `ccchallenge_lista.py` en esa carpeta |
 | Segunda opinión: CST, término aditivo y residuos; familias infinitas y criterio para cambiar de frente | [Evaluación del 28-09](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md); `atacacst.lean` |
-| Plan vigente por sesiones: Nashida, Pandas, Wirsching, CST; combinar cotas entre escalas | [Plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md) |
+| Plan histórico por sesiones: Nashida, Pandas, Wirsching, CST | [Plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md) |
+| Ruta actual, traslado a segmentos paradójicos y límite del intercambio `01/10` | [Ruta del 10-10](depuracion/casa20261004/RUTA_20261010.md); [Jinetas](depuracion/jinetas20261010/LEEME.md) |
 | Nashida r8: cotejo del original y puente condicional con Condoras certificado localmente | [Auditoría](depuracion/nashida20260928/LEEME.md); [CondorasBarrera.lean](depuracion/nashida20260928/CondorasBarrera.lean) |
 
 ## El zoológico y las rutas anteriores

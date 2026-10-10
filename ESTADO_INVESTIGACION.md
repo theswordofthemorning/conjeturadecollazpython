@@ -56,11 +56,12 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Decisión del 10-10:** [balance y ruta](depuracion/casa20261004/RUTA_20261010.md).
-Priorizar el traslado de Rozier–Terracol (§3) desde un número que nunca
-desciende a segmentos paradójicos, y estudiar su margen junto con las
-congruencias. El puente alcanza también al cohete; falta una exclusión
-aritmética uniforme. Es una propuesta de investigación, no un cierre.
+**Avance del 10-10:** [Jinetas](depuracion/jinetas20261010/LEEME.md)
+ejecuta la [ruta](depuracion/casa20261004/RUTA_20261010.md): traslado
+auditado, intercambio y relleno contrastados, certificación Lean parcial.
+El intercambio de palabras cambia las semillas `188 → 18 → 189` (L=8): crea y
+destruye una paradoja. El relleno no añade una congruencia sobre n.
+Se cierra ese mecanismo por sí solo; la exclusión universal sigue abierta.
 
 La [casa](depuracion/casa20261004/LEEME.md) sigue con ambos muros abiertos:
 A, cruce implica descenso eventual; B, todo número tiene cruce.
@@ -75,13 +76,11 @@ la sexta raíz restringe los regresos. Su cierre local en Lean y Mahler
 estaban sin commit al iniciar esta tarea; se conservan para integración
 separada. El balance detalla evidencia y límites.
 
-**Siguiente:** una sesión de conciliación de evidencia; después, hasta
-tres sesiones para auditar el traslado, ensayar el margen modular y
-formalizar sólo una restricción demostrada. Cerrar el ensayo si sólo
-reformula la conjetura o produce un censo finito.
+**Siguiente:** formular una reducción sobre prefijos de un mismo n,
+conservando que nunca baja, con un invariante adicional y un caso terminal
+incompatible. Sin nueva restricción, volver al balance; no ampliar tablas.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
-queda como antecedente; sus bloques Nashida, Pandas, Wirsching y CST
-tienen fichas y cierres propios.
+queda como antecedente.
 
 ## Evidencia y conservación
 
@@ -92,13 +91,15 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 281 afirmaciones: 176 demostradas, 86 medidas, 12 conjeturadas
-y siete refutadas
+Registro: 283 afirmaciones: 177 demostradas, 86 medidas, 12 conjeturadas
+y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.
 
 Sesión del 05-10 [recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md)
 con huellas verificadas: implementaciones independientes conservadas.
-Falta conciliar sus altas históricas; sólo las extensiones nuevas de Perdices
-se añadieron al registro. Su medición antigua hasta m=14 usa flotantes,
-no aritmética exacta. Censos históricos y zootheorem intactos.
+[Conciliación](depuracion/jinetas20261010/CONCILIACION.md): claves y alcance
+cotejados; nueve altas recuperadas conservadas sin fusionar. Medición
+hasta m=14 en flotantes. Nueve discrepancias de huellas se explican por
+finales de línea; dos requieren revisión.
+Jinetas no utiliza esas cachés. Censos históricos y zootheorem intactos.

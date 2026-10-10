@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-07",
+  "version": "2026-10-10",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -1251,6 +1251,24 @@
       "fichero": "depuracion/perdices20261007/TAMANO.md",
       "fuente": "propio, continuacion de Perdices, 07-10-2026; consecuencias elementales de la identidad afin, la estela vigente y la inyectividad; sin pretension de prioridad",
       "notas": "PerdicesTamano.lean: 14 consultas nuevas; inverso positivo y <=1, paso e identidad afin, paso e identidad multiplicativa, cota por inversos, separacion de tiempos bajos, cota por su cuenta, cota explicita, sublinealidad, conversion al tamano real, regresos sublineales y factor_sexta. PerdicesEstela.lean reproduce diez pruebas de CasaTablero y CasaPlaneador bajo nombres propios; solo cambia el acceso a rasgo_tamano por tamano_antes_del_cruce. Son pruebas vigentes, no nuevos hallazgos. Se importa CasaRetrato vigente y se evita el cierre de certificados de 24 rachas ajeno a estas afirmaciones; no se mezcla con Casa recuperada. Lean 4.32.2: 12 modulos, 100 consultas, solo propext, Classical.choice y Quot.sound, sin sorryAx ni avisos nuevos. Evidencia en evidencia_tamano.json y .txt. Formula de sexta raiz escrita: ordenar las q=S_k entradas impares distintas >=3 da a_r>=2r+1; cada factor (1+1/(6r+3))^6<=(r+1)/r y su producto es <=q+1. El factor sin denominadores esta en Lean; ordenacion, telescopio y cuenta de regresos siguen como prueba escrita. Contraste independiente Fraction: 2051 semillas con 100 pasos, 207151 identidades afines, 207050 productos, 66556 cotas por tiempos bajos, 56900 cotas de regreso y 94397 cotas de sexta raiz en prefijos con entradas impares distintas >=3; 500 factores y telescopios exactos. Bordes n=0, k=0, c=0, control P_2(1)=3/4 y CLI minimo. No hay probabilidades ni cambio de entero con el horizonte; la hipotesis de fuga no se establece por barrido. Compatible con una fuga lenta: no excluye planeador intermitente ni cohete, ni cierra el muro A. Revision humana pendiente."
+    },
+    {
+      "clave": "jinetas_algebra_intercambio",
+      "enunciado": "JINETAS: INTERCAMBIO Y RELLENO. Para una palabra temporal w=a01b de longitud L, i=longitud(a), p=unos(a), q=unos(b), s=p+1+q, M=2^L, D=M-3^s y w'=a10b, el numerador afin cumple B(w')=B(w)-2^i*3^q. Con r=-B(w)*(3^s)^(-1) mod M, H=2^(L-i), h=(3^(p+1))^(-1) mod H y c=floor((r+2^i*h)/M) en {0,1}, r'=r+2^i*h-c*M y (D*r'-B(w'))-(D*r-B(w))=2^i*(D*(h-c*H)+3^q). Si D>0, sin acarreo el cambio es positivo; con acarreo es no positivo exactamente si 3^q<=D*(H-h). Para la semilla minima u>2 se anade D*M*(e'-e), donde u=r+e*M. Ademas B(0^k*w)=2^k*B(w) y r(0^k*w)=2^k*r(w): la congruencia del inicio 2^k*n se cancela a la de n; la paradoja exige 3^s<2^(L+k) y (2^(L+k)-3^s)*n<=B(w).",
+      "cuantificador": "clase_residual",
+      "estado": "demostrado",
+      "fichero": "depuracion/jinetas20261010/LEEME.md",
+      "fuente": "desarrollo algebraico elemental del laboratorio, 10-10-2026; la monotonia del aditivo bajo 01/10 ya es el lema 2.3 de Rozier-Terracol, arXiv:2502.00948v5; sin pretension de prioridad",
+      "notas": "Prueba escrita y formalizacion parcial en Jinetas.lean: composicion, intercambio del aditivo, identidad modular bajo sus hipotesis algebraicas, margen, criterios de signo y cancelacion del relleno. La seleccion del representante, la inversa y la biyeccion general se justifican por escrito; no se formaliza el traslado infinito. Lean 4.32.2, 13 consultas con axiomas estandar, sin avisos ni sorryAx; evidencia_lean.json. Contraste independiente por orbitas y recurrencia: 8190 palabras y 20481 intercambios para L<=12, enteros exactos, cotejo.json. Este barrido no prueba los enunciados universales. No excluye grieta, planeador ni cohete; se cierra el intercambio como mecanismo suficiente por si solo. Revision humana pendiente."
+    },
+    {
+      "clave": "jinetas_monotonia_refutada",
+      "enunciado": "JINETAS, HIPOTESIS REFUTADA: ordenar las palabras de igual longitud y numero de unos mediante 01->10 hace monotono el margen D*u_min-B, o la existencia de un segmento paradojico desde alguna semilla admisible mayor que 2 (en cualquiera de las dos orientaciones globales).",
+      "cuantificador": "clase_residual",
+      "estado": "refutado",
+      "fichero": "depuracion/jinetas20261010/LEEME.md",
+      "fuente": "contraejemplo exacto del ensayo del laboratorio, 10-10-2026; no refuta la monotonia del termino aditivo de Rozier-Terracol",
+      "notas": "L=8, s=5, D=13. La cadena de intercambios 00111101 -> 01011101 -> 10011101 tiene semillas minimas 188,18,189; aditivos 908,746,665; finales 182,20,182; margenes 1536,-512,1792. Paradoja: no,si,no. Los dos cambios de margen son -2048 y +2304. Los patrones y finales se certifican tambien en Jinetas.testigos_intercambio por decide en el kernel, sin native_decide. No son contraejemplos de Collatz: son testigos contra una reduccion propuesta. Los datos y la correccion del borde r<=2 figuran en LEEME.md y cotejo.json."
     }
   ],
   "nodos": [

@@ -1,11 +1,12 @@
 # Plano de la casa: qué le falta a la prueba de que todo número llega a 1
 
-**Ruta vigente, 10-10-2026:** [balance y programa de trabajo](RUTA_20261010.md).
-El balance de los tres intrusos y la comparación de alternativas están
-hechos. Se prioriza el traslado a segmentos paradójicos y el estudio
-conjunto del margen afín y los residuos. Sustituye las propuestas de
-continuación de las sesiones anteriores; la exclusión universal sigue
-pendiente. La ruta distingue evidencia versionada y avances locales.
+**Ruta vigente, 10-10-2026:** [balance y programa](RUTA_20261010.md),
+con [primer ensayo ejecutado: Jinetas](../jinetas20261010/LEEME.md).
+El traslado quedó auditado; el intercambio `01/10` crea y destruye
+paradojas por el acarreo modular. Se descarta ordenar sólo por el
+aditivo. El relleno de ceros no añade una congruencia sobre la semilla
+original. Sigue pendiente una reducción que conserve los prefijos de
+un mismo n; la exclusión universal permanece abierta.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
@@ -46,11 +47,11 @@ Los resultados formales conservan las hipótesis indicadas en cada ficha.
   intermitente del muro B). Son los dos problemas abiertos del centro de
   Collatz; nadie sabe hacerlos.
 
-- **Balance y siguiente paso.** El [balance del 10-10](RUTA_20261010.md#balance-de-los-tres-obstáculos)
-  separa lo probado de lo pendiente. La [ruta elegida](RUTA_20261010.md#orden-de-ejecución-y-puntos-de-salida)
-  empieza por conciliar evidencia y ensayar una restricción aritmética
-  uniforme tras el traslado de Rozier–Terracol. No se ha cerrado ningún
-  muro: A también debe excluir las grietas divergentes.
+- **Balance y siguiente paso.** [Jinetas](../jinetas20261010/LEEME.md)
+  deja las fórmulas exactas, su certificación parcial y los testigos
+  contra la monotonía del margen. La siguiente reducción debe preservar
+  una semilla fija y el no-descenso de sus prefijos. No se ha cerrado
+  ningún muro: A también debe excluir las grietas divergentes.
 
 ## La norma: qué hace que una casa sea casa
 

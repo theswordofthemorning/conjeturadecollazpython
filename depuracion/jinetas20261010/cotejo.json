@@ -1,0 +1,359 @@
+{
+  "longitud_maxima": 12,
+  "aritmetica": "enteros exactos",
+  "totales": {
+    "palabras": 8190,
+    "intercambios": 20481,
+    "intercambios_con_D_positivo": 16561,
+    "sin_acarreo": 9262,
+    "con_acarreo": 7299,
+    "controles_levantamientos": 16380,
+    "controles_relleno": 32760,
+    "segmentos_paradojicos": 5
+  },
+  "por_longitud": [
+    {
+      "L": 1,
+      "segmentos": 0,
+      "limite_semilla": 0
+    },
+    {
+      "L": 2,
+      "segmentos": 0,
+      "limite_semilla": 2
+    },
+    {
+      "L": 3,
+      "segmentos": 0,
+      "limite_semilla": 0
+    },
+    {
+      "L": 4,
+      "segmentos": 0,
+      "limite_semilla": 2
+    },
+    {
+      "L": 5,
+      "segmentos": 0,
+      "limite_semilla": 15
+    },
+    {
+      "L": 6,
+      "segmentos": 0,
+      "limite_semilla": 4
+    },
+    {
+      "L": 7,
+      "segmentos": 0,
+      "limite_semilla": 11
+    },
+    {
+      "L": 8,
+      "segmentos": 5,
+      "limite_semilla": 129
+    },
+    {
+      "L": 9,
+      "segmentos": 0,
+      "limite_semilla": 12
+    },
+    {
+      "L": 10,
+      "segmentos": 0,
+      "limite_semilla": 36
+    },
+    {
+      "L": 11,
+      "segmentos": 0,
+      "limite_semilla": 16
+    },
+    {
+      "L": 12,
+      "segmentos": 0,
+      "limite_semilla": 34
+    }
+  ],
+  "testigos": {
+    "acarreo_1_margen_negativo": {
+      "palabra": "0001",
+      "cambiada": "0010",
+      "indice": 2,
+      "anterior": {
+        "B": 8,
+        "s": 1,
+        "r": 8,
+        "u": 8,
+        "D": 13,
+        "margen": 96,
+        "paradoja": false
+      },
+      "nueva": {
+        "B": 4,
+        "s": 1,
+        "r": 4,
+        "u": 4,
+        "D": 13,
+        "margen": 48,
+        "paradoja": false
+      },
+      "h": 3,
+      "H": 4,
+      "acarreo": 1,
+      "cambio_margen_residuo": -48,
+      "trayectoria_anterior": [
+        8,
+        4,
+        2,
+        1,
+        2
+      ],
+      "trayectoria_nueva": [
+        4,
+        2,
+        1,
+        2,
+        1
+      ]
+    },
+    "acarreo_0_margen_positivo": {
+      "palabra": "0010",
+      "cambiada": "0100",
+      "indice": 1,
+      "anterior": {
+        "B": 4,
+        "s": 1,
+        "r": 4,
+        "u": 4,
+        "D": 13,
+        "margen": 48,
+        "paradoja": false
+      },
+      "nueva": {
+        "B": 2,
+        "s": 1,
+        "r": 10,
+        "u": 10,
+        "D": 13,
+        "margen": 128,
+        "paradoja": false
+      },
+      "h": 3,
+      "H": 8,
+      "acarreo": 0,
+      "cambio_margen_residuo": 80,
+      "trayectoria_anterior": [
+        4,
+        2,
+        1,
+        2,
+        1
+      ],
+      "trayectoria_nueva": [
+        10,
+        5,
+        8,
+        4,
+        2
+      ]
+    },
+    "crea_paradoja": {
+      "palabra": "00111101",
+      "cambiada": "01011101",
+      "indice": 1,
+      "anterior": {
+        "B": 908,
+        "s": 5,
+        "r": 188,
+        "u": 188,
+        "D": 13,
+        "margen": 1536,
+        "paradoja": false
+      },
+      "nueva": {
+        "B": 746,
+        "s": 5,
+        "r": 18,
+        "u": 18,
+        "D": 13,
+        "margen": -512,
+        "paradoja": true
+      },
+      "h": 43,
+      "H": 128,
+      "acarreo": 1,
+      "cambio_margen_residuo": -2048,
+      "trayectoria_anterior": [
+        188,
+        94,
+        47,
+        71,
+        107,
+        161,
+        242,
+        121,
+        182
+      ],
+      "trayectoria_nueva": [
+        18,
+        9,
+        14,
+        7,
+        11,
+        17,
+        26,
+        13,
+        20
+      ]
+    },
+    "pierde_paradoja": {
+      "palabra": "01011101",
+      "cambiada": "10011101",
+      "indice": 0,
+      "anterior": {
+        "B": 746,
+        "s": 5,
+        "r": 18,
+        "u": 18,
+        "D": 13,
+        "margen": -512,
+        "paradoja": true
+      },
+      "nueva": {
+        "B": 665,
+        "s": 5,
+        "r": 189,
+        "u": 189,
+        "D": 13,
+        "margen": 1792,
+        "paradoja": false
+      },
+      "h": 171,
+      "H": 256,
+      "acarreo": 0,
+      "cambio_margen_residuo": 2304,
+      "trayectoria_anterior": [
+        18,
+        9,
+        14,
+        7,
+        11,
+        17,
+        26,
+        13,
+        20
+      ],
+      "trayectoria_nueva": [
+        189,
+        284,
+        142,
+        71,
+        107,
+        161,
+        242,
+        121,
+        182
+      ]
+    }
+  },
+  "bordes": [
+    {
+      "n": 7,
+      "L": 8,
+      "factor": 3,
+      "palabra": "11101001",
+      "B": 347,
+      "D": 13,
+      "final": 8,
+      "paradoja": true,
+      "trayectoria": [
+        7,
+        11,
+        17,
+        26,
+        13,
+        20,
+        10,
+        5,
+        8
+      ]
+    },
+    {
+      "n": 13,
+      "L": 7,
+      "factor": 5,
+      "palabra": "1110000",
+      "B": 39,
+      "D": 3,
+      "final": 13,
+      "paradoja": true,
+      "trayectoria": [
+        13,
+        33,
+        83,
+        208,
+        104,
+        52,
+        26,
+        13
+      ]
+    },
+    {
+      "n": 1,
+      "L": 2,
+      "factor": 3,
+      "palabra": "10",
+      "B": 1,
+      "D": 1,
+      "final": 1,
+      "paradoja": false,
+      "trayectoria": [
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "n": 2,
+      "L": 1,
+      "factor": 3,
+      "palabra": "0",
+      "B": 0,
+      "D": 1,
+      "final": 1,
+      "paradoja": false,
+      "trayectoria": [
+        2,
+        1
+      ]
+    },
+    {
+      "n": 3,
+      "L": 1,
+      "factor": 3,
+      "palabra": "1",
+      "B": 1,
+      "D": -1,
+      "final": 5,
+      "paradoja": false,
+      "trayectoria": [
+        3,
+        5
+      ]
+    },
+    {
+      "n": -1,
+      "L": 1,
+      "factor": 3,
+      "palabra": "1",
+      "B": 1,
+      "D": -1,
+      "final": -1,
+      "paradoja": false,
+      "trayectoria": [
+        -1,
+        -1
+      ]
+    }
+  ],
+  "sha256_verificador": "865c703d8fc9e26d24c0011395eb2fb3686153fff5cdeaa05959f3b0243fc8d9"
+}

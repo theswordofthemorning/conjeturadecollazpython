@@ -79,6 +79,7 @@
 #
 # No dibuja nada. Solo la base y un informe corto por stdout.
 
+import argparse
 import os
 import sqlite3
 
@@ -86,8 +87,13 @@ import sqlite3
 # Cambia esto aqui, guarda, y dale a Ctrl+B en Sublime.
 # ---------------------------------------------------------------------------
 
-ARCHIVO = "afirmaciones.db"
 CARPETA = os.path.dirname(os.path.abspath(__file__))
+analizador = argparse.ArgumentParser(description="Regenera el catálogo desde su fuente versionada.")
+analizador.add_argument("--salida", default="afirmaciones.db")
+analizador.add_argument("--registro", default=os.path.join(
+    CARPETA, "depuracion/coherencia20260913/registro.json"))
+argumentos = analizador.parse_args()
+ARCHIVO = argumentos.salida
 ANCHO = 78
 
 CUANTIFICADORES = ("todo_n", "clase_residual", "casi_todo_n", "promedio",
@@ -4909,7 +4915,7 @@ from registroafirmaciones import aplicar_registro, guardar_base
 (AFIRMACIONES, CORRECCIONES, NODOS, DEPENDENCIAS,
  CLAVES_ACTUALES, VERSION_REGISTRO) = aplicar_registro(
     AFIRMACIONES, CORRECCIONES, NODOS, DEPENDENCIAS,
-    os.path.join(CARPETA, "depuracion/coherencia20260913/registro.json"))
+    argumentos.registro)
 
 print("COMPROBACION 0 - el mapa de dependencias y la regla del avance")
 estado_de = {}

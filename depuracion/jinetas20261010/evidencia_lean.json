@@ -1,0 +1,61 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "sha256_fuente": "6a16f3f063b8b6cf8ceb86d54d504225dbce5e52c2371f0d5efbeca84ff5fc61",
+  "sha256_comprobador": "f85cc7629671c3bdb267614803822d1c3d551d9b3b55035445db049cde861e07",
+  "sha256_toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+  "sha256_mathlib_manifest": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+  "consultas": 13,
+  "axiomas": {
+    "Jinetas.unos_append": [
+      "propext"
+    ],
+    "Jinetas.aditivo_append": [
+      "propext"
+    ],
+    "Jinetas.intercambio_aditivo": [
+      "propext"
+    ],
+    "Jinetas.intercambio_margen": [
+      "Quot.sound",
+      "propext"
+    ],
+    "Jinetas.sin_acarreo": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Jinetas.con_acarreo": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Jinetas.criterio_residuo": [
+      "propext"
+    ],
+    "Jinetas.intercambio_residuo": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Jinetas.criterio_margen": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Jinetas.relleno_aditivo": [
+      "propext"
+    ],
+    "Jinetas.relleno_congruencia": [
+      "propext"
+    ],
+    "Jinetas.relleno_margen": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Jinetas.testigos_intercambio": [
+      "propext"
+    ]
+  },
+  "salida": "'Jinetas.unos_append' depends on axioms: [propext]\n'Jinetas.aditivo_append' depends on axioms: [propext]\n'Jinetas.intercambio_aditivo' depends on axioms: [propext]\n'Jinetas.intercambio_margen' depends on axioms: [propext, Quot.sound]\n'Jinetas.sin_acarreo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Jinetas.con_acarreo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Jinetas.criterio_residuo' depends on axioms: [propext]\n'Jinetas.intercambio_residuo' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Jinetas.criterio_margen' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Jinetas.relleno_aditivo' depends on axioms: [propext]\n'Jinetas.relleno_congruencia' depends on axioms: [propext]\n'Jinetas.relleno_margen' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Jinetas.testigos_intercambio' depends on axioms: [propext]\n"
+}
