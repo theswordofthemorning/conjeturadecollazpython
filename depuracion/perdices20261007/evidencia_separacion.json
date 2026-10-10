@@ -1,0 +1,88 @@
+{
+  "estado": "módulo compilado; cierre previo auditado, sin recompilar",
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "modulos": 15,
+  "consultas": 132,
+  "consultas_nuevas": 10,
+  "objeto": "ead4e57fa822d3367e2c37b395dab1b2eae32e13f829c49c4adc37ed80d9f346",
+  "axiomas": {
+    "PerdicesSeparacion.cuenta_lista": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.tiempo_por_indice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.tiempo_de_saltos": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.presupuesto_saltos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.existe_salto_grande": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.saltos_grandes_tarde": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.reloj_sextico_imposible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.impares_por_rachas": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.duracion_por_rachas": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesSeparacion.tramo_desde_regreso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "dependencias": {
+    "PerdicesCruce": "b8e0882ceac575f6cf4612ee0574228b1fb85de5d65c7cbb64a6649e163d2834"
+  },
+  "archivos": {
+    "depuracion/perdices20261007/comprobar_separacion.py": {
+      "sha256_bytes": "fcf50a8443f2aa903cf3d499f5cca60f27ca40bb0a8b82f240c2248e086e30e6",
+      "sha256_lf": "fcf50a8443f2aa903cf3d499f5cca60f27ca40bb0a8b82f240c2248e086e30e6"
+    },
+    "depuracion/perdices20261007/PerdicesSeparacion.lean": {
+      "sha256_bytes": "3de2561764e8652b23cf53c74387ffa62c2b15f21029e76977881e5170e0ba86",
+      "sha256_lf": "3de2561764e8652b23cf53c74387ffa62c2b15f21029e76977881e5170e0ba86"
+    },
+    "depuracion/perdices20261007/comprobar_cruce.py": {
+      "sha256_bytes": "d85788504576fc3ebb1f11f36c752a5a490e7721d1f965c2028d56864ec590d0",
+      "sha256_lf": "d85788504576fc3ebb1f11f36c752a5a490e7721d1f965c2028d56864ec590d0"
+    },
+    "depuracion/perdices20261007/auditar_cruce.py": {
+      "sha256_bytes": "8bd2b9e897e5400471315c32771b3f725d3efd6157ede20e95c3ef44907d9cfd",
+      "sha256_lf": "8bd2b9e897e5400471315c32771b3f725d3efd6157ede20e95c3ef44907d9cfd"
+    },
+    "depuracion/perdices20261007/evidencia_cruce.json": {
+      "sha256_bytes": "f835f5525fddc59e85935d113e9af4ddb8b3bc6e9871e202a9022cfb6b0c61ca",
+      "sha256_lf": "c7e29e1e1afe300b2f7c21cf4005c9e0e5e37a4d9c9750cd73072941fda9e8e5"
+    },
+    "depuracion/perdices20261007/auditoria_cruce.json": {
+      "sha256_bytes": "9621c2cb843314d9c5886d72b5656e69778b88666e0586bdf5dbf99647477b2c",
+      "sha256_lf": "68efff98c0dfe76e935e4147e09f2da171c559073cb9b221b3e2b19bb48ee83c"
+    }
+  }
+}

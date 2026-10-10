@@ -1,0 +1,59 @@
+{
+  "estado": "cotejo finito exacto; ninguna fuga pura afirmada",
+  "sha256": "be621c689aef4cb01a1849594dff889148fe4835bae853818604a779941ce826",
+  "parametros": {
+    "a_max": 128,
+    "n_max": 128,
+    "pasos": 128,
+    "nivel_max": 3
+  },
+  "familias_verificadas": 126,
+  "segmentos": 1033,
+  "controles_indice": 1541,
+  "controles_presupuesto": 1541,
+  "controles_rachas": 215,
+  "ejemplos": [
+    {
+      "a": 3,
+      "b": 1,
+      "semilla": 7,
+      "final": 13,
+      "visitas": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "hueco": 2,
+      "producto_final": "27/16"
+    },
+    {
+      "a": 5,
+      "b": 2,
+      "semilla": 95,
+      "final": 182,
+      "visitas": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "hueco": 5,
+      "producto_final": "243/128"
+    },
+    {
+      "a": 128,
+      "b": 74,
+      "semilla": 5151606694932116278555325204492176402621149432856223871401983,
+      "final": 9449398815056970206577357009084181840875668405508931055825792,
+      "visitas": [
+        0,
+        1,
+        2,
+        202
+      ],
+      "hueco": 200,
+      "producto_final": "11790184577738583171520872861412518665678211592275841109096961/6427752177035961102167848369364650410088811975131171341205504"
+    }
+  ]
+}

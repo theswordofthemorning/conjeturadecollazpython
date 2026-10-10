@@ -11,8 +11,10 @@ terminar. La [auditoría de rachas](../jinetas20261010/RACHAS.md)
 precisa la compensación que falta al reiniciar desde un valor mayor;
 las cotas del factor 3 no la garantizan. El [paso 3 de Perdices](../perdices20261007/CRUCE.md)
 ya combina sexta raíz y casi fugitivos: exponente 4/25 para regresos,
-con constantes y cadena Lean auditadas. Falta una frecuencia mínima
-incompatible; la exclusión universal sigue abierta.
+con constantes y cadena Lean auditadas. El [estudio de separaciones](../perdices20261007/SEPARACION.md)
+acota la duración por rachas: un planeador necesitaría excursiones con
+rachas no acotadas. El enlace final tiene prueba escrita y formalización
+pendiente; la exclusión universal sigue abierta.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió

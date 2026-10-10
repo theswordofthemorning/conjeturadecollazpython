@@ -218,6 +218,11 @@ Ocelotas. Mahler y los cambios locales ajenos permanecen separados.
 
 ## 7. Límite y siguiente paso
 
+**Continuación ejecutada:** [Separación y rachas](SEPARACION.md) convierte
+el estudio propuesto abajo en una cota de duración y una condición
+necesaria: excursiones con rachas no acotadas para un planeador infinito.
+El enlace final tiene prueba escrita y formalización parcial declarada.
+
 El paso 3 queda convertido en una cota exacta con todas sus constantes.
 Para el planeador intermitente sigue faltando una cota **inferior**
 de regresos incompatible con (4). Infinitos regresos no bastan:

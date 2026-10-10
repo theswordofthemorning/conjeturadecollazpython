@@ -1,8 +1,10 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
-**10-10:** [sexta raíz y casi fugitivos](CRUCE.md), cota certificada
-de regresos con exponente 4/25 y constantes explícitas.
+**10-10:** [separación y rachas entre regresos](SEPARACION.md): cota orbital
+por rachas en Lean y prueba escrita de que un planeador necesita
+excursiones con rachas no acotadas; enlace final por formalizar.
+Conserva la [cota de regresos 4/25](CRUCE.md), con constantes explícitas.
 Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso)
 y [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística).
 

@@ -56,31 +56,32 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Perdices: cruce](depuracion/perdices20261007/CRUCE.md)
-certifica el paso 3: sexta raíz y cuenta de casi fugitivos, para una
-misma fuga pura hipotética y techo fijo 3^c. Los regresos pasan de
-`O(K^(1/6))` a `O(K^(4/25))`, con constante explícita y cota entera
-que conserva el mínimo con la anterior. Los umbrales pueden ser
-enormes. Se integra el cierre previo de la sexta raíz: 14 módulos
-recompilados, 122 consultas, nueve nuevas. No se relanzaron censos.
+**Avance del 10-10:** [Perdices: separación](depuracion/perdices20261007/SEPARACION.md)
+deduce que un planeador hipotético necesita excursiones con rachas
+impares no acotadas en toda cola. Desde un regreso, h rachas duran
+`d≤2((2^h−1)L+c)`, con `x+1≤2^L` y techo 3^c. Si h estuviera
+acotado, el reloj sería cuadrático, contradiciendo la cuenta anterior.
+El enlace completo tiene prueba escrita; su cierre formal está pendiente.
 
-La [casa](depuracion/casa20261004/LEEME.md) sigue con ambos muros abiertos:
-A, cruce implica descenso eventual; B, todo número tiene cruce.
-Cohete, planeador intermitente y grieta siguen sin excluirse. La mejora
-es una cota superior; infinitos regresos separados pueden cumplirla.
+Diez lemas nuevos en Lean, incluida la cota orbital por rachas;
+14 módulos previos auditados sin recompilar, 132 consultas totales.
+Contraste exacto: 126 familias, 1033 segmentos y 215 controles de rachas.
 
-[Jinetas](depuracion/jinetas20261010/RACHAS.md) dejó auditados traslado,
-intercambio, prefijos y coste del reinicio; no obtuvo una inducción
-universal. [Perdices](depuracion/perdices20261007/LEEME.md) conserva
-sus límites de mezcla y la [reserva](depuracion/perdices20261007/UMBRAL.md)
-adaptada, con medidas pendientes de formalización. Mahler continúa
-cerrado y sus cambios locales siguen separados de esta integración.
+[Cruce](depuracion/perdices20261007/CRUCE.md) conserva `O(K^(4/25))`
+con n,c fijos: los tiempos de regreso crecen al menos como `r^(25/4)`.
+La sexta raíz previa ya bastaba para excluir h uniformemente acotado.
+La familia de huecos largos bajo C=3 varía la semilla.
 
-**Siguiente:** estudiar el tramo entre dos regresos de la misma semilla
-al mismo techo. Se necesita una restricción de separación que fuerce
-una frecuencia incompatible con la cota nueva; la infinitud no basta.
-Escribir regla, hipótesis y dependencia en n,c antes de experimentar.
-El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
+La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
+A, cruce implica descenso eventual, y B, todo número tiene cruce.
+Cohete, planeador con rachas no acotadas y grieta siguen sin excluirse.
+[Jinetas](depuracion/jinetas20261010/RACHAS.md) no obtuvo inducción;
+la [reserva](depuracion/perdices20261007/UMBRAL.md) tiene medidas por
+formalizar. Mahler permanece separado.
+
+**Siguiente:** formalizar el enlace final y examinar la pérdida `2^h`.
+Hace falta controlar h y el valor de entrada manteniendo n; mejorar
+sólo H fijo no basta. El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
 ## Evidencia y conservación
@@ -92,7 +93,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 287 afirmaciones: 181 demostradas, 86 medidas, 12 conjeturadas
+Registro: 288 afirmaciones: 182 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

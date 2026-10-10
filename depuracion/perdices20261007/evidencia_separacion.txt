@@ -1,0 +1,11 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesSeparacion.cuenta_lista' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.tiempo_por_indice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.tiempo_de_saltos' depends on axioms: [propext, Quot.sound]
+'PerdicesSeparacion.presupuesto_saltos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.existe_salto_grande' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.saltos_grandes_tarde' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.reloj_sextico_imposible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.impares_por_rachas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.duracion_por_rachas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSeparacion.tramo_desde_regreso' depends on axioms: [propext, Classical.choice, Quot.sound]
