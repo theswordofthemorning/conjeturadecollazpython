@@ -1,5 +1,9 @@
 # Perdices: tamaño normalizado y regresos sublineales
 
+**Paso 3 completado el 10-10:** [cruce con casi fugitivos](CRUCE.md).
+Exponente 4/25 con constantes explícitas, techo fijo y misma semilla;
+la sexta raíz previa queda integrada. El plan de abajo conserva su historia.
+
 ## Pieza que se añade a la casa
 
 Un mismo fugitivo puro tendría que cumplir restricciones más fuertes
@@ -18,11 +22,12 @@ Esto mejora `T^k(n)<=C(n+k/3)`. No excluye todavía al planeador:
 un valor puede tender a infinito y ser sublineal en el instante de
 visita. Tampoco excluye al cohete ni resuelve el muro A.
 
-La segunda vía da una mejora cuantitativa con prueba escrita:
+La segunda vía da una mejora cuantitativa:
 `R_k^6<=n^6(S_k+1)<=n^6(k+1)`. Por tanto, en esos regresos,
-`T^k(n)<=Cn(k+1)^(1/6)`. La identidad multiplicativa y su desigualdad
-elemental se formalizan; falta formalizar la ordenación y el telescopio
-que producen esta cota de sexta raíz completa.
+`T^k(n)<=Cn(k+1)^(1/6)`. Desde el 07-10 por la noche la cota completa,
+su cuenta de regresos y un corolario nuevo, el rasgo 9 (el techo del
+pronóstico sube como `K^(5/6)/n`), están en Lean: véase
+[Sexta raíz y techo en Lean](#sexta-raíz-y-techo-en-lean).
 
 ## Mapa, dominio e índices
 
@@ -141,10 +146,85 @@ enteros positivos distintos y a lo sumo `Cn k^(1/6)`. Por ello hay
 a lo sumo `floor(Cn k^(1/6))` tales tiempos. Esta mejora cuantitativa
 de la densidad cero tampoco dice que el conjunto de regresos sea finito.
 
-`identidad_producto` y `factor_sexta` están en el módulo Lean.
-La reorganización del producto, la cota `a_r>=2r+1` y su telescopio
-son el tramo escrito pendiente de formalizar. El resultado sublineal
-anterior sí tiene su cadena completa formalizada por la vía de la estela.
+`identidad_producto` y `factor_sexta` están en PerdicesTamano. La
+reorganización del producto, la cota `a_r>=2r+1` y su telescopio se
+formalizaron después en [PerdicesSexta.lean](PerdicesSexta.lean), sin
+ordenar nada (sección siguiente). El resultado sublineal anterior tiene
+su cadena completa por la vía de la estela.
+
+## Sexta raíz y techo en Lean
+
+07-10-2026, noche. [PerdicesSexta.lean](PerdicesSexta.lean) cumple los
+pasos 1 y 2 del [plan](#qué-debe-aportar-el-siguiente-paso) y añade un
+corolario. No usa hipótesis analíticas adicionales.
+
+- **El lema finito, sin ordenar.** `impar_mayor`: entre q impares
+  distintos, todos al menos 3, el mayor vale al menos 2q+1, porque la
+  mitad entera los manda a q enteros distintos entre 1 y la mitad del
+  mayor. `producto_sexta`: para esos impares,
+  `(∏(1+1/(3a)))^6<=q+1`. La inducción quita el impar mayor, que vale
+  al menos 2q+1, y usa `factor_sexta` con r=q como paso del telescopio.
+  El conjunto vacío (q=0) es el caso base.
+- **La sexta raíz.** `sexta_raiz_general` la prueba con las hipótesis
+  generales del plan: n>0 y entradas impares distintas y al menos 3.
+  `sexta_raiz` la deduce para toda fuga pura, por la inyectividad de la
+  órbita y `n>=2`. `sexta_raiz_nat` es la misma cota en naturales:
+  `(2^k T^k(n))^6<=(3^S_k)^6 n^6 (S_k+1)`.
+- **Regresos y su cuenta.** `regreso_sexta` (techo natural c) y
+  `regreso_sexta_real` (techo real C): si `P_k<=C`, entonces
+  `T^k(n)^6<=C^6 n^6 (S_k+1)`. `cuenta_regresos` y
+  `cuenta_regresos_real`: `#{j<K : P_j<=C}^6<=C^6 n^6 K`.
+  `cuenta_regresos_raiz`, para `C>=0`, da la cuenta escrita del plan:
+  `#{j<K : P_j<=C}<=floor(C n K^(1/6))`.
+- **Rasgo 9: el techo sube.** La órbita no repite valores, así que en K
+  pasos visita K enteros distintos, todos al menos 1, y alguno vale al
+  menos K (`existe_grande`). Como el tamaño va pegado al pronóstico,
+  `techo_sube` da un `j<K` con `K^5·2^(6j)<=n^6·3^(6S_j)`, y
+  `techo_sube_real` lo dice con la raíz: `P_j>=K^(5/6)/n`. Para un
+  fugitivo fijo, `techo_crece` de CasaPlaneador sólo garantizaba
+  `P_j>3^m` antes de `K=2^(100m)`, del orden de `K^0,016`.
+
+Consecuencia escrita, sin teorema propio: para cada `α<5/6`, los tiempos
+con `P_k<=k^α` tienen densidad cero. Basta tomar `C=K^α` en la cuenta:
+antes de K hay a lo sumo `n K^(α+1/6)` de ellos.
+
+**Borde que justifica la hipótesis.** Con n=1, la entrada impar 1 es
+menor que 3 y la cota falla en k=1: `R_1=4/3` y `(4/3)^6>2=n^6(S_1+1)`.
+Por eso el lema exige entradas al menos 3; en una fuga pura salen de
+`n>=2`.
+
+**Alcance.** Son cotas superiores para los regresos y una cota inferior
+para el techo. Un cohete regresa sólo un número finito de veces bajo
+cada techo, así que ninguna de ellas lo alcanza. Tampoco excluyen al
+planeador intermitente, cuyos regresos pueden estar arbitrariamente
+separados, ni cierran el muro A.
+
+**Evidencia.** [comprobar_sexta.py](comprobar_sexta.py) reconstruye el
+cierre completo, con [evidencia](evidencia_sexta.json) y
+[registro](evidencia_sexta.txt): Lean 4.32.2, 13 módulos, 113 consultas,
+13 de ellas de PerdicesSexta. Sólo `propext`, `Classical.choice` y
+`Quot.sound`, sin `sorryAx` ni avisos. La base de 12 módulos, compilada
+desde cero en este PC, dio objetos `.olean` idénticos byte a byte a los
+de [evidencia_tamano.json](evidencia_tamano.json). Las huellas de sus
+fuentes difieren por fines de línea u otros bytes que no cambian lo
+compilado.
+
+[cotejar_sexta.py](cotejar_sexta.py) es un cálculo independiente, sólo con
+enteros ([salida](cotejo_sexta.json)):
+
+- el lema finito en los 16 384 subconjuntos de los impares 3..29, y la
+  cadena extrema (los q primeros impares) hasta q=2000;
+- 210 574 cotas de sexta raíz en prefijos con entradas impares distintas
+  y al menos 3, de 4099 semillas (1..4096 y repunits binarios), con 300
+  pasos;
+- en 14 632 prefijos vivos (el más largo, de 202 pasos): 157 434 regresos
+  y 263 376 cuentas de regresos con 18 techos (0..12, 1/2, 2/3, 5/4, 3/2
+  y 7/3), y 14 632 techos `K^5 2^(6j)<=n^6 3^(6S_j)`.
+
+```powershell
+python -B -X utf8 depuracion/perdices20261007/comprobar_sexta.py --compilados "$env:TEMP/perdices_sexta_20261007" --salida depuracion/perdices20261007/evidencia_sexta.json
+python -B -X utf8 depuracion/perdices20261007/cotejar_sexta.py --n-max 4096 --pasos 300 --techo-max 12 --q-max 2000 --m-max 14 --salida depuracion/perdices20261007/cotejo_sexta.json
+```
 
 ## Dependencias reproducibles
 
@@ -210,11 +290,15 @@ suficiente del recuento de regresos. Orden de trabajo al retomar:
    hipótesis generales del lema finito la positividad y las entradas
    impares distintas y >=3; deducirlas después de `FugaPura n`.
    Incluir q=0, k=0 y C>0; auditar versión y axiomas.
+   **Hecho el 07-10 (noche)** en [PerdicesSexta.lean](PerdicesSexta.lean):
+   la ordenación no hizo falta; basta quitar el impar mayor.
 2. **Certificar la cuenta de regresos.** Usar la inyectividad de la
    órbita para pasar de valores acotados a cantidad de tiempos:
    para k>=1, `#{j<k:P_j<=C}<=floor(Cn k^(1/6))`.
    Conviene probar primero la versión elevada a la sexta potencia,
    dejando explícitos los pasos sobre raíces y parte entera.
+   **Hecho el 07-10 (noche):** `cuenta_regresos_raiz`, con la versión
+   elevada a la sexta (`cuenta_regresos_real`) como paso previo.
 3. **Cruzar tamaño con la cuenta de casi fugitivos.** Aplicar
    `cuenta_casi_fugas` al intervalo más pequeño obtenido en el paso 1.
    Justificar que cada valor contado cumple la condición de casi fuga
@@ -223,12 +307,20 @@ suficiente del recuento de regresos. Orden de trabajo al retomar:
    dependencia en n y C antes de optimizar. Entregable: una cota
    demostrada que mejore la actual, o la obstrucción precisa que
    impida obtenerla; no se presupone esa mejora.
+   **Evaluación del 07-10 (noche), cuenta a mano sin formalizar:** con
+   la sexta raíz, los regresos anteriores a K son valores distintos bajo
+   `C n K^(1/6)` y casi fugitivos de nivel C. La cuenta de casi
+   fugitivos, del orden de `N^0,96`, baja el exponente de 1/6 (≈0,167)
+   a ≈0,16. La mejora es real pero mínima.
+   **Certificado el 10-10:** [CRUCE.md](CRUCE.md) da la cuenta entera,
+   el exponente exacto 4/25, sus constantes y los umbrales; en Lean.
 4. **Buscar el choque que falta.** Investigar si un planeador
    intermitente está obligado a regresar con una frecuencia mínima
    incompatible con la cota superior. Infinitos regresos por sí solos
    no dan esa frecuencia: pueden estar arbitrariamente separados.
    Si no aparece una cota inferior, registrar esa limitación. El
    cohete y la grieta requieren argumentos adicionales propios.
+
 
 En cada paso se conserva el mismo entero n al ampliar k. Sólo se
 repite un cotejo si cambia el enunciado o la implementación, con

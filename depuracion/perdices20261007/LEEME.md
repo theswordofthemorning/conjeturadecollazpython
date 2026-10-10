@@ -1,6 +1,8 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
+**10-10:** [sexta raíz y casi fugitivos](CRUCE.md), cota certificada
+de regresos con exponente 4/25 y constantes explícitas.
 Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso)
 y [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística).
 
@@ -192,6 +194,8 @@ En un fugitivo fijo, los tiempos sin reserva tienen densidad cero,
 por la rareza previa del planeador. La continuación
 [tamaño y regresos](TAMANO.md) combina esa rareza con la identidad afín:
 `T^k(n)/P_k=o(k)`, en Lean. La identidad multiplicativa y la ausencia
-de repeticiones dan además una prueba escrita de
-`(T^k(n)/P_k)^6<=n^6(S_k+1)`; su ordenación y telescopio aún no se
-formalizan. Sigue siendo compatible con una fuga lenta.
+de repeticiones dan además `(T^k(n)/P_k)^6<=n^6(S_k+1)`, formalizada el
+07-10 por la noche en [PerdicesSexta.lean](PerdicesSexta.lean) con su
+cuenta de regresos y el rasgo 9: antes del tiempo K el pronóstico
+alcanza `K^(5/6)/n` ([detalle](TAMANO.md#sexta-raíz-y-techo-en-lean)).
+Sigue siendo compatible con una fuga lenta y no alcanza al cohete.

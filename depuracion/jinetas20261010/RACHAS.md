@@ -3,6 +3,10 @@
 10-10-2026. Tercer ensayo de la [ruta](../casa20261004/RUTA_20261010.md),
 después de [conservar todos los prefijos](PREFIJOS.md).
 
+**Continuación completada:** [Perdices: cruce](../perdices20261007/CRUCE.md)
+certifica el paso 3 anunciado al final: exponente 4/25 con constantes.
+La búsqueda de una frecuencia mínima de regresos sigue pendiente.
+
 **Resultado:** retirar una racha reduce el contador, pero cambia la
 referencia del descenso. La condición exacta que falta es que la caída
 posterior supere la subida acumulada desde la semilla original. La

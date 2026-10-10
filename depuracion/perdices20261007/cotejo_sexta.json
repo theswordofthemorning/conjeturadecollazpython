@@ -1,0 +1,49 @@
+{
+  "estado": "contraste exacto terminado",
+  "sha256": "46d4c5b00fa26bd00bef8a84da05c42445f457f366588c986720a138d6f3c541",
+  "parametros": {
+    "n_max": 4096,
+    "pasos": 300,
+    "techo_max": 12,
+    "q_max": 2000,
+    "m_max": 14
+  },
+  "semillas": 4099,
+  "techos": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "1/2",
+    "2/3",
+    "5/4",
+    "3/2",
+    "7/3"
+  ],
+  "subconjuntos_impares": 16384,
+  "cadena_extrema_hasta_q": 2000,
+  "cuentas": {
+    "sexta_general": 210574,
+    "prefijos_vivos": 14632,
+    "regresos": 157434,
+    "cuentas_de_regresos": 263376,
+    "techos": 14632,
+    "largo_maximo": 202
+  },
+  "bordes": [
+    "n=1 rompe la cota sin la hipótesis >= 3 (R_1 = 4/3)",
+    "n=2: prefijo vivo sólo K=1",
+    "c=0: sin regresos",
+    "K=1"
+  ],
+  "alcance": "Contraste finito de PerdicesSexta.lean; el enunciado universal es el teorema de Lean, no este barrido."
+}

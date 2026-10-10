@@ -9,9 +9,10 @@ original. El [ensayo por prefijos](../jinetas20261010/PREFIJOS.md)
 conserva un mismo n, pero en el primer cruce vuelve a CST y no fuerza
 terminar. La [auditoría de rachas](../jinetas20261010/RACHAS.md)
 precisa la compensación que falta al reiniciar desde un valor mayor;
-las cotas del factor 3 no la garantizan. Siguiente: certificar el paso 3
-de Perdices, con constantes y dependencias auditadas. La exclusión
-universal sigue abierta.
+las cotas del factor 3 no la garantizan. El [paso 3 de Perdices](../perdices20261007/CRUCE.md)
+ya combina sexta raíz y casi fugitivos: exponente 4/25 para regresos,
+con constantes y cadena Lean auditadas. Falta una frecuencia mínima
+incompatible; la exclusión universal sigue abierta.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
@@ -37,7 +38,9 @@ Los resultados formales conservan las hipótesis indicadas en cada ficha.
   (el intruso del muro B, un avión que nunca aterriza) o por una
   **grieta** (el del muro A, un paracaidista cuyo altímetro dice «suelo»
   mientras sigue en el aire). De los dos hay retrato: el fugitivo tiene
-  ocho rasgos y la grieta los suyos, y los dos son raros.
+  nueve rasgos y la grieta los suyos, y los dos son raros. El noveno
+  (07-10, noche) dice que su techo sube rápido: antes del tiempo K, su
+  pronóstico alcanza `K^(5/6)/n`.
 - **El primer choque.** No hay planeador fuerte: un fugitivo no puede
   volar siempre bajo, porque cada aterrizaje necesitaría una pista nueva
   en un país casi sin pistas (la estela). Quedan dos especies, el cohete
@@ -905,18 +908,16 @@ de tiempos que tiende a uno. No prueba que sus bits sean uniformes.
 
 La continuación [tamaño y regresos](../perdices20261007/TAMANO.md)
 prueba en Lean `T^k(n)/P_k=o(k)` para cada fugitivo. La identidad
-multiplicativa y la inyectividad dan además una prueba escrita de
-`(T^k(n)/P_k)^6<=n^6(S_k+1)`; su ordenación y telescopio quedan por
-formalizar. Restringe los regresos del planeador a una cota de sexta
-raíz del tiempo, todavía compatible con una fuga lenta.
-
-**Próxima tanda tras el cierre del 07-10:** completar en Lean la sexta
-raíz y su cuenta de regresos; cruzar el intervalo de valores con la
-cuenta de casi fugitivos; buscar una frecuencia mínima incompatible.
-Los entregables y límites están en el
-[plan de tamaño](../perdices20261007/TAMANO.md#qué-debe-aportar-el-siguiente-paso).
-El [cierre pedagógico](../perdices20261007/CIERRE_SESION.md) explica su
-papel en la casa. Cohete, planeador intermitente y grieta siguen abiertos.
+multiplicativa y la inyectividad dan además
+`(T^k(n)/P_k)^6<=n^6(S_k+1)`, formalizada en
+[PerdicesSexta](../perdices20261007/TAMANO.md#sexta-raíz-y-techo-en-lean).
+La cuenta de regresos y el techo `K^(5/6)/n` quedaron cerrados el 07-10;
+su fuente y evidencia se integran con el
+[cruce del 10-10](../perdices20261007/CRUCE.md). Este último combina
+la sexta raíz con casi fugitivos y obtiene una cota con exponente 4/25.
+Sigue faltando una frecuencia mínima incompatible. El
+[cierre pedagógico](../perdices20261007/CIERRE_SESION.md) conserva su
+contexto; cohete, planeador intermitente y grieta siguen abiertos.
 
 **Duda abierta del usuario, 04-10:** «¿para terminar de construir los
 muros necesitamos la racha 25, 26 y así sucesivamente? Eso nos dejaría

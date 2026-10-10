@@ -56,33 +56,30 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Jinetas](depuracion/jinetas20261010/LEEME.md)
-auditó el traslado, el intercambio y los prefijos. La
-[revisión de rachas](depuracion/jinetas20261010/RACHAS.md) identifica
-el coste exacto del reinicio: la caída local debe superar la subida
-acumulada. El suelo afinado sigue condicionado al valor que pretende
-acotar. Diez lemas Lean y controles independientes; ninguna inducción
-universal ni ampliación de tablas. La familia `(110)^k` admite prefijos
-sin cruce arbitrariamente largos cambiando la semilla, no una fuga fija.
+**Avance del 10-10:** [Perdices: cruce](depuracion/perdices20261007/CRUCE.md)
+certifica el paso 3: sexta raíz y cuenta de casi fugitivos, para una
+misma fuga pura hipotética y techo fijo 3^c. Los regresos pasan de
+`O(K^(1/6))` a `O(K^(4/25))`, con constante explícita y cota entera
+que conserva el mínimo con la anterior. Los umbrales pueden ser
+enormes. Se integra el cierre previo de la sexta raíz: 14 módulos
+recompilados, 122 consultas, nueve nuevas. No se relanzaron censos.
 
 La [casa](depuracion/casa20261004/LEEME.md) sigue con ambos muros abiertos:
 A, cruce implica descenso eventual; B, todo número tiene cruce.
-Quedan cohete, planeador intermitente y grieta. Los resultados de
-densidad, los tramos de CST y las cotas de regresos no los excluyen.
+Cohete, planeador intermitente y grieta siguen sin excluirse. La mejora
+es una cota superior; infinitos regresos separados pueden cumplirla.
 
-[Perdices](depuracion/perdices20261007/LEEME.md): el no-cruce rompe la
-cota original de mezcla. [Reserva](depuracion/perdices20261007/UMBRAL.md)
-tiene prueba escrita adaptada; medidas pendientes de formalización.
-[Tamaño](depuracion/perdices20261007/TAMANO.md): sublinealidad en Lean;
-la sexta raíz restringe los regresos. Su cierre local en Lean y Mahler
-estaban sin commit al iniciar esta tarea; se conservan para integración
-separada. El balance detalla evidencia y límites.
+[Jinetas](depuracion/jinetas20261010/RACHAS.md) dejó auditados traslado,
+intercambio, prefijos y coste del reinicio; no obtuvo una inducción
+universal. [Perdices](depuracion/perdices20261007/LEEME.md) conserva
+sus límites de mezcla y la [reserva](depuracion/perdices20261007/UMBRAL.md)
+adaptada, con medidas pendientes de formalización. Mahler continúa
+cerrado y sus cambios locales siguen separados de esta integración.
 
-**Siguiente:** certificar el paso 3 de Perdices: combinar sexta raíz
-y cuenta de casi fugitivos con constantes, umbrales, mismo techo y
-misma semilla, auditando primero las dependencias locales. La mejora
-prevista es pequeña; no aporta la frecuencia mínima que falta. Mahler
-ya estaba cerrado; no se reabre ni se repiten censos.
+**Siguiente:** estudiar el tramo entre dos regresos de la misma semilla
+al mismo techo. Se necesita una restricción de separación que fuerce
+una frecuencia incompatible con la cota nueva; la infinitud no basta.
+Escribir regla, hipótesis y dependencia en n,c antes de experimentar.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -95,7 +92,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 285 afirmaciones: 179 demostradas, 86 medidas, 12 conjeturadas
+Registro: 287 afirmaciones: 181 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.
@@ -106,4 +103,4 @@ con huellas verificadas: implementaciones independientes conservadas.
 cotejados; nueve altas recuperadas conservadas sin fusionar. Medición
 hasta m=14 en flotantes. Nueve discrepancias de huellas se explican por
 finales de línea; dos requieren revisión.
-Jinetas no utiliza esas cachés. Censos históricos y zootheorem intactos.
+Los módulos actuales no utilizan esas cachés. Censos históricos y zootheorem intactos.

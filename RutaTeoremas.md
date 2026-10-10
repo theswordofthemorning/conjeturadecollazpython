@@ -27,6 +27,7 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Ruta actual, traslado a segmentos paradójicos y límite del intercambio `01/10` | [Ruta del 10-10](depuracion/casa20261004/RUTA_20261010.md); [Jinetas](depuracion/jinetas20261010/LEEME.md) |
 | Prefijos de una misma semilla: intervalo exacto, retorno a CST y límite de la poda | [Jinetas: prefijos](depuracion/jinetas20261010/PREFIJOS.md); `JinetasPrefijos.lean` en esa carpeta |
 | Reinicio por rachas: compensación del descenso, suelo exacto y familia sin cruce de longitud arbitraria | [Jinetas: rachas](depuracion/jinetas20261010/RACHAS.md); `JinetasRachas.lean` en esa carpeta |
+| Sexta raíz y casi fugitivos: regresos con exponente 4/25 y constantes explícitas | [Perdices: cruce](depuracion/perdices20261007/CRUCE.md); `PerdicesCruce.lean` en esa carpeta |
 | Nashida r8: cotejo del original y puente condicional con Condoras certificado localmente | [Auditoría](depuracion/nashida20260928/LEEME.md); [CondorasBarrera.lean](depuracion/nashida20260928/CondorasBarrera.lean) |
 
 ## El zoológico y las rutas anteriores
