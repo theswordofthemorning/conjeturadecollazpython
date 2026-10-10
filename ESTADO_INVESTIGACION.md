@@ -1,4 +1,4 @@
-# Estado para continuar — 07-10-2026
+# Estado para continuar — 10-10-2026
 
 [Premisa](PREMISA_DE_INVESTIGACION.md): buscar la prueba universal de Collatz;
 la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
@@ -56,40 +56,32 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-[Plan por sesiones](depuracion/transversal20260927/PLAN_SESIONES_20260928.md):
-presupuestos de exploración, no plazos.
+**Decisión del 10-10:** [balance y ruta](depuracion/casa20261004/RUTA_20261010.md).
+Priorizar el traslado de Rozier–Terracol (§3) desde un número que nunca
+desciende a segmentos paradójicos, y estudiar su margen junto con las
+congruencias. El puente alcanza también al cohete; falta una exclusión
+aritmética uniforme. Es una propuesta de investigación, no un cierre.
 
-- [Nashida](depuracion/nashida20260928/LEEME.md): puente condicional de
-  barrera para Wu 1.
-- [Pandas](depuracion/pandas20260930/LEEME.md), en Lean: sí a la pregunta
-  de Gao con `Res < 4` y para casi todo n. Marmotas: un contraejemplo
-  necesita más de `2^21` pasos `3n+1` sobre `2^20`.
-- [Wirsching](depuracion/wirsching20260930/LEEME.md), cerrado: la versión
-  útil de la condición por residuos equivale a un teorema local límite.
-- [CST](depuracion/cst20260930/LEEME.md): Ocelotas, arriba.
+La [casa](depuracion/casa20261004/LEEME.md) sigue con ambos muros abiertos:
+A, cruce implica descenso eventual; B, todo número tiene cruce.
+Quedan cohete, planeador intermitente y grieta. Los resultados de
+densidad, los tramos de CST y las cotas de regresos no los excluyen.
 
-Ruta B ([plano](depuracion/casa20261004/LEEME.md)), sin ampliar rachas:
-Collatz equivale a los dos muros. En Lean, ningún fugitivo tiene
-pronóstico acotado y ninguna órbita permanece en franja. Quedan el cohete,
-el planeador intermitente y la grieta. Formalizados: Terras A–C, Korec
-para `θ > log 3/log 4`, CST para casi todo n, rareza `x^0,95` y teorema E
-de Lagarias bajo LMN. Ninguno cierra los muros.
+[Perdices](depuracion/perdices20261007/LEEME.md): el no-cruce rompe la
+cota original de mezcla. [Reserva](depuracion/perdices20261007/UMBRAL.md)
+tiene prueba escrita adaptada; medidas pendientes de formalización.
+[Tamaño](depuracion/perdices20261007/TAMANO.md): sublinealidad en Lean;
+la sexta raíz restringe los regresos. Su cierre local en Lean y Mahler
+estaban sin commit al iniciar esta tarea; se conservan para integración
+separada. El balance detalla evidencia y límites.
 
-[Perdices](depuracion/perdices20261007/LEEME.md): olvido tras m subidas;
-estacionarias exactas hasta m=6; Tao cotejado. No-cruce rompe la cota
-original: `1/6>1/8`, certificado.
-[Reserva](depuracion/perdices20261007/UMBRAL.md): todas las continuaciones
-de L pasos sobreviven exactamente cuando `P>=2^L`. Cota adaptada escrita
-`TV<=G*q+(1-G)`, 20 772 contrastes; medidas sin formalizar.
-[Tamaño](depuracion/perdices20261007/TAMANO.md): `R_k=T^k(n)/P_k=o(k)`
-para cada fugitivo, en Lean; 14 lemas nuevos, axiomas estándar.
-Prueba escrita más fuerte: `R_k^6<=n^6(S_k+1)`; implica regresos
-`T^k(n)<=Cn(k+1)^(1/6)` bajo `P_k<=C`. Identidad y factor en Lean;
-ordenación y telescopio pendientes. 94 397 contrastes exactos de la cota.
-**Siguiente:** seguir el [plan](depuracion/perdices20261007/TAMANO.md#qué-debe-aportar-el-siguiente-paso):
-certificar sexta raíz y cuenta de regresos, cruzar con casi fugitivos
-y buscar una cota inferior incompatible. La fuga lenta sigue abierta.
-[Cierre pedagógico](depuracion/perdices20261007/CIERRE_SESION.md).
+**Siguiente:** una sesión de conciliación de evidencia; después, hasta
+tres sesiones para auditar el traslado, ensayar el margen modular y
+formalizar sólo una restricción demostrada. Cerrar el ensayo si sólo
+reformula la conjetura o produce un censo finito.
+El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
+queda como antecedente; sus bloques Nashida, Pandas, Wirsching y CST
+tienen fichas y cierres propios.
 
 ## Evidencia y conservación
 

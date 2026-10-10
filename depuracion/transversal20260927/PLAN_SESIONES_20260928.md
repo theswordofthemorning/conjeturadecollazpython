@@ -1,4 +1,8 @@
-# Plan vigente: de los bloques cortos a los largos
+# Plan del 28-09: de los bloques cortos a los largos
+
+**Antecedente, no orden de ejecución actual.** El [balance y ruta del
+10-10](../casa20261004/RUTA_20261010.md) sustituye la continuación de este
+plan. Se conserva el detalle de los bloques y sus decisiones históricas.
 
 28-09-2026. Orden solicitado por el usuario tras la
 [segunda opinión](SEGUNDA_OPINION_20260928.md). Sustituye su orden de ejecución;

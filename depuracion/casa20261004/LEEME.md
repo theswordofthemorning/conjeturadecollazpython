@@ -1,5 +1,12 @@
 # Plano de la casa: qué le falta a la prueba de que todo número llega a 1
 
+**Ruta vigente, 10-10-2026:** [balance y programa de trabajo](RUTA_20261010.md).
+El balance de los tres intrusos y la comparación de alternativas están
+hechos. Se prioriza el traslado a segmentos paradójicos y el estudio
+conjunto del margen afín y los residuos. Sustituye las propuestas de
+continuación de las sesiones anteriores; la exclusión universal sigue
+pendiente. La ruta distingue evidencia versionada y avances locales.
+
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
 verla como una casa, con un inventario de las piezas que debe tener
@@ -13,7 +20,8 @@ pronóstico baja de 1. El **primer descenso** σ(n) es el primer j con
 
 ## La casa en una página
 
-Estado al 07-10-2026, todo en Lean y sin `sorry`.
+Inventario matemático al 07-10; decisión de trabajo actualizada el 10-10.
+Los resultados formales conservan las hipótesis indicadas en cada ficha.
 
 - **El techo y los muros.** Collatz equivale a dos muros: A, «si el
   pronóstico dice abajo, el número termina bajando», y B, «el pronóstico
@@ -27,7 +35,7 @@ Estado al 07-10-2026, todo en Lean y sin `sorry`.
 - **El primer choque.** No hay planeador fuerte: un fugitivo no puede
   volar siempre bajo, porque cada aterrizaje necesitaría una pista nueva
   en un país casi sin pistas (la estela). Quedan dos especies, el cohete
-  y el planeador intermitente, y contra ellas no alcanza ningún conteo.
+  y el planeador intermitente; los conteos disponibles no los excluyen.
 - **Las ventanas.** Están en Lean los teoremas clásicos de «casi todos»:
   los A, B y C de Terras, el descenso y el teorema E (con constante
   escrita), la rareza x^0,95 de Lagarias y el teorema de Korec completo.
@@ -37,6 +45,12 @@ Estado al 07-10-2026, todo en Lean y sin `sorry`.
   dominó del muro A) y «no hay fugas puras» (el cohete y el planeador
   intermitente del muro B). Son los dos problemas abiertos del centro de
   Collatz; nadie sabe hacerlos.
+
+- **Balance y siguiente paso.** El [balance del 10-10](RUTA_20261010.md#balance-de-los-tres-obstáculos)
+  separa lo probado de lo pendiente. La [ruta elegida](RUTA_20261010.md#orden-de-ejecución-y-puntos-de-salida)
+  empieza por conciliar evidencia y ensayar una restricción aritmética
+  uniforme tras el traslado de Rozier–Terracol. No se ha cerrado ningún
+  muro: A también debe excluir las grietas divergentes.
 
 ## La norma: qué hace que una casa sea casa
 
