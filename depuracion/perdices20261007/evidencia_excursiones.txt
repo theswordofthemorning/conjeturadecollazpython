@@ -1,0 +1,11 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesExcursiones.salida_impar' depends on axioms: [propext, Quot.sound]
+'PerdicesExcursiones.llegada_par' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.palabra_excursion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.entrada_cuadrado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.duracion_cuadrado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.reloj_cuadratico' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.rachas_no_acotadas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.rachas_grandes_tarde' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.siguiente_regreso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcursiones.infinitos_exigen_rachas' depends on axioms: [propext, Classical.choice, Quot.sound]

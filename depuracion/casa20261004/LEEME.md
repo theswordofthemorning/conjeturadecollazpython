@@ -13,8 +13,9 @@ las cotas del factor 3 no la garantizan. El [paso 3 de Perdices](../perdices2026
 ya combina sexta raíz y casi fugitivos: exponente 4/25 para regresos,
 con constantes y cadena Lean auditadas. El [estudio de separaciones](../perdices20261007/SEPARACION.md)
 acota la duración por rachas: un planeador necesitaría excursiones con
-rachas no acotadas. El enlace final tiene prueba escrita y formalización
-pendiente; la exclusión universal sigue abierta.
+rachas no acotadas. El [cierre orbital en Lean](../perdices20261007/EXCURSIONES.md)
+ya incluye extracción y enumeración de regresos; la exclusión universal
+sigue abierta. El próximo bloque estudia la pérdida exponencial en h.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió

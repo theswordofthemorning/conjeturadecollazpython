@@ -1,9 +1,10 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
-**10-10:** [separación y rachas entre regresos](SEPARACION.md): cota orbital
-por rachas en Lean y prueba escrita de que un planeador necesita
-excursiones con rachas no acotadas; enlace final por formalizar.
+**10-10:** [cierre orbital de excursiones](EXCURSIONES.md): Lean ya prueba
+que infinitos regresos de una misma fuga pura bajo un techo fijo exigen
+rachas no acotadas en toda cola, incluida la extracción y enumeración.
+Siguiente: estudiar la pérdida `2^h` en la [cota por rachas](SEPARACION.md).
 Conserva la [cota de regresos 4/25](CRUCE.md), con constantes explícitas.
 Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso)
 y [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística).

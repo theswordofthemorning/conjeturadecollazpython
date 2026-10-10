@@ -1,0 +1,37 @@
+{
+  "estado": "contraste finito exacto; no certifica FugaPura ni infinitos regresos",
+  "sha256": "620b1f5ca90ffb119b92074337d99b5b2629f63bac8aefa82b74eec80a7459ed",
+  "parametros": {
+    "n_max": 512,
+    "pasos": 256,
+    "nivel_max": 4,
+    "d_max": 32
+  },
+  "cuentas": {
+    "entradas": 7292,
+    "segmentos": 4737,
+    "unitarios": 4514,
+    "no_unitarios": 223,
+    "rachas_maximas": 13,
+    "colas": 3575,
+    "relojes_orbitales": 10289,
+    "relojes_abstractos": 42405,
+    "pares_omitidos_rechazados": 3717
+  },
+  "ejemplos": [
+    {
+      "n": 3,
+      "c": 1,
+      "u": 0,
+      "v": 1,
+      "rachas": 1
+    },
+    {
+      "n": 27,
+      "c": 1,
+      "u": 5,
+      "v": 56,
+      "rachas": 13
+    }
+  ]
+}

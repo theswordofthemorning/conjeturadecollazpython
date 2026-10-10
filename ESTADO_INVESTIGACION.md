@@ -56,21 +56,22 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Perdices: separación](depuracion/perdices20261007/SEPARACION.md)
-deduce que un planeador hipotético necesita excursiones con rachas
-impares no acotadas en toda cola. Desde un regreso, h rachas duran
-`d≤2((2^h−1)L+c)`, con `x+1≤2^L` y techo 3^c. Si h estuviera
-acotado, el reloj sería cuadrático, contradiciendo la cuenta anterior.
-El enlace completo tiene prueba escrita; su cierre formal está pendiente.
+**Avance del 10-10:** [Perdices: excursiones](depuracion/perdices20261007/EXCURSIONES.md)
+formaliza: bajo una misma fuga pura, infinitos
+regresos a un techo fijo exigen rachas impares no acotadas en toda cola.
+Incluye enumeración y extracción orbital.
+La prueba usa enteros: con h≤H, `d²≤D(n,c,H)(u+1)` implica un reloj
+cuadrático, incompatible con la cuenta anterior. Incluye intervalos
+unitarios; no afirma que todas las excursiones crezcan.
 
-Diez lemas nuevos en Lean, incluida la cota orbital por rachas;
-14 módulos previos auditados sin recompilar, 132 consultas totales.
-Contraste exacto: 126 familias, 1033 segmentos y 215 controles de rachas.
+Diez lemas nuevos, 15 módulos previos auditados sin recompilar y 142
+consultas totales. Contraste exacto: 4737 intervalos y 42405 controles
+de la recurrencia.
 
+[Separación](depuracion/perdices20261007/SEPARACION.md) conserva la cota
+`d≤2((2^h−1)L+c)`, con `x+1≤2^L`; la familia de huecos largos varía n.
 [Cruce](depuracion/perdices20261007/CRUCE.md) conserva `O(K^(4/25))`
-con n,c fijos: los tiempos de regreso crecen al menos como `r^(25/4)`.
-La sexta raíz previa ya bastaba para excluir h uniformemente acotado.
-La familia de huecos largos bajo C=3 varía la semilla.
+con n,c fijos.
 
 La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
 A, cruce implica descenso eventual, y B, todo número tiene cruce.
@@ -79,9 +80,10 @@ Cohete, planeador con rachas no acotadas y grieta siguen sin excluirse.
 la [reserva](depuracion/perdices20261007/UMBRAL.md) tiene medidas por
 formalizar. Mahler permanece separado.
 
-**Siguiente:** formalizar el enlace final y examinar la pérdida `2^h`.
-Hace falta controlar h y el valor de entrada manteniendo n; mejorar
-sólo H fijo no basta. El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
+**Siguiente:** examinar la pérdida `2^h` usando las longitudes pares y
+la condición interior de la excursión. Hace falta controlar h y el
+valor de entrada conservando n y c; mejorar sólo H fijo no basta.
+El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
 ## Evidencia y conservación
@@ -93,7 +95,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 288 afirmaciones: 182 demostradas, 86 medidas, 12 conjeturadas
+Registro: 289 afirmaciones: 183 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

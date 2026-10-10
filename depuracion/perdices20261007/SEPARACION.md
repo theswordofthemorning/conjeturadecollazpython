@@ -122,6 +122,11 @@ No se obtiene una cota uniforme si h también crece.
 
 ## 4. Enlace escrito: las excursiones necesitan rachas no acotadas
 
+**Cierre posterior del 10-10:** [Excursiones](EXCURSIONES.md) formaliza
+la conclusión completa, incluida la extracción orbital y enumeración.
+Usa una derivación entera alternativa; se conserva aquí la prueba
+logarítmica original.
+
 Supongamos, por contradicción, que después de cierto regreso todas
 las excursiones tienen h≤H, salvo los intervalos de duración uno.
 Trabajamos con esa cola y su primer tiempo t_0, que puede ser positivo.
@@ -204,10 +209,11 @@ fuentes, entorno, dependencias y huellas. **No los recompila**.
 Lean 4.32.2, 132 consultas contando las 122 previas; sólo axiomas
 estándar, sin pruebas incompletas ni avisos nuevos. Revisión humana pendiente.
 
-El alcance formal termina en los lemas indicados: quedan por formalizar
-la extracción de excursiones consecutivas, el enlace con los logaritmos
-y la inducción cuadrática de §4, y la familia modular general de §5.
-Esos tramos tienen prueba escrita; no se presentan como resultados Lean.
+El alcance de este módulo termina en los lemas indicados. El módulo
+posterior [PerdicesExcursiones](EXCURSIONES.md) cierra la extracción,
+la inducción cuadrática y la conclusión orbital de §4 sin logaritmos.
+La derivación logarítmica específica y la familia modular general de
+§5 conservan prueba escrita; no se presentan como resultados Lean.
 
 [cotejar_separacion.py](cotejar_separacion.py) contrasta órbitas directas
 con `Fraction`, composición afín e inverso modular independientes.
@@ -233,8 +239,9 @@ un planeador necesitaría excursiones con rachas no acotadas. Para cada
 H fijo las congruencias existentes ya controlan su duración; el obstáculo
 se desplaza al crecimiento de h en una misma órbita.
 
-Siguiente bloque: cerrar en Lean el enlace de §4 y examinar la pérdida
-`2^h` de (6). Hay que controlar conjuntamente las rachas y el valor de
+El enlace de §4 ya está [cerrado en Lean](EXCURSIONES.md).
+Siguiente bloque: examinar la pérdida `2^h` de (6). Hay que controlar
+conjuntamente las rachas y el valor de
 entrada conservando n, o encontrar una cantidad que disminuya al
 encadenar excursiones. Mejorar una constante con H fijo no excluye
 el caso h no acotado. El cohete y la grieta permanecen fuera de este
