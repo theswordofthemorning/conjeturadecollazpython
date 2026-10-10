@@ -19,7 +19,9 @@ sigue abierta. El [ritmo de rachas](../perdices20261007/RITMO.md) reduce
 la base de 2 a 8/5 y exige superar una escala logarítmica en toda cola.
 El [balance par](../perdices20261007/BALANCE.md) ya está enlazado con la órbita:
 excluye una cola de excursiones interiores 110, aunque tengan rachas no
-acotadas. Siguiente: permitir un número acotado de bloques que rompan ese patrón.
+acotadas. El [cierre por excepciones](../perdices20261007/EXCEPCIONES.md)
+ya exige cantidades no acotadas de bloques distintos de 110 en toda cola.
+Siguiente: relacionar su cantidad con el aporte afín real de la excursión.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió

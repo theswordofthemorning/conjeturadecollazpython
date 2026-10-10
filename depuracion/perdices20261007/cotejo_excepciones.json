@@ -1,0 +1,50 @@
+{
+  "estado": "contraste finito exacto; no certifica FugaPura ni infinitos regresos",
+  "parametros": {
+    "n_max": 512,
+    "pasos": 256,
+    "nivel_max": 4,
+    "cadena_max": 32
+  },
+  "sha256": "96657fef0ce1d2f67230317a53f8d06aeb59f009fcdcfee26819e12742925246",
+  "cuentas": {
+    "intervalos": 4737,
+    "unitarios": 4514,
+    "bloques_orbitales": 341,
+    "cadenas_orbitales": 59,
+    "cotas_cuadradas": 9474,
+    "configuraciones_modulares": 150,
+    "palabras_distintas": 139,
+    "bloques_modulares": 2730,
+    "cadenas_modulares": 225,
+    "familia_anterior": 5
+  },
+  "maximo_excepciones": 11,
+  "ejemplos": [
+    {
+      "n": 3,
+      "c": 1,
+      "u": 0,
+      "v": 1,
+      "h": 0,
+      "excepciones": 0
+    },
+    {
+      "n": 7,
+      "c": 1,
+      "u": 2,
+      "v": 4,
+      "h": 1,
+      "excepciones": 1
+    },
+    {
+      "n": 27,
+      "c": 1,
+      "u": 5,
+      "v": 56,
+      "h": 13,
+      "excepciones": 11
+    }
+  ],
+  "fuente_ejemplos_sha256_lf": "39b51eed0582c60a00af54c06df46aeb568f9a6a2557232b499f7de3affa6948"
+}

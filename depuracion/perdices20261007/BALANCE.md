@@ -213,8 +213,8 @@ Si faltan objetos, reproducir antes [Ritmo](RITMO.md#6-evidencia-límites-y-cont
 No se afirma prioridad bibliográfica ni una prueba de Collatz.
 El planeador general, el cohete y la grieta continúan abiertos.
 
-**Siguiente:** comprimir cada cadena consecutiva de bloques `110`
-usando (7) y estudiar cuántos bloques que rompen ese patrón son
-necesarios entre regresos. La pregunta pendiente es si también queda
-excluido un número uniformemente acotado de excepciones, manteniendo
-la semilla, el techo y las entradas intermedias de la misma órbita.
+**Cierre posterior:** [Excepciones](EXCEPCIONES.md) comprime esas cadenas
+y prueba en Lean que tampoco puede estar acotado el número de bloques
+distintos de 110 en toda una cola. Conserva la semilla, el techo y las
+entradas intermedias. El siguiente trabajo relaciona las excepciones
+con el aporte afín real; contarlas no decide si hay descenso.

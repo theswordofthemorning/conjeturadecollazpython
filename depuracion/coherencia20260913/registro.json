@@ -1359,6 +1359,24 @@
       "fichero": "depuracion/perdices20261007/BALANCE.md",
       "fuente": "construccion modular escrita a partir de los bloques 110 de Jinetas; 10-10-2026, sin pretension de prioridad",
       "notas": "Prueba para todo k en BALANCE.md, seccion 3: x_(3j)+5=9^j*8^(k-j)*m; paridades por residuo 3 mod 8 y cola por 9^k*m=5 mod 2^b. La minimalidad de b da 3/2<P_v<=3, y (9/8)^9<3<(9/8)^10 fija el ultimo regreso previo u=27. La identidad afin completa fuerza una unica clase, realizada por 0<n_k<2^(3k+b). Cotejo por implementaciones independientes: 119 miembros k=10..128 y 7140 bloques; incluye k=10,h=1 sin bloques pares interiores. La familia general y su minimalidad tienen prueba escrita, no Lean; el modulo formaliza el presupuesto orbital y excluye una cola de excursiones regulares para una misma FugaPura con infinitos regresos. Variar n explica la compatibilidad de ambos resultados. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_excepciones_formales",
+      "enunciado": "PERDICES: EXCEPCIONES NO ACOTADAS AL PATRON 110. Para cualquier palabra real de r bloques impares/pares desde x>0, E cuenta los pares de longitudes (a_i,b_i) distintos de (2,1), incluido el ultimo. Si x+5<=2^L, su duracion d cumple d+L<=2*8^E*L. Para una misma FugaPura n del atajo e infinitos regresos al techo fijo C=3^c, para todos H,U hay regresos consecutivos u>U y v, con una palabra orbital canonica de r=rachas(T^u(n),v-u) bloques y E>H. La enumeracion, extraccion y contador estan enlazados. Si E<=H en toda una cola, d^2<=D(n,c,H)*(u+1), D=(12*8^H)^2*(C*n)^6+1, forzaria un reloj cuadratico excluido. No exige que todas las excursiones tengan cada vez mas excepciones ni afirma existencia de fuga.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/EXCEPCIONES.md",
+      "fuente": "compresion de cadenas 110 mediante la divisibilidad trasladada de PerdicesBalance, cotas orbitales y cuenta de regresos; 10-10-2026, sin pretension de prioridad",
+      "notas": "Doce lemas nuevos en PerdicesExcepciones.lean, incluido infinitos_exigen_excepciones. Lean 4.32.2, solo propext, Classical.choice, Quot.sound; sin avisos ni pruebas incompletas. Nuevo modulo compilado, 18 previos auditados sin recompilar: 19 modulos y 177 consultas. Una cadena 110 desde el tiempo local t_j satisface t_k+L<=2*(t_j+L); cualquier bloque positivo satisface t_(i+1)+L<=4*(t_i+L). Induccion por la ultima excepcion: t_j+L<=8^E*L. El reloj usa L=x+5, x+5<=6x y sexta raiz; incorpora intervalos unitarios. Contraste entero: 4737 intervalos, 341 bloques, 59 cadenas y 9474 cotas cuadradas; 150 configuraciones modulares (139 palabras distintas), 2730 bloques, 225 cadenas y cinco ejemplos anteriores reutilizados. Bordes: palabra vacia y x=1 con dieciseis bloques 10, que no es FugaPura. No controla el signo del aporte de las excepciones, ni excluye el planeador general, cohete o grieta. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_excepciones_ritmo",
+      "enunciado": "PERDICES: TASA ESCRITA DE EXCEPCIONES. Para una misma FugaPura n con infinitos regresos al techo fijo C=3^c, sean t_i los regresos consecutivos y E_i el numero de bloques distintos de 110 de su excursion, incluido el ultimo, con E_i=0 si dura un paso. Entonces limsup E_i/log2(t_i+1)>=7/25, omitiendo el eventual t_i=0. Retirar el ultimo bloque del contador, que cambia E_i a lo sumo en uno, no altera la tasa ni la no acotacion. No afirma existencia de tal fuga ni igualdad u optimalidad de la tasa.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/EXCEPCIONES.md",
+      "fuente": "consecuencia analitica escrita de la cota por excepciones, sexta raiz y exponente temporal 4/25; 10-10-2026, sin pretension de prioridad",
+      "notas": "Prueba escrita en EXCEPCIONES.md, seccion 5; no formalizada en Lean. L_i=ceil(log2(x_(t_i)+5))=O(log(t_i+2)) y d_i<=K*8^E_i*log2(t_i+2). Si eventualmente E_i<=eta*log2(t_i+1), eta<7/25, elegir 3eta<a<21/25; la absorcion del logaritmo da d_i<=A*(t_i+1)^a. La concavidad de y^(1-a) implica t_i+1=O(i^(1/(1-a))), incompatible con t_i+1>=k*i^(25/4), k>0. Lean certifica la cota entera y la no acotacion, no los pasos analiticos de esta tasa. Son condiciones necesarias sobre el hipotetico planeador, sin contradiccion universal. Revision humana pendiente."
     }
   ],
   "nodos": [

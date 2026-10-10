@@ -1,11 +1,11 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
-**10-10:** [balance par](BALANCE.md): presupuesto orbital en Lean y
-exclusión de una cola de excursiones interiores 110, sin acotar sus rachas.
-Una familia con semilla variable concentra los pares al final.
-El [ritmo de rachas](RITMO.md) conserva la tasa más fina por formalizar.
-Siguiente: estudiar un número acotado de bloques que rompan el patrón 110.
+**10-10:** [excepciones al patrón 110](EXCEPCIONES.md): infinitos
+regresos exigirían cantidades no acotadas de bloques distintos de 110,
+en Lean. La cota por excepciones comprime las cadenas repetidas.
+La tasa escrita 7/25 para ese contador queda por formalizar.
+Siguiente: estudiar el aporte afín de las excepciones a la excursión.
 Conserva la [cota de regresos 4/25](CRUCE.md), con constantes explícitas.
 Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso)
 y [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística).

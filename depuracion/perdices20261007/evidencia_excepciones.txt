@@ -1,0 +1,13 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesExcepciones.crecimiento_paso' depends on axioms: [propext, Quot.sound]
+'PerdicesExcepciones.crecimiento_prefijo' depends on axioms: [propext, Quot.sound]
+'PerdicesExcepciones.techo_prefijo' depends on axioms: [propext, Quot.sound]
+'PerdicesExcepciones.tiempo_110' depends on axioms: [propext, Quot.sound]
+'PerdicesExcepciones.divisibilidad_cadena' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcepciones.comprimir_cadena' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcepciones.cota_bloque' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcepciones.ultima_excepcion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcepciones.duracion_excepciones' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcepciones.excepciones_cuadrado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcepciones.infinitos_sin_cota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesExcepciones.infinitos_exigen_excepciones' depends on axioms: [propext, Classical.choice, Quot.sound]
