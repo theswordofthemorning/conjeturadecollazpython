@@ -1269,6 +1269,15 @@
       "fichero": "depuracion/jinetas20261010/LEEME.md",
       "fuente": "contraejemplo exacto del ensayo del laboratorio, 10-10-2026; no refuta la monotonia del termino aditivo de Rozier-Terracol",
       "notas": "L=8, s=5, D=13. La cadena de intercambios 00111101 -> 01011101 -> 10011101 tiene semillas minimas 188,18,189; aditivos 908,746,665; finales 182,20,182; margenes 1536,-512,1792. Paradoja: no,si,no. Los dos cambios de margen son -2048 y +2304. Los patrones y finales se certifican tambien en Jinetas.testigos_intercambio por decide en el kernel, sin native_decide. No son contraejemplos de Collatz: son testigos contra una reduccion propuesta. Los datos y la correccion del borde r<=2 figuran en LEEME.md y cotejo.json."
+    },
+    {
+      "clave": "jinetas_prefijos_cst",
+      "enunciado": "JINETAS: PREFIJOS COMPATIBLES Y LIMITE DE LA PODA. Para el atajo 3n+1, una palabra temporal w de longitud L, M_j=2^j, A_j=3^S_j, D_j=M_j-A_j y B_j su numerador afin, sean m_L el menor entero >=3 de su clase residual y H_L el minimo de floor(B_j/D_j) sobre los prefijos con D_j>0, o infinito si no hay cruce. Las semillas que no bajan de si mismas en ningun prefijo son exactamente C_L={m_L+t*2^L: t>=0 entero, m_L+t*2^L<=H_L}. Al extender la palabra, C se anida, m no decrece y H no crece; la poda m_L>H_L persiste. En el primer cruce H_L=floor(B_L/D_L): exigir C_L vacio para toda palabra de primer cruce equivale a CST, sin afirmar existencia del cruce. Una rama viva infinita tiene minimos acotados si y solo si conserva una misma semilla en todos sus niveles. Excluir todas esas ramas acotadas equivale al descenso eventual universal, no es una restriccion nueva ya demostrada.",
+      "cuantificador": "clase_residual",
+      "estado": "demostrado",
+      "fichero": "depuracion/jinetas20261010/PREFIJOS.md",
+      "fuente": "auditoria elemental de Jinetas, 10-10-2026; criterio afin y biyeccion de paridades existentes; cotejo con CST C1-C3 de Rozier-Terracol arXiv:2502.00948v5, seccion 1; sin pretension de prioridad",
+      "notas": "Prueba escrita del intervalo y de sus equivalencias. JinetasPrefijos.lean: 15 consultas, solo axiomas estandar, sin avisos ni sorryAx; certifica algebra, cotas, redundancia previa al primer cruce, herencia, poda, minimo y equivalencia abstracta entre minimos acotados y semilla comun, ademas del testigo 7 y el ciclo de 13 en 5n+1 para todo tiempo. El enlace general entre palabras, orbita y C_L, la unicidad por modulos y las equivalencias completas con CST/Collatz no estan formalizados en este modulo. Cotejo exacto independiente: 1022 palabras L<=8 con factores 3 y 5, 1426 semillas, 822 intervalos finitos y 7172 transiciones; cotejo_prefijos.json. La monotonía no garantiza terminar: en 5n+1, m=H=13 y N=1 desde L=7. Este control no refuta una reduccion especifica del factor 3. La rama de unos tiene m_L=2^L-1 para L>=2 y no conserva un entero positivo fijo. Se cierra el mecanismo como suficiente por si solo; no demuestra CST ni Collatz ni amplia los tramos de Ocelotas. Revision humana pendiente."
     }
   ],
   "nodos": [

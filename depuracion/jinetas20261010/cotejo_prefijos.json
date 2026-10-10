@@ -1,0 +1,225 @@
+{
+  "mapa": "T_a(n)=n/2 par, (a*n+1)/2 impar; a=3,5",
+  "dominio": "semillas enteras >=3; bordes 0,1,2 separados",
+  "ley": "ninguna; enumeracion determinista, enteros y Fraction",
+  "longitud_maxima": 8,
+  "sha256_verificador": "99054413196842269fcb14d780c40db56c736201fc50587e9c451bea933448d1",
+  "cuentas": {
+    "palabras": 1022,
+    "semillas": 1426,
+    "intervalos_finitos": 822,
+    "transiciones": 7172,
+    "primeros_cruces": 822
+  },
+  "testigos": {
+    "siete": {
+      "semilla": 7,
+      "palabra": "11101001",
+      "valores": [
+        7,
+        11,
+        17,
+        26,
+        13,
+        20,
+        10,
+        5,
+        8
+      ],
+      "prefijo_siete": {
+        "j": 7,
+        "modulo": 128,
+        "potencia": 81,
+        "aditivo": 73,
+        "residuo": 7,
+        "minimo": 7,
+        "techo": 1,
+        "cantidad": 0
+      },
+      "prefijo_ocho": {
+        "j": 8,
+        "modulo": 256,
+        "potencia": 243,
+        "aditivo": 347,
+        "residuo": 7,
+        "minimo": 7,
+        "techo": 1,
+        "cantidad": 0
+      }
+    },
+    "vecino": {
+      "factor": 5,
+      "semilla": 13,
+      "vueltas": 4,
+      "ciclo": [
+        13,
+        33,
+        83,
+        208,
+        104,
+        52,
+        26,
+        13
+      ],
+      "primer_cruce": {
+        "j": 7,
+        "modulo": 128,
+        "potencia": 125,
+        "aditivo": 39,
+        "residuo": 13,
+        "minimo": 13,
+        "techo": 13,
+        "cantidad": 1
+      },
+      "ultimo": {
+        "j": 28,
+        "modulo": 268435456,
+        "potencia": 244140625,
+        "aditivo": 315832803,
+        "residuo": 13,
+        "minimo": 13,
+        "techo": 13,
+        "cantidad": 1
+      }
+    },
+    "unos": [
+      {
+        "longitud": 2,
+        "semilla": 3,
+        "final": 8
+      },
+      {
+        "longitud": 3,
+        "semilla": 7,
+        "final": 26
+      },
+      {
+        "longitud": 8,
+        "semilla": 255,
+        "final": 6560
+      },
+      {
+        "longitud": 16,
+        "semilla": 65535,
+        "final": 43046720
+      },
+      {
+        "longitud": 32,
+        "semilla": 4294967295,
+        "final": 1853020188851840
+      },
+      {
+        "longitud": 64,
+        "semilla": 18446744073709551615,
+        "final": 3433683820292512484657849089280
+      }
+    ],
+    "bordes": [
+      {
+        "semilla": 0,
+        "longitud": 0,
+        "admisible": false,
+        "estado_final": {
+          "j": 0,
+          "modulo": 1,
+          "potencia": 1,
+          "aditivo": 0,
+          "residuo": 0,
+          "minimo": 3,
+          "techo": null,
+          "cantidad": null
+        }
+      },
+      {
+        "semilla": 0,
+        "longitud": 4,
+        "admisible": false,
+        "estado_final": {
+          "j": 4,
+          "modulo": 16,
+          "potencia": 1,
+          "aditivo": 0,
+          "residuo": 0,
+          "minimo": 16,
+          "techo": 0,
+          "cantidad": 0
+        }
+      },
+      {
+        "semilla": 1,
+        "longitud": 2,
+        "admisible": false,
+        "estado_final": {
+          "j": 2,
+          "modulo": 4,
+          "potencia": 3,
+          "aditivo": 1,
+          "residuo": 1,
+          "minimo": 5,
+          "techo": 1,
+          "cantidad": 0
+        }
+      },
+      {
+        "semilla": 2,
+        "longitud": 1,
+        "admisible": false,
+        "estado_final": {
+          "j": 1,
+          "modulo": 2,
+          "potencia": 1,
+          "aditivo": 0,
+          "residuo": 0,
+          "minimo": 4,
+          "techo": 0,
+          "cantidad": 0
+        }
+      },
+      {
+        "semilla": 3,
+        "longitud": 1,
+        "admisible": true,
+        "estado_final": {
+          "j": 1,
+          "modulo": 2,
+          "potencia": 3,
+          "aditivo": 1,
+          "residuo": 1,
+          "minimo": 3,
+          "techo": null,
+          "cantidad": null
+        }
+      },
+      {
+        "semilla": 18,
+        "longitud": 8,
+        "admisible": false,
+        "estado_final": {
+          "j": 8,
+          "modulo": 256,
+          "potencia": 243,
+          "aditivo": 746,
+          "residuo": 18,
+          "minimo": 18,
+          "techo": 0,
+          "cantidad": 0
+        }
+      },
+      {
+        "semilla": 27,
+        "longitud": 60,
+        "admisible": false,
+        "estado_final": {
+          "j": 60,
+          "modulo": 1152921504606846976,
+          "potencia": 1350851717672992089,
+          "aditivo": 3879256284068857757,
+          "residuo": 27,
+          "minimo": 27,
+          "techo": 8,
+          "cantidad": 0
+        }
+      }
+    ]
+  }
+}

@@ -5,8 +5,10 @@ con [primer ensayo ejecutado: Jinetas](../jinetas20261010/LEEME.md).
 El traslado quedó auditado; el intercambio `01/10` crea y destruye
 paradojas por el acarreo modular. Se descarta ordenar sólo por el
 aditivo. El relleno de ceros no añade una congruencia sobre la semilla
-original. Sigue pendiente una reducción que conserve los prefijos de
-un mismo n; la exclusión universal permanece abierta.
+original. El [ensayo por prefijos](../jinetas20261010/PREFIJOS.md)
+conserva un mismo n, pero en el primer cruce vuelve a CST y no fuerza
+terminar. Se vuelve al balance: revisar una reducción de rachas propia
+del factor 3 antes de otro experimento. La exclusión universal sigue abierta.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
@@ -49,9 +51,11 @@ Los resultados formales conservan las hipótesis indicadas en cada ficha.
 
 - **Balance y siguiente paso.** [Jinetas](../jinetas20261010/LEEME.md)
   deja las fórmulas exactas, su certificación parcial y los testigos
-  contra la monotonía del margen. La siguiente reducción debe preservar
-  una semilla fija y el no-descenso de sus prefijos. No se ha cerrado
-  ningún muro: A también debe excluir las grietas divergentes.
+  contra la monotonía del margen. El segundo ensayo obtiene un intervalo
+  de semillas compatible con todos los prefijos, pero sus cotas no dan
+  la disminución estricta necesaria. En el primer cruce vuelve a CST.
+  No se ha cerrado ningún muro: A también incluye grietas divergentes;
+  CST completo no probaría la existencia del cruce del muro B.
 
 ## La norma: qué hace que una casa sea casa
 

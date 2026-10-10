@@ -25,6 +25,7 @@ Este índice se abre sólo cuando hace falta localizar una dependencia.
 | Segunda opinión: CST, término aditivo y residuos; familias infinitas y criterio para cambiar de frente | [Evaluación del 28-09](depuracion/transversal20260927/SEGUNDA_OPINION_20260928.md); `atacacst.lean` |
 | Plan histórico por sesiones: Nashida, Pandas, Wirsching, CST | [Plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md) |
 | Ruta actual, traslado a segmentos paradójicos y límite del intercambio `01/10` | [Ruta del 10-10](depuracion/casa20261004/RUTA_20261010.md); [Jinetas](depuracion/jinetas20261010/LEEME.md) |
+| Prefijos de una misma semilla: intervalo exacto, retorno a CST y límite de la poda | [Jinetas: prefijos](depuracion/jinetas20261010/PREFIJOS.md); `JinetasPrefijos.lean` en esa carpeta |
 | Nashida r8: cotejo del original y puente condicional con Condoras certificado localmente | [Auditoría](depuracion/nashida20260928/LEEME.md); [CondorasBarrera.lean](depuracion/nashida20260928/CondorasBarrera.lean) |
 
 ## El zoológico y las rutas anteriores

@@ -1,0 +1,60 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "sha256_fuente": "38f9e559fe9c7d8ee0a221bb2df3ef5a28ce1c6ecbed37eda540b310f6a0d126",
+  "sha256_comprobador": "43c3872f40e19c11928de7e601e99019215a7ad5adef3457707f3477825c2d5c",
+  "sha256_toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+  "sha256_mathlib_manifest": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+  "consultas": 15,
+  "axiomas": {
+    "JinetasPrefijos.identidad_margen": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasPrefijos.cota_entera": [
+      "propext"
+    ],
+    "JinetasPrefijos.sin_cruce": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasPrefijos.herencia": [],
+    "JinetasPrefijos.primer_cruce": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasPrefijos.interseccion_cotas": [
+      "propext"
+    ],
+    "JinetasPrefijos.minimo_anidado": [],
+    "JinetasPrefijos.holgura_no_crece": [
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasPrefijos.poda_persistente": [
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasPrefijos.minimo_decide": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasPrefijos.rama_acotada_iff_semilla_fija": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasPrefijos.siete_paradojico_pero_descendio": [
+      "propext"
+    ],
+    "JinetasPrefijos.vecino_tabla": [],
+    "JinetasPrefijos.vecino_vueltas": [],
+    "JinetasPrefijos.vecino_no_baja": [
+      "propext"
+    ]
+  },
+  "salida": "'JinetasPrefijos.identidad_margen' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasPrefijos.cota_entera' depends on axioms: [propext]\n'JinetasPrefijos.sin_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasPrefijos.herencia' does not depend on any axioms\n'JinetasPrefijos.primer_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasPrefijos.interseccion_cotas' depends on axioms: [propext]\n'JinetasPrefijos.minimo_anidado' does not depend on any axioms\n'JinetasPrefijos.holgura_no_crece' depends on axioms: [propext, Quot.sound]\n'JinetasPrefijos.poda_persistente' depends on axioms: [propext, Quot.sound]\n'JinetasPrefijos.minimo_decide' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasPrefijos.rama_acotada_iff_semilla_fija' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasPrefijos.siete_paradojico_pero_descendio' depends on axioms: [propext]\n'JinetasPrefijos.vecino_tabla' does not depend on any axioms\n'JinetasPrefijos.vecino_vueltas' does not depend on any axioms\n'JinetasPrefijos.vecino_no_baja' depends on axioms: [propext]\n"
+}

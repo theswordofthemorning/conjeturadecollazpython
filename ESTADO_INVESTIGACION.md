@@ -57,11 +57,13 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 ## Ruta vigente y próximo bloque
 
 **Avance del 10-10:** [Jinetas](depuracion/jinetas20261010/LEEME.md)
-ejecuta la [ruta](depuracion/casa20261004/RUTA_20261010.md): traslado
-auditado, intercambio y relleno contrastados, certificación Lean parcial.
-El intercambio de palabras cambia las semillas `188 → 18 → 189` (L=8): crea y
-destruye una paradoja. El relleno no añade una congruencia sobre n.
-Se cierra ese mecanismo por sí solo; la exclusión universal sigue abierta.
+auditó el traslado y descartó ordenar paradojas mediante `01/10`.
+El [segundo ensayo](depuracion/jinetas20261010/PREFIJOS.md) conserva
+los prefijos de una misma semilla: intervalo exacto, poda persistente
+y 15 enunciados Lean. En el primer cruce vuelve a CST; la monotonía
+no fuerza terminar. Una rama viva con mínimos acotados equivale a
+una semilla fija sin descenso. No apareció la restricción adicional:
+la [ruta](depuracion/casa20261004/RUTA_20261010.md) vuelve al balance.
 
 La [casa](depuracion/casa20261004/LEEME.md) sigue con ambos muros abiertos:
 A, cruce implica descenso eventual; B, todo número tiene cruce.
@@ -76,9 +78,10 @@ la sexta raíz restringe los regresos. Su cierre local en Lean y Mahler
 estaban sin commit al iniciar esta tarea; se conservan para integración
 separada. El balance detalla evidencia y límites.
 
-**Siguiente:** formular una reducción sobre prefijos de un mismo n,
-conservando que nunca baja, con un invariante adicional y un caso terminal
-incompatible. Sin nueva restricción, volver al balance; no ampliar tablas.
+**Siguiente:** revisar la criba por prefijos de Ocelotas para buscar
+una reducción de rachas propia del factor 3: regla, hipótesis, disminución
+estricta y caso terminal antes de otro experimento. No ampliar tablas.
+CST completo aún dejaría abierto el muro B.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -91,7 +94,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 283 afirmaciones: 177 demostradas, 86 medidas, 12 conjeturadas
+Registro: 284 afirmaciones: 178 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

@@ -3,6 +3,11 @@
 10-10-2026. Primer ensayo ejecutado de la
 [ruta aritmética](../casa20261004/RUTA_20261010.md).
 
+**Continuación ejecutada:** [prefijos de una misma semilla](PREFIJOS.md).
+El intervalo de candidatos se anida correctamente, pero en el primer
+cruce vuelve exactamente a CST. Se certifica el límite del mecanismo;
+la decisión vigente es volver al balance, sin ampliar los censos.
+
 **Resultado:** el intercambio `01→10` reduce siempre el término aditivo,
 pero puede crear o destruir una paradoja al cambiar la semilla admisible.
 El acarreo modular explica exactamente el cambio. El relleno de ceros
@@ -181,10 +186,16 @@ el ejemplo anterior invalida esa monotonía. Los lemas algebraicos son
 herramientas de control, no la restricción nueva que pedía la ruta.
 El ensayo `01/10` queda cerrado como mecanismo suficiente por sí solo.
 
-**Siguiente acción:** antes de otro experimento, formular una reducción
+**Acción propuesta al cerrar este primer ensayo:** antes de otro experimento, formular una reducción
 que actúe sobre la familia `0^k w_j(n)` de un mismo n y conserve
 `T^t(n)≥n` en todos los prefijos utilizados. Su primer entregable debe
 ser un invariante adicional y una condición terminal incompatible con
 no descender. Si sólo recupera (5), la congruencia cancelada o el
 criterio afín, volver al balance sin presentarlo como avance hacia una
 exclusión universal. La finitud de los segmentos sigue abierta.
+
+**Resultado de esa acción:** [PREFIJOS.md](PREFIJOS.md) construye el
+intervalo exacto, prueba la redundancia de sus restricciones antes del
+primer cruce y distingue una rama infinita de una semilla fija.
+No apareció el invariante adicional: se aplica la cláusula de volver
+al balance. El siguiente trabajo queda delimitado al final de esa nota.
