@@ -5,8 +5,10 @@
 
 **Continuación ejecutada:** [prefijos de una misma semilla](PREFIJOS.md).
 El intervalo de candidatos se anida correctamente, pero en el primer
-cruce vuelve exactamente a CST. Se certifica el límite del mecanismo;
-la decisión vigente es volver al balance, sin ampliar los censos.
+cruce vuelve exactamente a CST. Se certifica el límite del mecanismo.
+La [auditoría posterior de rachas](RACHAS.md) precisa la compensación
+necesaria al reiniciar desde un valor mayor; no obtiene una inducción
+universal. La siguiente acción está en esa ficha, sin ampliar censos.
 
 **Resultado:** el intercambio `01→10` reduce siempre el término aditivo,
 pero puede crear o destruir una paradoja al cambiar la semilla admisible.

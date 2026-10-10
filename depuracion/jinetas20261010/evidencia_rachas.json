@@ -1,0 +1,56 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "sha256_fuente": "6b2d46c670726b6120086fe6439d0defbcf64beb727e9da0f40a45e35b4ec904",
+  "sha256_comprobador": "c0453be98eaf8026bdeb5b07e083f80c71ca250cffd684efb22ac202fe5dc72c",
+  "sha256_toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+  "sha256_mathlib_manifest": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+  "consultas": 10,
+  "axiomas": {
+    "JinetasRachas.puente": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.puente_entero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.margen_cola": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.exceso_bloque": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.defecto_suelo": [
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.suelo_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.bloque_corto": [
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.bloque_expansivo": [
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.paso_110": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "JinetasRachas.ejemplo_corte": [
+      "propext"
+    ]
+  },
+  "salida": "'JinetasRachas.puente' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasRachas.puente_entero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasRachas.margen_cola' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasRachas.exceso_bloque' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasRachas.defecto_suelo' depends on axioms: [propext, Quot.sound]\n'JinetasRachas.suelo_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasRachas.bloque_corto' depends on axioms: [propext, Quot.sound]\n'JinetasRachas.bloque_expansivo' depends on axioms: [propext, Quot.sound]\n'JinetasRachas.paso_110' depends on axioms: [propext, Classical.choice, Quot.sound]\n'JinetasRachas.ejemplo_corte' depends on axioms: [propext]\n"
+}

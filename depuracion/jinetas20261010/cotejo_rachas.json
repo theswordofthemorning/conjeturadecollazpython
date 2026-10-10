@@ -1,0 +1,118 @@
+{
+  "mapa": "atajo 3n+1",
+  "ley": "determinista, enteros exactos",
+  "parametros": {
+    "a_max": 6,
+    "b_max": 6,
+    "u_max": 31,
+    "familia_max": 64
+  },
+  "sha256_verificador": "6e6f5e71c41bb674c91c48bdd6f7f4bc1aebce3e79265626eef550de40c54bd6",
+  "resultado": {
+    "bloques": 95,
+    "suelos": 467,
+    "cortes": 471,
+    "bordes": {
+      "1": {
+        "a": 1,
+        "b": 1,
+        "salida": 1,
+        "orbita": [
+          1,
+          2,
+          1
+        ]
+      },
+      "3": {
+        "a": 2,
+        "b": 3,
+        "salida": 1,
+        "orbita": [
+          3,
+          5,
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "11": {
+        "a": 2,
+        "b": 1,
+        "salida": 13,
+        "orbita": [
+          11,
+          17,
+          26,
+          13
+        ]
+      }
+    },
+    "familias": [
+      {
+        "k": 1,
+        "semilla": 11,
+        "salida": 13,
+        "pasos": 3
+      },
+      {
+        "k": 2,
+        "semilla": 123,
+        "salida": 157,
+        "pasos": 6
+      },
+      {
+        "k": 4,
+        "semilla": 8187,
+        "salida": 13117,
+        "pasos": 12
+      },
+      {
+        "k": 8,
+        "semilla": 33554427,
+        "salida": 86093437,
+        "pasos": 24
+      },
+      {
+        "k": 16,
+        "semilla": 562949953421307,
+        "salida": 3706040377703677,
+        "pasos": 48
+      },
+      {
+        "k": 32,
+        "semilla": 158456325028528675187087900667,
+        "salida": 6867367640585024969315698178557,
+        "pasos": 96
+      },
+      {
+        "k": 64,
+        "semilla": 12554203470773361527671578846415332832204710888928069025787,
+        "salida": 23580369155477166343041745722825037331356423184551682218193917,
+        "pasos": 192
+      }
+    ],
+    "testigo_corte": [
+      7,
+      11,
+      17,
+      26,
+      13,
+      20,
+      10,
+      5
+    ],
+    "cruces": [
+      {
+        "semilla": 7,
+        "primer_cruce": 7,
+        "primer_descenso": 7
+      },
+      {
+        "semilla": 13,
+        "primer_cruce": 2,
+        "primer_descenso": 2
+      }
+    ]
+  }
+}

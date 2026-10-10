@@ -57,13 +57,13 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 ## Ruta vigente y próximo bloque
 
 **Avance del 10-10:** [Jinetas](depuracion/jinetas20261010/LEEME.md)
-auditó el traslado y descartó ordenar paradojas mediante `01/10`.
-El [segundo ensayo](depuracion/jinetas20261010/PREFIJOS.md) conserva
-los prefijos de una misma semilla: intervalo exacto, poda persistente
-y 15 enunciados Lean. En el primer cruce vuelve a CST; la monotonía
-no fuerza terminar. Una rama viva con mínimos acotados equivale a
-una semilla fija sin descenso. No apareció la restricción adicional:
-la [ruta](depuracion/casa20261004/RUTA_20261010.md) vuelve al balance.
+auditó el traslado, el intercambio y los prefijos. La
+[revisión de rachas](depuracion/jinetas20261010/RACHAS.md) identifica
+el coste exacto del reinicio: la caída local debe superar la subida
+acumulada. El suelo afinado sigue condicionado al valor que pretende
+acotar. Diez lemas Lean y controles independientes; ninguna inducción
+universal ni ampliación de tablas. La familia `(110)^k` admite prefijos
+sin cruce arbitrariamente largos cambiando la semilla, no una fuga fija.
 
 La [casa](depuracion/casa20261004/LEEME.md) sigue con ambos muros abiertos:
 A, cruce implica descenso eventual; B, todo número tiene cruce.
@@ -78,10 +78,11 @@ la sexta raíz restringe los regresos. Su cierre local en Lean y Mahler
 estaban sin commit al iniciar esta tarea; se conservan para integración
 separada. El balance detalla evidencia y límites.
 
-**Siguiente:** revisar la criba por prefijos de Ocelotas para buscar
-una reducción de rachas propia del factor 3: regla, hipótesis, disminución
-estricta y caso terminal antes de otro experimento. No ampliar tablas.
-CST completo aún dejaría abierto el muro B.
+**Siguiente:** certificar el paso 3 de Perdices: combinar sexta raíz
+y cuenta de casi fugitivos con constantes, umbrales, mismo techo y
+misma semilla, auditando primero las dependencias locales. La mejora
+prevista es pequeña; no aporta la frecuencia mínima que falta. Mahler
+ya estaba cerrado; no se reabre ni se repiten censos.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -94,7 +95,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 284 afirmaciones: 178 demostradas, 86 medidas, 12 conjeturadas
+Registro: 285 afirmaciones: 179 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

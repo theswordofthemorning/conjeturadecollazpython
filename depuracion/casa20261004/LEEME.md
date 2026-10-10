@@ -7,8 +7,11 @@ paradojas por el acarreo modular. Se descarta ordenar sólo por el
 aditivo. El relleno de ceros no añade una congruencia sobre la semilla
 original. El [ensayo por prefijos](../jinetas20261010/PREFIJOS.md)
 conserva un mismo n, pero en el primer cruce vuelve a CST y no fuerza
-terminar. Se vuelve al balance: revisar una reducción de rachas propia
-del factor 3 antes de otro experimento. La exclusión universal sigue abierta.
+terminar. La [auditoría de rachas](../jinetas20261010/RACHAS.md)
+precisa la compensación que falta al reiniciar desde un valor mayor;
+las cotas del factor 3 no la garantizan. Siguiente: certificar el paso 3
+de Perdices, con constantes y dependencias auditadas. La exclusión
+universal sigue abierta.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
@@ -54,6 +57,8 @@ Los resultados formales conservan las hipótesis indicadas en cada ficha.
   contra la monotonía del margen. El segundo ensayo obtiene un intervalo
   de semillas compatible con todos los prefijos, pero sus cotas no dan
   la disminución estricta necesaria. En el primer cruce vuelve a CST.
+  El tercer ensayo prueba el puente cuantitativo del corte y el límite
+  de la cota de suelo; no entrega una inducción por rachas.
   No se ha cerrado ningún muro: A también incluye grietas divergentes;
   CST completo no probaría la existencia del cruce del muro B.
 

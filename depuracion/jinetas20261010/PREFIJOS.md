@@ -1,5 +1,9 @@
 # Jinetas: conservar una semilla no da todavía una reducción
 
+**Continuación ejecutada el 10-10:** la [revisión de rachas](RACHAS.md)
+precisa el coste de reiniciar y documenta la decisión siguiente. El
+apartado final conserva la propuesta que dio origen a esa revisión.
+
 10-10-2026. Segundo ensayo de la [ruta](../casa20261004/RUTA_20261010.md),
 continuación del [intercambio](LEEME.md). Se mantiene el nombre Jinetas;
 son consecuencias elementales de las herramientas existentes, sin
