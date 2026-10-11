@@ -7,8 +7,9 @@ Una familia escrita tiene muchas excepciones con aporte acotado, variando n.
 El [contador no acotado](EXCEPCIONES.md) sigue siendo necesario.
 Siguiente: enlazar los pesos y la congruencia de una misma semilla.
 Conserva la [cota de regresos 4/25](CRUCE.md), con constantes explícitas.
-Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso)
-y [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística).
+Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso),
+[pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística)
+y el [primo de Mahler](../mahler20261007/LEEME.md), cerrado: no alcanza al cohete.
 
 07-10-2026. Continuación de [Perdices recuperadas](../casa20261005_recuperada/PERDICES.md),
 sin modificar su evidencia histórica. Es una aplicación del acoplamiento

@@ -320,7 +320,13 @@ suficiente del recuento de regresos. Orden de trabajo al retomar:
    no dan esa frecuencia: pueden estar arbitrariamente separados.
    Si no aparece una cota inferior, registrar esa limitación. El
    cohete y la grieta requieren argumentos adicionales propios.
-
+   **Evaluación del 07-10 (noche):** contra el cohete ninguna frecuencia
+   mínima puede servir, porque bajo cada techo regresa sólo un número
+   finito de veces. Contra el planeador intermitente haría falta una
+   fuerza que lo obligue a volver, y hoy no la tenemos. La alternativa
+   documentada es el [primo de Mahler](../mahler20261007/LEEME.md), que
+   busca una propiedad del número individual. Se cerró esa misma noche:
+   su teorema sólo prohíbe encierros, y el cohete no vive encerrado.
 
 En cada paso se conserva el mismo entero n al ampliar k. Sólo se
 repite un cotejo si cambia el enunciado o la implementación, con

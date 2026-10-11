@@ -78,7 +78,9 @@ La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
 A y B. Planeador general, cohete y grieta siguen sin excluirse.
 [Jinetas](depuracion/jinetas20261010/RACHAS.md) no obtuvo inducción;
 la [reserva](depuracion/perdices20261007/UMBRAL.md) tiene medidas por
-formalizar. Mahler permanece separado.
+formalizar. [Mahler](depuracion/mahler20261007/LEEME.md) queda integrado
+como vía cerrada: documenta identidades y límites de la analogía,
+sin excluir al cohete. Su plan del 07-10 es un antecedente.
 
 **Siguiente:** enlazar los aportes ponderados con la congruencia de
 una misma semilla a través de varios regresos. El contador no decide
@@ -96,7 +98,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 297 afirmaciones: 191 demostradas, 86 medidas, 12 conjeturadas
+Registro: 298 afirmaciones: 192 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

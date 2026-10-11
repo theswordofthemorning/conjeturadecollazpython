@@ -1,0 +1,94 @@
+{
+  "estado": "cotejo exacto terminado",
+  "sha256": "fc463e3d0b446de8b749cb933c7ffc7fad53b5c5e0c249213d96a37366249c2f",
+  "parametros": {
+    "pasos": 330
+  },
+  "semillas_positivas": [
+    3,
+    7,
+    27,
+    97,
+    871,
+    1048575,
+    18446744073709551615
+  ],
+  "semillas_negativas": [
+    -1,
+    -5,
+    -7,
+    -10,
+    -17
+  ],
+  "cuentas": {
+    "identidades": 3972,
+    "positivos": 2317,
+    "colas": 3972,
+    "fantasmas": 473
+  },
+  "vuelta_menos_17": [
+    -17,
+    -25,
+    -37,
+    -55,
+    -82,
+    -41,
+    -61,
+    -91,
+    -136,
+    -68,
+    -34,
+    -17
+  ],
+  "resumen": {
+    "3": {
+      "R_final_aprox": "8.23989e+20",
+      "valor_final": 2
+    },
+    "7": {
+      "R_final_aprox": "8.23989e+20",
+      "valor_final": 2
+    },
+    "27": {
+      "R_final_aprox": "5.6515e+17",
+      "valor_final": 1
+    },
+    "97": {
+      "R_final_aprox": "1.1303e+18",
+      "valor_final": 2
+    },
+    "871": {
+      "R_final_aprox": "4.1863e+16",
+      "valor_final": 2
+    },
+    "1048575": {
+      "R_final_aprox": "3.05181e+19",
+      "valor_final": 2
+    },
+    "18446744073709551615": {
+      "R_final_aprox": "1.84467e+19",
+      "valor_final": 341430299921
+    },
+    "-1": {
+      "R_final_aprox": "-7.76041e-59",
+      "valor_final": -1
+    },
+    "-5": {
+      "R_final_aprox": "-1.18084e-05",
+      "valor_final": -5
+    },
+    "-7": {
+      "R_final_aprox": "-1.65318e-05",
+      "valor_final": -7
+    },
+    "-10": {
+      "R_final_aprox": "-2.36169e-05",
+      "valor_final": -10
+    },
+    "-17": {
+      "R_final_aprox": "-2.37074",
+      "valor_final": -17
+    }
+  },
+  "alcance": "Identidades exactas en tramos finitos y fórmulas cerradas de los fantasmas; no prueba que exista ni que no exista un cohete."
+}

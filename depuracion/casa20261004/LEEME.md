@@ -920,15 +920,34 @@ de tiempos que tiende a uno. No prueba que sus bits sean uniformes.
 La continuación [tamaño y regresos](../perdices20261007/TAMANO.md)
 prueba en Lean `T^k(n)/P_k=o(k)` para cada fugitivo. La identidad
 multiplicativa y la inyectividad dan además
-`(T^k(n)/P_k)^6<=n^6(S_k+1)`, formalizada en
-[PerdicesSexta](../perdices20261007/TAMANO.md#sexta-raíz-y-techo-en-lean).
-La cuenta de regresos y el techo `K^(5/6)/n` quedaron cerrados el 07-10;
-su fuente y evidencia se integran con el
-[cruce del 10-10](../perdices20261007/CRUCE.md). Este último combina
-la sexta raíz con casi fugitivos y obtiene una cota con exponente 4/25.
-Sigue faltando una frecuencia mínima incompatible. El
-[cierre pedagógico](../perdices20261007/CIERRE_SESION.md) conserva su
-contexto; cohete, planeador intermitente y grieta siguen abiertos.
+`(T^k(n)/P_k)^6<=n^6(S_k+1)`, formalizada después (párrafo siguiente).
+Restringe los regresos del planeador a una cota de sexta raíz del
+tiempo, todavía compatible con una fuga lenta.
+
+**07-10, noche: el rasgo 9 y una idea para el cohete.** La sexta raíz
+y su cuenta de regresos quedaron en Lean
+([PerdicesSexta](../perdices20261007/TAMANO.md#sexta-raíz-y-techo-en-lean)),
+con un corolario: antes del tiempo K, el pronóstico de un fugitivo
+alcanza `K^(5/6)/n` (rasgo 9: el techo sube rápido). Hasta ahora
+`techo_crece` daba del orden de `K^0,016`. Son cotas de «aterriza
+poco»: no alcanzan al cohete, que bajo cada techo regresa sólo un número
+finito de veces. Para él se exploró esa misma noche, en versión corta,
+la idea del [primo de Mahler](../mahler20261007/LEEME.md): buscar una
+herramienta sobre un número individual en el problema de las potencias
+de 3/2. Quedó cerrada con un «por aquí no»: el teorema de 1995 sólo
+prohíbe encierros, y el cohete no vive encerrado. Los
+pasos 3 y 4 del [plan de tamaño](../perdices20261007/TAMANO.md#qué-debe-aportar-el-siguiente-paso)
+siguen pendientes, con su evaluación escrita. Siguiente paso: el
+[balance de la casa](#plan-del-07-10-balance-de-la-casa). Cohete,
+planeador intermitente y grieta siguen abiertos.
+
+**Actualización del 10-10:** el párrafo anterior conserva la decisión
+del 07-10. El [cruce](../perdices20261007/CRUCE.md) ya combina la
+sexta raíz con casi fugitivos y obtiene la cota de regresos con
+exponente 4/25. La continuación vigente está en
+[aporte ponderado](../perdices20261007/APORTE.md): enlazar sus pesos
+con las congruencias de una misma semilla. Mahler se integra como
+exploración cerrada, sin sustituir esa ruta.
 
 **Duda abierta del usuario, 04-10:** «¿para terminar de construir los
 muros necesitamos la racha 25, 26 y así sucesivamente? Eso nos dejaría
@@ -937,3 +956,82 @@ nunca, y la ruta B existe justamente para evitarlo. El 06-10 añadió la
 duda de los 360°: juntar afirmaciones sobre números termina apuntando a
 todos los números. Es cierto: por eso el plano cambia el blanco y apunta
 a los dos intrusos, el circuito y el fugitivo, y no a los números.
+
+## Plan del 07-10: balance de la casa
+
+**Antecedente histórico, integrado el 10-10.** La agenda vigente está
+en [ESTADO_INVESTIGACION.md](../../ESTADO_INVESTIGACION.md).
+La [conciliación](../jinetas20261010/CONCILIACION.md) ya atendió las
+altas recuperadas y distinguió las discrepancias de huellas. Se
+conserva aquí el plan original para no perder sus decisiones.
+
+Propuesto el 07-10 por la noche, al cerrar el
+[primo de Mahler](../mahler20261007/LEEME.md); el usuario pidió
+documentarlo. Como en el resto de la ruta, los presupuestos son de
+exploración, no plazos.
+
+**Por qué parar ahora.** Siguen abiertas las tres especies de intruso: el
+cohete y el planeador intermitente (muro B) y la grieta (muro A). Las
+herramientas de la casa ya se probaron contra ellas:
+
+- los conteos (la estela y la rareza) mataron al planeador fuerte, y a
+  nada más;
+- las cotas de regresos (Perdices, la sexta raíz y el rasgo 9) no
+  alcanzan al cohete, que bajo cada techo regresa sólo un número finito
+  de veces;
+- el teorema de 1995 sólo prohíbe encierros, y el cohete no vive
+  encerrado.
+
+Contra el cohete sólo queda el lado 2-ádico: la conjetura de
+periodicidad de Lagarias, que contiene entero el muro B. Eso ya es
+atacar el problema de frente. Antes conviene saber con exactitud qué
+está en pie.
+
+Alegoría: antes de subir al último piso, el maestro de obras recorre la
+casa con el plano en la mano. Anota qué muro aguanta, cuál es de cartón
+y qué herramienta ya no corta.
+
+**Paso 1. El balance** (una sesión, sin código nuevo y sin ampliar
+censos). Entregable: una sección «Balance» en esta nota,
+[la casa en una página](#la-casa-en-una-página) al día y una línea en el
+ESTADO. Contenido:
+
+1. **Una ficha por intruso** (cohete, planeador intermitente y grieta):
+   sus rasgos probados y la forma de cada uno (Lean, prueba escrita o
+   medida); las herramientas que se probaron contra él, con su «por aquí
+   no» en una frase; y lo que falta exactamente.
+2. **Lo propio y lo clásico.** Separar el aporte (la estela, los rasgos 8
+   y 9, la sexta raíz y las formas en Lean con constantes escritas) de la
+   literatura reformulada (Terras, Everett, Korec, Lagarias, Mahler y
+   Bernstein), con la
+   [revisión de novedad del 27-09](../../papers/revision20260927/REVISION.md#4-novedad)
+   como modelo.
+3. **Hipótesis externas y revisión.** Qué depende de LMN o de
+   Rozier–Terracol, y qué espera revisión humana
+   ([pendientes](../../gaopendientes.md)).
+4. **Contabilidad.** Las altas de la
+   [sesión recuperada del 05-10](../casa20261005_recuperada/RECUPERACION.md)
+   que faltan por conciliar, y las huellas de fuente que ya no casan con
+   su evidencia (las de `evidencia_tamano.json`; los objetos compilados sí
+   coinciden).
+
+**Paso 2. La decisión**, que toma el usuario con el balance delante:
+
+- **(a) El lado 2-ádico (cohete).** Restringida a los enteros positivos,
+  la conjetura de periodicidad dice que toda órbita acaba en circuito: es
+  «no hay órbitas divergentes» con otro nombre. Su implicación hacia el
+  muro B se deduce directamente de `rasgo_no_periodico` y `muroB_iff`,
+  ya en Lean. Lo difícil es la conjetura misma.
+- **(b) El planeador intermitente.** Hace falta una fuerza que lo obligue
+  a volver con una frecuencia mínima. Los
+  [pasos 3 y 4 de tamaño](../perdices20261007/TAMANO.md#qué-debe-aportar-el-siguiente-paso)
+  quedaron evaluados como débiles.
+- **(c) La grieta.** El dominó del muro A (paso 4 de la ruta), revisado el
+  07-10 sin avance.
+- **(d) Consolidar.** Revisión humana, artículos pendientes y la
+  contabilidad del paso 1, sin investigación nueva.
+
+Recomendación previa, a confirmar con el balance: no abrir (a) sin una
+idea que lo haga más chico que el problema entero, como un caso parcial
+o una clase de números. Como siempre, cada frente lleva presupuesto
+acotado; si no avanza, se escribe por qué y se cierra.

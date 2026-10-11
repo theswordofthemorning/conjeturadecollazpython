@@ -1,0 +1,158 @@
+{
+  "estado": "cotejo exacto terminado",
+  "sha256": "6dc058f8987fdd94534de89dff390166e1bc2d3dce3da3cc0dce9cae82c01137",
+  "parametros": {
+    "largo": 28,
+    "pasos": 330
+  },
+  "tabla_mahler_13": [
+    [
+      13,
+      20,
+      2
+    ],
+    [
+      45,
+      68,
+      2
+    ],
+    [
+      153,
+      230,
+      1
+    ],
+    [
+      345,
+      518,
+      1
+    ],
+    [
+      777,
+      1166,
+      1
+    ],
+    [
+      1749,
+      2624,
+      6
+    ],
+    [
+      29889,
+      44834,
+      1
+    ],
+    [
+      67251,
+      100877,
+      0
+    ]
+  ],
+  "trece": {
+    "orbita_hasta_21": [
+      13,
+      20,
+      30,
+      45,
+      68,
+      102,
+      153,
+      230,
+      345,
+      518,
+      777,
+      1166,
+      1749,
+      2624,
+      3936,
+      5904,
+      8856,
+      13284,
+      19926,
+      29889,
+      44834,
+      67251
+    ],
+    "corte_prueba_fina": 11,
+    "corte_resto_3": 21
+  },
+  "ventanas": {
+    "fino": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      12,
+      18,
+      27,
+      40,
+      60,
+      90,
+      134,
+      201,
+      302,
+      452,
+      678,
+      1018,
+      1527,
+      2291,
+      3438,
+      5157,
+      7736,
+      11606,
+      17408,
+      26111,
+      39168,
+      58750,
+      88123,
+      132186
+    ],
+    "sin_resto3": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144,
+      233,
+      377,
+      610,
+      987,
+      1597,
+      2584,
+      4181,
+      6765,
+      10946,
+      17711,
+      28657,
+      46368,
+      75025,
+      121393,
+      196418,
+      317811,
+      514229,
+      832040
+    ]
+  },
+  "crecimiento": {
+    "largo": 28,
+    "fino": 132186,
+    "sin_resto3": 832040,
+    "exponente_fino_aprox": "0.6076",
+    "exponente_sin_resto3_aprox": "0.7024",
+    "referencias": {
+      "log2(3/2)": "0.5850",
+      "log2(razon_aurea)": "0.6942"
+    }
+  },
+  "cuentas": {
+    "identidades_bernstein": 3972,
+    "valores_fantasmas": 639
+  },
+  "alcance": "Cotejo exacto en ventanas finitas. Confirma la tabla de Mahler, que la prueba del resto 3 es necesaria pero no suficiente en cada ventana, y la formula de Bernstein en tramos finitos. Los exponentes son medidas de ventana, no teoremas; el de Flatto (1992) es un teorema suyo."
+}
