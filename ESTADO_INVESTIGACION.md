@@ -48,11 +48,10 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
   [Qeios](papers/qeios/LEEME.md): retirado.
   [Palomar](papers/palomar/LEEME.md): verificando Gao, CI verde.
   [Zulip](papers/qeios/ZULIP_borrador.md): anuncio borrado.
-- **OEIS.** Aprobadas [A078441](depuracion/oeis20260917/A078441_20260930_aprobada.txt)
-  (30-09) y [A400486](depuracion/oeis20260917/A400486_20261004_aprobada.txt)
-  (04-10); no validan pruebas. A400487 sigue
-  pendiente, con `more`. Si se rechaza, retirar su referencia en A078441:
-  [seguimiento](papers/oeis/RESPUESTA_20260928.md).
+- **OEIS.** A078441, A400486 y [A400487](https://oeis.org/A400487)
+  aprobadas; no validan pruebas. Tres cupos previstos para dos correcciones
+  y una sucesión nueva, sin enviar y sujetos al panel de la cuenta:
+  [pendiente de la próxima sesión](papers/oeis/PENDIENTE_20261010.md).
 
 ## Ruta vigente y próximo bloque
 

@@ -1,5 +1,11 @@
 # Borradores OEIS: Gao, Wu y Garner
 
+**10-10-2026:** [A400487](https://oeis.org/A400487) está aprobada desde el
+07-10 (revisión #9, palabra clave `new`). El estado de los tres cupos y las
+acciones pendientes están en [PENDIENTE_20261010.md](PENDIENTE_20261010.md).
+No hubo envíos a OEIS en esta sesión. Los estados fechados que siguen se
+conservan como historial.
+
 **04-10-2026: A400486 aprobada** por Sean A. Irvine (revisión #8, 04-10
 18:29 EDT). En la #7 añadió a(29) = 216253629 y a(30) = 435078205, con su
 `%E`. Los demás campos coinciden con
