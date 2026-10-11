@@ -1,0 +1,157 @@
+{
+  "estado": "cotejo exacto terminado",
+  "fuente": "cotejar_semilla.py",
+  "sha256_bytes": "3bcb5cacba836934d75c72d6d87242481f985af6bb30e7cb26f5198bb5f9ef64",
+  "sha256_lf": "3bcb5cacba836934d75c72d6d87242481f985af6bb30e7cb26f5198bb5f9ef64",
+  "parametros": {
+    "largo_max": 10,
+    "n_max": 512,
+    "pasos": 256,
+    "nivel_max": 4
+  },
+  "cuentas": {
+    "palabras": 2047,
+    "cortes": 20481,
+    "levantamientos_cero": 4083,
+    "levantamientos_positivos": 16398
+  },
+  "parejas": [
+    {
+      "nivel": 1,
+      "signo": 1,
+      "sin_levantamiento": {
+        "prefijo": "11011101",
+        "sufijo": "1110100",
+        "a": 729,
+        "b": 989,
+        "m": 256,
+        "d": 81,
+        "e": 73,
+        "modulo_sufijo": 128,
+        "r": 91,
+        "q": 263,
+        "t": 0,
+        "semilla": 91,
+        "aporte": "18688/59049",
+        "cambio_cinco": "78848/59049",
+        "entrada": 263,
+        "salida": 167
+      },
+      "con_levantamiento": {
+        "prefijo": "11011011",
+        "sufijo": "1110100",
+        "a": 729,
+        "b": 1085,
+        "m": 256,
+        "d": 81,
+        "e": 73,
+        "modulo_sufijo": 128,
+        "r": 251,
+        "q": 719,
+        "t": 120,
+        "semilla": 30971,
+        "aporte": "18688/59049",
+        "cambio_cinco": "78848/59049",
+        "entrada": 88199,
+        "salida": 55814
+      }
+    },
+    {
+      "nivel": 1,
+      "signo": 0,
+      "sin_levantamiento": {
+        "prefijo": "1101110110",
+        "sufijo": "110",
+        "a": 2187,
+        "b": 3223,
+        "m": 1024,
+        "d": 9,
+        "e": 5,
+        "modulo_sufijo": 8,
+        "r": 603,
+        "q": 1291,
+        "t": 0,
+        "semilla": 603,
+        "aporte": "5120/19683",
+        "cambio_cinco": "0",
+        "entrada": 1291,
+        "salida": 1453
+      },
+      "con_levantamiento": {
+        "prefijo": "1101110101",
+        "sufijo": "110",
+        "a": 2187,
+        "b": 3479,
+        "m": 1024,
+        "d": 9,
+        "e": 5,
+        "modulo_sufijo": 8,
+        "r": 859,
+        "q": 1838,
+        "t": 7,
+        "semilla": 8027,
+        "aporte": "5120/19683",
+        "cambio_cinco": "0",
+        "entrada": 17147,
+        "salida": 19291
+      }
+    },
+    {
+      "nivel": 2,
+      "signo": -1,
+      "sin_levantamiento": {
+        "prefijo": "1111011011",
+        "sufijo": "111100",
+        "a": 6561,
+        "b": 7985,
+        "m": 1024,
+        "d": 81,
+        "e": 65,
+        "modulo_sufijo": 64,
+        "r": 111,
+        "q": 719,
+        "t": 0,
+        "semilla": 111,
+        "aporte": "66560/531441",
+        "cambio_cinco": "-20480/531441",
+        "entrada": 719,
+        "salida": 911
+      },
+      "con_levantamiento": {
+        "prefijo": "1111010111",
+        "sufijo": "111100",
+        "a": 6561,
+        "b": 8561,
+        "m": 1024,
+        "d": 81,
+        "e": 65,
+        "modulo_sufijo": 64,
+        "r": 559,
+        "q": 3590,
+        "t": 41,
+        "semilla": 42543,
+        "aporte": "66560/531441",
+        "cambio_cinco": "-20480/531441",
+        "entrada": 272591,
+        "salida": 344999
+      }
+    }
+  ],
+  "excursiones": {
+    "cuentas": {
+      "unitarias": 4514,
+      "no_unitarias": 223,
+      "entrada_menor_modulo": 33,
+      "duracion_supera_quinta": 0
+    },
+    "maximo_cociente": "1/944784",
+    "testigo": {
+      "n": 7,
+      "c": 1,
+      "u": 2,
+      "v": 4,
+      "entrada": 17
+    }
+  },
+  "alcance": "Identidades y congruencias finitas, incluidos palabra vacia y residuo cero. Los prefijos con P>=1 no certifican FugaPura; la cota quinta universal es condicional y se prueba aparte en Lean. Ningun barrido prueba Collatz."
+}

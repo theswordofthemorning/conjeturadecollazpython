@@ -1,11 +1,12 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
-**10-10:** [aporte ponderado](APORTE.md): identidades orbitales en Lean;
-la cantidad que neutraliza 110 cambia en ambos sentidos entre regresos.
-Una familia escrita tiene muchas excepciones con aporte acotado, variando n.
-El [contador no acotado](EXCEPCIONES.md) sigue siendo necesario.
-Siguiente: enlazar los pesos y la congruencia de una misma semilla.
+**10-10:** [semilla y duración](SEMILLA.md): infinitos regresos de
+un fugitivo puro exigirían `d>H(x+1)^5` en toda cola, para cada H fijo.
+El aporte local no decide el levantamiento del residuo. Siguiente:
+buscar una cota superior por la entrada que excluya esa exigencia.
+El [aporte ponderado](APORTE.md) y el
+[contador no acotado](EXCEPCIONES.md) conservan su alcance.
 Conserva la [cota de regresos 4/25](CRUCE.md), con constantes explícitas.
 Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso),
 [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística)

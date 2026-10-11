@@ -23,7 +23,11 @@ acotadas. El [cierre por excepciones](../perdices20261007/EXCEPCIONES.md)
 ya exige cantidades no acotadas de bloques distintos de 110 en toda cola.
 El [aporte ponderado](../perdices20261007/APORTE.md) ya está calculado:
 muchas excepciones pueden aportar poco y la cantidad que neutraliza 110
-no es monótona localmente. Siguiente: enlazar los pesos con una misma semilla.
+no es monótona localmente. El [enlace con la semilla](../perdices20261007/SEMILLA.md)
+prueba que infinitos regresos exigirían duraciones mayores que cualquier
+múltiplo fijo de `(x+1)^5`, para el valor de entrada x. El aporte local
+no decide la congruencia de la prolongación. Siguiente: buscar una cota
+de duración basada en esa entrada; todavía no está demostrada.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
@@ -945,8 +949,8 @@ planeador intermitente y grieta siguen abiertos.
 del 07-10. El [cruce](../perdices20261007/CRUCE.md) ya combina la
 sexta raíz con casi fugitivos y obtiene la cota de regresos con
 exponente 4/25. La continuación vigente está en
-[aporte ponderado](../perdices20261007/APORTE.md): enlazar sus pesos
-con las congruencias de una misma semilla. Mahler se integra como
+[semilla y duración](../perdices20261007/SEMILLA.md): buscar la cota
+superior por el valor de entrada que falta. Mahler se integra como
 exploración cerrada, sin sustituir esa ruta.
 
 **Duda abierta del usuario, 04-10:** «¿para terminar de construir los

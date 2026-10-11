@@ -56,18 +56,17 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Perdices: aporte](depuracion/perdices20261007/APORTE.md)
-formaliza el aporte orbital de los bloques y su suma ponderada.
-`J_5=(x+5)/P` neutraliza exactamente 110, pero no es monótona entre
-regresos: Lean certifica ejemplos positivos, nulos y negativos.
-Una familia escrita tiene E excepciones arbitrariamente grande y
-`ΔR<4864/8019`, cambiando la semilla. Descarta convertir E en un
-aporte mínimo uniforme mediante condiciones locales.
+**Avance del 10-10:** [Perdices: semilla](depuracion/perdices20261007/SEMILLA.md)
+formaliza que fuga pura e infinitos regresos a un techo fijo exigen
+`v-u>H(T^u(n)+1)^5` en toda cola, para cada H fijo. La cota superior
+opuesta bastaría para excluir ese frente; sigue abierta.
 
-Quince lemas nuevos, 19 módulos previos auditados sin recompilar,
-192 consultas acumuladas. Contraste exacto: 223 excursiones no
-unitarias y 126 miembros de la familia. Su existencia general y
-la agrupación ponderada completa conservan prueba escrita.
+Catorce lemas nuevos, veinte módulos previos auditados, 206 consultas.
+Cotejo: 2047 palabras, 20481 cortes y 223 excursiones no unitarias.
+Tres pares tienen igual aporte local y distinto levantamiento.
+La divisibilidad es formal; la fórmula modular y la equivalencia
+infinita son escritas. [Aporte](depuracion/perdices20261007/APORTE.md)
+conserva su familia, con d<x: no contradice la nueva exigencia.
 
 [Excepciones](depuracion/perdices20261007/EXCEPCIONES.md) conserva la
 no acotación formal de E; su tasa escrita 7/25 sigue por formalizar.
@@ -82,10 +81,10 @@ formalizar. [Mahler](depuracion/mahler20261007/LEEME.md) queda integrado
 como vía cerrada: documenta identidades y límites de la analogía,
 sin excluir al cohete. Su plan del 07-10 es un antecedente.
 
-**Siguiente:** enlazar los aportes ponderados con la congruencia de
-una misma semilla a través de varios regresos. El contador no decide
-el signo ni el tamaño del aporte; otra condición de abundancia sola
-no elimina la posibilidad pendiente.
+**Siguiente:** acotar la duración por la entrada y su congruencia
+en las palabras de retorno de SEMILLA §4. Bastaría `d<=H(x+1)^5`
+uniformemente en una cola. La congruencia sola no da esa cota
+ni obliga a cambiar la semilla.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -98,7 +97,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 298 afirmaciones: 192 demostradas, 86 medidas, 12 conjeturadas
+Registro: 300 afirmaciones: 194 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

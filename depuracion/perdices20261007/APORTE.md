@@ -2,6 +2,12 @@
 
 10-10-2026. Continuación de [Excepciones](EXCEPCIONES.md).
 
+**Continuación ejecutada:** [Semilla](SEMILLA.md) enlaza aporte y
+levantamiento modular, distingue su alcance y formaliza la exigencia
+`d>H(x+1)^5` para excursiones de un mismo fugitivo puro con infinitos regresos.
+La familia de esta nota tiene d<x; conserva su función de refutar
+una cota inferior uniforme del aporte por el contador.
+
 **Resultado:** el aporte de una cadena `110` se satura aunque crezca
 su longitud. La cantidad que la neutraliza exactamente, `(x+5)/P`,
 no es monótona entre regresos: hay excursiones reales con cambio
@@ -205,6 +211,7 @@ el cohete y la grieta siguen abiertos.
 **Decisión:** conservar el aporte ponderado exacto (3) y el balance
 firmado (6); descartar el uso del contador E como sustituto de esos
 aportes o de J_5 como cantidad monótona local. El siguiente trabajo
-debe enlazar los pesos con la congruencia de **una misma semilla** a
-través de varios regresos. Otra condición de abundancia por sí sola
-no elimina la posibilidad pendiente.
+debía enlazar los pesos con la congruencia de **una misma semilla** a
+través de varios regresos. Ese enlace se ejecuta en [Semilla](SEMILLA.md):
+el objetivo pendiente pasa a una cota de duración por la entrada.
+Otra condición de abundancia por sí sola no elimina la posibilidad pendiente.
