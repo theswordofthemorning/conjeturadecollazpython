@@ -1,0 +1,48 @@
+{
+  "parametros": {
+    "dmax": 7,
+    "nmax": 96,
+    "rmax": 12,
+    "qmax": 8,
+    "pasos": 64
+  },
+  "presupuestos": {
+    "palabras_expansivas": 68,
+    "semillas_pequenas": 6596,
+    "representantes": 1768,
+    "longitudes": 884,
+    "alcance": "Palabras no vacías expansivas; incluye cero copias y semilla cero. El caso contractivo 10, n=1 tiene potencial cero y no admite esta cota."
+  },
+  "relojes": {
+    "presupuestos_desde_una_semilla": 8539,
+    "corte": 64
+  },
+  "mezcla": {
+    "palabras": 511,
+    "intervalos_extremos": 1022,
+    "cortes": 15366,
+    "transiciones_entre_110": 1291,
+    "alcance": "Cada palabra conserva una semilla durante todos sus cortes; la semilla varía entre palabras. No certifica integridad infinita."
+  },
+  "familia_110": [
+    {
+      "copias": 1,
+      "semilla": "3",
+      "salida": "4",
+      "siguiente_levantamiento": 7
+    },
+    {
+      "copias": 2,
+      "semilla": "59",
+      "salida": "76",
+      "siguiente_levantamiento": 7
+    },
+    {
+      "copias": 12,
+      "semilla": "68719476731",
+      "salida": "282429536476",
+      "siguiente_levantamiento": 7
+    }
+  ],
+  "sha256_fuente_lf": "4123c1b50ef84269100efcc7b0c2b1296dd5f437b7004e269a5c10e1c33d2f1d"
+}

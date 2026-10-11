@@ -11,8 +11,11 @@ de inversos es `4(ξ-n)-1`. [Mínimos futuros](MINIMOS.md) formaliza
 la cota cuantitativa y los reinicios grandes de fuga pura; también
 `Collatz <-> MuroB y ausencia de circuitos no triviales`. Ninguna
 de esas dos condiciones está probada. Anchura y congruencia admiten
-prefijos arbitrariamente largos con semillas variables. Siguiente:
-concatenar mínimos futuros conservando una única semilla.
+prefijos arbitrariamente largos con semillas variables.
+[Repeticiones](REPETICIONES.md) acota cuántas copias de un bloque
+admite una misma semilla y obtiene el defecto al cambiarlo.
+Siguiente: controlar sus cancelaciones en concatenaciones variables;
+la mezcla `1`/`110` tiene ya una transición aritmética explícita.
 La [novena raíz](NOVENA.md) y su cuenta `O(K^(8/75))` se conservan;
 su premisa de infinitos regresos queda excluida bajo fuga pura.
 El [enlace con la semilla](SEMILLA.md) conserva su alcance.

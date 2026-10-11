@@ -191,12 +191,13 @@ longitud por separado, la congruencia y la anchura disponibles.
 No descarta una prueba que use conjuntamente todos los cortes de
 una misma semilla positiva.
 
-**Siguiente:** estudiar las concatenaciones entre mínimos futuros
-con una única semilla, usando el levantamiento ya explícito de
-[Semilla](SEMILLA.md). Buscar una restricción que fuerce un nuevo
-levantamiento de su representante; si sólo se recupera la condición
-de que sea FugaPura, se habrá reformulado MuroB sin resolverlo.
-Mejorar otra vez la anchura, por sí solo, no cubre ese paso.
+**Continuación ejecutada:** [Repeticiones](REPETICIONES.md) obtiene
+un presupuesto entero para repetir un bloque desde una única semilla
+y localiza el defecto que aparece al cambiar de bloque. Usa el
+levantamiento de [Semilla](SEMILLA.md); no excluye las concatenaciones
+variables. Siguiente: controlar esas cancelaciones, empezando por
+la transición explícita `1`/`110`. Recuperar sólo FugaPura reformularía
+MuroB; mejorar otra vez la anchura no cubre ese paso.
 
 ## 6. Verificación y conservación
 
@@ -230,9 +231,10 @@ avisos ni pruebas incompletas. [Evidencia](evidencia_minimos.json),
 
 [Resultado](cotejo_minimos.json). No se repiten censos históricos.
 
-El [registro versionado](../coherencia20260913/registro.json) actualiza
-la evidencia de `perdices_cola_minimos` y añade `perdices_minimos_reinicios`
-y `perdices_minimos_compatibilidad`: 310 afirmaciones, 204 demostradas,
+Al cerrar este bloque, el [registro](../coherencia20260913/registro.json)
+actualizó la evidencia de `perdices_cola_minimos` y añadió
+`perdices_minimos_reinicios` y `perdices_minimos_compatibilidad`:
+310 afirmaciones, 204 demostradas,
 86 medidas, 12 conjeturadas y ocho refutadas. La segunda alta tiene
 el alcance escrito de §5, no una certificación Lean de toda la familia.
 `guardarafirmaciones.py` regenera la base; el

@@ -61,25 +61,25 @@ excluye al planeador. Atajo T, n>0 e inyectividad orbital:
 `sum 1/T^j(n)<=3*2^100`, `R_k->ξ` finito y `P_k->infinito`.
 Formalizado; antecedente Garcia–Tal (1999), sin reclamar prioridad.
 
-**Avance del 10-10:** [Mínimos futuros](depuracion/perdices20261007/MINIMOS.md)
-formaliza `t_k<=x_k[exp(2^100/2^m)-1]` si todo el futuro queda
-sobre `2^(100m)`, con `t_k=ξ P_k-x_k`. Toda órbita positiva
-inyectiva tiene reinicios de fuga pura arbitrariamente tardíos y
-grandes, sin usar MuroA. Veinte lemas nuevos en Lean; 24 módulos
-previos auditados, 295 consultas. La anchura `O(n^(99/100))`
-conserva sólo prueba escrita.
+[Mínimos futuros](depuracion/perdices20261007/MINIMOS.md) formaliza
+la cota exponencial de cola y los reinicios grandes de fuga pura,
+sin MuroA. También `Collatz <-> MuroB y ausencia de circuitos no
+triviales`. **Ambas condiciones siguen abiertas.** La anchura
+`O(n^(99/100))` conserva sólo prueba escrita.
 
-También queda formalizado `Collatz <-> MuroB y ausencia de
-circuitos no triviales`: MuroB equivale a excluir las órbitas
-positivas inyectivas. **Ambas condiciones siguen abiertas.** Los
-mínimos ya existían condicionalmente en CasaTablero; Colisiones
-elimina la alternativa del planeador.
+**Avance del 10-10:** [Repeticiones](depuracion/perdices20261007/REPETICIONES.md).
+Para un bloque expansivo `N y=D x+E`, `N=2^d`, `D=3^s`,
+`C=D-N>0`, r copias desde x exigen `2^(dr)<=C x+E`.
+También hay cotas desde el reloj y ξ. Catorce lemas nuevos en
+Lean, 25 módulos previos auditados, 309 consultas. Coincidencia
+exacta: `v2(C x+E)` pasos, con prueba escrita y cotejo.
 
-Anchura y congruencia admiten prefijos `1^L`, con semillas variables
-`2^L-1`: no construyen una fuga infinita. Prueba escrita y cotejo
-exacto de 255 prefijos, incluidos bordes. La
-[cola](depuracion/perdices20261007/COLA.md) conserva su límite relativo
-cero y la precaución bibliográfica sobre López–Stoll (2021).
+Cambiar de bloque añade `delta=C F-E(D-N)`: falta controlar sus
+cancelaciones. La mezcla `1`/`110` tiene transición explícita y un
+modelo real aperiódico; no certifica una semilla natural. Cotejo:
+68 palabras, 6596 semillas, 8539 presupuestos y 511 mezclas.
+La [cola](depuracion/perdices20261007/COLA.md) conserva su alcance
+y la precaución bibliográfica sobre López–Stoll (2021).
 
 [Novena](depuracion/perdices20261007/NOVENA.md),
 [Semilla](depuracion/perdices20261007/SEMILLA.md) y
@@ -90,10 +90,9 @@ La [casa](depuracion/casa20261004/LEEME.md) conserva abiertos A y B;
 Collatz sigue abierto. [Mahler](depuracion/mahler20261007/LEEME.md)
 incorpora ξ finito, sin excluir al cohete.
 
-**Siguiente:** estudiar concatenaciones entre mínimos futuros de
-una única semilla mediante levantamientos que fuercen crecer sus
-representantes; recuperar sólo FugaPura reformularía MuroB. No asumir
-ventana constante ni tasa puntual de crecimiento.
+**Siguiente:** controlar delta para una misma semilla; ensayar con
+`1`/`110` antes de generalizar a todos los mínimos. Excluir repeticiones
+periódicas no resuelve las concatenaciones variables ni MuroB.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -106,7 +105,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 310 afirmaciones: 204 demostradas, 86 medidas, 12 conjeturadas
+Registro: 312 afirmaciones: 206 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.
