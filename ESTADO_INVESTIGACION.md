@@ -56,37 +56,40 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Perdices: novena raíz](depuracion/perdices20261007/NOVENA.md)
-incorpora que sólo puede haber una entrada impar divisible por 3.
-Bajo fuga pura, `R_k^9<=3n^9(2S_k+1)` y la cuenta de regresos mejora
-a `O(K^(8/75))`. Infinitos regresos a techo fijo exigirían
-`d>H(x+1)^8` en toda cola, para cada H fijo. Bastaría una cota
-superior opuesta; sigue abierta.
+**Avance del 10-10:** [Perdices: colisiones](depuracion/perdices20261007/COLISIONES.md)
+excluye al planeador intermitente. Atajo T, n>0 e inyectividad orbital:
+`sum 1/T^j(n)<=3*2^100`, `R_k<=n exp(2^100)`, límite real finito
+`R_k->ξ>=n` y `P_k->infinito`. FugaPura aporta esas hipótesis.
+Cada iterado es inyectivo sobre los valores orbitales; la imagen
+de `[0,2^(100m))` tiene a lo sumo `3*2^(99m)` elementos.
+El conteo y una suma geométrica prueban el resultado sin aleatoriedad.
 
-Veintiséis lemas nuevos; 21 módulos previos auditados, 232 consultas.
-Cotejo exacto: 4096 conjuntos, 8192 excepciones y 18555 prefijos
-válidos; controles de las hipótesis y de los radios. El enlace
-orbital de novena raíz, cuenta y exigencia octava está en Lean.
+Veinte lemas nuevos, incluido el límite y la exclusión; 22 módulos
+previos auditados, 252 consultas, sólo axiomas estándar. Contraste
+exacto: 425986 prefijos, 17 cuentas binomiales y 7989 identidades;
+bordes de inyectividad y multiplicidad. Antecedente leído: Garcia–Tal
+(1999), ecuación (6) y corolario 1; no se reclama prioridad.
 
-[Excepciones](depuracion/perdices20261007/EXCEPCIONES.md) conserva la
-no acotación formal de E; su tasa escrita 7/25 sigue por formalizar.
-[Balance](depuracion/perdices20261007/BALANCE.md) conserva el presupuesto
-par. [Semilla](depuracion/perdices20261007/SEMILLA.md) enlaza aporte
-y congruencia; [Aporte](depuracion/perdices20261007/APORTE.md) conserva
-su familia con d<x, compatible con la nueva exigencia.
+La [novena raíz](depuracion/perdices20261007/NOVENA.md) conserva sus
+cotas finitas. Los resultados sobre infinitos regresos tienen ahora
+una premisa imposible bajo fuga pura; ya no hace falta cerrar su
+propuesta de duración. [Semilla](depuracion/perdices20261007/SEMILLA.md)
+y [Aporte](depuracion/perdices20261007/APORTE.md) conservan sus identidades
+y límites finitos.
 
 La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
-A y B. Planeador general, cohete y grieta siguen sin excluirse.
+A y B: quedan cohete y grieta. Collatz sigue abierto.
 [Jinetas](depuracion/jinetas20261010/RACHAS.md) no obtuvo inducción;
 la [reserva](depuracion/perdices20261007/UMBRAL.md) tiene medidas por
-formalizar. [Mahler](depuracion/mahler20261007/LEEME.md) queda integrado
-como vía cerrada: documenta identidades y límites de la analogía,
-sin excluir al cohete. Su plan del 07-10 es un antecedente.
+formalizar. [Mahler](depuracion/mahler20261007/LEEME.md) se precisa:
+ξ es finito para todo cohete positivo inyectivo, también los antes
+considerados lentos. Su analogía de ventanas sigue sin excluirlos.
 
-**Siguiente:** controlar duración o altura por la entrada y su
-congruencia en las palabras de retorno. Bastaría `d<=H(x+1)^8`
-en una cola. La inyectividad sólo da un conteo bajo una altura
-todavía sin acotar; la congruencia sola tampoco cierra ese paso.
+**Siguiente:** estudiar las restricciones aritméticas de la cola
+`t_k=ξ P_k-T^k(n)` y del entero fijo n. La representación de Mahler
+con ξ finito ya cubre toda fuga pura; no garantiza una ventana ni
+una tasa puntual de crecimiento. Distinguir una restricción nueva
+de reescribir la identidad afín o la congruencia existente.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -99,15 +102,12 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 302 afirmaciones: 196 demostradas, 86 medidas, 12 conjeturadas
+Registro: 305 afirmaciones: 199 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.
 
-Sesión del 05-10 [recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md)
-con huellas verificadas: implementaciones independientes conservadas.
-[Conciliación](depuracion/jinetas20261010/CONCILIACION.md): claves y alcance
-cotejados; nueve altas recuperadas conservadas sin fusionar. Medición
-hasta m=14 en flotantes. Nueve discrepancias de huellas se explican por
-finales de línea; dos requieren revisión.
-Los módulos actuales no utilizan esas cachés. Censos históricos y zootheorem intactos.
+Histórico: [recuperación del 05-10](depuracion/casa20261005_recuperada/RECUPERACION.md)
+y [conciliación](depuracion/jinetas20261010/CONCILIACION.md). Se conservan
+implementaciones y nueve altas independientes. Dos huellas antiguas
+requieren revisión; no se usan sus cachés. Censos y zootheorem intactos.

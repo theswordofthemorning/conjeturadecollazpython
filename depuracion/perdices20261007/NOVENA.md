@@ -1,5 +1,10 @@
 # Perdices: la exclusión del tres mejora la sexta raíz a novena
 
+**Continuación del 10-10:** [Colisiones](COLISIONES.md) excluye al
+planeador intermitente mediante sumabilidad de recíprocos. Las pruebas
+y cotas de esta nota se conservan; el siguiente paso que proponía
+queda sustituido. Cohete y grieta siguen abiertos.
+
 10-10-2026. Continuación de [Semilla](SEMILLA.md), [Tamaño](TAMANO.md)
 y [Cruce](CRUCE.md). Se conserva el nombre Perdices. La restricción
 módulo 3 es elemental; se desarrolla aquí su efecto sobre estas cotas,
@@ -246,4 +251,6 @@ python -B -X utf8 depuracion/perdices20261007/cotejar_novena.py --elementos 12 -
 ```
 
 Si faltan objetos previos, reproducir primero [Semilla](SEMILLA.md#5-alcance-formal-cotejo-y-siguiente-trabajo).
-Collatz, el planeador intermitente, el cohete y la grieta siguen abiertos.
+Al cerrar este bloque seguían abiertos los tres casos. La continuación
+[Colisiones](COLISIONES.md) excluye después al planeador; Collatz,
+el cohete y la grieta siguen abiertos.

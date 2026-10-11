@@ -1,6 +1,15 @@
 # Plano de la casa: qué le falta a la prueba de que todo número llega a 1
 
-**Ruta vigente, 10-10-2026:** [balance y programa](RUTA_20261010.md),
+**Ruta vigente, 10-10-2026, continuación:**
+[Colisiones](../perdices20261007/COLISIONES.md) excluye al planeador
+intermitente. Toda fuga pura tendría `P_k -> infinito` y `R_k -> ξ`
+real finito. Prueba en Lean, con antecedente Garcia–Tal (1999).
+Cohete y grieta siguen abiertos. Siguiente: restricciones aritméticas
+de la cola `ξ P_k-T^k(n)`. Las decisiones anteriores se conservan
+abajo como antecedentes; la búsqueda de una cota de duración ya
+no es necesaria para excluir al planeador.
+
+**Antecedentes del 10-10-2026:** [balance y programa](RUTA_20261010.md),
 con [primer ensayo ejecutado: Jinetas](../jinetas20261010/LEEME.md).
 El traslado quedó auditado; el intercambio `01/10` crea y destruye
 paradojas por el acarreo modular. Se descarta ordenar sólo por el
@@ -953,10 +962,12 @@ planeador intermitente y grieta siguen abiertos.
 **Actualización del 10-10:** el párrafo anterior conserva la decisión
 del 07-10. El [cruce](../perdices20261007/CRUCE.md) ya combina la
 sexta raíz con casi fugitivos y obtiene la cota de regresos con
-exponente 4/25. La continuación vigente está en
-[novena raíz y duración](../perdices20261007/NOVENA.md): buscar la cota
-superior por el valor de entrada que falta. Mahler se integra como
-exploración cerrada, sin sustituir esa ruta.
+exponente 4/25. La [novena raíz y duración](../perdices20261007/NOVENA.md)
+mejoró después el exponente a 8/75. La continuación vigente,
+[Colisiones](../perdices20261007/COLISIONES.md), excluye finalmente
+al planeador y garantiza ξ finito para toda fuga pura. Se retoma
+la cola real del cohete con esa hipótesis ya probada; la analogía
+de ventanas de Mahler sigue sin proporcionar una contradicción.
 
 **Duda abierta del usuario, 04-10:** «¿para terminar de construir los
 muros necesitamos la racha 25, 26 y así sucesivamente? Eso nos dejaría

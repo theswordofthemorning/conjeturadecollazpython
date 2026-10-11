@@ -1,15 +1,19 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
-**10-10:** [novena raíz](NOVENA.md): la exclusión de múltiplos de 3
-mejora la cuenta de regresos a `O(K^(8/75))`. Infinitos regresos
-exigirían `d>H(x+1)^8` en toda cola, para cada H fijo, ya en Lean.
-Siguiente: buscar una cota superior de duración por la entrada.
+**10-10, continuación:** [colisiones y sumabilidad](COLISIONES.md)
+excluye al planeador intermitente. En toda órbita positiva inyectiva,
+`sum 1/x_j` converge, `R_k` tiene límite real finito y `P_k -> infinito`.
+Veinte lemas nuevos en Lean; antecedente Garcia–Tal (1999), sin
+reclamar prioridad. Cohete y grieta siguen abiertos. Siguiente:
+estudiar las restricciones aritméticas de la cola `ξ P_k-x_k`.
+La [novena raíz](NOVENA.md) y su cuenta `O(K^(8/75))` se conservan;
+su premisa de infinitos regresos queda excluida bajo fuga pura.
 El [enlace con la semilla](SEMILLA.md) conserva su alcance.
 El [aporte ponderado](APORTE.md) y el
 [contador no acotado](EXCEPCIONES.md) conservan su alcance.
 Conserva la [cota anterior 4/25](CRUCE.md), con constantes explícitas.
-Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso),
+Antecedentes: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso),
 [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística)
 y el [primo de Mahler](../mahler20261007/LEEME.md), cerrado: no alcanza al cohete.
 

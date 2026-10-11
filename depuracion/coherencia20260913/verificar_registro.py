@@ -31,7 +31,7 @@ def verificar_catalogo():
     args = [fuente[n] for n in ('AFIRMACIONES', 'CORRECCIONES', 'NODOS', 'DEPENDENCIAS')]
     archivo = RAIZ / 'depuracion/coherencia20260913/registro.json'
     filas, corr, nodos, deps, claves, version = aplicar_registro(*args, archivo)
-    assert len(filas) == 302 and version == '2026-10-10'
+    assert len(filas) == 305 and version == '2026-10-10'
     # Una edición accidental de la base antigua no se aplica a IDs desplazados.
     alteradas = list(args[0]); alteradas[0] = ('alterado',) + alteradas[0][1:]
     try:

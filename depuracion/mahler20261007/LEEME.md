@@ -1,5 +1,13 @@
 # El primo de Mahler: una herramienta individual contra el cohete
 
+**Precisión posterior, 10-10-2026:** [Colisiones](../perdices20261007/COLISIONES.md)
+prueba en Lean que toda órbita positiva inyectiva tiene ξ finito y
+`P_k -> infinito`. Excluye al planeador intermitente y la posibilidad
+antes contemplada de cohetes positivos con ξ=infinito. La cola real
+del diccionario sí se aplica a todo hipotético cohete de fuga pura.
+Esto no aporta la ventana que falta a la analogía con Mahler; el
+cohete sigue abierto. La lectura y el plan del 07-10 se conservan.
+
 **Estado: cerrado (07-10-2026, noche), versión corta.** Documenta
 identidades y una limitación de la vía; no excluye al cohete. Se propuso
 el 07-10 por la noche como segunda idea para avanzar y quedó documentada mientras se hacía
@@ -15,7 +23,7 @@ en el registro como `mahler_primo_cohete`.
 
 ## Por qué hace falta
 
-En el [plano de la casa](../casa20261004/LEEME.md), del muro B quedan dos
+En el balance del 07-10 del [plano de la casa](../casa20261004/LEEME.md), del muro B quedaban dos
 especies de fugitivo: el planeador intermitente y el cohete. Todo lo que
 tenemos contra ellas (la estela, Perdices, la sexta raíz) dice de varias
 formas que el fugitivo **aterriza poco**: son cotas superiores para sus
@@ -96,13 +104,15 @@ Es la identidad afín de [PerdicesTamano](../perdices20261007/PerdicesTamano.lea
 
 1. **La estatura ξ.** Para `x = n > 0`, R_k nunca disminuye y nunca baja
    de n. Existe `ξ = lim R_k`, con `n ≤ ξ ≤ ∞`.
-2. **Sólo los cohetes rápidos.** `ξ < ∞` exactamente cuando la suma de
+2. **Criterio de finitud.** `ξ < ∞` exactamente cuando la suma de
    `1/P_j` sobre los pasos impares converge. Un planeador intermitente
    tiene `ξ = ∞`. Si `P_j ≤ C`, el siguiente paso impar `j' ≥ j` cumple
    `P_j' ≤ C`, porque en medio sólo hubo pasos pares. Eso da infinitos
-   términos de al menos `1/C`. Un cohete lento, por ejemplo con
-   `P_k ≈ k^0,9`, también puede tener `ξ = ∞`. El rasgo 9 sólo garantiza
-   `P_k > k^α` casi siempre, para `α < 5/6`, y eso no basta para converger.
+   términos de al menos `1/C`. El 07-10 se contempló un cohete lento
+   con ξ=infinito porque el rasgo 9, `P_k>k^α` casi siempre para
+   α<5/6, no bastaba para converger. **El cierre por colisiones del
+   10-10 excluye esa posibilidad en toda órbita positiva inyectiva.**
+   No fija por ello una tasa puntual de crecimiento del cohete.
 3. **La cola.** Si `ξ < ∞`, entonces `T^k(n) = ξ·P_k − t_k`, con
    `t_k = (1/3) Σ_{j≥k, impar} P_k/P_j ≥ 0`. La cola depende sólo de los
    pasos futuros y vale al menos 1/3 cuando `T^k(n)` es impar. En un tramo
@@ -115,7 +125,7 @@ Es la identidad afín de [PerdicesTamano](../perdices20261007/PerdicesTamano.lea
 
    Un cohete de verdad, en cambio, tendría `ξ ≥ n > 0`.
 
-Así, «¿hay un cohete rápido?» toma la forma «¿hay un `ξ > 0` tal que
+Así, con la precisión del 10-10, «¿hay un cohete?» toma la forma «¿hay un `ξ > 0` tal que
 `ξ·P_k − t_k` sea, para todo k, un entero con la paridad que dicta su
 propio futuro?». Es la forma de la pregunta de Mahler, cuyo `ξ = 0` también
 es la solución trivial. **Es una analogía de forma, no una equivalencia.**
@@ -313,7 +323,9 @@ atacar el problema de frente. Antes de abrir eso conviene parar y hacer
 - El problema de Mahler sigue abierto: como mucho saldría un rasgo parcial.
 - Las condiciones no calzan. **Se confirmó, y es el obstáculo:** la de
   Mahler encierra una serie en un pasillo; la del cohete no encierra nada.
-- Los cohetes lentos y los planeadores (`ξ = ∞`) quedan fuera.
+- Se contemplaron cohetes con ξ=infinito y planeadores fuera de este
+  diccionario finito; el resultado posterior de Colisiones los excluye
+  entre las órbitas positivas inyectivas.
 - El puente podría estar ya publicado. **Se cumplió** en la parte de las dos
   reglas.
 
