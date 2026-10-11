@@ -1,5 +1,9 @@
 # Perdices: colisiones, sumabilidad y exclusión del planeador
 
+**Continuación del mismo día:** [Cola](COLA.md) formaliza el piso,
+la dinámica y el límite relativo de la cola real. La exclusión de
+esta nota permanece vigente; cohete y grieta siguen abiertos.
+
 10-10-2026. Continúa [Novena](NOVENA.md) y sustituye su siguiente paso.
 Se conserva el nombre Perdices. **Resultado:** toda órbita positiva
 inyectiva tiene suma de recíprocos finita, tamaño normalizado acotado

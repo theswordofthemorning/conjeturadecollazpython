@@ -7,6 +7,10 @@ antes contemplada de cohetes positivos con ξ=infinito. La cola real
 del diccionario sí se aplica a todo hipotético cohete de fuga pura.
 Esto no aporta la ventana que falta a la analogía con Mahler; el
 cohete sigue abierto. La lectura y el plan del 07-10 se conservan.
+La continuación [Cola](../perdices20261007/COLA.md) formaliza
+`t_k>=1`, su dinámica y `t_k/x_k->0`; no deduce una ventana constante.
+Allí se documenta también el puente de racionalidad que queda sin
+cotejar en un preprint posterior de López–Stoll (2021).
 
 **Estado: cerrado (07-10-2026, noche), versión corta.** Documenta
 identidades y una limitación de la vía; no excluye al cohete. Se propuso

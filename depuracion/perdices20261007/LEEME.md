@@ -5,8 +5,11 @@
 excluye al planeador intermitente. En toda órbita positiva inyectiva,
 `sum 1/x_j` converge, `R_k` tiene límite real finito y `P_k -> infinito`.
 Veinte lemas nuevos en Lean; antecedente Garcia–Tal (1999), sin
-reclamar prioridad. Cohete y grieta siguen abiertos. Siguiente:
-estudiar las restricciones aritméticas de la cola `ξ P_k-x_k`.
+reclamar prioridad. La [cola del cohete](COLA.md) ya tiene piso,
+recurrencia y límite relativo cero formalizados; la suma completa
+de inversos es `4(ξ-n)-1`. Cohete y grieta siguen abiertos.
+Siguiente: formalizar la cota escrita desde un mínimo futuro y
+cruzarla con el residuo entero, sin suponer una ventana constante.
 La [novena raíz](NOVENA.md) y su cuenta `O(K^(8/75))` se conservan;
 su premisa de infinitos regresos queda excluida bajo fuga pura.
 El [enlace con la semilla](SEMILLA.md) conserva su alcance.

@@ -1467,6 +1467,33 @@
       "enunciado": "PERDICES: EXCLUSION DEL PLANEADOR INTERMITENTE. Para n>0 y j->T^j(n) inyectiva, todo C real positivo admite K tal que k>=K implica 3^S_k(n)/2^k>C. En particular, FugaPura n implica para todo c natural la existencia de K con 3^c*2^k<3^S_k(n) para todo k>=K. No hay InfinitosRegresos n c ni planeador intermitente bajo FugaPura. Del muro B queda el cohete; la grieta del muro A y Collatz siguen abiertos.",
       "fuente": "producto corrector acotado y escape de una sucesion inyectiva de naturales; formalizacion local 10-10-2026, consecuencia compatible con Garcia-Tal (1999), sin pretension de prioridad",
       "notas": "PerdicesColisiones.lean: orbita_supera, pronostico_supera, fuga_supera, sin_regresos_infinitos y sin_planeador_intermitente. Niega la alternativa de regresos infinitos de CasaPlaneador.cohete_o_planeador_intermitente. Cadena completa con 20 lemas nuevos, Lean 4.32.2, solo propext, Classical.choice y Quot.sound, sin avisos ni pruebas incompletas; 22 modulos previos auditados sin recompilar: 23 modulos y 252 consultas. No necesita la cota de duracion propuesta en NOVENA.md. Sus resultados condicionales anteriores siguen validos pero tienen ahora premisa imposible bajo fuga pura; sus cotas finitas se conservan. No excluye los cohetes, ni transforma cruce en descenso, ni certifica el significado matematico por mera compilacion. Original Garcia-Tal leido en sus seis paginas; no se usa como axioma. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_cola_estructura",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/COLA.md",
+      "enunciado": "PERDICES: ESTRUCTURA DE LA COLA REAL. Atajo T, x_j=T^j(n), S_k entradas impares anteriores a k, P_k=3^S_k/2^k, I_k=1/P_k y R_k=x_k/P_k. Para todo n,k naturales, A_k=R_k+I_k=n+1+sum_{j<k, par}I_j y sum_{j<k}I_j=4*(R_k-n)+I_k-1. Si n>0 y la orbita es inyectiva, R_k y A_k convergen al mismo real xi, xi>=n+1, sum_j I_j=4*(xi-n)-1 y t_k=xi*P_k-x_k>=1. La cola cumple t_(k+1)=t_k/2 en pasos pares y (3*t_k-1)/2 en impares; antes de a pasos pares consecutivos t_k>=2^a. Ademas t_k/x_k->0; esto no afirma que t_k sea acotada.",
+      "fuente": "identidades afines y telescopio del inverso, enlazados con el limite finito de PerdicesColisiones; formalizacion local del diccionario de Mahler, 10-10-2026, sin pretension de prioridad",
+      "notas": "PerdicesCola.lean: 23 lemas nuevos, incluidas las identidades finitas, aumentado monotono, limites, piso, dinamica, sumabilidad de todos los inversos y suma total, y limite relativo. Lean 4.32.2, solo axiomas estandar, sin avisos ni pruebas incompletas; 23 modulos previos auditados, 24 modulos y 275 consultas. Cotejo Fraction: n=1..128, 96 pasos, 12416 identidades y 12288 colas finitas con recurrencia inversa independiente. Se incluyen ciclos, sin atribuirles los limites de orbitas inyectivas. Las sumas infinitas por separado de pares e impares y la representacion de la cola por esas series se deducen por escrito, sin lemas nuevos especificos. El borde n=1,k=0,K=1 da cola finita 1/3, por lo que el piso infinito no se aplica a cualquier corte. Cohete y grieta siguen abiertos. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_cola_prefijos",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/COLA.md",
+      "enunciado": "PERDICES: COLAS FINITAS SIN COTA UNIFORME ENTRE SEMILLAS. Para todo q>=1, la palabra 1^(2q)0^q11 de longitud K=3q+2 tiene un representante minimo positivo n_q modulo 2^K. Con B_q=9*(3^(2q)-2^(2q))+5*2^(3q), n_q=-B_q*(3^(2q+2))^(-1) mod 2^(3q+2). Todos sus pronosticos hasta K son >=1 y en k=2q la cola finita (R_K-R_k)/I_k vale (5/9)*2^q. No hay una cota absoluta uniforme de estas colas deducible solo de no cruzar en el prefijo. Varia n_q; no se afirma que los prefijos se prolonguen a una fuga pura ni se refuta una cota dependiente de una semilla fija.",
+      "fuente": "composicion afin de palabras, biyeccion de paridades existente y dos terminos exactos de la cola; prueba escrita local 10-10-2026",
+      "notas": "COLA.md seccion 4: prueba general escrita, no formalizacion orbital completa de esta familia en PerdicesCola.lean. Tras las primeras 2q subidas y q pasos pares, P=(9/8)^q>=1; los ultimos dos impares aportan 2^q/3+2^(q+1)/9. Cotejo exacto q=1..64: representante, paridades, identidad afin y todos los pronosticos. Distingue un fracaso de inferencia desde prefijos finitos de una exclusion del cohete. El preprint Lopez-Stoll 2021 no se incorpora como teorema: el transporte de racionalidad entre limites requiere cotejo adicional; el ejemplo q_m=2^m*floor(sqrt(2)*(3/2)^m)/3^m tiene limite real sqrt(2) y 2-adico 0, pero no es una serie de paridades Collatz ni refuta el teorema del preprint. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_cola_minimos",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/COLA.md",
+      "enunciado": "PERDICES: COTA ESCRITA DE COLA DESDE UN PISO FUTURO. Para una orbita positiva inyectiva, si x_j>=2^(100m) para todo j>=k, entonces sum_{j>=k}1/x_j<=3*2^100/2^m y t_k<=x_k*(exp(2^100/2^m)-1). Para FugaPura n>=2^(100m), se obtiene xi-n<=n*(exp(2^100/2^m)-1), luego O(n^(99/100)) al elegir el mayor m y crecer n entre tales semillas hipoteticas. Como P_k->infinito, cada cola de P alcanza un minimo; hay reinicios FugaPura arbitrariamente tardios en los que la cota se aplica con x_k como piso futuro. No afirma existencia de fugas ni una anchura constante.",
+      "fuente": "cuenta orbital de PerdicesColisiones, suma geometrica desde un anillo arbitrario y producto corrector de la orbita reiniciada; prueba escrita local 10-10-2026",
+      "notas": "COLA.md seccion 5. La identidad local R_j(x_k)=P_k*R_(k+j)(n) da limite local xi*P_k. Sumar desde r=m las cotas 3*2^99*2^(-r) y aplicar 1+u<=exp(u). El telescopio se coteja con Fraction en 129 pisos y 17 anillos por piso, sin simular fugas ni exponenciales. Esta cota cuantitativa, su forma asintotica y la extraccion de minimos futuros NO estan formalizadas todavia; el modulo certifica los resultados de la clave perdices_cola_estructura. Siguiente: formalizar la cota y determinar que incompatibilidad aritmetica aporta la congruencia; las identidades y una anchura sublineal no bastan por si solas. Revision humana pendiente."
     }
   ],
   "nodos": [

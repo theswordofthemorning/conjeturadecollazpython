@@ -56,40 +56,43 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Perdices: colisiones](depuracion/perdices20261007/COLISIONES.md)
+**Resultado conservado:** [Colisiones](depuracion/perdices20261007/COLISIONES.md)
 excluye al planeador intermitente. Atajo T, n>0 e inyectividad orbital:
-`sum 1/T^j(n)<=3*2^100`, `R_k<=n exp(2^100)`, límite real finito
-`R_k->ξ>=n` y `P_k->infinito`. FugaPura aporta esas hipótesis.
-Cada iterado es inyectivo sobre los valores orbitales; la imagen
-de `[0,2^(100m))` tiene a lo sumo `3*2^(99m)` elementos.
-El conteo y una suma geométrica prueban el resultado sin aleatoriedad.
+`sum 1/T^j(n)<=3*2^100`, `R_k->ξ` real finito y `P_k->infinito`.
+FugaPura aporta esas hipótesis. Conteo por imágenes y suma geométrica
+en Lean; antecedente Garcia–Tal (1999), sin reclamar prioridad.
 
-Veinte lemas nuevos, incluido el límite y la exclusión; 22 módulos
-previos auditados, 252 consultas, sólo axiomas estándar. Contraste
-exacto: 425986 prefijos, 17 cuentas binomiales y 7989 identidades;
-bordes de inyectividad y multiplicidad. Antecedente leído: Garcia–Tal
-(1999), ecuación (6) y corolario 1; no se reclama prioridad.
+**Avance del 10-10:** [Cola del cohete](depuracion/perdices20261007/COLA.md).
+Con `I_k=1/P_k`, también `(T^k(n)+1)/P_k=R_k+I_k` es monótono
+y converge a ξ. Por tanto `ξ>=n+1`, `t_k=ξ P_k-T^k(n)>=1`,
+y antes de a pasos pares `t_k>=2^a`. Además
+`sum I_j=4(ξ-n)-1` y `t_k/T^k(n)->0`. Veintitrés lemas nuevos
+en Lean; 23 módulos previos auditados, 275 consultas, axiomas estándar.
 
-La [novena raíz](depuracion/perdices20261007/NOVENA.md) conserva sus
-cotas finitas. Los resultados sobre infinitos regresos tienen ahora
-una premisa imposible bajo fuga pura; ya no hace falta cerrar su
-propuesta de duración. [Semilla](depuracion/perdices20261007/SEMILLA.md)
-y [Aporte](depuracion/perdices20261007/APORTE.md) conservan sus identidades
-y límites finitos.
+La cola relativa pequeña no da una ventana constante. La familia
+finita `1^(2q)0^q11`, sin cruce, tiene cola `(5/9)2^q`: varía
+la semilla, no construye una fuga infinita. Cotejo exacto: 12416
+identidades, 12288 colas, 64 bloques y bordes. Un preprint de
+López–Stoll (2021) queda sin incorporar: su puente entre racionalidad
+real y 2-ádica requiere justificación; no se afirma refutado.
+
+Se conservan [Novena](depuracion/perdices20261007/NOVENA.md),
+[Semilla](depuracion/perdices20261007/SEMILLA.md) y
+[Aporte](depuracion/perdices20261007/APORTE.md). Sus resultados sobre
+infinitos regresos tienen ahora una premisa imposible bajo fuga pura.
 
 La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
 A y B: quedan cohete y grieta. Collatz sigue abierto.
-[Jinetas](depuracion/jinetas20261010/RACHAS.md) no obtuvo inducción;
-la [reserva](depuracion/perdices20261007/UMBRAL.md) tiene medidas por
-formalizar. [Mahler](depuracion/mahler20261007/LEEME.md) se precisa:
-ξ es finito para todo cohete positivo inyectivo, también los antes
-considerados lentos. Su analogía de ventanas sigue sin excluirlos.
+[Mahler](depuracion/mahler20261007/LEEME.md) incorpora ξ finito para
+todo cohete positivo inyectivo; todavía no ofrece una ventana que
+permita excluirlo.
 
-**Siguiente:** estudiar las restricciones aritméticas de la cola
-`t_k=ξ P_k-T^k(n)` y del entero fijo n. La representación de Mahler
-con ξ finito ya cubre toda fuga pura; no garantiza una ventana ni
-una tasa puntual de crecimiento. Distinguir una restricción nueva
-de reescribir la identidad afín o la congruencia existente.
+**Siguiente:** formalizar la cota escrita
+`t_k<=x_k[exp(2^100/2^m)-1]` cuando todo el futuro queda sobre
+`2^(100m)`. En mínimos futuros da una anchura `O(x_k^(99/100))`;
+falta una incompatibilidad con el residuo entero. La extracción
+de esos mínimos también está escrita, no formalizada. No asumir
+una ventana constante ni una tasa puntual de crecimiento.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -102,7 +105,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 305 afirmaciones: 199 demostradas, 86 medidas, 12 conjeturadas
+Registro: 308 afirmaciones: 202 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

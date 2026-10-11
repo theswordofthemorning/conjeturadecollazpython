@@ -4,8 +4,10 @@
 [Colisiones](../perdices20261007/COLISIONES.md) excluye al planeador
 intermitente. Toda fuga pura tendría `P_k -> infinito` y `R_k -> ξ`
 real finito. Prueba en Lean, con antecedente Garcia–Tal (1999).
-Cohete y grieta siguen abiertos. Siguiente: restricciones aritméticas
-de la cola `ξ P_k-T^k(n)`. Las decisiones anteriores se conservan
+Cohete y grieta siguen abiertos. La [cola](../perdices20261007/COLA.md)
+ya tiene piso y dinámica en Lean, con límite relativo cero.
+Siguiente: cota cuantitativa desde mínimos futuros y su congruencia.
+Las decisiones anteriores se conservan
 abajo como antecedentes; la búsqueda de una cota de duración ya
 no es necesaria para excluir al planeador.
 
