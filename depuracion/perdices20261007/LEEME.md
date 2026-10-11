@@ -14,8 +14,11 @@ de esas dos condiciones está probada. Anchura y congruencia admiten
 prefijos arbitrariamente largos con semillas variables.
 [Repeticiones](REPETICIONES.md) acota cuántas copias de un bloque
 admite una misma semilla y obtiene el defecto al cambiarlo.
-Siguiente: controlar sus cancelaciones en concatenaciones variables;
-la mezcla `1`/`110` tiene ya una transición aritmética explícita.
+[Cancelaciones](CANCELACIONES.md) formaliza la resonancia de la mezcla
+`1`/`110` y el crecimiento de sus reinicios F: 20 lemas nuevos.
+Inversa e historias finitas tienen prueba escrita; no excluyen una
+trayectoria infinita. Siguiente: controlar los representantes de
+historias no periódicas desde una misma semilla, antes de generalizar.
 La [novena raíz](NOVENA.md) y su cuenta `O(K^(8/75))` se conservan;
 su premisa de infinitos regresos queda excluida bajo fuga pura.
 El [enlace con la semilla](SEMILLA.md) conserva su alcance.

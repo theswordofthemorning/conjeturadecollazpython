@@ -1,0 +1,110 @@
+{
+  "parametros": {
+    "zmax": 4095,
+    "hmax": 4095,
+    "corte": 32,
+    "amax": 3,
+    "bmax": 3,
+    "qmax": 3,
+    "rmax": 16
+  },
+  "salidas": {
+    "dominio": 512,
+    "salidas_por_residuo": 219,
+    "llegada_a_cambio": 293,
+    "pasos_sin_cambio": 256,
+    "unidad": "Pasos de G; no son pasos de T ni el instante del primer bit incompatible."
+  },
+  "reinicios": {
+    "entradas": 2048,
+    "reinicios_admisibles": 291,
+    "salidas_tras_cambio": 1757,
+    "pasos_T_cotejados": 1566,
+    "inversas_en_rango": 128,
+    "ejemplos": [
+      {
+        "h": 3,
+        "siguiente": 5,
+        "a": 1,
+        "b": 1,
+        "palabra": "1101"
+      },
+      {
+        "h": 21,
+        "siguiente": 53,
+        "a": 2,
+        "b": 1,
+        "palabra": "11011"
+      },
+      {
+        "h": 117,
+        "siguiente": 333,
+        "a": 2,
+        "b": 2,
+        "palabra": "11011110"
+      },
+      {
+        "h": 147,
+        "siguiente": 279,
+        "a": 1,
+        "b": 2,
+        "palabra": "1101110"
+      },
+      {
+        "h": 323,
+        "siguiente": 545,
+        "a": 1,
+        "b": 1,
+        "palabra": "1101"
+      }
+    ]
+  },
+  "cadenas": {
+    "salen": 2048,
+    "truncadas": 0,
+    "mayor_cadena_terminada": 4,
+    "ejemplo": [
+      323,
+      545,
+      2069,
+      5237,
+      14913
+    ],
+    "alcance": "Medición finita con corte explícito; una cadena truncada no cuenta como terminada ni como infinita."
+  },
+  "cilindros": {
+    "historias": 820,
+    "representantes": 1640,
+    "transiciones": 4716,
+    "pasos_T": 37728,
+    "alcance": "Cada historial finito admite una clase modular; no garantiza que un natural fijo realice un historial infinito."
+  },
+  "fuentes": {
+    "longitudes": 17,
+    "reinicios_cotejados": 136,
+    "ejemplos": [
+      {
+        "reinicios": 0,
+        "h": "3",
+        "salida": "3"
+      },
+      {
+        "reinicios": 1,
+        "h": "3",
+        "salida": "5"
+      },
+      {
+        "reinicios": 2,
+        "h": "1443",
+        "salida": "4109"
+      },
+      {
+        "reinicios": 16,
+        "h": "3353953467947191203",
+        "salida": "14502989650340456338793"
+      }
+    ],
+    "alcance": "Longitudes arbitrarias en la prueba escrita; semillas variables. Una fuente sin predecesor puede sobrevivir cualquier corte finito prefijado."
+  },
+  "sha256_fuente_lf": "aab032abbeacfd92dd622548f9af08dbe783d198c8973b59986d61a3d43c86bc"
+}

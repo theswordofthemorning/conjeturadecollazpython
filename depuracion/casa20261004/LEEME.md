@@ -10,8 +10,11 @@ formaliza la cota cuantitativa y los reinicios de fuga pura sin MuroA:
 `Collatz <-> MuroB y ausencia de circuitos no triviales`. Ambas
 condiciones siguen abiertas. [Repeticiones](../perdices20261007/REPETICIONES.md)
 acota la repetición de un bloque desde una misma semilla y calcula
-el defecto que aparece al cambiarlo. Siguiente: controlar las
-cancelaciones entre bloques; el caso `1`/`110` sirve de ensayo.
+el defecto que aparece al cambiarlo.
+[Cancelaciones](../perdices20261007/CANCELACIONES.md) formaliza la
+resonancia y los reinicios del ensayo `1`/`110`. Su persistencia
+infinita sigue abierta; esta clase no equivale a todo MuroB.
+Siguiente: controlar historias no periódicas de una misma semilla.
 Las decisiones anteriores se conservan
 abajo como antecedentes; la búsqueda de una cota de duración ya
 no es necesaria para excluir al planeador.

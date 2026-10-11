@@ -12,6 +12,10 @@ está en `CasaRetrato.rasgo_no_periodico`. Aquí se cuantifica la longitud
 de una repetición finita y se examina su interrupción. **MuroB y
 Collatz siguen abiertos.**
 
+**Continuación:** [Cancelaciones](CANCELACIONES.md) formaliza la
+resonancia de G y comprime los cambios en F. Su crecimiento y perfil
+de salida no excluyen todavía una trayectoria infinita de la clase.
+
 ## 1. Mapa, bloque y semilla
 
 Atajo T sobre naturales: n/2 para par y (3n+1)/2 para impar.
@@ -254,11 +258,12 @@ con sus límites formales explícitos: 312 afirmaciones, 206 demostradas,
 `afirmaciones.db` con el generador existente; se conservan las
 entradas anteriores y `respuestas.db`.
 
-**Siguiente:** controlar los defectos de (6) a lo largo de cambios
-de bloque de una misma semilla. (8) permite ensayar una restricción
-aritmética concreta antes de generalizarla a todos los bloques entre
-mínimos. No basta excluir repeticiones de un único bloque ni mostrar
-que los representantes crecen en una familia de semillas variables.
+**Continuación ejecutada:** [Cancelaciones](CANCELACIONES.md) obtiene
+la restricción aritmética de (8) y el mapa de reinicios. Queda buscar
+una cota para historias no periódicas de una misma semilla antes de
+generalizar a todos los bloques entre mínimos. Las congruencias de
+cualquier historia finita siguen admitiendo representantes naturales;
+excluir repeticiones de un único bloque no resuelve este paso.
 
 ```powershell
 python -B -X utf8 depuracion/perdices20261007/comprobar_repeticiones.py --compilados "$env:TEMP/perdices_cruce_20261010" --salida depuracion/perdices20261007/evidencia_repeticiones.json

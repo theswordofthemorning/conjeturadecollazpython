@@ -67,32 +67,34 @@ sin MuroA. También `Collatz <-> MuroB y ausencia de circuitos no
 triviales`. **Ambas condiciones siguen abiertas.** La anchura
 `O(n^(99/100))` conserva sólo prueba escrita.
 
-**Avance del 10-10:** [Repeticiones](depuracion/perdices20261007/REPETICIONES.md).
-Para un bloque expansivo `N y=D x+E`, `N=2^d`, `D=3^s`,
-`C=D-N>0`, r copias desde x exigen `2^(dr)<=C x+E`.
-También hay cotas desde el reloj y ξ. Catorce lemas nuevos en
-Lean, 25 módulos previos auditados, 309 consultas. Coincidencia
-exacta: `v2(C x+E)` pasos, con prueba escrita y cotejo.
+**Cierre del 10-10:** [Cancelaciones](depuracion/perdices20261007/CANCELACIONES.md),
+continuación de [Repeticiones](depuracion/perdices20261007/REPETICIONES.md).
+En `1`/`110`, persistir bajo G exige `3 | v2(z+1)`;
+si falla, hay salida en a lo sumo `floor(v2(z+1)/3)` pasos G.
+El mapa F entre cambios cumple `8F(h)>=13h` y sus salidas tienen
+valuación 3-ádica par. Veinte lemas nuevos en Lean, 26 módulos
+previos auditados, 329 consultas; sólo axiomas estándar.
 
-Cambiar de bloque añade `delta=C F-E(D-N)`: falta controlar sus
-cancelaciones. La mezcla `1`/`110` tiene transición explícita y un
-modelo real aperiódico; no certifica una semilla natural. Cotejo:
-68 palabras, 6596 semillas, 8539 presupuestos y 511 mezclas.
-La [cola](depuracion/perdices20261007/COLA.md) conserva su alcance
-y la precaución bibliográfica sobre López–Stoll (2021).
+Prueba escrita: inversa y realización de cualquier historia finita
+con semillas variables. Cotejo: 512 entradas G, 2048 semillas F y 820
+historias. **La persistencia infinita de una misma semilla sigue abierta**;
+resolver esta clase restringida tampoco resolvería todo MuroB.
+La [cola](depuracion/perdices20261007/COLA.md) conserva su alcance y
+la precaución bibliográfica sobre López–Stoll (2021).
 
 [Novena](depuracion/perdices20261007/NOVENA.md),
 [Semilla](depuracion/perdices20261007/SEMILLA.md) y
-[Aporte](depuracion/perdices20261007/APORTE.md) se conservan; infinitos
-regresos tienen ahora premisa imposible bajo fuga pura.
+[Aporte](depuracion/perdices20261007/APORTE.md): conservados; fuga pura
+ya excluye infinitos regresos.
 
 La [casa](depuracion/casa20261004/LEEME.md) conserva abiertos A y B;
 Collatz sigue abierto. [Mahler](depuracion/mahler20261007/LEEME.md)
 incorpora ξ finito, sin excluir al cohete.
 
-**Siguiente:** controlar delta para una misma semilla; ensayar con
-`1`/`110` antes de generalizar a todos los mínimos. Excluir repeticiones
-periódicas no resuelve las concatenaciones variables ni MuroB.
+**Siguiente sesión:** acotar el crecimiento de representantes en historias
+no periódicas de una misma semilla, primero en F y luego entre mínimos
+futuros. Perfil inverso y resonancia no son restricciones independientes;
+los cortes finitos no bastan.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -105,7 +107,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 312 afirmaciones: 206 demostradas, 86 medidas, 12 conjeturadas
+Registro: 314 afirmaciones: 208 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.
