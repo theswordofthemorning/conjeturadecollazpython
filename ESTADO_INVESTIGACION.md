@@ -56,22 +56,24 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Avance del 10-10:** [Perdices: semilla](depuracion/perdices20261007/SEMILLA.md)
-formaliza que fuga pura e infinitos regresos a un techo fijo exigen
-`v-u>H(T^u(n)+1)^5` en toda cola, para cada H fijo. La cota superior
-opuesta bastaría para excluir ese frente; sigue abierta.
+**Avance del 10-10:** [Perdices: novena raíz](depuracion/perdices20261007/NOVENA.md)
+incorpora que sólo puede haber una entrada impar divisible por 3.
+Bajo fuga pura, `R_k^9<=3n^9(2S_k+1)` y la cuenta de regresos mejora
+a `O(K^(8/75))`. Infinitos regresos a techo fijo exigirían
+`d>H(x+1)^8` en toda cola, para cada H fijo. Bastaría una cota
+superior opuesta; sigue abierta.
 
-Catorce lemas nuevos, veinte módulos previos auditados, 206 consultas.
-Cotejo: 2047 palabras, 20481 cortes y 223 excursiones no unitarias.
-Tres pares tienen igual aporte local y distinto levantamiento.
-La divisibilidad es formal; la fórmula modular y la equivalencia
-infinita son escritas. [Aporte](depuracion/perdices20261007/APORTE.md)
-conserva su familia, con d<x: no contradice la nueva exigencia.
+Veintiséis lemas nuevos; 21 módulos previos auditados, 232 consultas.
+Cotejo exacto: 4096 conjuntos, 8192 excepciones y 18555 prefijos
+válidos; controles de las hipótesis y de los radios. El enlace
+orbital de novena raíz, cuenta y exigencia octava está en Lean.
 
 [Excepciones](depuracion/perdices20261007/EXCEPCIONES.md) conserva la
 no acotación formal de E; su tasa escrita 7/25 sigue por formalizar.
 [Balance](depuracion/perdices20261007/BALANCE.md) conserva el presupuesto
-par; [Cruce](depuracion/perdices20261007/CRUCE.md), `O(K^(4/25))`.
+par. [Semilla](depuracion/perdices20261007/SEMILLA.md) enlaza aporte
+y congruencia; [Aporte](depuracion/perdices20261007/APORTE.md) conserva
+su familia con d<x, compatible con la nueva exigencia.
 
 La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
 A y B. Planeador general, cohete y grieta siguen sin excluirse.
@@ -81,10 +83,10 @@ formalizar. [Mahler](depuracion/mahler20261007/LEEME.md) queda integrado
 como vía cerrada: documenta identidades y límites de la analogía,
 sin excluir al cohete. Su plan del 07-10 es un antecedente.
 
-**Siguiente:** acotar la duración por la entrada y su congruencia
-en las palabras de retorno de SEMILLA §4. Bastaría `d<=H(x+1)^5`
-uniformemente en una cola. La congruencia sola no da esa cota
-ni obliga a cambiar la semilla.
+**Siguiente:** controlar duración o altura por la entrada y su
+congruencia en las palabras de retorno. Bastaría `d<=H(x+1)^8`
+en una cola. La inyectividad sólo da un conteo bajo una altura
+todavía sin acotar; la congruencia sola tampoco cierra ese paso.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -97,7 +99,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 300 afirmaciones: 194 demostradas, 86 medidas, 12 conjeturadas
+Registro: 302 afirmaciones: 196 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

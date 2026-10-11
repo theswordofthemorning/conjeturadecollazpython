@@ -4,6 +4,12 @@
 [prefijos de Jinetas](../jinetas20261010/PREFIJOS.md). Son consecuencias
 de las identidades y cotas del laboratorio; no se reclama prioridad.
 
+**Continuación ejecutada:** [Novena](NOVENA.md) incorpora la exclusión
+de múltiplos de 3, mejora el tamaño y la cuenta de regresos, y eleva
+la exigencia de duración de quinta a octava potencia. La cota quinta
+de esta nota sigue válida; el objetivo suficiente vigente es más
+permisivo, `d<=H(x+1)^8`.
+
 **Resultado:** el aporte local no decide si se prolonga el representante
 mínimo de una palabra. La congruencia completa sí lo decide, pero su
 estabilización reformula la existencia de una semilla fija. Una
@@ -216,9 +222,9 @@ python -B -X utf8 depuracion/perdices20261007/comprobar_semilla.py --compilados 
 python -B -X utf8 depuracion/perdices20261007/cotejar_semilla.py --largo-max 10 --n-max 512 --pasos 256 --nivel-max 4 --salida depuracion/perdices20261007/cotejo_semilla.json
 ```
 
-**Siguiente:** buscar una cota de duración que utilice el valor de
-entrada y su congruencia, comenzando por las palabras de retorno
-descritas en §4. El objetivo suficiente es d<=H(x+1)^5 en una cola
-de cada órbita considerada. Hay que obtenerla de la dinámica; (2)
-por sí sola no la proporciona.
+**Continuación:** la búsqueda de una cota por la entrada condujo a
+[Novena](NOVENA.md). El objetivo suficiente pasa a d<=H(x+1)^8
+en una cola de cada órbita considerada. Las palabras de retorno
+siguen siendo las de §4. Hay que obtener la cota de la dinámica;
+(2) por sí sola no la proporciona.
 No se ha probado esa cota ni excluido al planeador, al cohete o a la grieta.

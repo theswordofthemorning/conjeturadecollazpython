@@ -28,6 +28,11 @@ prueba que infinitos regresos exigirían duraciones mayores que cualquier
 múltiplo fijo de `(x+1)^5`, para el valor de entrada x. El aporte local
 no decide la congruencia de la prolongación. Siguiente: buscar una cota
 de duración basada en esa entrada; todavía no está demostrada.
+La [novena raíz](../perdices20261007/NOVENA.md) usa que sólo una
+entrada impar puede ser divisible por 3. Mejora los regresos a
+`O(K^(8/75))` y exige superar toda cota `H(x+1)^8` en una cola
+con infinitos regresos. Esa es la cota superior que ahora bastaría
+demostrar para excluir al planeador intermitente.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió
@@ -949,7 +954,7 @@ planeador intermitente y grieta siguen abiertos.
 del 07-10. El [cruce](../perdices20261007/CRUCE.md) ya combina la
 sexta raíz con casi fugitivos y obtiene la cota de regresos con
 exponente 4/25. La continuación vigente está en
-[semilla y duración](../perdices20261007/SEMILLA.md): buscar la cota
+[novena raíz y duración](../perdices20261007/NOVENA.md): buscar la cota
 superior por el valor de entrada que falta. Mahler se integra como
 exploración cerrada, sin sustituir esa ruta.
 

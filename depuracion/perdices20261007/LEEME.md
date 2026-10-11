@@ -1,13 +1,14 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
-**10-10:** [semilla y duración](SEMILLA.md): infinitos regresos de
-un fugitivo puro exigirían `d>H(x+1)^5` en toda cola, para cada H fijo.
-El aporte local no decide el levantamiento del residuo. Siguiente:
-buscar una cota superior por la entrada que excluya esa exigencia.
+**10-10:** [novena raíz](NOVENA.md): la exclusión de múltiplos de 3
+mejora la cuenta de regresos a `O(K^(8/75))`. Infinitos regresos
+exigirían `d>H(x+1)^8` en toda cola, para cada H fijo, ya en Lean.
+Siguiente: buscar una cota superior de duración por la entrada.
+El [enlace con la semilla](SEMILLA.md) conserva su alcance.
 El [aporte ponderado](APORTE.md) y el
 [contador no acotado](EXCEPCIONES.md) conservan su alcance.
-Conserva la [cota de regresos 4/25](CRUCE.md), con constantes explícitas.
+Conserva la [cota anterior 4/25](CRUCE.md), con constantes explícitas.
 Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso),
 [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística)
 y el [primo de Mahler](../mahler20261007/LEEME.md), cerrado: no alcanza al cohete.

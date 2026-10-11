@@ -3,6 +3,11 @@
 10-10-2026. Ejecución del paso 3 de [Tamaño](TAMANO.md), después de
 la [auditoría de rachas de Jinetas](../jinetas20261010/RACHAS.md).
 
+**Continuación:** [Novena](NOVENA.md) conserva este conteo espacial
+y mejora el radio usando la exclusión orbital de múltiplos de 3.
+El exponente temporal resultante es 8/75, formalizado en Lean.
+La cota 4/25 de esta nota permanece válida.
+
 **Resultado:** para una misma hipotética fuga pura y un techo fijo,
 la cuenta de regresos mejora de `O(K^(1/6))` a `O(K^(4/25))`, con
 constantes explícitas. `4/25=0,16` frente a `1/6≈0,1667`. La cota

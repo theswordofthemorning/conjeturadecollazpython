@@ -1,0 +1,97 @@
+{
+  "estado": "cotejo exacto terminado",
+  "fuente": "cotejar_novena.py",
+  "sha256_bytes": "6fd60af9755c7e4b47764c70b86a49452b11513bc59749b4ed81faf369679377",
+  "sha256_lf": "6fd60af9755c7e4b47764c70b86a49452b11513bc59749b4ed81faf369679377",
+  "parametros": {
+    "elementos": 12,
+    "factor_max": 2000,
+    "n_max": 512,
+    "pasos": 256
+  },
+  "coeficientes": [
+    4874841683,
+    27521925685,
+    67990638762,
+    95996425860,
+    84725547858,
+    47865946086,
+    16904075328,
+    3411851220,
+    301327047,
+    0,
+    0
+  ],
+  "conjuntos": {
+    "permitidos": [
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      25,
+      29,
+      31,
+      35,
+      37
+    ],
+    "cuentas": {
+      "conjuntos": 4096,
+      "excepciones": 8192
+    }
+  },
+  "trayectorias": {
+    "pasos_modulares": 131072,
+    "prefijos_validos": 18555,
+    "prefijos_con_excepcion": 5730,
+    "cotas_novena_mejores": 2596
+  },
+  "bordes": {
+    "entrada_uno": "falla la cota en el primer paso de n=1",
+    "repetidos": "16 copias de 5 violan la cota del producto",
+    "impares_sin_restriccion_tres": 48,
+    "comparacion_s": 34
+  },
+  "radios": {
+    "cuentas": {
+      "radios": 90,
+      "novena_menor": 48,
+      "iguales": 31,
+      "sexta_menor": 11
+    },
+    "ejemplos": [
+      {
+        "n": 27,
+        "c": 1,
+        "K": 36,
+        "radio_sexta": 147,
+        "radio_novena": 147
+      },
+      {
+        "n": 27,
+        "c": 1,
+        "K": 1000,
+        "radio_sexta": 256,
+        "radio_novena": 212
+      },
+      {
+        "n": 27,
+        "c": 1,
+        "K": 1000000000000,
+        "radio_sexta": 8100,
+        "radio_novena": 2129
+      },
+      {
+        "n": 27,
+        "c": 1,
+        "K": 1000000000000000000000000,
+        "radio_sexta": 810000,
+        "radio_novena": 45878
+      }
+    ],
+    "alcance": "Evaluacion de cotas para una hipotetica fuga pura; no cuenta regresos de una fuga observada."
+  },
+  "alcance": "El producto general se prueba en Lean. El cotejo usa solo tramos finitos con entradas impares distintas y >=3; no verifica FugaPura ni infinitos regresos. Las cotas temporales y la exigencia octava son teoremas condicionales, no mediciones."
+}
