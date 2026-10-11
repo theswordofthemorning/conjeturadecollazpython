@@ -21,7 +21,9 @@ El [balance par](../perdices20261007/BALANCE.md) ya está enlazado con la órbit
 excluye una cola de excursiones interiores 110, aunque tengan rachas no
 acotadas. El [cierre por excepciones](../perdices20261007/EXCEPCIONES.md)
 ya exige cantidades no acotadas de bloques distintos de 110 en toda cola.
-Siguiente: relacionar su cantidad con el aporte afín real de la excursión.
+El [aporte ponderado](../perdices20261007/APORTE.md) ya está calculado:
+muchas excepciones pueden aportar poco y la cantidad que neutraliza 110
+no es monótona localmente. Siguiente: enlazar los pesos con una misma semilla.
 
 04-10-2026. El usuario eligió la ruta B, la reducción al absurdo: suponer
 un número que no baja y anotar todo lo que tendría que cumplir. Pidió

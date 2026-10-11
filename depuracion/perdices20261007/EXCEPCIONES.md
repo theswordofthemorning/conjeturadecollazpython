@@ -198,8 +198,8 @@ Los barridos no prueban universalidad ni infinitud. No se reclama
 prioridad bibliográfica. El planeador con suficientes excepciones,
 el cohete y la grieta siguen abiertos; Collatz no está resuelto.
 
-**Siguiente:** relacionar las excepciones con el aporte afín real de
-la excursión. Su mera abundancia no implica descenso: un bloque
-distinto de 110 puede expandir o contraer. Estudiar el incremento
-normalizado al comprimir cadenas 110 y comprobar si proporciona un
-control que el contador por sí solo no da, conservando n y c.
+**Continuación:** [Aporte](APORTE.md) formaliza el balance firmado y
+demuestra su falta de monotonía local con ejemplos exactos. Una familia
+escrita acumula muchas excepciones con aporte normalizado acotado al
+variar n. El siguiente trabajo enlaza los pesos de las excepciones con
+la congruencia de una misma semilla a través de varios regresos.

@@ -1,11 +1,11 @@
 # Perdices: cuánto olvida la cadena y qué no dice del fugitivo
 
 [Cierre pedagógico de la sesión](CIERRE_SESION.md).
-**10-10:** [excepciones al patrón 110](EXCEPCIONES.md): infinitos
-regresos exigirían cantidades no acotadas de bloques distintos de 110,
-en Lean. La cota por excepciones comprime las cadenas repetidas.
-La tasa escrita 7/25 para ese contador queda por formalizar.
-Siguiente: estudiar el aporte afín de las excepciones a la excursión.
+**10-10:** [aporte ponderado](APORTE.md): identidades orbitales en Lean;
+la cantidad que neutraliza 110 cambia en ambos sentidos entre regresos.
+Una familia escrita tiene muchas excepciones con aporte acotado, variando n.
+El [contador no acotado](EXCEPCIONES.md) sigue siendo necesario.
+Siguiente: enlazar los pesos y la congruencia de una misma semilla.
 Conserva la [cota de regresos 4/25](CRUCE.md), con constantes explícitas.
 Para retomar: [plan de tamaño y regresos](TAMANO.md#qué-debe-aportar-el-siguiente-paso)
 y [pendientes de la rama probabilística](UMBRAL.md#continuación-de-la-rama-probabilística).

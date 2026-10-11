@@ -1377,6 +1377,24 @@
       "fichero": "depuracion/perdices20261007/EXCEPCIONES.md",
       "fuente": "consecuencia analitica escrita de la cota por excepciones, sexta raiz y exponente temporal 4/25; 10-10-2026, sin pretension de prioridad",
       "notas": "Prueba escrita en EXCEPCIONES.md, seccion 5; no formalizada en Lean. L_i=ceil(log2(x_(t_i)+5))=O(log(t_i+2)) y d_i<=K*8^E_i*log2(t_i+2). Si eventualmente E_i<=eta*log2(t_i+1), eta<7/25, elegir 3eta<a<21/25; la absorcion del logaritmo da d_i<=A*(t_i+1)^a. La concavidad de y^(1-a) implica t_i+1=O(i^(1/(1-a))), incompatible con t_i+1>=k*i^(25/4), k>0. Lean certifica la cota entera y la no acotacion, no los pasos analiticos de esta tasa. Son condiciones necesarias sobre el hipotetico planeador, sin contradiccion universal. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_aporte_formal",
+      "enunciado": "PERDICES: APORTE ORBITAL Y BALANCE FIRMADO. Atajo T, P_j=3^S_j/2^j, I_j=1/P_j, R_j=x_j/P_j y J_l(j)=(x_j+l)/P_j. Para todo bloque real 1^a0^b, Delta J_l=I_inicial*kappa_l(a,b), con kappa_l=(3^a-2^a+l*(2^(a+b)-3^a))/3^a. Se conserva el origen y se telescopa sobre la palabra. kappa_l(2,1)=(5-l)/9, por lo que l=5 es el unico desplazamiento que neutraliza 110. Delta J_5 es la suma ponderada de kappa_5 sobre los bloques distintos de 110; kappa_5=[2^a*(5*2^b-1)-4*3^a]/3^a. Una cadena 110 deja J_5 constante y tiene Delta R=5*(I_inicial-I_final)<5*I_inicial. Bajo C=3, los pares (n,u,v)=(7,2,4),(15,2,5),(63,2,8) son regresos consecutivos y dan Delta J_5=8/9,0,-80/729, respectivamente.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/APORTE.md",
+      "fuente": "identidad afin de OcelotasTrayectorias, normalizacion de PerdicesTamano y compresion de PerdicesBalance; 10-10-2026, sin pretension de prioridad",
+      "notas": "Quince lemas en PerdicesAporte.lean: traslado de origen, inverso de bloque, algebra y enlace orbital, correcciones, desplazamiento unico, telescopado, suma de excepciones, invariancia y aporte de cadenas, ejemplos consecutivos y signos exactos. Lean 4.32.2, solo propext, Classical.choice, Quot.sound; sin avisos ni pruebas incompletas. Nuevo modulo compilado y 19 previos auditados sin recompilar: 20 modulos y 192 consultas. Contraste con Fraction: 223 excursiones no unitarias, 341 bloques y 59 cadenas; 172 cambios positivos, 44 nulos y siete negativos de J_5. Semillas 2..512, 256 pasos, c=0..4, antes del primer cruce. Los ejemplos finitos refutan monotonicidad de J_5 basada en esas condiciones locales; no certifican FugaPura ni refutan una condicion adicional sobre fugas infinitas. La agrupacion general en cadenas y excepciones tiene prueba escrita. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_aporte_acotado",
+      "enunciado": "PERDICES: MUCHAS EXCEPCIONES CON APORTE ACOTADO. En una excursion no unitaria, al agrupar cadenas maximales 110 y los E bloques restantes, Delta R es la suma de 5*(1-(8/9)^k)/P_inicio sobre las cadenas y (1-(2/3)^a)/P_inicio sobre excepciones; 0<Delta R<(6E+5)/P_u. Para cada k>=3, b minimo con 27^k<=3*16^k*2^b, m=19*(27^k)^(-1) mod (11*2^b) y n_k=(16^k*m-19)/11 producen la palabra real (1110)^k 0^b sin cruce en ese prefijo. Bajo C=3 los ultimos regresos son u=8,v=4k+b, con E=k-2. Delta R=(19/11)*((16/27)^2-(16/27)^k)<4864/8019, y Delta R/E tiende a cero. No existe un aporte minimo delta*E con delta>0 uniforme en n basado solo en esas condiciones locales.",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/APORTE.md",
+      "fuente": "prueba escrita por identidades afines y construccion modular de bloques 1110; 10-10-2026, sin pretension de prioridad",
+      "notas": "APORTE.md secciones 2 y 4. Prueba general: 11*x_(4j)+19=27^j*16^(k-j)*m; los valores iniciales son 7 mod 16, y la congruencia final garantiza b pasos pares adicionales. (27/16)^2<3<(27/16)^3 y la minimalidad de b fijan los regresos 8 y 4k+b. La semilla es el representante minimo de su palabra modulo 2^(4k+b), pues 0<n_k<ese modulo y la identidad afin fija una unica clase. 11*n_k+19>=16^k: varia n, no se construye una fuga infinita fija. La agrupacion ponderada, la familia general, su minimalidad y el limite tienen prueba escrita, no formalizacion completa en el modulo. Cotejo independiente con orbitas, Fraction y composicion afin: 126 miembros k=3..128, 8001 bloques. El peso de cada excepcion disminuye geometricamente; el contador no puede sustituirlo. No excluye planeador general, cohete ni grieta. Revision humana pendiente."
     }
   ],
   "nodos": [
