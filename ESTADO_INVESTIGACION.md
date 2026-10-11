@@ -56,43 +56,44 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 
 ## Ruta vigente y próximo bloque
 
-**Resultado conservado:** [Colisiones](depuracion/perdices20261007/COLISIONES.md)
-excluye al planeador intermitente. Atajo T, n>0 e inyectividad orbital:
-`sum 1/T^j(n)<=3*2^100`, `R_k->ξ` real finito y `P_k->infinito`.
-FugaPura aporta esas hipótesis. Conteo por imágenes y suma geométrica
-en Lean; antecedente Garcia–Tal (1999), sin reclamar prioridad.
+**Conservado:** [Colisiones](depuracion/perdices20261007/COLISIONES.md)
+excluye al planeador. Atajo T, n>0 e inyectividad orbital:
+`sum 1/T^j(n)<=3*2^100`, `R_k->ξ` finito y `P_k->infinito`.
+Formalizado; antecedente Garcia–Tal (1999), sin reclamar prioridad.
 
-**Avance del 10-10:** [Cola del cohete](depuracion/perdices20261007/COLA.md).
-Con `I_k=1/P_k`, también `(T^k(n)+1)/P_k=R_k+I_k` es monótono
-y converge a ξ. Por tanto `ξ>=n+1`, `t_k=ξ P_k-T^k(n)>=1`,
-y antes de a pasos pares `t_k>=2^a`. Además
-`sum I_j=4(ξ-n)-1` y `t_k/T^k(n)->0`. Veintitrés lemas nuevos
-en Lean; 23 módulos previos auditados, 275 consultas, axiomas estándar.
+**Avance del 10-10:** [Mínimos futuros](depuracion/perdices20261007/MINIMOS.md)
+formaliza `t_k<=x_k[exp(2^100/2^m)-1]` si todo el futuro queda
+sobre `2^(100m)`, con `t_k=ξ P_k-x_k`. Toda órbita positiva
+inyectiva tiene reinicios de fuga pura arbitrariamente tardíos y
+grandes, sin usar MuroA. Veinte lemas nuevos en Lean; 24 módulos
+previos auditados, 295 consultas. La anchura `O(n^(99/100))`
+conserva sólo prueba escrita.
 
-La cola relativa pequeña no da una ventana constante. La familia
-finita `1^(2q)0^q11`, sin cruce, tiene cola `(5/9)2^q`: varía
-la semilla, no construye una fuga infinita. Cotejo exacto: 12416
-identidades, 12288 colas, 64 bloques y bordes. Un preprint de
-López–Stoll (2021) queda sin incorporar: su puente entre racionalidad
-real y 2-ádica requiere justificación; no se afirma refutado.
+También queda formalizado `Collatz <-> MuroB y ausencia de
+circuitos no triviales`: MuroB equivale a excluir las órbitas
+positivas inyectivas. **Ambas condiciones siguen abiertas.** Los
+mínimos ya existían condicionalmente en CasaTablero; Colisiones
+elimina la alternativa del planeador.
 
-Se conservan [Novena](depuracion/perdices20261007/NOVENA.md),
+Anchura y congruencia admiten prefijos `1^L`, con semillas variables
+`2^L-1`: no construyen una fuga infinita. Prueba escrita y cotejo
+exacto de 255 prefijos, incluidos bordes. La
+[cola](depuracion/perdices20261007/COLA.md) conserva su límite relativo
+cero y la precaución bibliográfica sobre López–Stoll (2021).
+
+[Novena](depuracion/perdices20261007/NOVENA.md),
 [Semilla](depuracion/perdices20261007/SEMILLA.md) y
-[Aporte](depuracion/perdices20261007/APORTE.md). Sus resultados sobre
-infinitos regresos tienen ahora una premisa imposible bajo fuga pura.
+[Aporte](depuracion/perdices20261007/APORTE.md) se conservan; infinitos
+regresos tienen ahora premisa imposible bajo fuga pura.
 
-La [casa](depuracion/casa20261004/LEEME.md) mantiene abiertos los muros
-A y B: quedan cohete y grieta. Collatz sigue abierto.
-[Mahler](depuracion/mahler20261007/LEEME.md) incorpora ξ finito para
-todo cohete positivo inyectivo; todavía no ofrece una ventana que
-permita excluirlo.
+La [casa](depuracion/casa20261004/LEEME.md) conserva abiertos A y B;
+Collatz sigue abierto. [Mahler](depuracion/mahler20261007/LEEME.md)
+incorpora ξ finito, sin excluir al cohete.
 
-**Siguiente:** formalizar la cota escrita
-`t_k<=x_k[exp(2^100/2^m)-1]` cuando todo el futuro queda sobre
-`2^(100m)`. En mínimos futuros da una anchura `O(x_k^(99/100))`;
-falta una incompatibilidad con el residuo entero. La extracción
-de esos mínimos también está escrita, no formalizada. No asumir
-una ventana constante ni una tasa puntual de crecimiento.
+**Siguiente:** estudiar concatenaciones entre mínimos futuros de
+una única semilla mediante levantamientos que fuercen crecer sus
+representantes; recuperar sólo FugaPura reformularía MuroB. No asumir
+ventana constante ni tasa puntual de crecimiento.
 El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
 queda como antecedente.
 
@@ -105,7 +106,7 @@ nuevos dejan sus registros de `lake env lean`.
 
 Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
 
-Registro: 308 afirmaciones: 202 demostradas, 86 medidas, 12 conjeturadas
+Registro: 310 afirmaciones: 204 demostradas, 86 medidas, 12 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.

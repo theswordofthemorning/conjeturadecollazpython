@@ -7,9 +7,12 @@ excluye al planeador intermitente. En toda órbita positiva inyectiva,
 Veinte lemas nuevos en Lean; antecedente Garcia–Tal (1999), sin
 reclamar prioridad. La [cola del cohete](COLA.md) ya tiene piso,
 recurrencia y límite relativo cero formalizados; la suma completa
-de inversos es `4(ξ-n)-1`. Cohete y grieta siguen abiertos.
-Siguiente: formalizar la cota escrita desde un mínimo futuro y
-cruzarla con el residuo entero, sin suponer una ventana constante.
+de inversos es `4(ξ-n)-1`. [Mínimos futuros](MINIMOS.md) formaliza
+la cota cuantitativa y los reinicios grandes de fuga pura; también
+`Collatz <-> MuroB y ausencia de circuitos no triviales`. Ninguna
+de esas dos condiciones está probada. Anchura y congruencia admiten
+prefijos arbitrariamente largos con semillas variables. Siguiente:
+concatenar mínimos futuros conservando una única semilla.
 La [novena raíz](NOVENA.md) y su cuenta `O(K^(8/75))` se conservan;
 su premisa de infinitos regresos queda excluida bajo fuga pura.
 El [enlace con la semilla](SEMILLA.md) conserva su alcance.

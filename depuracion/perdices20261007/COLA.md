@@ -5,6 +5,9 @@ excluido. Este bloque precisa la cola del cohete y descarta un salto
 injustificado a una ventana de ancho fijo. **Cohete, grieta y Collatz
 siguen abiertos.** No se reclama prioridad bibliográfica.
 
+Continuación: [Mínimos futuros](MINIMOS.md) formaliza (9), el
+traslado de ξ y los reinicios; coteja la anchura con la congruencia.
+
 ## 1. Mapa y alcance
 
 Atajo T sobre naturales, par n/2 e impar (3n+1)/2. Para una semilla
@@ -155,8 +158,9 @@ Prueba: sumar desde el anillo m las cotas
 `3*2^99*2^(-r)`, r>=m. Después aplicar `1+u<=exp(u)` al producto
 corrector de la órbita reiniciada en x_k. Su límite normalizado
 local es ξ P_k, pues `R_j(x_k)=P_k R_(k+j)(n)`. Restar x_k da (9).
-Estos pasos cuantitativos están escritos; **(9) sigue por formalizar**.
-Se cotejó el telescopio racional, sin evaluar exponenciales en flotantes.
+Estos pasos cuantitativos y **(9) están ahora formalizados** en
+[PerdicesMinimos.lean](PerdicesMinimos.lean). El cotejo racional
+incluye el resto geométrico, sin evaluar exponenciales en flotantes.
 
 En particular, para FugaPura n no hay descenso: si n>=2^(100m),
 entonces `ξ-n<=n[exp(2^100/2^m)-1]`. Eligiendo el mayor m
@@ -170,14 +174,14 @@ suficientemente pequeño. Tampoco esta forma asintótica está en Lean.
 Como P_k->infinito, cada cola temporal de P alcanza un mínimo.
 Si u es uno de esos mínimos, `P_(u+j)/P_u>=1` para todo j: el
 reinicio en x_u es FugaPura. Hay tales u arbitrariamente tardíos,
-y x_u->infinito. Así (9) se aplica con x_u como piso futuro. Esta
-extracción es un argumento escrito; el módulo no la formaliza.
+y x_u->infinito. Así (9) se aplica con x_u como piso futuro. La
+extracción está ahora formalizada en PerdicesMinimos, sin MuroA.
 
-La anchura de (9) puede crecer con x_u. **Siguiente:** formalizar
-esta cota y comprobar si el residuo entero de la palabra añade una
-restricción incompatible con ella. Una ventana constante todavía
-necesita un argumento adicional; no se obtiene tomando el límite
-en una cota relativa.
+La anchura de (9) puede crecer con x_u. [Mínimos futuros](MINIMOS.md)
+comprueba que anchura y congruencia admiten prefijos arbitrariamente
+largos con semillas variables. **Siguiente:** estudiar su concatenación
+para una misma semilla. Una ventana constante todavía necesita un
+argumento adicional; no se obtiene tomando el límite en una cota relativa.
 
 ## 6. Una precaución bibliográfica concreta
 
@@ -212,8 +216,9 @@ adicional que falta cotejar antes de usarlo contra el cohete.
 par y total, límite de I, aumentado monótono con límite ξ, piso y
 dinámica de la cola, bloques de ceros, sumabilidad y valor de la
 serie completa, y límite relativo cero. Sin hipótesis bibliográficas
-nuevas. La familia (7)–(8), las series separadas de (4) y la cota (9)
-tienen sólo prueba escrita donde se indica.
+nuevas. La familia (7)–(8) y las series separadas de (4) tienen
+sólo prueba escrita donde se indica. (9) quedó formalizada después
+en PerdicesMinimos; su traducción a Big-O conserva prueba escrita.
 
 [comprobar_cola.py](comprobar_cola.py) audita 23 módulos previos y
 compila únicamente el nuevo: 24 módulos, 275 consultas de axiomas.

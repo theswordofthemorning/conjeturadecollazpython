@@ -1,0 +1,332 @@
+{
+  "estado": "módulo compilado; 24 módulos previos auditados sin recompilar",
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "modulos": 25,
+  "consultas": 295,
+  "consultas_nuevas": 20,
+  "axiomas": {
+    "PerdicesMinimos.suma_desde_hasta": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.suma_finita_piso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.suma_orbital_piso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.suma_infinita_piso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.normalizado_piso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.estatura_piso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.inyectiva_reinicio": [
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.normalizado_traslado": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.estatura_traslado": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.cola_traslado": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.cola_piso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.fuga_piso": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.maximo_futuro": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.fuga_del_maximo": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.reinicio_grande": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.reinicio_con_cota": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.muroB_sin_inyectivas": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.muroB_iff_sin_inyectivas": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.collatz_iff_cruce_sin_circuitos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "PerdicesMinimos.intervalo_afin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "objeto": "49e0bbd84eaf24fdd0323e0fb406fcf4b43a8ae09eead40195638c782b39334d",
+  "dependencias": {
+    "PerdicesCola": "2b1b82fa5a51c917a947655c345f4cfe8f321344f3f732d9a7fd022aa9e96075"
+  },
+  "objetos_previos": {
+    "Ocelotas": "e602dc071449cb58f0f4dc8bd1b218388d85b150f038f33c3a9dba442ea043e8",
+    "OcelotasRachas": "2194af2e8b4cb51eb4717fca82565cc8fdb79a4a4d8c5dea846328b839960e08",
+    "OcelotasTrayectorias": "9e25f69d19b58f632f4a48011429f432db48c2f352f8cdedfaa904ccdd2900a7",
+    "OcelotasFinito": "86e473c4b65e6bc8063a307e76bfa7bcff8a242095d6aa00082df1759fbc9ff1",
+    "OcelotasCriba": "23d55bb6bed88f182c22b30693632aa1364cf88ad837f5352d0db3446d7e3319",
+    "OcelotasCertificado": "9de602de13fa593c61c026fa65ea62af88096f2a839f9b2eb1e4f5eaf38db010",
+    "OcelotasCierre": "bdb2fbb35d4bc934808a24dbe542ee6d29c16e5c53e29905b2932c05287efc15",
+    "OcelotasContador": "a09137b0a90e5b7ba5eb09ed917ba761afc77a683847b68ed09be62dc9aa36f6",
+    "CasaPlano": "ae0e96b4e5361cbf8acc517984411442da010dddfec47d43bf3cb824c5af05dc",
+    "CasaRetrato": "a1a92d667c7eae2336734eeebb88995a18bac0f92d0bede47e2b4ac5bc479800",
+    "PerdicesEstela": "ae723e3d45db76e5442c98d64aba314e83de45df712e2633b708e3d1f5e85d62",
+    "PerdicesTamano": "d282ae088b7ab65a30609662a7422897a5a33e08f65383b18726ee2321aedf8a",
+    "PerdicesSexta": "e689cd511357487f3791da1ba43dabbb149fae06a945e8b71dc6f1c2ea7b6963",
+    "PerdicesCruce": "b8e0882ceac575f6cf4612ee0574228b1fb85de5d65c7cbb64a6649e163d2834",
+    "PerdicesSeparacion": "ead4e57fa822d3367e2c37b395dab1b2eae32e13f829c49c4adc37ed80d9f346",
+    "PerdicesExcursiones": "7c2bb9797c64824edeaaf373798883cadce909d5f2ad7537e03b314f3035e6bc",
+    "PerdicesRitmo": "ee98486d5764379c9beaf397b93473acfb1a32afa4f0dba6620cbc3505a16ae1",
+    "PerdicesBalance": "425e24ab5f3367068035a43459e119735ab24b8df3152a247b0060e17d0b7998",
+    "PerdicesExcepciones": "0c67baa61c53027ccd1c1bb9cef28eb58b1d5846c054fbce5669b7a2fe6dbd6a",
+    "PerdicesAporte": "7115b7216bf71b934718367cda6e40e5fbdfd844fdb5ff494cddd05809a9c78a",
+    "PerdicesSemilla": "b4cd1b1851a57e4d7dc69d5911aca3e2e3cc0b556de083aed55520cebc489b2f",
+    "PerdicesNovena": "9cd51df1fdb69fe991f8be4218efb0b504a4f9ef9981f91318376e7d0e142cb1",
+    "PerdicesColisiones": "b7c220bf5c6b1f0ee06da0dd72a0cb87b7708bbd33b793d4e40efb653b156885",
+    "PerdicesCola": "2b1b82fa5a51c917a947655c345f4cfe8f321344f3f732d9a7fd022aa9e96075"
+  },
+  "archivos": {
+    "depuracion/perdices20261007/comprobar_minimos.py": {
+      "sha256_bytes": "23f7e7d90129a60ceae7c9ff2e8937b74d7dbbb40c66f7429ceea20d3f8ff4f6",
+      "sha256_lf": "c4e7ce598aba29501e4a6e6787abedc81bcf67458f043a43c49f70d589794d28"
+    },
+    "depuracion/perdices20261007/comprobar_cruce.py": {
+      "sha256_bytes": "d85788504576fc3ebb1f11f36c752a5a490e7721d1f965c2028d56864ec590d0",
+      "sha256_lf": "d85788504576fc3ebb1f11f36c752a5a490e7721d1f965c2028d56864ec590d0"
+    },
+    "depuracion/perdices20261007/auditar_cruce.py": {
+      "sha256_bytes": "8bd2b9e897e5400471315c32771b3f725d3efd6157ede20e95c3ef44907d9cfd",
+      "sha256_lf": "8bd2b9e897e5400471315c32771b3f725d3efd6157ede20e95c3ef44907d9cfd"
+    },
+    "depuracion/perdices20261007/evidencia_cruce.json": {
+      "sha256_bytes": "f835f5525fddc59e85935d113e9af4ddb8b3bc6e9871e202a9022cfb6b0c61ca",
+      "sha256_lf": "c7e29e1e1afe300b2f7c21cf4005c9e0e5e37a4d9c9750cd73072941fda9e8e5"
+    },
+    "depuracion/perdices20261007/auditoria_cruce.json": {
+      "sha256_bytes": "9621c2cb843314d9c5886d72b5656e69778b88666e0586bdf5dbf99647477b2c",
+      "sha256_lf": "68efff98c0dfe76e935e4147e09f2da171c559073cb9b221b3e2b19bb48ee83c"
+    },
+    "depuracion/gao20260920/formal/lean-toolchain": {
+      "sha256_bytes": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+      "sha256_lf": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273"
+    },
+    "depuracion/gao20260920/formal/lake-manifest.json": {
+      "sha256_bytes": "91debe086583c80994e7049a13be081351b095b264f384d387d82017848f6a3c",
+      "sha256_lf": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26"
+    },
+    "depuracion/perdices20261007/evidencia_separacion.json": {
+      "sha256_bytes": "231725dd5f1284a3f327e1abe8b8e3b0d29efa9e4dd15ae0628c4f9df1a35fc4",
+      "sha256_lf": "4d44bcc03dbaf2baebfef7d2668cd784bcac5a102a9b130a63ea17687adf57d0"
+    },
+    "depuracion/perdices20261007/evidencia_separacion.txt": {
+      "sha256_bytes": "f2583d3ae22617a2b854a0d8ac3864e000f79bb4e45e9506064f641c66fbe2bf",
+      "sha256_lf": "95c2e57dc4fd9ce4df44075360daa5a7428be598b3cb5297238bcb4a7f2087e8"
+    },
+    "depuracion/perdices20261007/PerdicesSeparacion.lean": {
+      "sha256_bytes": "3de2561764e8652b23cf53c74387ffa62c2b15f21029e76977881e5170e0ba86",
+      "sha256_lf": "3de2561764e8652b23cf53c74387ffa62c2b15f21029e76977881e5170e0ba86"
+    },
+    "depuracion/perdices20261007/comprobar_separacion.py": {
+      "sha256_bytes": "fcf50a8443f2aa903cf3d499f5cca60f27ca40bb0a8b82f240c2248e086e30e6",
+      "sha256_lf": "fcf50a8443f2aa903cf3d499f5cca60f27ca40bb0a8b82f240c2248e086e30e6"
+    },
+    "depuracion/perdices20261007/evidencia_excursiones.json": {
+      "sha256_bytes": "76ac812b56f802d924dc437fad218c855a52c88d201ee2d31512e5e0140f1f9f",
+      "sha256_lf": "c6d3878d0d9ddce0c192dce40ceb6ca74e45a6765d0142bf254463e29080e0d1"
+    },
+    "depuracion/perdices20261007/evidencia_excursiones.txt": {
+      "sha256_bytes": "a261e47fde778be6f1f72a2386e450483e3838421402188ecd72ff206f3d42b3",
+      "sha256_lf": "8ed91d5a207ec5542b0cfc308ff67dc599a8baf3fd210c07fe2c49b867333947"
+    },
+    "depuracion/perdices20261007/PerdicesExcursiones.lean": {
+      "sha256_bytes": "85ed8841ca0bac878e26d04404d964c3ee00ee6d4c18b8e42466d7680fd1e1f8",
+      "sha256_lf": "85ed8841ca0bac878e26d04404d964c3ee00ee6d4c18b8e42466d7680fd1e1f8"
+    },
+    "depuracion/perdices20261007/comprobar_excursiones.py": {
+      "sha256_bytes": "35f507e7578e7523daf058a7d02ca178d88bdb8c17cb93bdb6a02d59d95fc940",
+      "sha256_lf": "35f507e7578e7523daf058a7d02ca178d88bdb8c17cb93bdb6a02d59d95fc940"
+    },
+    "depuracion/perdices20261007/evidencia_ritmo.json": {
+      "sha256_bytes": "e9f48f4d0e6b8e6ef24dcc668e364aa30f3f6b942bc69ba196a9b9a2385a9969",
+      "sha256_lf": "2e0a21f52a63d47ebad71f92e642d72c6323141336cadd749c7df4cc5b0c4074"
+    },
+    "depuracion/perdices20261007/evidencia_ritmo.txt": {
+      "sha256_bytes": "e5b8c2fdf8a7c569ca93fee8787e7ff2ae4e4fa7f023ac3f721b528eaf5a6ab2",
+      "sha256_lf": "2128fe456b476ff213af33a7d21551abff1a10a338009915b8b0cc940eac1514"
+    },
+    "depuracion/perdices20261007/PerdicesRitmo.lean": {
+      "sha256_bytes": "f17b12c689416389f9dd64d5816e950b347de34044bddab238c66b318434e74e",
+      "sha256_lf": "f17b12c689416389f9dd64d5816e950b347de34044bddab238c66b318434e74e"
+    },
+    "depuracion/perdices20261007/comprobar_ritmo.py": {
+      "sha256_bytes": "687ba90da628e4f04d2023c7bd18446764f3b6b6c7590952659f65db7fc43f96",
+      "sha256_lf": "687ba90da628e4f04d2023c7bd18446764f3b6b6c7590952659f65db7fc43f96"
+    },
+    "depuracion/perdices20261007/evidencia_balance.json": {
+      "sha256_bytes": "4a3c2a329f6a1ee91bc68bb85fad017e159c5c184962e9064c81fe4ae042410a",
+      "sha256_lf": "3fd1533fa7b3dd4cf8b1f1183bb167890b6f138ccecf37eb639ef970dbcd411a"
+    },
+    "depuracion/perdices20261007/evidencia_balance.txt": {
+      "sha256_bytes": "01bb04a3295eb49aec838aefe409d0f47f3b04d1aaa9419b395f0ffd14c585af",
+      "sha256_lf": "13653a5f4535c93f48fe141e4d519bd85eee239083495a4d3e6dc6e701462e12"
+    },
+    "depuracion/perdices20261007/PerdicesBalance.lean": {
+      "sha256_bytes": "70fd78da891f53e74249c1b901f235c05bf7c4c6344439a16dd361437d972ef0",
+      "sha256_lf": "70fd78da891f53e74249c1b901f235c05bf7c4c6344439a16dd361437d972ef0"
+    },
+    "depuracion/perdices20261007/comprobar_balance.py": {
+      "sha256_bytes": "fc02ded5c697652ce893719fad5f0a1fbf34c0b4e3b48bd3735793011b73df15",
+      "sha256_lf": "fc02ded5c697652ce893719fad5f0a1fbf34c0b4e3b48bd3735793011b73df15"
+    },
+    "depuracion/perdices20261007/evidencia_excepciones.json": {
+      "sha256_bytes": "40f9fe555608893ac56b0e35f5341dd3d92f8671fbb978532caf6f76d7093efd",
+      "sha256_lf": "287dedaddb2912b42707d658edc5438f67093bbf063bb6da22971d536a005143"
+    },
+    "depuracion/perdices20261007/evidencia_excepciones.txt": {
+      "sha256_bytes": "fc7c3d7e56f887afd9a296ce1d0ddf63f89386aa65d5930d8a982bf8b9e1a76e",
+      "sha256_lf": "e8d3ba32d2cacf948b6f22a2e1d12e08cff2953156bd84f75368064cf2f8ba38"
+    },
+    "depuracion/perdices20261007/PerdicesExcepciones.lean": {
+      "sha256_bytes": "f8621868fda733271e19356508437d0a7c022550c63c3e193cd5020806b2dd31",
+      "sha256_lf": "f8621868fda733271e19356508437d0a7c022550c63c3e193cd5020806b2dd31"
+    },
+    "depuracion/perdices20261007/comprobar_excepciones.py": {
+      "sha256_bytes": "fc7038a89c0720369ffbd7446ff689ca5059b29a08362cf5152785ece34cc9e6",
+      "sha256_lf": "f10cbf04956027258cc1807ba32bbfee31d2fec3c56c3597300dac3dcf9fcb00"
+    },
+    "depuracion/perdices20261007/evidencia_aporte.json": {
+      "sha256_bytes": "16328734c084d0f58a4d06bbe55b964e641e6d9e98c258711a1f7d9ea58c6b1a",
+      "sha256_lf": "794ff42fa5ebdb15906d47a31cc75493b5480cbc1af79d520d976eebc7c58abb"
+    },
+    "depuracion/perdices20261007/evidencia_aporte.txt": {
+      "sha256_bytes": "a7c6c011253f59f51ab9c0d786c048ed54d144c4a774968e2a70fb7a01b47852",
+      "sha256_lf": "5f630916ed765315605c30277ccee1c5f8a80f2885fd845a71795d4f5730864e"
+    },
+    "depuracion/perdices20261007/PerdicesAporte.lean": {
+      "sha256_bytes": "248211e2568f67ab909b0ce3817a9e5e4125963a5ed62e11cf950d205faa4b90",
+      "sha256_lf": "248211e2568f67ab909b0ce3817a9e5e4125963a5ed62e11cf950d205faa4b90"
+    },
+    "depuracion/perdices20261007/comprobar_aporte.py": {
+      "sha256_bytes": "71338d64157906af633a102a0401bdba681062af371166d916963f13e1770863",
+      "sha256_lf": "9725580fa146d8b5717b0c6e57f081174798843d94bcc61371537103d6bcf093"
+    },
+    "depuracion/perdices20261007/evidencia_semilla.json": {
+      "sha256_bytes": "983af5b6173bc7461774b2697e5e810b01adcfb6e69a9f3b36ae5ab4fa24379b",
+      "sha256_lf": "5b875b2b0cb5021f9015ccff967d9d30c2a410b6c29abffb231b6acaf7a4aa82"
+    },
+    "depuracion/perdices20261007/evidencia_semilla.txt": {
+      "sha256_bytes": "036fb80c5ad1f1f45412f91097d483fce28bfedb22d7d5775d14c4dd2aa10e38",
+      "sha256_lf": "b85f0dc06da3734cc987f7b5eaccb25c83039b8dc141771b0fdb4ab0e8d5e48d"
+    },
+    "depuracion/perdices20261007/PerdicesSemilla.lean": {
+      "sha256_bytes": "c1a471f37da20eb40f35b894ab42871993628612a5546f13506d7952a1d836a7",
+      "sha256_lf": "c1a471f37da20eb40f35b894ab42871993628612a5546f13506d7952a1d836a7"
+    },
+    "depuracion/perdices20261007/comprobar_semilla.py": {
+      "sha256_bytes": "165db4e2f9780a690fcc9d471456c1af20375fdfe702506489c1b728e428d08f",
+      "sha256_lf": "fd8b645e2c6524b8183dd18f76a78d97979aa6d8a4bd210736f77c42383fc5f9"
+    },
+    "depuracion/perdices20261007/evidencia_novena.json": {
+      "sha256_bytes": "130603a9e5874820b74b158821d0302dd244d436aba2636bf7f367f1e34f1b09",
+      "sha256_lf": "bdfdb83c9afb21c676a45f87eeafebafb2af01068ea097ea92663449a018253e"
+    },
+    "depuracion/perdices20261007/evidencia_novena.txt": {
+      "sha256_bytes": "97d53347276e71b948e24d5f1b64a7f3665445f627c9273a103d6f578de72513",
+      "sha256_lf": "a838bdc249b273d475508ce7d5562e51c8177dc2545102097dedb61167bf1536"
+    },
+    "depuracion/perdices20261007/PerdicesNovena.lean": {
+      "sha256_bytes": "5c048c42294ea42a13f150306879e2d763050fc0d0b99bebd2ff172881b891d5",
+      "sha256_lf": "5c048c42294ea42a13f150306879e2d763050fc0d0b99bebd2ff172881b891d5"
+    },
+    "depuracion/perdices20261007/comprobar_novena.py": {
+      "sha256_bytes": "2e68212d7bb064c84636ece7a672c710fe285a39b2ad8e5ef8fdad5055c1f1ea",
+      "sha256_lf": "1249c5a380fe0b9642d7648709b3edfe109c12d0f1e8fcecbf998f5b078b8fd2"
+    },
+    "depuracion/perdices20261007/evidencia_colisiones.json": {
+      "sha256_bytes": "6ec0ad79dc2bcd8f88f75272b99585cec365e63e4f2c32ded751314b6e125e60",
+      "sha256_lf": "77258283ccafcc1a627f0ce48caaa8c9eeb005ea1a7ad3a440ab66aae97b9dc4"
+    },
+    "depuracion/perdices20261007/evidencia_colisiones.txt": {
+      "sha256_bytes": "d466dafe31a27cb5f84724a5d2e5184c5c58ed8c5865c64c619571af6d5e5450",
+      "sha256_lf": "d0a3439ca6a267dd5fc179d2f6bcd9f9ecce81509fa07d1bdc121a6865c0b166"
+    },
+    "depuracion/perdices20261007/PerdicesColisiones.lean": {
+      "sha256_bytes": "93022fbb77ba38e976355dc1d7486d567d14021ce09032d05d2cf9ac8f9fe31a",
+      "sha256_lf": "75e5caf20715cb18cb61663f1a28ec16a671e5cf728db9a8aaaf9cdf7355ce37"
+    },
+    "depuracion/perdices20261007/comprobar_colisiones.py": {
+      "sha256_bytes": "499a70358ad2a8f42fdbb9c8bbb44a2406a202674ef382ef9f4c1c7d678b8cf6",
+      "sha256_lf": "1ee213ed543353c39e58226f51822828638dad87322dbca8f38518de309cfc19"
+    },
+    "depuracion/perdices20261007/evidencia_cola.json": {
+      "sha256_bytes": "eee70c83f6dfeb8226e058a1ce09620c784a13cc841907dc1740b9539c552ab0",
+      "sha256_lf": "4ac4bd5a1549f420f7f3f65c43ffc44437e3f8f91526956bac8d9150a8cd024a"
+    },
+    "depuracion/perdices20261007/evidencia_cola.txt": {
+      "sha256_bytes": "9722984d36c333698c86b809ed0901fcdea5000da43069ffebc9845438209a18",
+      "sha256_lf": "eba9d896215e4c39ce17564da8ba6c957d721952944b6fd63628c482b63000ba"
+    },
+    "depuracion/perdices20261007/PerdicesCola.lean": {
+      "sha256_bytes": "aa14990432908f740e1b168fdd1ef02009eee7b228c1fa7b8147c30c0d559d24",
+      "sha256_lf": "132ef9fb16b97555d05a9219131dc0d37438d87cbecd6356e0f7fbf8dfeaf20a"
+    },
+    "depuracion/perdices20261007/comprobar_cola.py": {
+      "sha256_bytes": "e7a7430c5cafe625641defcdc829a2f1549b0de8982e1227a0c7a3c290ddc95d",
+      "sha256_lf": "39e3912d9375c21be9d7f070969c7fd45537c47101e805fe20d7c0b3380adca8"
+    },
+    "depuracion/perdices20261007/PerdicesMinimos.lean": {
+      "sha256_bytes": "ca951684f179a2424b0977304b6f11204b41ef45d4d86d90714e3e01f45a9366",
+      "sha256_lf": "433af10b11299464f4a9daa4f8982e416b61b734bb6fde10943f6e83a832774d"
+    }
+  }
+}

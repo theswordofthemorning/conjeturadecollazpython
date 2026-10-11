@@ -1490,10 +1490,28 @@
       "clave": "perdices_cola_minimos",
       "cuantificador": "todo_n",
       "estado": "demostrado",
-      "fichero": "depuracion/perdices20261007/COLA.md",
+      "fichero": "depuracion/perdices20261007/MINIMOS.md",
       "enunciado": "PERDICES: COTA ESCRITA DE COLA DESDE UN PISO FUTURO. Para una orbita positiva inyectiva, si x_j>=2^(100m) para todo j>=k, entonces sum_{j>=k}1/x_j<=3*2^100/2^m y t_k<=x_k*(exp(2^100/2^m)-1). Para FugaPura n>=2^(100m), se obtiene xi-n<=n*(exp(2^100/2^m)-1), luego O(n^(99/100)) al elegir el mayor m y crecer n entre tales semillas hipoteticas. Como P_k->infinito, cada cola de P alcanza un minimo; hay reinicios FugaPura arbitrariamente tardios en los que la cota se aplica con x_k como piso futuro. No afirma existencia de fugas ni una anchura constante.",
       "fuente": "cuenta orbital de PerdicesColisiones, suma geometrica desde un anillo arbitrario y producto corrector de la orbita reiniciada; prueba escrita local 10-10-2026",
-      "notas": "COLA.md seccion 5. La identidad local R_j(x_k)=P_k*R_(k+j)(n) da limite local xi*P_k. Sumar desde r=m las cotas 3*2^99*2^(-r) y aplicar 1+u<=exp(u). El telescopio se coteja con Fraction en 129 pisos y 17 anillos por piso, sin simular fugas ni exponenciales. Esta cota cuantitativa, su forma asintotica y la extraccion de minimos futuros NO estan formalizadas todavia; el modulo certifica los resultados de la clave perdices_cola_estructura. Siguiente: formalizar la cota y determinar que incompatibilidad aritmetica aporta la congruencia; las identidades y una anchura sublineal no bastan por si solas. Revision humana pendiente."
+      "notas": "Actualizacion 10-10-2026: MINIMOS.md secciones 2 y 3 y PerdicesMinimos.lean formalizan la cota exponencial, las sumas desde un piso futuro, el traslado del limite xi y la extraccion de reinicios arbitrariamente grandes. La traduccion O(n^(99/100)) conserva solo prueba escrita en COLA.md seccion 5. La identidad local R_j(x_k)=P_k*R_(k+j)(n) da limite local xi*P_k. Se suman desde r=m las cotas 3*2^99*2^(-r) y se aplica 1+u<=exp(u). comprobar_minimos.py: 20 lemas nuevos, 24 modulos previos auditados, 295 consultas; Lean 4.32.2, solo axiomas estandar. Cotejo independiente con enteros y Fraction: 202 minimos finitos, 296 traslados, 4257 cortes geometricos y 255 prefijos compatibles con anchura y congruencia. Los minimos finitos no certifican todo el futuro. Siguiente: concatenaciones entre minimos de una unica semilla; la compatibilidad de prefijos variables no construye una fuga. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_minimos_reinicios",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesMinimos.lean",
+      "enunciado": "PERDICES: REINICIOS GRANDES Y REDUCCION AL CRUCE UNIVERSAL Y LOS CIRCUITOS. Para T(n)=n/2 si n es par y (3n+1)/2 si es impar, toda orbita positiva inyectiva tiene, para cualesquiera K,M naturales, un indice u>=K con T^u(n)>M y FugaPura(T^u(n)). Por tanto MuroB (todo n>=2 tiene algun 3^S_k/2^k<1) equivale a que ninguna orbita positiva sea inyectiva. Collatz equivale a MuroB junto con la ausencia de circuitos no triviales. No se demuestra MuroB ni la ausencia de circuitos; Collatz sigue abierto.",
+      "fuente": "PerdicesColisiones y maximos futuros del inverso I_k->0; argumento de minimo ya condicional en CasaTablero, ahora sin MuroA; formalizacion local 10-10-2026",
+      "notas": "MINIMOS.md secciones 3 y 4. reinicio_grande extrae maximos de I en colas arbitrarias y usa que una orbita inyectiva supera cualquier cota; fuga_del_maximo obtiene FugaPura por la identidad de traslado. muroB_iff_sin_inyectivas y collatz_iff_cruce_sin_circuitos formalizan las equivalencias. El minimo del pronostico ya figuraba en fuga_de_minimo y rasgo_cohete_o_planeador de CasaTablero; Colisiones elimina la alternativa del planeador. No se reclama prioridad. La grieta divergente produciria tales reinicios, pero no se excluye; la ciclica sigue exigiendo excluir circuitos. Evidencia: comprobar_minimos.py, evidencia_minimos.json y evidencia_minimos.txt; 25 modulos, 295 consultas, 20 lemas nuevos, solo axiomas estandar. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_minimos_compatibilidad",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/MINIMOS.md",
+      "enunciado": "PERDICES: COMPATIBILIDAD FINITA DE ANCHURA SUBLINEAL Y CONGRUENCIA. Para todo L>=2, la semilla n_L=2^L-1 realiza el prefijo 1^L del atajo T, con x_j=3^j*2^(L-j)-1 para 0<=j<=L. Elegir theta_L=1+(2/3)^L y xi_L=n_L+theta_L da xi_L*P_j-x_j=1+(2/3)^(L-j), entre 1 y 2, y theta_L^100<=n_L^99. En cada corte, 2^j*x_j=3^j*n_L+3^j-2^j; en L, n_L es el representante minimo. Asi, anchura y congruencia permiten prefijos arbitrariamente largos con semillas variables. xi_L es un parametro finito, no un limite orbital demostrado; no se afirma FugaPura ni se construye una orbita infinita inyectiva.",
+      "fuente": "identidad afin de la palabra de unos, induccion orbital y desigualdades enteras; prueba escrita local 10-10-2026 y cotejo independiente",
+      "notas": "MINIMOS.md seccion 5. La familia tiene prueba escrita general y cotejo exacto para L=2..256, incluidos bordes 99,100,101,199,200,201; no tiene formalizacion orbital completa en este modulo. intervalo_afin formaliza solo la implicacion M*y=A*n+B, t>=1 y xi-n<=W => B+M<=A*W para A,M positivos. Esta desigualdad no es una nueva congruencia independiente. La cota exponencial tambien admite la familia por exp(u)-1>=u; se coteja con racionales. Los residuos 2^j-1 de la palabra infinita no se estabilizan en un natural: su limite 2-adico es -1. El resultado descarta una contradiccion uniforme que mire cada longitud por separado; no descarta una prueba que controle todos los cortes de una misma semilla. cotejar_minimos.py y cotejo_minimos.json. Revision humana pendiente."
     }
   ],
   "nodos": [
