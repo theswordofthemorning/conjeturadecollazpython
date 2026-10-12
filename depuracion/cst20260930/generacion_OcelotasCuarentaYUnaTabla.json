@@ -1,0 +1,21 @@
+{
+  "partes": [
+    "OcelotasCuarentaYUnaTablaParte01",
+    "OcelotasCuarentaYUnaTablaParte02",
+    "OcelotasCuarentaYUnaTablaParte03",
+    "OcelotasCuarentaYUnaTablaParte04",
+    "OcelotasCuarentaYUnaTablaParte05",
+    "OcelotasCuarentaYUnaTablaParte06",
+    "OcelotasCuarentaYUnaTablaParte07",
+    "OcelotasCuarentaYUnaTablaParte08",
+    "OcelotasCuarentaYUnaTablaParte09",
+    "OcelotasCuarentaYUnaTablaParte10",
+    "OcelotasCuarentaYUnaTablaParte11",
+    "OcelotasCuarentaYUnaTablaParte12",
+    "OcelotasCuarentaYUnaTablaParte13"
+  ],
+  "filas": 64,
+  "q_fin": 2365627332311699,
+  "sha256_certificado": "f569abb2bcd6e1684fb058d6e20fbe933afccf918b598be9cf99319f01e6b582",
+  "sha256_generador": "f2d8619c170918ca11347ba8501844b9f08cfbaa164107ff7fdf018cfa50e139"
+}

@@ -1238,12 +1238,13 @@
       "animal": "Ocelotas",
       "alias": [],
       "rama": "descenso",
-      "resumen": "Bajo las hipótesis indicadas, hasta 24 rachas el primer cruce es descenso; hasta 77 con la hipótesis adicional de Rozier–Terracol.",
-      "limite": "Se supone que el primer cruce existe. LMN es externo; el cierre de 77 añade Rozier–Terracol. No demuestra Collatz.",
+      "resumen": "Bajo las hipótesis indicadas, hasta 24 rachas el primer cruce es descenso; hasta 42 con pesos por racha y un censo propio hasta 3·10^11; hasta 81 con Rozier–Terracol.",
+      "limite": "Se supone que el primer cruce existe. LMN es externo; los cierres de 40, 41 y 42 añaden un censo calculado en Python como hipótesis; los de 77 y 81, Rozier–Terracol. No demuestra Collatz.",
       "situacion": "vigente",
       "fuentes": [
         "depuracion/cst20260930/VEINTICUATRO_LEAN.md",
-        "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md"
+        "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md",
+        "depuracion/cst20260930/PESOS_RACHAS.md"
       ],
       "nodos": [
         "ocelotas"
@@ -1274,7 +1275,11 @@
         "ocelotas_criba_con_suelo_lean",
         "ocelotas_cst_77_rachas_rozier_terracol_lean",
         "ocelotas_cst_23_rachas_lean_lmn",
-        "ocelotas_cst_24_rachas_lean_lmn"
+        "ocelotas_cst_24_rachas_lean_lmn",
+        "ocelotas_cst_81_rachas_pesos_lean",
+        "ocelotas_cst_40_rachas_lmn_censo_lean",
+        "ocelotas_cst_41_rachas_lmn_censo_lean",
+        "ocelotas_cst_42_rachas_lmn_censo_lean"
       ]
     },
     {

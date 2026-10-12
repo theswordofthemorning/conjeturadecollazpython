@@ -23,6 +23,13 @@ la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
   criba por prefijos exige **al menos 25 rachas** para un fallo, en Lean.
   El [cierre de 77](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md) también está
   formalizado: exige **78 con LMN y Rozier–Terracol** como hipótesis externas.
+  **12-10:** los [pesos por racha](depuracion/cst20260930/PESOS_RACHAS.md),
+  la parte del teorema 21 de Hercher que pasa al primer cruce, cierran
+  **81 rachas** en Lean con las mismas dos hipótesis y sin árbol de
+  prefijos. Un fallo exige 82. La fusión del lema 9 no se transfiere.
+  Sin Rozier–Terracol, LMN y un censo propio (cálculo en Python,
+  hipótesis explícita, 0 fallos) dan en Lean **40 rachas** con censo hasta
+  2^36, **41** con censo hasta 2·10^11 y **42** con censo hasta 3·10^11.
 
 Sólo axiomas estándar en los módulos Lean. **Revisión humana pendiente.**
 Salvo en las rachas construidas, nada afirma la llegada a 1.

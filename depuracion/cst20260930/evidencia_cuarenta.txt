@@ -1,0 +1,138 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+MODULO: OcelotasLogaritmosPrecisos; segundos: 56.669
+'OcelotasLogaritmosPrecisos.log_dos_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasLogaritmosPrecisos.log_tres_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasDescuentoRachas; segundos: 46.182
+'OcelotasDescuentoRachas.paso_descontado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.cadena_descontada' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.congruencias_descontadas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_congruencias' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasDescuentoRachas.criba_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasPrefijosAfinados; segundos: 43.442
+'OcelotasPrefijosAfinados.cota_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.cota_monotona' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.potencia_exponente' depends on axioms: [propext, Quot.sound]
+'OcelotasPrefijosAfinados.criba_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_real_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPrefijosAfinados.criba_despues_corte' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasPesos; segundos: 56.230
+'OcelotasPesos.palabra_desp' depends on axioms: [propext, Quot.sound]
+'OcelotasPesos.segmento' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPesos.g_convexa' depends on axioms: [propext, Quot.sound]
+'OcelotasPesos.suma_por_segmentos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPesos.fallo_pesos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPesos.pesadas_de_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPesos.pieza_imposible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasPesos.pieza_cadena' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte01; segundos: 58.158
+'OcelotasCuarentaTabla.fila_0' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_4' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_8' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_9' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_10' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_12' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_13' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_14' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_15' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_16' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_17' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_18' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_19' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_20' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_22' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_23' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_24' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_25' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_26' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_27' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_28' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_29' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_30' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_31' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_32' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_33' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_34' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_35' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_36' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_37' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_38' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_39' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_40' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte02; segundos: 35.812
+'OcelotasCuarentaTabla.fila_41' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_42' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte03; segundos: 34.133
+'OcelotasCuarentaTabla.fila_43' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_44' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte04; segundos: 33.964
+'OcelotasCuarentaTabla.fila_45' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_46' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte05; segundos: 42.255
+'OcelotasCuarentaTabla.fila_47' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_48' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte06; segundos: 45.913
+'OcelotasCuarentaTabla.fila_49' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_50' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte07; segundos: 47.119
+'OcelotasCuarentaTabla.fila_51' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_52' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte08; segundos: 44.660
+'OcelotasCuarentaTabla.fila_53' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_54' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte09; segundos: 49.424
+'OcelotasCuarentaTabla.fila_55' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_56' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte10; segundos: 52.370
+'OcelotasCuarentaTabla.fila_57' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_58' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte11; segundos: 48.661
+'OcelotasCuarentaTabla.fila_59' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_60' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte12; segundos: 49.400
+'OcelotasCuarentaTabla.fila_61' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarentaTabla.fila_62' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTablaParte13; segundos: 44.837
+'OcelotasCuarentaTabla.fila_63' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarentaTabla; segundos: 44.279
+'OcelotasCuarentaTabla.pequeno_de_tabla' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasColaParametrica; segundos: 42.182
+'OcelotasColaParametrica.margen_cola' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.semilla_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.log_tiempo_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.region_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.region_del_fallo_corolario' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaParametrica.cst_en_cola' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+MODULO: OcelotasCuarenta; segundos: 38.080
+'OcelotasCuarenta.descenso_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarenta.descenso_contador' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarenta.cst_condicional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasCuarenta.fallo_exige_cuarenta_y_una' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

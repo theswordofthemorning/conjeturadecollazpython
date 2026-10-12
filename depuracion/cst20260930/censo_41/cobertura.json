@@ -1,0 +1,68 @@
+{
+  "desde": 68719476737,
+  "hasta": 200000000000,
+  "clases_sin_cruce": 286581,
+  "tramos": [
+    {
+      "tramo": 1,
+      "desde": 68719476737,
+      "hasta": 90599563946,
+      "contiguo": true,
+      "recorridos": 373745949,
+      "esperados": 373745949,
+      "fallos": 0,
+      "umbral": 0
+    },
+    {
+      "tramo": 2,
+      "desde": 90599563947,
+      "hasta": 112479651157,
+      "contiguo": true,
+      "recorridos": 373746030,
+      "esperados": 373746030,
+      "fallos": 0,
+      "umbral": 0
+    },
+    {
+      "tramo": 3,
+      "desde": 112479651158,
+      "hasta": 134359738368,
+      "contiguo": true,
+      "recorridos": 373746062,
+      "esperados": 373746062,
+      "fallos": 0,
+      "umbral": 0
+    },
+    {
+      "tramo": 4,
+      "desde": 134359738369,
+      "hasta": 156239825578,
+      "contiguo": true,
+      "recorridos": 373745979,
+      "esperados": 373745979,
+      "fallos": 0,
+      "umbral": 0
+    },
+    {
+      "tramo": 5,
+      "desde": 156239825579,
+      "hasta": 178119912789,
+      "contiguo": true,
+      "recorridos": 373745959,
+      "esperados": 373745959,
+      "fallos": 0,
+      "umbral": 0
+    },
+    {
+      "tramo": 6,
+      "desde": 178119912790,
+      "hasta": 200000000000,
+      "contiguo": true,
+      "recorridos": 373745924,
+      "esperados": 373745924,
+      "fallos": 0,
+      "umbral": 0
+    }
+  ],
+  "resultado": "cubre sin fallos"
+}

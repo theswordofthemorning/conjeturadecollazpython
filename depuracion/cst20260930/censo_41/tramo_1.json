@@ -1,0 +1,18 @@
+{
+  "estado": "censo exacto en Python/numpy; no es prueba Lean",
+  "desde": 68719476737,
+  "N": 90599563946,
+  "K": 24,
+  "factor": 1,
+  "divisor": 1,
+  "clases_que_cruzan": 16490635,
+  "clases_sin_cruce": 286581,
+  "comprobados_por_umbral": 0,
+  "recorridos_individuales": 373745949,
+  "desbordes_resueltos_con_enteros": 69,
+  "fallos": [],
+  "numero_fallos": 0,
+  "sha256_lotes": "c552ccbe6d01ae09740dad7e7cd66ecea8c629751e4be0db61aac67286cecc7d",
+  "sha256_programa": "7c79189f82eee904ea6c5253bc3ad1f7052b5844589058ee8a770f952b53f95f",
+  "segundos": 1862.9
+}

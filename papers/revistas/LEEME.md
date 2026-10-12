@@ -47,3 +47,33 @@ oficial de cada revista ese día salvo donde se indica.
 - **Rechazo de mesa.** Ninguna exige título, pero un Collatz de autor
   independiente se mira con lupa. Lo que lo compensa es el artefacto Lean
   y la claridad sobre lo que no se demuestra.
+
+## Búsqueda del 12-10-2026: otro destino y revisión humana
+
+El usuario pidió buscar otro sitio que acepte trabajo hecho con IA de un no
+académico y que no tarde mucho, priorizando la revisión humana sobre la
+publicación. No se envió nada ni se contactó a nadie.
+
+- **Gao no puede ir a otra revista** mientras siga en JAR (envío del 01-10):
+  el envío doble está prohibido. Libres: Garner (II), Wu (III, falta cotejar
+  el impreso) y un posible artículo nuevo sobre Ocelotas.
+- **Talleres de IA y matemáticas** (revisión humana rápida, unas 4–6
+  semanas): MATH-AI @ NeurIPS 2026 cerró el 25-09-2026; AI for Math @ ICML
+  2026 cerró el 25-05; AI as a Tool @ ICML 2026 cerró el 13-05. Las
+  ediciones de 2027 abrirán hacia abril–mayo de 2027 (ICML) y agosto–septiembre
+  (NeurIPS). Comprobar entonces su norma sobre IA.
+- **Agents4Science** (Stanford): en 2025 exigía la IA como primera autora y
+  la revisaban IA y humanos. No hay convocatoria de 2026 en la web.
+- **Conferencias de formalización:** ITP 2027 sólo tiene por ahora una
+  llamada para sedes (el plazo de ITP 2026 fue el 12-02-2026). CICM suele
+  cerrar a finales de marzo. Las actas con revisión humana salen en unos
+  dos meses.
+- **Springer** (la misma norma de IA que JAR: se documenta en métodos):
+  *Mathematics in Computer Science* (formal methods y verificación) y
+  *Annals of Mathematics and Artificial Intelligence* (automated deduction;
+  revisión de más de 12 semanas según LetPub). Son destinos posibles para
+  Garner/Wu o para Ocelotas. Las páginas oficiales de envío no se dejaron leer
+  sin cookies: confirmar a mano los costes y la norma.
+- **Contexto:** en 2026 crece el rechazo al texto escrito por IA (la
+  Declaración de Leiden, de junio de 2026, pide declarar el uso y conservar
+  la revisión humana; una revista de filosofía lo prohibió en agosto).

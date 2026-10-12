@@ -21,6 +21,20 @@ corolario finito de Rozier–Terracol**, ambos explícitos: 123 consultas
 de axiomas y cotejo independiente de 97 filas y la ventana de prefijos,
 sin nuevo censo. Se conserva el cierre de [75](SETENTA_Y_CINCO_LEAN.md).
 
+**Pesos por racha, 12-10:** [PESOS_RACHAS.md](PESOS_RACHAS.md) traslada
+la separación de Hercher (2023, teorema 21) entre comienzos pequeños y
+rachas crecientes. Las rachas que empiezan cerca de n pesan en la cota de
+Λ y reinician el crecimiento de las congruencias.
+[OcelotasOchentaYUno.lean](OcelotasOchentaYUno.lean) cierra **81 rachas**
+bajo LMN y Rozier–Terracol, sin árbol de prefijos: un fallo necesita 82.
+[OcelotasCuarenta.lean](OcelotasCuarenta.lean) cierra **40 rachas** sin
+Rozier–Terracol: LMN y un censo propio hasta 2^36
+([censo_cst.py](censo_cst.py), 0 fallos; hipótesis explícita, no Lean).
+[OcelotasCuarentaYUna.lean](OcelotasCuarentaYUna.lean) llega a **41** con censo
+hasta 2·10^11 ([censo_41/](censo_41/)) y
+[OcelotasCuarentaYDos.lean](OcelotasCuarentaYDos.lean) a **42** con censo hasta
+3·10^11 ([censo_42/](censo_42/)).
+
 La continuación cerró [77 rachas en Lean](SETENTA_Y_SIETE_LEAN.md),
 bajo las mismas dos hipótesis externas: 91 módulos, 5030 consultas
 estándar, sin `sorryAx`. Un fallo necesita al menos 78 rachas.
