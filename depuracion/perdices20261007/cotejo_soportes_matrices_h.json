@@ -1,0 +1,386 @@
+{
+  "parametros": {
+    "cota_rectas": 2,
+    "muestras_grandes": 2000,
+    "semilla": 0,
+    "sistema_guardado": "depuracion\\perdices20261007\\bv_objetivo57_n2_c3.json",
+    "salida": "depuracion\\perdices20261007\\cotejo_soportes_matrices_h.json"
+  },
+  "variables": [
+    "d00",
+    "d01",
+    "a00",
+    "a01",
+    "a10",
+    "a11",
+    "b00",
+    "b01",
+    "b10",
+    "b11",
+    "va0",
+    "va1",
+    "vb0",
+    "vb1"
+  ],
+  "monomios": 28,
+  "soportes_distintos": 26,
+  "rutas_minimas": [
+    [
+      "d00",
+      "va0"
+    ],
+    [
+      "d01",
+      "va1"
+    ],
+    [
+      "d00",
+      "vb0"
+    ],
+    [
+      "d01",
+      "vb1"
+    ],
+    [
+      "d00",
+      "b01",
+      "va1"
+    ],
+    [
+      "d01",
+      "b10",
+      "va0"
+    ],
+    [
+      "d00",
+      "b01",
+      "vb1"
+    ],
+    [
+      "d01",
+      "b10",
+      "vb0"
+    ],
+    [
+      "d00",
+      "b00",
+      "a01",
+      "va1"
+    ],
+    [
+      "d01",
+      "b11",
+      "a10",
+      "va0"
+    ]
+  ],
+  "testigos_minimalidad": [
+    {
+      "factores": [
+        "d00",
+        "va0"
+      ],
+      "valores": {
+        "d00": 1,
+        "d01": 0,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 0,
+        "b10": 0,
+        "b11": 0,
+        "va0": 1,
+        "va1": 0,
+        "vb0": 0,
+        "vb1": 0
+      }
+    },
+    {
+      "factores": [
+        "d01",
+        "va1"
+      ],
+      "valores": {
+        "d00": 0,
+        "d01": 1,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 0,
+        "b10": 0,
+        "b11": 0,
+        "va0": 0,
+        "va1": 1,
+        "vb0": 0,
+        "vb1": 0
+      }
+    },
+    {
+      "factores": [
+        "d00",
+        "vb0"
+      ],
+      "valores": {
+        "d00": 1,
+        "d01": 0,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 0,
+        "b10": 0,
+        "b11": 0,
+        "va0": 0,
+        "va1": 0,
+        "vb0": 1,
+        "vb1": 0
+      }
+    },
+    {
+      "factores": [
+        "d01",
+        "vb1"
+      ],
+      "valores": {
+        "d00": 0,
+        "d01": 1,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 0,
+        "b10": 0,
+        "b11": 0,
+        "va0": 0,
+        "va1": 0,
+        "vb0": 0,
+        "vb1": 1
+      }
+    },
+    {
+      "factores": [
+        "d00",
+        "b01",
+        "va1"
+      ],
+      "valores": {
+        "d00": 1,
+        "d01": 0,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 1,
+        "b10": 0,
+        "b11": 0,
+        "va0": 0,
+        "va1": 1,
+        "vb0": 0,
+        "vb1": 0
+      }
+    },
+    {
+      "factores": [
+        "d01",
+        "b10",
+        "va0"
+      ],
+      "valores": {
+        "d00": 0,
+        "d01": 1,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 0,
+        "b10": 1,
+        "b11": 0,
+        "va0": 1,
+        "va1": 0,
+        "vb0": 0,
+        "vb1": 0
+      }
+    },
+    {
+      "factores": [
+        "d00",
+        "b01",
+        "vb1"
+      ],
+      "valores": {
+        "d00": 1,
+        "d01": 0,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 1,
+        "b10": 0,
+        "b11": 0,
+        "va0": 0,
+        "va1": 0,
+        "vb0": 0,
+        "vb1": 1
+      }
+    },
+    {
+      "factores": [
+        "d01",
+        "b10",
+        "vb0"
+      ],
+      "valores": {
+        "d00": 0,
+        "d01": 1,
+        "a00": 0,
+        "a01": 0,
+        "a10": 0,
+        "a11": 0,
+        "b00": 0,
+        "b01": 0,
+        "b10": 1,
+        "b11": 0,
+        "va0": 0,
+        "va1": 0,
+        "vb0": 1,
+        "vb1": 0
+      }
+    },
+    {
+      "factores": [
+        "d00",
+        "b00",
+        "a01",
+        "va1"
+      ],
+      "valores": {
+        "d00": 1,
+        "d01": 0,
+        "a00": 0,
+        "a01": 1,
+        "a10": 0,
+        "a11": 0,
+        "b00": 1,
+        "b01": 0,
+        "b10": 0,
+        "b11": 0,
+        "va0": 0,
+        "va1": 1,
+        "vb0": 0,
+        "vb1": 0
+      }
+    },
+    {
+      "factores": [
+        "d01",
+        "b11",
+        "a10",
+        "va0"
+      ],
+      "valores": {
+        "d00": 0,
+        "d01": 1,
+        "a00": 0,
+        "a01": 0,
+        "a10": 1,
+        "a11": 0,
+        "b00": 0,
+        "b01": 0,
+        "b10": 0,
+        "b11": 1,
+        "va0": 1,
+        "va1": 0,
+        "vb0": 0,
+        "vb1": 0
+      }
+    }
+  ],
+  "soportes_binarios": 16384,
+  "con_aporte": 10880,
+  "sin_aporte": 5504,
+  "geometria_local": {
+    "superior=0,retorno=0,aporte=0": 320,
+    "superior=0,retorno=0,aporte=1": 192,
+    "superior=0,retorno=1,aporte=0": 960,
+    "superior=0,retorno=1,aporte=1": 576,
+    "superior=1,retorno=0,aporte=0": 1168,
+    "superior=1,retorno=0,aporte=1": 2416,
+    "superior=1,retorno=1,aporte=0": 3056,
+    "superior=1,retorno=1,aporte=1": 7696
+  },
+  "rectas": [
+    {
+      "k": 0,
+      "t": 0,
+      "simbolos": 81
+    },
+    {
+      "k": 0,
+      "t": 1,
+      "simbolos": 54
+    },
+    {
+      "k": 0,
+      "t": 2,
+      "simbolos": 54
+    },
+    {
+      "k": 1,
+      "t": 0,
+      "simbolos": 57
+    },
+    {
+      "k": 1,
+      "t": 1,
+      "simbolos": 36
+    },
+    {
+      "k": 1,
+      "t": 2,
+      "simbolos": 22
+    },
+    {
+      "k": 2,
+      "t": 0,
+      "simbolos": 16
+    },
+    {
+      "k": 2,
+      "t": 1,
+      "simbolos": 10
+    },
+    {
+      "k": 2,
+      "t": 2,
+      "simbolos": 10
+    }
+  ],
+  "productos_proyectados": 21760,
+  "cierres_rectas": 17878,
+  "ejemplo_sin_retorno": {
+    "aporte_da": 1,
+    "orienta_sistema": false
+  },
+  "ejemplo_conectado": {
+    "conserva_diagonal": true,
+    "reglas_debiles": 12,
+    "estrictas": 0
+  },
+  "fuentes_lf": {
+    "cotejar_soportes_matrices_h.py": "9880bee9fa90450703cd4ae6922ed4d09573f3dfbda6ee215c3b954755cc50f2",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9",
+    "comprobar_proyecciones_matrices.py": "090e0fc69e3880d0e020c532fcbf1d0168ccb6d0bfe568662232354084ad9d02",
+    "PerdicesSoportesMatrices.lean": "a9aea88b295a34c797caf76067b064fcba3066611cf48993795ae21c2813d5ca",
+    "bv_objetivo57_n2_c3.json": "dc449654736e984d349f159524e1e8a7f99c375c8e03adac1ccd526c386fe826"
+  },
+  "alcance": "Clasifica exactamente soportes de aportes izquierdos, no soportes que orienten todo el sistema. Cotejos finitos de identidades; las pruebas sin cota de soporte y obstrucción por rectas están en Lean. Persistencia abierta."
+}

@@ -1,0 +1,15 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesSoportesMatrices.producto_proyectado' depends on axioms: [propext]
+'PerdicesSoportesMatrices.conserva_producto' depends on axioms: [propext]
+'PerdicesSoportesMatrices.orden_proyectado' does not depend on any axioms
+'PerdicesSoportesMatrices.reglas_en_recta' depends on axioms: [propext]
+'PerdicesSoportesMatrices.igualdad_constante_original' depends on axioms: [propext, Quot.sound]
+'PerdicesSoportesMatrices.sin_descenso_recta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSoportesMatrices.recta_cero' depends on axioms: [propext]
+'PerdicesSoportesMatrices.recta_diagonal' depends on axioms: [propext]
+'PerdicesSoportesMatrices.sin_descenso_segunda_inactiva' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSoportesMatrices.sin_descenso_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSoportesMatrices.producto_positivo' depends on axioms: [propext]
+'PerdicesSoportesMatrices.soporte_aporte_exacto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesSoportesMatrices.descenso_exige_aporte' depends on axioms: [propext, Quot.sound]
+'PerdicesSoportesMatrices.descenso_exige_ruta' depends on axioms: [propext, Classical.choice, Quot.sound]

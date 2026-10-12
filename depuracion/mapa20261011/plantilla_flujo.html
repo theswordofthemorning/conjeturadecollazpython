@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El arca del laboratorio</title>
+<style>
+:root {
+  --fondo: #f6f4ef; --panel: #ffffff; --texto: #1f2328; --suave: #5d636b; --borde: #d8d4ca;
+  --demostrado: #3f9b5b; --medido: #e0b531; --conjeturado: #8e7cc3; --sin: #a3a8ad; --refutado: #d0533f;
+  --abierto: #d0533f; --externo: #f0883e;
+  --fruto: #c8961b; --actual: #1f6feb; --flojo: #f0883e; --apoyo: #1f6feb; --sostiene: #2da44e;
+  --arista: #b9b4a8;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fondo: #14171b; --panel: #1d2127; --texto: #e6e8eb; --suave: #9aa1a9; --borde: #343a42;
+    --demostrado: #4fb26d; --medido: #d9ae2c; --conjeturado: #a593d8; --sin: #6e757c; --refutado: #e06650;
+    --abierto: #e06650; --externo: #f0883e;
+    --fruto: #e3b33a; --actual: #58a6ff; --flojo: #f0883e; --apoyo: #58a6ff; --sostiene: #3fb950;
+    --arista: #4a515a;
+  }
+}
+:root[data-theme="dark"] {
+  --fondo: #14171b; --panel: #1d2127; --texto: #e6e8eb; --suave: #9aa1a9; --borde: #343a42;
+  --demostrado: #4fb26d; --medido: #d9ae2c; --conjeturado: #a593d8; --sin: #6e757c; --refutado: #e06650;
+  --abierto: #e06650; --externo: #f0883e;
+  --fruto: #e3b33a; --actual: #58a6ff; --flojo: #f0883e; --apoyo: #58a6ff; --sostiene: #3fb950;
+  --arista: #4a515a;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--fondo); color: var(--texto); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; display: flex; flex-direction: column; }
+header { padding: 12px 16px 8px; border-bottom: 1px solid var(--borde); background: var(--panel); }
+h1 { font-size: 19px; margin: 0 0 2px; }
+.sub { color: var(--suave); font-size: 13px; }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 8px; font-size: 13px; }
+.leyenda span { display: inline-flex; align-items: center; gap: 5px; }
+.punto { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex: none; }
+.linea { width: 22px; height: 0; display: inline-block; border-top: 2px solid var(--arista); }
+#caja-leyenda summary { cursor: pointer; margin-top: 6px; }
+.barra { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+button, select, input { font: inherit; color: var(--texto); background: var(--fondo); border: 1px solid var(--borde); border-radius: 6px; padding: 4px 10px; max-width: 100%; }
+button { cursor: pointer; }
+button:hover { border-color: var(--suave); }
+button.activo { background: var(--texto); color: var(--fondo); border-color: var(--texto); }
+.pestanas { display: flex; gap: 4px; flex-wrap: wrap; }
+main { flex: 1; display: flex; min-height: 0; }
+#rama { max-width: 240px; }
+#lienzo { flex: 1; min-width: 0; position: relative; }
+#cy { position: absolute; inset: 0; }
+aside { width: 380px; max-width: 42vw; border-left: 1px solid var(--borde); background: var(--panel); overflow: auto; padding: 14px 16px; }
+aside h2 { font-size: 18px; margin: 0 0 4px; }
+aside h3 { font-size: 13px; margin: 14px 0 4px; color: var(--suave); text-transform: uppercase; letter-spacing: .03em; }
+aside p { margin: 6px 0; }
+.chip { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 10px; color: #fff; margin: 0 4px 4px 0; }
+.etiqueta { display: inline-block; font-size: 12px; padding: 1px 7px; border-radius: 10px; border: 1px solid var(--borde); margin: 0 4px 4px 0; }
+.enlace { color: var(--actual); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+a { color: var(--actual); }
+.aviso { border-left: 4px solid var(--flojo); padding: 6px 10px; background: color-mix(in srgb, var(--flojo) 10%, transparent); border-radius: 4px; margin: 8px 0; font-size: 14px; }
+.bien { border-left-color: var(--demostrado); background: color-mix(in srgb, var(--demostrado) 10%, transparent); }
+.af { border: 1px solid var(--borde); border-radius: 6px; padding: 6px 8px; margin: 6px 0; font-size: 13px; }
+.af summary { cursor: pointer; }
+.af .meta { color: var(--suave); font-size: 12px; margin-top: 4px; white-space: pre-wrap; word-break: break-word; }
+.rel { font-size: 14px; margin: 2px 0; }
+.rel small { color: var(--suave); }
+.vista { flex: 1; overflow: auto; padding: 14px 16px; display: none; }
+.vista.visible { display: block; }
+.vista table { border-collapse: collapse; width: 100%; font-size: 13px; }
+.vista td, .vista th { border-bottom: 1px solid var(--borde); padding: 5px 6px; text-align: left; vertical-align: top; }
+.tarjeta { background: var(--panel); border: 1px solid var(--borde); border-radius: 8px; padding: 10px 12px; margin: 0 0 10px; }
+.tarjeta h3 { margin: 0 0 6px; font-size: 16px; }
+.cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 10px; }
+.vacio { color: var(--suave); }
+#flotante { position: absolute; left: 10px; bottom: 10px; max-width: min(360px, calc(100% - 20px)); background: var(--panel); border: 1px solid var(--borde); border-radius: 8px; padding: 6px 10px; font-size: 13px; pointer-events: none; display: none; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+@media (max-width: 760px) {
+  main { flex-direction: column; }
+  #lienzo { min-height: 60vh; }
+  aside { width: auto; max-width: none; border-left: none; border-top: 1px solid var(--borde); max-height: 45vh; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="titulo">El arca del laboratorio</h1>
+  <div class="sub" id="subtitulo"></div>
+  <details id="caja-leyenda" open><summary class="sub">Leyenda</summary><div class="leyenda" id="leyenda"></div></details>
+  <div class="barra">
+    <div class="pestanas" id="pestanas"></div>
+    <input id="buscar" placeholder="Buscar animal…" size="16" aria-label="Buscar" list="nombres">
+    <datalist id="nombres"></datalist>
+    <select id="rama" aria-label="Rama"></select>
+    <button id="ver-todo">Ver todo</button>
+    <button id="ir-actual">Rama actual</button>
+    <button id="tema" title="Cambiar claro/oscuro">◐</button>
+  </div>
+</header>
+<main id="principal">
+  <div id="lienzo"><div id="cy"></div><div id="flotante"></div></div>
+  <aside id="panel"></aside>
+</main>
+<div class="vista" id="vista-alarmas"></div>
+<div class="vista" id="vista-nombres"></div>
+<div class="vista" id="vista-afirmaciones"></div>
+<div class="vista" id="vista-correcciones"></div>
+
+<script id="datos-mapa" type="application/json">__DATOS__</script>
+<script>__LIBRERIAS__</script>
+<script>
+const MODO = '__MODO__';
+const D = JSON.parse(document.getElementById('datos-mapa').textContent);
+const COMPLEJO = MODO === 'complex';
+
+// Los cuatro resultados que resuelven una conjetura publicada por otro autor.
+const FRUTOS = { gao_densidad: 'Gao (1993)', hienas: 'Gao (1993), forma literal', alpacas: 'Garner (1985)', condoras: 'Wu (1992), conjetura 2' };
+const ESTADOS = {
+  demostrado: 'Demostrado: probado con un razonamiento',
+  medido: 'Medido: el ordenador lo vio en muchos casos, no es prueba',
+  conjeturado: 'Conjeturado: se cree, sin prueba',
+  refutado: 'Refutado: resultó falso',
+  sin: 'Sin afirmaciones propias: pieza de contexto o de documentación',
+};
+const ORDEN = ['demostrado', 'medido', 'conjeturado', 'refutado'];
+const CORTO = { demostrado: 'dem.', medido: 'med.', conjeturado: 'conj.', refutado: 'ref.' };
+const SITUACION = {
+  vigente: 'en uso', ruta_anterior: 'ruta anterior (ya no se sigue)', contexto: 'resultado de otros autores',
+  recuperada: 'recuperada de una sesión perdida', abierta: 'pregunta abierta',
+};
+// Qué significa cada tipo de flecha, en palabras sencillas.
+const TIPOS = {
+  registrada: ['se apoya en', 'la de arriba usa la de abajo'],
+  usa: ['se apoya en', 'la de arriba usa la de abajo'],
+  interna: ['se apoya en', 'dentro de la misma pieza'],
+  condicional: ['necesita una hipótesis de', 'solo vale si lo de abajo es cierto'],
+  antecedente: ['viene de', 'idea anterior, no una prueba'],
+  contrasta: ['se compara con', 'contraste, no apoyo'],
+  parte: ['es parte de', 'sub-pieza'],
+};
+const DEPENDE = new Set(['registrada', 'usa', 'interna', 'condicional']);
+const APOYO = new Set(['registrada', 'usa', 'interna']);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue('--' + n).trim();
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const RE_REV = /revisi[oó]n humana/i;
+const RE_HIP = /\bhip[oó]tesis\b|\bcondicional\b/i;
+
+// ---------- datos ----------
+const piezas = new Map(D.piezas.map(p => [p.id, p]));
+const ramas = new Map(D.ramas.map(r => [r.id, r]));
+const afid = new Map(D.afirmaciones.map(a => [a.id, a]));
+const flechas = [];
+D.relaciones.forEach(r => { if (r.desde !== r.hasta) flechas.push({ id: 'r' + r.id, desde: r.desde, hasta: r.hasta, tipo: r.tipo, detalle: r.detalle, fuentes: r.fuentes }); });
+D.piezas.forEach(p => { if (p.padre) flechas.push({ id: 'p-' + p.id, desde: p.id, hasta: p.padre, tipo: 'parte', detalle: '', fuentes: [] }); });
+const padres = new Map(), hijos = new Map();
+for (const k of piezas.keys()) { padres.set(k, []); hijos.set(k, []); }
+flechas.forEach(f => { if (f.tipo !== 'contrasta') { padres.get(f.hasta).push(f); hijos.get(f.desde).push(f); } });
+const vecinosContraste = new Map([...piezas.keys()].map(k => [k, []]));
+flechas.forEach(f => { if (f.tipo === 'contrasta') { vecinosContraste.get(f.desde).push(f); vecinosContraste.get(f.hasta).push(f); } });
+
+for (const p of piezas.values()) {
+  const c = p.conteo || {};
+  const total = ORDEN.reduce((s, e) => s + (c[e] || 0), 0);
+  p.total = total;
+  p.estado = total ? ORDEN.reduce((m, e) => (c[e] || 0) > (c[m] || 0) ? e : m, 'demostrado') : 'sin';
+  p.todoDemostrado = total > 0 && c.demostrado === total;
+  // Firmeza como apoyo: manda el estado del eslabón registrado; si no hay, el de sus afirmaciones.
+  const eslabones = Object.values(p.estados_nodos || {});
+  p.firme = eslabones.length ? eslabones.every(e => e === 'demostrado') : p.situacion === 'abierta' ? false : total ? p.todoDemostrado : null;
+  const textos = p.afirmaciones.map(i => afid.get(i));
+  p.revision = textos.some(a => RE_REV.test(a.enunciado + ' ' + (a.notas || '')));
+  p.hipotesis = p.situacion === 'contexto' || textos.some(a => RE_HIP.test(a.enunciado)) || padres.get(p.id).some(f => f.tipo === 'condicional');
+  p.fruto = FRUTOS[p.id] || '';
+  p.nombre = p.titulo;
+}
+function cierre(id, mapa, campo) {
+  const vistos = new Set(), pila = [id];
+  while (pila.length) for (const f of mapa.get(pila.pop())) { const x = f[campo]; if (!vistos.has(x)) { vistos.add(x); pila.push(x); } }
+  vistos.delete(id);
+  return vistos;
+}
+const ancestros = id => cierre(id, padres, 'desde');
+const descendientes = id => cierre(id, hijos, 'hasta');
+function apoyosFlojos(id) {
+  // Sigue solo flechas de apoyo matemático; las de historia, contraste e hipótesis declaradas no cuentan.
+  const vistos = new Set(), pila = [id];
+  while (pila.length) for (const f of padres.get(pila.pop())) if (APOYO.has(f.tipo) && !vistos.has(f.desde)) { vistos.add(f.desde); pila.push(f.desde); }
+  return [...vistos].filter(x => piezas.get(x).firme === false);
+}
+const sueltas = D.piezas.filter(p => !padres.get(p.id).length && !hijos.get(p.id).length && !vecinosContraste.get(p.id).length);
+const sueltaSet = new Set(sueltas.map(p => p.id));
+
+// ---------- cabecera ----------
+document.title = COMPLEJO ? 'Arca: mapa completo' : 'Arca: mapa básico';
+document.getElementById('titulo').textContent = COMPLEJO ? 'El arca del laboratorio: mapa completo' : 'El arca del laboratorio: mapa básico';
+document.getElementById('subtitulo').textContent =
+  `Registro del ${D.version} · ${D.piezas.length} piezas, ${flechas.length} flechas, ${D.ramas.length} ramas · ` +
+  (COMPLEJO ? `${D.afirmaciones.length} afirmaciones, ${D.correcciones.length} correcciones · ` : '') +
+  'Abajo lo básico, arriba lo más desarrollado. Pasa el ratón o pincha un animal.';
+const leyenda = document.getElementById('leyenda');
+if (matchMedia('(max-width: 760px)').matches) document.getElementById('caja-leyenda').open = false;
+[...ORDEN, 'sin'].forEach(e => leyenda.insertAdjacentHTML('beforeend', `<span><i class="punto" style="background:var(--${e})"></i>${ESTADOS[e].split(':')[0]}</span>`));
+leyenda.insertAdjacentHTML('beforeend',
+  `<span>🏆 conjetura publicada resuelta</span><span>👁 falta revisión humana</span><span>⚠ usa una hipótesis externa</span>` +
+  `<span><i class="punto" style="border:3px solid var(--actual)"></i>rama actual</span>` +
+  `<span><i class="punto" style="border:2px dashed var(--abierto)"></i>pregunta abierta</span>` +
+  `<span><i class="punto" style="background:var(--sin);opacity:.45"></i>ruta anterior</span>` +
+  `<span><i class="linea"></i>se apoya en</span><span><i class="linea" style="border-top-style:dashed"></i>viene de (historia)</span>` +
+  `<span><i class="linea" style="border-top-color:var(--externo);border-top-style:dashed"></i>hipótesis</span>`);
+
+// ---------- pestañas ----------
+const VISTAS = COMPLEJO
+  ? [['arbol', 'Árbol'], ['alarmas', 'Alarmas'], ['nombres', 'Los ' + D.inventario.length + ' nombres'], ['afirmaciones', 'Las ' + D.afirmaciones.length + ' afirmaciones'], ['correcciones', 'Lo que se cayó']]
+  : [['arbol', 'Árbol'], ['alarmas', 'Alarmas'], ['nombres', 'Los ' + D.inventario.length + ' nombres']];
+const pest = document.getElementById('pestanas');
+VISTAS.forEach(([id, txt]) => pest.insertAdjacentHTML('beforeend', `<button data-vista="${id}">${txt}</button>`));
+let vistaActual = 'arbol';
+function mostrar(v) {
+  vistaActual = v;
+  pest.querySelectorAll('button').forEach(b => b.classList.toggle('activo', b.dataset.vista === v));
+  document.getElementById('principal').style.display = v === 'arbol' ? 'flex' : 'none';
+  document.querySelectorAll('.vista').forEach(x => x.classList.toggle('visible', x.id === 'vista-' + v));
+  ['ver-todo', 'ir-actual', 'rama'].forEach(id => document.getElementById(id).style.display = v === 'arbol' ? '' : 'none');
+  if (v === 'arbol' && cy) cy.resize();
+  try { localStorage.setItem('arca-vista-' + MODO, v); } catch (e) {}
+}
+pest.addEventListener('click', e => { if (e.target.dataset.vista) mostrar(e.target.dataset.vista); });
+
+// ---------- tema ----------
+document.getElementById('tema').addEventListener('click', () => {
+  const r = document.documentElement;
+  const oscuro = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme = oscuro ? 'light' : 'dark';
+  try { localStorage.setItem('arca-tema', r.dataset.theme); } catch (e) {}
+  if (cy) cy.style(estilo());
+});
+try { const t = localStorage.getItem('arca-tema'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+
+// ---------- grafo ----------
+let cy = null, fijado = null;
+function etiqueta(p) {
+  let linea = (p.fruto ? '🏆 ' : '') + p.titulo + (p.revision ? ' 👁' : '') + (p.hipotesis ? ' ⚠' : '');
+  const c = p.conteo || {};
+  let sub = p.total ? ORDEN.filter(e => c[e]).map(e => c[e] + ' ' + CORTO[e]).join(' · ') : (SITUACION[p.situacion] || '');
+  if (p.situacion === 'abierta') sub = 'pregunta abierta';
+  if (p.id === D.actual) linea = '📍 AQUÍ ESTAMOS\n' + linea;
+  return linea + (sub ? '\n' + sub : '');
+}
+function elementos() {
+  const els = [];
+  for (const p of piezas.values()) {
+    const lab = etiqueta(p);
+    const lineas = lab.split('\n');
+    const ancho = Math.max(80, Math.min(210, Math.max(...lineas.map(l => l.length)) * 6.6 + 20));
+    const alto = 18 + 15 * lineas.reduce((s, l) => s + Math.ceil(l.length * 6.6 / (ancho - 12)), 0);
+    const cls = ['pieza', p.estado, p.situacion, p.fruto ? 'fruto' : '', p.id === D.actual ? 'actual' : '', apoyosFlojos(p.id).length && p.firme ? 'flojo' : ''].join(' ');
+    els.push({ data: { id: p.id, label: lab, w: ancho, h: alto }, classes: cls });
+  }
+  flechas.forEach(f => els.push({ data: { id: f.id, source: f.desde, target: f.hasta }, classes: f.tipo }));
+  return els;
+}
+function estilo() {
+  const s = [
+    { selector: 'node', style: {
+      'shape': 'round-rectangle', 'width': 'data(w)', 'height': 'data(h)', 'label': 'data(label)',
+      'text-wrap': 'wrap', 'text-max-width': 'data(w)', 'text-valign': 'center', 'text-halign': 'center', 'font-size': 12,
+      'color': '#fff', 'background-color': css('sin'), 'border-width': 1, 'border-color': css('borde'),
+      'font-family': 'system-ui, Segoe UI, sans-serif', 'transition-property': 'opacity', 'transition-duration': '120ms' } },
+    { selector: 'node.ruta_anterior', style: { 'background-opacity': 0.45, 'color': css('texto') } },
+    { selector: 'node.recuperada', style: { 'border-style': 'dotted', 'border-width': 3, 'border-color': css('suave') } },
+    { selector: 'node.contexto', style: { 'background-color': css('panel'), 'color': css('texto'), 'border-width': 3, 'border-color': css('externo'), 'border-style': 'dashed' } },
+    { selector: 'node.abierta', style: { 'background-color': css('panel'), 'color': css('abierto'), 'border-width': 3, 'border-color': css('abierto'), 'border-style': 'dashed', 'font-weight': 'bold' } },
+    { selector: 'node.fruto', style: { 'border-width': 4, 'border-color': css('fruto'), 'font-weight': 'bold' } },
+    { selector: 'node.flojo', style: { 'border-width': 5, 'border-color': css('flojo') } },
+    { selector: 'node.actual', style: { 'border-width': 5, 'border-color': css('actual'), 'border-style': 'solid' } },
+    { selector: 'edge', style: {
+      'width': 1.4, 'line-color': css('arista'), 'target-arrow-color': css('arista'),
+      'target-arrow-shape': 'triangle', 'arrow-scale': 0.8, 'curve-style': 'bezier' } },
+    { selector: 'edge.antecedente', style: { 'line-style': 'dashed', 'width': 1.1 } },
+    { selector: 'edge.parte', style: { 'line-style': 'dotted', 'width': 1.6, 'target-arrow-shape': 'none' } },
+    { selector: 'edge.condicional', style: { 'line-style': 'dashed', 'line-color': css('externo'), 'target-arrow-color': css('externo'), 'width': 2 } },
+    { selector: 'edge.contrasta', style: { 'line-style': 'dotted', 'target-arrow-shape': 'none', 'width': 1.1 } },
+    { selector: '.tenue', style: { 'opacity': 0.12 } },
+    { selector: 'edge.apoyo', style: { 'line-color': css('apoyo'), 'target-arrow-color': css('apoyo'), 'width': 3, 'opacity': 1 } },
+    { selector: 'edge.sostiene', style: { 'line-color': css('sostiene'), 'target-arrow-color': css('sostiene'), 'width': 3, 'opacity': 1 } },
+    { selector: 'node.elegido', style: { 'border-width': 5, 'border-color': css('texto'), 'opacity': 1, 'z-index': 10 } },
+    { selector: 'node.titulo-zona', style: {
+      'background-opacity': 0, 'border-width': 0, 'color': css('suave'), 'font-size': 15, 'font-weight': 'bold',
+      'events': 'no', 'width': 10, 'height': 10 } },
+  ];
+  ORDEN.forEach(e => s.splice(1, 0, { selector: `node.${e}`, style: { 'background-color': css(e) } }));
+  s.splice(1 + ORDEN.length, 0, { selector: 'node.medido', style: { 'color': '#1f2328' } });
+  return s;
+}
+function colocarSueltas() {
+  if (!sueltas.length) return;
+  const bb = cy.nodes().filter(n => !sueltaSet.has(n.id())).boundingBox();
+  const x0 = bb.x2 + 180, paso = 230;
+  cy.add({ data: { id: '__zona', label: 'Sin flechas anotadas\n(grupos de afirmaciones sueltas)' }, classes: 'titulo-zona', position: { x: x0 + paso / 2, y: bb.y1 - 50 } });
+  sueltas.forEach((p, i) => cy.getElementById(p.id).position({ x: x0 + (i % 2) * paso, y: bb.y1 + 40 + Math.floor(i / 2) * 110 }));
+}
+function iniciar() {
+  cytoscape.use(cytoscapeDagre);
+  cy = cytoscape({ container: document.getElementById('cy'), elements: elementos(), style: estilo(),
+    wheelSensitivity: 0.25, minZoom: 0.05, maxZoom: 3 });
+  cy.elements().filter(e => e.isEdge() || !sueltaSet.has(e.id()))
+    .layout({ name: 'dagre', rankDir: 'BT', nodeSep: 16, rankSep: 70, edgeSep: 6, animate: false, fit: false }).run();
+  colocarSueltas();
+  cy.fit(undefined, 30);
+  cy.on('tap', 'node', e => elegir(e.target.id()));
+  cy.on('tap', e => { if (e.target === cy) limpiar(); });
+  const flot = document.getElementById('flotante');
+  cy.on('mouseover', 'node.pieza', e => {
+    const p = piezas.get(e.target.id());
+    if (!fijado) encender(p.id);
+    flot.innerHTML = `<b>${esc(p.titulo)}</b> · ${esc(ramas.get(p.rama)?.titulo || '')}<br>${esc(p.resumen || '')}`;
+    flot.style.display = 'block';
+  });
+  cy.on('mouseout', 'node.pieza', () => { flot.style.display = 'none'; if (!fijado) apagar(); else encender(fijado); });
+}
+function apagar() { cy.elements().removeClass('tenue apoyo sostiene elegido'); }
+function encender(id) {
+  const arriba = ancestros(id), abajo = descendientes(id);
+  cy.batch(() => {
+    cy.elements().removeClass('tenue apoyo sostiene elegido').addClass('tenue');
+    cy.getElementById(id).removeClass('tenue').addClass('elegido');
+    arriba.forEach(x => cy.getElementById(x).removeClass('tenue'));
+    abajo.forEach(x => cy.getElementById(x).removeClass('tenue'));
+    flechas.forEach(f => {
+      const e = cy.getElementById(f.id);
+      if (f.tipo === 'contrasta') {
+        if (f.desde === id || f.hasta === id) { e.removeClass('tenue'); cy.getElementById(f.desde === id ? f.hasta : f.desde).removeClass('tenue'); }
+      } else if ((arriba.has(f.desde) || f.desde === id) && (arriba.has(f.hasta) || f.hasta === id)) e.removeClass('tenue').addClass('apoyo');
+      else if ((abajo.has(f.desde) || f.desde === id) && (abajo.has(f.hasta) || f.hasta === id)) e.removeClass('tenue').addClass('sostiene');
+    });
+  });
+  return { arriba, abajo };
+}
+function limpiar() {
+  fijado = null;
+  apagar();
+  document.getElementById('rama').value = '';
+  panelInicio();
+}
+function elegir(id, centrar) {
+  if (!piezas.has(id)) return;
+  if (vistaActual !== 'arbol') mostrar('arbol');
+  fijado = id;
+  const { arriba, abajo } = encender(id);
+  if (centrar) cy.animate({ center: { eles: cy.getElementById(id) }, zoom: Math.max(cy.zoom(), 0.9) }, { duration: 300 });
+  panelPieza(id, arriba, abajo);
+}
+function resaltarGrupo(ids, titulo) {
+  fijado = null;
+  const set = new Set(ids);
+  cy.batch(() => {
+    apagar();
+    cy.elements().addClass('tenue');
+    ids.forEach(x => cy.getElementById(x).removeClass('tenue'));
+    flechas.forEach(f => { if (set.has(f.desde) && set.has(f.hasta)) cy.getElementById(f.id).removeClass('tenue').addClass('apoyo'); });
+  });
+  cy.animate({ fit: { eles: cy.nodes().filter(n => set.has(n.id())), padding: 40 } }, { duration: 300 });
+  return titulo;
+}
+
+// ---------- panel ----------
+const panel = document.getElementById('panel');
+const link = id => { const p = piezas.get(id); return `<span class="enlace" data-ir="${esc(id)}">${p.fruto ? '🏆 ' : ''}${esc(p.titulo)}</span>`; };
+const fuente = f => D.enlaces[f] ? `<a href="${esc(D.enlaces[f])}" target="_blank" rel="noopener">${esc(f.split('/').pop())}</a>` : esc(f);
+panel.addEventListener('click', e => {
+  const t = e.target.closest('[data-ir]'); if (t) return elegir(t.dataset.ir, true);
+  const r = e.target.closest('[data-recorrido]'); if (r) { const etapa = D.recorrido[+r.dataset.recorrido]; resaltarGrupo(etapa.piezas); }
+});
+function chip(e, n) { return `<span class="chip" style="background:var(--${e});${e === 'medido' ? 'color:#1f2328' : ''}">${n ? n + ' ' : ''}${CORTO[e] || e}</span>`; }
+function htmlAfirmacion(a, conPieza) {
+  const marcas = (RE_REV.test(a.enunciado + ' ' + (a.notas || '')) ? '<span class="etiqueta">👁 revisión humana</span>' : '') + (RE_HIP.test(a.enunciado) ? '<span class="etiqueta">⚠ hipótesis</span>' : '');
+  const donde = conPieza && piezas.has(a.pieza) ? ' · ' + link(a.pieza) : '';
+  return `<details class="af"><summary>${chip(a.estado)} <b>#${a.id}</b> ${esc(a.enunciado.slice(0, 140))}${a.enunciado.length > 140 ? '…' : ''}</summary>
+    <div>${marcas}${donde}</div>
+    <div class="meta"><b>Enunciado:</b> ${esc(a.enunciado)}\n<b>Fichero:</b> ${a.fichero ? fuente(a.fichero) : '—'}\n<b>Fuente:</b> ${esc(a.fuente)}${a.notas ? '\n<b>Notas:</b> ' + esc(a.notas) : ''}</div></details>`;
+}
+function panelInicio() {
+  const act = piezas.get(D.actual);
+  panel.innerHTML = `<h2>Cómo leer el árbol</h2>
+    <p>Cada caja es una pieza del trabajo. Una flecha de A hacia B quiere decir que <b>B se apoya en A</b>. Lo básico queda abajo y lo más desarrollado arriba.</p>
+    <p>Pasa el ratón sobre un animal, o pínchalo para dejarlo fijo. En <b style="color:var(--apoyo)">azul</b> se encienden las piezas en que se apoya, hasta el suelo, y en <b style="color:var(--sostiene)">verde</b> lo que se construyó encima.</p>
+    <h3>Frutos</h3>${Object.keys(FRUTOS).filter(k => piezas.has(k)).map(k => link(k) + ' — ' + esc(FRUTOS[k])).join('<br>')}
+    <h3>Dónde estamos</h3>${act ? '📍 ' + link(act.id) : '—'}
+    <h3>El recorrido</h3>${D.recorrido.map((e, i) => `<div class="rel"><span class="enlace" data-recorrido="${i}">${i + 1}. ${esc(e.titulo)}</span> <small>(${e.piezas.length} piezas)</small></div>`).join('')}
+    <h3>Alarmas</h3>${resumenAlarmas()}`;
+  panel.scrollTop = 0;
+}
+function listaRel(arr, campo) {
+  if (!arr.length) return '';
+  return arr.map(f => `<div class="rel">${link(f[campo])} <small>${esc(TIPOS[f.tipo][1])}</small></div>`).join('');
+}
+function panelPieza(id, arriba, abajo) {
+  const p = piezas.get(id), rama = ramas.get(p.rama), c = p.conteo || {};
+  let h = `<h2>${p.fruto ? '🏆 ' : ''}${esc(p.titulo)}</h2>`;
+  h += `<div class="sub">${esc(rama ? rama.titulo : '')}${p.padre ? ' · parte de ' + link(p.padre) : ''}</div><p>`;
+  h += p.total ? ORDEN.filter(e => c[e]).map(e => chip(e, c[e])).join('') : `<span class="etiqueta">${esc(SITUACION[p.situacion] || 'sin afirmaciones')}</span>`;
+  if (p.total && p.situacion !== 'vigente') h += `<span class="etiqueta">${esc(SITUACION[p.situacion])}</span>`;
+  if (p.animal && p.animal !== p.titulo) h += `<span class="etiqueta">${esc(p.animal)}</span>`;
+  if (p.alias.length) h += `<span class="etiqueta">alias: ${esc(p.alias.join(', '))}</span>`;
+  h += '</p>';
+  if (p.fruto) h += `<div class="aviso bien">🏆 Resuelve la conjetura de ${esc(p.fruto)}.</div>`;
+  if (p.resumen) h += `<h3>Qué aporta</h3><p>${esc(p.resumen)}</p>`;
+  if (p.limite) h += `<h3>Hasta dónde llega</h3><p>${esc(p.limite)}</p>`;
+  const flojos = apoyosFlojos(id);
+  if (p.firme && flojos.length) h += `<div class="aviso"><b>Ojo:</b> está demostrado, pero se apoya en piezas que no lo están: ${flojos.map(link).join(', ')}.</div>`;
+  if (p.revision) h += `<div class="aviso">👁 Falta que un matemático humano la revise.</div>`;
+  if (p.hipotesis) h += `<div class="aviso">⚠ Usa una hipótesis que viene de fuera o es condicional.</div>`;
+  if (sueltaSet.has(id)) h += `<div class="aviso">No tiene flechas anotadas: es un grupo de afirmaciones sueltas.</div>`;
+  const pa = padres.get(id), hi = hijos.get(id), co = vecinosContraste.get(id);
+  h += `<h3>Debajo: en qué se apoya</h3>${listaRel(pa, 'desde') || '<span class="vacio">nada anotado</span>'}`;
+  h += `<h3>Encima: qué la usa</h3>${listaRel(hi, 'hasta') || '<span class="vacio">nadie todavía</span>'}`;
+  if (co.length) h += `<h3>Se compara con</h3>${co.map(f => `<div class="rel">${link(f.desde === id ? f.hasta : f.desde)}</div>`).join('')}`;
+  if (p.fuentes.length) h += `<h3>Dónde está escrito</h3>${p.fuentes.map(fuente).join('<br>')}`;
+  if (COMPLEJO) {
+    h += `<h3>Sus afirmaciones (${p.afirmaciones.length})</h3>` + (p.afirmaciones.length ? p.afirmaciones.map(i => htmlAfirmacion(afid.get(i))).join('') : '<span class="vacio">ninguna propia</span>');
+    const det = [...pa, ...hi].filter(f => f.detalle);
+    if (det.length) h += `<h3>Detalle de las flechas</h3>` + det.map(f => `<details class="af"><summary>${esc(piezas.get(f.desde).titulo)} → ${esc(piezas.get(f.hasta).titulo)} <small>(${esc(TIPOS[f.tipo][0])})</small></summary><div class="meta">${esc(f.detalle)}</div></details>`).join('');
+  } else if (p.total) h += `<p class="sub">El mapa completo muestra sus ${p.total} afirmaciones.</p>`;
+  panel.innerHTML = h;
+  panel.scrollTop = 0;
+}
+
+// ---------- alarmas ----------
+function calcularAlarmas() {
+  const todas = [...piezas.values()];
+  return {
+    flojas: todas.filter(p => p.firme && apoyosFlojos(p.id).length),
+    debiles: todas.filter(p => p.firme === false && hijos.get(p.id).some(f => APOYO.has(f.tipo))),
+    revision: todas.filter(p => p.revision),
+    hipotesis: todas.filter(p => p.hipotesis),
+    abiertas: todas.filter(p => p.situacion === 'abierta'),
+    refutadas: D.afirmaciones.filter(a => a.estado === 'refutado'),
+  };
+}
+function resumenAlarmas() {
+  const A = calcularAlarmas();
+  return (A.flojas.length
+      ? `<div class="aviso"><b>${A.flojas.length}</b> piezas demostradas se apoyan en algo que no lo está.</div>`
+      : `<div class="aviso bien">Ninguna pieza demostrada se apoya en algo sin demostrar.</div>`) +
+    `<div class="aviso">👁 ${A.revision.length} piezas esperan revisión humana.</div>` +
+    `<div class="aviso">Preguntas abiertas: ${A.abiertas.map(p => link(p.id)).join(', ')}.</div>`;
+}
+function vistaAlarmas() {
+  const A = calcularAlarmas();
+  const lista = arr => arr.length ? arr.map(p => `<div>${link(p.id)} <small class="sub">${esc(ramas.get(p.rama)?.titulo || '')}</small></div>`).join('') : '<span class="vacio">ninguna</span>';
+  let h = `<div class="cols">
+  <div class="tarjeta"><h3>1. Demostrado sobre arena</h3><p>Piezas demostradas que se apoyan, aunque sea de lejos, en algo que no lo está. Solo cuentan las flechas de apoyo; las de historia y las hipótesis declaradas (⚠) van aparte.</p>
+    ${A.flojas.length ? A.flojas.map(p => `<div class="aviso">${link(p.id)} ← ${apoyosFlojos(p.id).map(link).join(', ')}${padres.get(p.id).filter(f => APOYO.has(f.tipo) && piezas.get(f.desde).firme === false).map(f => '<div class="sub">' + esc(f.detalle) + '</div>').join('')}</div>`).join('') : '<div class="aviso bien">Ninguna.</div>'}
+    <p class="sub">Se mira pieza a pieza: si la de abajo mezcla resultados demostrados y medidos, el detalle dice cuál se usa.</p></div>
+  <div class="tarjeta"><h3>2. Puntos débiles que sostienen algo</h3><p>Piezas medidas o pendientes que tienen otras encima. Si una cae, se ve qué arrastra.</p>${lista(A.debiles)}</div>
+  <div class="tarjeta"><h3>3. Preguntas abiertas</h3><p>Lo que falta para cerrar la ruta actual.</p>${lista(A.abiertas)}</div>
+  <div class="tarjeta"><h3>4. 👁 Falta revisión humana</h3><p>Lean las da por buenas, pero ningún matemático las ha revisado todavía.</p>${lista(A.revision)}</div>
+  <div class="tarjeta"><h3>5. ⚠ Usan una hipótesis de fuera</h3><p>Son ciertas <i>si</i> se cumple algo que no probamos nosotros.</p>${lista(A.hipotesis)}</div>`;
+  if (COMPLEJO) h += `<div class="tarjeta"><h3>6. Refutadas (${A.refutadas.length})</h3><p>Afirmaciones que resultaron falsas. Se guardan para no repetirlas.</p>${A.refutadas.map(a => htmlAfirmacion(a, true)).join('')}</div>`;
+  h += '</div>';
+  const v = document.getElementById('vista-alarmas');
+  v.innerHTML = h;
+  v.addEventListener('click', e => { const t = e.target.closest('[data-ir]'); if (t) elegir(t.dataset.ir, true); });
+}
+
+// ---------- nombres ----------
+function vistaNombres() {
+  const v = document.getElementById('vista-nombres');
+  v.innerHTML = `<p>Cada animal y alias, y la pieza del árbol donde vive. Pincha uno para verlo en el árbol.</p>
+    <table id="inventario"><thead><tr><th>Nombre</th><th>Pieza</th><th>Rama</th></tr></thead><tbody></tbody></table>`;
+  v.addEventListener('click', e => { const t = e.target.closest('[data-ir]'); if (t) elegir(t.dataset.ir, true); });
+}
+function pintarNombres(q) {
+  const filas = D.inventario.filter(i => !q || (i.nombre + ' ' + i.alias.join(' ') + ' ' + (i.alias_de || '')).toLowerCase().includes(q));
+  document.querySelector('#inventario tbody').innerHTML = filas.map(i => {
+    const p = piezas.get(i.pieza);
+    return `<tr><td>${esc(i.nombre)}${i.alias_de ? ' <small class="sub">(alias de ' + esc(i.alias_de) + ')</small>' : ''}</td><td>${link(i.pieza)}</td><td>${esc(ramas.get(p.rama)?.titulo || '')}</td></tr>`;
+  }).join('');
+}
+
+// ---------- afirmaciones y correcciones ----------
+function vistaAfirmaciones() {
+  const v = document.getElementById('vista-afirmaciones');
+  const conAf = D.piezas.filter(p => p.afirmaciones.length).sort((a, b) => a.titulo.localeCompare(b.titulo));
+  v.innerHTML = `<div class="barra" style="margin:0 0 10px">
+      <input id="fa-texto" placeholder="Buscar en el texto…" size="24">
+      <select id="estado-af"><option value="">todos los estados</option>${ORDEN.map(e => `<option>${e}</option>`).join('')}</select>
+      <select id="fa-pieza"><option value="">todas las piezas</option>${conAf.map(p => `<option value="${esc(p.id)}">${esc(p.titulo)}</option>`).join('')}</select>
+      <label><input type="checkbox" id="fa-rev"> solo 👁</label>
+      <span id="fa-n" class="sub"></span></div><div id="lista-afirmaciones"></div>`;
+  const pinta = () => {
+    const t = document.getElementById('fa-texto').value.toLowerCase(), e = document.getElementById('estado-af').value,
+      g = document.getElementById('fa-pieza').value, r = document.getElementById('fa-rev').checked;
+    const sel = D.afirmaciones.filter(a => (!e || a.estado === e) && (!g || a.pieza === g) && (!r || RE_REV.test(a.enunciado + ' ' + (a.notas || ''))) &&
+      (!t || (a.enunciado + ' ' + (a.notas || '') + ' ' + (a.fichero || '')).toLowerCase().includes(t)));
+    document.getElementById('fa-n').textContent = sel.length + ' de ' + D.afirmaciones.length;
+    document.getElementById('lista-afirmaciones').innerHTML = sel.slice().reverse().map(a => htmlAfirmacion(a, true)).join('');
+  };
+  v.addEventListener('input', pinta);
+  v.addEventListener('change', pinta);
+  v.addEventListener('click', ev => { const x = ev.target.closest('[data-ir]'); if (x) elegir(x.dataset.ir, true); });
+  pinta();
+}
+function vistaCorrecciones() {
+  document.getElementById('vista-correcciones').innerHTML =
+    `<p>Cosas que en algún momento se creyeron y luego resultaron falsas. Son ${D.correcciones.length} y se guardan como aprendizaje.</p><div id="lista-correcciones">` +
+    D.correcciones.slice().reverse().map(c => `<details class="af"><summary><b>#${c.id}</b> ${esc(c.que_se_creia.slice(0, 140))}${c.que_se_creia.length > 140 ? '…' : ''}</summary>
+      <div class="meta"><b>Se creía:</b> ${esc(c.que_se_creia)}\n<b>Por qué era falso:</b> ${esc(c.por_que_era_falsa)}\n<b>Lección:</b> ${esc(c.leccion)}</div></details>`).join('') + '</div>';
+}
+
+// ---------- búsqueda, ramas y botones ----------
+const indice = [];
+D.piezas.forEach(p => indice.push([p.titulo, p.id], ...(p.animal ? [[p.animal, p.id]] : []), ...p.alias.map(a => [a, p.id])));
+D.inventario.forEach(i => indice.push([i.nombre, i.pieza], ...i.alias.map(a => [a, i.pieza])));
+document.getElementById('nombres').innerHTML = [...new Set(D.inventario.map(i => i.nombre))].map(n => `<option value="${esc(n)}">`).join('');
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+function buscar(q) {
+  q = norm(q.trim());
+  if (!q) return null;
+  const exacto = indice.find(([n]) => norm(n) === q);
+  return (exacto || indice.find(([n]) => norm(n).includes(q)) || [])[1] || null;
+}
+const caja = document.getElementById('buscar');
+caja.addEventListener('input', () => {
+  if (vistaActual === 'nombres') return pintarNombres(norm(caja.value.trim()));
+  const q = norm(caja.value.trim()), exacto = indice.find(([n]) => norm(n) === q);
+  if (exacto && vistaActual === 'arbol') elegir(exacto[1], true);
+});
+caja.addEventListener('keydown', e => { if (e.key === 'Enter') { const id = buscar(caja.value); if (id) elegir(id, true); } });
+const selRama = document.getElementById('rama');
+selRama.innerHTML = '<option value="">todas las ramas</option>' + D.ramas.map(r => `<option value="${esc(r.id)}">${esc(r.titulo)}</option>`).join('');
+selRama.addEventListener('change', () => {
+  const r = ramas.get(selRama.value);
+  if (!r) return limpiar();
+  resaltarGrupo(D.piezas.filter(p => p.rama === r.id).map(p => p.id));
+  panel.innerHTML = `<h2>${esc(r.titulo)}</h2><p>${esc(r.resumen)}</p><h3>Hasta dónde llega</h3><p>${esc(r.limite)}</p><h3>Siguiente</h3><p>${esc(r.siguiente)}</p>
+    <h3>Sus piezas</h3>${D.piezas.filter(p => p.rama === r.id).map(p => link(p.id)).join('<br>')}`;
+  panel.scrollTop = 0;
+});
+document.getElementById('ver-todo').addEventListener('click', () => { caja.value = ''; if (vistaActual === 'nombres') pintarNombres(''); limpiar(); cy && cy.fit(undefined, 30); });
+document.getElementById('ir-actual').addEventListener('click', () => elegir(D.actual, true));
+
+iniciar();
+panelInicio();
+vistaAlarmas();
+vistaNombres();
+pintarNombres('');
+if (COMPLEJO) { vistaAfirmaciones(); vistaCorrecciones(); }
+let inicial = 'arbol';
+try { const g = localStorage.getItem('arca-vista-' + MODO); if (g && VISTAS.some(v => v[0] === g)) inicial = g; } catch (e) {}
+mostrar(inicial);
+</script>
+</body>
+</html>

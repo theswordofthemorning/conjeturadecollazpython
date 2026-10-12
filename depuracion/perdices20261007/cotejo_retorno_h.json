@@ -1,0 +1,89 @@
+{
+  "parametros": {
+    "nmax": 16384,
+    "profundidad": 12,
+    "corte": 128,
+    "salida": "depuracion\\perdices20261007\\cotejo_retorno_h.json"
+  },
+  "puentes_t_h": 6144,
+  "identidades_inversas": 13425,
+  "rachas_exactas": 6144,
+  "pasos_h_observados": 9838,
+  "semillas_truncadas": [],
+  "semillas_con_repeticion": [],
+  "record_finito": {
+    "pasos_h": 11,
+    "semilla": 11504
+  },
+  "expansiones_residuales": 1536,
+  "representantes_positivos": 16382,
+  "niveles": [
+    {
+      "k": 0,
+      "historias": 1,
+      "densidad": "1"
+    },
+    {
+      "k": 1,
+      "historias": 2,
+      "densidad": "3/8"
+    },
+    {
+      "k": 2,
+      "historias": 4,
+      "densidad": "9/64"
+    },
+    {
+      "k": 3,
+      "historias": 8,
+      "densidad": "27/512"
+    },
+    {
+      "k": 4,
+      "historias": 16,
+      "densidad": "81/4096"
+    },
+    {
+      "k": 5,
+      "historias": 32,
+      "densidad": "243/32768"
+    },
+    {
+      "k": 6,
+      "historias": 64,
+      "densidad": "729/262144"
+    },
+    {
+      "k": 7,
+      "historias": 128,
+      "densidad": "2187/2097152"
+    },
+    {
+      "k": 8,
+      "historias": 256,
+      "densidad": "6561/16777216"
+    },
+    {
+      "k": 9,
+      "historias": 512,
+      "densidad": "19683/134217728"
+    },
+    {
+      "k": 10,
+      "historias": 1024,
+      "densidad": "59049/1073741824"
+    },
+    {
+      "k": 11,
+      "historias": 2048,
+      "densidad": "177147/8589934592"
+    },
+    {
+      "k": 12,
+      "historias": 4096,
+      "densidad": "531441/68719476736"
+    }
+  ],
+  "sha256_fuente_lf": "a2e109d7b976516b791149e98b669d7664f094be3cfff426641d1638746c275e",
+  "alcance": "Cotejo finito de identidades y testigos. La densidad tiene prueba escrita en SALIDAS.md; las identidades básicas están en PerdicesRetornoH.lean. No excluye una órbita infinita positiva de H."
+}

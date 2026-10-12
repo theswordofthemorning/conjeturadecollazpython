@@ -1,0 +1,42 @@
+{
+  "parametros": {
+    "fuente_externa": "C:\\Users\\Home\\AppData\\Local\\Temp\\perdices_rewriting_20261011",
+    "sistema": "objetivo57",
+    "interpretacion": "natural",
+    "dimension": 3,
+    "cota": 3,
+    "segundos": 30,
+    "semilla": 0,
+    "etapas": 3,
+    "salida": "depuracion\\perdices20261007\\bv_objetivo57_n3_c3.json"
+  },
+  "revision_externa": "8a4dfda60f97a6d33ff0a24fdfa7a172d4bec340",
+  "version_z3": "5.1.0",
+  "reglas_originales": "ad ->| d\naabd ->| ebad\nabbd ->| fabd\nae ->= ea\naf ->= eb\nag ->= fa\nbe ->= fb\nbf ->= ga\nbg ->= gb\nce ->= cb\ncf ->= caa\ncg ->= cab\n",
+  "reglas_con_semantica_afin_cotejada": 14,
+  "fuentes_locales": {
+    "buscar_matrices_directas_h.py": "76a05457c83a6aecb5bc2b323fdad03eacea3689833f7922a95e19f5a45b84c3",
+    "buscar_matrices_h.py": "5d16ceb7272afb8dbdcbdf2f8b8a45b9571651748b57284d21b270856f20352e",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9"
+  },
+  "fuentes_externas": {
+    "rules/collatz-T-odd-mod8.srs": "2de44b71d3415853ac5534f1eb902ac560078cae8e52eaa50fc855ab0d875cf3",
+    "relative/collatz-T-1or5mod8.srs": "575a7e63ae7b857d32b88e0b1185865a8cd32b7e9c74ede4a00d4849cb9cae87"
+  },
+  "codificacion": "BitVec sin desbordamiento; cota sólo para símbolos",
+  "etapas": [
+    {
+      "numero": 1,
+      "largo_maximo": 4,
+      "cota_intermedia": 20736,
+      "ancho_bits": 15,
+      "restricciones": 229,
+      "estado": "unknown",
+      "segundos_preparacion": 0.039,
+      "segundos_sat": 30.071,
+      "motivo": "timeout"
+    }
+  ],
+  "terminacion_relativa_certificada": false,
+  "alcance": "Modelos SAT cotejados con enteros independientes. UNSAT sin certificado formal; timeout no decide existencia. Sin formalización Lean."
+}

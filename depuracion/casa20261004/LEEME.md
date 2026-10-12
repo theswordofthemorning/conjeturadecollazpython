@@ -14,8 +14,12 @@ el defecto que aparece al cambiarlo.
 [Cancelaciones](../perdices20261007/CANCELACIONES.md) formaliza la
 resonancia y los reinicios del ensayo `1`/`110`. Su persistencia
 infinita sigue abierta; esta clase no equivale a todo MuroB.
-Siguiente: controlar historias no periódicas de una misma semilla.
-Las decisiones anteriores se conservan
+**11-10:** [Complejidad](../perdices20261007/COMPLEJIDAD.md) trata las
+historias no periódicas de una misma semilla. Una repetición no dura
+más que el tamaño acumulado, y toda órbita inyectiva tiene más de
+1,71·m factores de largo m (rasgo 10: no es sturmiana). Las historias
+genéricas quedan fuera; en la clase `1`/`110` la frontera se mide
+hasta 2^36. Las decisiones anteriores se conservan
 abajo como antecedentes; la búsqueda de una cota de duración ya
 no es necesaria para excluir al planeador.
 
@@ -77,9 +81,10 @@ Los resultados formales conservan las hipótesis indicadas en cada ficha.
   (el intruso del muro B, un avión que nunca aterriza) o por una
   **grieta** (el del muro A, un paracaidista cuyo altímetro dice «suelo»
   mientras sigue en el aire). De los dos hay retrato: el fugitivo tiene
-  nueve rasgos y la grieta los suyos, y los dos son raros. El noveno
+  diez rasgos y la grieta los suyos, y los dos son raros. El noveno
   (07-10, noche) dice que su techo sube rápido: antes del tiempo K, su
-  pronóstico alcanza `K^(5/6)/n`.
+  pronóstico alcanza `K^(5/6)/n`. El décimo (11-10) dice que su baile
+  no es repetitivo: tiene más de 1,71·m trozos distintos de largo m.
 - **El primer choque.** No hay planeador fuerte: un fugitivo no puede
   volar siempre bajo, porque cada aterrizaje necesitaría una pista nueva
   en un país casi sin pistas (la estela). Quedan dos especies, el cohete
@@ -978,6 +983,20 @@ mejoró después el exponente a 8/75. La continuación vigente,
 al planeador y garantiza ξ finito para toda fuga pura. Se retoma
 la cola real del cohete con esa hipótesis ya probada; la analogía
 de ventanas de Mahler sigue sin proporcionar una contradicción.
+
+**11-10: rasgo 10, el baile no es repetitivo.** Si dos trozos de
+largo m del baile coinciden, los valores en esos instantes son
+congruentes módulo 2^m; si son distintos, el mayor pasa de 2^m. Como
+`x+1` crece a lo sumo por 3/2 en cada subida, un fugitivo tiene más de
+`(m-log2(n+1))/log2(3/2)≈1,71·m` trozos distintos de largo m
+([Complejidad](../perdices20261007/COMPLEJIDAD.md), en Lean). En el
+tablero: el fantasma de pendiente 1/√2 **no** lo cumple, porque su baile
+sturmiano tiene sólo m+1 trozos; el −1 tampoco, y hay fantasmas de baile
+desordenado que sí. En la casa del vecino la misma cuenta da sólo
+`0,76·m`, porque allí cada subida multiplica por 5/2 y `log2(5/2)>1`; no
+excluye bailes sturmianos. Es de carne y hueso a medias y del 3: usa
+`3/2<2`. Excluye sólo bailes de complejidad baja; los récords medidos de
+la clase `1`/`110` son genéricos y la ley no los alcanza.
 
 **Duda abierta del usuario, 04-10:** «¿para terminar de construir los
 muros necesitamos la racha 25, 26 y así sucesivamente? Eso nos dejaría

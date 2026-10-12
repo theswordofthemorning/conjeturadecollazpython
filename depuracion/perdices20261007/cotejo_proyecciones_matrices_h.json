@@ -1,0 +1,23 @@
+{
+  "cota": 2,
+  "asignaciones_escalares": 531441,
+  "asignaciones_debiles": 124,
+  "casos": {
+    "b_constante": 109,
+    "pendiente_ternaria_cero": 4,
+    "pendiente_comun": 11
+  },
+  "interpretaciones_comparadas": 2976,
+  "proyecciones_2x2": 2048,
+  "testigo_acoplamiento": {
+    "m00": 1,
+    "v0": 1
+  },
+  "fuentes": {
+    "cotejar_proyecciones_matrices_h.py": "93b2af0279062412a53b483222dacbfef5fc736061c71c289de5d0ca0eb80428",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9",
+    "PerdicesProyeccionesMatrices.lean": "aa8ecc9635a300b8d422b747dcf00192efe033cfd5ad9c5f771961e11c8230ef",
+    "bv_objetivo57_n2_c3.json": "5bcdc60b65875d1aa924bb4a02036d2de0915965d0bc4963e4b69c8583465d68"
+  },
+  "alcance": "Cotejo finito; la obstrucción sin cota tiene prueba escrita y Lean. No excluye matrices con acoplamiento ni demuestra terminación de H."
+}

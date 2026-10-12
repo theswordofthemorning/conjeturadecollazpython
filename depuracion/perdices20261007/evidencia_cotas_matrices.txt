@@ -1,0 +1,9 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesCotasMatrices.entrada_le_fila' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCotasMatrices.fila_producto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCotasMatrices.fila_identidad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCotasMatrices.fila_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCotasMatrices.fila_por_coeficientes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCotasMatrices.entrada_palabra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCotasMatrices.entrada_largo_acotado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCotasMatrices.entrada_cabe_en_bits' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,66 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "modulo": "PerdicesCotasMatrices",
+  "consultas": 8,
+  "axiomas": {
+    "PerdicesCotasMatrices.entrada_le_fila": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCotasMatrices.fila_producto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCotasMatrices.fila_identidad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCotasMatrices.fila_palabra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCotasMatrices.fila_por_coeficientes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCotasMatrices.entrada_palabra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCotasMatrices.entrada_largo_acotado": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCotasMatrices.entrada_cabe_en_bits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "archivos": {
+    "depuracion/perdices20261007/PerdicesCotasMatrices.lean": "6153d20ec32ad4806285d085d1f817ce28fa1b3b4ea3f232002785018cb908f9",
+    "depuracion/perdices20261007/comprobar_cotas_matrices.py": "6c0b32d40f5d10cf8dd0561e8efd2af6b0fcefa016cb98b614624299cf3f8408",
+    "depuracion/gao20260920/formal/lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+    "depuracion/gao20260920/formal/lake-manifest.json": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26"
+  },
+  "bibliotecas_directas": {
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset": {
+      "sha256_fuente_lf": "9b290f35de0175eb7fce6ff4fb8e3aa8803d454fce913aa1be65ef009d7d9128",
+      "sha256_objeto": "72e6128f99328d6fc084039a6f7d8f52267e9be070e30b537cc8951f4415e535"
+    },
+    "Mathlib.Algebra.BigOperators.Ring.Finset": {
+      "sha256_fuente_lf": "472cd5000412d8ec35c8b9ee919b2aeedbf0a830033a55009aad436595923809",
+      "sha256_objeto": "184d43838efaa325f602b94c478bb4a44327e83717050e953e3a161be509fc1d"
+    }
+  },
+  "sha256_objeto": "b020b8b471c09bbfa5ecec0c22044451c3b1cf026487d759bf20c02472aafaee",
+  "alcance": "Ocho cotas de productos matriciales naturales y ancho de bits. No formaliza la traducción del programa Python a BitVec, la construcción afín aumentada ni la interpretación ártica."
+}

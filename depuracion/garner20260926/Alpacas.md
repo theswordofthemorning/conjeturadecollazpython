@@ -152,8 +152,10 @@ Todos tratan las rachas largas como cómputo o como conjetura. Lo probado es:
   largo;
 - Wu–Huang: familias infinitas de pares.
 
-No se halló prueba de rachas de todo largo. Faltan zbMATH, MathSciNet y el
-texto completo de Garner (1985) y de Frinkle et al.
+No se halló prueba de rachas de todo largo. El 11-10, zbMATH (API, por
+título y por citas a Garner 1985: Elia–Tucker 2015, LaDue 2018 y Wu 1992)
+tampoco la registra. Faltan MathSciNet y los textos completos de Garner
+(1985), DOI 10.1016/S0012-365X(85)80020-0, y de Frinkle et al.
 
 Nombre: *alpacas*, libre en este repositorio y en zootheorem (consultado
 el 26-09; Ovejas, Suricatas y Queltehues ya existían).

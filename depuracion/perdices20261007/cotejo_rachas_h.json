@@ -1,0 +1,204 @@
+{
+  "parametros": {
+    "nmax": 262143,
+    "amax": 5,
+    "bmax": 5,
+    "profundidad": 3,
+    "salida": "depuracion\\perdices20261007\\cotejo_rachas_h.json"
+  },
+  "contraste_directo": {
+    "semillas": 10923,
+    "retornos": 523,
+    "predecesores": 682,
+    "crecen": 7,
+    "decrecen": 516
+  },
+  "niveles": [
+    {
+      "k": 0,
+      "historias": 1,
+      "densidad_relativa_entrada": "1",
+      "densidad_relativa_salida": "1"
+    },
+    {
+      "k": 1,
+      "historias": 25,
+      "densidad_relativa_entrada": "1596221/33554432",
+      "densidad_relativa_salida": "893101/14348907"
+    },
+    {
+      "k": 2,
+      "historias": 625,
+      "densidad_relativa_entrada": "2547921480841/1125899906842624",
+      "densidad_relativa_salida": "797629396201/205891132094649"
+    },
+    {
+      "k": 3,
+      "historias": 15625,
+      "densidad_relativa_entrada": "4067045774069501861/37778931862957161709568",
+      "densidad_relativa_salida": "712363611376509301/2954312706550833698643"
+    }
+  ],
+  "representantes": 32552,
+  "empalmes_pasado_futuro": 882,
+  "periodos_completos": [
+    {
+      "pasado": [
+        1,
+        1
+      ],
+      "futuro": [
+        1,
+        1
+      ],
+      "periodo": 20736,
+      "unico": "8295"
+    },
+    {
+      "pasado": [
+        1,
+        1
+      ],
+      "futuro": [
+        1,
+        2
+      ],
+      "periodo": 165888,
+      "unico": "119103"
+    },
+    {
+      "pasado": [
+        1,
+        1
+      ],
+      "futuro": [
+        2,
+        1
+      ],
+      "periodo": 82944,
+      "unico": "67911"
+    },
+    {
+      "pasado": [
+        1,
+        2
+      ],
+      "futuro": [
+        1,
+        1
+      ],
+      "periodo": 186624,
+      "unico": "118887"
+    },
+    {
+      "pasado": [
+        1,
+        2
+      ],
+      "futuro": [
+        1,
+        2
+      ],
+      "periodo": 1492992,
+      "unico": "229695"
+    },
+    {
+      "pasado": [
+        1,
+        2
+      ],
+      "futuro": [
+        2,
+        1
+      ],
+      "periodo": 746496,
+      "unico": "95559"
+    },
+    {
+      "pasado": [
+        2,
+        1
+      ],
+      "futuro": [
+        1,
+        1
+      ],
+      "periodo": 62208,
+      "unico": "2151"
+    },
+    {
+      "pasado": [
+        2,
+        1
+      ],
+      "futuro": [
+        1,
+        2
+      ],
+      "periodo": 497664,
+      "unico": "112959"
+    },
+    {
+      "pasado": [
+        2,
+        1
+      ],
+      "futuro": [
+        2,
+        1
+      ],
+      "periodo": 248832,
+      "unico": "227655"
+    }
+  ],
+  "semillas_en_periodos": 146016,
+  "ejemplos": [
+    {
+      "a": 1,
+      "b": 1,
+      "A": "27",
+      "M": "32",
+      "B": "3",
+      "r": "615",
+      "s": "519"
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "A": "243",
+      "M": "256",
+      "B": "51",
+      "r": "2367",
+      "s": "2247"
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "A": "2187",
+      "M": "2048",
+      "B": "651",
+      "r": "14847",
+      "s": "15855"
+    },
+    {
+      "a": 2,
+      "b": 5,
+      "A": "531441",
+      "M": "524288",
+      "B": "236529",
+      "r": "4489215",
+      "s": "4550463"
+    },
+    {
+      "a": 5,
+      "b": 12,
+      "A": "68630377364883",
+      "M": "70368744177664",
+      "B": "51931544518035",
+      "r": "547625510109183",
+      "s": "534097145723391"
+    }
+  ],
+  "sha256_fuente_lf": "99cec217df9803a6b18e9ec3a90643fe5f15440e7c135682eabcd5a013e1475f",
+  "alcance": "Cotejo finito de ramas, inversas, cilindros y empalmes. Las densidades naturales 21^(-k) y 16^(-l) tienen prueba escrita, incluido el paso desde uniones finitas. No excluye una semilla persistente."
+}

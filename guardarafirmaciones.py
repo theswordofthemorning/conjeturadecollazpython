@@ -5107,6 +5107,18 @@ tablas = {
     "claves_actuales": (("clave", "afirmacion_id"), CLAVES_ACTUALES),
     "metadatos": (("clave", "valor"), [("version_registro", VERSION_REGISTRO)]),
 }
+# El mapa editorial tiene fuente versionada propia; no altera las listas históricas.
+# Las instantáneas anteriores siguen siendo regenerables sin el mapa actual.
+import json
+from pathlib import Path
+from depuracion.mapa20261011.catalogo import preparar_mapa
+configuracion = json.loads(Path(argumentos.registro).read_text(encoding='utf-8'))
+if configuracion.get('mapa_investigacion'):
+    archivo_mapa = Path(argumentos.registro).resolve().parent / configuracion['mapa_investigacion']
+    esquema_mapa, tablas_mapa = preparar_mapa(
+        archivo_mapa, AFIRMACIONES, CLAVES_ACTUALES, NODOS, DEPENDENCIAS, CARPETA)
+    esquema += esquema_mapa
+    tablas.update(tablas_mapa)
 guardar_base(ruta, esquema, tablas)
 print("BASE ESCRITA ATOMICAMENTE: %s; registro %s" % (ARCHIVO, VERSION_REGISTRO))
 print("COMPROBACION 3 OK: todas las tablas, integridad y referencias verificadas.")

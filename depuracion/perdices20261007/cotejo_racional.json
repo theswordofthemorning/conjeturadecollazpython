@@ -1,0 +1,622 @@
+{
+  "parametros": {
+    "qmax": 15,
+    "pmax": 64,
+    "mmax": 24,
+    "largo": 400
+  },
+  "rama_inyectiva": {
+    "casos_con_valores_distintos": 6695,
+    "casos_que_ya_repiten": 13362
+  },
+  "rama_periodica": {
+    "semillas": 1032,
+    "ejemplos": [
+      {
+        "p": -17,
+        "q": 1,
+        "entrada": 0,
+        "periodo": 11,
+        "factores": 11
+      },
+      {
+        "p": -5,
+        "q": 1,
+        "entrada": 0,
+        "periodo": 3,
+        "factores": 3
+      },
+      {
+        "p": -1,
+        "q": 1,
+        "entrada": 0,
+        "periodo": 1,
+        "factores": 1
+      },
+      {
+        "p": 1,
+        "q": 1,
+        "entrada": 0,
+        "periodo": 2,
+        "factores": 2
+      },
+      {
+        "p": 1,
+        "q": 5,
+        "entrada": 0,
+        "periodo": 3,
+        "factores": 3
+      },
+      {
+        "p": 1,
+        "q": 7,
+        "entrada": 1,
+        "periodo": 4,
+        "factores": 5
+      },
+      {
+        "p": 3,
+        "q": 9,
+        "entrada": 1,
+        "periodo": 2,
+        "factores": 3
+      }
+    ]
+  },
+  "umbral_del_teorema": true,
+  "pasos_del_puente_sobre_Q": 66048,
+  "sturmianas": [
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "0",
+      "q": 1,
+      "bits_representante": [
+        61,
+        127,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "0",
+      "q": 3,
+      "bits_representante": [
+        62,
+        124,
+        253,
+        398
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "0",
+      "q": 5,
+      "bits_representante": [
+        63,
+        127,
+        255,
+        395
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "0",
+      "q": 7,
+      "bits_representante": [
+        63,
+        126,
+        253,
+        398
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "0",
+      "q": 9,
+      "bits_representante": [
+        63,
+        126,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "1/3",
+      "q": 1,
+      "bits_representante": [
+        63,
+        127,
+        254,
+        397
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "1/3",
+      "q": 3,
+      "bits_representante": [
+        62,
+        125,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "1/3",
+      "q": 5,
+      "bits_representante": [
+        60,
+        127,
+        253,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "1/3",
+      "q": 7,
+      "bits_representante": [
+        62,
+        126,
+        254,
+        398
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "1/3",
+      "q": 9,
+      "bits_representante": [
+        63,
+        126,
+        255,
+        397
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "0",
+      "q": 1,
+      "bits_representante": [
+        62,
+        127,
+        255,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "0",
+      "q": 3,
+      "bits_representante": [
+        63,
+        126,
+        251,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "0",
+      "q": 5,
+      "bits_representante": [
+        61,
+        127,
+        255,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "0",
+      "q": 7,
+      "bits_representante": [
+        63,
+        126,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "0",
+      "q": 9,
+      "bits_representante": [
+        60,
+        127,
+        253,
+        397
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "1/3",
+      "q": 1,
+      "bits_representante": [
+        62,
+        126,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "1/3",
+      "q": 3,
+      "bits_representante": [
+        63,
+        127,
+        253,
+        397
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "1/3",
+      "q": 5,
+      "bits_representante": [
+        61,
+        126,
+        254,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "1/3",
+      "q": 7,
+      "bits_representante": [
+        63,
+        127,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "1/3",
+      "q": 9,
+      "bits_representante": [
+        61,
+        126,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "0",
+      "q": 1,
+      "bits_representante": [
+        63,
+        125,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "0",
+      "q": 3,
+      "bits_representante": [
+        63,
+        127,
+        253,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "0",
+      "q": 5,
+      "bits_representante": [
+        62,
+        127,
+        254,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "0",
+      "q": 7,
+      "bits_representante": [
+        61,
+        127,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "0",
+      "q": 9,
+      "bits_representante": [
+        60,
+        126,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "1/3",
+      "q": 1,
+      "bits_representante": [
+        58,
+        127,
+        252,
+        398
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "1/3",
+      "q": 3,
+      "bits_representante": [
+        60,
+        124,
+        253,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "1/3",
+      "q": 5,
+      "bits_representante": [
+        61,
+        127,
+        254,
+        398
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "1/3",
+      "q": 7,
+      "bits_representante": [
+        61,
+        127,
+        254,
+        399
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "1/3",
+      "q": 9,
+      "bits_representante": [
+        61,
+        125,
+        255,
+        397
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "0",
+      "q": 1,
+      "bits_representante": [
+        61,
+        127,
+        254,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "0",
+      "q": 3,
+      "bits_representante": [
+        63,
+        127,
+        255,
+        395
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "0",
+      "q": 5,
+      "bits_representante": [
+        63,
+        127,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "0",
+      "q": 7,
+      "bits_representante": [
+        63,
+        126,
+        250,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "0",
+      "q": 9,
+      "bits_representante": [
+        62,
+        126,
+        255,
+        397
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "1/3",
+      "q": 1,
+      "bits_representante": [
+        63,
+        127,
+        255,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "1/3",
+      "q": 3,
+      "bits_representante": [
+        63,
+        125,
+        254,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "1/3",
+      "q": 5,
+      "bits_representante": [
+        63,
+        126,
+        255,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "1/3",
+      "q": 7,
+      "bits_representante": [
+        63,
+        127,
+        250,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "1/3",
+      "q": 9,
+      "bits_representante": [
+        63,
+        127,
+        255,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "0",
+      "q": 1,
+      "bits_representante": [
+        60,
+        122,
+        254,
+        397
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "0",
+      "q": 3,
+      "bits_representante": [
+        62,
+        123,
+        255,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "0",
+      "q": 5,
+      "bits_representante": [
+        63,
+        124,
+        251,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "0",
+      "q": 7,
+      "bits_representante": [
+        63,
+        125,
+        255,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "0",
+      "q": 9,
+      "bits_representante": [
+        63,
+        125,
+        255,
+        394
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "1/3",
+      "q": 1,
+      "bits_representante": [
+        60,
+        127,
+        249,
+        399
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "1/3",
+      "q": 3,
+      "bits_representante": [
+        62,
+        127,
+        250,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "1/3",
+      "q": 5,
+      "bits_representante": [
+        63,
+        127,
+        251,
+        394
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "1/3",
+      "q": 7,
+      "bits_representante": [
+        63,
+        126,
+        252,
+        398
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "1/3",
+      "q": 9,
+      "bits_representante": [
+        63,
+        126,
+        252,
+        399
+      ]
+    }
+  ],
+  "alcance": "Comprobación finita de las dos ramas y del umbral; no sustituye la prueba Lean.",
+  "sha256_fuente_lf": "3b251e4412a8a6b9063214838cd506d8f78d52d76fe982652945824cb6573b18"
+}

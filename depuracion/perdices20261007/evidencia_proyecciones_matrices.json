@@ -1,0 +1,64 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "modulo": "PerdicesProyeccionesMatrices",
+  "consultas": 10,
+  "axiomas": {
+    "PerdicesProyeccionesMatrices.pendientes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProyeccionesMatrices.constantes_pendiente_cero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProyeccionesMatrices.cancelar_amplificacion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProyeccionesMatrices.constantes_pendiente_comun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProyeccionesMatrices.sin_descenso_escalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProyeccionesMatrices.proyeccion_producto": [
+      "propext"
+    ],
+    "PerdicesProyeccionesMatrices.reglas_proyectadas": [
+      "propext"
+    ],
+    "PerdicesProyeccionesMatrices.sin_descenso_primera_aislada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProyeccionesMatrices.acoplamiento_necesario": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProyeccionesMatrices.proyeccion_debil": []
+  },
+  "archivos": {
+    "depuracion/perdices20261007/PerdicesProyeccionesMatrices.lean": "45d91e2e13247e9ecc62e350787fef046441ddffa44fe8413b14fe4ae4e01bfb",
+    "depuracion/perdices20261007/comprobar_proyecciones_matrices.py": "090e0fc69e3880d0e020c532fcbf1d0168ccb6d0bfe568662232354084ad9d02",
+    "depuracion/gao20260920/formal/lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+    "depuracion/gao20260920/formal/lake-manifest.json": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26"
+  },
+  "bibliotecas_directas": {
+    "Mathlib.Tactic.Linarith": {
+      "sha256_fuente_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "sha256_objeto": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    }
+  },
+  "sha256_objeto": "a8253065b621a8b5d9a5968eb4516a106ffdcf3a237ddb3ac50c303fc0f81db1",
+  "alcance": "Diez lemas: obstrucción escalar natural, proyección 2x2 y acoplamiento necesario en la primera etapa del objetivo 57. No excluye matrices acopladas, otras familias ni prueba la terminación de H."
+}

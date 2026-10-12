@@ -1,0 +1,23 @@
+{
+  "parametros": {
+    "sistema_guardado": "depuracion\\perdices20261007\\bv_objetivo57_a2_c3.json",
+    "dimension": 2,
+    "segundos": 45,
+    "semilla": 0,
+    "salida": "depuracion\\perdices20261007\\lia_objetivo57_a2.json"
+  },
+  "version_z3": "5.1.0",
+  "reglas_originales": "ad ->| d\naabd ->| ebad\nabbd ->| fabd\nae ->= ea\naf ->= eb\nag ->= fa\nbe ->= fb\nbf ->= ga\nbg ->= gb\nce ->= cb\ncf ->= caa\ncg ->= cab\n",
+  "estado": "unknown",
+  "segundos": 45.014,
+  "dominio": "menos infinito o entero no negativo, sin cota superior",
+  "logica": "QF_LIA",
+  "fuentes": {
+    "buscar_articas_libres_h.py": "0d66108d13fcfc8c5ce6a02c3692706b75a9424d1536ecf0b7d4ff3a24d092b3",
+    "bv_objetivo57_a2_c3.json": "78a3482928c1853d3dc4a5a320518dda8af0781ae2ddd10e0e1717bfb6177c15",
+    "lia_objetivo57_a2.smt2": "a82fbf354f352781031597ca32c22585b5517206c45e9759d529f46938813b1c",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9"
+  },
+  "alcance": "SAT se coteja con enteros independientes. UNSAT sin certificado formal; un núcleo no es una prueba independiente. Sin conclusión sobre otras dimensiones ni terminación de H.",
+  "motivo": "canceled"
+}

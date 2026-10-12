@@ -1,4 +1,4 @@
-# Estado para continuar — 10-10-2026
+# Estado para continuar — 12-10-2026
 
 [Premisa](PREMISA_DE_INVESTIGACION.md): buscar la prueba universal de Collatz;
 la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
@@ -17,10 +17,8 @@ la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
   sigue abierta. Citas leídas con la IA de CNKI; falta cotejar el original.
 - **Ocelotas.** [Veinticuatro rachas en Lean](depuracion/cst20260930/VEINTICUATRO_LEAN.md):
   `cst_veinticuatro_corolario` prueba primer descenso = primer cruce, supuesto
-  existente y finito, bajo el
-  corolario especializado de Laurent–Mignotte–Nesterenko (1995), con caso
-  par incluido. Tabla, semillas pequeñas, prefijos y cola certificadas.
-  Original cotejado y `LMN23 -> LMNDebil` en Lean
+  existente, bajo Laurent–Mignotte–Nesterenko (1995), externo.
+  Original cotejado; `LMN23 -> LMNDebil` en Lean
   ([lecturas](depuracion/cst20260930/LECTURAS_20261003.md)). La
   criba por prefijos exige **al menos 25 rachas** para un fallo, en Lean.
   El [cierre de 77](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md) también está
@@ -37,7 +35,8 @@ Ritmo muy lento: [Cigarras](depuracion/gao20260924/Cigarras.md).
 [Pendientes](gaopendientes.md): revisión humana de Gao, Hienas, Garner y
 Wu. Lean certifica el enunciado, no su interpretación. La
 [revisión del 27-09](papers/revision20260927/REVISION.md#4-novedad) no halló
-pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
+pruebas publicadas; zbMATH por citas (11-10) tampoco. Faltan MathSciNet,
+Scholar y el original de Garner.
 
 **No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
 
@@ -56,62 +55,56 @@ pruebas publicadas; faltan MathSciNet, Scholar y el original de Garner.
 ## Ruta vigente y próximo bloque
 
 **Conservado:** [Colisiones](depuracion/perdices20261007/COLISIONES.md)
-excluye al planeador. Atajo T, n>0 e inyectividad orbital:
-`sum 1/T^j(n)<=3*2^100`, `R_k->ξ` finito y `P_k->infinito`.
-Formalizado; antecedente Garcia–Tal (1999), sin reclamar prioridad.
+excluye al planeador: con n>0 e inyectividad orbital, `sum 1/T^j(n)<=3*2^100`,
+`R_k->ξ` finito y `P_k->infinito` (antecedente Garcia–Tal 1999).
+[Mínimos futuros](depuracion/perdices20261007/MINIMOS.md) da reinicios de fuga
+pura sin MuroA y `Collatz <-> MuroB y ausencia de circuitos no triviales`.
+**Ambas condiciones siguen abiertas.**
 
-[Mínimos futuros](depuracion/perdices20261007/MINIMOS.md) formaliza
-la cota exponencial de cola y los reinicios grandes de fuga pura,
-sin MuroA. También `Collatz <-> MuroB y ausencia de circuitos no
-triviales`. **Ambas condiciones siguen abiertas.** La anchura
-`O(n^(99/100))` conserva sólo prueba escrita.
+**Repeticiones:** [Complejidad](depuracion/perdices20261007/COMPLEJIDAD.md)
+acota repeticiones y prueba `liminf p(m)/m>=1/log2(3/2)` en órbitas
+inyectivas. Excluye paridades sturmianas para racionales de denominador
+impar (antecedente De Jesus): 39 teoremas, 29 módulos, 368 consultas estándar.
 
-**Cierre del 10-10:** [Cancelaciones](depuracion/perdices20261007/CANCELACIONES.md),
-continuación de [Repeticiones](depuracion/perdices20261007/REPETICIONES.md).
-En `1`/`110`, persistir bajo G exige `3 | v2(z+1)`;
-si falla, hay salida en a lo sumo `floor(v2(z+1)/3)` pasos G.
-El mapa F entre cambios cumple `8F(h)>=13h` y sus salidas tienen
-valuación 3-ádica par. Veinte lemas nuevos en Lean, 26 módulos
-previos auditados, 329 consultas; sólo axiomas estándar.
+**Frontera:** `λ(n)<=3log2(n)+1` para la clase `1`/`110` sigue conjeturado.
+[Salidas](depuracion/perdices20261007/SALIDAS.md) conserva tres censos auditados;
+el contraste independiente llega a 16 bits. Censo hasta `2^50`: máximo 112.
 
-Prueba escrita: inversa y realización de cualquier historia finita
-con semillas variables. Cotejo: 512 entradas G, 2048 semillas F y 820
-historias. **La persistencia infinita de una misma semilla sigue abierta**;
-resolver esta clase restringida tampoco resolvería todo MuroB.
-La [cola](depuracion/perdices20261007/COLA.md) conserva su alcance y
-la precaución bibliográfica sobre López–Stoll (2021).
+**H de Yolcu–Aaronson–Heule:** [Rachas](depuracion/perdices20261007/RACHAS_H.md),
+18 lemas Lean. Pasados/futuros finitos compatibles en `x>0, x=15 mod 24`;
+densidad relativa `21^(-k)*16^(-l)`, por escrito. El tamaño del empalme
+transporta exactamente el mínimo original; no aporta una restricción nueva.
 
-[Novena](depuracion/perdices20261007/NOVENA.md),
-[Semilla](depuracion/perdices20261007/SEMILLA.md) y
-[Aporte](depuracion/perdices20261007/APORTE.md): conservados; fuga pura
-ya excluye infinitos regresos.
+**Matrices naturales 2x2:** [Proyecciones](depuracion/perdices20261007/PROYECCIONES_MATRICES_H.md)
+excluye el caso escalar y la primera coordenada aislada.
+[Soportes y rectas](depuracion/perdices20261007/SOPORTES_MATRICES_H.md) añade
+14 teoremas Lean: recta natural común excluida, incluso con conexiones en
+ambos sentidos; diez soportes mínimos de aporte izquierdo. Cotejo de
+16.384 soportes. Aporte positivo no equivale a descenso; árticas indecisas
+y **persistencia abierta**.
 
-La [casa](depuracion/casa20261004/LEEME.md) conserva abiertos A y B;
-Collatz sigue abierto. [Mahler](depuracion/mahler20261007/LEEME.md)
-incorpora ξ finito, sin excluir al cohete.
-
-**Siguiente sesión:** acotar el crecimiento de representantes en historias
-no periódicas de una misma semilla, primero en F y luego entre mínimos
-futuros. Perfil inverso y resonancia no son restricciones independientes;
-los cortes finitos no bastan.
-El [plan del 28-09](depuracion/transversal20260927/PLAN_SESIONES_20260928.md)
-queda como antecedente.
+**Siguiente:** estudiar diferencias completas de constantes y reglas
+estáticas en matrices con ruta activa y sin recta natural común.
+No exigir un circuito sin prueba. Cierre solicitado el 12-10.
 
 ## Evidencia y conservación
+
+**Arca reconstruida:** [mapa básico](depuracion/mapa20261011/MapaDependenciasBasic.html)
+y [completo](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
+123 piezas, nueve ramas. Incluye recuperados y alias; distingue historia,
+dependencias e hipótesis. [Auditoría](depuracion/mapa20261011/RECONSTRUCCION.md):
+68 revisiones de Git; 331 afirmaciones conservadas y dos nuevas, SQLite y navegación sin red.
 
 Lean 4.32.2, Mathlib fijado; `leanchecker` de 28 módulos
 ([evidencia](depuracion/gao20260920/evidencia_gao_lean.json),
 [reproducción](depuracion/gao20260920/formal/README.md)). Los módulos
 nuevos dejan sus registros de `lake env lean`.
 
-Cada ficha enlaza evidencia; los cálculos finitos no prueban universalidad.
-
-Registro: 314 afirmaciones: 208 demostradas, 86 medidas, 12 conjeturadas
+Registro: 333 afirmaciones: 220 demostradas, 92 medidas, 13 conjeturadas
 y ocho refutadas
 ([fuente versionada](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.
 
 Histórico: [recuperación del 05-10](depuracion/casa20261005_recuperada/RECUPERACION.md)
-y [conciliación](depuracion/jinetas20261010/CONCILIACION.md). Se conservan
-implementaciones y nueve altas independientes. Dos huellas antiguas
-requieren revisión; no se usan sus cachés. Censos y zootheorem intactos.
+y [conciliación](depuracion/jinetas20261010/CONCILIACION.md). Dos huellas antiguas
+requieren revisión; no se usan sus cachés. Históricos y zootheorem intactos.

@@ -1,0 +1,83 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "modulo": "PerdicesSoportesMatrices",
+  "consultas_nuevas": 14,
+  "consultas_con_base": 24,
+  "axiomas": {
+    "PerdicesSoportesMatrices.producto_proyectado": [
+      "propext"
+    ],
+    "PerdicesSoportesMatrices.conserva_producto": [
+      "propext"
+    ],
+    "PerdicesSoportesMatrices.reglas_en_recta": [
+      "propext"
+    ],
+    "PerdicesSoportesMatrices.igualdad_constante_original": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesSoportesMatrices.sin_descenso_recta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesSoportesMatrices.recta_cero": [
+      "propext"
+    ],
+    "PerdicesSoportesMatrices.recta_diagonal": [
+      "propext"
+    ],
+    "PerdicesSoportesMatrices.sin_descenso_segunda_inactiva": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesSoportesMatrices.sin_descenso_diagonal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesSoportesMatrices.producto_positivo": [
+      "propext"
+    ],
+    "PerdicesSoportesMatrices.soporte_aporte_exacto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesSoportesMatrices.descenso_exige_aporte": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesSoportesMatrices.descenso_exige_ruta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesSoportesMatrices.orden_proyectado": []
+  },
+  "archivos": {
+    "depuracion/perdices20261007/PerdicesSoportesMatrices.lean": "a9aea88b295a34c797caf76067b064fcba3066611cf48993795ae21c2813d5ca",
+    "depuracion/perdices20261007/comprobar_soportes_matrices.py": "b655870aba1bc744060023f33c21fcaff0b8f07900d971cfcbc60e25c19127a6",
+    "depuracion/perdices20261007/evidencia_proyecciones_matrices.json": "9751f017150bbfbfa701929b82bca79e2f6aaed0ba3ac747faeeaa603f823575"
+  },
+  "bibliotecas_directas": {
+    "Mathlib.Tactic.Linarith": {
+      "sha256_fuente_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "sha256_objeto": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.Ring": {
+      "sha256_fuente_lf": "d3ef5c49ebbd1108ce3f935e5ad95485e143abf02f28c027dba4bb6f3be8196e",
+      "sha256_objeto": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    },
+    "Mathlib.Tactic.Tauto": {
+      "sha256_fuente_lf": "7251597429f1817631b0f5ce8823e57cc377a1db408bdf2033fc1f1291e179ef",
+      "sha256_objeto": "a117d2e5a2cd6eeaa93422fb908ee5e9f905579c6cf3ae833ae15551588fd721"
+    }
+  },
+  "sha256_objeto": "2164fe93edd859575c947b05ef244e09cda446e02e5d7d34fccca4a4ee9f821d",
+  "dependencia": "a8253065b621a8b5d9a5968eb4516a106ffdcf3a237ddb3ac50c303fc0f81db1",
+  "alcance": "Rectas invariantes naturales comunes de a,b,c,e,f,g: obstrucción a la primera eliminación del objetivo 57, sin cota. Diez soportes mínimos equivalen a un aporte izquierdo positivo; son necesarios, no suficientes, para descenso. No prueba terminación de H."
+}

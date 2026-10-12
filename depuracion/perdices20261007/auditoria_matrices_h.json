@@ -1,0 +1,101 @@
+{
+  "ejecuciones": [
+    {
+      "archivo": "sat_objetivo57_n3_c5.json",
+      "sha256_lf": "cc04e994227be002d2200d3a68acd4b879778ac5b4f50278ada7f8a062f080a6",
+      "certificados": 0,
+      "estados": [
+        "unknown"
+      ],
+      "cierre": false
+    },
+    {
+      "archivo": "sat_objetivo57_n3_c3.json",
+      "sha256_lf": "ee9e5aafe0f97d4ebed78ca378004b3ded3449b4259e5447b5ec001715d975eb",
+      "certificados": 0,
+      "estados": [
+        "unsat"
+      ],
+      "cierre": false
+    },
+    {
+      "archivo": "sat_objetivo57_n2_c3.json",
+      "sha256_lf": "5fad7e98f4f8e417527be24a8f97f8bae586c2197cbf7ba68df39ec075186db6",
+      "certificados": 0,
+      "estados": [
+        "unsat"
+      ],
+      "cierre": false
+    },
+    {
+      "archivo": "sat_objetivo57_a4_c3.json",
+      "sha256_lf": "ca0a780e921e757a0df64883a0edee3f9c2590c756c5e19b4ba89ad924ac21ea",
+      "certificados": 0,
+      "estados": [
+        "unknown"
+      ],
+      "cierre": false
+    },
+    {
+      "archivo": "sat_objetivo57_a3_c5.json",
+      "sha256_lf": "c94ec4fe96a8400709094ceb9dcc87a10d1fd9918f79d01ead7cbc635983f7bf",
+      "certificados": 0,
+      "estados": [
+        "unknown"
+      ],
+      "cierre": false
+    },
+    {
+      "archivo": "sat_objetivo57_a3_c3.json",
+      "sha256_lf": "0cfd5b193247f6a3479919a9918c5fe077a3a34cd7b070f056c7a53374a1d7ae",
+      "certificados": 0,
+      "estados": [
+        "unsat"
+      ],
+      "cierre": false
+    },
+    {
+      "archivo": "sat_objetivo57_a2_c3.json",
+      "sha256_lf": "72a926d42749778ce12fb0a60fff361ef3fe1512458950719870095bbbc7d70a",
+      "certificados": 0,
+      "estados": [
+        "unsat"
+      ],
+      "cierre": false
+    },
+    {
+      "archivo": "sat_control15_n2_c3.json",
+      "sha256_lf": "d625d365ce27fc25e157a11d3ebd44980093bf01404c1c84221ee9d752e8813d",
+      "certificados": 3,
+      "estados": [
+        "sat",
+        "sat",
+        "sat"
+      ],
+      "cierre": true
+    },
+    {
+      "archivo": "sat_control15_a3_c5.json",
+      "sha256_lf": "4187c0d22e49649b16fc8ab2c9fab95c73cf0ad4bf06a1afe4a77018a1ddbd16",
+      "certificados": 3,
+      "estados": [
+        "sat",
+        "sat",
+        "sat"
+      ],
+      "cierre": true
+    }
+  ],
+  "controles_negativos_rechazados": [
+    "natural_nulo",
+    "natural_cierre_prematuro",
+    "natural_orden_alterado",
+    "natural_regla_alterada",
+    "arctic_nulo",
+    "arctic_cierre_prematuro",
+    "arctic_orden_alterado",
+    "arctic_regla_alterada"
+  ],
+  "sha256_auditor_lf": "7c8a6304bc842f72ad3dcfe38ad384b9b7cb99e5e1853cf838c309cf5dddf43c",
+  "alcance": "Certificados SAT verificados por aritmética independiente y cadena de reglas anclada en el sistema de entrada. No certifica UNSAT ni interpreta un timeout como ausencia de órdenes."
+}

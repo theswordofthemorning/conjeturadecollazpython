@@ -1,0 +1,1121 @@
+{
+  "parametros": {
+    "nmax": 255,
+    "pasos": 48,
+    "mmax": 8,
+    "kmax": 24,
+    "largo_sturm": 400,
+    "lmax_ab": 90,
+    "cota_bits_ab": 36,
+    "lmax_bruto": 30,
+    "pmax": 64,
+    "qmax": 9
+  },
+  "leyes": {
+    "semillas": 256,
+    "corte": 48,
+    "repeticiones_con_valores_distintos": 239372,
+    "con_tramo_expansivo": 66858,
+    "repeticiones_ciclicas": 49396,
+    "ciclicas_que_violan_la_cota": 36006,
+    "peor_cociente_local": "64/123",
+    "peor_local_en": {
+      "n": 15,
+      "i": 5,
+      "j": 9,
+      "m": 5,
+      "s": 1
+    },
+    "peor_cociente_global": "64/123",
+    "peor_global_en": {
+      "n": 40,
+      "i": 0,
+      "j": 4,
+      "m": 5,
+      "S_j": 1
+    },
+    "alcance": "Toda repetición con valores distintos cumple ambas cotas. Las repeticiones cíclicas (valores iguales) quedan fuera de la hipótesis y pueden violar la cota: la hipótesis es necesaria."
+  },
+  "identidad_residuos": {
+    "semillas": 128,
+    "largo_maximo": 8,
+    "instantes": 24,
+    "comparaciones": 317952
+  },
+  "umbral_inicial": {
+    "pares_semilla_largo": 549,
+    "con_valores_repetidos_antes_del_umbral": 729,
+    "bernoulli_hasta": 400,
+    "umbral_explicito_comprobado": true
+  },
+  "sturmianas": [
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "0",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 14,
+          "bits_cota": 9
+        },
+        {
+          "largo": 32,
+          "bits_representante": 31,
+          "bits_cota": 13
+        },
+        {
+          "largo": 64,
+          "bits_representante": 64,
+          "bits_cota": 22
+        },
+        {
+          "largo": 128,
+          "bits_representante": 127,
+          "bits_cota": 74
+        },
+        {
+          "largo": 256,
+          "bits_representante": 256,
+          "bits_cota": 202
+        },
+        {
+          "largo": 400,
+          "bits_representante": 399,
+          "bits_cota": 346
+        }
+      ]
+    },
+    {
+      "pendiente": "sqrt2-1/2",
+      "intercepto": "1/3",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 16,
+          "bits_cota": 8
+        },
+        {
+          "largo": 32,
+          "bits_representante": 32,
+          "bits_cota": 14
+        },
+        {
+          "largo": 64,
+          "bits_representante": 64,
+          "bits_cota": 20
+        },
+        {
+          "largo": 128,
+          "bits_representante": 128,
+          "bits_cota": 75
+        },
+        {
+          "largo": 256,
+          "bits_representante": 254,
+          "bits_cota": 203
+        },
+        {
+          "largo": 400,
+          "bits_representante": 397,
+          "bits_cota": 218
+        }
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "0",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 16,
+          "bits_cota": 7
+        },
+        {
+          "largo": 32,
+          "bits_representante": 31,
+          "bits_cota": 23
+        },
+        {
+          "largo": 64,
+          "bits_representante": 62,
+          "bits_cota": 29
+        },
+        {
+          "largo": 128,
+          "bits_representante": 128,
+          "bits_cota": 73
+        },
+        {
+          "largo": 256,
+          "bits_representante": 256,
+          "bits_cota": 201
+        },
+        {
+          "largo": 400,
+          "bits_representante": 400,
+          "bits_cota": 249
+        }
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-4/5)/2",
+      "intercepto": "1/3",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 13,
+          "bits_cota": 7
+        },
+        {
+          "largo": 32,
+          "bits_representante": 32,
+          "bits_cota": 16
+        },
+        {
+          "largo": 64,
+          "bits_representante": 62,
+          "bits_cota": 26
+        },
+        {
+          "largo": 128,
+          "bits_representante": 126,
+          "bits_cota": 73
+        },
+        {
+          "largo": 256,
+          "bits_representante": 256,
+          "bits_cota": 201
+        },
+        {
+          "largo": 400,
+          "bits_representante": 400,
+          "bits_cota": 275
+        }
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "0",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 14,
+          "bits_cota": 8
+        },
+        {
+          "largo": 32,
+          "bits_representante": 29,
+          "bits_cota": 10
+        },
+        {
+          "largo": 64,
+          "bits_representante": 63,
+          "bits_cota": 33
+        },
+        {
+          "largo": 128,
+          "bits_representante": 128,
+          "bits_cota": 48
+        },
+        {
+          "largo": 256,
+          "bits_representante": 256,
+          "bits_cota": 128
+        },
+        {
+          "largo": 400,
+          "bits_representante": 399,
+          "bits_cota": 143
+        }
+      ]
+    },
+    {
+      "pendiente": "sqrt3-1",
+      "intercepto": "1/3",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 16,
+          "bits_cota": 8
+        },
+        {
+          "largo": 32,
+          "bits_representante": 32,
+          "bits_cota": 11
+        },
+        {
+          "largo": 64,
+          "bits_representante": 58,
+          "bits_cota": 39
+        },
+        {
+          "largo": 128,
+          "bits_representante": 127,
+          "bits_cota": 49
+        },
+        {
+          "largo": 256,
+          "bits_representante": 256,
+          "bits_cota": 108
+        },
+        {
+          "largo": 400,
+          "bits_representante": 398,
+          "bits_cota": 140
+        }
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "0",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 16,
+          "bits_cota": 9
+        },
+        {
+          "largo": 32,
+          "bits_representante": 31,
+          "bits_cota": 18
+        },
+        {
+          "largo": 64,
+          "bits_representante": 64,
+          "bits_cota": 33
+        },
+        {
+          "largo": 128,
+          "bits_representante": 127,
+          "bits_cota": 78
+        },
+        {
+          "largo": 256,
+          "bits_representante": 254,
+          "bits_cota": 125
+        },
+        {
+          "largo": 400,
+          "bits_representante": 399,
+          "bits_cota": 269
+        }
+      ]
+    },
+    {
+      "pendiente": "(sqrt5+1)/4",
+      "intercepto": "1/3",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 12,
+          "bits_cota": 5
+        },
+        {
+          "largo": 32,
+          "bits_representante": 32,
+          "bits_cota": 14
+        },
+        {
+          "largo": 64,
+          "bits_representante": 64,
+          "bits_cota": 34
+        },
+        {
+          "largo": 128,
+          "bits_representante": 127,
+          "bits_cota": 65
+        },
+        {
+          "largo": 256,
+          "bits_representante": 256,
+          "bits_cota": 94
+        },
+        {
+          "largo": 400,
+          "bits_representante": 400,
+          "bits_cota": 132
+        }
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "0",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 15,
+          "bits_cota": 6
+        },
+        {
+          "largo": 32,
+          "bits_representante": 32,
+          "bits_cota": 15
+        },
+        {
+          "largo": 64,
+          "bits_representante": 64,
+          "bits_cota": 25
+        },
+        {
+          "largo": 128,
+          "bits_representante": 122,
+          "bits_cota": 53
+        },
+        {
+          "largo": 256,
+          "bits_representante": 254,
+          "bits_cota": 111
+        },
+        {
+          "largo": 400,
+          "bits_representante": 400,
+          "bits_cota": 179
+        }
+      ]
+    },
+    {
+      "pendiente": "(sqrt5-1)/2",
+      "intercepto": "1/3",
+      "filas": [
+        {
+          "largo": 16,
+          "bits_representante": 16,
+          "bits_cota": 7
+        },
+        {
+          "largo": 32,
+          "bits_representante": 32,
+          "bits_cota": 12
+        },
+        {
+          "largo": 64,
+          "bits_representante": 60,
+          "bits_cota": 23
+        },
+        {
+          "largo": 128,
+          "bits_representante": 127,
+          "bits_cota": 54
+        },
+        {
+          "largo": 256,
+          "bits_representante": 256,
+          "bits_cota": 117
+        },
+        {
+          "largo": 400,
+          "bits_representante": 399,
+          "bits_cota": 204
+        }
+      ]
+    }
+  ],
+  "thue_morse_ab": [
+    {
+      "k": 1,
+      "largo": 12,
+      "bits_representante": 12,
+      "bits_cota": 1
+    },
+    {
+      "k": 2,
+      "largo": 24,
+      "bits_representante": 24,
+      "bits_cota": 1
+    },
+    {
+      "k": 3,
+      "largo": 48,
+      "bits_representante": 48,
+      "bits_cota": 2
+    },
+    {
+      "k": 4,
+      "largo": 96,
+      "bits_representante": 96,
+      "bits_cota": 4
+    },
+    {
+      "k": 5,
+      "largo": 192,
+      "bits_representante": 192,
+      "bits_cota": 8
+    },
+    {
+      "k": 6,
+      "largo": 384,
+      "bits_representante": 384,
+      "bits_cota": 16
+    },
+    {
+      "k": 7,
+      "largo": 768,
+      "bits_representante": 768,
+      "bits_cota": 32
+    },
+    {
+      "k": 8,
+      "largo": 1536,
+      "bits_representante": 1535,
+      "bits_cota": 63
+    }
+  ],
+  "racionales": {
+    "numeradores": 129,
+    "denominadores_impares_hasta": 9,
+    "corte": 40,
+    "repeticiones": 119564,
+    "peor_cociente_local": "128/201"
+  },
+  "familia_ajustada": {
+    "largos": "2..64",
+    "cociente_local": "1/3"
+  },
+  "minimo_uniforme_ab": {
+    "cota": "2^36",
+    "filas": [
+      {
+        "largo": 1,
+        "minimo": "1",
+        "bits": 1,
+        "clases_bajo_la_cota": 1
+      },
+      {
+        "largo": 2,
+        "minimo": "3",
+        "bits": 2,
+        "clases_bajo_la_cota": 1
+      },
+      {
+        "largo": 3,
+        "minimo": "3",
+        "bits": 2,
+        "clases_bajo_la_cota": 2
+      },
+      {
+        "largo": 4,
+        "minimo": "7",
+        "bits": 3,
+        "clases_bajo_la_cota": 3
+      },
+      {
+        "largo": 5,
+        "minimo": "7",
+        "bits": 3,
+        "clases_bajo_la_cota": 4
+      },
+      {
+        "largo": 6,
+        "minimo": "27",
+        "bits": 5,
+        "clases_bajo_la_cota": 6
+      },
+      {
+        "largo": 7,
+        "minimo": "27",
+        "bits": 5,
+        "clases_bajo_la_cota": 9
+      },
+      {
+        "largo": 8,
+        "minimo": "27",
+        "bits": 5,
+        "clases_bajo_la_cota": 13
+      },
+      {
+        "largo": 9,
+        "minimo": "27",
+        "bits": 5,
+        "clases_bajo_la_cota": 19
+      },
+      {
+        "largo": 10,
+        "minimo": "27",
+        "bits": 5,
+        "clases_bajo_la_cota": 28
+      },
+      {
+        "largo": 11,
+        "minimo": "91",
+        "bits": 7,
+        "clases_bajo_la_cota": 41
+      },
+      {
+        "largo": 12,
+        "minimo": "91",
+        "bits": 7,
+        "clases_bajo_la_cota": 60
+      },
+      {
+        "largo": 13,
+        "minimo": "91",
+        "bits": 7,
+        "clases_bajo_la_cota": 88
+      },
+      {
+        "largo": 14,
+        "minimo": "111",
+        "bits": 7,
+        "clases_bajo_la_cota": 129
+      },
+      {
+        "largo": 15,
+        "minimo": "111",
+        "bits": 7,
+        "clases_bajo_la_cota": 189
+      },
+      {
+        "largo": 16,
+        "minimo": "639",
+        "bits": 10,
+        "clases_bajo_la_cota": 277
+      },
+      {
+        "largo": 17,
+        "minimo": "871",
+        "bits": 10,
+        "clases_bajo_la_cota": 406
+      },
+      {
+        "largo": 18,
+        "minimo": "871",
+        "bits": 10,
+        "clases_bajo_la_cota": 595
+      },
+      {
+        "largo": 19,
+        "minimo": "871",
+        "bits": 10,
+        "clases_bajo_la_cota": 872
+      },
+      {
+        "largo": 20,
+        "minimo": "2215",
+        "bits": 12,
+        "clases_bajo_la_cota": 1278
+      },
+      {
+        "largo": 21,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 1873
+      },
+      {
+        "largo": 22,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 2745
+      },
+      {
+        "largo": 23,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 4023
+      },
+      {
+        "largo": 24,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 5896
+      },
+      {
+        "largo": 25,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 8641
+      },
+      {
+        "largo": 26,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 12664
+      },
+      {
+        "largo": 27,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 18560
+      },
+      {
+        "largo": 28,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 27201
+      },
+      {
+        "largo": 29,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 39865
+      },
+      {
+        "largo": 30,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 58425
+      },
+      {
+        "largo": 31,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 85626
+      },
+      {
+        "largo": 32,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 125491
+      },
+      {
+        "largo": 33,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 183916
+      },
+      {
+        "largo": 34,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 269542
+      },
+      {
+        "largo": 35,
+        "minimo": "4591",
+        "bits": 13,
+        "clases_bajo_la_cota": 395033
+      },
+      {
+        "largo": 36,
+        "minimo": "159487",
+        "bits": 18,
+        "clases_bajo_la_cota": 578949
+      },
+      {
+        "largo": 37,
+        "minimo": "590491",
+        "bits": 20,
+        "clases_bajo_la_cota": 424696
+      },
+      {
+        "largo": 38,
+        "minimo": "763675",
+        "bits": 20,
+        "clases_bajo_la_cota": 311490
+      },
+      {
+        "largo": 39,
+        "minimo": "763675",
+        "bits": 20,
+        "clases_bajo_la_cota": 228123
+      },
+      {
+        "largo": 40,
+        "minimo": "2203815",
+        "bits": 22,
+        "clases_bajo_la_cota": 167116
+      },
+      {
+        "largo": 41,
+        "minimo": "5484159",
+        "bits": 23,
+        "clases_bajo_la_cota": 122359
+      },
+      {
+        "largo": 42,
+        "minimo": "5714031",
+        "bits": 23,
+        "clases_bajo_la_cota": 89573
+      },
+      {
+        "largo": 43,
+        "minimo": "6314235",
+        "bits": 23,
+        "clases_bajo_la_cota": 65488
+      },
+      {
+        "largo": 44,
+        "minimo": "6314235",
+        "bits": 23,
+        "clases_bajo_la_cota": 47946
+      },
+      {
+        "largo": 45,
+        "minimo": "6314235",
+        "bits": 23,
+        "clases_bajo_la_cota": 35228
+      },
+      {
+        "largo": 46,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 25863
+      },
+      {
+        "largo": 47,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 18901
+      },
+      {
+        "largo": 48,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 13913
+      },
+      {
+        "largo": 49,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 10292
+      },
+      {
+        "largo": 50,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 7484
+      },
+      {
+        "largo": 51,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 5526
+      },
+      {
+        "largo": 52,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 4077
+      },
+      {
+        "largo": 53,
+        "minimo": "6416623",
+        "bits": 23,
+        "clases_bajo_la_cota": 2961
+      },
+      {
+        "largo": 54,
+        "minimo": "20741223",
+        "bits": 25,
+        "clases_bajo_la_cota": 2166
+      },
+      {
+        "largo": 55,
+        "minimo": "60533863",
+        "bits": 26,
+        "clases_bajo_la_cota": 1609
+      },
+      {
+        "largo": 56,
+        "minimo": "67637743",
+        "bits": 27,
+        "clases_bajo_la_cota": 1177
+      },
+      {
+        "largo": 57,
+        "minimo": "67637743",
+        "bits": 27,
+        "clases_bajo_la_cota": 851
+      },
+      {
+        "largo": 58,
+        "minimo": "67637743",
+        "bits": 27,
+        "clases_bajo_la_cota": 632
+      },
+      {
+        "largo": 59,
+        "minimo": "120080895",
+        "bits": 27,
+        "clases_bajo_la_cota": 468
+      },
+      {
+        "largo": 60,
+        "minimo": "120080895",
+        "bits": 27,
+        "clases_bajo_la_cota": 351
+      },
+      {
+        "largo": 61,
+        "minimo": "120080895",
+        "bits": 27,
+        "clases_bajo_la_cota": 258
+      },
+      {
+        "largo": 62,
+        "minimo": "120080895",
+        "bits": 27,
+        "clases_bajo_la_cota": 178
+      },
+      {
+        "largo": 63,
+        "minimo": "120080895",
+        "bits": 27,
+        "clases_bajo_la_cota": 129
+      },
+      {
+        "largo": 64,
+        "minimo": "120080895",
+        "bits": 27,
+        "clases_bajo_la_cota": 99
+      },
+      {
+        "largo": 65,
+        "minimo": "120080895",
+        "bits": 27,
+        "clases_bajo_la_cota": 78
+      },
+      {
+        "largo": 66,
+        "minimo": "3156298491",
+        "bits": 32,
+        "clases_bajo_la_cota": 61
+      },
+      {
+        "largo": 67,
+        "minimo": "3156298491",
+        "bits": 32,
+        "clases_bajo_la_cota": 48
+      },
+      {
+        "largo": 68,
+        "minimo": "3156298491",
+        "bits": 32,
+        "clases_bajo_la_cota": 38
+      },
+      {
+        "largo": 69,
+        "minimo": "3156298491",
+        "bits": 32,
+        "clases_bajo_la_cota": 32
+      },
+      {
+        "largo": 70,
+        "minimo": "3156298491",
+        "bits": 32,
+        "clases_bajo_la_cota": 26
+      },
+      {
+        "largo": 71,
+        "minimo": "3156298491",
+        "bits": 32,
+        "clases_bajo_la_cota": 17
+      },
+      {
+        "largo": 72,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 13
+      },
+      {
+        "largo": 73,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 11
+      },
+      {
+        "largo": 74,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 7
+      },
+      {
+        "largo": 75,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 5
+      },
+      {
+        "largo": 76,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 4
+      },
+      {
+        "largo": 77,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 3
+      },
+      {
+        "largo": 78,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 3
+      },
+      {
+        "largo": 79,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 3
+      },
+      {
+        "largo": 80,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 2
+      },
+      {
+        "largo": 81,
+        "minimo": "4081276143",
+        "bits": 32,
+        "clases_bajo_la_cota": 1
+      },
+      {
+        "largo": 82,
+        "minimo": null,
+        "nota": "mayor o igual que 2^36"
+      }
+    ],
+    "maximo_de_clases": 578949,
+    "comprobados_por_fuerza_bruta": 30,
+    "cota_tres_log2_comprobada": true,
+    "records": [
+      {
+        "semilla": "1",
+        "bits": 1,
+        "lambda_": 1,
+        "bits_explicados_por_la_ley": 0
+      },
+      {
+        "semilla": "3",
+        "bits": 2,
+        "lambda_": 3,
+        "bits_explicados_por_la_ley": 1
+      },
+      {
+        "semilla": "7",
+        "bits": 3,
+        "lambda_": 5,
+        "bits_explicados_por_la_ley": 2
+      },
+      {
+        "semilla": "27",
+        "bits": 5,
+        "lambda_": 10,
+        "bits_explicados_por_la_ley": 3
+      },
+      {
+        "semilla": "91",
+        "bits": 7,
+        "lambda_": 13,
+        "bits_explicados_por_la_ley": 5
+      },
+      {
+        "semilla": "111",
+        "bits": 7,
+        "lambda_": 15,
+        "bits_explicados_por_la_ley": 3
+      },
+      {
+        "semilla": "639",
+        "bits": 10,
+        "lambda_": 16,
+        "bits_explicados_por_la_ley": 6
+      },
+      {
+        "semilla": "871",
+        "bits": 10,
+        "lambda_": 19,
+        "bits_explicados_por_la_ley": 9
+      },
+      {
+        "semilla": "2215",
+        "bits": 12,
+        "lambda_": 20,
+        "bits_explicados_por_la_ley": 9
+      },
+      {
+        "semilla": "4591",
+        "bits": 13,
+        "lambda_": 35,
+        "bits_explicados_por_la_ley": 5
+      },
+      {
+        "semilla": "159487",
+        "bits": 18,
+        "lambda_": 36,
+        "bits_explicados_por_la_ley": 7
+      },
+      {
+        "semilla": "590491",
+        "bits": 20,
+        "lambda_": 37,
+        "bits_explicados_por_la_ley": 8
+      },
+      {
+        "semilla": "763675",
+        "bits": 20,
+        "lambda_": 39,
+        "bits_explicados_por_la_ley": 8
+      },
+      {
+        "semilla": "2203815",
+        "bits": 22,
+        "lambda_": 40,
+        "bits_explicados_por_la_ley": 8
+      },
+      {
+        "semilla": "5484159",
+        "bits": 23,
+        "lambda_": 41,
+        "bits_explicados_por_la_ley": 6
+      },
+      {
+        "semilla": "5714031",
+        "bits": 23,
+        "lambda_": 42,
+        "bits_explicados_por_la_ley": 4
+      },
+      {
+        "semilla": "6314235",
+        "bits": 23,
+        "lambda_": 45,
+        "bits_explicados_por_la_ley": 7
+      },
+      {
+        "semilla": "6416623",
+        "bits": 23,
+        "lambda_": 53,
+        "bits_explicados_por_la_ley": 5
+      },
+      {
+        "semilla": "20741223",
+        "bits": 25,
+        "lambda_": 54,
+        "bits_explicados_por_la_ley": 5
+      },
+      {
+        "semilla": "60533863",
+        "bits": 26,
+        "lambda_": 55,
+        "bits_explicados_por_la_ley": 11
+      },
+      {
+        "semilla": "67637743",
+        "bits": 27,
+        "lambda_": 58,
+        "bits_explicados_por_la_ley": 5
+      },
+      {
+        "semilla": "120080895",
+        "bits": 27,
+        "lambda_": 65,
+        "bits_explicados_por_la_ley": 8
+      },
+      {
+        "semilla": "3156298491",
+        "bits": 32,
+        "lambda_": 71,
+        "bits_explicados_por_la_ley": 12
+      },
+      {
+        "semilla": "4081276143",
+        "bits": 32,
+        "lambda_": 81,
+        "bits_explicados_por_la_ley": 5
+      }
+    ],
+    "alcance": "Medición exacta: mínimo sobre todas las palabras de {1,110}^w de largo L. No es una cota demostrada para todo L."
+  },
+  "sha256_fuente_lf": "26a2c246594a780b5385727f1338c0cebe217aa1afc51372565447f1a4ad0fce"
+}

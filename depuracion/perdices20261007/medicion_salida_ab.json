@@ -1,0 +1,574 @@
+{
+  "parametros": {
+    "bits": 50,
+    "lmax": 200
+  },
+  "nodos_visitados": 719397383,
+  "largo_maximo_bajo_la_cota": 112,
+  "filas": [
+    {
+      "largo": 1,
+      "minimo": "1",
+      "bits": 1
+    },
+    {
+      "largo": 2,
+      "minimo": "3",
+      "bits": 2
+    },
+    {
+      "largo": 3,
+      "minimo": "3",
+      "bits": 2
+    },
+    {
+      "largo": 4,
+      "minimo": "7",
+      "bits": 3
+    },
+    {
+      "largo": 5,
+      "minimo": "7",
+      "bits": 3
+    },
+    {
+      "largo": 6,
+      "minimo": "27",
+      "bits": 5
+    },
+    {
+      "largo": 7,
+      "minimo": "27",
+      "bits": 5
+    },
+    {
+      "largo": 8,
+      "minimo": "27",
+      "bits": 5
+    },
+    {
+      "largo": 9,
+      "minimo": "27",
+      "bits": 5
+    },
+    {
+      "largo": 10,
+      "minimo": "27",
+      "bits": 5
+    },
+    {
+      "largo": 11,
+      "minimo": "91",
+      "bits": 7
+    },
+    {
+      "largo": 12,
+      "minimo": "91",
+      "bits": 7
+    },
+    {
+      "largo": 13,
+      "minimo": "91",
+      "bits": 7
+    },
+    {
+      "largo": 14,
+      "minimo": "111",
+      "bits": 7
+    },
+    {
+      "largo": 15,
+      "minimo": "111",
+      "bits": 7
+    },
+    {
+      "largo": 16,
+      "minimo": "639",
+      "bits": 10
+    },
+    {
+      "largo": 17,
+      "minimo": "871",
+      "bits": 10
+    },
+    {
+      "largo": 18,
+      "minimo": "871",
+      "bits": 10
+    },
+    {
+      "largo": 19,
+      "minimo": "871",
+      "bits": 10
+    },
+    {
+      "largo": 20,
+      "minimo": "2215",
+      "bits": 12
+    },
+    {
+      "largo": 21,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 22,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 23,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 24,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 25,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 26,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 27,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 28,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 29,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 30,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 31,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 32,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 33,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 34,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 35,
+      "minimo": "4591",
+      "bits": 13
+    },
+    {
+      "largo": 36,
+      "minimo": "159487",
+      "bits": 18
+    },
+    {
+      "largo": 37,
+      "minimo": "590491",
+      "bits": 20
+    },
+    {
+      "largo": 38,
+      "minimo": "763675",
+      "bits": 20
+    },
+    {
+      "largo": 39,
+      "minimo": "763675",
+      "bits": 20
+    },
+    {
+      "largo": 40,
+      "minimo": "2203815",
+      "bits": 22
+    },
+    {
+      "largo": 41,
+      "minimo": "5484159",
+      "bits": 23
+    },
+    {
+      "largo": 42,
+      "minimo": "5714031",
+      "bits": 23
+    },
+    {
+      "largo": 43,
+      "minimo": "6314235",
+      "bits": 23
+    },
+    {
+      "largo": 44,
+      "minimo": "6314235",
+      "bits": 23
+    },
+    {
+      "largo": 45,
+      "minimo": "6314235",
+      "bits": 23
+    },
+    {
+      "largo": 46,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 47,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 48,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 49,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 50,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 51,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 52,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 53,
+      "minimo": "6416623",
+      "bits": 23
+    },
+    {
+      "largo": 54,
+      "minimo": "20741223",
+      "bits": 25
+    },
+    {
+      "largo": 55,
+      "minimo": "60533863",
+      "bits": 26
+    },
+    {
+      "largo": 56,
+      "minimo": "67637743",
+      "bits": 27
+    },
+    {
+      "largo": 57,
+      "minimo": "67637743",
+      "bits": 27
+    },
+    {
+      "largo": 58,
+      "minimo": "67637743",
+      "bits": 27
+    },
+    {
+      "largo": 59,
+      "minimo": "120080895",
+      "bits": 27
+    },
+    {
+      "largo": 60,
+      "minimo": "120080895",
+      "bits": 27
+    },
+    {
+      "largo": 61,
+      "minimo": "120080895",
+      "bits": 27
+    },
+    {
+      "largo": 62,
+      "minimo": "120080895",
+      "bits": 27
+    },
+    {
+      "largo": 63,
+      "minimo": "120080895",
+      "bits": 27
+    },
+    {
+      "largo": 64,
+      "minimo": "120080895",
+      "bits": 27
+    },
+    {
+      "largo": 65,
+      "minimo": "120080895",
+      "bits": 27
+    },
+    {
+      "largo": 66,
+      "minimo": "3156298491",
+      "bits": 32
+    },
+    {
+      "largo": 67,
+      "minimo": "3156298491",
+      "bits": 32
+    },
+    {
+      "largo": 68,
+      "minimo": "3156298491",
+      "bits": 32
+    },
+    {
+      "largo": 69,
+      "minimo": "3156298491",
+      "bits": 32
+    },
+    {
+      "largo": 70,
+      "minimo": "3156298491",
+      "bits": 32
+    },
+    {
+      "largo": 71,
+      "minimo": "3156298491",
+      "bits": 32
+    },
+    {
+      "largo": 72,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 73,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 74,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 75,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 76,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 77,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 78,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 79,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 80,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 81,
+      "minimo": "4081276143",
+      "bits": 32
+    },
+    {
+      "largo": 82,
+      "minimo": "727758353499",
+      "bits": 40
+    },
+    {
+      "largo": 83,
+      "minimo": "1553203479579",
+      "bits": 41
+    },
+    {
+      "largo": 84,
+      "minimo": "1569146107327",
+      "bits": 41
+    },
+    {
+      "largo": 85,
+      "minimo": "1569146107327",
+      "bits": 41
+    },
+    {
+      "largo": 86,
+      "minimo": "1569146107327",
+      "bits": 41
+    },
+    {
+      "largo": 87,
+      "minimo": "2842365895527",
+      "bits": 42
+    },
+    {
+      "largo": 88,
+      "minimo": "2842365895527",
+      "bits": 42
+    },
+    {
+      "largo": 89,
+      "minimo": "2842365895527",
+      "bits": 42
+    },
+    {
+      "largo": 90,
+      "minimo": "2842365895527",
+      "bits": 42
+    },
+    {
+      "largo": 91,
+      "minimo": "2842365895527",
+      "bits": 42
+    },
+    {
+      "largo": 92,
+      "minimo": "2842365895527",
+      "bits": 42
+    },
+    {
+      "largo": 93,
+      "minimo": "4889187454203",
+      "bits": 43
+    },
+    {
+      "largo": 94,
+      "minimo": "4889187454203",
+      "bits": 43
+    },
+    {
+      "largo": 95,
+      "minimo": "34357671470527",
+      "bits": 45
+    },
+    {
+      "largo": 96,
+      "minimo": "34357671470527",
+      "bits": 45
+    },
+    {
+      "largo": 97,
+      "minimo": "34357671470527",
+      "bits": 45
+    },
+    {
+      "largo": 98,
+      "minimo": "34357671470527",
+      "bits": 45
+    },
+    {
+      "largo": 99,
+      "minimo": "152803336321767",
+      "bits": 48
+    },
+    {
+      "largo": 100,
+      "minimo": "152803336321767",
+      "bits": 48
+    },
+    {
+      "largo": 101,
+      "minimo": "152803336321767",
+      "bits": 48
+    },
+    {
+      "largo": 102,
+      "minimo": "163439703581415",
+      "bits": 48
+    },
+    {
+      "largo": 103,
+      "minimo": "163439703581415",
+      "bits": 48
+    },
+    {
+      "largo": 104,
+      "minimo": "163439703581415",
+      "bits": 48
+    },
+    {
+      "largo": 105,
+      "minimo": "163439703581415",
+      "bits": 48
+    },
+    {
+      "largo": 106,
+      "minimo": "163439703581415",
+      "bits": 48
+    },
+    {
+      "largo": 107,
+      "minimo": "197943312098751",
+      "bits": 48
+    },
+    {
+      "largo": 108,
+      "minimo": "197943312098751",
+      "bits": 48
+    },
+    {
+      "largo": 109,
+      "minimo": "197943312098751",
+      "bits": 48
+    },
+    {
+      "largo": 110,
+      "minimo": "338203040342655",
+      "bits": 49
+    },
+    {
+      "largo": 111,
+      "minimo": "338203040342655",
+      "bits": 49
+    },
+    {
+      "largo": 112,
+      "minimo": "338203040342655",
+      "bits": 49
+    }
+  ],
+  "cota_tres_log2": true,
+  "segundos": 879.5,
+  "alcance": "Exacto para todo n < 2^50: ninguno sigue la clase 113 pasos. Medición finita, no prueba universal.",
+  "sha256_fuente_lf": "65c0c8d90207dde35e8538629cae2285f04b33fa2ceb144c6e32765a8f9137f3"
+}

@@ -1,0 +1,21 @@
+{
+  "version_z3": "5.1.0",
+  "fuentes": {
+    "auditar_codificador_directo_h.py": "350940f689b9bab9892ed7ce62fb5ca6e0c1bc07fd6225b4e31c280a95ca769a",
+    "buscar_matrices_directas_h.py": "76a05457c83a6aecb5bc2b323fdad03eacea3689833f7922a95e19f5a45b84c3",
+    "buscar_matrices_h.py": "5d16ceb7272afb8dbdcbdf2f8b8a45b9571651748b57284d21b270856f20352e",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9"
+  },
+  "controles": {
+    "sat_control15_n2_c3.json": "d625d365ce27fc25e157a11d3ebd44980093bf01404c1c84221ee9d752e8813d",
+    "sat_control15_a3_c5.json": "4187c0d22e49649b16fc8ab2c9fab95c73cf0ad4bf06a1afe4a77018a1ddbd16"
+  },
+  "certificados_releidos": 6,
+  "prefijos_cotejados": 1332,
+  "decisiones_exhaustivas_dimension_1": 162,
+  "maxima_entrada_compuesta_con_coeficientes_hasta_2": {
+    "natural": 30,
+    "arctic": 5
+  },
+  "alcance": "Cotejo finito del codificador; la ausencia universal de desbordamiento usa las cotas escritas de MATRICES_H.md, sin Lean."
+}

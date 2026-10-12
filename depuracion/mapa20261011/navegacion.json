@@ -1,0 +1,34 @@
+[
+  {
+    "modo": "Basic",
+    "ancho": 1440,
+    "alto": 1000,
+    "errores": [],
+    "busquedas": 11,
+    "inventario": 70
+  },
+  {
+    "modo": "Basic",
+    "ancho": 390,
+    "alto": 844,
+    "errores": [],
+    "busquedas": 11,
+    "inventario": 70
+  },
+  {
+    "modo": "Complex",
+    "ancho": 1440,
+    "alto": 1000,
+    "errores": [],
+    "busquedas": 11,
+    "inventario": 70
+  },
+  {
+    "modo": "Complex",
+    "ancho": 390,
+    "alto": 844,
+    "errores": [],
+    "busquedas": 11,
+    "inventario": 70
+  }
+]

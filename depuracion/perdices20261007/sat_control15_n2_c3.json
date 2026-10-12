@@ -1,0 +1,630 @@
+{
+  "parametros": {
+    "fuente_externa": "C:\\Users\\Home\\AppData\\Local\\Temp\\perdices_rewriting_20261011",
+    "sistema": "control15",
+    "interpretacion": "natural",
+    "dimension": 2,
+    "cota": 3,
+    "segundos": 30,
+    "semilla": 0,
+    "etapas": 3,
+    "salida": "depuracion\\perdices20261007\\sat_control15_n2_c3.json"
+  },
+  "revision_externa": "8a4dfda60f97a6d33ff0a24fdfa7a172d4bec340",
+  "fuentes_externas": {
+    "prover/arctic.py": "2538dbb86137022606057102c124f0a4e7944706c01e35e08f42416a69699e92",
+    "prover/decoder.py": "e17eb5ed72c3ba5f4b1daa9dcd341e7a21af18e521f3bebd77a76cf6e992fccc",
+    "prover/encoder.py": "b40e04c86f3ca352deb0039e3e4e85e137039b2b5317206b2230254b83322457",
+    "prover/main.py": "44a961f98308ca131de1adcd443ba9783b67e7b933107b94a4124694a94a3534",
+    "prover/natural.py": "edb9432689a229044d0e134e2ff4581c976363a2191a61f087d814bd985860ce",
+    "prover/rules.py": "725e97b2294bb38750ef2e67f096aa571812ae4ea8832c76f7fddd73a12e7cfe",
+    "prover/sat.py": "7fd26af840c7988936c96f05eb08de629df4eca1bc923b3981b52f654216eee7",
+    "prover/tropical.py": "2a68a856457eeda46251c7929bf713669885b163ba40bd6e30b38ffa16a1cad5",
+    "rules/collatz-T-odd-mod8.srs": "2de44b71d3415853ac5534f1eb902ac560078cae8e52eaa50fc855ab0d875cf3"
+  },
+  "version_z3": "5.1.0",
+  "reglas_originales": "ad ->| d\nabbd ->| fabd\nbbbd ->| gbbd\nae ->= ea\naf ->= eb\nag ->= fa\nbe ->= fb\nbf ->= ga\nbg ->= gb\nce ->= cb\ncf ->= caa\ncg ->= cab\n",
+  "reglas_con_semantica_afin_cotejada": 14,
+  "fuentes_locales": {
+    "buscar_matrices_h.py": "5d16ceb7272afb8dbdcbdf2f8b8a45b9571651748b57284d21b270856f20352e",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9"
+  },
+  "etapas": [
+    {
+      "numero": 1,
+      "variables": 1809,
+      "clausulas": 10841,
+      "estado": "sat",
+      "segundos_preparacion": 1.668,
+      "segundos_sat": 0.013,
+      "certificado": {
+        "interpretacion": "natural",
+        "dimension": 2,
+        "simbolos": {
+          "a": {
+            "matriz": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "vector": [
+              1,
+              1
+            ]
+          },
+          "b": {
+            "matriz": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          },
+          "c": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              0
+            ]
+          },
+          "d": {
+            "matriz": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          },
+          "e": {
+            "matriz": [
+              [
+                2,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "vector": [
+              1,
+              0
+            ]
+          },
+          "f": {
+            "matriz": [
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              1
+            ]
+          },
+          "g": {
+            "matriz": [
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          }
+        },
+        "reglas": [
+          {
+            "izquierda": "da",
+            "derecha": "d",
+            "estricta": true,
+            "en_cabeza": true
+          },
+          {
+            "izquierda": "dbba",
+            "derecha": "dbaf",
+            "estricta": true,
+            "en_cabeza": true
+          },
+          {
+            "izquierda": "dbbb",
+            "derecha": "dbbg",
+            "estricta": true,
+            "en_cabeza": true
+          },
+          {
+            "izquierda": "ea",
+            "derecha": "ae",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fa",
+            "derecha": "be",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "ga",
+            "derecha": "af",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "eb",
+            "derecha": "bf",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fb",
+            "derecha": "ag",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "gb",
+            "derecha": "bg",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "ec",
+            "derecha": "bc",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fc",
+            "derecha": "aac",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "gc",
+            "derecha": "bac",
+            "estricta": false,
+            "en_cabeza": false
+          }
+        ],
+        "eliminadas": [
+          0
+        ]
+      },
+      "modelo_cnf_verificado": true
+    },
+    {
+      "numero": 2,
+      "variables": 1748,
+      "clausulas": 10443,
+      "estado": "sat",
+      "segundos_preparacion": 1.531,
+      "segundos_sat": 0.013,
+      "certificado": {
+        "interpretacion": "natural",
+        "dimension": 2,
+        "simbolos": {
+          "a": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          },
+          "b": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              0
+            ]
+          },
+          "c": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          },
+          "d": {
+            "matriz": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          },
+          "e": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              0
+            ]
+          },
+          "f": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              1
+            ]
+          },
+          "g": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              0
+            ]
+          }
+        },
+        "reglas": [
+          {
+            "izquierda": "dbba",
+            "derecha": "dbaf",
+            "estricta": true,
+            "en_cabeza": true
+          },
+          {
+            "izquierda": "dbbb",
+            "derecha": "dbbg",
+            "estricta": true,
+            "en_cabeza": true
+          },
+          {
+            "izquierda": "ea",
+            "derecha": "ae",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fa",
+            "derecha": "be",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "ga",
+            "derecha": "af",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "eb",
+            "derecha": "bf",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fb",
+            "derecha": "ag",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "gb",
+            "derecha": "bg",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "ec",
+            "derecha": "bc",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fc",
+            "derecha": "aac",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "gc",
+            "derecha": "bac",
+            "estricta": false,
+            "en_cabeza": false
+          }
+        ],
+        "eliminadas": [
+          0
+        ]
+      },
+      "modelo_cnf_verificado": true
+    },
+    {
+      "numero": 3,
+      "variables": 1567,
+      "clausulas": 9293,
+      "estado": "sat",
+      "segundos_preparacion": 1.386,
+      "segundos_sat": 0.01,
+      "certificado": {
+        "interpretacion": "natural",
+        "dimension": 2,
+        "simbolos": {
+          "a": {
+            "matriz": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              0
+            ]
+          },
+          "b": {
+            "matriz": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "vector": [
+              0,
+              1
+            ]
+          },
+          "c": {
+            "matriz": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              1
+            ]
+          },
+          "d": {
+            "matriz": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          },
+          "e": {
+            "matriz": [
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              1
+            ]
+          },
+          "f": {
+            "matriz": [
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "vector": [
+              1,
+              0
+            ]
+          },
+          "g": {
+            "matriz": [
+              [
+                2,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "vector": [
+              0,
+              0
+            ]
+          }
+        },
+        "reglas": [
+          {
+            "izquierda": "dbbb",
+            "derecha": "dbbg",
+            "estricta": true,
+            "en_cabeza": true
+          },
+          {
+            "izquierda": "ea",
+            "derecha": "ae",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fa",
+            "derecha": "be",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "ga",
+            "derecha": "af",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "eb",
+            "derecha": "bf",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fb",
+            "derecha": "ag",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "gb",
+            "derecha": "bg",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "ec",
+            "derecha": "bc",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "fc",
+            "derecha": "aac",
+            "estricta": false,
+            "en_cabeza": false
+          },
+          {
+            "izquierda": "gc",
+            "derecha": "bac",
+            "estricta": false,
+            "en_cabeza": false
+          }
+        ],
+        "eliminadas": [
+          0
+        ]
+      },
+      "modelo_cnf_verificado": true
+    }
+  ],
+  "terminacion_relativa_certificada": true,
+  "alcance": "Búsqueda finita de órdenes sobre palabras. Sólo los certificados SAT se cotejan exactamente. No hay Lean de la búsqueda ni certificado UNSAT."
+}

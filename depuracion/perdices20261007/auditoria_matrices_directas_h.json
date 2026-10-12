@@ -1,0 +1,92 @@
+{
+  "ejecuciones": [
+    {
+      "archivo": "bv_objetivo57_a2_c3.json",
+      "sha256_lf": "78a3482928c1853d3dc4a5a320518dda8af0781ae2ddd10e0e1717bfb6177c15",
+      "certificados": 0,
+      "estados": [
+        "unsat"
+      ],
+      "maximos_intermedios_certificados": [],
+      "cierre": false
+    },
+    {
+      "archivo": "bv_control15_a3_c5.json",
+      "sha256_lf": "74c919dbc0d91b71314bfa83d38e63881e0513f290f2993888b0c991528928cd",
+      "certificados": 3,
+      "estados": [
+        "sat",
+        "sat",
+        "sat"
+      ],
+      "maximos_intermedios_certificados": [
+        9,
+        11,
+        13
+      ],
+      "cierre": true
+    },
+    {
+      "archivo": "bv_control15_n2_c3.json",
+      "sha256_lf": "8cc03c84150f9e196498ca83e0b92bf4d25d362cfd8fd8029f240b0d3a42d7c5",
+      "certificados": 2,
+      "estados": [
+        "sat",
+        "sat"
+      ],
+      "maximos_intermedios_certificados": [
+        6,
+        24
+      ],
+      "cierre": true
+    },
+    {
+      "archivo": "bv_objetivo57_n2_c3.json",
+      "sha256_lf": "dc449654736e984d349f159524e1e8a7f99c375c8e03adac1ccd526c386fe826",
+      "certificados": 0,
+      "estados": [
+        "unsat"
+      ],
+      "maximos_intermedios_certificados": [],
+      "cierre": false
+    },
+    {
+      "archivo": "bv_objetivo57_a3_c3.json",
+      "sha256_lf": "55d1f418d779eb6b51cefa8cb7971a96d0dbcaace18b7196bf3c4b466bf6b9fb",
+      "certificados": 0,
+      "estados": [
+        "unknown"
+      ],
+      "maximos_intermedios_certificados": [],
+      "cierre": false
+    },
+    {
+      "archivo": "bv_objetivo57_n3_c3.json",
+      "sha256_lf": "1533d11c10551a3320e8129c3552d74cabbfe91f18706bd7057d46e9a24fa48c",
+      "certificados": 0,
+      "estados": [
+        "unknown"
+      ],
+      "maximos_intermedios_certificados": [],
+      "cierre": false
+    }
+  ],
+  "controles_negativos_rechazados": [
+    "arctic_nulo",
+    "arctic_cierre_prematuro",
+    "arctic_orden_alterado",
+    "arctic_regla_alterada",
+    "arctic_cota_alterada",
+    "natural_nulo",
+    "natural_cierre_prematuro",
+    "natural_orden_alterado",
+    "natural_regla_alterada",
+    "natural_cota_alterada"
+  ],
+  "fuentes": {
+    "auditar_matrices_directas_h.py": "dc8af0981d925afd4fffd29a318fbb3fc73ff27cc18d8530107365d995877794",
+    "buscar_matrices_h.py": "5d16ceb7272afb8dbdcbdf2f8b8a45b9571651748b57284d21b270856f20352e",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9"
+  },
+  "alcance": "Verificación entera de certificados, cadena de eliminación y cotas. No certifica UNSAT ni timeouts; no usa Z3."
+}

@@ -1,0 +1,66 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "modulo": "PerdicesRachasH",
+  "consultas_nuevas": 8,
+  "consultas_con_base": 18,
+  "axiomas": {
+    "PerdicesRachasH.iterar_suma": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesRachasH.paso_D": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRachasH.racha_D": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRachasH.racha_E": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRachasH.bloque": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRachasH.balance": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesRachasH.salida_unidad": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesRachasH.entrada_unidad": [
+      "propext"
+    ]
+  },
+  "archivos": {
+    "depuracion/perdices20261007/PerdicesRachasH.lean": "5345d42ff9be336963e224002018d8e3c40283be17494d4423eff41a164005b8",
+    "depuracion/perdices20261007/comprobar_rachas_h.py": "a103a0a63332058419145ea99b99f4cf08f6befdd3b6d872418be06da5eda8fb",
+    "depuracion/perdices20261007/evidencia_retorno_h.json": "439d1cdad7eb92fffb05a5df3cc46b83a16c42ce80942d1665c4bef197eb7f9f"
+  },
+  "bibliotecas_directas": {
+    "Mathlib.Data.Nat.Basic": {
+      "sha256_fuente_lf": "ab7ef072113c236c375fabb66b85c5d82bcdf3c56c37b9d602a3e7c3aa54e1e6",
+      "sha256_objeto": "60f3b9ce37b76387b7bf32a94f9daab87a8003825fa8d3bf83a9f26a67560cf2"
+    },
+    "Mathlib.Tactic.SplitIfs": {
+      "sha256_fuente_lf": "dc78688f1b1b5378b20d056706251bb4d14d72404adc4318a75e1817db8d8372",
+      "sha256_objeto": "5d17e321563158cd728762bbf5f158d4b56830793233ea82e2139e30c1f33e61"
+    },
+    "Mathlib.Tactic.Ring": {
+      "sha256_fuente_lf": "d3ef5c49ebbd1108ce3f935e5ad95485e143abf02f28c027dba4bb6f3be8196e",
+      "sha256_objeto": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    }
+  },
+  "sha256_objeto": "fdd52af8fa4420c96d15daaba6be107f070b4fe39deeb7bb36731630cdbc9a4e",
+  "dependencia": "970c183294c39b7860f258eb5eb16e8ddf23c391f0005d057011b60847356570",
+  "alcance": "Rachas, composición, balance y unidades módulo 3. La maximalidad, decodificación por valuaciones, cilindros y densidades tienen prueba escrita."
+}

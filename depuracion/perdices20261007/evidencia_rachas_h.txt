@@ -1,0 +1,9 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesRachasH.iterar_suma' depends on axioms: [propext, Quot.sound]
+'PerdicesRachasH.paso_D' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRachasH.racha_D' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRachasH.racha_E' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRachasH.bloque' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRachasH.balance' depends on axioms: [propext, Quot.sound]
+'PerdicesRachasH.salida_unidad' depends on axioms: [propext, Quot.sound]
+'PerdicesRachasH.entrada_unidad' depends on axioms: [propext]

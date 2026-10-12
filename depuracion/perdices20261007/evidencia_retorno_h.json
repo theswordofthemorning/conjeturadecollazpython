@@ -1,0 +1,74 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "modulo": "PerdicesRetornoH",
+  "consultas": 10,
+  "axiomas": {
+    "PerdicesRetornoH.caracterizacion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.positiva": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.imagen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.inyectiva": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.inversa_izquierda": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.inversa_derecha": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.retorno_D": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.retorno_E": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.fuente": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoH.expansion_residual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "archivos": {
+    "depuracion/perdices20261007/PerdicesRetornoH.lean": "fb578ae534b948b08acbe41f57799f782eff5e3020f20e6ee4b1cfe1a8dfe765",
+    "depuracion/perdices20261007/comprobar_retorno_h.py": "b06d910d6b2fb9e3ab9c105fcb1a5d7c3df76538f1a3b01f3896dd3f99974a3d",
+    "depuracion/gao20260920/formal/lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273",
+    "depuracion/gao20260920/formal/lake-manifest.json": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26"
+  },
+  "bibliotecas_directas": {
+    "Mathlib.Data.Nat.Basic": {
+      "sha256_fuente_lf": "ab7ef072113c236c375fabb66b85c5d82bcdf3c56c37b9d602a3e7c3aa54e1e6",
+      "sha256_objeto": "60f3b9ce37b76387b7bf32a94f9daab87a8003825fa8d3bf83a9f26a67560cf2"
+    },
+    "Mathlib.Tactic.SplitIfs": {
+      "sha256_fuente_lf": "dc78688f1b1b5378b20d056706251bb4d14d72404adc4318a75e1817db8d8372",
+      "sha256_objeto": "5d17e321563158cd728762bbf5f158d4b56830793233ea82e2139e30c1f33e61"
+    }
+  },
+  "sha256_objeto": "970c183294c39b7860f258eb5eb16e8ddf23c391f0005d057011b60847356570",
+  "alcance": "Diez identidades y propiedades del mapa parcial. No formaliza la equivalencia global de terminación, la cuenta de historias, su densidad ni el corolario que excluye rangos polinómicos por residuos."
+}

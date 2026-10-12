@@ -1,0 +1,11 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesRetornoH.caracterizacion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoH.positiva' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoH.imagen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoH.inyectiva' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoH.inversa_izquierda' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoH.inversa_derecha' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoH.retorno_D' depends on axioms: [propext, Quot.sound]
+'PerdicesRetornoH.retorno_E' depends on axioms: [propext, Quot.sound]
+'PerdicesRetornoH.fuente' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoH.expansion_residual' depends on axioms: [propext, Classical.choice, Quot.sound]

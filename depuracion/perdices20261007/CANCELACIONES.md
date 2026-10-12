@@ -231,12 +231,12 @@ separando el alcance formal de las pruebas escritas: 314 afirmaciones,
 Se regenera `afirmaciones.db` con el generador existente; se conservan
 las entradas anteriores y `respuestas.db`.
 
-**Siguiente:** buscar una cota de crecimiento de los representantes
-en historiales no periódicos de una misma semilla. El perfil inverso
-y la resonancia ya son explícitos, pero no pueden tratarse como
-restricciones independientes. Contrastar cualquier argumento primero
-en F y después en los bloques generales entre mínimos futuros;
-resolver sólo esta clase no resolvería todo MuroB.
+**Continuación ejecutada:** [Complejidad](COMPLEJIDAD.md) acota los
+representantes de toda historia con repeticiones tempranas, en F, en
+la clase y en cualquier palabra de T. Lo hace con una ley entera:
+`2^(m+S_j)<3^S_j(n+1)`. Las historias genéricas quedan fuera, y los
+peores casos medidos hasta 2^36 son genéricos. Resolver sólo esta clase
+seguiría sin resolver todo MuroB.
 
 ```powershell
 python -B -X utf8 depuracion/perdices20261007/comprobar_cancelaciones.py --compilados "$env:TEMP/perdices_cruce_20261010" --salida depuracion/perdices20261007/evidencia_cancelaciones.json

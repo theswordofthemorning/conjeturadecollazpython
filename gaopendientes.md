@@ -107,7 +107,10 @@ La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
    por su API la lista entera de ccchallenge (379 registros), y nadie en ella
    demuestra Gao, Garner ni Wu ([ruta transversal](depuracion/transversal20260927/LEEME.md)).
    Falta:
-   - consultar zbMATH, que devolvió 403, MathSciNet y Google Scholar;
+   - consultar MathSciNet y Google Scholar. zbMATH ya respondió por su API:
+     por título el 27-09 y por citas el 11-10. Citan a Garner (1985)
+     Elia–Tucker 2015, LaDue 2018 y Wu 1992; no hay citas indexadas a
+     Gao (1993). Ninguno prueba rachas de todo largo ni la conjetura de Gao;
    - leer enteras las cuatro citas vistas sólo por título o resumen.
 3. **Redacción en prosa autocontenida.** Las notas usan el vocabulario del
    laboratorio y dependen de las sesiones desde el 20-09. Un revisor necesita
@@ -139,8 +142,8 @@ La forma literal de Gao, que era el antiguo punto 2, quedó hecha el 26-09
      `GarnerEnunciado.conjetura_garner`: para cada L hay L+1 consecutivos,
      tan grandes como se quiera, con la misma altura y el mismo `σ∞`. Sale
      de Martas por cota de unión y de llevar el valor común a una potencia
-     de 2. Pendiente de la misma revisión humana. Faltan zbMATH, MathSciNet
-     y el texto de Garner (1985).
+     de 2. Pendiente de la misma revisión humana. Faltan MathSciNet y el
+     texto de Garner (1985); zbMATH (11-10) no la registra resuelta.
    - Enunciar en Lean el corolario `A398792(t)/2^t -> 1`, que sale de
      `transporte` y `martas`.
    - Un ritmo útil. El de la prueba es pésimo: `J_F*p_m>1` sólo desde

@@ -17,8 +17,29 @@ admite una misma semilla y obtiene el defecto al cambiarlo.
 [Cancelaciones](CANCELACIONES.md) formaliza la resonancia de la mezcla
 `1`/`110` y el crecimiento de sus reinicios F: 20 lemas nuevos.
 Inversa e historias finitas tienen prueba escrita; no excluyen una
-trayectoria infinita. Siguiente: controlar los representantes de
-historias no periódicas desde una misma semilla, antes de generalizar.
+trayectoria infinita. **11-10:** [Complejidad](COMPLEJIDAD.md) controla
+los representantes de las historias repetitivas: ley de repetición y
+`liminf p(m)/m>=1/log2(3/2)` en toda órbita inyectiva, 17
+teoremas en Lean. Las historias genéricas quedan fuera; la frontera
+de la clase `1`/`110` se mide hasta 2^50, con máximo de 112 pasos.
+[Salidas](SALIDAS.md) audita ese censo y los de evitar `00` y `00,111`,
+corrige los cortes truncados y abre el retorno parcial H de Yolcu–Aaronson–Heule:
+diez lemas Lean sobre ramas, inversa y retorno; la terminación sigue abierta.
+[Rachas H](RACHAS_H.md) añade ocho lemas y la decodificación binaria/ternaria
+de los retornos. Todo pasado y futuro finitos son compatibles; sus densidades
+relativas son `21^(-k)*16^(-l)`, con prueba escrita. El tamaño del empalme es
+exactamente el transporte del mínimo concatenado: no añade una restricción.
+[Matrices H](MATRICES_H.md) reproduce el control que evita 1 y 5 con once
+certificados verificados por enteros independientes, usando dos codificaciones.
+La directa limita sólo coeficientes; ocho lemas Lean acotan productos naturales.
+Para evitar 5 y 7, [Proyecciones](PROYECCIONES_MATRICES_H.md) excluye sin
+cota las interpretaciones naturales escalares y la primera coordenada
+aislada en dimensión 2: diez lemas Lean, incluyendo los coeficientes cero.
+La búsqueda ártica sin cota quedó indecisa. **12-10:**
+[Soportes y rectas](SOPORTES_MATRICES_H.md) añade 14 lemas Lean: excluye
+rectas naturales invariantes comunes, incluso con conexiones en ambos
+sentidos, y clasifica diez soportes mínimos de aporte izquierdo. No bastan
+para orientar las reglas; las matrices restantes y la persistencia siguen abiertas.
 La [novena raíz](NOVENA.md) y su cuenta `O(K^(8/75))` se conservan;
 su premisa de infinitos regresos queda excluida bajo fuga pura.
 El [enlace con la semilla](SEMILLA.md) conserva su alcance.

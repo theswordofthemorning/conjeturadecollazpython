@@ -1,0 +1,11 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+'PerdicesProyeccionesMatrices.pendientes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesProyeccionesMatrices.constantes_pendiente_cero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesProyeccionesMatrices.cancelar_amplificacion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesProyeccionesMatrices.constantes_pendiente_comun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesProyeccionesMatrices.sin_descenso_escalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesProyeccionesMatrices.proyeccion_producto' depends on axioms: [propext]
+'PerdicesProyeccionesMatrices.proyeccion_debil' does not depend on any axioms
+'PerdicesProyeccionesMatrices.reglas_proyectadas' depends on axioms: [propext]
+'PerdicesProyeccionesMatrices.sin_descenso_primera_aislada' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesProyeccionesMatrices.acoplamiento_necesario' depends on axioms: [propext, Classical.choice, Quot.sound]

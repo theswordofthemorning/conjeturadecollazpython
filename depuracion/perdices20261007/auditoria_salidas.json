@@ -1,0 +1,325 @@
+{
+  "parametros": {
+    "bits": 16,
+    "corte": 160,
+    "salida": "depuracion\\perdices20261007\\auditoria_salidas.json"
+  },
+  "cotejos_dominio_y_horizonte": 420,
+  "controles_cli": [
+    {
+      "fuente": "medir_salida_ab.py",
+      "prohibidos": [
+        "00",
+        "010"
+      ],
+      "bits": 1,
+      "corte": 0,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_ab.py",
+      "prohibidos": [
+        "00",
+        "010"
+      ],
+      "bits": 2,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_ab.py",
+      "prohibidos": [
+        "00",
+        "010"
+      ],
+      "bits": 8,
+      "corte": 0,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_ab.py",
+      "prohibidos": [
+        "00",
+        "010"
+      ],
+      "bits": 8,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_ab.py",
+      "prohibidos": [
+        "00",
+        "010"
+      ],
+      "bits": 8,
+      "corte": 160,
+      "truncado": false,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_sin00.py",
+      "prohibidos": [
+        "00"
+      ],
+      "bits": 1,
+      "corte": 0,
+      "truncado": false,
+      "dominio_vacio": true
+    },
+    {
+      "fuente": "medir_salida_sin00.py",
+      "prohibidos": [
+        "00"
+      ],
+      "bits": 2,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_sin00.py",
+      "prohibidos": [
+        "00"
+      ],
+      "bits": 8,
+      "corte": 0,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_sin00.py",
+      "prohibidos": [
+        "00"
+      ],
+      "bits": 8,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_salida_sin00.py",
+      "prohibidos": [
+        "00"
+      ],
+      "bits": 8,
+      "corte": 160,
+      "truncado": false,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "00",
+        "111"
+      ],
+      "bits": 1,
+      "corte": 0,
+      "truncado": false,
+      "dominio_vacio": true
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "00",
+        "111"
+      ],
+      "bits": 2,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "00",
+        "111"
+      ],
+      "bits": 8,
+      "corte": 0,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "00",
+        "111"
+      ],
+      "bits": 8,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "00",
+        "111"
+      ],
+      "bits": 8,
+      "corte": 160,
+      "truncado": false,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "11"
+      ],
+      "bits": 1,
+      "corte": 0,
+      "truncado": false,
+      "dominio_vacio": true
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "11"
+      ],
+      "bits": 2,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "11"
+      ],
+      "bits": 8,
+      "corte": 0,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "11"
+      ],
+      "bits": 8,
+      "corte": 1,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "11"
+      ],
+      "bits": 8,
+      "corte": 160,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "0",
+        "1"
+      ],
+      "bits": 1,
+      "corte": 0,
+      "truncado": false,
+      "dominio_vacio": true
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "0",
+        "1"
+      ],
+      "bits": 2,
+      "corte": 1,
+      "truncado": false,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "0",
+        "1"
+      ],
+      "bits": 8,
+      "corte": 0,
+      "truncado": true,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "0",
+        "1"
+      ],
+      "bits": 8,
+      "corte": 1,
+      "truncado": false,
+      "dominio_vacio": false
+    },
+    {
+      "fuente": "medir_prohibidos.py",
+      "prohibidos": [
+        "0",
+        "1"
+      ],
+      "bits": 8,
+      "corte": 160,
+      "truncado": false,
+      "dominio_vacio": false
+    }
+  ],
+  "censos": [
+    {
+      "archivo": "medicion_salida_ab.json",
+      "sha256_json": "fe36515fa4cebd9f929037533e972ab7bdd4f1c3a00267e1a2ab3bd159207041",
+      "fuente_historica": "fuentes_salidas_20261011/medir_salida_ab.py",
+      "sha256_fuente_lf": "65c0c8d90207dde35e8538629cae2285f04b33fa2ceb144c6e32765a8f9137f3",
+      "testigos": 112,
+      "filas_omitidas_en_original": {},
+      "contraste_directo_hasta_exclusivo": 65536,
+      "largo_maximo": 112,
+      "semilla_record": "338203040342655",
+      "nodos_historicos": 719397383
+    },
+    {
+      "archivo": "medicion_salida_sin00.json",
+      "sha256_json": "6b3c5a2b9e85a671b14d02b6c246b554e092e3ed09177ac999333daf444c3739",
+      "fuente_historica": "fuentes_salidas_20261011/medir_salida_sin00.py",
+      "sha256_fuente_lf": "0dfecd04d13170131174d9df3d319de156fb875cfa2be83c6184b67357075e74",
+      "testigos": 110,
+      "filas_omitidas_en_original": {
+        "1": 3
+      },
+      "contraste_directo_hasta_exclusivo": 65536,
+      "largo_maximo": 111,
+      "semilla_record": "32679321654",
+      "nodos_historicos": 267833764
+    },
+    {
+      "archivo": "medicion_yah_5_7.json",
+      "sha256_json": "38a8acb0e8859847dcff19c0e415793f95e6b335dbb9724981b6c8a0218c221a",
+      "fuente_historica": "fuentes_salidas_20261011/medir_prohibidos.py",
+      "sha256_fuente_lf": "fe87487d0cc5ec68b32b39e0d220ee47d1fa7118c9734d8e4b5b3d7a8f318a10",
+      "testigos": 88,
+      "filas_omitidas_en_original": {
+        "1": 3
+      },
+      "contraste_directo_hasta_exclusivo": 65536,
+      "largo_maximo": 89,
+      "semilla_record": "3696298745089794",
+      "nodos_historicos": 22736417
+    }
+  ],
+  "filas_solapadas_bfs_dfs": 82,
+  "fuentes_actuales": {
+    "medir_salida_ab.py": "53d4c8f665b4df903f3a29b7aa5622193ee0cb47301ad702e08ccff964b0f90d",
+    "medir_salida_sin00.py": "d1f401a04d3c6af575e0ec3867cce3e3963b5ecbf5890da95a2d45a1e5a83b8d",
+    "medir_prohibidos.py": "62c63e904d8b2d00ae3341688543f87ce1bdaf957ef3ba170b14570d27e8b6ce"
+  },
+  "sha256_auditor_lf": "01ce0665e622681ccaab2dd9cab12863ac7634ca32dd154d56c9467e0c6840da",
+  "alcance": "Contraste independiente acotado, huellas y testigos. Los censos grandes se conservan; no se vuelven a enumerar."
+}

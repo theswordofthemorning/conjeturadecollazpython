@@ -1,0 +1,331 @@
+{
+  "ruta": "RutaTeoremas.md",
+  "revisiones_consultadas": [
+    "b807bfe3b83f2f2f58233b0134e9ad89f6801376",
+    "dbcce95d19a23df9e86a62459de4279566578dcc",
+    "b6573a812f864a150de193980ae5a31568101ff9",
+    "5620e8963b378875e48cbdbcfa7ba200e9c75eaa",
+    "27c6af732185dc317cd3e8f6401988b697578737",
+    "f0db6e9e4729f5ba0be56b02d2ebd5f48f110516",
+    "789bac52661696b55dc7acf8749accd8897e6f5e",
+    "c0a36d0485b85a6cf062a24fe84e45d368176851",
+    "7dc717ab952493b9deda9ba4e29734a105d21083",
+    "d84866bb283692ce897493575e1188958554edc9",
+    "d14869e501451170d4f6564e9dde217e06bbcbfd",
+    "685b685e2b06e92a072bcca73bd9a946151ea94f",
+    "3eb00f4ecbc431f3ea475383c440562dbb1d3491",
+    "cb07102a6185a20368578bafb34a165b3dbcb838",
+    "e71266c68e024d57affe4a851b0a3fa48b8eb350",
+    "2bb6acdaaebb8c01002d34d72c6317f51d2669db",
+    "ead1a5b700b23e207121b3f0d0324736633d08c0",
+    "12452c0d68adb730d1f7a004e460bf325e3b1b74",
+    "a02925f55b2becdaa0b1b8ae6dc73d3ab5539e0a",
+    "128a47144902901b91119b018f35fa8fec076683",
+    "7ab07aea582a6dfd374552d71a5e5b8708e2dbf1",
+    "1d51e04d4a2f48ab590ae861f3ec4d612e95c840",
+    "ffd81fe3dbd314fca32f3b1454117bb8e259f8a4",
+    "705c19bfc8971bafd65d6570e632153067d7bfd4",
+    "3966bea20263bfdf6ec78e72e83d0a4ed008f262",
+    "4d4bb7f5a3c350f2eda4c5b4823163a730830392",
+    "a9b5d71ade0f3ea91587e7d42fbe1f51d2b12fc1",
+    "c0df0409effd8af8079c2dea2180a8187dd5f1df",
+    "48afa4e4240b89d66210021fc911c69776393d07",
+    "85ca0a53d272200ccea6596af78cb6ed586f1226",
+    "5decc7fa9dd4616285f358ff33c0dae1a166269d",
+    "a38c94047db0a53cc44092c89155494d3472df53",
+    "3ddaa9f1ea23d994f6c71ebe1b4909d0323e302b",
+    "427051ed4985608b3fad1bb1c3e34a0cf146c2ae",
+    "fa6f6911cdd5ba416ade881de760d8425f0cdf0b",
+    "75634052baceef05f4757f9dd77f8c70b7fe0bb8",
+    "882b81f0aad1c70a9434e3dc628bdccba73a6ecf",
+    "82f1cc66f12e621b925352c4889a52f52ebcf123",
+    "f9e75d10f7b9d2502d580adfea955aaa970cc080",
+    "8800f5ee8ead5756ff2bb33bdcacd79b4dcff7e8",
+    "464c95bc2616dff21f9e6daec575d0867a70f761",
+    "f1006e3fc74eb77a4f574977b45d9df64e5e29ae",
+    "7b8f7fa6254978c7b82118bbd1c88dd529014022",
+    "11e0dead1073621fe56fb5d57a0987d6abb47110",
+    "d9e5927f0a798b65fe7c10d04a5352bf6c32bcf3",
+    "3f6ef7006be94372d0fc972278254bce5fbe531d",
+    "21ea3352135115d7c34170a8e6738787ebc0a55a",
+    "39eac4eadc31d6e4d58d37ed62eba76e67fd2ca0",
+    "b77c084a3c77a12758283290965dd44e1bf660bd",
+    "b971e1c332577f72952e74c7b26db917b6a18cda",
+    "3cf9b6854e20bab7942ce25630b0b01a3464e689",
+    "4707bddaae16f173cdaee9605c6c15970a3d7c72",
+    "99dfa2b17881007da6491c34e31c150fedf9e28f",
+    "1235ba7fd64dd17fc30761666febd6d926c3ca5b",
+    "38873d0bb7d30509ed4ce844f5ca37b4d10b61a3",
+    "126d93d2ac8869406d9e6183780697f766fe5d34",
+    "09176780d59791979c5e7144d4e2d2aec5273980",
+    "9bbae75c2b5375a67febd11a91dc02336f16e22a",
+    "7b741d76fb242454622e0ef4108fba628c808b57",
+    "8bd90b3f5c3ad536cb42b326be99732bc3ede826",
+    "d180725d0388a5b738ad5f0f41986c894d9c5de1",
+    "9bc3b215a99ec965dd38c2239180d186d96bb22c",
+    "14af68461e9f56ed9d9459fb45f48d75fe5c5da1",
+    "eb9c20404d54337d5e48485abc5748b821cae812",
+    "77454624d8d73409571d46bb296669e30df19afb",
+    "7cdb36d914bbb2f6ddeb865b27359ddcde2d50d7",
+    "ec8856e8f862253058e72bc5d31c74cbfad06648",
+    "bc75e74bcef3649dc94c47ce9184772ef7de7c72"
+  ],
+  "nombres": {
+    "GACELAS": {
+      "revisiones": 2,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "3eb00f4ecbc431f3ea475383c440562dbb1d3491"
+    },
+    "MANGOSTAS": {
+      "revisiones": 2,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "3eb00f4ecbc431f3ea475383c440562dbb1d3491"
+    },
+    "ERIZAS": {
+      "revisiones": 2,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "3eb00f4ecbc431f3ea475383c440562dbb1d3491"
+    },
+    "CASTORAS": {
+      "revisiones": 2,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "3eb00f4ecbc431f3ea475383c440562dbb1d3491"
+    },
+    "SURICATAS": {
+      "revisiones": 2,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "3eb00f4ecbc431f3ea475383c440562dbb1d3491"
+    },
+    "PERRAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "GATAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "JIRAFAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "PANDAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "3 CHANCHITOS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "KOMODO 3": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "LEONAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "TIGRESAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "CABRAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "ZORRAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "LOBAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "PUMAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "ARDILLAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "NUTRIAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "OVEJAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "VACAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "RATAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "YEGUAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "CONEJAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "COMADREJAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "PANTERAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "CIERVAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "OSAS": {
+      "revisiones": 54,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "77454624d8d73409571d46bb296669e30df19afb"
+    },
+    "ARAÑAS": {
+      "revisiones": 53,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "eb9c20404d54337d5e48485abc5748b821cae812"
+    },
+    "MOSCAS": {
+      "revisiones": 52,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "14af68461e9f56ed9d9459fb45f48d75fe5c5da1"
+    },
+    "HORMIGAS": {
+      "revisiones": 50,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "d180725d0388a5b738ad5f0f41986c894d9c5de1"
+    },
+    "ABEJAS": {
+      "revisiones": 50,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "d180725d0388a5b738ad5f0f41986c894d9c5de1"
+    },
+    "PALOMAS": {
+      "revisiones": 50,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "d180725d0388a5b738ad5f0f41986c894d9c5de1"
+    },
+    "ÁGUILAS": {
+      "revisiones": 50,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "d180725d0388a5b738ad5f0f41986c894d9c5de1"
+    },
+    "LECHUZAS": {
+      "revisiones": 50,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "d180725d0388a5b738ad5f0f41986c894d9c5de1"
+    },
+    "HALCONAS": {
+      "revisiones": 50,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "d180725d0388a5b738ad5f0f41986c894d9c5de1"
+    },
+    "GOLONDRINAS": {
+      "revisiones": 49,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "8bd90b3f5c3ad536cb42b326be99732bc3ede826"
+    },
+    "LIEBRES": {
+      "revisiones": 46,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "09176780d59791979c5e7144d4e2d2aec5273980"
+    },
+    "CEBRAS": {
+      "revisiones": 46,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "09176780d59791979c5e7144d4e2d2aec5273980"
+    },
+    "VÍBORAS": {
+      "revisiones": 13,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "705c19bfc8971bafd65d6570e632153067d7bfd4"
+    },
+    "AVISPAS": {
+      "revisiones": 13,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "705c19bfc8971bafd65d6570e632153067d7bfd4"
+    },
+    "EFÍMERAS": {
+      "revisiones": 13,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "705c19bfc8971bafd65d6570e632153067d7bfd4"
+    },
+    "PIRAÑAS": {
+      "revisiones": 13,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "705c19bfc8971bafd65d6570e632153067d7bfd4"
+    },
+    "TORTUGAS": {
+      "revisiones": 13,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "705c19bfc8971bafd65d6570e632153067d7bfd4"
+    },
+    "LANGOSTAS": {
+      "revisiones": 13,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "705c19bfc8971bafd65d6570e632153067d7bfd4"
+    },
+    "URRACAS": {
+      "revisiones": 46,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "09176780d59791979c5e7144d4e2d2aec5273980"
+    },
+    "LORAS": {
+      "revisiones": 8,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "a02925f55b2becdaa0b1b8ae6dc73d3ab5539e0a"
+    },
+    "BALLENAS": {
+      "revisiones": 8,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "a02925f55b2becdaa0b1b8ae6dc73d3ab5539e0a"
+    },
+    "TRUCHAS": {
+      "revisiones": 8,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "a02925f55b2becdaa0b1b8ae6dc73d3ab5539e0a"
+    },
+    "GRULLAS": {
+      "revisiones": 8,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "a02925f55b2becdaa0b1b8ae6dc73d3ab5539e0a"
+    },
+    "CIGARRAS": {
+      "revisiones": 8,
+      "ultima_aparicion_en_recorrido_git": "685b685e2b06e92a072bcca73bd9a946151ea94f",
+      "primera_aparicion_en_recorrido_git": "a02925f55b2becdaa0b1b8ae6dc73d3ab5539e0a"
+    }
+  },
+  "criterio": "Solo filas de la tabla EL ZOOLOGICO en el historial local --all, tras git fetch origin. Orden de recorrido Git, no cronologia matematica."
+}

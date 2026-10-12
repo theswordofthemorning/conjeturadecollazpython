@@ -4,6 +4,7 @@ __pycache__/
 venv/
 *.png
 *.html
+!depuracion/mapa20261011/*.html
 *.pdf
 .lake/
 *.olean

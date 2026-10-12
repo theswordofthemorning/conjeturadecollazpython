@@ -1,0 +1,5050 @@
+{
+  "version": "2026-10-12",
+  "raiz": {
+    "id": "collatz",
+    "titulo": "El arca del laboratorio",
+    "resumen": "Destino de la investigación: demostrar que todo entero positivo llega a 1 al iterar Collatz.",
+    "estado": "abierto",
+    "limite": "Collatz sigue abierto en este laboratorio. Cada rama aporta resultados con un alcance concreto."
+  },
+  "actual": "perdices_soportes",
+  "ramas": [
+    {
+      "id": "fundamentos",
+      "titulo": "Raíces: mapa, residuos y trayectorias",
+      "resumen": "Cómo se transforma un número y qué se puede saber de un tramo finito.",
+      "limite": "Las identidades no aseguran que toda trayectoria termine.",
+      "siguiente": "Usar el mapa y el dominio que declara cada resultado."
+    },
+    {
+      "id": "fusion",
+      "titulo": "Primer zoológico: encuentros y clases",
+      "resumen": "Perras, Gatas y Jirafas explican cómo dos trayectorias se juntan; aparecen familias y conteos.",
+      "limite": "Juntarse significa compartir el futuro; ese futuro todavía podría no llegar a 1.",
+      "siguiente": "Conservar las fórmulas exactas y sus condiciones."
+    },
+    {
+      "id": "cadena",
+      "titulo": "Leonas: una cadena para todos los pares",
+      "resumen": "Una descripción común permite estudiar retornos, probabilidades y crecimiento.",
+      "limite": "La ley de bits aleatorios describe clases; no asigna azar a un entero fijo.",
+      "siguiente": "Consultar qué cadena y qué condicionamiento usa cada pieza."
+    },
+    {
+      "id": "transferencia",
+      "titulo": "Rutas anteriores: excursiones, sesgo y obstáculos",
+      "resumen": "El modelo V2 y los intentos de trasladarlo a la cadena real produjeron herramientas y límites.",
+      "limite": "Hay rutas sustituidas y afirmaciones retiradas. Sus resultados válidos se conservan.",
+      "siguiente": "No volver a exigir el margen uniforme descartado por Erizas."
+    },
+    {
+      "id": "gao",
+      "titulo": "Gao, Garner y Wu: resultados de densidad y familias",
+      "resumen": "Ensayos finitos → Lagartijas → Martas → Tejonas; de allí salen Gao y otras consecuencias.",
+      "limite": "Revisión humana pendiente. Densidad 1 no significa todos los números.",
+      "siguiente": "Revisión humana de los enunciados y puentes con la literatura."
+    },
+    {
+      "id": "descenso",
+      "titulo": "Ocelotas: cuándo el pronóstico se vuelve descenso",
+      "resumen": "Se compara la primera caída del coeficiente con la caída real de una trayectoria.",
+      "limite": "Se supone un primer cruce finito; los cierres tienen límites de rachas e hipótesis externas.",
+      "siguiente": "Cerrar el alcance universal o encontrar otra vía de descenso."
+    },
+    {
+      "id": "fuga",
+      "titulo": "Casa, Corzas y Chinchillas: el posible fugitivo",
+      "resumen": "Se descompone Collatz y se describe cómo tendría que comportarse una excepción.",
+      "limite": "Describir o hacer escasas las excepciones no demuestra que no existan.",
+      "siguiente": "Conectar las restricciones con una misma semilla."
+    },
+    {
+      "id": "perdices",
+      "titulo": "Perdices y Jinetas: frontera actual",
+      "resumen": "Colisiones, mínimos, complejidad de paridades y el retorno H estrechan las posibilidades.",
+      "limite": "La fuga pura, los ciclos no triviales y la persistencia de H siguen abiertos.",
+      "siguiente": "Estudiar las diferencias completas de constantes en matrices con ruta activa y sin recta natural común."
+    },
+    {
+      "id": "otras",
+      "titulo": "Otras exploraciones y límites",
+      "resumen": "Wirsching, Mahler, ciclos, espejos y mediciones ayudan a entender qué métodos alcanzan.",
+      "limite": "Una analogía, una medición o una reducción condicional no cierra Collatz.",
+      "siguiente": "Conservar los obstáculos encontrados y retomar sólo con una nueva pieza."
+    }
+  ],
+  "piezas": [
+    {
+      "id": "definiciones",
+      "titulo": "Mapa del atajo y fórmula de Terras",
+      "animal": null,
+      "alias": [],
+      "rama": "fundamentos",
+      "resumen": "Traduce un tramo de pasos a una fórmula afín y una clase de restos.",
+      "limite": "Son herramientas para tramos finitos; no afirman convergencia.",
+      "situacion": "vigente",
+      "fuentes": [
+        "clasesfusion.py"
+      ],
+      "nodos": [
+        "definiciones"
+      ],
+      "afirmaciones": [
+        "historica:1",
+        "historica:7",
+        "historica:8",
+        "historica:17",
+        "historica:18",
+        "historica:19",
+        "historica:20",
+        "historica:28",
+        "historica:29",
+        "historica:140"
+      ]
+    },
+    {
+      "id": "ciervas",
+      "titulo": "Ciervas",
+      "animal": "Ciervas",
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Relaciona el nacimiento de clases con el primer encuentro en un vórtice.",
+      "limite": "La caracterización global que resume el nodo antiguo sólo fue cotejada en un rango finito.",
+      "situacion": "vigente",
+      "fuentes": [
+        "nuevasfusion.py"
+      ],
+      "nodos": [
+        "ecuacion_vortice"
+      ],
+      "afirmaciones": [
+        "historica:94",
+        "historica:145"
+      ]
+    },
+    {
+      "id": "lema_identidad",
+      "titulo": "lema identidad",
+      "animal": null,
+      "alias": [],
+      "rama": "fundamentos",
+      "resumen": "T(c*2^m - 1) = 3c*2^(m-1) - 1, elemental",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "lema_identidad"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "lema_v2",
+      "titulo": "lema v2",
+      "animal": null,
+      "alias": [],
+      "rama": "fundamentos",
+      "resumen": "mixto <=> d impar; paso compartido quita exactamente un factor 2; |M| par",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "lema_v2"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "lema_general",
+      "titulo": "Familias por una identidad elemental",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Construye encuentros de pares de la forma C·2^q−2 y C·2^q−1.",
+      "limite": "Se mantienen la paridad, la congruencia de C y el rango de q.",
+      "situacion": "vigente",
+      "fuentes": [
+        "nuevasfusion.py"
+      ],
+      "nodos": [
+        "lema_general"
+      ],
+      "afirmaciones": [
+        "historica:38"
+      ]
+    },
+    {
+      "id": "conejas",
+      "titulo": "Conejas",
+      "animal": "Conejas",
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Construye una familia infinita de encuentros: siempre nacen clases nuevas.",
+      "limite": "Se construye una familia; no se cubre cada entero.",
+      "situacion": "vigente",
+      "fuentes": [
+        "conejas.lean"
+      ],
+      "nodos": [
+        "teo_repunit",
+        "nuevas_no_acaban"
+      ],
+      "afirmaciones": [
+        "historica:36",
+        "historica:176"
+      ]
+    },
+    {
+      "id": "yeguas",
+      "titulo": "Yeguas",
+      "animal": "Yeguas",
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Identifica la única clase nueva de dos pasos mixtos por nivel y la ruta impar de cuatro.",
+      "limite": "La unicidad global de cuatro pasos mixtos sigue separada y abierta para la otra ruta.",
+      "situacion": "vigente",
+      "fuentes": [
+        "nuevasfusion.py"
+      ],
+      "nodos": [
+        "unicidad_M2",
+        "M4_ruta_impar"
+      ],
+      "afirmaciones": [
+        "historica:37",
+        "historica:39",
+        "historica:40"
+      ]
+    },
+    {
+      "id": "familia_M4",
+      "titulo": "familia M4",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "el vecino del perdedor: contraccion en 2 pasos + lema general",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "familia_M4"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "estratos_medidos",
+      "titulo": "Triángulo de estratos y masas",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Agrupa conteos exactos finitos por nivel y número de pasos mixtos.",
+      "limite": "Una fórmula ajustada en el rango no es una identidad universal.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/oeis20260924/LEEME.md"
+      ],
+      "nodos": [
+        "estratos_medidos"
+      ],
+      "afirmaciones": [
+        "historica:48",
+        "historica:75",
+        "historica:76",
+        "historica:77",
+        "historica:147",
+        "historica:188",
+        "historica:189",
+        "historica:190",
+        "estratos_oeis"
+      ]
+    },
+    {
+      "id": "unicidad_M4",
+      "titulo": "unicidad M4",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "una sola clase |M| = 4 por nivel: demostrado para todo r impar; para r par: |M| >= 4 por el teorema de paridad del rebote, estrato 4 vacio medido a 2^20, y el analisis fino REHECHO sobre la familia real (w, 9w+2) tras la correccion del fantasma. CONGELADO como problema abierto interno",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "unicidad_M4"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "comadrejas",
+      "titulo": "Comadrejas",
+      "animal": "Comadrejas",
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Las coordenadas D y E muestran el vórtice, el rebote y la evolución de pares.",
+      "limite": "El censo de familias de E es una medición aparte.",
+      "situacion": "vigente",
+      "fuentes": [
+        "nuevasfusion.py"
+      ],
+      "nodos": [
+        "coordenadas_DE"
+      ],
+      "afirmaciones": [
+        "historica:41",
+        "historica:42",
+        "historica:43",
+        "historica:45"
+      ]
+    },
+    {
+      "id": "familias_E",
+      "titulo": "Censo de familias de E",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Explora los ciclos de la coordenada autónoma E.",
+      "limite": "El censo en un intervalo no clasifica todas las órbitas enteras.",
+      "situacion": "vigente",
+      "fuentes": [
+        "nuevasfusion.py"
+      ],
+      "nodos": [
+        "familias_E"
+      ],
+      "afirmaciones": [
+        "historica:44"
+      ]
+    },
+    {
+      "id": "clasificacion_rutas",
+      "titulo": "Clasificar rutas de fusión",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Intenta contar clases a partir de sus itinerarios.",
+      "limite": "La clasificación completa continúa pendiente en la ruta histórica.",
+      "situacion": "vigente",
+      "fuentes": [
+        "itinerarios.py"
+      ],
+      "nodos": [
+        "clasificacion_rutas"
+      ],
+      "afirmaciones": [
+        "historica:46"
+      ]
+    },
+    {
+      "id": "cuadratica_M6",
+      "titulo": "cuadratica M6",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "conjetura: |M| = 6 son preludios de longitud variable sobre |M| = 4",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "cuadratica_M6"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "recursion_bk",
+      "titulo": "recursion bk",
+      "animal": null,
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "la recursion completa de b(k) y el destino de la razon 2",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "recursion_bk"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "leonas",
+      "titulo": "Leonas",
+      "animal": "Leonas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Reúne las formas de los pares en una cadena de seis reglas exactas.",
+      "limite": "La moneda es la paridad del ancla. La absorción de clases y los encuentros del ciclo terminal son distintos.",
+      "situacion": "vigente",
+      "fuentes": [
+        "cadenakc.lean"
+      ],
+      "nodos": [
+        "cadena_kc"
+      ],
+      "afirmaciones": [
+        "historica:148",
+        "historica:149",
+        "historica:158",
+        "historica:174"
+      ]
+    },
+    {
+      "id": "tigresas",
+      "titulo": "Tigresas",
+      "animal": "Tigresas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Calcula los multiplicadores de la coordenada y su media bajo bits justos.",
+      "limite": "Una media crítica no decide el destino de una trayectoria individual.",
+      "situacion": "vigente",
+      "fuentes": [
+        "subrenovacionc.py"
+      ],
+      "nodos": [
+        "tigresas_multiplicador"
+      ],
+      "afirmaciones": [
+        "historica:155"
+      ]
+    },
+    {
+      "id": "aranas",
+      "titulo": "Arañas",
+      "animal": "Arañas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Reescala la coordenada para describir la sombra de la cadena mediante dos ramas afines.",
+      "limite": "La perturbación está acotada; la antigua afirmación de sumabilidad en trayectoria se retiró.",
+      "situacion": "vigente",
+      "fuentes": [
+        "aranas.py"
+      ],
+      "nodos": [
+        "aranas_sombra"
+      ],
+      "afirmaciones": [
+        "historica:160",
+        "historica:162"
+      ]
+    },
+    {
+      "id": "moscas",
+      "titulo": "Moscas",
+      "animal": "Moscas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Acota uniformemente momentos fraccionarios y colas de la coordenada reescalada.",
+      "limite": "La cota bajo la ley indicada no autoriza a cambiar el condicionamiento.",
+      "situacion": "vigente",
+      "fuentes": [
+        "notamoscas.txt"
+      ],
+      "nodos": [
+        "moscas_tension"
+      ],
+      "afirmaciones": [
+        "historica:161",
+        "historica:175"
+      ]
+    },
+    {
+      "id": "palomas",
+      "titulo": "Palomas",
+      "animal": "Palomas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Identifica las clases nuevas con las palabras que llegan al pre-vórtice.",
+      "limite": "Es una identidad de conteos, no una tasa asintótica por sí sola.",
+      "situacion": "vigente",
+      "fuentes": [
+        "minorizacion.py"
+      ],
+      "nodos": [
+        "palomas_identidad"
+      ],
+      "afirmaciones": [
+        "historica:166"
+      ]
+    },
+    {
+      "id": "hormigas",
+      "titulo": "Hormigas",
+      "animal": "Hormigas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Desde cada estado existe una palabra finita que fusiona; aporta ensayos con probabilidad explícita.",
+      "limite": "Existir una palabra favorable no obliga a un entero fijo a seguirla.",
+      "situacion": "vigente",
+      "fuentes": [
+        "accesibilidad.py"
+      ],
+      "nodos": [
+        "hormigas_accesibilidad"
+      ],
+      "afirmaciones": [
+        "historica:164",
+        "hormigas_cota_cuadratica",
+        "hormigas_ensayo_finito"
+      ]
+    },
+    {
+      "id": "abejas",
+      "titulo": "Abejas",
+      "animal": "Abejas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Acota la ocupación acumulada de rejillas finitas mediante un argumento de bloques.",
+      "limite": "La versión incondicional no decide por sí sola la absorción; se retiró una reducción vacua.",
+      "situacion": "vigente",
+      "fuentes": [
+        "minorizacion.py"
+      ],
+      "nodos": [
+        "abejas_bloques"
+      ],
+      "afirmaciones": [
+        "historica:165"
+      ]
+    },
+    {
+      "id": "halconas",
+      "titulo": "Halconas",
+      "animal": "Halconas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "La masa viva absoluta en cada banda finita desaparece.",
+      "limite": "Masa absoluta y masa condicionada a seguir viva son objetos distintos.",
+      "situacion": "vigente",
+      "fuentes": [
+        "minorizacion.py"
+      ],
+      "nodos": [
+        "halconas_bandas"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "criterio_recurrencia",
+      "titulo": "Cadena modificada y retorno",
+      "animal": null,
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Reformula la probabilidad de fusión mediante la recurrencia del pre-vórtice.",
+      "limite": "La modificación de la cadena forma parte del enunciado.",
+      "situacion": "vigente",
+      "fuentes": [
+        "retorno11.py"
+      ],
+      "nodos": [
+        "criterio_recurrencia"
+      ],
+      "afirmaciones": [
+        "historica:163"
+      ]
+    },
+    {
+      "id": "derivas_k",
+      "titulo": "derivas k",
+      "animal": null,
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "la tabla de derivas de k en la cadena modificada: martingala en el nucleo, +1 solo en el borde (lamperti.py C1, 28.436 estados)",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "derivas_k"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "lema_mixtos",
+      "titulo": "lema mixtos",
+      "animal": null,
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "L2: infinitos mixtos c.s. - descenso de v2 con A = v2(3^k - 1), determinista bajo A; frontera determinista pura (oscilacion.py)",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "lema_mixtos"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "golondrinas",
+      "titulo": "Golondrinas",
+      "animal": "Golondrinas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "La cadena modificada regresa al fondo infinitas veces casi seguramente.",
+      "limite": "Llegar al fondo no equivale por sí solo a visitar el estado de fusión.",
+      "situacion": "vigente",
+      "fuentes": [
+        "oscilacion.py"
+      ],
+      "nodos": [
+        "golondrinas_fondo"
+      ],
+      "afirmaciones": [
+        "historica:167",
+        "historica:179"
+      ]
+    },
+    {
+      "id": "aguilas",
+      "titulo": "Águilas",
+      "animal": "Águilas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Compara la criticidad de multiplicadores en la familia qx+r.",
+      "limite": "La criticidad de la media no demuestra terminación.",
+      "situacion": "vigente",
+      "fuentes": [
+        "cadenaqnr.py"
+      ],
+      "nodos": [
+        "aguilas_criticidad"
+      ],
+      "afirmaciones": [
+        "historica:168"
+      ]
+    },
+    {
+      "id": "lechuzas",
+      "titulo": "Lechuzas",
+      "animal": "Lechuzas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Da una obstrucción modular a ciertas fusiones en mapas qx+r.",
+      "limite": "Hay que cumplir las condiciones sobre el primo y los parámetros.",
+      "situacion": "vigente",
+      "fuentes": [
+        "cadenaqnr.py"
+      ],
+      "nodos": [
+        "lechuzas_obstruccion"
+      ],
+      "afirmaciones": [
+        "historica:169"
+      ]
+    },
+    {
+      "id": "empalme_por_visita",
+      "titulo": "empalme por visita",
+      "animal": null,
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "el salto historico 'de las visitas al fondo a tocar (1,1) i.o.'. RE-COORDINADO el 10-08 por Markov fuerte: se parte en L-A (piso por arranque) y L-B (ritmo de visitas); queda como nombre del salto, el trabajo vive en esos dos nodos",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "empalme_por_visita"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "liebres",
+      "titulo": "Liebres",
+      "animal": "Liebres",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Reformula la absorción mediante retornos a ventanas finitas en la cadena modificada.",
+      "limite": "Es un criterio equivalente, no una verificación automática de sus condiciones.",
+      "situacion": "vigente",
+      "fuentes": [
+        "liebres.py"
+      ],
+      "nodos": [
+        "liebres_criterio"
+      ],
+      "afirmaciones": [
+        "historica:171"
+      ]
+    },
+    {
+      "id": "urracas",
+      "titulo": "Urracas",
+      "animal": "Urracas",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Lleva una contabilidad exacta del sesgo para cada palabra.",
+      "limite": "Las identidades y los umbrales medidos deben distinguirse.",
+      "situacion": "vigente",
+      "fuentes": [
+        "urracas.lean"
+      ],
+      "nodos": [
+        "urracas_libro"
+      ],
+      "afirmaciones": [
+        "historica:173"
+      ]
+    },
+    {
+      "id": "cebras",
+      "titulo": "Cebras",
+      "animal": "Cebras",
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Conserva la clasificación afín y el umbral de los multiplicadores después de una revisión.",
+      "limite": "Se retiró la lectura como deriva del logaritmo en la cadena real. El nodo se alinea ahora con la parte algebraica demostrada de la afirmación 172; la lectura retirada sigue documentada.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "cebras_lyapunov"
+      ],
+      "afirmaciones": [
+        "historica:172"
+      ]
+    },
+    {
+      "id": "cabras",
+      "titulo": "Cabras",
+      "animal": "Cabras",
+      "alias": [],
+      "rama": "cadena",
+      "resumen": "Conserva la restricción módulo 3 de la coordenada firmada a lo largo de la cadena.",
+      "limite": "Hay que conservar el signo y las condiciones del nivel; no atribuir todo al vuelco.",
+      "situacion": "vigente",
+      "fuentes": [
+        "cabras.lean"
+      ],
+      "nodos": [
+        "cabras_mod3"
+      ],
+      "afirmaciones": [
+        "historica:156",
+        "historica:178"
+      ]
+    },
+    {
+      "id": "tortolas",
+      "titulo": "Tórtolas",
+      "animal": "Tórtolas",
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Mide cuándo dos recorridos acoplados dejan de compartir sus bits bajos.",
+      "limite": "Incluye excepciones de vórtice y signo; no da independencia bajo un condicionamiento arbitrario.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "tortolas.lean"
+      ],
+      "nodos": [
+        "tortolas_acoplamiento"
+      ],
+      "afirmaciones": [
+        "historica:181",
+        "historica:182"
+      ]
+    },
+    {
+      "id": "garzas",
+      "titulo": "Garzas",
+      "animal": "Garzas",
+      "alias": [],
+      "rama": "fusion",
+      "resumen": "Tiene dos etapas: medición del sesgo condicionado y estudio posterior de confluencia y estratos.",
+      "limite": "La reutilización del nombre no convierte la medición antigua en la prueba posterior; Libélulas nombra la paridad de los pasos mixtos.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/oeis20260924/Garzas.md",
+        "monedacondicionada.py"
+      ],
+      "nodos": [
+        "garzas_sesgo"
+      ],
+      "afirmaciones": [
+        "historica:180"
+      ]
+    },
+    {
+      "id": "gaviotas",
+      "titulo": "Gaviotas",
+      "animal": "Gaviotas",
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Usa martingalas para acotar parte del sesgo de una moneda condicionada.",
+      "limite": "Los límites asintóticos citados conservan sus hipótesis locales.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "gaviotas.py"
+      ],
+      "nodos": [
+        "gaviotas_martingala"
+      ],
+      "afirmaciones": [
+        "historica:183"
+      ]
+    },
+    {
+      "id": "markov_fuerte",
+      "titulo": "markov fuerte",
+      "animal": null,
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "EL REGALO DE LA 7a: P(ventana en la excursion i | TODO el pasado) = phi(c_i) EXACTO (el arranque de excursion es tiempo de parada) - la mezcla NO hace falta para el salto condicional y Levy-Borel-Cantelli es teorema",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "markov_fuerte"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "queltehues",
+      "titulo": "Queltehues",
+      "animal": "Queltehues",
+      "alias": [
+        "Focas"
+      ],
+      "rama": "transferencia",
+      "resumen": "Investiga la mezcla entre excursiones; se llamó Focas antes del cambio de nombre.",
+      "limite": "La independencia condicionada propuesta se rompió; quedan herramientas bajo la ley no condicionada.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "lemadelamezcla.txt",
+        "actarevision1008.txt"
+      ],
+      "nodos": [
+        "queltehues_mezcla"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "lema_LA_piso",
+      "titulo": "Piso por arranque: ruta anterior",
+      "animal": null,
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Busca una probabilidad mínima de una excursión favorable desde cada arranque.",
+      "limite": "La antigua ventana fija bajo la ley real quedó abierta; Gao usa después otra vía.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/Matematica.md"
+      ],
+      "nodos": [
+        "lema_LA_piso"
+      ],
+      "afirmaciones": [
+        "historica:184",
+        "piso_w"
+      ]
+    },
+    {
+      "id": "lema_LB_ritmo",
+      "titulo": "lema LB ritmo",
+      "animal": null,
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Nueva deduccion escrita del reloj global S_i=O_omega(i^4) en depuracion/gao20260920/Reloj_global.md. Nodo historico pendiente de segunda auditoria conjunta del nuevo ensamblaje; no seguir suponiendo frontera ausente.",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "lema_LB_ritmo"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "arranques_polinomiales",
+      "titulo": "Tamaño de los arranques",
+      "animal": null,
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Conserva las mediciones antiguas y la deducción escrita posterior de un crecimiento polinomial.",
+      "limite": "No confundir beta=0 medido con una cota universal; el ensamblaje antiguo mantiene pendientes.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/Reloj_global.md"
+      ],
+      "nodos": [
+        "arranques_polinomiales"
+      ],
+      "afirmaciones": [
+        "historica:185",
+        "moscas_mangostas_gacelas_global"
+      ]
+    },
+    {
+      "id": "phi_uno",
+      "titulo": "phi uno",
+      "animal": null,
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Objetivo antiguo de absorción por piso, reloj y arranques. El resultado de fusión se obtuvo después por Lagartijas–Martas–Tejonas.",
+      "limite": "Conserva los pendientes de aquella vía; no significa que Gao siga pendiente en el catálogo vigente.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "phi_uno"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "condoras_barrera",
+      "titulo": "condoras barrera",
+      "animal": null,
+      "alias": [],
+      "rama": "gao",
+      "resumen": "CONDORAS, puente condicional: una cota E(X,B)<=error(B)X y terminacion de todo 1<=n<=B dan eventualmente dWu(M)>=1-error(B)-eps para cada eps>0. La cota externa sigue siendo hipotesis; no resuelve Wu 1.",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "condoras_barrera"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "suricatas",
+      "titulo": "Suricatas",
+      "animal": "Suricatas",
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Prueba rigidez de invariantes periódicos comunes a dos mapas afines.",
+      "limite": "Rigidez a cada escala no significa un margen de contracción uniforme.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/frente20260910/LEEME.md"
+      ],
+      "nodos": [
+        "suricatas"
+      ],
+      "afirmaciones": [
+        "suricatas"
+      ]
+    },
+    {
+      "id": "castoras",
+      "titulo": "Castoras",
+      "animal": "Castoras",
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Escribe el balance exacto de corrientes y construye contraejemplos a una contracción propuesta.",
+      "limite": "Los contraejemplos sintéticos y las leyes alcanzables tienen alcances distintos.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/frente20260910/Castoras.md"
+      ],
+      "nodos": [
+        "castoras"
+      ],
+      "afirmaciones": [
+        "castoras"
+      ]
+    },
+    {
+      "id": "erizas",
+      "titulo": "Erizas",
+      "animal": "Erizas",
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Descarta una contracción uniforme en tiempo y escalas para cada semilla fija.",
+      "limite": "No descarta controles a escala fija; su formalización probabilística integral es parcial.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/frente20260910/Erizas.md"
+      ],
+      "nodos": [
+        "erizas"
+      ],
+      "afirmaciones": [
+        "erizas"
+      ]
+    },
+    {
+      "id": "mangostas",
+      "titulo": "Mangostas",
+      "animal": "Mangostas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Obtiene la ley de duración de una racha y controla el reloj de la excursión.",
+      "limite": "Declara la valuación, los bits futuros y la salida de la excursión.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/frente20260910/Mangostas.md"
+      ],
+      "nodos": [
+        "mangostas"
+      ],
+      "afirmaciones": [
+        "mangostas",
+        "mangostas_reloj_armonico"
+      ]
+    },
+    {
+      "id": "gacelas",
+      "titulo": "Gacelas",
+      "animal": "Gacelas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Aporta controles de supervivencia, producto y ventanas de salida para construir ensayos.",
+      "limite": "Las distintas ventanas tienen hipótesis propias; la antigua ventana fija P2 sigue separada.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/frente20260910/Gacelas.md"
+      ],
+      "nodos": [
+        "gacelas"
+      ],
+      "afirmaciones": [
+        "gacelas",
+        "gacelas_moscas_ventana_creciente",
+        "gacelas_control_armonico",
+        "gacelas_ventana_armonica"
+      ]
+    },
+    {
+      "id": "reloj_excursion",
+      "titulo": "Reloj de la excursión",
+      "animal": null,
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Combina la duración de rachas con el control de pasos mixtos.",
+      "limite": "La cota escrita asintótica y los ingredientes formalizados se distinguen en la ficha.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/Reloj_bloques.md"
+      ],
+      "nodos": [
+        "reloj_excursion"
+      ],
+      "afirmaciones": [
+        "mangostas_gacelas_reloj"
+      ]
+    },
+    {
+      "id": "control_W_salida",
+      "titulo": "control W salida",
+      "animal": null,
+      "alias": [],
+      "rama": "transferencia",
+      "resumen": "Ventana fija para W bajo supervivencia futura en la ley real; condicion suficiente de P2, aun sin demostrar.",
+      "limite": "El alcance exacto y sus hipótesis están en la ficha y en las afirmaciones asociadas.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos": [
+        "control_W_salida"
+      ],
+      "afirmaciones": []
+    },
+    {
+      "id": "lagartijas",
+      "titulo": "Lagartijas",
+      "animal": "Lagartijas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Acota la probabilidad de tener pocas oportunidades de ensayo y cierra la cota finita CF_F.",
+      "limite": "La cota finita se convierte en límite con Martas; revisión humana pendiente.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/Lagartijas.md"
+      ],
+      "nodos": [
+        "lagartijas"
+      ],
+      "afirmaciones": [
+        "gao_cota_fija_20260920",
+        "lagartijas_pocas_entradas"
+      ]
+    },
+    {
+      "id": "martas",
+      "titulo": "Martas",
+      "animal": "Martas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Hace tender a cero la probabilidad de no fusionar en la cadena original.",
+      "limite": "Se refiere a fusión casi segura de la cadena; revisión humana pendiente.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/Martas.md"
+      ],
+      "nodos": [
+        "martas"
+      ],
+      "afirmaciones": [
+        "martas_fusion_casi_segura"
+      ]
+    },
+    {
+      "id": "tejonas",
+      "titulo": "Tejonas",
+      "animal": "Tejonas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Transporta el resultado de la cadena a pares de enteros y clases de restos.",
+      "limite": "La conclusión es sobre densidad de fusión; revisión humana pendiente.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/Tejonas.md"
+      ],
+      "nodos": [
+        "tejonas"
+      ],
+      "afirmaciones": [
+        "tejonas_transporte"
+      ]
+    },
+    {
+      "id": "gao_densidad",
+      "titulo": "Gao: densidad uno de coalescencia",
+      "animal": null,
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Según el enunciado formal del laboratorio, casi todo par consecutivo coalesce dentro de la cota de Gao.",
+      "limite": "La revisión humana está pendiente y esto no afirma que todos lleguen a 1.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/Tejonas.md"
+      ],
+      "nodos": [
+        "gao_densidad"
+      ],
+      "afirmaciones": [
+        "gao_densidad_uno"
+      ]
+    },
+    {
+      "id": "hienas",
+      "titulo": "Hienas",
+      "animal": "Hienas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Traduce el resultado a la forma literal de la coalescencia de Gao.",
+      "limite": "Conserva la definición exigente de coalescencia; revisión humana pendiente.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/Hienas.md"
+      ],
+      "nodos": [
+        "hienas"
+      ],
+      "afirmaciones": [
+        "hienas_gao_literal"
+      ]
+    },
+    {
+      "id": "alpacas",
+      "titulo": "Alpacas",
+      "animal": "Alpacas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Construye rachas arbitrariamente largas de consecutivos que llegan a 1 con igual altura y tiempo total.",
+      "limite": "Son familias construidas; no se prueba la llegada a 1 de cada entero dado. Revisión humana pendiente.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/garner20260926/Alpacas.md"
+      ],
+      "nodos": [
+        "alpacas"
+      ],
+      "afirmaciones": [
+        "alpacas_garner"
+      ]
+    },
+    {
+      "id": "condoras",
+      "titulo": "Cóndoras",
+      "animal": "Cóndoras",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Obtiene Wu 2 y formula la equivalencia que deja abierta Wu 1.",
+      "limite": "La densidad 1 de llegada a 1 sigue abierta; el puente de Nashida mantiene una hipótesis externa.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260920/formal/WuEnunciado.lean"
+      ],
+      "nodos": [
+        "condoras"
+      ],
+      "afirmaciones": [
+        "condoras_wu",
+        "condoras_barrera_condicional"
+      ]
+    },
+    {
+      "id": "pandas",
+      "titulo": "Pandas",
+      "animal": "Pandas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Une igualdad de altura y tiempo de parada bajo cotas del residuo; también da una consecuencia en densidad.",
+      "limite": "El puente antiguo de igualdad de densidades fue corregido. Las hipótesis de cada versión permanecen visibles.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/pandas20260930/LEEME.md"
+      ],
+      "nodos": [
+        "pandas"
+      ],
+      "afirmaciones": [
+        "historica:50",
+        "pandas_gao_lean",
+        "pandas_gao_densidad"
+      ]
+    },
+    {
+      "id": "marmotas",
+      "titulo": "Marmotas",
+      "animal": "Marmotas",
+      "alias": [],
+      "rama": "gao",
+      "resumen": "Transporta el control del residuo entre escalas.",
+      "limite": "La conclusión combina hipótesis de descenso y una base finita; no cierra todos los casos.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/pandas20260930/Pandas.lean"
+      ],
+      "nodos": [
+        "marmotas"
+      ],
+      "afirmaciones": [
+        "marmotas_escalas"
+      ]
+    },
+    {
+      "id": "ocelotas",
+      "titulo": "Ocelotas",
+      "animal": "Ocelotas",
+      "alias": [],
+      "rama": "descenso",
+      "resumen": "Bajo las hipótesis indicadas, hasta 24 rachas el primer cruce es descenso; hasta 77 con la hipótesis adicional de Rozier–Terracol.",
+      "limite": "Se supone que el primer cruce existe. LMN es externo; el cierre de 77 añade Rozier–Terracol. No demuestra Collatz.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/cst20260930/VEINTICUATRO_LEAN.md",
+        "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md"
+      ],
+      "nodos": [
+        "ocelotas"
+      ],
+      "afirmaciones": [
+        "ocelotas_cst_dos_rachas",
+        "ocelotas_cst_diez_rachas_condicional",
+        "ocelotas_cst_diez_rachas_rhin_literal",
+        "rhin_entera_convergentes",
+        "cst_rachas_17_convergentes",
+        "cst_rachas_73_rozier_terracol",
+        "ocelotas_cst_diez_rachas_lmn",
+        "ocelotas_cst_18_rachas_afinadas",
+        "ocelotas_cst_75_rachas_rozier_terracol",
+        "ocelotas_criba_afinada_lean",
+        "ocelotas_reduccion_unilateral",
+        "ocelotas_cst_trece_rachas_lmn_lean",
+        "ocelotas_cst_dieciocho_rachas_lmn_lean",
+        "ocelotas_cst_diecinueve_rachas_prefijos_lean",
+        "ocelotas_cst_veinte_rachas_prefijos_lean",
+        "ocelotas_cst_veintiuna_rachas_prefijos_lean",
+        "ocelotas_region_finita_rachas_arbitrarias_lean",
+        "ocelotas_cola_parametrica_geometrica_lean",
+        "ocelotas_criba_afinada_despues_corte_lean",
+        "ocelotas_cst_76_rachas_rozier_terracol_lean",
+        "ocelotas_cst_22_rachas_lean_lmn",
+        "ocelotas_descuento_una_entrada_por_racha_lean",
+        "ocelotas_criba_con_suelo_lean",
+        "ocelotas_cst_77_rachas_rozier_terracol_lean",
+        "ocelotas_cst_23_rachas_lean_lmn",
+        "ocelotas_cst_24_rachas_lean_lmn"
+      ]
+    },
+    {
+      "id": "perras",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:47",
+        "historica:53",
+        "historica:80"
+      ],
+      "titulo": "Perras",
+      "animal": "Perras",
+      "rama": "fusion",
+      "resumen": "Reconoce exactamente la mitad de los arranques pares en el estrato de dos pasos mixtos.",
+      "limite": "El encuentro de clase no demuestra por sí solo la llegada a 1.",
+      "situacion": "vigente",
+      "fuentes": [
+        "teoremadeperras.txt"
+      ]
+    },
+    {
+      "id": "gatas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:81",
+        "historica:98"
+      ],
+      "titulo": "Gatas",
+      "animal": "Gatas",
+      "rama": "fusion",
+      "resumen": "Dos pasos contraen una familia a otro par consecutivo; el reinicio produce una ecuación de renovación.",
+      "limite": "La contracción local y la ecuación no determinan por sí solas toda la probabilidad de fusión.",
+      "situacion": "vigente",
+      "fuentes": [
+        "teoremadegatas.txt"
+      ]
+    },
+    {
+      "id": "jirafas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:95",
+        "historica:97"
+      ],
+      "titulo": "Jirafas",
+      "animal": "Jirafas",
+      "rama": "fusion",
+      "resumen": "Caracteriza cuándo un encuentro vale para toda una clase de restos: los conteos impares deben equilibrarse.",
+      "limite": "Se retiró el antiguo intercambio de límite y densidad; se conserva la caracterización algebraica.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/coherencia20260913/Matematica.md"
+      ]
+    },
+    {
+      "id": "chanchitos",
+      "alias": [
+        "Tres Chanchitos"
+      ],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:51",
+        "historica:52",
+        "historica:54",
+        "historica:55",
+        "historica:56",
+        "historica:57",
+        "historica:58",
+        "historica:59",
+        "historica:60",
+        "historica:61",
+        "historica:62",
+        "historica:63",
+        "historica:64",
+        "historica:65",
+        "historica:66",
+        "historica:67",
+        "historica:68",
+        "historica:69",
+        "historica:70",
+        "historica:71",
+        "historica:72",
+        "historica:73"
+      ],
+      "titulo": "3 Chanchitos",
+      "animal": "3 Chanchitos",
+      "rama": "fusion",
+      "resumen": "Cuenta exactamente las clases del estrato cuatro de dos pisos reducidos.",
+      "limite": "Los teoremas sobre esos estratos no resuelven todos los estratos ni la convergencia universal.",
+      "situacion": "vigente",
+      "fuentes": [
+        "teoremadelos3chanchitos.txt"
+      ]
+    },
+    {
+      "id": "komodo",
+      "alias": [
+        "Komodo"
+      ],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:78",
+        "historica:79"
+      ],
+      "titulo": "Komodo 3",
+      "animal": "Komodo 3",
+      "rama": "fusion",
+      "resumen": "Excluye el resto cero módulo 3 para el lado mayor del par después del primer paso.",
+      "limite": "Es una restricción modular, no una prueba de que el par termine fusionando.",
+      "situacion": "vigente",
+      "fuentes": [
+        "teoremadekomodo3.lean"
+      ]
+    },
+    {
+      "id": "panteras",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:82",
+        "historica:83"
+      ],
+      "titulo": "Panteras",
+      "animal": "Panteras",
+      "rama": "fusion",
+      "resumen": "Traslada fusiones dos niveles mediante la contracción de Gatas.",
+      "limite": "El motor algebraico formalizado y la fórmula completa de conteos tienen alcances distintos.",
+      "situacion": "vigente",
+      "fuentes": [
+        "recursionvertical.lean"
+      ]
+    },
+    {
+      "id": "vacas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:49"
+      ],
+      "titulo": "Vacas",
+      "animal": "Vacas",
+      "rama": "fusion",
+      "resumen": "La identidad de renovación reparte los conteos entre tres pisos.",
+      "limite": "Distinguir los rangos de cotejo de cada identidad y sus pruebas escritas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "identidadexacta.py"
+      ]
+    },
+    {
+      "id": "osas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:86",
+        "historica:87",
+        "historica:88",
+        "historica:89",
+        "historica:90",
+        "historica:91"
+      ],
+      "titulo": "Osas",
+      "animal": "Osas",
+      "rama": "fusion",
+      "resumen": "Organiza un sistema de ecuaciones para la probabilidad de fusión y las masas de la torre.",
+      "limite": "La primera ecuación tiene prueba; las restantes tuvieron comprobaciones finitas.",
+      "situacion": "vigente",
+      "fuentes": [
+        "auditoria_rigor.py"
+      ]
+    },
+    {
+      "id": "ardillas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:151"
+      ],
+      "titulo": "Ardillas",
+      "animal": "Ardillas",
+      "rama": "fusion",
+      "resumen": "Completa la serie de retornos con el término directo que faltaba.",
+      "limite": "La identidad fue comprobada en la ventana declarada; no extenderla por extrapolación.",
+      "situacion": "vigente",
+      "fuentes": [
+        "flecosr.py"
+      ]
+    },
+    {
+      "id": "nutrias",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:84",
+        "historica:85",
+        "historica:152"
+      ],
+      "titulo": "Nutrias",
+      "animal": "Nutrias",
+      "rama": "fusion",
+      "resumen": "Separa los conteos de estratos en canales determinados por los primeros bits.",
+      "limite": "Las fórmulas y canales deben leerse con sus rangos y revisiones.",
+      "situacion": "vigente",
+      "fuentes": [
+        "estratoscadena.py"
+      ]
+    },
+    {
+      "id": "ratas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:92",
+        "historica:93"
+      ],
+      "titulo": "Ratas",
+      "animal": "Ratas",
+      "rama": "cadena",
+      "resumen": "Describe el paseo de la deuda entre torres, antecedente de la cadena de Leonas.",
+      "limite": "Las leyes locales exactas no prueban por sí solas recurrencia.",
+      "situacion": "vigente",
+      "fuentes": [
+        "torredeladeuda.lean"
+      ]
+    },
+    {
+      "id": "zorras",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:153"
+      ],
+      "titulo": "Zorras",
+      "animal": "Zorras",
+      "rama": "cadena",
+      "resumen": "Relaciona retornos al pre-vórtice con el crecimiento de los conteos.",
+      "limite": "El mecanismo exacto se acompañó de un piso medido; no usar el límite de razones como prueba de densidad.",
+      "situacion": "vigente",
+      "fuentes": [
+        "retornoslambda.py"
+      ]
+    },
+    {
+      "id": "lobas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "titulo": "Lobas",
+      "animal": "Lobas",
+      "rama": "cadena",
+      "resumen": "Explica por qué las torres tienen continuaciones libres y los truncados no bastan para una cota superior global.",
+      "limite": "Es una limitación del método de truncados; las afirmaciones probabilísticas viejas del programa no se adoptan por asociación.",
+      "situacion": "vigente",
+      "fuentes": [
+        "matriztransferencia.py"
+      ]
+    },
+    {
+      "id": "pumas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:177",
+        "historica:187",
+        "historica:193"
+      ],
+      "titulo": "Pumas",
+      "animal": "Pumas",
+      "rama": "cadena",
+      "resumen": "Da cotas inferiores certificadas para el crecimiento mediante cajas finitas cada vez mayores.",
+      "limite": "La cota 1,989042 es inferior; no demuestra que el valor global sea menor que 2 ni resuelve Collatz.",
+      "situacion": "vigente",
+      "fuentes": [
+        "certificadocw.py"
+      ]
+    },
+    {
+      "id": "langostas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:202"
+      ],
+      "titulo": "Langostas",
+      "animal": "Langostas",
+      "rama": "cadena",
+      "resumen": "Acota por ambos lados el radio espectral de cada caja finita de Pumas.",
+      "limite": "La cota superior pertenece a la caja truncada, no a la cadena infinita.",
+      "situacion": "vigente",
+      "fuentes": [
+        "pinzacw.py"
+      ]
+    },
+    {
+      "id": "ovejas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:154"
+      ],
+      "titulo": "Ovejas",
+      "animal": "Ovejas",
+      "rama": "cadena",
+      "resumen": "Compara los primeros retornos con los bloques de LaTourette y conserva una corrección de tabla.",
+      "limite": "Es un catálogo de retornos con alcance finito.",
+      "situacion": "vigente",
+      "fuentes": [
+        "retornoslambda.py"
+      ]
+    },
+    {
+      "id": "viboras",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:197"
+      ],
+      "titulo": "Víboras",
+      "animal": "Víboras",
+      "rama": "transferencia",
+      "resumen": "Lee rachas y recargas como condiciones sobre los bits bajos de la coordenada.",
+      "limite": "Una identidad de clases no demuestra que la distribución condicionada sea uniforme.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "lecturaracha.lean"
+      ]
+    },
+    {
+      "id": "avispas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:198"
+      ],
+      "titulo": "Avispas",
+      "animal": "Avispas",
+      "rama": "transferencia",
+      "resumen": "Identifica cuándo un paso inyecta un bit nuevo en la posición baja.",
+      "limite": "Requiere nivel impar y el tipo de paso declarado.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "lecturaracha.lean"
+      ]
+    },
+    {
+      "id": "efimeras",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:199"
+      ],
+      "titulo": "Efímeras",
+      "animal": "Efímeras",
+      "rama": "transferencia",
+      "resumen": "Mide cómo cambia y desaparece un sesgo observado al abrir una racha.",
+      "limite": "Es una medición en ventanas y arranques concretos.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "dominacioncondicionada.py"
+      ]
+    },
+    {
+      "id": "piranas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:203"
+      ],
+      "titulo": "Pirañas",
+      "animal": "Pirañas",
+      "rama": "transferencia",
+      "resumen": "Explora la contracción del exceso de colisión entre escalas.",
+      "limite": "La tendencia medida no es contracción universal; Erizas limita esa ruta.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "excesocolision.py"
+      ]
+    },
+    {
+      "id": "tortugas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:201"
+      ],
+      "titulo": "Tortugas",
+      "animal": "Tortugas",
+      "rama": "transferencia",
+      "resumen": "Representa la antigua ruta al reloj global mediante una dominación de rachas.",
+      "limite": "La dominación antigua quedó pendiente. El reloj posterior de Mangostas–Gacelas tiene su propia prueba.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "notalb.txt"
+      ]
+    },
+    {
+      "id": "loras",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "titulo": "Loras",
+      "animal": "Loras",
+      "rama": "transferencia",
+      "resumen": "Una palabra fija que sobrevive una racha corresponde como máximo a una clase residual.",
+      "limite": "La unicidad no proporciona el control de distribución que faltaba al ensamblaje.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "unionpalabras.lean"
+      ]
+    },
+    {
+      "id": "ballenas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:200"
+      ],
+      "titulo": "Ballenas",
+      "animal": "Ballenas",
+      "rama": "transferencia",
+      "resumen": "Estudia el exceso de colisión condicionado por altura, para quitar el efecto de la difusión.",
+      "limite": "La contracción uniforme propuesta quedó descartada en el alcance preciso de Erizas; se conservan las mediciones.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "conteoconjunto.py"
+      ]
+    },
+    {
+      "id": "truchas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:194"
+      ],
+      "titulo": "Truchas",
+      "animal": "Truchas",
+      "rama": "transferencia",
+      "resumen": "Prueba un piso de probabilidad por excursión en el modelo autónomo V2 mediante reversión temporal.",
+      "limite": "El resultado de V2 no se transfiere automáticamente a la cadena real.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "teoremav2.txt"
+      ]
+    },
+    {
+      "id": "grullas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:192",
+        "historica:195"
+      ],
+      "titulo": "Grullas",
+      "animal": "Grullas",
+      "rama": "transferencia",
+      "resumen": "Compara medianas de salida y el mecanismo de reversión en V2 y en la cadena real.",
+      "limite": "Son mediciones, no el control uniforme requerido para transferir el teorema.",
+      "situacion": "ruta_anterior",
+      "fuentes": [
+        "medianauniversal.py"
+      ]
+    },
+    {
+      "id": "cigarras",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:196"
+      ],
+      "titulo": "Cigarras",
+      "animal": "Cigarras",
+      "rama": "gao",
+      "resumen": "Conserva dos etapas: rachas medidas en agosto y el enorme tamaño necesario para que CF_F sea informativa en septiembre.",
+      "limite": "Las mediciones antiguas no prueban dominación universal; un límite demostrado puede empezar a informar muy tarde.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/gao20260924/Cigarras.md",
+        "rachasreales.py"
+      ]
+    },
+    {
+      "id": "corzas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "titulo": "Corzas",
+      "animal": "Corzas",
+      "rama": "fuga",
+      "resumen": "Retrata al posible fugitivo y sus choques en una implementación independiente recuperada.",
+      "limite": "Las claves recuperadas solapan parcialmente con Casa: se conservan sin fingir identidad de enunciados ni sumar duplicados.",
+      "situacion": "recuperada",
+      "fuentes": [
+        "depuracion/casa20261005_recuperada/CORZAS.md",
+        "depuracion/jinetas20261010/CONCILIACION.md"
+      ]
+    },
+    {
+      "id": "chinchillas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "titulo": "Chinchillas",
+      "animal": "Chinchillas",
+      "rama": "fuga",
+      "resumen": "Conserva una prueba recuperada de Korec y cotas de potencia para excepciones.",
+      "limite": "Hay cotas incondicionales y otras bajo LMN. La implementación recuperada permanece separada de la vigente.",
+      "situacion": "recuperada",
+      "fuentes": [
+        "depuracion/casa20261005_recuperada/CHINCHILLAS.md",
+        "depuracion/jinetas20261010/CONCILIACION.md"
+      ]
+    },
+    {
+      "id": "perdices",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "titulo": "Perdices",
+      "animal": "Perdices",
+      "rama": "perdices",
+      "resumen": "Parte de la cadena módulo potencias de 3 y llega a colisiones, mínimos, complejidad y el retorno H.",
+      "limite": "Los resultados restringen una posible excepción; fuga pura, ciclos y persistencia de H siguen abiertos.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/perdices20261007/LEEME.md",
+        "depuracion/casa20261005_recuperada/PERDICES.md"
+      ]
+    },
+    {
+      "id": "jinetas",
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "jinetas_algebra_intercambio",
+        "jinetas_monotonia_refutada",
+        "jinetas_prefijos_cst",
+        "jinetas_coste_rachas"
+      ],
+      "titulo": "Jinetas",
+      "animal": "Jinetas",
+      "rama": "perdices",
+      "resumen": "Estudia intercambios, prefijos y reinicios de palabras conservando la semilla.",
+      "limite": "La monotonía propuesta fue refutada; la compatibilidad de prefijos no obliga a una semilla positiva fija.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/jinetas20261010/LEEME.md"
+      ]
+    },
+    {
+      "id": "libelulas",
+      "alias": [
+        "Libélula",
+        "Teorema de la libélula"
+      ],
+      "nodos": [],
+      "afirmaciones": [],
+      "titulo": "Libélulas",
+      "animal": "Libélulas",
+      "rama": "fusion",
+      "resumen": "El teorema de la libélula explica por qué el número de pasos mixtos de una fusión balanceada es par.",
+      "limite": "Es el mismo balance de orientaciones ya documentado; no se reclama una nueva prioridad.",
+      "situacion": "vigente",
+      "fuentes": [
+        "depuracion/oeis20260924/Garzas.md"
+      ]
+    },
+    {
+      "id": "primeros",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:2",
+        "historica:3",
+        "historica:4",
+        "historica:5",
+        "historica:6",
+        "historica:9",
+        "historica:10",
+        "historica:11",
+        "historica:12",
+        "historica:13",
+        "historica:14",
+        "historica:15",
+        "historica:16",
+        "historica:30",
+        "historica:31",
+        "historica:32",
+        "historica:102",
+        "historica:103",
+        "historica:104",
+        "historica:105",
+        "historica:106",
+        "historica:107",
+        "historica:108",
+        "historica:112",
+        "historica:113",
+        "historica:114",
+        "historica:115",
+        "historica:116",
+        "historica:117",
+        "historica:118",
+        "historica:119",
+        "historica:129",
+        "historica:131",
+        "historica:132",
+        "historica:136",
+        "historica:137",
+        "historica:138",
+        "historica:139",
+        "historica:144"
+      ],
+      "titulo": "Primeras exploraciones",
+      "rama": "otras",
+      "resumen": "Altitudes, árboles inversos, espejos, dibujos y constantes: el punto de partida del laboratorio.",
+      "limite": "Aquí conviven pruebas, mediciones e hipótesis refutadas; no forman una prueba de Collatz.",
+      "fuentes": [
+        "depuracion/coherencia20260913/LECTURA_GLOBAL_20261003.md"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "fusion_clases",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:21",
+        "historica:22",
+        "historica:23",
+        "historica:24",
+        "historica:25",
+        "historica:26",
+        "historica:96",
+        "historica:109",
+        "historica:134",
+        "historica:135",
+        "historica:150",
+        "historica:191"
+      ],
+      "titulo": "Contar encuentros de clases",
+      "rama": "fusion",
+      "resumen": "Cuenta clases de enteros cuyos recorridos se juntan y obtiene cotas de densidad.",
+      "limite": "El alcance de altura finita exige la llegada a 1 de la cola común.",
+      "fuentes": [
+        "clasesfusion.py"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "cribas",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:33",
+        "historica:34",
+        "historica:99",
+        "historica:100",
+        "historica:101",
+        "historica:110",
+        "historica:111",
+        "historica:130",
+        "historica:141",
+        "historica:142",
+        "historica:143",
+        "historica:146"
+      ],
+      "titulo": "Descenso de casi todos y cribas finitas",
+      "rama": "fundamentos",
+      "resumen": "Terras, Everett y otras cotas explican por qué casi todos descienden.",
+      "limite": "La criba puede dejar infinitas excepciones: densidad cero no es conjunto vacío.",
+      "fuentes": [
+        "descensoresto.py"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "ciclos",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:27",
+        "historica:120",
+        "historica:121",
+        "historica:122",
+        "historica:123",
+        "historica:124",
+        "historica:125",
+        "historica:126",
+        "historica:127",
+        "historica:128",
+        "historica:133"
+      ],
+      "titulo": "Circuitos: exclusiones parciales",
+      "rama": "otras",
+      "resumen": "Restringe tamaños y candidatos de ciclos y conserva verificaciones finitas.",
+      "limite": "Los límites citados son los del catálogo fechado. No se prueba ausencia de todo ciclo no trivial.",
+      "fuentes": [
+        "verificar_ciclos.py"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "cst_inicio",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:35"
+      ],
+      "titulo": "CST: coeficiente y término aditivo",
+      "rama": "descenso",
+      "resumen": "Una caída del coeficiente garantiza descenso para levantamientos suficientemente grandes.",
+      "limite": "Queda un tramo pequeño dependiente de la palabra; Ocelotas estudia ese hueco.",
+      "fuentes": [
+        "atacacst.lean"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "auditorias",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:74",
+        "historica:159"
+      ],
+      "titulo": "Revisiones y correcciones",
+      "rama": "fundamentos",
+      "resumen": "Conserva cómo se detectaron errores y se limitaron las afirmaciones.",
+      "limite": "Una revisión previa no sustituye la evidencia del enunciado vigente.",
+      "fuentes": [
+        "depuracion/coherencia20260913/LEEME.md"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "dispersion",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:157",
+        "historica:170"
+      ],
+      "titulo": "Distribuciones y pares separados",
+      "rama": "cadena",
+      "resumen": "Mide la dispersión de la coordenada y extiende el análisis a pares con distancia inicial variable.",
+      "limite": "Las ventanas computadas no dan una ley asintótica universal.",
+      "fuentes": [
+        "dispersionc.py"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "lurrus",
+      "animal": null,
+      "alias": [
+        "Subteoría de Lurrus"
+      ],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:186"
+      ],
+      "titulo": "Lurrus: la ruta del modelo V2",
+      "rama": "transferencia",
+      "resumen": "Reúne reversión temporal, Truchas y Grullas en el programa bautizado Lurrus.",
+      "limite": "Es el nombre de una subteoría; su traslado a la cadena real no es automático.",
+      "fuentes": [
+        "archivo/contexto_20260913/RutaTeoremas.md.txt"
+      ],
+      "situacion": "ruta_anterior"
+    },
+    {
+      "id": "cofre",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "historica:204",
+        "historica:205",
+        "historica:206",
+        "historica:207",
+        "historica:208"
+      ],
+      "titulo": "Balance de corrientes y obstáculos",
+      "rama": "transferencia",
+      "resumen": "Identifica las correlaciones afines y los contraejemplos que cambiaron el objetivo de contracción.",
+      "limite": "Los enunciados descartados no reaparecen como soportes válidos.",
+      "fuentes": [
+        "depuracion/coherencia20260913/Matematica.md"
+      ],
+      "situacion": "ruta_anterior"
+    },
+    {
+      "id": "gao_candidatos",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "gao_ensamblaje_20260920",
+        "gao_cota_finita_20260920",
+        "gao_cota_armonica_20260920"
+      ],
+      "titulo": "Candidatos anteriores CF y CF_H",
+      "rama": "gao",
+      "resumen": "Conserva los ensamblajes candidatos previos a CF_F.",
+      "limite": "Siguen registrados como candidatos históricos; no son premisas abiertas del cierre posterior.",
+      "fuentes": [
+        "depuracion/gao20260920/Ensamblaje_candidato.md"
+      ],
+      "situacion": "ruta_anterior"
+    },
+    {
+      "id": "ensayos_guardados",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "hormigas_gacelas_ensayos_guardados"
+      ],
+      "titulo": "Ensayos sin solapamiento",
+      "rama": "gao",
+      "resumen": "Repite oportunidades de fusión controlando las entradas y la duración de cada intento.",
+      "limite": "Usa las cotas de ventana y accesibilidad declaradas.",
+      "fuentes": [
+        "depuracion/gao20260920/Guardias_finitas.md"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "wirsching",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "wirsching_ceros_elka",
+        "wirsching_dispersion_cascada",
+        "wirsching_reduccion_conjetura2",
+        "wirsching_W1",
+        "wirsching_W2_ventana"
+      ],
+      "titulo": "Wirsching: predecesores y ceros",
+      "rama": "otras",
+      "resumen": "Explora las funciones de conteo inverso y una condición publicada.",
+      "limite": "W1 es candidata; ceros y ventanas finitas no dan una refutación universal.",
+      "fuentes": [
+        "depuracion/wirsching20260930/LEEME.md"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "casa",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "titulo": "Casa: qué falta para Collatz",
+      "rama": "fuga",
+      "resumen": "Divide el problema en descenso al primer cruce y existencia del cruce; retrata posibles excepciones.",
+      "limite": "Los dos muros universales no se han probado. La reducción posterior de Perdices separa Muro B y circuitos.",
+      "fuentes": [
+        "depuracion/casa20261004/LEEME.md"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "korec_terras",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "casa_ventana_korec_lean",
+        "casa_korec_lean",
+        "casa_terras_densidad_lean"
+      ],
+      "titulo": "Ventanas de densidad: Terras y Korec",
+      "rama": "fuga",
+      "resumen": "Formaliza que casi todo número desciende y controla cuán grandes pueden ser conjuntos excepcionales.",
+      "limite": "Hacer pequeño un conjunto no demuestra que sea vacío.",
+      "fuentes": [
+        "depuracion/casa20261004/LEEME.md"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "mahler",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "mahler_primo_cohete"
+      ],
+      "titulo": "El primo de Mahler",
+      "rama": "otras",
+      "resumen": "Estudia una analogía aritmética con el crecimiento del posible fugitivo.",
+      "limite": "Se documentó por qué la herramienta no alcanza al cohete; Mahler sigue abierto.",
+      "fuentes": [
+        "depuracion/mahler20261007/LEEME.md"
+      ],
+      "situacion": "vigente"
+    },
+    {
+      "id": "perdices_acoplamiento",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "perdices_acoplamiento_lean",
+        "perdices_umbral_lean"
+      ],
+      "titulo": "Perdices · olvido módulo potencias de 3",
+      "rama": "perdices",
+      "resumen": "Formaliza cuándo una palabra borra la influencia del arranque y muestra el límite al condicionar.",
+      "limite": "La mezcla bajo bits libres no se transporta sin más a supervivencia sin cruce.",
+      "fuentes": [
+        "depuracion/perdices20261007/LEEME.md"
+      ],
+      "situacion": "vigente",
+      "padre": "perdices"
+    },
+    {
+      "id": "perdices_regresos",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "perdices_tamano",
+        "perdices_sexta_lean",
+        "perdices_cruce_sexta",
+        "perdices_separacion_rachas",
+        "perdices_excursiones_formales",
+        "perdices_ritmo_formal",
+        "perdices_ritmo_logaritmico_pares",
+        "perdices_balance_pares",
+        "perdices_pares_concentrados",
+        "perdices_excepciones_formales",
+        "perdices_excepciones_ritmo",
+        "perdices_aporte_formal",
+        "perdices_aporte_acotado",
+        "perdices_semilla_levantamiento",
+        "perdices_semilla_quinta",
+        "perdices_novena_producto",
+        "perdices_novena_regresos_octava"
+      ],
+      "titulo": "Perdices · tamaño, rachas y regresos",
+      "rama": "perdices",
+      "resumen": "Obtiene presupuestos de regresos, excepciones y aportes para un posible fugitivo.",
+      "limite": "La hipótesis de infinitos regresos a un techo fijo quedó excluida por colisiones; las implicaciones anteriores se conservan.",
+      "fuentes": [
+        "depuracion/perdices20261007/NOVENA.md"
+      ],
+      "situacion": "vigente",
+      "padre": "perdices"
+    },
+    {
+      "id": "perdices_colisiones",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "perdices_colisiones_cuenta",
+        "perdices_colisiones_sumabilidad",
+        "perdices_colisiones_planeador",
+        "perdices_cola_estructura",
+        "perdices_cola_prefijos",
+        "perdices_cola_minimos",
+        "perdices_minimos_reinicios",
+        "perdices_minimos_compatibilidad"
+      ],
+      "titulo": "Perdices · colisiones y mínimos",
+      "rama": "perdices",
+      "resumen": "La suma de recíprocos converge en una órbita inyectiva; se excluye el planeador y se obtienen reinicios de fuga pura.",
+      "limite": "Quedan Muro B y ausencia de circuitos no triviales. Hay antecedente Garcia–Tal; no se reclama prioridad.",
+      "fuentes": [
+        "depuracion/perdices20261007/MINIMOS.md"
+      ],
+      "situacion": "vigente",
+      "padre": "perdices"
+    },
+    {
+      "id": "perdices_palabras",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "perdices_repeticiones_presupuesto",
+        "perdices_repeticiones_mezcla",
+        "perdices_cancelaciones_resonancia",
+        "perdices_cancelaciones_reinicios",
+        "perdices_complejidad_ley",
+        "perdices_complejidad_factores",
+        "perdices_complejidad_salida_ab",
+        "perdices_complejidad_conjetura_ab",
+        "perdices_racional_sturmiana",
+        "perdices_salidas_sin00",
+        "perdices_salidas_sin00_111"
+      ],
+      "titulo": "Perdices · repeticiones y complejidad",
+      "rama": "perdices",
+      "resumen": "Controla repeticiones, cancelaciones y complejidad de paridades; conserva censos de salidas.",
+      "limite": "La cota universal de salida 1/110 es conjetura; los censos finitos no la prueban.",
+      "fuentes": [
+        "depuracion/perdices20261007/COMPLEJIDAD.md"
+      ],
+      "situacion": "vigente",
+      "padre": "perdices"
+    },
+    {
+      "id": "perdices_h",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "perdices_retorno_h",
+        "perdices_retorno_h_barrera_polinomica",
+        "perdices_rachas_h_valuaciones",
+        "perdices_rachas_h_empalmes",
+        "perdices_transporte_empalme_h"
+      ],
+      "titulo": "Perdices · retorno H",
+      "rama": "perdices",
+      "resumen": "Estudia inversa, rachas e historias finitas del mapa parcial que evita 5 y 7.",
+      "limite": "Toda historia finita compatible puede cambiar de semilla; no se obtiene persistencia infinita ni terminación universal.",
+      "fuentes": [
+        "depuracion/perdices20261007/RACHAS_H.md"
+      ],
+      "situacion": "vigente",
+      "padre": "perdices"
+    },
+    {
+      "id": "perdices_matrices",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "perdices_matrices_h_exploracion",
+        "perdices_matrices_h_directas",
+        "perdices_cotas_matrices_naturales",
+        "perdices_proyecciones_matrices_h",
+        "perdices_articas_libres_h"
+      ],
+      "titulo": "Perdices · matrices para H",
+      "rama": "perdices",
+      "resumen": "Descarta sin cota la interpretación natural escalar y la primera coordenada aislada en dimensión 2.",
+      "limite": "Las matrices acopladas siguen abiertas; UNSAT acotado y búsquedas indecisas no prueban terminación.",
+      "fuentes": [
+        "depuracion/perdices20261007/PROYECCIONES_MATRICES_H.md"
+      ],
+      "situacion": "vigente",
+      "padre": "perdices"
+    },
+    {
+      "id": "nashida",
+      "titulo": "Nashida: puente de barrera",
+      "rama": "otras",
+      "resumen": "Primer bloque del plan de septiembre: auditoría y puente condicional hacia Wu 1.",
+      "limite": "La cota externa de barrera permanece como hipótesis; no se declara reproducida ni descargada.",
+      "fuentes": [
+        "depuracion/nashida20260928/LEEME.md"
+      ],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "situacion": "contexto"
+    },
+    {
+      "id": "lmn",
+      "titulo": "Laurent–Mignotte–Nesterenko",
+      "rama": "descenso",
+      "resumen": "Cota externa sobre la separación de potencias que alimenta los cierres de Ocelotas.",
+      "limite": "La aplicación está formalizada como implicación bajo la hipótesis correspondiente.",
+      "fuentes": [
+        "depuracion/cst20260930/LECTURAS_20261003.md"
+      ],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "situacion": "contexto"
+    },
+    {
+      "id": "rozier",
+      "titulo": "Rozier–Terracol",
+      "rama": "descenso",
+      "resumen": "Resultado externo utilizado en la extensión de Ocelotas hasta 77 rachas y en el traslado.",
+      "limite": "Conservar las hipótesis y el alcance concreto del resultado citado.",
+      "fuentes": [
+        "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md"
+      ],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [],
+      "situacion": "contexto"
+    },
+    {
+      "id": "casa_plano",
+      "titulo": "Casa · el plano y los dos muros",
+      "rama": "fuga",
+      "padre": "casa",
+      "resumen": "Collatz se descompone en descenso al primer cruce y existencia de ese cruce.",
+      "limite": "La equivalencia es una prueba; los dos muros universales siguen abiertos.",
+      "fuentes": [
+        "depuracion/casa20261004/CasaPlano.lean"
+      ],
+      "afirmaciones": [
+        "casa_plano_collatz_dos_muros_lean"
+      ],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "situacion": "vigente"
+    },
+    {
+      "id": "casa_cohete",
+      "titulo": "Casa · cohete y retrato del fugitivo",
+      "rama": "fuga",
+      "padre": "casa",
+      "resumen": "Describe una trayectoria sin cruce y los choques posibles; el cohete es el escenario de coeficiente que crece sin límite.",
+      "limite": "Perdices obliga al crecimiento del coeficiente en una órbita positiva inyectiva, pero todavía no descarta ese cohete.",
+      "fuentes": [
+        "depuracion/casa20261004/LEEME.md"
+      ],
+      "afirmaciones": [
+        "casa_retrato_fugitivo_lean",
+        "casa_tablero_choque_lean"
+      ],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "situacion": "vigente"
+    },
+    {
+      "id": "casa_planeador",
+      "titulo": "Casa · el planeador",
+      "rama": "fuga",
+      "padre": "casa",
+      "resumen": "El escenario de infinitos regresos del coeficiente a un techo fijo fue estudiado y luego excluido por Perdices.",
+      "limite": "Exclusión bajo positividad e inyectividad orbital; no equivale a excluir toda trayectoria infinita.",
+      "fuentes": [
+        "depuracion/perdices20261007/COLISIONES.md"
+      ],
+      "afirmaciones": [
+        "casa_planeador_choque_lean"
+      ],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "situacion": "vigente"
+    },
+    {
+      "id": "casa_grieta",
+      "titulo": "Casa · la grieta",
+      "rama": "fuga",
+      "padre": "casa",
+      "resumen": "Un cruce del coeficiente que todavía no hace bajar el número es la grieta del muro A.",
+      "limite": "Ocelotas excluye grietas en rangos de rachas bajo hipótesis explícitas; el alcance universal permanece abierto.",
+      "fuentes": [
+        "depuracion/casa20261004/CasaGrieta.lean"
+      ],
+      "afirmaciones": [
+        "casa_grieta_retrato_lean"
+      ],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "situacion": "vigente"
+    },
+    {
+      "id": "muro_b",
+      "titulo": "Abierto · descartar toda fuga pura",
+      "rama": "perdices",
+      "padre": "perdices_colisiones",
+      "resumen": "Probar que cada n mayor que 1 acaba cruzando 3^S por debajo de 2^k.",
+      "limite": "El crecimiento y las restricciones de un posible fugitivo aún no lo contradicen.",
+      "fuentes": [
+        "depuracion/perdices20261007/MINIMOS.md"
+      ],
+      "afirmaciones": [],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "situacion": "abierta"
+    },
+    {
+      "id": "sin_circuitos",
+      "titulo": "Abierto · excluir los circuitos no triviales",
+      "rama": "perdices",
+      "padre": "perdices_colisiones",
+      "resumen": "Junto con Muro B, esta condición equivale a Collatz en la reducción de mínimos futuros.",
+      "limite": "Las exclusiones de periodos acotados y de pocas rachas no cubren todos los circuitos.",
+      "fuentes": [
+        "depuracion/perdices20261007/MINIMOS.md"
+      ],
+      "afirmaciones": [],
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "situacion": "abierta"
+    },
+    {
+      "id": "perdices_soportes",
+      "titulo": "Perdices · soportes de matrices",
+      "animal": null,
+      "alias": [],
+      "nodos": [],
+      "afirmaciones": [
+        "perdices_rectas_matrices_h",
+        "perdices_soportes_matrices_h"
+      ],
+      "rama": "perdices",
+      "padre": "perdices_matrices",
+      "situacion": "vigente",
+      "resumen": "Excluye matrices que conservan una recta natural común, aun con conexiones en ambos sentidos. Diez soportes mínimos alimentan el término izquierdo.",
+      "limite": "Un aporte positivo no basta para vencer al lado derecho. La clasificación de pesos restantes y la persistencia de H siguen abiertas.",
+      "fuentes": [
+        "depuracion/perdices20261007/SOPORTES_MATRICES_H.md",
+        "depuracion/perdices20261007/PerdicesSoportesMatrices.lean"
+      ]
+    }
+  ],
+  "relaciones": [
+    {
+      "desde": "definiciones",
+      "hasta": "ciervas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: definiciones → ecuacion_vortice. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "definiciones",
+        "ecuacion_vortice"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "lema_identidad",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: definiciones → lema_identidad. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "definiciones",
+        "lema_identidad"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "lema_v2",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: definiciones → lema_v2. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "definiciones",
+        "lema_v2"
+      ]
+    },
+    {
+      "desde": "lema_identidad",
+      "hasta": "lema_general",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_identidad → lema_general. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_identidad",
+        "lema_general"
+      ]
+    },
+    {
+      "desde": "lema_general",
+      "hasta": "conejas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_general → teo_repunit. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_general",
+        "teo_repunit"
+      ]
+    },
+    {
+      "desde": "conejas",
+      "hasta": "conejas",
+      "tipo": "interna",
+      "detalle": "Dependencia del registro anterior: teo_repunit → nuevas_no_acaban. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "teo_repunit",
+        "nuevas_no_acaban"
+      ]
+    },
+    {
+      "desde": "lema_v2",
+      "hasta": "yeguas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_v2 → unicidad_M2. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_v2",
+        "unicidad_M2"
+      ]
+    },
+    {
+      "desde": "lema_general",
+      "hasta": "yeguas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_general → unicidad_M2. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_general",
+        "unicidad_M2"
+      ]
+    },
+    {
+      "desde": "lema_general",
+      "hasta": "familia_M4",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_general → familia_M4. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_general",
+        "familia_M4"
+      ]
+    },
+    {
+      "desde": "ciervas",
+      "hasta": "estratos_medidos",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: ecuacion_vortice → estratos_medidos. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "ecuacion_vortice",
+        "estratos_medidos"
+      ]
+    },
+    {
+      "desde": "lema_v2",
+      "hasta": "estratos_medidos",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_v2 → estratos_medidos. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_v2",
+        "estratos_medidos"
+      ]
+    },
+    {
+      "desde": "lema_v2",
+      "hasta": "yeguas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_v2 → M4_ruta_impar. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_v2",
+        "M4_ruta_impar"
+      ]
+    },
+    {
+      "desde": "familia_M4",
+      "hasta": "yeguas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: familia_M4 → M4_ruta_impar. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "familia_M4",
+        "M4_ruta_impar"
+      ]
+    },
+    {
+      "desde": "lema_general",
+      "hasta": "yeguas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_general → M4_ruta_impar. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_general",
+        "M4_ruta_impar"
+      ]
+    },
+    {
+      "desde": "yeguas",
+      "hasta": "unicidad_M4",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: M4_ruta_impar → unicidad_M4. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "M4_ruta_impar",
+        "unicidad_M4"
+      ]
+    },
+    {
+      "desde": "estratos_medidos",
+      "hasta": "unicidad_M4",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: estratos_medidos → unicidad_M4. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "estratos_medidos",
+        "unicidad_M4"
+      ]
+    },
+    {
+      "desde": "lema_v2",
+      "hasta": "comadrejas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_v2 → coordenadas_DE. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_v2",
+        "coordenadas_DE"
+      ]
+    },
+    {
+      "desde": "comadrejas",
+      "hasta": "familias_E",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: coordenadas_DE → familias_E. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "coordenadas_DE",
+        "familias_E"
+      ]
+    },
+    {
+      "desde": "comadrejas",
+      "hasta": "unicidad_M4",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: coordenadas_DE → unicidad_M4. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "coordenadas_DE",
+        "unicidad_M4"
+      ]
+    },
+    {
+      "desde": "familias_E",
+      "hasta": "clasificacion_rutas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: familias_E → clasificacion_rutas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "familias_E",
+        "clasificacion_rutas"
+      ]
+    },
+    {
+      "desde": "comadrejas",
+      "hasta": "clasificacion_rutas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: coordenadas_DE → clasificacion_rutas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "coordenadas_DE",
+        "clasificacion_rutas"
+      ]
+    },
+    {
+      "desde": "unicidad_M4",
+      "hasta": "cuadratica_M6",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: unicidad_M4 → cuadratica_M6. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "unicidad_M4",
+        "cuadratica_M6"
+      ]
+    },
+    {
+      "desde": "familia_M4",
+      "hasta": "cuadratica_M6",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: familia_M4 → cuadratica_M6. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "familia_M4",
+        "cuadratica_M6"
+      ]
+    },
+    {
+      "desde": "clasificacion_rutas",
+      "hasta": "cuadratica_M6",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: clasificacion_rutas → cuadratica_M6. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "clasificacion_rutas",
+        "cuadratica_M6"
+      ]
+    },
+    {
+      "desde": "cuadratica_M6",
+      "hasta": "recursion_bk",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cuadratica_M6 → recursion_bk. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cuadratica_M6",
+        "recursion_bk"
+      ]
+    },
+    {
+      "desde": "yeguas",
+      "hasta": "recursion_bk",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: unicidad_M2 → recursion_bk. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "unicidad_M2",
+        "recursion_bk"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "leonas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: definiciones → cadena_kc. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "definiciones",
+        "cadena_kc"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "tigresas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → tigresas_multiplicador. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "tigresas_multiplicador"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "aranas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → aranas_sombra. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "aranas_sombra"
+      ]
+    },
+    {
+      "desde": "tigresas",
+      "hasta": "aranas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: tigresas_multiplicador → aranas_sombra. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "tigresas_multiplicador",
+        "aranas_sombra"
+      ]
+    },
+    {
+      "desde": "aranas",
+      "hasta": "moscas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: aranas_sombra → moscas_tension. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "aranas_sombra",
+        "moscas_tension"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "palomas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → palomas_identidad. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "palomas_identidad"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "hormigas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → hormigas_accesibilidad. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "hormigas_accesibilidad"
+      ]
+    },
+    {
+      "desde": "hormigas",
+      "hasta": "abejas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: hormigas_accesibilidad → abejas_bloques. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "hormigas_accesibilidad",
+        "abejas_bloques"
+      ]
+    },
+    {
+      "desde": "abejas",
+      "hasta": "halconas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: abejas_bloques → halconas_bandas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "abejas_bloques",
+        "halconas_bandas"
+      ]
+    },
+    {
+      "desde": "moscas",
+      "hasta": "halconas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: moscas_tension → halconas_bandas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "moscas_tension",
+        "halconas_bandas"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "criterio_recurrencia",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → criterio_recurrencia. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "criterio_recurrencia"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "derivas_k",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → derivas_k. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "derivas_k"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "lema_mixtos",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → lema_mixtos. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "lema_mixtos"
+      ]
+    },
+    {
+      "desde": "derivas_k",
+      "hasta": "golondrinas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: derivas_k → golondrinas_fondo. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "derivas_k",
+        "golondrinas_fondo"
+      ]
+    },
+    {
+      "desde": "lema_mixtos",
+      "hasta": "golondrinas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_mixtos → golondrinas_fondo. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_mixtos",
+        "golondrinas_fondo"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "aguilas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → aguilas_criticidad. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "aguilas_criticidad"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "lechuzas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → lechuzas_obstruccion. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "lechuzas_obstruccion"
+      ]
+    },
+    {
+      "desde": "golondrinas",
+      "hasta": "empalme_por_visita",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: golondrinas_fondo → empalme_por_visita. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "golondrinas_fondo",
+        "empalme_por_visita"
+      ]
+    },
+    {
+      "desde": "moscas",
+      "hasta": "empalme_por_visita",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: moscas_tension → empalme_por_visita. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "moscas_tension",
+        "empalme_por_visita"
+      ]
+    },
+    {
+      "desde": "hormigas",
+      "hasta": "empalme_por_visita",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: hormigas_accesibilidad → empalme_por_visita. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "hormigas_accesibilidad",
+        "empalme_por_visita"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "liebres",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → liebres_criterio. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "liebres_criterio"
+      ]
+    },
+    {
+      "desde": "criterio_recurrencia",
+      "hasta": "liebres",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: criterio_recurrencia → liebres_criterio. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "criterio_recurrencia",
+        "liebres_criterio"
+      ]
+    },
+    {
+      "desde": "hormigas",
+      "hasta": "liebres",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: hormigas_accesibilidad → liebres_criterio. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "hormigas_accesibilidad",
+        "liebres_criterio"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "urracas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → urracas_libro. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "urracas_libro"
+      ]
+    },
+    {
+      "desde": "aranas",
+      "hasta": "cebras",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: aranas_sombra → cebras_lyapunov. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "aranas_sombra",
+        "cebras_lyapunov"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "cabras",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → cabras_mod3. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "cabras_mod3"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "tortolas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → tortolas_acoplamiento. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "tortolas_acoplamiento"
+      ]
+    },
+    {
+      "desde": "urracas",
+      "hasta": "garzas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: urracas_libro → garzas_sesgo. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "urracas_libro",
+        "garzas_sesgo"
+      ]
+    },
+    {
+      "desde": "criterio_recurrencia",
+      "hasta": "garzas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: criterio_recurrencia → garzas_sesgo. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "criterio_recurrencia",
+        "garzas_sesgo"
+      ]
+    },
+    {
+      "desde": "urracas",
+      "hasta": "gaviotas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: urracas_libro → gaviotas_martingala. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "urracas_libro",
+        "gaviotas_martingala"
+      ]
+    },
+    {
+      "desde": "tigresas",
+      "hasta": "gaviotas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: tigresas_multiplicador → gaviotas_martingala. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "tigresas_multiplicador",
+        "gaviotas_martingala"
+      ]
+    },
+    {
+      "desde": "criterio_recurrencia",
+      "hasta": "markov_fuerte",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: criterio_recurrencia → markov_fuerte. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "criterio_recurrencia",
+        "markov_fuerte"
+      ]
+    },
+    {
+      "desde": "golondrinas",
+      "hasta": "markov_fuerte",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: golondrinas_fondo → markov_fuerte. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "golondrinas_fondo",
+        "markov_fuerte"
+      ]
+    },
+    {
+      "desde": "aranas",
+      "hasta": "queltehues",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: aranas_sombra → queltehues_mezcla. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "aranas_sombra",
+        "queltehues_mezcla"
+      ]
+    },
+    {
+      "desde": "tigresas",
+      "hasta": "lema_LA_piso",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: tigresas_multiplicador → lema_LA_piso. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "tigresas_multiplicador",
+        "lema_LA_piso"
+      ]
+    },
+    {
+      "desde": "aranas",
+      "hasta": "lema_LA_piso",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: aranas_sombra → lema_LA_piso. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "aranas_sombra",
+        "lema_LA_piso"
+      ]
+    },
+    {
+      "desde": "golondrinas",
+      "hasta": "lema_LA_piso",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: golondrinas_fondo → lema_LA_piso. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "golondrinas_fondo",
+        "lema_LA_piso"
+      ]
+    },
+    {
+      "desde": "tortolas",
+      "hasta": "lema_LB_ritmo",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: tortolas_acoplamiento → lema_LB_ritmo. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "tortolas_acoplamiento",
+        "lema_LB_ritmo"
+      ]
+    },
+    {
+      "desde": "golondrinas",
+      "hasta": "lema_LB_ritmo",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: golondrinas_fondo → lema_LB_ritmo. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "golondrinas_fondo",
+        "lema_LB_ritmo"
+      ]
+    },
+    {
+      "desde": "moscas",
+      "hasta": "arranques_polinomiales",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: moscas_tension → arranques_polinomiales. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "moscas_tension",
+        "arranques_polinomiales"
+      ]
+    },
+    {
+      "desde": "golondrinas",
+      "hasta": "arranques_polinomiales",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: golondrinas_fondo → arranques_polinomiales. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "golondrinas_fondo",
+        "arranques_polinomiales"
+      ]
+    },
+    {
+      "desde": "criterio_recurrencia",
+      "hasta": "phi_uno",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: criterio_recurrencia → phi_uno. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "criterio_recurrencia",
+        "phi_uno"
+      ]
+    },
+    {
+      "desde": "golondrinas",
+      "hasta": "phi_uno",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: golondrinas_fondo → phi_uno. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "golondrinas_fondo",
+        "phi_uno"
+      ]
+    },
+    {
+      "desde": "liebres",
+      "hasta": "phi_uno",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: liebres_criterio → phi_uno. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "liebres_criterio",
+        "phi_uno"
+      ]
+    },
+    {
+      "desde": "markov_fuerte",
+      "hasta": "phi_uno",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: markov_fuerte → phi_uno. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "markov_fuerte",
+        "phi_uno"
+      ]
+    },
+    {
+      "desde": "lema_LA_piso",
+      "hasta": "phi_uno",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_LA_piso → phi_uno. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_LA_piso",
+        "phi_uno"
+      ]
+    },
+    {
+      "desde": "lema_LB_ritmo",
+      "hasta": "phi_uno",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lema_LB_ritmo → phi_uno. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lema_LB_ritmo",
+        "phi_uno"
+      ]
+    },
+    {
+      "desde": "arranques_polinomiales",
+      "hasta": "phi_uno",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: arranques_polinomiales → phi_uno. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "arranques_polinomiales",
+        "phi_uno"
+      ]
+    },
+    {
+      "desde": "condoras",
+      "hasta": "condoras_barrera",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: condoras → condoras_barrera. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "condoras",
+        "condoras_barrera"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "suricatas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → suricatas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "suricatas"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "castoras",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → castoras. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "castoras"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "erizas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → erizas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "erizas"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "mangostas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: cadena_kc → mangostas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "cadena_kc",
+        "mangostas"
+      ]
+    },
+    {
+      "desde": "mangostas",
+      "hasta": "gacelas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: mangostas → gacelas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "mangostas",
+        "gacelas"
+      ]
+    },
+    {
+      "desde": "mangostas",
+      "hasta": "reloj_excursion",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: mangostas → reloj_excursion. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "mangostas",
+        "reloj_excursion"
+      ]
+    },
+    {
+      "desde": "gacelas",
+      "hasta": "reloj_excursion",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: gacelas → reloj_excursion. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "gacelas",
+        "reloj_excursion"
+      ]
+    },
+    {
+      "desde": "gacelas",
+      "hasta": "control_W_salida",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: gacelas → control_W_salida. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "gacelas",
+        "control_W_salida"
+      ]
+    },
+    {
+      "desde": "control_W_salida",
+      "hasta": "lema_LA_piso",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: control_W_salida → lema_LA_piso. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "control_W_salida",
+        "lema_LA_piso"
+      ]
+    },
+    {
+      "desde": "reloj_excursion",
+      "hasta": "lema_LB_ritmo",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: reloj_excursion → lema_LB_ritmo. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "reloj_excursion",
+        "lema_LB_ritmo"
+      ]
+    },
+    {
+      "desde": "reloj_excursion",
+      "hasta": "lagartijas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: reloj_excursion → lagartijas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "reloj_excursion",
+        "lagartijas"
+      ]
+    },
+    {
+      "desde": "lagartijas",
+      "hasta": "martas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: lagartijas → martas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "lagartijas",
+        "martas"
+      ]
+    },
+    {
+      "desde": "martas",
+      "hasta": "tejonas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: martas → tejonas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "martas",
+        "tejonas"
+      ]
+    },
+    {
+      "desde": "tejonas",
+      "hasta": "gao_densidad",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: tejonas → gao_densidad. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "tejonas",
+        "gao_densidad"
+      ]
+    },
+    {
+      "desde": "gao_densidad",
+      "hasta": "hienas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: gao_densidad → hienas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "gao_densidad",
+        "hienas"
+      ]
+    },
+    {
+      "desde": "martas",
+      "hasta": "alpacas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: martas → alpacas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "martas",
+        "alpacas"
+      ]
+    },
+    {
+      "desde": "tejonas",
+      "hasta": "alpacas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: tejonas → alpacas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "tejonas",
+        "alpacas"
+      ]
+    },
+    {
+      "desde": "alpacas",
+      "hasta": "condoras",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: alpacas → condoras. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "alpacas",
+        "condoras"
+      ]
+    },
+    {
+      "desde": "hienas",
+      "hasta": "condoras",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: hienas → condoras. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "hienas",
+        "condoras"
+      ]
+    },
+    {
+      "desde": "hienas",
+      "hasta": "pandas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: hienas → pandas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "hienas",
+        "pandas"
+      ]
+    },
+    {
+      "desde": "pandas",
+      "hasta": "marmotas",
+      "tipo": "registrada",
+      "detalle": "Dependencia del registro anterior: pandas → marmotas. Su alcance es el del nodo concreto; no afirma que todas las afirmaciones de un animal dependan de todo el otro.",
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ],
+      "nodos_originales": [
+        "pandas",
+        "marmotas"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "perras",
+      "tipo": "usa",
+      "detalle": "Usa la biyección de paridades y los pasos del atajo.",
+      "fuentes": [
+        "teoremadeperras.txt"
+      ]
+    },
+    {
+      "desde": "comadrejas",
+      "hasta": "perras",
+      "tipo": "usa",
+      "detalle": "Los lemas sobre D identifican el vórtice y el primer compartido par.",
+      "fuentes": [
+        "teoremadeperras.txt"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "gatas",
+      "tipo": "usa",
+      "detalle": "La contracción y el reinicio uniforme usan las identidades del atajo y Terras.",
+      "fuentes": [
+        "teoremadegatas.txt"
+      ]
+    },
+    {
+      "desde": "perras",
+      "hasta": "gatas",
+      "tipo": "usa",
+      "detalle": "La parte (c), ecuación de renovación, usa el reparto dado por Perras; la contracción (a) tiene prueba directa.",
+      "fuentes": [
+        "teoremadegatas.txt"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "jirafas",
+      "tipo": "usa",
+      "detalle": "Igualar pendientes de la fórmula afín da la caracterización de clases.",
+      "fuentes": [
+        "teoremadejirafas.txt"
+      ]
+    },
+    {
+      "desde": "gatas",
+      "hasta": "panteras",
+      "tipo": "usa",
+      "detalle": "El desplazamiento de dos pasos es la contracción de Gatas, rederivada independientemente.",
+      "fuentes": [
+        "recursionvertical.lean"
+      ]
+    },
+    {
+      "desde": "perras",
+      "hasta": "chanchitos",
+      "tipo": "antecedente",
+      "detalle": "El estrato mínimo y el rebote abren el estudio de pisos reducidos.",
+      "fuentes": [
+        "teoremadelos3chanchitos.txt"
+      ]
+    },
+    {
+      "desde": "gatas",
+      "hasta": "vacas",
+      "tipo": "usa",
+      "detalle": "La partición de reinicios origina la identidad de renovación.",
+      "fuentes": [
+        "teoremadegatas.txt"
+      ]
+    },
+    {
+      "desde": "vacas",
+      "hasta": "osas",
+      "tipo": "usa",
+      "detalle": "Normalizar la identidad proporciona la primera ecuación del sistema; las demás conservan su alcance medido.",
+      "fuentes": [
+        "auditoria_rigor.py"
+      ]
+    },
+    {
+      "desde": "gatas",
+      "hasta": "leonas",
+      "tipo": "antecedente",
+      "detalle": "Leonas unifica las formas y transiciones estudiadas antes por Gatas y el primer zoológico.",
+      "fuentes": [
+        "archivo/contexto_20260913/RutaTeoremas.md.txt"
+      ]
+    },
+    {
+      "desde": "ratas",
+      "hasta": "leonas",
+      "tipo": "antecedente",
+      "detalle": "El paseo de la deuda es un antecedente de la descripción general (k,c).",
+      "fuentes": [
+        "archivo/contexto_20260913/RutaTeoremas.md.txt"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "lobas",
+      "tipo": "usa",
+      "detalle": "Las reglas de la cadena identifican la única absorción y las continuaciones en torres.",
+      "fuentes": [
+        "matriztransferencia.py"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "pumas",
+      "tipo": "usa",
+      "detalle": "Las matrices de las cajas finitas se construyen con las transiciones de la cadena.",
+      "fuentes": [
+        "certificadocw.py"
+      ]
+    },
+    {
+      "desde": "zorras",
+      "hasta": "pumas",
+      "tipo": "usa",
+      "detalle": "El certificado cita el puente de los truncados a los conteos completos establecido en retornoslambda.",
+      "fuentes": [
+        "certificadocw.py"
+      ]
+    },
+    {
+      "desde": "pumas",
+      "hasta": "langostas",
+      "tipo": "usa",
+      "detalle": "Trabaja sobre las mismas cajas y completa los certificados con cotas superior e inferior para cada caja.",
+      "fuentes": [
+        "pinzacw.py"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "zorras",
+      "tipo": "usa",
+      "detalle": "La ruta de dos pasos del estado (1,2) a fusión produce la desigualdad de conteos.",
+      "fuentes": [
+        "retornoslambda.py"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "ovejas",
+      "tipo": "antecedente",
+      "detalle": "Se comparan retornos de la cadena con los bloques de LaTourette.",
+      "fuentes": [
+        "retornoslambda.py"
+      ]
+    },
+    {
+      "desde": "gatas",
+      "hasta": "ardillas",
+      "tipo": "antecedente",
+      "detalle": "La renovación por pisos lleva a separar retornos y término directo.",
+      "fuentes": [
+        "flecosr.py"
+      ]
+    },
+    {
+      "desde": "panteras",
+      "hasta": "nutrias",
+      "tipo": "usa",
+      "detalle": "La contracción aporta el canal vertical en la contabilidad por estratos.",
+      "fuentes": [
+        "estratoscadena.py"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "komodo",
+      "tipo": "usa",
+      "detalle": "La congruencia se conserva directamente por las ramas del atajo.",
+      "fuentes": [
+        "teoremadekomodo3.lean"
+      ]
+    },
+    {
+      "desde": "jirafas",
+      "hasta": "libelulas",
+      "tipo": "usa",
+      "detalle": "El equilibrio de conteos impares fuerza igual número de orientaciones mixtas y, por tanto, paridad del total.",
+      "fuentes": [
+        "depuracion/oeis20260924/Garzas.md"
+      ]
+    },
+    {
+      "desde": "yeguas",
+      "hasta": "garzas",
+      "tipo": "antecedente",
+      "detalle": "La etapa de septiembre retoma la unicidad e2 y su representante.",
+      "fuentes": [
+        "depuracion/oeis20260924/Garzas.md"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "viboras",
+      "tipo": "usa",
+      "detalle": "Las fórmulas del hijo de un paso mixto se expresan como congruencias.",
+      "fuentes": [
+        "lecturaracha.lean"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "avispas",
+      "tipo": "usa",
+      "detalle": "Los hijos de un paso compartido difieren módulo 2 en nivel impar.",
+      "fuentes": [
+        "lecturaracha.lean"
+      ]
+    },
+    {
+      "desde": "viboras",
+      "hasta": "loras",
+      "tipo": "antecedente",
+      "detalle": "La lectura de bits se amplía a una palabra completa y reemplaza un argumento compuesto roto.",
+      "fuentes": [
+        "archivo/contexto_20260913/RutaTeoremas.md.txt"
+      ]
+    },
+    {
+      "desde": "loras",
+      "hasta": "ballenas",
+      "tipo": "antecedente",
+      "detalle": "La unicidad por palabra motiva el control de distribución requerido para la ruta del reloj.",
+      "fuentes": [
+        "notaequidistribucion.txt"
+      ]
+    },
+    {
+      "desde": "piranas",
+      "hasta": "ballenas",
+      "tipo": "antecedente",
+      "detalle": "La medición de colisión se refina condicionando por altura.",
+      "fuentes": [
+        "notaequidistribucion.txt"
+      ]
+    },
+    {
+      "desde": "ballenas",
+      "hasta": "erizas",
+      "tipo": "contrasta",
+      "detalle": "Erizas descarta la versión uniforme entre todas las escalas para leyes alcanzables; no refuta las tablas finitas.",
+      "fuentes": [
+        "depuracion/frente20260910/Erizas.md"
+      ]
+    },
+    {
+      "desde": "suricatas",
+      "hasta": "castoras",
+      "tipo": "antecedente",
+      "detalle": "Tras la rigidez de invariantes, el frente analiza el balance de las corrientes.",
+      "fuentes": [
+        "depuracion/frente20260910/LEEME.md"
+      ]
+    },
+    {
+      "desde": "castoras",
+      "hasta": "erizas",
+      "tipo": "antecedente",
+      "detalle": "Se pasa de contraejemplos sintéticos a una obstrucción sobre leyes alcanzables.",
+      "fuentes": [
+        "depuracion/frente20260910/Erizas.md"
+      ]
+    },
+    {
+      "desde": "erizas",
+      "hasta": "mangostas",
+      "tipo": "antecedente",
+      "detalle": "El frente cambia a la duración directa de rachas sin restaurar la contracción descartada.",
+      "fuentes": [
+        "depuracion/frente20260910/Erizas.md"
+      ]
+    },
+    {
+      "desde": "lurrus",
+      "hasta": "truchas",
+      "tipo": "antecedente",
+      "detalle": "Truchas nombra el teorema V2/L3 dentro de la subteoría de Lurrus.",
+      "fuentes": [
+        "archivo/contexto_20260913/RutaTeoremas.md.txt"
+      ]
+    },
+    {
+      "desde": "lurrus",
+      "hasta": "grullas",
+      "tipo": "antecedente",
+      "detalle": "Grullas conserva las mediciones de medianas que motivaron la reversión.",
+      "fuentes": [
+        "archivo/contexto_20260913/RutaTeoremas.md.txt"
+      ]
+    },
+    {
+      "desde": "truchas",
+      "hasta": "lema_LA_piso",
+      "tipo": "condicional",
+      "detalle": "Trasladar el piso de V2 a la cadena real requería controles conjuntos adicionales; es un puente pendiente.",
+      "fuentes": [
+        "depuracion/coherencia20260913/Matematica.md"
+      ]
+    },
+    {
+      "desde": "viboras",
+      "hasta": "tortugas",
+      "tipo": "antecedente",
+      "detalle": "La antigua ruta al reloj requería dominar las rachas leídas por sus bits.",
+      "fuentes": [
+        "notalb.txt"
+      ]
+    },
+    {
+      "desde": "cigarras",
+      "hasta": "tortugas",
+      "tipo": "antecedente",
+      "detalle": "Las mediciones antiguas motivaron la dominación que faltaba; no son su prueba.",
+      "fuentes": [
+        "notalb.txt"
+      ]
+    },
+    {
+      "desde": "tortolas",
+      "hasta": "queltehues",
+      "tipo": "contrasta",
+      "detalle": "La séptima revisión usa el acoplamiento para retirar la independencia de la pieza 3.",
+      "fuentes": [
+        "actarevision1008.txt"
+      ]
+    },
+    {
+      "desde": "leonas",
+      "hasta": "efimeras",
+      "tipo": "antecedente",
+      "detalle": "Se mide el sesgo de apertura en las excursiones de la cadena.",
+      "fuentes": [
+        "dominacioncondicionada.py"
+      ]
+    },
+    {
+      "desde": "gacelas",
+      "hasta": "ensayos_guardados",
+      "tipo": "usa",
+      "detalle": "Aporta las ventanas de salida que se convierten en oportunidades de ensayo.",
+      "fuentes": [
+        "depuracion/gao20260920/Guardias_finitas.md"
+      ]
+    },
+    {
+      "desde": "hormigas",
+      "hasta": "ensayos_guardados",
+      "tipo": "usa",
+      "detalle": "Aporta la palabra de fusión y su probabilidad para cada ensayo.",
+      "fuentes": [
+        "depuracion/gao20260920/Guardias_finitas.md"
+      ]
+    },
+    {
+      "desde": "ensayos_guardados",
+      "hasta": "lagartijas",
+      "tipo": "usa",
+      "detalle": "El conteo de ensayos y las entradas guardadas se unen a la cota de pocas entradas.",
+      "fuentes": [
+        "depuracion/gao20260920/Lagartijas.md"
+      ]
+    },
+    {
+      "desde": "moscas",
+      "hasta": "lagartijas",
+      "tipo": "usa",
+      "detalle": "El ensamblaje controla tamaños de los estados y entradas admisibles.",
+      "fuentes": [
+        "depuracion/gao20260920/Tejonas.md"
+      ]
+    },
+    {
+      "desde": "gao_candidatos",
+      "hasta": "lagartijas",
+      "tipo": "antecedente",
+      "detalle": "CF_F sustituye los ensamblajes candidatos previos; éstos no quedan como premisas sin demostrar.",
+      "fuentes": [
+        "depuracion/gao20260920/Lagartijas.md"
+      ]
+    },
+    {
+      "desde": "lagartijas",
+      "hasta": "cigarras",
+      "tipo": "usa",
+      "detalle": "La etapa de septiembre examina cuándo el número de ensayos de CF_F deja de ser cero.",
+      "fuentes": [
+        "depuracion/gao20260924/Cigarras.md"
+      ]
+    },
+    {
+      "desde": "definiciones",
+      "hasta": "ocelotas",
+      "tipo": "usa",
+      "detalle": "Usa el mapa, la cuenta de impares, la identidad afín y los residuos de cada palabra.",
+      "fuentes": [
+        "depuracion/cst20260930/LEEME.md"
+      ]
+    },
+    {
+      "desde": "lmn",
+      "hasta": "ocelotas",
+      "tipo": "condicional",
+      "detalle": "El cierre de 24 es una implicación bajo LMN; no se añade como axioma Lean oculto.",
+      "fuentes": [
+        "depuracion/cst20260930/VEINTICUATRO_LEAN.md"
+      ]
+    },
+    {
+      "desde": "rozier",
+      "hasta": "ocelotas",
+      "tipo": "condicional",
+      "detalle": "El cierre de 77 añade explícitamente la hipótesis Rozier–Terracol.",
+      "fuentes": [
+        "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md"
+      ]
+    },
+    {
+      "desde": "ocelotas",
+      "hasta": "casa",
+      "tipo": "usa",
+      "detalle": "CasaOcelotas usa el tramo cerrado de 24 para restringir puntos sin retorno, bajo LMN.",
+      "fuentes": [
+        "depuracion/casa20261004/LEEME.md"
+      ]
+    },
+    {
+      "desde": "casa",
+      "hasta": "corzas",
+      "tipo": "antecedente",
+      "detalle": "La sesión recuperada construyó una implementación independiente del retrato y los choques.",
+      "fuentes": [
+        "depuracion/casa20261005_recuperada/RECUPERACION.md"
+      ]
+    },
+    {
+      "desde": "corzas",
+      "hasta": "chinchillas",
+      "tipo": "antecedente",
+      "detalle": "La continuación recuperada estudia Korec y las cotas de potencia.",
+      "fuentes": [
+        "depuracion/casa20261005_recuperada/CHINCHILLAS.md"
+      ]
+    },
+    {
+      "desde": "chinchillas",
+      "hasta": "korec_terras",
+      "tipo": "contrasta",
+      "detalle": "Hay solapamiento de enunciados con la implementación vigente, pero hipótesis, cotas y objetos distintos.",
+      "fuentes": [
+        "depuracion/jinetas20261010/CONCILIACION.md"
+      ]
+    },
+    {
+      "desde": "casa",
+      "hasta": "perdices",
+      "tipo": "antecedente",
+      "detalle": "La cadena 3-ádica recuperada y el retrato del fugitivo dan origen a la continuación de Perdices.",
+      "fuentes": [
+        "depuracion/perdices20261007/LEEME.md"
+      ]
+    },
+    {
+      "desde": "casa",
+      "hasta": "jinetas",
+      "tipo": "antecedente",
+      "detalle": "La ruta aritmética del 10-10 abre el estudio de intercambios, prefijos y reinicios.",
+      "fuentes": [
+        "depuracion/casa20261004/RUTA_20261010.md"
+      ]
+    },
+    {
+      "desde": "jinetas",
+      "hasta": "perdices_regresos",
+      "tipo": "antecedente",
+      "detalle": "El mismo programa vuelve al coste y la frecuencia de regresos; no es una dependencia general de Perdices respecto de Jinetas.",
+      "fuentes": [
+        "depuracion/casa20261004/RUTA_20261010.md"
+      ]
+    },
+    {
+      "desde": "ocelotas",
+      "hasta": "jinetas",
+      "tipo": "usa",
+      "detalle": "Reutiliza el primer cruce y compara los criterios de prefijos con las cribas de Ocelotas.",
+      "fuentes": [
+        "depuracion/jinetas20261010/PREFIJOS.md"
+      ]
+    },
+    {
+      "desde": "casa",
+      "hasta": "perdices_acoplamiento",
+      "tipo": "usa",
+      "detalle": "PerdicesAcoplamiento importa CasaCadena de la implementación recuperada.",
+      "fuentes": [
+        "depuracion/perdices20261007/PerdicesAcoplamiento.lean"
+      ]
+    },
+    {
+      "desde": "ocelotas",
+      "hasta": "perdices_regresos",
+      "tipo": "usa",
+      "detalle": "El cierre de excursiones usa la extracción de palabras de Ocelotas; esto no añade LMN a todos los resultados de Perdices.",
+      "fuentes": [
+        "depuracion/perdices20261007/EXCURSIONES.md"
+      ]
+    },
+    {
+      "desde": "perdices_regresos",
+      "hasta": "perdices_colisiones",
+      "tipo": "antecedente",
+      "detalle": "La exclusión por colisiones supera el escenario de infinitos regresos estudiado en las cotas anteriores.",
+      "fuentes": [
+        "depuracion/perdices20261007/COLISIONES.md"
+      ]
+    },
+    {
+      "desde": "perdices_colisiones",
+      "hasta": "perdices_palabras",
+      "tipo": "usa",
+      "detalle": "La complejidad combina la ley de repetición con el control de órbitas inyectivas y mínimos.",
+      "fuentes": [
+        "depuracion/perdices20261007/COMPLEJIDAD.md"
+      ]
+    },
+    {
+      "desde": "perdices_palabras",
+      "hasta": "perdices_h",
+      "tipo": "antecedente",
+      "detalle": "Los censos de salida y palabras prohibidas llevan al retorno parcial H.",
+      "fuentes": [
+        "depuracion/perdices20261007/SALIDAS.md"
+      ]
+    },
+    {
+      "desde": "perdices_h",
+      "hasta": "perdices_matrices",
+      "tipo": "antecedente",
+      "detalle": "La búsqueda de terminación se traslada al sistema de reescritura por dígitos de Yolcu–Aaronson–Heule.",
+      "fuentes": [
+        "depuracion/perdices20261007/MATRICES_H.md"
+      ]
+    },
+    {
+      "desde": "mahler",
+      "hasta": "perdices",
+      "tipo": "contrasta",
+      "detalle": "La revisión explica por qué la analogía de Mahler no controla el cohete del problema original.",
+      "fuentes": [
+        "depuracion/mahler20261007/LEEME.md"
+      ]
+    },
+    {
+      "desde": "nashida",
+      "hasta": "pandas",
+      "tipo": "antecedente",
+      "detalle": "Orden de exploración del plan de septiembre, no una implicación matemática.",
+      "fuentes": [
+        "depuracion/transversal20260927/PLAN_SESIONES_20260928.md"
+      ]
+    },
+    {
+      "desde": "pandas",
+      "hasta": "wirsching",
+      "tipo": "antecedente",
+      "detalle": "Orden de exploración del plan de septiembre, no una implicación matemática.",
+      "fuentes": [
+        "depuracion/transversal20260927/PLAN_SESIONES_20260928.md"
+      ]
+    },
+    {
+      "desde": "wirsching",
+      "hasta": "cst_inicio",
+      "tipo": "antecedente",
+      "detalle": "Orden de exploración del plan de septiembre, no una implicación matemática.",
+      "fuentes": [
+        "depuracion/transversal20260927/PLAN_SESIONES_20260928.md"
+      ]
+    },
+    {
+      "desde": "cst_inicio",
+      "hasta": "ocelotas",
+      "tipo": "antecedente",
+      "detalle": "Orden de exploración del plan de septiembre, no una implicación matemática.",
+      "fuentes": [
+        "depuracion/transversal20260927/PLAN_SESIONES_20260928.md"
+      ]
+    },
+    {
+      "desde": "casa_plano",
+      "hasta": "casa_cohete",
+      "tipo": "usa",
+      "detalle": "El retrato parte de la definición de fuga pura del plano.",
+      "fuentes": [
+        "depuracion/casa20261004/CasaRetrato.lean"
+      ]
+    },
+    {
+      "desde": "casa_plano",
+      "hasta": "casa_grieta",
+      "tipo": "usa",
+      "detalle": "La grieta usa primer cruce y fallo de descenso definidos en el plano.",
+      "fuentes": [
+        "depuracion/casa20261004/CasaGrieta.lean"
+      ]
+    },
+    {
+      "desde": "casa_cohete",
+      "hasta": "casa_planeador",
+      "tipo": "antecedente",
+      "detalle": "La distinción de escenarios lleva a estudiar regresos a una franja de coeficientes.",
+      "fuentes": [
+        "depuracion/casa20261004/LEEME.md"
+      ]
+    },
+    {
+      "desde": "perdices_colisiones",
+      "hasta": "casa_planeador",
+      "tipo": "contrasta",
+      "detalle": "La sumabilidad implica que el coeficiente tiende a infinito y excluye el planeador intermitente.",
+      "fuentes": [
+        "depuracion/perdices20261007/COLISIONES.md"
+      ]
+    },
+    {
+      "desde": "perdices_colisiones",
+      "hasta": "muro_b",
+      "tipo": "antecedente",
+      "detalle": "Los reinicios grandes reducen la fuga general a una fuga pura; queda descartarla.",
+      "fuentes": [
+        "depuracion/perdices20261007/MINIMOS.md"
+      ]
+    },
+    {
+      "desde": "perdices_colisiones",
+      "hasta": "sin_circuitos",
+      "tipo": "antecedente",
+      "detalle": "La reducción deja como obligación separada la ausencia de circuitos no triviales.",
+      "fuentes": [
+        "depuracion/perdices20261007/MINIMOS.md"
+      ]
+    },
+    {
+      "desde": "perdices_matrices",
+      "hasta": "perdices_soportes",
+      "tipo": "usa",
+      "detalle": "La obstrucción escalar se aplica a la proyección sobre una recta invariante común.",
+      "fuentes": [
+        "depuracion/perdices20261007/SOPORTES_MATRICES_H.md"
+      ]
+    }
+  ],
+  "inventario": [
+    {
+      "nombre": "Ciervas",
+      "pieza": "ciervas",
+      "alias": [],
+      "fuentes": [
+        "nuevasfusion.py"
+      ]
+    },
+    {
+      "nombre": "Conejas",
+      "pieza": "conejas",
+      "alias": [],
+      "fuentes": [
+        "conejas.lean"
+      ]
+    },
+    {
+      "nombre": "Yeguas",
+      "pieza": "yeguas",
+      "alias": [],
+      "fuentes": [
+        "nuevasfusion.py"
+      ]
+    },
+    {
+      "nombre": "Comadrejas",
+      "pieza": "comadrejas",
+      "alias": [],
+      "fuentes": [
+        "nuevasfusion.py"
+      ]
+    },
+    {
+      "nombre": "Leonas",
+      "pieza": "leonas",
+      "alias": [],
+      "fuentes": [
+        "cadenakc.lean"
+      ]
+    },
+    {
+      "nombre": "Tigresas",
+      "pieza": "tigresas",
+      "alias": [],
+      "fuentes": [
+        "subrenovacionc.py"
+      ]
+    },
+    {
+      "nombre": "Arañas",
+      "pieza": "aranas",
+      "alias": [],
+      "fuentes": [
+        "aranas.py"
+      ]
+    },
+    {
+      "nombre": "Moscas",
+      "pieza": "moscas",
+      "alias": [],
+      "fuentes": [
+        "notamoscas.txt"
+      ]
+    },
+    {
+      "nombre": "Palomas",
+      "pieza": "palomas",
+      "alias": [],
+      "fuentes": [
+        "minorizacion.py"
+      ]
+    },
+    {
+      "nombre": "Hormigas",
+      "pieza": "hormigas",
+      "alias": [],
+      "fuentes": [
+        "accesibilidad.py"
+      ]
+    },
+    {
+      "nombre": "Abejas",
+      "pieza": "abejas",
+      "alias": [],
+      "fuentes": [
+        "minorizacion.py"
+      ]
+    },
+    {
+      "nombre": "Halconas",
+      "pieza": "halconas",
+      "alias": [],
+      "fuentes": [
+        "minorizacion.py"
+      ]
+    },
+    {
+      "nombre": "Golondrinas",
+      "pieza": "golondrinas",
+      "alias": [],
+      "fuentes": [
+        "oscilacion.py"
+      ]
+    },
+    {
+      "nombre": "Águilas",
+      "pieza": "aguilas",
+      "alias": [],
+      "fuentes": [
+        "cadenaqnr.py"
+      ]
+    },
+    {
+      "nombre": "Lechuzas",
+      "pieza": "lechuzas",
+      "alias": [],
+      "fuentes": [
+        "cadenaqnr.py"
+      ]
+    },
+    {
+      "nombre": "Liebres",
+      "pieza": "liebres",
+      "alias": [],
+      "fuentes": [
+        "liebres.py"
+      ]
+    },
+    {
+      "nombre": "Urracas",
+      "pieza": "urracas",
+      "alias": [],
+      "fuentes": [
+        "urracas.lean"
+      ]
+    },
+    {
+      "nombre": "Cebras",
+      "pieza": "cebras",
+      "alias": [],
+      "fuentes": [
+        "depuracion/coherencia20260913/registro.json"
+      ]
+    },
+    {
+      "nombre": "Cabras",
+      "pieza": "cabras",
+      "alias": [],
+      "fuentes": [
+        "cabras.lean"
+      ]
+    },
+    {
+      "nombre": "Tórtolas",
+      "pieza": "tortolas",
+      "alias": [],
+      "fuentes": [
+        "tortolas.lean"
+      ]
+    },
+    {
+      "nombre": "Garzas",
+      "pieza": "garzas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/oeis20260924/Garzas.md",
+        "monedacondicionada.py"
+      ]
+    },
+    {
+      "nombre": "Gaviotas",
+      "pieza": "gaviotas",
+      "alias": [],
+      "fuentes": [
+        "gaviotas.py"
+      ]
+    },
+    {
+      "nombre": "Queltehues",
+      "pieza": "queltehues",
+      "alias": [
+        "Focas"
+      ],
+      "fuentes": [
+        "lemadelamezcla.txt",
+        "actarevision1008.txt"
+      ]
+    },
+    {
+      "nombre": "Suricatas",
+      "pieza": "suricatas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/frente20260910/LEEME.md"
+      ]
+    },
+    {
+      "nombre": "Castoras",
+      "pieza": "castoras",
+      "alias": [],
+      "fuentes": [
+        "depuracion/frente20260910/Castoras.md"
+      ]
+    },
+    {
+      "nombre": "Erizas",
+      "pieza": "erizas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/frente20260910/Erizas.md"
+      ]
+    },
+    {
+      "nombre": "Mangostas",
+      "pieza": "mangostas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/frente20260910/Mangostas.md"
+      ]
+    },
+    {
+      "nombre": "Gacelas",
+      "pieza": "gacelas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/frente20260910/Gacelas.md"
+      ]
+    },
+    {
+      "nombre": "Lagartijas",
+      "pieza": "lagartijas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/gao20260920/Lagartijas.md"
+      ]
+    },
+    {
+      "nombre": "Martas",
+      "pieza": "martas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/gao20260920/Martas.md"
+      ]
+    },
+    {
+      "nombre": "Tejonas",
+      "pieza": "tejonas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/gao20260920/Tejonas.md"
+      ]
+    },
+    {
+      "nombre": "Hienas",
+      "pieza": "hienas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/gao20260920/Hienas.md"
+      ]
+    },
+    {
+      "nombre": "Alpacas",
+      "pieza": "alpacas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/garner20260926/Alpacas.md"
+      ]
+    },
+    {
+      "nombre": "Cóndoras",
+      "pieza": "condoras",
+      "alias": [],
+      "fuentes": [
+        "depuracion/gao20260920/formal/WuEnunciado.lean"
+      ]
+    },
+    {
+      "nombre": "Pandas",
+      "pieza": "pandas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/pandas20260930/LEEME.md"
+      ]
+    },
+    {
+      "nombre": "Marmotas",
+      "pieza": "marmotas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/pandas20260930/Pandas.lean"
+      ]
+    },
+    {
+      "nombre": "Ocelotas",
+      "pieza": "ocelotas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/cst20260930/VEINTICUATRO_LEAN.md",
+        "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md"
+      ]
+    },
+    {
+      "nombre": "Perras",
+      "pieza": "perras",
+      "alias": [],
+      "fuentes": [
+        "teoremadeperras.txt"
+      ]
+    },
+    {
+      "nombre": "Gatas",
+      "pieza": "gatas",
+      "alias": [],
+      "fuentes": [
+        "teoremadegatas.txt"
+      ]
+    },
+    {
+      "nombre": "Jirafas",
+      "pieza": "jirafas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/coherencia20260913/Matematica.md"
+      ]
+    },
+    {
+      "nombre": "3 Chanchitos",
+      "pieza": "chanchitos",
+      "alias": [
+        "Tres Chanchitos"
+      ],
+      "fuentes": [
+        "teoremadelos3chanchitos.txt"
+      ]
+    },
+    {
+      "nombre": "Komodo 3",
+      "pieza": "komodo",
+      "alias": [
+        "Komodas",
+        "Komodo"
+      ],
+      "fuentes": [
+        "teoremadekomodo3.lean"
+      ]
+    },
+    {
+      "nombre": "Panteras",
+      "pieza": "panteras",
+      "alias": [],
+      "fuentes": [
+        "recursionvertical.lean"
+      ]
+    },
+    {
+      "nombre": "Vacas",
+      "pieza": "vacas",
+      "alias": [],
+      "fuentes": [
+        "identidadexacta.py"
+      ]
+    },
+    {
+      "nombre": "Osas",
+      "pieza": "osas",
+      "alias": [],
+      "fuentes": [
+        "auditoria_rigor.py"
+      ]
+    },
+    {
+      "nombre": "Ardillas",
+      "pieza": "ardillas",
+      "alias": [],
+      "fuentes": [
+        "flecosr.py"
+      ]
+    },
+    {
+      "nombre": "Nutrias",
+      "pieza": "nutrias",
+      "alias": [],
+      "fuentes": [
+        "estratoscadena.py"
+      ]
+    },
+    {
+      "nombre": "Ratas",
+      "pieza": "ratas",
+      "alias": [],
+      "fuentes": [
+        "torredeladeuda.lean"
+      ]
+    },
+    {
+      "nombre": "Zorras",
+      "pieza": "zorras",
+      "alias": [],
+      "fuentes": [
+        "retornoslambda.py"
+      ]
+    },
+    {
+      "nombre": "Lobas",
+      "pieza": "lobas",
+      "alias": [],
+      "fuentes": [
+        "matriztransferencia.py"
+      ]
+    },
+    {
+      "nombre": "Pumas",
+      "pieza": "pumas",
+      "alias": [],
+      "fuentes": [
+        "certificadocw.py"
+      ]
+    },
+    {
+      "nombre": "Langostas",
+      "pieza": "langostas",
+      "alias": [],
+      "fuentes": [
+        "pinzacw.py"
+      ]
+    },
+    {
+      "nombre": "Ovejas",
+      "pieza": "ovejas",
+      "alias": [],
+      "fuentes": [
+        "retornoslambda.py"
+      ]
+    },
+    {
+      "nombre": "Víboras",
+      "pieza": "viboras",
+      "alias": [],
+      "fuentes": [
+        "lecturaracha.lean"
+      ]
+    },
+    {
+      "nombre": "Avispas",
+      "pieza": "avispas",
+      "alias": [],
+      "fuentes": [
+        "lecturaracha.lean"
+      ]
+    },
+    {
+      "nombre": "Efímeras",
+      "pieza": "efimeras",
+      "alias": [],
+      "fuentes": [
+        "dominacioncondicionada.py"
+      ]
+    },
+    {
+      "nombre": "Pirañas",
+      "pieza": "piranas",
+      "alias": [],
+      "fuentes": [
+        "excesocolision.py"
+      ]
+    },
+    {
+      "nombre": "Tortugas",
+      "pieza": "tortugas",
+      "alias": [],
+      "fuentes": [
+        "notalb.txt"
+      ]
+    },
+    {
+      "nombre": "Loras",
+      "pieza": "loras",
+      "alias": [],
+      "fuentes": [
+        "unionpalabras.lean"
+      ]
+    },
+    {
+      "nombre": "Ballenas",
+      "pieza": "ballenas",
+      "alias": [],
+      "fuentes": [
+        "conteoconjunto.py"
+      ]
+    },
+    {
+      "nombre": "Truchas",
+      "pieza": "truchas",
+      "alias": [],
+      "fuentes": [
+        "teoremav2.txt"
+      ]
+    },
+    {
+      "nombre": "Grullas",
+      "pieza": "grullas",
+      "alias": [],
+      "fuentes": [
+        "medianauniversal.py"
+      ]
+    },
+    {
+      "nombre": "Cigarras",
+      "pieza": "cigarras",
+      "alias": [],
+      "fuentes": [
+        "depuracion/gao20260924/Cigarras.md",
+        "rachasreales.py"
+      ]
+    },
+    {
+      "nombre": "Corzas",
+      "pieza": "corzas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/casa20261005_recuperada/CORZAS.md",
+        "depuracion/jinetas20261010/CONCILIACION.md"
+      ]
+    },
+    {
+      "nombre": "Chinchillas",
+      "pieza": "chinchillas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/casa20261005_recuperada/CHINCHILLAS.md",
+        "depuracion/jinetas20261010/CONCILIACION.md"
+      ]
+    },
+    {
+      "nombre": "Perdices",
+      "pieza": "perdices",
+      "alias": [],
+      "fuentes": [
+        "depuracion/perdices20261007/LEEME.md",
+        "depuracion/casa20261005_recuperada/PERDICES.md"
+      ]
+    },
+    {
+      "nombre": "Jinetas",
+      "pieza": "jinetas",
+      "alias": [],
+      "fuentes": [
+        "depuracion/jinetas20261010/LEEME.md"
+      ]
+    },
+    {
+      "nombre": "Libélulas",
+      "pieza": "libelulas",
+      "alias": [
+        "Libélula",
+        "Teorema de la libélula"
+      ],
+      "fuentes": [
+        "depuracion/oeis20260924/Garzas.md"
+      ]
+    },
+    {
+      "nombre": "Focas",
+      "pieza": "queltehues",
+      "alias_de": "Queltehues",
+      "alias": [],
+      "fuentes": [
+        "actarevision1008.txt"
+      ]
+    },
+    {
+      "nombre": "Lurrus",
+      "pieza": "lurrus",
+      "alias": [],
+      "tipo": "subteoria",
+      "fuentes": [
+        "archivo/contexto_20260913/RutaTeoremas.md.txt"
+      ]
+    }
+  ],
+  "recorrido": [
+    {
+      "titulo": "Primeras clases y encuentros",
+      "piezas": [
+        "perras",
+        "gatas",
+        "jirafas",
+        "leonas"
+      ],
+      "fuente": "archivo/contexto_20260913/RutaTeoremas.md.txt"
+    },
+    {
+      "titulo": "La vía de densidad",
+      "piezas": [
+        "mangostas",
+        "gacelas",
+        "lagartijas",
+        "martas",
+        "tejonas",
+        "hienas",
+        "alpacas",
+        "condoras"
+      ],
+      "fuente": "depuracion/gao20260920/Tejonas.md"
+    },
+    {
+      "titulo": "Plan de septiembre",
+      "piezas": [
+        "nashida",
+        "pandas",
+        "wirsching",
+        "cst_inicio",
+        "ocelotas"
+      ],
+      "fuente": "depuracion/transversal20260927/PLAN_SESIONES_20260928.md"
+    },
+    {
+      "titulo": "Casa y continuaciones",
+      "piezas": [
+        "casa",
+        "jinetas",
+        "perdices",
+        "perdices_matrices"
+      ],
+      "fuente": "depuracion/casa20261004/RUTA_20261010.md"
+    }
+  ],
+  "fuentes_inventario": [
+    "archivo/contexto_20260913/RutaTeoremas.md.txt",
+    "depuracion/mapa20261011/inventario_git.json",
+    "depuracion/coherencia20260913/registro.json",
+    "depuracion/casa20261005_recuperada/RECUPERACION.md",
+    "depuracion/jinetas20261010/CONCILIACION.md"
+  ],
+  "nota": "Catálogo editorial versionado. Pertenencia al árbol, procedencia histórica, dependencia matemática e hipótesis son relaciones distintas. Cada afirmación vigente tiene una asignación explícita por clave estable o por ID histórico anclado a la fuente congelada. Los nombres recuperados no crean afirmaciones duplicadas."
+}

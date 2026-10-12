@@ -1,0 +1,18 @@
+{
+  "version_z3": "5.1.0",
+  "certificados": 12,
+  "escalas": [
+    1,
+    10000
+  ],
+  "asignaciones_borde": 256,
+  "interpretaciones_comparadas": 2956,
+  "fuentes": {
+    "auditar_articas_libres_h.py": "dcf06621404005ee8aaa263daaed4fffa20d753e7ab0a78d2f855eb0b5fef874",
+    "buscar_articas_libres_h.py": "0d66108d13fcfc8c5ce6a02c3692706b75a9424d1536ecf0b7d4ff3a24d092b3",
+    "verificar_matrices_h.py": "5632cb126f3eadc507689bc72eedf577c61e05508ce9a1e85ef1b024d072b1e9",
+    "sat_control15_a3_c5.json": "4187c0d22e49649b16fc8ab2c9fab95c73cf0ad4bf06a1afe4a77018a1ddbd16",
+    "bv_control15_a3_c5.json": "74c919dbc0d91b71314bfa83d38e63881e0513f290f2993888b0c991528928cd"
+  },
+  "alcance": "Cotejo finito independiente de semántica y modelos conocidos; no decide los timeouts ni certifica universalmente el codificador."
+}

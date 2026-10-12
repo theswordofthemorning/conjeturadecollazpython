@@ -1,5 +1,6 @@
 {
-  "version": "2026-10-10",
+  "version": "2026-10-12",
+  "mapa_investigacion": "mapa_investigacion.json",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
   "nota": "Fuente historica congelada en guardarafirmaciones.py; correcciones y altas vigentes aqui. No unir los IDs actuales con fichas historicas sin cotejo literal.",
@@ -1548,9 +1549,206 @@
       "enunciado": "PERDICES: REINICIOS, INVERSA Y COMPATIBILIDAD DE TODA HISTORIA FINITA. Para h impar positivo, a=v2(9*h-1), m=(9*h-1)/2^a, K=3^a*m+1, se define un reinicio admisible cuando v2(K)=3*b, b>=1: F(h)=9^(b-1)*K/2^(3*b). Entonces G^b(8*h-1)+1=8*F(h), 8*F(h)>=13*h y v3(F(h))=2*(b-1). F es inyectiva en su dominio admisible. Cada historia finita de etiquetas a,b>=1 admite exactamente una clase impar modulo 2*M, donde M es el producto de 2^(a+3*b) de sus ramas; sus representantes positivos realizan esa historia. Para todo r>=0 existen fuentes con v3(h)=1, sin predecesor F, que realizan al menos r reinicios de la rama a=b=1. Las semillas pueden variar con r; no se construye una trayectoria infinita.",
       "fuente": "compresion de transiciones G, identidades afines, valuaciones y teorema chino del resto; derivacion local 10-10-2026",
       "notas": "PerdicesCancelaciones.lean formaliza la correspondencia con G, K>=13*h, 8*F(h)>=13*h y el perfil ternario; la inversa completa, inyectividad, codificacion de historias y familia de fuentes conservan prueba escrita en CANCELACIONES.md secciones 3 a 5. El perfil se exige a salidas, no a cualquier semilla inicial: F(3)=5. La rama cumple 2^(a+3*b)*h'=3^(a+2*b)*h-9^(b-1)*(3^a-2^a); la historia compuesta M*h_final=A_total*h-E_total equivale a h=(E_total+M)*A_total^(-1) mod 2*M. La familia h=11^(-1) mod 2^(4*r+1), h=3 mod 9 realiza r ramas (1,1) y no tiene predecesor. Ninguna historia finita se excluye por congruencias; el perfil inverso recupera las mismas etiquetas, no una criba independiente. La equivalencia entre una cadena infinita admisible F y la clase infinita 1/110 tiene prueba escrita, sin equivalencia con todo MuroB. La palabra T por reinicio es 110 seguido de a unos y b-1 copias de 110, desde x=32*h-5. Cotejo exacto: 2048 h impares hasta 4095, 291 reinicios admisibles, 1566 pasos T y 128 inversas en rango; todas las 2048 cadenas salen con corte 32, maximo observado cuatro reinicios, solo medicion finita. Ademas 820 historias, 1640 representantes, 4716 transiciones F y 37728 pasos T; fuentes r=0..16, 136 reinicios. El corte cero se informa como truncamiento. Evidencia formal compartida con perdices_cancelaciones_resonancia; cotejo_cancelaciones.json. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_complejidad_ley",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesComplejidad.lean",
+      "enunciado": "PERDICES: LEY DE REPETICION. Con el atajo T(n)=n/2 para par y (3*n+1)/2 para impar, x_t=T^t(n) y S_t los pasos impares antes de t: si las paridades de x_(i+k) y x_(j+k) coinciden para 0<=k<m, con i<j, entonces x_i y x_j son congruentes modulo 2^m. Siempre 2^S_t*(x_t+1)<=3^S_t*(n+1). Si ademas x_i!=x_j, con s=S_j-S_i, entonces 2^(m+s)<3^s*(x_i+1) y 2^(m+S_j)<3^S_j*(n+1). Si n>=1, d=j-i>=1 y 2^d<=3^s, entonces x_i!=x_j y ambas cotas valen sin suponer inyectividad. Son cotas de repeticiones finitas; no excluyen fugas ni circuitos.",
+      "fuente": "biyeccion clasica entre paridades y residuos (Terras 1976, Lagarias 1985) y crecimiento de x+1 por 3/2 en cada impar; derivacion local 11-10-2026, sin pretension de prioridad",
+      "notas": "COMPLEJIDAD.md secciones 2 y 3. Lean: paso_uno, cota_impares, separacion, repeticion_congruente, ley_local, ley_global, tramo_expansivo_no_cierra (via CasaRetrato.ciclo_cruza), ley_expansiva y representante_crece. Generaliza el presupuesto de PerdicesRepeticiones: copias parciales, bloques variables y constante explicita. Consecuencias escritas: r(W)+1>2^m*(2/3)^S_j para el menor representante de una palabra finita con repeticion de tramo expansivo; en la clase 1/110 y sus historias F vale para toda repeticion, porque un periodo de la clase tiene al menos 2/3 de unos; ninguna orbita inyectiva tiene exponente diofantico mayor que 1+log2(3/2)*densidad superior de unos. La hipotesis x_i!=x_j es necesaria: el circuito 1,2 repite sin limite. Ejemplo no sturmiano: la palabra de Thue-Morse sobre A=1 y B=110 empieza por U V V con |U|=|V|=2^(k+1) y 3*2^k impares en UV; ningun natural la sigue (cotejo k=1..8, cota de 63 bits en k=8). comprobar_complejidad.py compila 17 teoremas, audita 27 modulos previos y registra 346 consultas en 28 modulos; Lean 4.32.2, Mathlib fijado, axiomas estandar, sin sorryAx. Evidencia en evidencia_complejidad.json y .txt. Cotejo independiente cotejar_complejidad.py: n=0..255 y 48 pasos, 239372 repeticiones con valores distintos, peor cociente 64/123; 49396 ciclicas fuera de la hipotesis; version 3x+q con q impar hasta 9, 119564 repeticiones, solo prueba escrita. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_complejidad_factores",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesComplejidad.lean",
+      "enunciado": "PERDICES: COMPLEJIDAD DE LA PALABRA DE PARIDADES. Si la orbita de n bajo el atajo T es inyectiva, dos instantes con valores menores que 2^m tienen factores de paridad de largo m distintos; entre los K primeros instantes hay al menos tantos factores distintos como valores menores que 2^m. Si 3^K*(n+1)<=2^(m+K), los K+1 factores de largo m en los instantes 0..K son distintos. Para m>=5*(n+1), los m+2 primeros factores de largo m son distintos; si a lo sumo m+1 lo son para algun tal m, la orbita no es inyectiva.",
+      "fuente": "conteo de residuos modulo 2^m; derivacion local 11-10-2026, sin pretension de prioridad. El corolario sturmiano ya figura en E. De Jesus, The 3x+1 Conjugacy Map Sends Every Sturmian Word to an Irrational 2-adic Integer, Zenodo 10.5281/zenodo.23108370, v5 del 02-10-2026, preprint con otro metodo",
+      "notas": "COMPLEJIDAD.md seccion 4. Lean: factores_distintos, complejidad_cota, bajo_umbral, factores_iniciales, bernoulli_cuatro_tercios, umbral_explicito, mas_que_sturmiana y no_inyectiva_si_pocos_factores. Consecuencias escritas: el numero p(m) de factores distintos de largo m es exactamente el numero de clases modulo 2^m visitadas, por CasaRetrato.misma_paridad_congruentes y CasaTerras.congruentes_mismo_baile; toda orbita inyectiva cumple p(m)>=floor((m-log2(n+1))/log2(3/2))+1, cerca de 1,71*m; ningun natural tiene palabra de paridades sturmiana, pues una orbita no inyectiva es eventualmente periodica. La version para p/q con q impar, incluido el caso no inyectivo, esta formalizada aparte en perdices_racional_sturmiana. El texto completo del preprint citado no se leyo aqui. Evidencia formal compartida con perdices_complejidad_ley. Cotejo: 317952 pares factor-residuo; 549 pares (n,m) con valores iniciales distintos; diez palabras sturmianas de 400 pasos con complejidad m+1 hasta m=12 y representantes minimos exactos. No excluye palabras de complejidad mayor. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_complejidad_salida_ab",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/perdices20261007/medir_salida_ab.py",
+      "enunciado": "PERDICES: SALIDA DE LA CLASE 1/110 HASTA 2^50. Sea lambda(n) el mayor L tal que las L primeras paridades de n bajo el atajo T forman un prefijo de {1,110}^w. Para todo natural 1<=n<2^50: lambda(n)<=112 y lambda(n)<=3*log2(n)+1. El menor natural con lambda>=112 es 338203040342655. Se conserva la medicion anterior hasta 2^36, cuyo maximo era 81 desde 4081276143.",
+      "fuente": "Busquedas exactas independientes por niveles (36 bits) y profundidad (50 bits), 11-10-2026; evidencia original conservada y auditoria acotada en SALIDAS.md.",
+      "notas": "Cada minimo r de largo L cumple r^3>=2^(L-1) en enteros. Censo de 50 bits: 719397383 nodos, corte 200, maximo 112; medicion_salida_ab.json. Fuente exacta archivada en fuentes_salidas_20261011/medir_salida_ab.py con su huella original. Auditoria_salidas.json comprueba las huellas, los 112 testigos AB, las 82 filas del solapamiento con cotejo_complejidad.json y exhaustividad independiente por orbitas directas bajo 2^16. No repite la enumeracion grande. El medidor vigente distingue truncamiento de agotamiento y guarda cualquier contraejemplo a la cota conjeturada. La evidencia de 36 bits conserva la medicion de repeticiones en 24 records: no se ha extendido esa cuenta a los 34 records de 50 bits. Medicion finita, no prueba universal."
+    },
+    {
+      "clave": "perdices_complejidad_conjetura_ab",
+      "cuantificador": "todo_n",
+      "estado": "conjeturado",
+      "fichero": "depuracion/perdices20261007/COMPLEJIDAD.md",
+      "enunciado": "PERDICES: CONJETURA DE SALIDA DE LA CLASE 1/110. Para todo natural n>=1, sea lambda(n) el mayor largo de un prefijo de {1,110}^w que coincide con las paridades de n bajo el atajo T. Se conjetura lambda(n)<=3*log2(n)+1. Implicaria que ningun natural persiste infinitamente en esa clase y MuroB restringido a ella. La primera paridad prohibida esta en el indice lambda(n), contando desde cero.",
+      "fuente": "extrapolacion de perdices_complejidad_salida_ab y heuristica aleatoria 2^(0,4485*L); 11-10-2026",
+      "notas": "COMPLEJIDAD.md seccion 5 y SALIDAS.md. Verificada en el censo finito para n<2^50; la heuristica no es prueba. La ley de repeticion solo acota palabras repetitivas y no controla los records genericos. La cota logaritmica propuesta es mas fuerte que afirmar solamente la salida finita de cada semilla."
+    },
+    {
+      "clave": "perdices_racional_sturmiana",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesRacional.lean",
+      "enunciado": "PERDICES: NINGUN RACIONAL DE DENOMINADOR IMPAR TIENE PALABRA DE PARIDADES STURMIANA. Para q impar positivo y p entero, sea Tq(x)=x/2 si x es par y (3*x+q)/2 si es impar. La palabra de paridades de p bajo Tq no tiene exactamente m+1 factores distintos de cada largo m. Si la orbita es inyectiva, con m=9*(|p|+q) los m+3 primeros factores de largo m+1 son distintos; si repite un valor en i y en i+d, la palabra tiene a lo sumo i+d factores de largo i+d. Equivalentemente, para todo racional x de denominador impar, la palabra de paridades de x bajo el atajo T(x)=x/2 o (3*x+1)/2 sobre Q, con la paridad del numerador, no es sturmiana; con q=1 y p natural se aplica al atajo de Collatz.",
+      "fuente": "conteo de residuos modulo 2^k; verificacion formal independiente 11-10-2026. El enunciado, en forma contrapuesta, ya figura en E. De Jesus, The 3x+1 Conjugacy Map Sends Every Sturmian Word to an Irrational 2-adic Integer, Zenodo 10.5281/zenodo.23108370, v5 del 02-10-2026, preprint sin arbitraje con otro metodo; sin pretension de prioridad",
+      "notas": "COMPLEJIDAD.md seccion 4. Lean: congruentes, mismas_paridades, factor_iff (mismo factor de largo m si y solo si congruencia modulo 2^m), cota, bajo_umbral, factores_distintos, umbral, inyectiva_no_sturmiana, repetida_no_sturmiana, sin_palabra_sturmiana, Tq_uno, iter_uno y natural_sin_palabra_sturmiana, num_div_impar, TQ_div, iter_TQ y racional_sin_palabra_sturmiana. Sturmiana se define por ncard del conjunto de factores igual a m+1 para todo m. La correspondencia TQ^t(a/q)=(Tq^t a)/q esta en Lean; la identificacion con la conjugacion de Bernstein-Lagarias es la usual. Responde para palabras sturmianas la pregunta que Lopez-Stoll 2009 dejan abierta; no toca la conjetura de periodicidad general. comprobar_racional.py compila 22 teoremas, audita 28 modulos previos y registra 368 consultas en 29 modulos; Lean 4.32.2, Mathlib fijado, axiomas estandar, sin sorryAx. Evidencia en evidencia_racional.json y .txt. Cotejo cotejar_racional.py, q impar hasta 15 y p entre -64 y 64: 6695 casos de la rama inyectiva en forma finita, 1032 orbitas periodicas con a lo sumo i+d factores, alcanzado en p/q=1/7; 66048 pasos del puente sobre Q con Fraction reducida; 50 prefijos sturmianos de 400 pasos con representantes racionales que no se estabilizan. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_salidas_sin00",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/perdices20261007/medir_salida_sin00.py",
+      "enunciado": "PERDICES: SALIDA DE LA CLASE SIN 00 HASTA 2^36. Para el atajo T, sea lambda_00(n) el mayor largo de un prefijo de paridades sin 00. Para todo 3<=n<2^36, lambda_00(n)<=111; el menor natural con lambda_00>=111 es 32679321654. Se excluyen 1 y 2, cuyas paridades alternan indefinidamente.",
+      "fuente": "Censo exacto por profundidad, 11-10-2026; medicion_salida_sin00.json, 267833764 nodos y corte 400.",
+      "notas": "SALIDAS.md. Huella original conservada en fuentes_salidas_20261011/medir_salida_sin00.py; auditada junto con 110 testigos, el rechazo del paso siguiente al maximo y contraste exhaustivo independiente bajo 2^16. El JSON historico omite la fila L=1, minimo 3; se documenta y corrige el generador sin reconstruir el censo. El generador vigente toma el menor miembro >=3 de cada clase y distingue cortes truncados. No hay prueba universal ni formalizacion Lean de este censo."
+    },
+    {
+      "clave": "perdices_salidas_sin00_111",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/perdices20261007/medir_prohibidos.py",
+      "enunciado": "PERDICES: SALIDA DE LA CLASE SIN 00 NI 111 HASTA 2^52. Para el atajo T, sea lambda(n) el mayor largo de un prefijo que evita 00 y 111. Para todo 3<=n<2^52, lambda(n)<=89; el menor natural con lambda>=89 es 3696298745089794. Se excluyen 1 y 2. Para semillas impares, persistir en esta clase equivale a evitar 5 y 7 modulo 8; para semillas pares hay que tratar el tramo inicial.",
+      "fuente": "Censo exacto por profundidad, 11-10-2026; medicion_yah_5_7.json, 22736417 nodos y corte 400. Problema restringido: Yolcu-Aaronson-Heule, arXiv:2105.14697v3, seccion 4.5, conjetura 4.14.",
+      "notas": "SALIDAS.md. Fuente original conservada en fuentes_salidas_20261011/medir_prohibidos.py. Auditoria de huella, 88 testigos, paso siguiente al maximo y exhaustividad independiente bajo 2^16. El JSON historico omite L=1, minimo 3; el generador vigente corrige el dominio y marca truncamiento. Evitar 00 no equivale a evitar 5 mod 8 para un inicio par arbitrario: 4 es contraejemplo de ese puente sin condicion. El censo no resuelve la conjetura 4.14 ni Collatz."
+    },
+    {
+      "clave": "perdices_retorno_h",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesRetornoH.lean",
+      "enunciado": "PERDICES: INVERSA E HISTORIAS DEL RETORNO H. Sobre enteros positivos, H(x)=3*x/4 si x=0 mod 4, H(x)=(9*x+1)/8 si x=7 mod 8, e indefinida en otro caso. H es positiva e inyectiva; su inversa es 4*y/3 si y=0 mod 3, (8*y-1)/9 si y=8 mod 9, e indefinida fuera. Con n=8*x+1, las ramas retornan a 1 mod 8 tras dos y tres pasos del atajo, respectivamente. Prueba escrita adicional: cada historia de k ramas, con a D y b E, admite una unica clase modulo 4^a*8^b y positivos arbitrariamente grandes; las historias son disjuntas y la densidad natural de quienes admiten k pasos H es (3/8)^k. La persistencia infinita tiene densidad cero, sin demostrarse que sea vacia.",
+      "fuente": "H y su conjugacion de retorno son la proposicion 4.15 de Yolcu-Aaronson-Heule, arXiv:2105.14697v3. Inversa y cuenta por congruencias: derivacion elemental local 11-10-2026, sin pretension de prioridad.",
+      "notas": "SALIDAS.md secciones 3, 4 y 6. Diez teoremas en el modulo independiente PerdicesRetornoH, Lean 4.32.2 y Mathlib fijado; #print axioms solo propext, Classical.choice y Quot.sound. Evidencia_retorno_h.json y .txt, reproducibles con comprobar_retorno_h.py. La equivalencia global con la conjetura 4.14 es del articulo; no esta formalizada aqui. Tampoco estan en Lean las historias, densidades ni rachas: D^a(x)=3^a*x/4^a hasta floor(v2(x)/2); E^b(x)=9^b*(x+1)/8^b-1 hasta floor(v2(x+1)/3). Cotejo independiente: 6144 puentes T/H, 13425 identidades inversas, 16382 representantes de todas las historias de hasta 12 ramas y densidades con Fraction. Las 16384 semillas positivas salen antes de corte 128, record de 11 pasos desde 11504; solo observacion finita. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_retorno_h_barrera_polinomica",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/SALIDAS.md",
+      "enunciado": "PERDICES: OBSTRUCCION A RANGOS POLINOMICOS POR RESIDUOS PARA H. Fijar cualquier M>=1 y k>=1. No existe una funcion R de naturales positivos a naturales que sea eventualmente un polinomio racional en cada clase modulo M y satisfaga R(H^k(x))<R(x) para toda semilla positiva que admite k pasos H. Familia testigo: x=8^k*M*t-1, t>=1; sus k ramas son E, H^k(x)=9^k*M*t-1>x y ambos extremos son -1 modulo M. El polinomio de esa clase es constante o eventualmente creciente, incompatible con el descenso estricto.",
+      "fuente": "Deduccion elemental local sobre el mapa de Yolcu-Aaronson-Heule; 11-10-2026, sin pretension de prioridad.",
+      "notas": "SALIDAS.md seccion 5. Prueba escrita: no negatividad eventual fuerza coeficiente principal positivo en un polinomio no constante, que es creciente para argumentos suficientemente grandes. La familia alcanza argumentos arbitrariamente grandes. Lean solo certifica expansion_residual para la arista 8*u-1 -> 9*u-1 y su incremento u; el corolario polinomico y la formula para k variable conservan prueba escrita. Cotejo de 1536 testigos, M=1..32, t=1..3, k=1..16. No excluye ordenes sobre digitos, descensos en algunas ramas ni horizontes variables; las semillas testigo dependen de k y no forman una trayectoria expansiva infinita. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_rachas_h_valuaciones",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesRachasH.lean",
+      "enunciado": "PERDICES: RETORNO POR RACHAS Y DECODIFICACION BINARIA/TERNARIA. Para H(x)=3x/4 si x=0 mod 4, (9x+1)/8 si x=7 mod 8, sea C={x>0:x=15 mod 24}. Su primer retorno F a C consiste en E^b seguido de D^a, a,b>=1. Existe precisamente cuando x+1=8^b*u, 9^b*u-1=4^a*w y y=3^a*w pertenece a C, con u,w impares positivos. Hacia atras se recuperan a=v3(y), w=y/3^a, 2b=v3(4^a*w+1), u=(4^a*w+1)/9^b y x=8^b*u-1, exigiendo x en C. El balance es M*y=A*x+B con M=4^a*8^b, A=3^(a+2b), B=3^a*(9^b-8^b). Las orbitas positivas infinitas de H tienen colas de retornos F y viceversa; ninguna existencia ni terminacion se demuestra.",
+      "fuente": "Compresion elemental del mapa H de Yolcu-Aaronson-Heule, arXiv:2105.14697v3 proposicion 4.15; derivacion local 11-10-2026, sin pretension de prioridad.",
+      "notas": "RACHAS_H.md secciones 1-2. Ocho teoremas nuevos: iterar_suma, paso_D, racha_D, racha_E, bloque, balance, salida_unidad y entrada_unidad. Lean certifica familias parametrizadas de trayectorias, su balance y las unidades modulo 3; la maximalidad, las valuaciones exactas y la equivalencia de persistencia H/F tienen prueba escrita. Lean 4.32.2, 18 consultas con RetornoH, solo propext, Classical.choice y Quot.sound; evidencia_rachas_h.json y .txt, comprobar_rachas_h.py. Cotejo independiente de iteracion directa y valuaciones en 10923 semillas de C hasta 262143: 523 retornos, de los que siete crecen, y 682 predecesores. Cada retorno dura a+b pasos H o 2a+3b pasos del atajo T. No se infiere una deriva universal de la cuenta finita. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_rachas_h_empalmes",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/RACHAS_H.md",
+      "enunciado": "PERDICES: HISTORIAS Y EMPALMES DEL RETORNO H. En C={x>0:x=15 mod 24}, toda historia finita de retornos E^b_i D^a_i, a_i,b_i>=1, es una biyeccion r+24*M*t -> s+24*A*t para t>=0, con M=producto 4^a_i*8^b_i, A=producto 3^(a_i+2b_i), 0<r<24M y 0<s<24A. Para cualquier pasado P y futuro Q finitos existe una unica clase de puntos de empalme modulo 24*A_P*M_Q, con representantes positivos arbitrariamente grandes. La densidad natural relativa a C de admitir k retornos F futuros y l retornos F inversos es exactamente 21^(-k)*16^(-l), para todo k,l>=0. No se afirma que exista una semilla con pasado o futuro infinitos.",
+      "fuente": "Derivacion aritmetica local por inversas modulares, biyecciones de progresiones y teorema chino del resto; 11-10-2026. H procede de Yolcu-Aaronson-Heule; sin pretension de prioridad.",
+      "notas": "RACHAS_H.md secciones 3-5: prueba escrita, sin formalizacion Lean de cilindros y densidades. La rama se obtiene de A*x+B=7M mod 8M junto con x=0 mod 3; 0<B<A garantiza que los representantes minimos se corresponden. Al componer, A anterior es impar y M nuevo potencia de 2. El empalme impone congruencias coprimas a q=(x-15)/24. La suma de pesos de entrada es (sum 4^-a)(sum 8^-b)=1/21; la de salida es (sum 3^-a)(sum 9^-b)=1/16. Para justificar las uniones numerables, truncar por N pasos H y H inversa: el error de densidad relativa esta acotado por 24*((3/8)^N+(4/9)^N), que tiende a cero. No se usa aditividad numerable injustificada ni independencia temporal de una semilla. Cotejo_rachas_h.json: 32552 representantes de todas las historias de hasta tres retornos con a,b<=5; 882 empalmes, dos representantes por pareja de pasados y futuros de hasta dos retornos con a,b<=2, incluidos los vacios. Las lecturas binarias y ternarias no excluyen historias finitas; sigue abierto controlar el tamano de una semilla persistente. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_transporte_empalme_h",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/RACHAS_H.md",
+      "enunciado": "PERDICES: EL TAMANO DEL EMPALME ES EL TRANSPORTE DEL MINIMO. Sea F el primer retorno a C={x>0:x=15 mod 24} del mapa H(x)=3x/4 para x=0 mod 4, (9x+1)/8 para x=7 mod 8, indefinido fuera. Para historias finitas P,Q de retornos E^b D^a, sea r_PQ el minimo positivo de la historia concatenada y m el minimo punto de empalme entre pasado P y futuro Q. Entonces m=F^|P|(r_PQ) y M_P*m=A_P*r_PQ+B_P. Para cualquier n que realiza P, y=F^|P|(n) satisface M_P*(y-m)=A_P*(n-r_PQ) sobre enteros con signo; por tanto y>=m equivale a n>=r_PQ. Todos los cortes de una misma historia completa producen la misma cota inicial.",
+      "fuente": "Deduccion algebraica local a partir de las biyecciones de cilindros de perdices_rachas_h_empalmes; 11-10-2026, sin pretension de prioridad.",
+      "notas": "RACHAS_H.md seccion 7. Prueba escrita, sin Lean nuevo: r_PQ=r_P+24*M_P*t con 0<=t<M_Q y su imagen s_P+24*A_P*t esta en el rango canonico del CRT. Diferencia normalizada m/(24*A_P*M_Q)-r_PQ/(24*M_P*M_Q)=B_P/(24*A_P*M_P*M_Q). Una desigualdad de tamano no sustituye la congruencia de realizar la historia. Cotejo_transporte_h.json: 7225 parejas de historias, 28719 equivalencias de cotas y 14450 trayectorias completas, por CRT, composicion de cilindros, identidad afin e iteracion directa. Incluye historias vacias y semillas del prefijo que no realizan el futuro. La cota del empalme no es una restriccion independiente ni excluye persistencia infinita. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_matrices_h_exploracion",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/perdices20261007/MATRICES_H.md",
+      "enunciado": "PERDICES: BUSQUEDA MATRICIAL SOBRE PALABRAS PARA EVITAR 5 Y 7 MODULO 8. Nueve ejecuciones del codificador de Yolcu-Aaronson-Heule con Z3 5.1.0: el control publicado que evita 1 y 5 cierra en tres etapas con matrices naturales de dimension 2, cota codificada 3, y tambien en tres etapas con matrices articas de dimension 3, cota 5. Sus seis certificados se comprueban con enteros independientes. Para evitar 5 y 7: cuatro respuestas UNSAT acotadas (natural/artica, dimensiones 2 y 3, cota 3) y tres timeouts (natural/artica de dimension 3, cota 5, y artica de dimension 4, cota 3). No se obtuvo una regla dinamica eliminable en ese objetivo.",
+      "fuente": "Reproduccion y exploracion local 11-10-2026 sobre emreyolcu/rewriting-collatz, commit 8a4dfda60f97a6d33ff0a24fdfa7a172d4bec340; arXiv:2105.14697v3 seccion 4.5. Control conocido, sin pretension de novedad.",
+      "notas": "MATRICES_H.md. Buscar_matrices_h.py conserva el codificador externo sin modificar, coteja las 14 identidades afines del sistema completo, elimina las ramas 5 y 7 para el objetivo y verifica clausula por clausula cada modelo SAT. Verificar_matrices_h.py compone matrices con enteros Python, sin NumPy ni SAT, ancla la cadena al sistema original invertido y exige la finitud de la primera coordenada artica. Auditoria_matrices_h.json: nueve ejecuciones, seis certificados y ocho controles negativos rechazados (matrices nulas, cierre prematuro, etapas permutadas, reglas alteradas). La cota limita tambien productos y sumas intermedios, no solo coeficientes de simbolos: natural 0..C; artico menos infinito y 0..C-1. UNSAT es una respuesta del solucionador sobre esa formula, sin certificado de insatisfacibilidad; timeout no excluye candidatos. La codificacion directa posterior se registra en perdices_matrices_h_directas; estos nueve ensayos conservan sus parametros originales. Sin Lean nuevo ni prueba de la terminacion de H. Contexto Windows, Python 3.14.5, NumPy 2.4.4, z3-solver 5.1.0.0 en entorno virtual temporal; huellas en cada JSON. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_matrices_h_directas",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/perdices20261007/MATRICES_H.md",
+      "enunciado": "PERDICES: MATRICES DIRECTAS CON COTA SOLO EN LOS SIMBOLOS. Seis ejecuciones QF_BV de Z3 5.1.0, semilla 0 y una hebra: el control que evita 1 y 5 modulo 8 cierra en dos etapas naturales con d=2,C=3 y tres articas con d=3,C=5. Cinco certificados comprobados con enteros independientes; sus maximos intermedios son 6,24 y 9,11,13, mayores que C. Para evitar 5 y 7: UNSAT natural y artico con d=2,C=3, y timeout de 30 segundos en ambas familias con d=3,C=3. Ninguna regla dinamica del objetivo se elimino.",
+      "fuente": "Implementacion y cotejo local 11-10-2026. Reglas y control publicado de Yolcu-Aaronson-Heule, arXiv:2105.14697v3. Sin pretension de novedad del control.",
+      "notas": "Buscar_matrices_directas_h.py compone matrices simbolicas con ancho suficiente: naturales ((d+1)C)^L, articos codificados L(C-1)+1. El coeficiente artico 0 representa menos infinito y j>=1 representa j-1; no se permiten valores finitos negativos. Auditoria_codificador_directo_h.json relee seis certificados del codificador publicado, coteja 1332 prefijos y todas las 162 asignaciones 0..2 a dos simbolos afines de dimension 1 en ambas familias. Auditoria_matrices_directas_h.json: seis ejecuciones, cinco certificados y diez controles negativos rechazados, sin Z3 en ese verificador. La cota de productos naturales tiene ocho lemas Lean separados; no se formaliza el programa, la traduccion BitVec, los ordenes matriciales ni la familia artica. UNSAT no tiene certificado de insatisfacibilidad; los timeouts no deciden existencia. No hay terminacion universal de H. Fuentes y parametros en los JSON. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_cotas_matrices_naturales",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesCotasMatrices.lean",
+      "enunciado": "PERDICES: COTA DE PALABRAS MATRICIALES NATURALES. Para matrices cuadradas m por m con entradas naturales <=C, cada entrada de un producto de p matrices es <=(mC)^p. Si 1<=mC y p<=L, queda <=(mC)^L. Si ademas (mC)^L<2^w, cada entrada es <2^w. Incluye la palabra vacia y su identidad. Es una cota algebraica general para la aritmetica de busqueda, no una propiedad nueva de las orbitas Collatz.",
+      "fuente": "Derivacion local por sumas de fila e induccion; formalizacion auxiliar de la codificacion directa, 11-10-2026. Sin pretension de prioridad.",
+      "notas": "PerdicesCotasMatrices.lean: ocho teoremas sobre entrada y fila, fila del producto, identidad, palabra, cota por coeficientes, longitud y ancho de bits. Comprobar_cotas_matrices.py coteja Lean 4.32.2, revision Mathlib, fuentes importadas y sus objetos. Evidencia_cotas_matrices.json y .txt: solo propext, Classical.choice y Quot.sound, sin sorryAx ni avisos. MATRICES_H.md seccion 6 contiene la derivacion independiente: sum_j(AB)_ij=sum_k A_ik sum_j B_kj<=UV. Para el programa natural se usa m=d+1 y C>=1; la construccion aumentada afin y la equivalencia con Python/BitVec permanecen por escrito. No formaliza aritmetica artica, correccion total del buscador ni certificados UNSAT. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_proyecciones_matrices_h",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesProyeccionesMatrices.lean",
+      "enunciado": "PERDICES: ACOPLAMIENTO NATURAL NECESARIO EN EL OBJETIVO 57. Toda interpretacion afin escalar sobre naturales que orienta debilmente DA>=D, DBAA>=DABE, DBBA>=DBAF, FA>=BE, GA>=AF, EB>=BF, FB>=AG, EC>=BC y FC>=AAC iguala las constantes de los tres pares dinamicos. Incluye coeficientes cero, sin cota superior. En dimension 2, si las entradas (0,1) de a,b,d,e,f,g son cero, tambien se igualan las constantes de coordenada 0. Por tanto una primera eliminacion estricta exige que la suma de esas seis entradas sea positiva; la entrada (0,1) de c es libre.",
+      "fuente": "Derivacion algebraica local y formalizacion Lean, 11-10-2026; sistema de Yolcu-Aaronson-Heule ya fijado en MATRICES_H.md. Sin pretension de prioridad.",
+      "notas": "PROYECCIONES_MATRICES_H.md: prueba escrita por casos delta=0, beta=0, phi=0 y pendientes comunes alpha=beta=t>=s=epsilon=phi=gamma. Diez teoremas Lean 4.32.2, solo axiomas estandar y sin sorryAx; evidencia_proyecciones_matrices.json y .txt. Incluye la proyeccion de productos 2x2 y la contraposicion acoplamiento_necesario; las estructuras formales usan nueve de las doce reglas originales invertidas. Cotejo independiente por evaluacion de funciones en 0 y 1, anclado al sistema guardado: 531441 asignaciones escalares de coeficientes 0..2, 124 debiles (109 beta=0, cuatro phi=0 con beta>0, once pendientes comunes), 2976 interpretaciones y 2048 productos 2x2. El censo no es la prueba universal. La extension a primera fila aislada en dimension arbitraria conserva prueba escrita, sin formalizacion matricial general. Se aplica solo a la primera etapa, con las tres dinamicas presentes; no excluye matrices acopladas, la familia artica ni prueba terminacion de H. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_articas_libres_h",
+      "cuantificador": "verificado_hasta",
+      "estado": "medido",
+      "fichero": "depuracion/perdices20261007/PROYECCIONES_MATRICES_H.md",
+      "enunciado": "PERDICES: CODIFICACION ARTICA SIN COTA SUPERIOR DE PESOS. Dos llamadas QF_LIA con Z3 5.1.0 quedan indecisas: objetivo 57 de dimension 2, limite 45 segundos; control 15 de dimension 3, limite 30 segundos. No se afirma UNSAT. Los seis certificados articos anteriores satisfacen la nueva codificacion, tanto con pesos originales como con pesos finitos multiplicados por 10000: doce modelos concretos, con identicas reglas estrictas.",
+      "fuente": "Implementacion local buscar_articas_libres_h.py y auditoria independiente, 11-10-2026. Reglas y controles publicados conservados.",
+      "notas": "PROYECCIONES_MATRICES_H.md seccion 5. Menos infinito se representa internamente por -1; pesos finitos enteros >=0. Productos por suma con absorbente y sumas por maximo, sin productos de incognitas. Se incluyen todos los soportes nulos y la condicion de primera coordenada finita. Formulas SMT y parametros guardados en lia_objetivo57_a2 y lia_control15_a3. Motivo de Z3 canceled en ambas llamadas, sin aumentar tiempos ni concluir inexistencia. Auditoria_articas_libres_h.json: doce certificados y 256 asignaciones de borde a dos simbolos escalares, codificados en 0,1,2,10001; 2956 interpretaciones cotejadas con enteros independientes. El control tiene modelos conocidos pese al timeout. Cotejo finito de la codificacion, no formalizacion completa ni terminacion de H. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_rectas_matrices_h",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesSoportesMatrices.lean",
+      "enunciado": "PERDICES: OBSTRUCCION POR RECTA NATURAL COMUN. Sean interpretaciones afines naturales 2x2 que orientan las nueve reglas DA>=D, DBAA>=DABE, DBBA>=DBAF, FA>=BE, GA>=AF, EB>=BF, FB>=AG, EC>=BC, FC>=AAC. Si a,b,c,e,f,g conservan {(x,k*x+t): x natural} para unos k,t naturales comunes, las constantes 0 de los tres pares dinamicos son iguales. d es arbitraria. Sin cota de coeficientes. Incluye segunda coordenada inactiva (entradas 10 y constantes 1 nulas en las seis letras) y diagonal (sumas de fila iguales y constantes iguales), aun con conexiones en ambos sentidos.",
+      "fuente": "Derivacion algebraica local y formalizacion Lean, 12-10-2026, desde la obstruccion escalar de Perdices. Sin pretension de prioridad.",
+      "notas": "SOPORTES_MATRICES_H.md seccion 2. La proyeccion es (M00+k*M01,t*M01+v0); respeta producto si el factor derecho conserva la recta y conserva orden debil. La igualdad proyectada y las desigualdades originales fuerzan igualdad de v0. PerdicesSoportesMatrices.lean: 14 lemas nuevos en total, 24 con la base, Lean 4.32.2, solo axiomas estandar y sin sorryAx; evidencia_soportes_matrices.json y .txt. Cotejo independiente: 21760 productos proyectados y 17878 cierres de rectas para k,t y coeficientes conservadores en 0..2, factor izquierdo binario arbitrario. La prueba universal es escrita y Lean, no el censo. Solo primera etapa con todas las dinamicas presentes. No excluye todas las matrices acopladas, otras pendientes racionales o reales de rectas no tratadas, ni demuestra terminacion de H. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_soportes_matrices_h",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PerdicesSoportesMatrices.lean",
+      "enunciado": "PERDICES: DIEZ SOPORTES MINIMOS DE APORTE DINAMICO. Sobre naturales 2x2, con r primera fila de M_d, u=v_a y w=v_b, sea Q=r*u+r*(M_b*M_a*u+M_b*u+w)+r*(M_b^2*u+M_b*w+w). Q>0 equivale a que sea positivo alguno de d00*va0, d01*va1, d00*vb0, d01*vb1, d00*b01*va1, d01*b10*va0, d00*b01*vb1, d01*b10*vb0, d00*b00*a01*va1, d01*b11*a10*va0. El descenso de la constante 0 en DA>D, DBAA>DABE o DBBA>DBAF exige Q>0. Condicion necesaria, no suficiente para orientar una regla ni el sistema.",
+      "fuente": "Expansion algebraica local, contraste independiente y formalizacion Lean, 12-10-2026. Sin pretension de prioridad.",
+      "notas": "SOPORTES_MATRICES_H.md seccion 3. Las rutas son conjuntos de factores positivos; prueba escrita de minimalidad por testigos. Lean prueba la equivalencia exacta y la necesidad para descenso, sin cota; la minimalidad no tiene lema formal separado. Cotejo_soportes_matrices_h.json expande polinomios, evalua funciones y coteja el compositor entero: 16384 soportes binarios de 14 entradas relevantes, 10880 con aporte y 5504 sin aporte; 2000 asignaciones reproducibles en 0,1,2,17,10000 y diez testigos minimos. Ejemplo d01=va1=1 aporta sin retorno pero no orienta la parte matricial de DA>=D. No clasifica los soportes viables del sistema completo, no exige circuito ni identifica el aporte izquierdo con la diferencia entre lados. La persistencia de H sigue abierta. Revision humana pendiente."
     }
   ],
   "nodos": [
+    {
+      "nombre": "aranas_sombra",
+      "antes": [
+        "aranas_sombra",
+        "demostrado",
+        "ARANAS: en u = c/3^k la torre desaparece - IFS {u/2, (3u-1)/2} mas perturbacion sumable"
+      ],
+      "despues": [
+        "aranas_sombra",
+        "demostrado",
+        "ARANAS: en u=c/3^k, las ramas afines tienen perturbacion acotada por paso; no es sumable en toda trayectoria. Se conserva la identidad y se retira el adjetivo sumable del nodo antiguo. Ver aranas.py, rondadeltronco.py y la afirmacion 160."
+      ]
+    },
+    {
+      "nombre": "cebras_lyapunov",
+      "antes": [
+        "cebras_lyapunov",
+        "medido",
+        "CEBRAS (la mitad viva tras la 5a): clasificacion afin exacta y el umbral log2/log3 como exponente de Lyapunov de los multiplicadores (hipotesis de Kesten de Aranas); la lectura 'deriva de log|u| de la cadena' esta ROTA y RETIRADA"
+      ],
+      "despues": [
+        "cebras_lyapunov",
+        "demostrado",
+        "CEBRAS: clasificacion afin exacta y umbral de Lyapunov de los multiplicadores, parte conservada en la afirmacion 172. La lectura como deriva de log|u| de la cadena fue retirada. No conserva la parte refutada ni afirma contraccion global."
+      ]
+    },
     {
       "nombre": "condoras_barrera",
       "antes": null,
@@ -1788,7 +1986,7 @@
       "despues": [
         "ocelotas",
         "demostrado",
-        "OCELOTAS: CST de Terras para palabras de dos rachas impares hasta el primer cruce; usa la cota de Rhin (1987) como hipotesis explicita. Lean sin sorryAx; pendiente revision humana."
+        "OCELOTAS: primer descenso igual al primer cruce finito hasta 24 rachas bajo LMN; hasta 77 bajo LMN y Rozier-Terracol. Hipotesis externas explicitas y existencia del cruce supuesta. Lean sin sorryAx; revision humana pendiente. Fuentes: depuracion/cst20260930/VEINTICUATRO_LEAN.md y SETENTA_Y_SIETE_LEAN.md."
       ]
     }
   ],
