@@ -1,8 +1,8 @@
 % Artículo IV: la conjetura CST de Terras por número de rachas (Ocelotas).
 % Versión del 12-10-2026 (81 rachas con pesos; 42 con censo propio hasta 3e11).
 % El borrador del 04-10 (24 y 77 rachas) se envió ese día a Rozier-Terracol y a Hercher.
-% Pendiente: lectura humana; MathSciNet no consultado (zbMATH Open sí, 12-10);
-% commit del repositorio público citado en "Data availability".
+% Pendiente: lectura humana; MathSciNet no consultado (zbMATH Open sí, 12-10).
+% Repositorio citado en "Data availability" en el commit ccedd6cfd3ff (push del 12-10).
 % Compilar con: tectonic -X compile articulo_IV_ocelotas.tex   (o pdflatex, dos pasadas)
 \documentclass[11pt]{amsart}
 \usepackage{iftex}
@@ -568,7 +568,7 @@ The same method, with the bound of Rhin \cite{Rhi87} in place of \cite{LMN95}, f
 The proofs, the certificates, the formalization, the numerical checks and the first draft of this text were produced with extensive assistance from large language models used as programming and proof assistants: Anthropic's Claude Opus~5.5 and OpenAI's ChatGPT, between 30 September and 12 October 2026, according to the commit history. The author directed the work and is responsible for the content. Because of this, every step is either formalized in Lean or checked by a separate program, as described above.
 
 \section*{Data availability}
-The Lean sources, the certificates in JSON format, their generators, the independent checkers, the outputs of the computation of Section~\ref{sec:census} and the audit records are in the public repository \url{https://github.com/theswordofthemorning/conjeturadecollazpython}, directory \path{depuracion/cst20260930}. % PENDIENTE: citar el commit tras el push autorizado.
+The Lean sources, the certificates in JSON format, their generators, the independent checkers, the outputs of the computation of Section~\ref{sec:census} and the audit records are in the public repository \url{https://github.com/theswordofthemorning/conjeturadecollazpython}, directory \path{depuracion/cst20260930}, at commit \texttt{ccedd6cfd3ff}.
 
 \section*{Statements and declarations}
 \emph{Funding.} No funding was received for conducting this study. \emph{Competing interests.} The author has no relevant financial or non-financial interests to disclose.

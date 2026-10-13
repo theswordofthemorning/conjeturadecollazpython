@@ -53,7 +53,7 @@ def verificar():
                 assert pagina.locator('#vista-alarmas .tarjeta').count() >= 5
                 if modo == 'Complex':
                     pagina.locator('[data-vista="afirmaciones"]').click()
-                    assert pagina.locator('#lista-afirmaciones .af').count() == 337
+                    assert pagina.locator('#lista-afirmaciones .af').count() == 339
                     assert pagina.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1'), 'Afirmaciones desbordan'
                     pagina.locator('#estado-af').select_option('refutado')
                     assert pagina.locator('#lista-afirmaciones .af').count() == 8

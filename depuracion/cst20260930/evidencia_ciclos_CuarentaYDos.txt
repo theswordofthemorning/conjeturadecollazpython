@@ -1,0 +1,28 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+MODULO: OcelotasCiclos; segundos: 31.996
+'OcelotasCiclos.ciclo_exige' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+REUTILIZADO: OcelotasLogaritmosPrecisos; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoRachas; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPesos; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte01; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte02; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte03; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte04; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte05; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte06; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte07; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte08; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte09; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte10; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte11; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte12; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTablaParte13; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDosTabla; auditoria original conservada.
+REUTILIZADO: OcelotasColaParametrica; auditoria original conservada.
+REUTILIZADO: OcelotasCuarentaYDos; auditoria original conservada.
+MODULO: OcelotasCiclosCuarentaYDos; segundos: 37.911
+'OcelotasCiclosCuarentaYDos.ciclo_exige' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

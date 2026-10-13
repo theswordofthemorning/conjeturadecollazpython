@@ -10,6 +10,7 @@ venv/
 *.olean
 *.ilean
 lecturas/
+Collatz Investigacion/
 
 # Enlace privado del envío a Palomar
 papers/palomar/ENLACE_PRIVADO.txt

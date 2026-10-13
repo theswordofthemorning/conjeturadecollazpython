@@ -29,7 +29,12 @@ la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
   prefijos. Un fallo exige 82. La fusión del lema 9 no se transfiere.
   Sin Rozier–Terracol, LMN y un censo propio (cálculo en Python,
   hipótesis explícita, 0 fallos) dan en Lean **40 rachas** con censo hasta
-  2^36, **41** con censo hasta 2·10^11 y **42** con censo hasta 3·10^11.
+  2^36, **41** con censo hasta 2·10^11, **42** con censo hasta 3·10^11 y
+  **46** con censo hasta 7·10^11; 47 queda pendiente (censo hasta 1,2·10^12).
+  [Calibración con ciclos](depuracion/cst20260930/CICLOS_CALIBRACION.md):
+  en Lean, si la CST vale hasta R rachas, todo ciclo no trivial tiene más de
+  R rachas impares; con 81 da m ≤ 81, entre Simons–de Weger (75) y Hercher
+  (91). Coherencia, no resultado nuevo.
 
 Sólo axiomas estándar en los módulos Lean. **Revisión humana pendiente.**
 Salvo en las rachas construidas, nada afirma la llegada a 1.

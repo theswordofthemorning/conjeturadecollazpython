@@ -270,6 +270,50 @@ de semillas al azar, 0 fallos.
   [evidencia_cuarenta_y_dos.json](evidencia_cuarenta_y_dos.json) y
   [.txt](evidencia_cuarenta_y_dos.txt).
 
+### 46 rachas: censo hasta 7·10^11
+
+El tramo nuevo `(3·10^11, 7·10^11]` se recorrió en tres procesos en paralelo
+([censo_46/](censo_46/), unas 1 h 55 min cada uno): **0 fallos**.
+[cobertura.json](censo_46/cobertura.json) da tramos contiguos y recorridos
+exactos; el [cotejo independiente](censo_46/cotejo_tramo.json), completo hasta
+2^22 y con un millón de semillas al azar en el tramo nuevo, 0 fallos.
+
+- **Certificado** [pesos_46.json](pesos_46.json): 64 intervalos, 42 remiten
+  al censo, 22 se cierran con 244 piezas; cola R=46, A=4086654774, c=7, H=51.
+  [Cotejo](cotejo_pesos_46.json): coincide.
+- **Lean** [OcelotasCuarentaYSeis.lean](OcelotasCuarentaYSeis.lean) con
+  hipótesis explícita `CensoPropio7e11`, tabla y 12 partes: `cst_condicional`
+  y `fallo_exige_cuarenta_y_siete`. Auditor: 19 módulos compilados en almacén
+  nuevo, 96 consultas estándar, sin `sorryAx`, 7 min 25 s. Evidencia:
+  [evidencia_cuarenta_y_seis.json](evidencia_cuarenta_y_seis.json) y
+  [.txt](evidencia_cuarenta_y_seis.txt).
+- **Reproducción** (12-10): con los comandos de abajo, el certificado, su
+  cotejo y los 13 ficheros Lean de la tabla salen idénticos byte a byte.
+
+### 47 rachas: PENDIENTE (12-10, noche)
+
+El umbral medido es más bajo de lo estimado: con H=51, 47 rachas **cierran
+con un censo hasta 1,2·10^12** (con 1,1·10^12 no). `pesos_47.json`: 42 filas
+al censo, 22 por pesos con 228 piezas; cola A=6538647640, c=7, H=51; el
+cotejo coincide. El censo `(7·10^11, 1,2·10^12]` en cuatro tramos de
+1,25·10^11 (unas 2 h en paralelo) se lanzó y **se canceló a pedido del
+usuario**; no hay tramos terminados. Para retomar:
+
+```text
+python -B -X utf8 depuracion/cst20260930/pesos_rachas.py --rachas 47 --H 51 --externo 1200000000000 --logaritmos depuracion/cst20260930/logaritmos_55_propuesta.json --salida depuracion/cst20260930/pesos_47.json
+python -B -X utf8 depuracion/cst20260930/cotejar_pesos.py --certificado depuracion/cst20260930/pesos_47.json --salida depuracion/cst20260930/cotejo_pesos_47.json
+python -B -X utf8 depuracion/cst20260930/generar_ochenta_y_uno_lean.py --certificado depuracion/cst20260930/pesos_47.json --base OcelotasCuarentaYSieteTabla --carpeta depuracion/cst20260930
+python -B -X utf8 depuracion/cst20260930/censo_cst.py --desde 700000000001 --N 825000000000 --salida depuracion/cst20260930/censo_47/tramo_1.json   # 2: 825000000001-950000000000, 3: 950000000001-1075000000000, 4: 1075000000001-1200000000000
+python -B -X utf8 depuracion/cst20260930/cubrir_tramos.py --carpeta depuracion/cst20260930/censo_47 --desde 700000000001 --tramos 4
+python -B -X utf8 depuracion/cst20260930/cotejar_censo.py --N 1200000000000 --desde 700000000001 --E 22 --salida depuracion/cst20260930/censo_47/cotejo_tramo.json
+```
+
+El módulo principal `OcelotasCuarentaYSiete.lean` (hipótesis
+`CensoPropio12e11`, `fallo_exige_cuarenta_y_ocho`) se copió del de 46 y queda
+en local, sin auditar y fuera del commit, igual que el certificado y la
+tabla generada. Después: auditor persistente en un almacén nuevo, instancia
+de ciclos y registro. Con Rozier–Terracol la misma vía ya da 81.
+
 Umbrales medidos el 12-10 con `pesos_rachas.py` (H=51), que corrigen la
 estimación anterior de 6·10^11 para 43:
 
@@ -280,7 +324,9 @@ estimación anterior de 6·10^11 para 43:
 | 45 | 5·10^11 | 6·10^11 |
 | 46 | 6,5·10^11 | 7·10^11 |
 | 47 | 10^12 | 2·10^12 |
-| 48 y 50 | 2·10^12 | 5·10^12 | El censo en Python crece linealmente; Rozier–Terracol
+| 48 y 50 | 2·10^12 | 5·10^12 |
+
+El censo en Python crece linealmente; Rozier–Terracol
 llega a 2,8·10^19 y con él la vía de pesos da 81.
 
 ```text
@@ -299,6 +345,12 @@ python -B -X utf8 depuracion/cst20260930/generar_ochenta_y_uno_lean.py --certifi
 python -B -X utf8 depuracion/cst20260930/censo_cst.py --desde 200000000001 --N 216666666666 --salida depuracion/cst20260930/censo_42/tramo_1.json   # y así los tramos 2-6
 python -B -X utf8 depuracion/cst20260930/cubrir_tramos.py --carpeta depuracion/cst20260930/censo_42 --desde 200000000001
 python -B -X utf8 depuracion/cst20260930/cotejar_censo.py --N 300000000000 --desde 200000000001 --E 22 --salida depuracion/cst20260930/censo_42/cotejo_tramo.json
+python -B -X utf8 depuracion/cst20260930/pesos_rachas.py --rachas 46 --H 51 --externo 700000000000 --logaritmos depuracion/cst20260930/logaritmos_55_propuesta.json --salida depuracion/cst20260930/pesos_46.json
+python -B -X utf8 depuracion/cst20260930/cotejar_pesos.py --certificado depuracion/cst20260930/pesos_46.json --salida depuracion/cst20260930/cotejo_pesos_46.json
+python -B -X utf8 depuracion/cst20260930/generar_ochenta_y_uno_lean.py --certificado depuracion/cst20260930/pesos_46.json --base OcelotasCuarentaYSeisTabla --carpeta depuracion/cst20260930
+python -B -X utf8 depuracion/cst20260930/censo_cst.py --desde 300000000001 --N 433333333333 --salida depuracion/cst20260930/censo_46/tramo_1.json   # y así los tramos 2-3
+python -B -X utf8 depuracion/cst20260930/cubrir_tramos.py --carpeta depuracion/cst20260930/censo_46 --desde 300000000001 --tramos 3
+python -B -X utf8 depuracion/cst20260930/cotejar_censo.py --N 700000000000 --desde 300000000001 --E 22 --salida depuracion/cst20260930/censo_46/cotejo_tramo.json
 ```
 
 ## Reproducir

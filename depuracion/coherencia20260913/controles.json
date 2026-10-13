@@ -1,5 +1,5 @@
 {
-  "fecha_utc": "2026-10-12T22:55:14.273613+00:00",
+  "fecha_utc": "2026-10-13T01:05:01.136828+00:00",
   "resultados": [
     {
       "nombre": "auditoria_matematica",
@@ -11,7 +11,7 @@
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\coherencia20260913\\verificar_matematica.py"
       ],
       "exit_code": 0,
-      "segundos": 1.1,
+      "segundos": 0.809,
       "admite_sorry": false,
       "correcto": true
     },
@@ -25,7 +25,7 @@
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\coherencia20260913\\verificar_motor.py"
       ],
       "exit_code": 0,
-      "segundos": 0.349,
+      "segundos": 0.226,
       "admite_sorry": false,
       "correcto": true
     },
@@ -39,7 +39,7 @@
         "C:\\Users\\Home\\Desktop\\conjeturadecollazpython\\depuracion\\coherencia20260913\\verificar_registro.py"
       ],
       "exit_code": 0,
-      "segundos": 0.568,
+      "segundos": 0.356,
       "admite_sorry": false,
       "correcto": true
     },
@@ -55,7 +55,7 @@
         "20"
       ],
       "exit_code": 0,
-      "segundos": 0.485,
+      "segundos": 0.312,
       "admite_sorry": false,
       "correcto": true
     },
@@ -67,7 +67,7 @@
         "depuracion/frente20260910/balance.lean"
       ],
       "exit_code": 0,
-      "segundos": 2.655,
+      "segundos": 1.958,
       "admite_sorry": false,
       "correcto": true
     },
@@ -79,7 +79,7 @@
         "cabras.lean"
       ],
       "exit_code": 0,
-      "segundos": 2.04,
+      "segundos": 1.4,
       "admite_sorry": false,
       "correcto": true
     },
@@ -91,7 +91,7 @@
         "cadenakc.lean"
       ],
       "exit_code": 0,
-      "segundos": 2.2,
+      "segundos": 1.448,
       "admite_sorry": false,
       "correcto": true
     },
@@ -103,7 +103,7 @@
         "conejas.lean"
       ],
       "exit_code": 0,
-      "segundos": 2.14,
+      "segundos": 1.371,
       "admite_sorry": false,
       "correcto": true
     },
@@ -115,7 +115,7 @@
         "lean/mirror_theorem.lean"
       ],
       "exit_code": 0,
-      "segundos": 8.183,
+      "segundos": 5.925,
       "admite_sorry": false,
       "correcto": true
     },
@@ -127,7 +127,7 @@
         "depuracion/frente20260910/invariantes.lean"
       ],
       "exit_code": 0,
-      "segundos": 2.549,
+      "segundos": 1.887,
       "admite_sorry": false,
       "correcto": true
     },
@@ -139,7 +139,7 @@
         "depuracion/frente20260910/obstruccion.lean"
       ],
       "exit_code": 0,
-      "segundos": 1.898,
+      "segundos": 1.3,
       "admite_sorry": false,
       "correcto": true
     },
@@ -151,7 +151,7 @@
         "depuracion/frente20260910/rachas.lean"
       ],
       "exit_code": 0,
-      "segundos": 2.235,
+      "segundos": 1.538,
       "admite_sorry": false,
       "correcto": true
     },
@@ -163,7 +163,7 @@
         "depuracion/frente20260910/transferencia.lean"
       ],
       "exit_code": 0,
-      "segundos": 1.96,
+      "segundos": 1.339,
       "admite_sorry": false,
       "correcto": true
     },
@@ -175,7 +175,7 @@
         "--version"
       ],
       "exit_code": 0,
-      "segundos": 0.213,
+      "segundos": 0.113,
       "admite_sorry": false,
       "correcto": true
     },
@@ -189,7 +189,7 @@
         "depuracion/frente20260910/balance.py"
       ],
       "exit_code": 0,
-      "segundos": 9.923,
+      "segundos": 7.143,
       "admite_sorry": false,
       "correcto": true
     },
@@ -203,7 +203,7 @@
         "depuracion/frente20260910/invariantes.py"
       ],
       "exit_code": 0,
-      "segundos": 0.544,
+      "segundos": 0.441,
       "admite_sorry": false,
       "correcto": true
     },
@@ -217,7 +217,7 @@
         "depuracion/frente20260910/obstruccion.py"
       ],
       "exit_code": 0,
-      "segundos": 2.117,
+      "segundos": 1.583,
       "admite_sorry": false,
       "correcto": true
     },
@@ -231,7 +231,7 @@
         "depuracion/frente20260910/rachas.py"
       ],
       "exit_code": 0,
-      "segundos": 2.068,
+      "segundos": 1.482,
       "admite_sorry": false,
       "correcto": true
     },
@@ -245,7 +245,7 @@
         "depuracion/frente20260910/transferencia.py"
       ],
       "exit_code": 0,
-      "segundos": 1.766,
+      "segundos": 1.284,
       "admite_sorry": false,
       "correcto": true
     },
@@ -261,7 +261,7 @@
         "20"
       ],
       "exit_code": 0,
-      "segundos": 0.241,
+      "segundos": 0.165,
       "admite_sorry": false,
       "correcto": true
     },
@@ -275,7 +275,7 @@
         "verify/verify_consistency.py"
       ],
       "exit_code": 0,
-      "segundos": 0.187,
+      "segundos": 0.156,
       "admite_sorry": false,
       "correcto": true
     },
@@ -289,7 +289,7 @@
         "verify/verify_merging_classes.py"
       ],
       "exit_code": 0,
-      "segundos": 18.42,
+      "segundos": 15.751,
       "admite_sorry": false,
       "correcto": true
     },
@@ -303,7 +303,7 @@
         "verify/verify_q_family.py"
       ],
       "exit_code": 0,
-      "segundos": 8.717,
+      "segundos": 7.061,
       "admite_sorry": false,
       "correcto": true
     },
@@ -317,7 +317,7 @@
         "verify/verify_strata.py"
       ],
       "exit_code": 0,
-      "segundos": 12.182,
+      "segundos": 10.774,
       "admite_sorry": false,
       "correcto": true
     }

@@ -1,0 +1,22 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+MODULO: OcelotasCiclos; segundos: 26.055
+'OcelotasCiclos.ciclo_exige' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0
+REUTILIZADO: OcelotasLogaritmosPrecisos; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoRachas; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPesos; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTablaParte01; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTablaParte02; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTablaParte03; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTablaParte04; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTablaParte05; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTablaParte06; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTablaParte07; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUnoTabla; auditoria original conservada.
+REUTILIZADO: OcelotasColaParametrica; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYUno; auditoria original conservada.
+MODULO: OcelotasCiclosOchentaYUno; segundos: 36.259
+'OcelotasCiclosOchentaYUno.ciclo_exige' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

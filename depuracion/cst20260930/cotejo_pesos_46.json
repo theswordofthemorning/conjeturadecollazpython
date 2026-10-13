@@ -1,0 +1,15 @@
+{
+  "certificado": "pesos_46.json",
+  "rachas": 46,
+  "filas": 64,
+  "externas": 42,
+  "por_pesos": 22,
+  "piezas": 244,
+  "cola": {
+    "A": 4086654774,
+    "c": 7,
+    "H": 51
+  },
+  "q_fin": 2365627332311699,
+  "resultado": "coincide"
+}

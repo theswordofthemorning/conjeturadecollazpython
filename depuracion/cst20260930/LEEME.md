@@ -33,7 +33,17 @@ Rozier–Terracol: LMN y un censo propio hasta 2^36
 [OcelotasCuarentaYUna.lean](OcelotasCuarentaYUna.lean) llega a **41** con censo
 hasta 2·10^11 ([censo_41/](censo_41/)) y
 [OcelotasCuarentaYDos.lean](OcelotasCuarentaYDos.lean) a **42** con censo hasta
-3·10^11 ([censo_42/](censo_42/)).
+3·10^11 ([censo_42/](censo_42/)) y
+[OcelotasCuarentaYSeis.lean](OcelotasCuarentaYSeis.lean) a **46** con censo hasta
+7·10^11 ([censo_46/](censo_46/)).
+
+**Calibración con ciclos, 12-10:** [CICLOS_CALIBRACION.md](CICLOS_CALIBRACION.md).
+[OcelotasCiclos.lean](OcelotasCiclos.lean) demuestra que, si la CST vale hasta
+R rachas, todo ciclo no trivial tiene más de R rachas impares (sus mínimos
+locales). Aplicado a 24, 42, 46 y 81: sin m-ciclos con m ≤ 46 bajo LMN y el
+censo propio, y con m ≤ 81 bajo LMN y Rozier–Terracol. Encaja entre Simons–de Weger (m ≤ 75 con 5,8·10^18) y
+Hercher (m ≤ 91 con 8,0·10^20). Los cuatro módulos pasaron el auditor
+(evidencia_ciclos_*.json).
 
 La continuación cerró [77 rachas en Lean](SETENTA_Y_SIETE_LEAN.md),
 bajo las mismas dos hipótesis externas: 91 módulos, 5030 consultas

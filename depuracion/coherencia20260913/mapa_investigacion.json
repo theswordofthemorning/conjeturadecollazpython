@@ -1238,13 +1238,14 @@
       "animal": "Ocelotas",
       "alias": [],
       "rama": "descenso",
-      "resumen": "Bajo las hipótesis indicadas, hasta 24 rachas el primer cruce es descenso; hasta 42 con pesos por racha y un censo propio hasta 3·10^11; hasta 81 con Rozier–Terracol.",
-      "limite": "Se supone que el primer cruce existe. LMN es externo; los cierres de 40, 41 y 42 añaden un censo calculado en Python como hipótesis; los de 77 y 81, Rozier–Terracol. No demuestra Collatz.",
+      "resumen": "Bajo las hipótesis indicadas, hasta 24 rachas el primer cruce es descenso; hasta 46 con pesos por racha y un censo propio hasta 7·10^11; hasta 81 con Rozier–Terracol. Aplicado a ciclos: sin m-ciclos con m ≤ 81 bajo LMN y Rozier–Terracol.",
+      "limite": "Se supone que el primer cruce existe. LMN es externo; los cierres de 40 a 46 añaden un censo calculado en Python como hipótesis; los de 77 y 81, Rozier–Terracol. La cota de ciclos es calibración: Hercher ya llega a m ≤ 91. No demuestra Collatz.",
       "situacion": "vigente",
       "fuentes": [
         "depuracion/cst20260930/VEINTICUATRO_LEAN.md",
         "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md",
-        "depuracion/cst20260930/PESOS_RACHAS.md"
+        "depuracion/cst20260930/PESOS_RACHAS.md",
+        "depuracion/cst20260930/CICLOS_CALIBRACION.md"
       ],
       "nodos": [
         "ocelotas"
@@ -1279,7 +1280,9 @@
         "ocelotas_cst_81_rachas_pesos_lean",
         "ocelotas_cst_40_rachas_lmn_censo_lean",
         "ocelotas_cst_41_rachas_lmn_censo_lean",
-        "ocelotas_cst_42_rachas_lmn_censo_lean"
+        "ocelotas_cst_42_rachas_lmn_censo_lean",
+        "ocelotas_cst_46_rachas_lmn_censo_lean",
+        "ocelotas_ciclos_calibracion_lean"
       ]
     },
     {
@@ -4413,6 +4416,15 @@
       "detalle": "La obstrucción escalar se aplica a la proyección sobre una recta invariante común.",
       "fuentes": [
         "depuracion/perdices20261007/SOPORTES_MATRICES_H.md"
+      ]
+    },
+    {
+      "desde": "ocelotas",
+      "hasta": "sin_circuitos",
+      "tipo": "usa",
+      "detalle": "La calibración aplica los cierres de Ocelotas a ciclos y excluye circuitos con a lo sumo 81 rachas impares bajo LMN y Rozier–Terracol. Es una exclusión parcial que no cierra la pieza: Hercher ya llega a 91.",
+      "fuentes": [
+        "depuracion/cst20260930/CICLOS_CALIBRACION.md"
       ]
     }
   ],

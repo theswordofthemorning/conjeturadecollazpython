@@ -1,0 +1,11 @@
+{
+  "completo_hasta": 4194304,
+  "fallos_completo": 0,
+  "muestra": 1000000,
+  "rango_muestra": [
+    300000000001,
+    700000000000
+  ],
+  "fallos_muestra": 0,
+  "semilla_aleatoria": 20261012
+}

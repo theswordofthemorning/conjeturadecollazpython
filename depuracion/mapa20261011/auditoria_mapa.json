@@ -1,6 +1,6 @@
 {
   "version": "2026-10-12",
-  "afirmaciones": 337,
+  "afirmaciones": 339,
   "correcciones": 85,
   "nombres": 70,
   "animales": 68,
@@ -12,20 +12,20 @@
   "relaciones": {
     "registrada": 95,
     "interna": 1,
-    "usa": 32,
+    "usa": 33,
     "antecedente": 33,
     "contrasta": 5,
     "condicional": 3
   },
-  "enlaces_locales": 220,
+  "enlaces_locales": 223,
   "paginas": [
     "MapaDependenciasBasic.html",
     "MapaDependenciasComplex.html"
   ],
   "conservacion": {},
   "fuentes": {
-    "depuracion/coherencia20260913/mapa_investigacion.json": "15a250bfa016b1380912d0ee2807a5da6871d6408d624ce5503dd2bb262515fa",
-    "depuracion/coherencia20260913/registro.json": "32c550dfa95d87bbcd0a529ae4ef4045dcbec6c92aad709de54a7250939b234a",
+    "depuracion/coherencia20260913/mapa_investigacion.json": "77915d19fe852244293a3b1adccc5d22de401e6247ce2b5bf59c17ad4a34a90c",
+    "depuracion/coherencia20260913/registro.json": "2caf35aa33784eb9647f61e863ce2b34f231b4590f53b4df4b2cc68e1ec96bd8",
     "depuracion/mapa20261011/verificar_mapa.py": "3f74d5053d38054a0323ed383ca9b837eded1a8bf8d2022baa0c8195e8ff697c",
     "depuracion/mapa20261011/generar_mapa.py": "8fdf7dba6a5b62627456188674223386f2eae0d62d3ea9a44f38aedfa62e938b",
     "depuracion/mapa20261011/catalogo.py": "b5645b2b62ee489ef60933a95a900b4941e2eb2e7cc05e0c96a66e42e88941a0",
