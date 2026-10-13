@@ -3,120 +3,96 @@
 [Premisa](PREMISA_DE_INVESTIGACION.md): buscar la prueba universal de Collatz;
 la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
 
-- **Gao, forma de Lagarias.** `GaoEnunciado.conjetura_gao`
-  ([Tejonas](depuracion/gao20260920/Tejonas.md)): con el mapa clásico, los n
-  con `f^k(n)=f^k(n+1)` para algún `k<=log2 n` tienen densidad natural 1.
-- **Gao (1993).** `GaoLiteral.conjetura_gao_literal`
-  ([Hienas](depuracion/gao20260920/Hienas.md)): `d̄_k -> 1` con su coalescencia
-  exigente, y además `d(x) -> 1`.
-- **Garner (1985).** `GarnerEnunciado.conjetura_garner`
-  ([Alpacas](depuracion/garner20260926/Alpacas.md)): L+1 consecutivos, tan
-  grandes como se quiera, con igual altura e igual tiempo total de parada.
-- **Wu (1992).** `WuEnunciado` ([Condoras](depuracion/gao20260920/formal/Condoras.lean)):
-  `lim L=∞`. La conjetura 1 equivale, dado Gao, a que casi todo n llegue a 1:
-  sigue abierta. Citas leídas con la IA de CNKI; falta cotejar el original.
-- **Ocelotas.** [Veinticuatro rachas en Lean](depuracion/cst20260930/VEINTICUATRO_LEAN.md):
-  `cst_veinticuatro_corolario` prueba primer descenso = primer cruce, supuesto
-  existente, bajo Laurent–Mignotte–Nesterenko (1995), externo.
-  Original cotejado; `LMN23 -> LMNDebil` en Lean
-  ([lecturas](depuracion/cst20260930/LECTURAS_20261003.md)). La
-  criba por prefijos exige **al menos 25 rachas** para un fallo, en Lean.
-  El [cierre de 77](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md) también está
-  formalizado: exige **78 con LMN y Rozier–Terracol** como hipótesis externas.
-  **12-10:** los [pesos por racha](depuracion/cst20260930/PESOS_RACHAS.md),
-  la parte del teorema 21 de Hercher que pasa al primer cruce, cierran
-  **81 rachas** en Lean con las mismas dos hipótesis y sin árbol de
-  prefijos. Un fallo exige 82. La fusión del lema 9 no se transfiere.
-  Sin Rozier–Terracol, LMN y un censo propio (cálculo en Python,
-  hipótesis explícita, 0 fallos) dan en Lean **40 rachas** con censo hasta
-  2^36, **41** con censo hasta 2·10^11, **42** con censo hasta 3·10^11 y
-  **46** con censo hasta 7·10^11; 47 queda pendiente (censo hasta 1,2·10^12).
-  [Calibración con ciclos](depuracion/cst20260930/CICLOS_CALIBRACION.md):
-  en Lean, si la CST vale hasta R rachas, todo ciclo no trivial tiene más de
-  R rachas impares; con 81 da m ≤ 81, entre Simons–de Weger (75) y Hercher
-  (91). Coherencia, no resultado nuevo.
+## Resultados y alcance
 
-Sólo axiomas estándar en los módulos Lean. **Revisión humana pendiente.**
-Salvo en las rachas construidas, nada afirma la llegada a 1.
+- **Gao.** [Tejonas](depuracion/gao20260920/Tejonas.md) y
+  [Hienas](depuracion/gao20260920/Hienas.md): densidad natural 1 de coalescencia,
+  en la forma de Lagarias y la literal de Gao (1993). No implica llegada a 1.
+  [Cigarras](depuracion/gao20260924/Cigarras.md) documenta el ritmo muy lento.
+- **Garner y Wu.** [Alpacas](depuracion/garner20260926/Alpacas.md): rachas de
+  consecutivos arbitrariamente largas y altas con igual altura y tiempo total
+  de parada. [Condoras](depuracion/gao20260920/formal/Condoras.lean): Wu 2;
+  Wu 1 equivale, dado Gao, a convergencia en densidad natural 1 y sigue abierto.
+  Falta cotejar el original de Wu, consultado mediante CNKI AI.
+- **Ocelotas.** [24 rachas](depuracion/cst20260930/VEINTICUATRO_LEAN.md) bajo
+  LMN; [77](depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md) y
+  [81 con pesos](depuracion/cst20260930/PESOS_RACHAS.md), bajo LMN y
+  Rozier–Terracol. Siempre se supone primer cruce finito.
+  LMN original cotejado y puente `LMN23 -> LMNDebil` en Lean
+  ([lecturas](depuracion/cst20260930/LECTURAS_20261003.md)).
+  Sin Rozier–Terracol, censos propios como hipótesis explícitas cierran
+  40/41/42/46 rachas hasta 2^36/2·10^11/3·10^11/7·10^11; 47 pendiente.
+  [Calibración](depuracion/cst20260930/CICLOS_CALIBRACION.md): CST hasta R
+  excluye ciclos con hasta R rachas; con 81 queda por debajo de Hercher (91).
 
-Cadena y alcance de Gao: [Tejonas](depuracion/gao20260920/Tejonas.md).
-Ritmo muy lento: [Cigarras](depuracion/gao20260924/Cigarras.md).
+Sólo axiomas estándar en los módulos Lean registrados. **Revisión humana
+pendiente.** Salvo en las rachas construidas, nada afirma llegada a 1.
+
+## Ruta y siguiente acción
+
+[Colisiones](depuracion/perdices20261007/COLISIONES.md) excluye el planeador:
+en una órbita positiva inyectiva, los recíprocos son sumables,
+`R_k -> ξ` finito y `P_k -> infinito` (antecedente Garcia–Tal).
+[Mínimos](depuracion/perdices20261007/MINIMOS.md) extrae reinicios de fuga pura
+sin MuroA y demuestra `Collatz <-> MuroB y ausencia de circuitos no triviales`.
+**Ambas condiciones siguen abiertas.**
+
+[Complejidad](depuracion/perdices20261007/COMPLEJIDAD.md) restringe repeticiones
+y excluye paridades sturmianas para racionales de denominador impar
+(antecedente De Jesus). [Salidas](depuracion/perdices20261007/SALIDAS.md):
+en `1/110`, `λ(n)<=3log2(n)+1` sigue conjeturado; hasta 2^50, máximo 112,
+con auditoría independiente completa hasta 16 bits. Los
+[empalmes H](depuracion/perdices20261007/RACHAS_H.md) transportan exactamente
+el mínimo original.
+
+[Matrices](depuracion/perdices20261007/SOPORTES_MATRICES_H.md): excluidos
+escalares, primera coordenada aislada y recta natural común; diez soportes
+mínimos de aporte. Son condiciones necesarias; ninguna dinámica del objetivo
+57 eliminada. Árticas indecisas y persistencia abierta. Pendiente algebraico:
+diferencias completas de constantes y reglas estáticas, sin exigir circuito.
+
+**Lectura solicitada de las 339:**
+[evaluación y ruta](depuracion/coherencia20260913/RUTA_339_20261012.md).
+Ruta acordada: priorizar descenso eventual con semilla conservada y tiempos
+variables; como piloto, controlar la recarga acumulada de divisibilidad al
+cambiar `1/110`. El criterio propuesto no está demostrado; resolver el piloto
+tampoco cerraría Collatz. Matrices H queda como ensayo auxiliar. Se localizó
+un preprint sobre barreras matriciales: presentación leída, pruebas sin auditar.
+No ampliar censos como sustituto de una desigualdad nueva.
+[Retomar la próxima sesión](depuracion/coherencia20260913/RUTA_339_20261012.md#reanudar-la-próxima-sesión):
+fijar una familia explícita de presupuestos K y estudiar (P), terminando con
+prueba, contraejemplo o una obligación pendiente precisa.
 
 ## Revisión y publicación
 
-[Pendientes](gaopendientes.md): revisión humana de Gao, Hienas, Garner y
-Wu. Lean certifica el enunciado, no su interpretación. La
-[revisión del 27-09](papers/revision20260927/REVISION.md#4-novedad) no halló
-pruebas publicadas; zbMATH por citas (11-10) tampoco. Faltan MathSciNet,
-Scholar y el original de Garner.
+[Pendientes](gaopendientes.md): revisión humana de Gao, Hienas, Garner y Wu.
+La [revisión de novedad](papers/revision20260927/REVISION.md#4-novedad) y
+zbMATH por citas (11-10) no hallaron pruebas publicadas; faltan MathSciNet,
+Scholar y Garner original. **No anunciar, enviar a OEIS ni contactar sin autorización.**
 
-**No anunciar, no enviar a OEIS ni contactar a nadie sin autorización.**
-
-- **Artículos.** [Índice](papers/README.md), [Zenodo](papers/zenodo/LEEME.md).
-  [Rechazos AFM](papers/CORREOS_20261004.md): II y III libres;
-  I en [JAR](papers/jar/LEEME.md), sin noticias al 04-10;
-  [IV](papers/articulo_IV_ocelotas.tex), sin enviar.
-  [Qeios](papers/qeios/LEEME.md): retirado.
-  [Palomar](papers/palomar/LEEME.md): verificando Gao, CI verde.
-  [Zulip](papers/qeios/ZULIP_borrador.md): anuncio borrado.
-- **OEIS.** A078441, A400486 y [A400487](https://oeis.org/A400487)
-  aprobadas; no validan pruebas. Tres cupos previstos para dos correcciones
-  y una sucesión nueva, sin enviar y sujetos al panel de la cuenta:
-  [pendiente de la próxima sesión](papers/oeis/PENDIENTE_20261010.md).
-
-## Ruta vigente y próximo bloque
-
-**Conservado:** [Colisiones](depuracion/perdices20261007/COLISIONES.md)
-excluye al planeador: con n>0 e inyectividad orbital, `sum 1/T^j(n)<=3*2^100`,
-`R_k->ξ` finito y `P_k->infinito` (antecedente Garcia–Tal 1999).
-[Mínimos futuros](depuracion/perdices20261007/MINIMOS.md) da reinicios de fuga
-pura sin MuroA y `Collatz <-> MuroB y ausencia de circuitos no triviales`.
-**Ambas condiciones siguen abiertas.**
-
-**Repeticiones:** [Complejidad](depuracion/perdices20261007/COMPLEJIDAD.md)
-acota repeticiones y prueba `liminf p(m)/m>=1/log2(3/2)` en órbitas
-inyectivas. Excluye paridades sturmianas para racionales de denominador
-impar (antecedente De Jesus): 39 teoremas, 29 módulos, 368 consultas estándar.
-
-**Frontera:** `λ(n)<=3log2(n)+1` para la clase `1`/`110` sigue conjeturado.
-[Salidas](depuracion/perdices20261007/SALIDAS.md) conserva tres censos auditados;
-el contraste independiente llega a 16 bits. Censo hasta `2^50`: máximo 112.
-
-**H de Yolcu–Aaronson–Heule:** [Rachas](depuracion/perdices20261007/RACHAS_H.md),
-18 lemas Lean. Pasados/futuros finitos compatibles en `x>0, x=15 mod 24`;
-densidad relativa `21^(-k)*16^(-l)`, por escrito. El tamaño del empalme
-transporta exactamente el mínimo original; no aporta una restricción nueva.
-
-**Matrices naturales 2x2:** [Proyecciones](depuracion/perdices20261007/PROYECCIONES_MATRICES_H.md)
-excluye el caso escalar y la primera coordenada aislada.
-[Soportes y rectas](depuracion/perdices20261007/SOPORTES_MATRICES_H.md) añade
-14 teoremas Lean: recta natural común excluida, incluso con conexiones en
-ambos sentidos; diez soportes mínimos de aporte izquierdo. Cotejo de
-16.384 soportes. Aporte positivo no equivale a descenso; árticas indecisas
-y **persistencia abierta**.
-
-**Siguiente:** estudiar diferencias completas de constantes y reglas
-estáticas en matrices con ruta activa y sin recta natural común.
-No exigir un circuito sin prueba. Cierre solicitado el 12-10.
+[Artículos](papers/README.md), [Zenodo](papers/zenodo/LEEME.md): tras los
+[rechazos AFM](papers/CORREOS_20261004.md), II y III libres; I en
+[JAR](papers/jar/LEEME.md), sin noticias al 04-10; IV sin enviar.
+[Qeios](papers/qeios/LEEME.md) retirado;
+[Palomar](papers/palomar/LEEME.md) verifica Gao, CI verde;
+[Zulip](papers/qeios/ZULIP_borrador.md) borrado.
+OEIS A078441, A400486 y A400487 aprobadas: no validan pruebas.
+[Próxima sesión OEIS](papers/oeis/PENDIENTE_20261010.md): dos correcciones y
+una sucesión, sin enviar y sujetas al panel.
 
 ## Evidencia y conservación
 
-**Arca reconstruida:** [mapa básico](depuracion/mapa20261011/MapaDependenciasBasic.html)
-y [completo](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
-123 piezas, nueve ramas. Incluye recuperados y alias; distingue historia,
-dependencias e hipótesis. [Auditoría](depuracion/mapa20261011/RECONSTRUCCION.md):
-68 revisiones de Git; 331 afirmaciones conservadas y dos nuevas, SQLite y navegación sin red.
+[Arca completa](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
+123 piezas, nueve ramas; [auditoría](depuracion/mapa20261011/RECONSTRUCCION.md).
+[Registro versionado](depuracion/coherencia20260913/registro.json) y
+`guardarafirmaciones.py`: **339 filas**, 226 demostradas, 92 medidas,
+13 conjeturadas y ocho refutadas. Cotejo literal completo con SQLite;
+la incidencia histórica de la fila 71 sigue señalada, no usada.
 
-Lean 4.32.2, Mathlib fijado; `leanchecker` de 28 módulos
-([evidencia](depuracion/gao20260920/evidencia_gao_lean.json),
-[reproducción](depuracion/gao20260920/formal/README.md)). Los módulos
-nuevos dejan sus registros de `lake env lean`.
-
-Registro: 333 afirmaciones: 220 demostradas, 92 medidas, 13 conjeturadas
-y ocho refutadas
-([fuente versionada](depuracion/coherencia20260913/registro.json) y
-`guardarafirmaciones.py`). No reconstruir conversaciones ni alterar históricos.
-
-Histórico: [recuperación del 05-10](depuracion/casa20261005_recuperada/RECUPERACION.md)
-y [conciliación](depuracion/jinetas20261010/CONCILIACION.md). Dos huellas antiguas
-requieren revisión; no se usan sus cachés. Históricos y zootheorem intactos.
+Lean 4.32.2 y Mathlib fijado; [reproducción](depuracion/gao20260920/formal/README.md).
+[Evidencia de esta lectura](depuracion/coherencia20260913/evidencia_ruta339_20261012.json):
+cinco consultas Lean y controles exactos acotados; sin reconstrucción completa
+ni censos grandes. Cambios locales preexistentes conservados.
+[Casa recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md) y
+[conciliación](depuracion/jinetas20261010/CONCILIACION.md): dos huellas antiguas
+requieren revisión; no usar sus cachés. Históricos, conversaciones y zootheorem intactos.

@@ -1,0 +1,228 @@
+{
+  "fecha": "2026-10-12",
+  "alcance": "Lectura de 339 enunciados y revisión de dependencias decisivas. No auditoría completa de todas las pruebas ni demostración de Collatz.",
+  "catalogo": {
+    "total": 339,
+    "base": 208,
+    "altas": 131,
+    "correcciones": 31,
+    "estados": {
+      "demostrado": 226,
+      "medido": 92,
+      "conjeturado": 13,
+      "refutado": 8
+    },
+    "coincidencia_literal": true,
+    "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
+    "fuentes_sha256": {
+      "guardarafirmaciones.py": "b843a22d9f9ec99e92ae9664acea08f34ec4d1ffa030a459b51c451af0735306",
+      "registroafirmaciones.py": "a19c0d0bb3f2e577e7935a6b933fe66814e98f1212e5838723f4f5dbb4068657",
+      "depuracion/coherencia20260913/registro.json": "2caf35aa33784eb9647f61e863ce2b34f231b4590f53b4df4b2cc68e1ec96bd8",
+      "afirmaciones.db": "9bee355fe248aeabeb9e64dfa0a6b5f68819628ffa2d8b95ca5bcac5f683a627"
+    }
+  },
+  "lean": {
+    "version": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+    "modo": "Consulta de módulos compilados existentes; sin reconstrucción completa.",
+    "minimos_archivos": 48,
+    "minimos_objetos_previos": 24,
+    "matrices_archivos": {
+      "proyecciones": 4,
+      "soportes": 3
+    },
+    "huellas_correctas": true,
+    "consultas": {
+      "CasaPlano.llega_de_descensos": [
+        "propext",
+        "Quot.sound"
+      ],
+      "PerdicesMinimos.reinicio_grande": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "PerdicesMinimos.collatz_iff_cruce_sin_circuitos": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "PerdicesSoportesMatrices.sin_descenso_recta": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "PerdicesSoportesMatrices.descenso_exige_ruta": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "salida": "CasaPlano.llega_de_descensos (hD : ∀ (n : ℕ), 2 ≤ n → CasaPlano.Desciende n) (n : ℕ) : 1 ≤ n → CasaPlano.LlegaT n\n'CasaPlano.llega_de_descensos' depends on axioms: [propext, Quot.sound]\nPerdicesMinimos.reinicio_grande {n : ℕ} (hn : 0 < n) (hi : Function.Injective fun j => Ocelotas.T^[j] n) (K M : ℕ) :\n  ∃ k, K ≤ k ∧ M < Ocelotas.T^[k] n ∧ CasaPlano.FugaPura (Ocelotas.T^[k] n)\n'PerdicesMinimos.reinicio_grande' depends on axioms: [propext, Classical.choice, Quot.sound]\nPerdicesMinimos.collatz_iff_cruce_sin_circuitos : CasaPlano.Collatz ↔ CasaPlano.MuroB ∧ ∀ (x : ℕ), ¬CasaPlano.Circuito x\n'PerdicesMinimos.collatz_iff_cruce_sin_circuitos' depends on axioms: [propext, Classical.choice, Quot.sound]\nPerdicesSoportesMatrices.sin_descenso_recta (k t : ℕ) (a b c d e f g : PerdicesProyeccionesMatrices.AfinDos)\n  (ha : PerdicesSoportesMatrices.conservaRecta k t a) (hb : PerdicesSoportesMatrices.conservaRecta k t b)\n  (hc : PerdicesSoportesMatrices.conservaRecta k t c) (he : PerdicesSoportesMatrices.conservaRecta k t e)\n  (hf : PerdicesSoportesMatrices.conservaRecta k t f) (hg : PerdicesSoportesMatrices.conservaRecta k t g)\n  (h : PerdicesProyeccionesMatrices.ReglasDos a b c d e f g) : PerdicesSoportesMatrices.igualesDinamicas a b d e f\n'PerdicesSoportesMatrices.sin_descenso_recta' depends on axioms: [propext, Classical.choice, Quot.sound]\nPerdicesSoportesMatrices.descenso_exige_ruta (a b d e f : PerdicesProyeccionesMatrices.AfinDos)\n  (h :\n    d.v0 < (PerdicesProyeccionesMatrices.compDos d a).v0 ∨\n      (PerdicesProyeccionesMatrices.compDos d\n              (PerdicesProyeccionesMatrices.compDos a (PerdicesProyeccionesMatrices.compDos b e))).v0 <\n          (PerdicesProyeccionesMatrices.compDos d\n              (PerdicesProyeccionesMatrices.compDos b (PerdicesProyeccionesMatrices.compDos a a))).v0 ∨\n        (PerdicesProyeccionesMatrices.compDos d\n              (PerdicesProyeccionesMatrices.compDos b (PerdicesProyeccionesMatrices.compDos a f))).v0 <\n          (PerdicesProyeccionesMatrices.compDos d\n              (PerdicesProyeccionesMatrices.compDos b (PerdicesProyeccionesMatrices.compDos b a))).v0) :\n  PerdicesSoportesMatrices.rutasMinimas a b d\n'PerdicesSoportesMatrices.descenso_exige_ruta' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "sonda": "import PerdicesMinimos\nimport PerdicesSoportesMatrices\n#check CasaPlano.llega_de_descensos\n#print axioms CasaPlano.llega_de_descensos\n#check PerdicesMinimos.reinicio_grande\n#print axioms PerdicesMinimos.reinicio_grande\n#check PerdicesMinimos.collatz_iff_cruce_sin_circuitos\n#print axioms PerdicesMinimos.collatz_iff_cruce_sin_circuitos\n#check PerdicesSoportesMatrices.sin_descenso_recta\n#print axioms PerdicesSoportesMatrices.sin_descenso_recta\n#check PerdicesSoportesMatrices.descenso_exige_ruta\n#print axioms PerdicesSoportesMatrices.descenso_exige_ruta\n"
+  },
+  "cotejo_exacto": {
+    "identidades_y_signos": 4224,
+    "semillas": [
+      1,
+      128
+    ],
+    "horizontes": [
+      0,
+      32
+    ],
+    "prefijos_unos": [
+      1,
+      24
+    ],
+    "controles": [
+      {
+        "q": 3,
+        "n": 1,
+        "horizonte": 2,
+        "final": 1,
+        "s": 1,
+        "b": 1,
+        "margen": 0,
+        "primer_cruce": 2,
+        "primer_descenso": null
+      },
+      {
+        "q": 3,
+        "n": 2,
+        "horizonte": 1,
+        "final": 1,
+        "s": 0,
+        "b": 0,
+        "margen": 2,
+        "primer_cruce": 1,
+        "primer_descenso": 1
+      },
+      {
+        "q": 3,
+        "n": 7,
+        "horizonte": 8,
+        "final": 8,
+        "s": 5,
+        "b": 347,
+        "margen": -256,
+        "primer_cruce": 7,
+        "primer_descenso": 7
+      },
+      {
+        "q": 3,
+        "n": 27,
+        "horizonte": 100,
+        "final": 1,
+        "s": 56,
+        "b": 1253520214136490666991938394309,
+        "margen": 32958915605933964438914283339776,
+        "primer_cruce": 59,
+        "primer_descenso": 59
+      },
+      {
+        "q": 5,
+        "n": 13,
+        "horizonte": 7,
+        "final": 13,
+        "s": 3,
+        "b": 39,
+        "margen": 0,
+        "primer_cruce": 7,
+        "primer_descenso": null
+      }
+    ],
+    "alcance": "Cotejo finito independiente de identidades ya conocidas; no prueba universal de descenso.",
+    "contabilidad_recargas": [
+      {
+        "n": 1,
+        "pasos": 1,
+        "cambios": 0,
+        "recarga_firmada": 0,
+        "valuacion_inicial": 1,
+        "valuacion_final": 0
+      },
+      {
+        "n": 3,
+        "pasos": 3,
+        "cambios": 0,
+        "recarga_firmada": 0,
+        "valuacion_inicial": 3,
+        "valuacion_final": 0
+      },
+      {
+        "n": 7,
+        "pasos": 5,
+        "cambios": 2,
+        "recarga_firmada": 2,
+        "valuacion_inicial": 3,
+        "valuacion_final": 0
+      },
+      {
+        "n": 27,
+        "pasos": 10,
+        "cambios": 3,
+        "recarga_firmada": 5,
+        "valuacion_inicial": 5,
+        "valuacion_final": 0
+      },
+      {
+        "n": 91,
+        "pasos": 13,
+        "cambios": 5,
+        "recarga_firmada": 8,
+        "valuacion_inicial": 5,
+        "valuacion_final": 0
+      },
+      {
+        "n": 4591,
+        "pasos": 35,
+        "cambios": 12,
+        "recarga_firmada": 31,
+        "valuacion_inicial": 4,
+        "valuacion_final": 0
+      },
+      {
+        "n": 159487,
+        "pasos": 36,
+        "cambios": 7,
+        "recarga_firmada": 28,
+        "valuacion_inicial": 8,
+        "valuacion_final": 0
+      },
+      {
+        "n": 6416623,
+        "pasos": 53,
+        "cambios": 13,
+        "recarga_firmada": 49,
+        "valuacion_inicial": 4,
+        "valuacion_final": 0
+      },
+      {
+        "n": 4081276143,
+        "pasos": 81,
+        "cambios": 24,
+        "recarga_firmada": 77,
+        "valuacion_inicial": 4,
+        "valuacion_final": 0
+      },
+      {
+        "n": 338203040342655,
+        "pasos": 112,
+        "cambios": 27,
+        "recarga_firmada": 105,
+        "valuacion_inicial": 7,
+        "valuacion_final": 0
+      }
+    ]
+  },
+  "propuesta": {
+    "criterio": "Presupuesto firmado de recargas (P), RUTA_339_20261012.md.",
+    "estado": "No demostrado; no asumido; no incorporado como teorema al catálogo."
+  },
+  "bibliografia": {
+    "yolcu": "https://arxiv.org/html/2105.14697v3#S4.SS5",
+    "tao": "https://arxiv.org/abs/1909.03562",
+    "pista_nashida": "https://github.com/harappa/collatz-matrix-interpretation-barriers",
+    "alcance_nashida": "Presentación técnica leída. Artículo de Zenodo no accesible por la herramienta; barreras no auditadas ni usadas como hipótesis."
+  }
+}
