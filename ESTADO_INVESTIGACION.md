@@ -1,4 +1,4 @@
-# Estado para continuar — 12-10-2026
+# Estado para continuar — 14-10-2026
 
 [Premisa](PREMISA_DE_INVESTIGACION.md): buscar la prueba universal de Collatz;
 la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
@@ -47,21 +47,27 @@ el mínimo original.
 
 [Matrices](depuracion/perdices20261007/SOPORTES_MATRICES_H.md): excluidos
 escalares, primera coordenada aislada y recta natural común; diez soportes
-mínimos de aporte. Son condiciones necesarias; ninguna dinámica del objetivo
-57 eliminada. Árticas indecisas y persistencia abierta. Pendiente algebraico:
-diferencias completas de constantes y reglas estáticas, sin exigir circuito.
+mínimos de aporte. Ninguna dinámica del objetivo 57 eliminada. Árticas y
+persistencia abiertas. Pendiente: diferencias completas de constantes y
+reglas estáticas, sin exigir circuito.
 
-**Lectura solicitada de las 339:**
-[evaluación y ruta](depuracion/coherencia20260913/RUTA_339_20261012.md).
-Ruta acordada: priorizar descenso eventual con semilla conservada y tiempos
-variables; como piloto, controlar la recarga acumulada de divisibilidad al
-cambiar `1/110`. El criterio propuesto no está demostrado; resolver el piloto
-tampoco cerraría Collatz. Matrices H queda como ensayo auxiliar. Se localizó
-un preprint sobre barreras matriciales: presentación leída, pruebas sin auditar.
-No ampliar censos como sustituto de una desigualdad nueva.
-[Retomar la próxima sesión](depuracion/coherencia20260913/RUTA_339_20261012.md#reanudar-la-próxima-sesión):
-fijar una familia explícita de presupuestos K y estudiar (P), terminando con
-prueba, contraejemplo o una obligación pendiente precisa.
+**Piloto de recargas:** [resultado](depuracion/perdices20261007/RECARGAS.md)
+de la [ruta acordada](depuracion/coherencia20260913/RUTA_339_20261012.md).
+Refutado `epsilon=1/2, K=ceil(log2(n+5))` por n=4591, certificado en Lean.
+Falla también K=alpha*ell+beta, alpha<=1 y beta>=0, aun con epsilon=0,
+y cualquier función de las dos valuaciones iniciales: prueba escrita.
+[Perfiles](depuracion/perdices20261007/PERFILES.md) excluye rangos locales
+`H(x)+F(perfil)`, H no decreciente, para listas finitas de valuaciones afines:
+prueba general escrita, caso x+1,x+5 formalizado.
+[Transporte impar](depuracion/perdices20261007/TRANSPORTE_IMPAR.md): Lean
+certifica `3^S(n+1)<=2^(L+v_fin)*q_fin<=3^S(n+5)` para todo prefijo real.
+**Presupuesto probado por escrito con hasta un cambio:**
+`Eeta<=2*ell(n)`, luego `L+v_fin<=v_in+2*ell(n)`, ell=ceil(log2(n+5)).
+La familia A^a B puede dejar q_fin=9: las partes impares no son monótonas.
+**Siguiente:** estimar q_fin en cadenas con varias alternancias desde la
+misma semilla; las condiciones exactas están en Transporte, §6.
+`epsilon=1/2,K=2*ell` general, salida y extensión a descenso siguen abiertos.
+No basta reiterar la cota local en semillas nuevas. H queda auxiliar.
 
 ## Revisión y publicación
 
@@ -85,14 +91,16 @@ una sucesión, sin enviar y sujetas al panel.
 [Arca completa](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
 123 piezas, nueve ramas; [auditoría](depuracion/mapa20261011/RECONSTRUCCION.md).
 [Registro versionado](depuracion/coherencia20260913/registro.json) y
-`guardarafirmaciones.py`: **339 filas**, 226 demostradas, 92 medidas,
-13 conjeturadas y ocho refutadas. Cotejo literal completo con SQLite;
+`guardarafirmaciones.py`: **343 filas**, 229 demostradas, 92 medidas,
+13 conjeturadas y nueve refutadas. Cotejo literal completo con SQLite;
 la incidencia histórica de la fila 71 sigue señalada, no usada.
 
 Lean 4.32.2 y Mathlib fijado; [reproducción](depuracion/gao20260920/formal/README.md).
-[Evidencia de esta lectura](depuracion/coherencia20260913/evidencia_ruta339_20261012.json):
-cinco consultas Lean y controles exactos acotados; sin reconstrucción completa
-ni censos grandes. Cambios locales preexistentes conservados.
+[Evidencia actual](depuracion/perdices20261007/evidencia_transporte_impar.json):
+ocho consultas Lean; [contraste](depuracion/perdices20261007/cotejo_transporte_impar.json)
+de 792 construcciones y 1817 prefijos históricos, sin ampliar censos.
+Presupuesto con un cambio sin formalización completa. Conservadas las
+342 filas previas y sus evidencias.
 [Casa recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md) y
 [conciliación](depuracion/jinetas20261010/CONCILIACION.md): dos huellas antiguas
 requieren revisión; no usar sus cachés. Históricos, conversaciones y zootheorem intactos.

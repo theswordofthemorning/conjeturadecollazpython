@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-12",
+  "version": "2026-10-14",
   "mapa_investigacion": "mapa_investigacion.json",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
@@ -1774,6 +1774,42 @@
       "enunciado": "PERDICES: DIEZ SOPORTES MINIMOS DE APORTE DINAMICO. Sobre naturales 2x2, con r primera fila de M_d, u=v_a y w=v_b, sea Q=r*u+r*(M_b*M_a*u+M_b*u+w)+r*(M_b^2*u+M_b*w+w). Q>0 equivale a que sea positivo alguno de d00*va0, d01*va1, d00*vb0, d01*vb1, d00*b01*va1, d01*b10*va0, d00*b01*vb1, d01*b10*vb0, d00*b00*a01*va1, d01*b11*a10*va0. El descenso de la constante 0 en DA>D, DBAA>DABE o DBBA>DBAF exige Q>0. Condicion necesaria, no suficiente para orientar una regla ni el sistema.",
       "fuente": "Expansion algebraica local, contraste independiente y formalizacion Lean, 12-10-2026. Sin pretension de prioridad.",
       "notas": "SOPORTES_MATRICES_H.md seccion 3. Las rutas son conjuntos de factores positivos; prueba escrita de minimalidad por testigos. Lean prueba la equivalencia exacta y la necesidad para descenso, sin cota; la minimalidad no tiene lema formal separado. Cotejo_soportes_matrices_h.json expande polinomios, evalua funciones y coteja el compositor entero: 16384 soportes binarios de 14 entradas relevantes, 10880 con aporte y 5504 sin aporte; 2000 asignaciones reproducibles en 0,1,2,17,10000 y diez testigos minimos. Ejemplo d01=va1=1 aporta sin retorno pero no orienta la parte matricial de DA>=D. No clasifica los soportes viables del sistema completo, no exige circuito ni identifica el aporte izquierdo con la diferencia entre lados. La persistencia de H sigue abierta. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_recarga_plantilla_media",
+      "cuantificador": "todo_n",
+      "estado": "refutado",
+      "fichero": "depuracion/perdices20261007/RECARGAS.md",
+      "enunciado": "PERDICES: PLANTILLA REFUTADA. En toda concatenacion real no vacia de A=1 y B=110 desde n>=1, para el atajo positivo, la suma firmada de recargas eta_i=v2(x_(i+1)+c_(p_(i+1)))-v2(x_(i+1)+c_(p_i)), con c_A=1 y c_B=5, seria <= L/2+ceil(log2(n+5)).",
+      "fuente": "Contraejemplo propio extraido de los testigos AB conservados; cotejo orbital independiente y Lean 4.32.2, 14-10-2026.",
+      "notas": "RECARGAS.md secciones 1-3 y 6. n=4591, palabra AABABAAABAABAAB: L=25, suma eta=26, presupuesto=13; 52>25+26. Valuaciones inicial/final 4 y 5, frontera final 477211. PerdicesRecargas.plantilla_refutada niega el cuantificador universal y enlaza el certificado con paridades reales de T y padicValNat; diez consultas, solo axiomas estandar, sin sorryAx ni native_decide. evidencia_recargas.json y cotejo_recargas.json: 34 testigos historicos, 40 semillas con bordes, 1847 prefijos, 49 fallos de esta plantilla. No es censo de minimalidad ni prueba de salida. La propuesta general (P) no queda refutada para toda K. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_recarga_barrera_presupuestos",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/RECARGAS.md",
+      "enunciado": "PERDICES: BARRERAS DE PRESUPUESTO EN A/B. Para todo alpha en [0,1] y beta>=0 constantes, existe n>=1 y un prefijo finito real de {1,110} desde n cuya recarga firmada total es > L+alpha*ceil(log2(n+5))+beta. Por tanto K(n)=alpha*ceil(log2(n+5))+beta no satisface (P) para ningun epsilon>=0. Tampoco sirve ninguna K finita que solo dependa de v2(n+1) y v2(n+5).",
+      "fuente": "Construcciones y prueba escrita local, 14-10-2026; usa que 2 genera las unidades modulo potencias de 3, ingrediente ya formalizado en AlpacasGarner.dos_genera_grande. Sin pretension de prioridad.",
+      "notas": "RECARGAS.md secciones 4-6. Familia corta n_t=(2^(2t+3)-11)/3, t>=1: AB real, L=4, recarga=2t, valuaciones iniciales (3,2). Para la barrera logaritmica, tomar entero b>=beta, r=2b+18, N=16^r, D=27^r, E=19(D-N)/11, H=(E+5N)/9=2 mod 3; elegir m>=max(r+2,b+7) con 2^(m+4r)=H mod 3^(3r-2). n=(2^(m+4r)-H)/3^(3r-2) es positivo y realiza (AB)^r. L=4r, recarga=4r+m-3, ceil(log2(n+5))+b<=m-4. Prueba universal escrita; formalizacion completa pendiente. Cotejo exacto: 12 casos cortos, tres alternantes materializados y nueve certificados simbolicos b=0..8, sin construir las enormes potencias finales. Cada prefijo conserva su semilla, pero las semillas cambian entre miembros de la familia. No hay orbita infinita construida; alpha>1, persistencia del piloto y Collatz siguen abiertos. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_perfiles_finitos_rango",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/PERFILES.md",
+      "enunciado": "PERDICES: BARRERA DE PERFILES FINITOS PARA RANGOS LOCALES. Para toda lista finita de formas u_i*x+v_i con coeficientes naturales y u_i+v_i>0, todo H:N_+->R no decreciente y toda F:N^m->R, el rango H(x)+F((v2(u_i*x+v_i))_i) no puede disminuir estrictamente en cada bloque real A=1 y B=110 del atajo positivo. Para cada lista y cada r>=1 existe una semilla positiva que realiza r copias de un mismo bloque A^a B, con a>=1, conserva el perfil en sus r+1 fronteras y crece estrictamente entre ellas. Las semillas pueden depender de r.",
+      "fuente": "Derivacion local por puntos fijos racionales distintos y cilindros modulo potencias de dos, 14-10-2026; sin pretension de prioridad bibliografica.",
+      "notas": "PERFILES.md: prueba escrita general. Para W=A^a B, N=2^(a+3), D=3^(a+2), E=D-N/2, C=D-N impar; los puntos -E/C son distintos. Entre a=1..m+1 se elige uno con delta_i=C*v_i-u_i*E no nulo. K=max v2(abs(delta_i)); n en C*n+E=0 mod 2^((a+3)*r+K+1) realiza W^r y conserva cada valuacion por C*(u_i*x+v_i)=u_i*(C*x+E)+delta_i. La construccion general y el corolario para c*log2(x)+F acotado inferiormente no estan formalizados. Lean 4.32.2 certifica, sobre reales, la barrera para las dos formas x+1,x+5 y la familia universal 256k+231 -> 432k+391 mediante AB: paridades reales 1110, perfil (3,2), salida mayor. Doce consultas, solo axiomas estandar, sin sorryAx; evidencia_perfiles.json. Cotejo independiente: 162 cilindros, 729 fronteras, 66 miembros de la familia concreta y bordes, sin ampliar censos. No refuta el presupuesto global P ni construye persistencia: epsilon=1/2,K=2*ceil(log2(n+5)), salida del piloto y Collatz siguen abiertos. No excluye rangos arbitrarios, matriciales ni lexicograficos. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_transporte_impar_un_cambio",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/TRANSPORTE_IMPAR.md",
+      "enunciado": "PERDICES: TRANSPORTE IMPAR Y PRESUPUESTO CON HASTA UN CAMBIO. Para todo prefijo real de bloques A=1,B=110 del atajo positivo desde n, con L pasos, S entradas impares y extremo y, y todo c natural entre 1 y 5, se cumple 3^S*(n+1)<=2^(L+v2(y+c))*impar(y+c)<=3^S*(n+5). Si el prefijo cambia de tipo de bloque a lo sumo una vez, su recarga firmada total satisface Eeta<=2*ceil(log2(n+5)), y L+v_fin<=v_in+2*ceil(log2(n+5)).",
+      "fuente": "Derivacion local, 14-10-2026: transporte de partes impares y encaje afin independiente; sin pretension de prioridad.",
+      "notas": "TRANSPORTE_IMPAR.md. Para cualquier cantidad de cambios, 2^Eeta*q_fin=3^S*q_in*C, con (n+1)/(n+c_in)<=C<=(n+5)/(n+c_in). Lean 4.32.2 formaliza el encaje universal, la descomposicion y la equivalencia exacta de las relaciones afines con las paridades reales; ocho consultas con axiomas estandar, evidencia_transporte_impar.json. El producto firmado, el presupuesto para hasta un cambio y la familia resonante conservan prueba escrita. Para el presupuesto, la primera racha tiene u<=v_in y su frontera y satisface y+5<=(n+5)^2; la unica recarga es <=2*ell. Esto prueba P con epsilon=1 y K=2*ell en esa subclase, no en toda A/B. La familia a>=1,k=2*3^(a-1),q=(2^k-1)/3^a,n=2^(a+2)*q-1 realiza A^a B y deja q_fin=9: las partes impares no son monotonas. Cotejo exacto: 792 casos construidos, 624 con hasta un cambio, 35 con recargas negativas, diez miembros de la familia y 1817 prefijos historicos; sin ampliar censos. La estimacion inferior de q_fin para multiples alternancias, P general, salida del piloto y Collatz siguen abiertos. Revision humana pendiente."
     }
   ],
   "nodos": [

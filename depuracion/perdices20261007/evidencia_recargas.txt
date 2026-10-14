@@ -1,0 +1,10 @@
+'PerdicesRecargas.orden_certificado' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRecargas.certificado_admisible' depends on axioms: [propext]
+'PerdicesRecargas.recargas_certificadas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRecargas.testigo_certificado' depends on axioms: [propext]
+'PerdicesRecargas.testigo_admisible' depends on axioms: [propext]
+'PerdicesRecargas.testigo_recarga' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRecargas.testigo_largo' does not depend on any axioms
+'PerdicesRecargas.testigo_presupuesto' does not depend on any axioms
+'PerdicesRecargas.plantilla_refutada' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRecargas.presupuesto_equivalente' depends on axioms: [propext, Classical.choice, Quot.sound]

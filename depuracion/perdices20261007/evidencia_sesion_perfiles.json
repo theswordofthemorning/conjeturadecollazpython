@@ -1,0 +1,63 @@
+{
+  "fecha": "2026-10-14",
+  "objetivo": "Avanzar el piloto de recargas acordado; probar la viabilidad de rangos locales de perfiles finitos.",
+  "resultado": "Barrera universal escrita; familia y obstruccion de dos valuaciones certificadas en Lean.",
+  "limites": [
+    "La construccion general de perfiles no esta formalizada.",
+    "P con epsilon=1/2 y K=2*ceil(log2(n+5)) sigue abierto.",
+    "No se prueba salida universal ni Collatz."
+  ],
+  "base_conservada": {
+    "campos": {
+      "version": "ffabbde475be33a5fe34128904c9a6af10d2bb26db6fb1fd1d24b5824297d5a7",
+      "mapa_investigacion": "a69fb80d9a558b717caa3956fb2cb0c74f60919fe292bfa4ed0faf32339a43f4",
+      "huella_base": "d6d898728a1d6ac059ba8b16d2767b5d90a755d7c87e4653d765d5564c7baa57",
+      "base_filas": "8df66f64b57424391d363fd6b811fed3c430c77597da265025728bd637bad804",
+      "nota": "1f35fff90cfc71b42c9fef381df64b3e896be9382f3ea0df1b10b18a8d7d1895",
+      "correcciones_afirmaciones": "499baf1d042b5efeadbb525ec1d4c0b33fe1042c85f4ff9806d58218762400c6",
+      "altas": "0680f42d9157f249e822cff83722789656a9e78f5d15328e992670d015429be9",
+      "nodos": "61e4640eb1527639f05a441ca204ec7ffe38cd507f002b216c23f379e0946a4b",
+      "dependencias_nuevas": "ecdb80af1d6fd04215f1c59a49d669a506f941eccb2541f054cfb20e6b915bed",
+      "correcciones_nuevas": "41b6f4203bf4eb65ecf8454b64792f8030d6bb4a69c606837082091b2d5ab672"
+    },
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222",
+    "altas_previas": 133
+  },
+  "altas_anteriores_conservadas": true,
+  "otros_campos_registro_conservados": true,
+  "respuestas_db_conservada": true,
+  "afirmacion_nueva": 342,
+  "estados": {
+    "conjeturado": 13,
+    "demostrado": 228,
+    "medido": 92,
+    "refutado": 9
+  },
+  "cotejo": "cotejo_perfiles.json",
+  "lean": "evidencia_perfiles.json",
+  "mapa": "auditoria_mapa_perfiles.json",
+  "controles": [
+    "cotejar_perfiles.py",
+    "comprobar_perfiles.py",
+    "verificar_registro.py",
+    "verificar_mapa.py",
+    "git diff --check"
+  ],
+  "navegador": {
+    "disponible": false,
+    "ejecutado": false,
+    "motivo": "Solo cambian datos del mapa. Playwright no disponible en la comprobacion previa; no se instala ni se afirma validacion visual."
+  },
+  "sin_censos_nuevos": true,
+  "sin_publicacion": true,
+  "palabras_estado": 623,
+  "enlaces_documentales_comprobados": 55,
+  "sha256_lf": {
+    "depuracion/perdices20261007/PERFILES.md": "7dc6087855385ce07574e774d23c29d5e792b9371cc5f86e493900e048290f81",
+    "depuracion/perdices20261007/PerdicesPerfiles.lean": "9c0f7166b7b28b8e1e78ed157eabd6b0212a9c812b33cf30b58953c432fbaf12",
+    "depuracion/perdices20261007/cotejar_perfiles.py": "526e158d90c2399955655c9c996b6bdb05167d0a113ea1baf1b4620c8142511a",
+    "depuracion/perdices20261007/comprobar_perfiles.py": "1e1de29f13285c2cd080ea1320fb8b68c4bdd7d786316f9183a01d9220201504",
+    "depuracion/perdices20261007/cotejo_perfiles.json": "587769a2b1206174a1947db8108015d861d0dffbfb96d91be290210647ab95d8",
+    "depuracion/perdices20261007/evidencia_perfiles.json": "8cf06b0af7b387bb6c17ecd4a303b06f2333cd8ecdf80635318ea8bda0e4c146"
+  }
+}

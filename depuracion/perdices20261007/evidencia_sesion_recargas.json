@@ -1,0 +1,24 @@
+{
+  "fecha": "2026-10-14",
+  "registro": "2026-10-14",
+  "filas": 341,
+  "conteo": {
+    "conjeturado": 13,
+    "demostrado": 227,
+    "medido": 92,
+    "refutado": 9
+  },
+  "conservacion": "Las 339 filas previas conservadas; dos altas al final. Fuente literal histórica intacta.",
+  "lean": "Diez consultas verificadas; ver evidencia_recargas.json.",
+  "contraste": "1847 prefijos, 34 testigos históricos y bordes; ver cotejo_recargas.json.",
+  "persistencia": "verificar_registro.py: catálogo, integridad, atomicidad y captura literal OK.",
+  "mapa": "verificar_mapa.py: 123 piezas, 341 afirmaciones y 224 enlaces locales OK.",
+  "navegador": {
+    "ejecutado": false,
+    "motivo": "ModuleNotFoundError: No module named 'playwright'"
+  },
+  "limites": [
+    "Las barreras universales tienen prueba escrita; formalización completa pendiente.",
+    "No se demuestra salida universal del piloto ni Collatz."
+  ]
+}

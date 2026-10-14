@@ -1,0 +1,65 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Módulo nuevo desde fuente; imports directos cotejados. No reconstrucción ni auditoría transitiva completa de Mathlib.",
+  "fuente": "depuracion/perdices20261007/PerdicesRecargas.lean",
+  "fuente_sha256_lf": "71c93952d73895a6b2274ada75f35a663e51dba394d1a13af3194297ac31c8db",
+  "verificador_sha256_lf": "5fc302e60b528d0bc1d68c2f631b0025f2fcbc786c3b977c181676d9feb9b7c1",
+  "salida_sha256_lf": "6e1973361d45115fb4d095f70e92ccefb992751dffcc7367ddb475abf2f78554",
+  "dependencias": {
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic": {
+      "fuente_sha256_lf": "494d5829e218df7dba759758e39752b278958f7f384226cc62d138d4408ae390",
+      "objeto_sha256": "2210f1912fe964a080cc790b92ef4459e1e7891fd445e03adae818c181ffbf55"
+    },
+    "Mathlib.Data.Nat.Log": {
+      "fuente_sha256_lf": "9800e6942155e28138ed981a06340d7333aacccfafcd1aa35147147ae57d8e3f",
+      "objeto_sha256": "53737e9f7d690e6ef249e1e9b571dd99931f72736216e0f46d532c86f6914971"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    }
+  },
+  "axiomas": {
+    "PerdicesRecargas.orden_certificado": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRecargas.certificado_admisible": [
+      "propext"
+    ],
+    "PerdicesRecargas.recargas_certificadas": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRecargas.testigo_certificado": [
+      "propext"
+    ],
+    "PerdicesRecargas.testigo_admisible": [
+      "propext"
+    ],
+    "PerdicesRecargas.testigo_recarga": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRecargas.testigo_largo": [],
+    "PerdicesRecargas.testigo_presupuesto": [],
+    "PerdicesRecargas.plantilla_refutada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRecargas.presupuesto_equivalente": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

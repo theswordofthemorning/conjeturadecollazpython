@@ -41,7 +41,7 @@ def verificar():
                 pagina.locator('#ver-todo').click()
                 assert pagina.evaluate("cy.nodes('.tenue').length") == 0
                 pagina.locator('#ir-actual').click()
-                assert 'matrices' in pagina.locator('#panel h2').inner_text()
+                assert 'repeticiones' in pagina.locator('#panel h2').inner_text()
                 pagina.locator('#ver-todo').click()
                 pagina.locator('[data-vista="nombres"]').click()
                 assert pagina.locator('#inventario tbody tr').count() == 70
@@ -53,10 +53,10 @@ def verificar():
                 assert pagina.locator('#vista-alarmas .tarjeta').count() >= 5
                 if modo == 'Complex':
                     pagina.locator('[data-vista="afirmaciones"]').click()
-                    assert pagina.locator('#lista-afirmaciones .af').count() == 339
+                    assert pagina.locator('#lista-afirmaciones .af').count() == 343
                     assert pagina.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1'), 'Afirmaciones desbordan'
                     pagina.locator('#estado-af').select_option('refutado')
-                    assert pagina.locator('#lista-afirmaciones .af').count() == 8
+                    assert pagina.locator('#lista-afirmaciones .af').count() == 9
                     pagina.locator('[data-vista="correcciones"]').click()
                     assert pagina.locator('#lista-correcciones .af').count() == 85
                 pagina.locator('[data-vista="arbol"]').click()

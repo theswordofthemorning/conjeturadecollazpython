@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-12",
+  "version": "2026-10-14",
   "raiz": {
     "id": "collatz",
     "titulo": "El arca del laboratorio",
@@ -7,7 +7,7 @@
     "estado": "abierto",
     "limite": "Collatz sigue abierto en este laboratorio. Cada rama aporta resultados con un alcance concreto."
   },
-  "actual": "perdices_soportes",
+  "actual": "perdices_palabras",
   "ramas": [
     {
       "id": "fundamentos",
@@ -2285,14 +2285,21 @@
         "perdices_complejidad_conjetura_ab",
         "perdices_racional_sturmiana",
         "perdices_salidas_sin00",
-        "perdices_salidas_sin00_111"
+        "perdices_salidas_sin00_111",
+        "perdices_recarga_plantilla_media",
+        "perdices_recarga_barrera_presupuestos",
+        "perdices_perfiles_finitos_rango",
+        "perdices_transporte_impar_un_cambio"
       ],
       "titulo": "Perdices · repeticiones y complejidad",
       "rama": "perdices",
-      "resumen": "Controla repeticiones, cancelaciones y complejidad de paridades; conserva censos de salidas.",
-      "limite": "La cota universal de salida 1/110 es conjetura; los censos finitos no la prueban.",
+      "resumen": "Controla repeticiones y perfiles; transporta partes impares y prueba el presupuesto doble para prefijos con hasta un cambio de bloque.",
+      "limite": "La cota de recargas con varias alternancias y la salida universal 1/110 siguen abiertas. Lean certifica el transporte general; el presupuesto con un cambio tiene prueba escrita.",
       "fuentes": [
-        "depuracion/perdices20261007/COMPLEJIDAD.md"
+        "depuracion/perdices20261007/COMPLEJIDAD.md",
+        "depuracion/perdices20261007/RECARGAS.md",
+        "depuracion/perdices20261007/PERFILES.md",
+        "depuracion/perdices20261007/TRANSPORTE_IMPAR.md"
       ],
       "situacion": "vigente",
       "padre": "perdices"

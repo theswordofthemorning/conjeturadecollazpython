@@ -1,0 +1,54 @@
+{
+  "fecha": "2026-10-14",
+  "alcance": "Transporte universal de partes impares y presupuesto escrito para prefijos con hasta un cambio de tipo A/B.",
+  "conservacion_antes": {
+    "altas": 134,
+    "hash_altas": "75d0d98b3f914ba4a516f4879a8a9b609bcbec2a9f38c8cd0dc06ee54eecf0cc",
+    "hash_resto": "f171f43148faca33fc5bf56c9abf107f1af029d519cec29454a326ebea52455d",
+    "filas_db": 342,
+    "hash_filas_db": "546d67d6dfc94b82897f31d6409bba1ba4ec838bf77e36aff12bd28a68b62cef",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "conservacion_despues": {
+    "altas": 134,
+    "hash_altas": "75d0d98b3f914ba4a516f4879a8a9b609bcbec2a9f38c8cd0dc06ee54eecf0cc",
+    "hash_resto": "f171f43148faca33fc5bf56c9abf107f1af029d519cec29454a326ebea52455d",
+    "filas_db": 342,
+    "hash_filas_db": "546d67d6dfc94b82897f31d6409bba1ba4ec838bf77e36aff12bd28a68b62cef",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "resultado": "Una alta nueva; las 342 afirmaciones previas y respuestas.db permanecen intactas.",
+  "validacion": {
+    "lean": "4.32.2, ocho consultas; sólo propext, Classical.choice y Quot.sound.",
+    "cotejo": "792 casos construidos, 624 con hasta un cambio, 35 con recargas negativas; diez miembros de la familia resonante; 1817 prefijos históricos.",
+    "registro": "Generador ejecutado; verificador de catálogo, atomicidad y captura correcto.",
+    "mapa": "70 nombres, 123 piezas, 343 afirmaciones, 170 relaciones y 226 enlaces locales; auditoría correcta.",
+    "diff": "git diff --check correcto; advertencias de conversión LF/CRLF.",
+    "enlaces_documentales": 58,
+    "huellas_previas_y_actuales": 12,
+    "navegador": "No ejecutado: Playwright no está instalado. Sólo se modificaron datos del mapa; auditoría estática correcta."
+  },
+  "limites": [
+    "El producto firmado, el presupuesto con hasta un cambio y la familia resonante tienen prueba escrita; no formalización completa.",
+    "El transporte y la correspondencia afín con paridades reales sí están formalizados para listas arbitrarias.",
+    "No hay prueba de P para varias alternancias, salida universal ni Collatz.",
+    "No se repitieron censos extensos ni se publicó, hizo commit o push."
+  ],
+  "estados": {
+    "conjeturado": 13,
+    "demostrado": 229,
+    "medido": 92,
+    "refutado": 9
+  },
+  "palabras_estado": 640,
+  "sha256_lf": {
+    "depuracion/perdices20261007/PerdicesTransporteImpar.lean": "bc01439acdb470700600fcfca997fa5801e7ed3a9525dacba41f5c9560608070",
+    "depuracion/perdices20261007/TRANSPORTE_IMPAR.md": "33ac4247f7b0640ca6b041b795bf1dfc257fe1b8aa744e8547484ad77185d2b6",
+    "depuracion/perdices20261007/cotejar_transporte_impar.py": "e2cdfc88f89d3a5aa50621192eb787c04e11fb70117e89debaf426ad1cc7be40",
+    "depuracion/perdices20261007/comprobar_transporte_impar.py": "04f6133d3ca7d439f31321be38e335efd0119e62e204954176d414971ecece0f",
+    "depuracion/perdices20261007/cotejo_transporte_impar.json": "2eec0d0e0bec20a7dea77e74363744cc2d7f6ad16fe34bc6dfb0b11174126c8f",
+    "depuracion/perdices20261007/evidencia_transporte_impar.json": "44a165f5ee7d633af99b9fd5e69f7a5b66a1ac26aa3d6af4880032e3717b20a7",
+    "depuracion/perdices20261007/evidencia_transporte_impar.txt": "5818940ac8a13e2a8a9675e5d3aae40e42fc47cb19b4080807fc352d372e63e5",
+    "depuracion/perdices20261007/auditoria_mapa_transporte_impar.json": "dbb731d6fcd4a8cbe70c67751cf1cf6cb9e87f406beabd8cc72ca7fbd1facd6f"
+  }
+}

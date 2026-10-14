@@ -1,0 +1,8 @@
+'PerdicesTransporteImpar.paso_a_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTransporteImpar.paso_b_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTransporteImpar.paso_encaje' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTransporteImpar.encaje' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTransporteImpar.encaje_potencial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTransporteImpar.descomposicion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTransporteImpar.transporte_impar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTransporteImpar.condicion_suficiente' depends on axioms: [propext, Classical.choice, Quot.sound]

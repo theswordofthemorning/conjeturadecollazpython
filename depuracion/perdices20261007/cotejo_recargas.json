@@ -1,0 +1,411 @@
+{
+  "parametros": {
+    "pasos": 116,
+    "familia_materializada": 3,
+    "beta_max": 8
+  },
+  "alcance": "Controles finitos, no prueba universal ni nuevo censo de semillas.",
+  "testigos_historicos": 34,
+  "semillas_con_bordes": 40,
+  "prefijos": 1847,
+  "controles_un_bloque": 50,
+  "repeticiones_sin_recarga": 1213,
+  "transiciones": [
+    {
+      "cambio": "AA",
+      "signo": 0,
+      "casos": 1110
+    },
+    {
+      "cambio": "AB",
+      "signo": 1,
+      "casos": 246
+    },
+    {
+      "cambio": "BA",
+      "signo": -1,
+      "casos": 103
+    },
+    {
+      "cambio": "BA",
+      "signo": 0,
+      "casos": 16
+    },
+    {
+      "cambio": "BA",
+      "signo": 1,
+      "casos": 219
+    },
+    {
+      "cambio": "BB",
+      "signo": 0,
+      "casos": 103
+    }
+  ],
+  "fallos_plantilla": 49,
+  "primer_fallo": {
+    "semilla": 4591,
+    "palabra": "AABABAAABAABAAB",
+    "largo": 25,
+    "recarga": 26,
+    "presupuesto": 13
+  },
+  "testigo": {
+    "semilla": 4591,
+    "palabra": "AABABAAABAABAAB",
+    "largo": 25,
+    "recarga": 26,
+    "valuacion_inicial": 4,
+    "valuacion_final": 5,
+    "presupuesto": 13,
+    "filas": [
+      {
+        "bloque": "A",
+        "entrada": 4591,
+        "salida": 6887,
+        "valuacion_entrada": 4,
+        "valuacion_salida": 3,
+        "recarga": 0
+      },
+      {
+        "bloque": "A",
+        "entrada": 6887,
+        "salida": 10331,
+        "valuacion_entrada": 3,
+        "valuacion_salida": 2,
+        "recarga": 0
+      },
+      {
+        "bloque": "B",
+        "entrada": 10331,
+        "salida": 11623,
+        "valuacion_entrada": 5,
+        "valuacion_salida": 2,
+        "recarga": 3
+      },
+      {
+        "bloque": "A",
+        "entrada": 11623,
+        "salida": 17435,
+        "valuacion_entrada": 3,
+        "valuacion_salida": 2,
+        "recarga": 1
+      },
+      {
+        "bloque": "B",
+        "entrada": 17435,
+        "salida": 19615,
+        "valuacion_entrada": 5,
+        "valuacion_salida": 2,
+        "recarga": 3
+      },
+      {
+        "bloque": "A",
+        "entrada": 19615,
+        "salida": 29423,
+        "valuacion_entrada": 5,
+        "valuacion_salida": 4,
+        "recarga": 3
+      },
+      {
+        "bloque": "A",
+        "entrada": 29423,
+        "salida": 44135,
+        "valuacion_entrada": 4,
+        "valuacion_salida": 3,
+        "recarga": 0
+      },
+      {
+        "bloque": "A",
+        "entrada": 44135,
+        "salida": 66203,
+        "valuacion_entrada": 3,
+        "valuacion_salida": 2,
+        "recarga": 0
+      },
+      {
+        "bloque": "B",
+        "entrada": 66203,
+        "salida": 74479,
+        "valuacion_entrada": 5,
+        "valuacion_salida": 2,
+        "recarga": 3
+      },
+      {
+        "bloque": "A",
+        "entrada": 74479,
+        "salida": 111719,
+        "valuacion_entrada": 4,
+        "valuacion_salida": 3,
+        "recarga": 2
+      },
+      {
+        "bloque": "A",
+        "entrada": 111719,
+        "salida": 167579,
+        "valuacion_entrada": 3,
+        "valuacion_salida": 2,
+        "recarga": 0
+      },
+      {
+        "bloque": "B",
+        "entrada": 167579,
+        "salida": 188527,
+        "valuacion_entrada": 5,
+        "valuacion_salida": 2,
+        "recarga": 3
+      },
+      {
+        "bloque": "A",
+        "entrada": 188527,
+        "salida": 282791,
+        "valuacion_entrada": 4,
+        "valuacion_salida": 3,
+        "recarga": 2
+      },
+      {
+        "bloque": "A",
+        "entrada": 282791,
+        "salida": 424187,
+        "valuacion_entrada": 3,
+        "valuacion_salida": 2,
+        "recarga": 0
+      },
+      {
+        "bloque": "B",
+        "entrada": 424187,
+        "salida": 477211,
+        "valuacion_entrada": 8,
+        "valuacion_salida": 5,
+        "recarga": 6
+      }
+    ]
+  },
+  "familia_un_cambio": [
+    {
+      "t": 1,
+      "semilla": 7,
+      "recarga": 2
+    },
+    {
+      "t": 2,
+      "semilla": 39,
+      "recarga": 4
+    },
+    {
+      "t": 3,
+      "semilla": 167,
+      "recarga": 6
+    },
+    {
+      "t": 4,
+      "semilla": 679,
+      "recarga": 8
+    },
+    {
+      "t": 5,
+      "semilla": 2727,
+      "recarga": 10
+    },
+    {
+      "t": 6,
+      "semilla": 10919,
+      "recarga": 12
+    },
+    {
+      "t": 7,
+      "semilla": 43687,
+      "recarga": 14
+    },
+    {
+      "t": 8,
+      "semilla": 174759,
+      "recarga": 16
+    },
+    {
+      "t": 9,
+      "semilla": 699047,
+      "recarga": 18
+    },
+    {
+      "t": 10,
+      "semilla": 2796199,
+      "recarga": 20
+    },
+    {
+      "t": 11,
+      "semilla": 11184807,
+      "recarga": 22
+    },
+    {
+      "t": 12,
+      "semilla": 44739239,
+      "recarga": 24
+    }
+  ],
+  "familia_alternante": [
+    {
+      "r": 1,
+      "m": 3,
+      "N": 16,
+      "D": 27,
+      "E": 19,
+      "H": 11,
+      "modulo": 3,
+      "semilla": "39",
+      "largo": 4,
+      "recarga": 4,
+      "presupuesto": 6
+    },
+    {
+      "r": 2,
+      "m": 43,
+      "N": 256,
+      "D": 729,
+      "E": 817,
+      "H": 233,
+      "modulo": 81,
+      "semilla": "27799997699815",
+      "largo": 8,
+      "recarga": 48,
+      "presupuesto": 45
+    },
+    {
+      "r": 3,
+      "m": 691,
+      "N": 4096,
+      "D": 19683,
+      "E": 26923,
+      "H": 5267,
+      "modulo": 2187,
+      "semilla": "19241466489431636057580209905368554789393103988379236797433126302949180262632211512075597755016327210706842135733619452082375609511417663879754237844176976131523451929139257789452816672644984791115841798759143",
+      "largo": 12,
+      "recarga": 700,
+      "presupuesto": 692
+    }
+  ],
+  "certificados_simbolicos": [
+    {
+      "beta": 0,
+      "r": 18,
+      "m": 621869694753523207875253,
+      "N": 4722366482869645213696,
+      "D": 58149737003040059690390169,
+      "E": 100432298008598782805304817,
+      "H": 11161767760112570114597033,
+      "modulo": 6461081889226673298932241,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 1,
+      "r": 20,
+      "m": 383979395122202805611188219,
+      "N": 1208925819614629174706176,
+      "D": 42391158275216203514294433201,
+      "E": 73219003421685017165206801225,
+      "H": 8136116450087010034564481345,
+      "modulo": 4710128697246244834921603689,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 2,
+      "r": 22,
+      "m": 110286982330867915620448607629,
+      "N": 309485009821345068724781056,
+      "D": 30903154382632612361920641803529,
+      "E": 53377641186803002665471493038817,
+      "H": 5931020956872456598979457438233,
+      "modulo": 3433683820292512484657849089281,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 3,
+      "r": 24,
+      "m": 631908109916153165092664681035333,
+      "N": 79228162514264337593543950336,
+      "D": 22528399544939174411840147874772641,
+      "E": 38912553274432412982049866571420345,
+      "H": 4323661046138331589304203810130225,
+      "modulo": 2503155504993241601315571986085849,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 4,
+      "r": 26,
+      "m": 1180452536130064027918498927456165495,
+      "N": 20282409603651670423947251286016,
+      "D": 16423203268260658146231467800709255289,
+      "E": 28367316066470003217878166655972856017,
+      "H": 3151935275390891275136698488025476233,
+      "modulo": 1824800363140073127359051977856583921,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 5,
+      "r": 28,
+      "m": 704336859132771575770273194394859836387,
+      "N": 5192296858534827628530496329220096,
+      "D": 11972515182562019788602740026717047105681,
+      "E": 20679789983185278529247919857108512711465,
+      "H": 2297757327185507911487340278843350979105,
+      "modulo": 1330279464729113309844748891857449678409,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 6,
+      "r": 30,
+      "m": 332387350064925023497060996897518979653031,
+      "N": 1329227995784915872903807060280344576,
+      "D": 8727963568087712425891397479476727340041449,
+      "E": 15075571139848601470775906085247606739476417,
+      "H": 1675064198443175599483918956031434237911033,
+      "modulo": 969773729787523602876821942164080815560161,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 7,
+      "r": 32,
+      "m": 356562604092015261813582987751836538562085505,
+      "N": 340282366920938463463374607431768211456,
+      "D": 6362685441135942358474828762538534230890216321,
+      "E": 10990092446928903028471903698555873562119826585,
+      "H": 1221121572037859737018246779492101191217875985,
+      "modulo": 706965049015104706497203195837614914543357369,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    },
+    {
+      "beta": 8,
+      "r": 34,
+      "m": 181810925184635556596095736586072997938023810215,
+      "N": 87112285931760246646623899502532662132736,
+      "D": 4638397686588101979328150167890591454318967698009,
+      "E": 8011777671821864082162742445824286098539982340017,
+      "H": 890197567487032637884886186549309290133699222633,
+      "modulo": 515377520732011331036461129765621272702107522001,
+      "techo_presupuesto_menos_m": -4,
+      "recarga_menos_largo_menos_m": -3,
+      "semilla_materializada": false
+    }
+  ],
+  "sha256_lf": {
+    "depuracion/perdices20261007/cotejar_recargas.py": "6239eb43c5929a8b4770a2432292cae8df503292d635b0706b5ac29e8a85bbe3",
+    "depuracion/perdices20261007/medicion_salida_ab.json": "fe36515fa4cebd9f929037533e972ab7bdd4f1c3a00267e1a2ab3bd159207041",
+    "depuracion/perdices20261007/PerdicesRecargas.lean": "71c93952d73895a6b2274ada75f35a663e51dba394d1a13af3194297ac31c8db"
+  }
+}
