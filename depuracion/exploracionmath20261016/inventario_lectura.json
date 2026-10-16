@@ -1,0 +1,576 @@
+{
+  "fecha": "2026-10-16",
+  "objetivo": "Transferencia de mecanismos de prueba a la ruta de descenso y al piloto 1/110; sin experimentos nuevos.",
+  "raiz_math": "C:\\Users\\Home\\Desktop\\math",
+  "HEAD_math": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+  "familias_con_titulos_cribados": 372,
+  "familias_con_descripcion_seleccionada": [
+    "007",
+    "012",
+    "017",
+    "020",
+    "021",
+    "028",
+    "029",
+    "056",
+    "082",
+    "104",
+    "143",
+    "148",
+    "149",
+    "153",
+    "154",
+    "159",
+    "179",
+    "220",
+    "242",
+    "245",
+    "362",
+    "376"
+  ],
+  "familias_con_lectura_tecnica": [
+    "007",
+    "017",
+    "028",
+    "056",
+    "104",
+    "143",
+    "149",
+    "153",
+    "159",
+    "245",
+    "362"
+  ],
+  "alcance": "Lectura dirigida por secciones; no auditoria integral de los manuscritos ni comprobacion formal. Algunas extracciones largas de herramientas se truncaron. Los rangos documentan consultas, no una auditoria linea por linea.",
+  "busqueda_directa": {
+    "patrones": [
+      "collatz",
+      "syracuse",
+      "hailstone",
+      "fra[ck]tran"
+    ],
+    "archivos": "CONTENTS.md, overview.tex, lean/formalization.yaml; .tex y .md de preprints y reasoning_traces",
+    "coincidencias": 0,
+    "limite": "No equivale a una busqueda semantica exhaustiva de toda la biblioteca Lean o PDF."
+  },
+  "Lean": {
+    "laboratorio": "4.32.2",
+    "math_requiere": "4.34.1",
+    "math_lake_presente": false,
+    "se_ejecuto_Comparator": false,
+    "se_ejecuto_print_axioms_math": false
+  },
+  "sincronizacion_laboratorio": {
+    "desde": "1e4f0ef",
+    "hasta": "a4c8302",
+    "tipo": "fast-forward",
+    "motivo": "Incorporar resultados existentes del 14 de octubre antes de valorar las analogias; cambios locales conservados."
+  },
+  "registro": "Sin afirmaciones nuevas: se conserva el registro de 343 filas del commit a4c8302.",
+  "fuentes": [
+    {
+      "ruta": "README.md",
+      "clase": "contexto_catalogo",
+      "sha256_archivo": "b0cc9fed82ea436c974d0d86fc30c8791a433b407254455c6e43c036b2dd5768",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "CONTENTS.md",
+      "clase": "contexto_catalogo",
+      "sha256_archivo": "f2d4a0b512bc366b82c8a7219680547ed9b5f667da5f508aa9fb9c4ee569f0b0",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "history.md",
+      "clase": "contexto_catalogo",
+      "sha256_archivo": "ff26d9214a6c29c6bb7faf99b0d55e72ba26a547b4e53485809e95f4de7f3374",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/README.md",
+      "clase": "contexto_catalogo",
+      "sha256_archivo": "ad210d97664774fc64838372ec23d5a5b75c6ccb0d1867e3b33d90a1f57e3055",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/ComparatorChallenges/README.md",
+      "clase": "contexto_catalogo",
+      "sha256_archivo": "e3285301df79a359a6dc8c50864986ad77865fbdd3dde3349da55f3761952f64",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/lean-toolchain",
+      "clase": "contexto_catalogo",
+      "sha256_archivo": "8152090414016dd5dc871752f8ce4ecdbd604d9845758e9b9047cb80101280b5",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/introduction.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "06b68e7878c9815222b1356d9441b7b58bdb09c94531ca7367fba109eea7ea1a",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "007",
+      "rangos_de_lineas_solicitados": [
+        [
+          186,
+          255
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/build/quantitative/05-rank-witness.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "c09c10aeb52978fe81492e1b0cb292fb56e633cc371fd0f74593e383465fa511",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "007",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          90
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/build/main.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "4d1003e184f6edabcd0363a476618e81d652a88c593059e7372b4adbe592d916",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "017",
+      "rangos_de_lineas_solicitados": [
+        [
+          157,
+          254
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/build/sections/determinant.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "c72eca8811e9f3ad62e967ff929ebc8ec1d84f7224701953103bb0544005535b",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "017",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          100
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/main.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "f79b26a5c2ee74469ae2669dc7c46ddbd6286ab1493c6753a560608767522f03",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "028",
+      "rangos_de_lineas_solicitados": [
+        [
+          108,
+          178
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/preliminaries.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "0b11af52ad5be11c38d1b681a09afbc7ee5176d10ecf5251e8d0c91221f09794",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "028",
+      "rangos_de_lineas_solicitados": [
+        [
+          56,
+          138
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/coverage-transfer.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "fad802107e20d76cb38a4824b75bfde0ac06224f79f9fb8dc270bc1e48372182",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "028",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          115
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/information.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "a7aba0b75428da00d171f330a5c79840375d609b8f050636e8e51020ca66f65b",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "028",
+      "rangos_de_lineas_solicitados": [
+        [
+          292,
+          375
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Bounded-Step-Walks-on-Gaussian-Primes-September-26-2026/build/periodicity.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "f91780f99b348d64a92c4299213c3cf79f18fa69f7a9324033c4c99e007ffae8",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "028",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          56
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Termination-for-projective-log-canonical-fourfolds-with-rational-boundary-September-24-2026/build/sections/00-introduction.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "22eff14d31da204e3f141316333233d96012dd599e0516cc2f7ce6c3a1afeb62",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "056",
+      "rangos_de_lineas_solicitados": [
+        [
+          115,
+          179
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Termination-for-projective-log-canonical-fourfolds-with-rational-boundary-September-24-2026/build/sections/02a-difficulty-setup.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "600c9bceb342510edee069eec2fa15bd191a7a632b60c42514284b90de90d877",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "056",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          116
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Termination-for-projective-log-canonical-fourfolds-with-rational-boundary-September-24-2026/build/sections/05-difficulty.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "b272986a894460647654197ad906eec306a13504106e29dd114d6a49cc99e071",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "056",
+      "rangos_de_lineas_solicitados": [
+        [
+          100,
+          220
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Deterministic-quasipolynomial-time-mean-payoff-games-September-25-2026/build/source/sections/01-introduction.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "6ef32619507a68f4a0b63ad90363695eb6470675ee1af7cde24247e380c4addf",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "104",
+      "rangos_de_lineas_solicitados": [
+        [
+          117,
+          240
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Deterministic-quasipolynomial-time-mean-payoff-games-September-25-2026/build/source/sections/04-algorithm.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "a38cda33654ece383bb9a90005a875e281201032a7d090b990db8ae3349f6004",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "104",
+      "rangos_de_lineas_solicitados": [
+        [
+          125,
+          201
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Deterministic-quasipolynomial-time-mean-payoff-games-September-25-2026/build/source/sections/08-energy-credits.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "e5af2bb754297d0e2c87a9af4bcc49ba599a97380a08703c49d54a847cd835e0",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "104",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          110
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/uniform-bounds-for-planar-polynomial-limit-cycles-September-24-2026/build/sections/01-introduction.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "2ad301b93a87c4b1be19bdd535ba63e1f95b440ad37c6d9d612e77846fd5d65d",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "143",
+      "rangos_de_lineas_solicitados": [
+        [
+          89,
+          236
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Uniform-Permanence-in-Weakly-Reversible-Mass-Action-Systems-October-5-2026/build/sections/introduction.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "b7b62cda9b5121fdfc5291a11a109ecb68256608634b2c5c8107c638c579fa99",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "149",
+      "rangos_de_lineas_solicitados": [
+        [
+          128,
+          186
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Uniform-Permanence-in-Weakly-Reversible-Mass-Action-Systems-October-5-2026/build/sections/trapping.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "f08d6e86d0aa634cbe0c1f3d2e03d4ca26cf78dd2cdb357f0380c018b5d2f704",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "149",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          170
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Uniform-Permanence-in-Weakly-Reversible-Mass-Action-Systems-October-5-2026/build/sections/permanence.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "1ffe7a143d00ef11841b0ca4add10c2e2ced6b1f1596281eb5572077fab3c089",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "149",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          77
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Arithmetic-classification-and-non-Pisot-singularity-for-Bernoulli-convolutions-October-3-2026/build/classification.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "670ce2b2ef045875eb5916717425cabed6475c8e179dbdeae46c63082eff3c2f",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "153",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          72
+        ],
+        [
+          574,
+          612
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Quasipolynomial-Bounds-for-Arithmetic-Progressions-September-23-2026/build/sections/08-iteration.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "377e62ab9636a12645e22638062f226c4039294c28f0e6eff3f52560b1acc265",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "159",
+      "rangos_de_lineas_solicitados": [
+        [
+          82,
+          158
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Weak-and-strong-normalization-in-pure-type-systems-September-25-2026/build/sections/introduction.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "a76b08fa8e3bf8a1cc48b5fa05b2e3fa74f06aefa7d8e813935e71322829e2ee",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "245",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          130
+        ],
+        [
+          183,
+          240
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Weak-and-strong-normalization-in-pure-type-systems-September-25-2026/build/sections/erasure.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "b2fbfa35c37c1b82c7b6dbdcb1d1bcfc3f7f1197c9cfe5b34614d99e0d7fc491",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "245",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/build/sections/introduction.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "0016509efa953b5863fa12bd31eb49a3c929b2e8da88f6cb850c302616f64774",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "362",
+      "rangos_de_lineas_solicitados": [
+        [
+          152,
+          215
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/build/sections/setup.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "0b0b4dd121adb6381d7a9fc54f9cc330f4348356082e994ef965abe4c703a5b8",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "362",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          139
+        ]
+      ]
+    },
+    {
+      "ruta": "preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/build/sections/closure.tex",
+      "clase": "secciones_tecnicas",
+      "sha256_archivo": "bb8563c7fabbeec4f00a592805b9075f740b9f4eb16e66e210463f9ea7b70311",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "362",
+      "rangos_de_lineas_solicitados": [
+        [
+          1,
+          87
+        ]
+      ]
+    },
+    {
+      "ruta": "lean/docs/007.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "ec3407e619620ffac62b7881dacffbec4b1034050f222dec70fb4d92985a6581",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "007"
+    },
+    {
+      "ruta": "lean/docs/017.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "bfc5c869c324895699add37e25bd109bf5ae92735c849038140123966db85bd0",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "017"
+    },
+    {
+      "ruta": "lean/docs/028.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "9afe2c10c981b84d00cdad0a7b31dbf27fd7b8bc3fc1edb20e86886c58be26d5",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "028"
+    },
+    {
+      "ruta": "lean/docs/104.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "1feb0c95bbf2fdcf45b32e49d0e2e79ed6bfff80cb902f5e48367a3c78ccdd08",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "104"
+    },
+    {
+      "ruta": "lean/docs/143.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "45984327c00d8e4cba9543f89019df664f00019567acac3316eca4f3e108fb1f",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "143"
+    },
+    {
+      "ruta": "lean/docs/149.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "de05345848fbd26e8de25869ee588032a4f508dbd370e321c29acfcd8ca9bb72",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "149"
+    },
+    {
+      "ruta": "lean/docs/245.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "0761fe7a282aee33b06afe51e49ba49ff7823d90273397c398962657d6675d2f",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "245"
+    },
+    {
+      "ruta": "lean/docs/362.md",
+      "clase": "alcance_Lean",
+      "sha256_archivo": "89e44cd22c21154bc69cfc6c008d2abc592708505aa4c255181d5e49c766f432",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true,
+      "familia": "362"
+    },
+    {
+      "ruta": "lean/ComparatorChallenges/GaussianMoat.json",
+      "clase": "configuracion_Comparator",
+      "sha256_archivo": "2dd8372bff89ec4c18c42a950054b491d092f8740894c2ad111fec5e48fdcf1f",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/ComparatorChallenges/MassAction.json",
+      "clase": "configuracion_Comparator",
+      "sha256_archivo": "9d76ab6f58bb639b83cb373dc66556b4fa3fd0f06f5521775d89594976422c9f",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/ComparatorChallenges/RandomizedMeanPayoff.json",
+      "clase": "configuracion_Comparator",
+      "sha256_archivo": "ad1fc8221fe07bfce3896f5cff7f0418fcf4a2a3b1d5bba5515071383dc05a11",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/ComparatorChallenges/GaussianMoat.lean",
+      "clase": "lectura_parcial_enunciado_o_entrada_de_solucion",
+      "sha256_archivo": "85ed52c4abb241da8c15e14647354d2df9fa9238acd0bbe0a8aa67beb8f9f3bb",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/ComparatorChallenges/MassAction.lean",
+      "clase": "lectura_parcial_enunciado_o_entrada_de_solucion",
+      "sha256_archivo": "b177e9a87b892d9953bcc1d6eed39d11555db0f5829e50f22545464c991e164b",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/OAI/NumberTheory/GaussianMoat/Main.lean",
+      "clase": "lectura_parcial_enunciado_o_entrada_de_solucion",
+      "sha256_archivo": "630b9009daf63347ce02ecd231d662ab32464bc2fd06fc621fa1586b3ac56569",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "lean/OAI/Analysis/MassAction/Main.lean",
+      "clase": "lectura_parcial_enunciado_o_entrada_de_solucion",
+      "sha256_archivo": "877611e249f463623aeb5574ec8734446d20c72936b6121ad6251d4ed1353f64",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "reasoning_traces/ordinary-two-point-correlations.pdf",
+      "clase": "resumen_de_razonamiento_extraccion_y_lectura_parcial",
+      "sha256_archivo": "da7f147cfe9b5d4e7f810fc0547c4614282aa470fa572b82e8e8bfcaffcb67dc",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "reasoning_traces/irrationality-exponent-of-pi.pdf",
+      "clase": "resumen_de_razonamiento_extraccion_y_lectura_parcial",
+      "sha256_archivo": "bc9f1fa5739ed93df6d83f5ac19b5addd1688cf53ff1fede0808d30029febf0d",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "reasoning_traces/quasipolynomial-arithmetic-progressions.pdf",
+      "clase": "resumen_de_razonamiento_extraccion_y_lectura_parcial",
+      "sha256_archivo": "189100d26a5fdb119796c161ae881fbf4beb34528bdbd77e183a1a210e8d8f95",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    },
+    {
+      "ruta": "reasoning_traces/relativistic-vlasov-maxwell.pdf",
+      "clase": "resumen_de_razonamiento_extraccion_y_lectura_parcial",
+      "sha256_archivo": "fbb80877b643c266a65f304b4db652ff8489bf7374266eadf60ea85c9d3a63a0",
+      "coincide_con_HEAD_sin_distinguir_CRLF": true
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Estado para continuar — 14-10-2026
+# Estado para continuar — 16-10-2026
 
 [Premisa](PREMISA_DE_INVESTIGACION.md): buscar la prueba universal de Collatz;
 la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
@@ -64,10 +64,14 @@ certifica `3^S(n+1)<=2^(L+v_fin)*q_fin<=3^S(n+5)` para todo prefijo real.
 **Presupuesto probado por escrito con hasta un cambio:**
 `Eeta<=2*ell(n)`, luego `L+v_fin<=v_in+2*ell(n)`, ell=ceil(log2(n+5)).
 La familia A^a B puede dejar q_fin=9: las partes impares no son monótonas.
-**Siguiente:** estimar q_fin en cadenas con varias alternancias desde la
-misma semilla; las condiciones exactas están en Transporte, §6.
+La [exploración de math](depuracion/exploracionmath20261016/EXPLORACION.md)
+conserva la ruta; documenta filtros y candidatos aritméticos e informacionales
+(§§8–9), sin pruebas nuevas. **Siguiente:** lema de acoplamiento para estimar
+q_fin con varias alternancias desde la misma semilla (Transporte, §6),
+fuera de las familias excluidas por Perfiles.
 `epsilon=1/2,K=2*ell` general, salida y extensión a descenso siguen abiertos.
 No basta reiterar la cota local en semillas nuevas. H queda auxiliar.
+**Arranque en espera:** el usuario continúa conversando; aún no activa investigación.
 
 ## Revisión y publicación
 
