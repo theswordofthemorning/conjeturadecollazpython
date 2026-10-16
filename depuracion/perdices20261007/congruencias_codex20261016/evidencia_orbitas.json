@@ -1,0 +1,198 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Cota residual desde caminos reales; imports directos cotejados. Sin auditoría transitiva completa de Mathlib.",
+  "modulos": {
+    "PerdicesTransporteImpar": {
+      "fuente": "depuracion/perdices20261007/PerdicesTransporteImpar.lean",
+      "fuente_sha256_lf": "bc01439acdb470700600fcfca997fa5801e7ed3a9525dacba41f5c9560608070",
+      "axiomas": {
+        "PerdicesTransporteImpar.paso_a_real": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.paso_b_real": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.paso_encaje": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.encaje": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.encaje_potencial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.descomposicion": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.transporte_impar": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.condicion_suficiente": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "objeto_sha256": "cbbaf02f64889e7efb9f4d6cf6f3cce354f702a687dc7b3a7ab64c4cedd91a10",
+      "imports_locales_recompilados": {},
+      "resolucion_imports_directos_comprobada": true
+    },
+    "PerdicesCongruencias": {
+      "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesCongruencias.lean",
+      "fuente_sha256_lf": "d6f44bad369e3e0ef0aa3589558683fde8593c12bf2dea3960ccbb236fbb564c",
+      "axiomas": {
+        "PerdicesCongruencias.potencia_periodica": [
+          "propext"
+        ],
+        "PerdicesCongruencias.tabla_compartida": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesCongruencias.parte_impar_minima": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesCongruencias.no_parte_impar_uno": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesCongruencias.semilla_cota": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruencias.semilla_cota_residual": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruencias.semilla_cota_superior_optima": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruencias.congruencias_familias_optimas": [
+          "propext"
+        ]
+      },
+      "objeto_sha256": "7c2d419f034ef953b848cabf8dc033eff173f4ff331927bbc44bec0bdc58c55f",
+      "imports_locales_recompilados": {},
+      "resolucion_imports_directos_comprobada": true
+    },
+    "PerdicesCongruenciasOrbitales": {
+      "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesCongruenciasOrbitales.lean",
+      "fuente_sha256_lf": "5fcb5efac24778a381c90c542c550b3373ccf967b43b93030f119916dc847554",
+      "axiomas": {
+        "PerdicesCongruenciasOrbitales.separar": [],
+        "PerdicesCongruenciasOrbitales.racha_a": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.racha_b": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.entrada_b": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.parte_compartida": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.entrada_racha_b": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.salida_racha_b": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.carga_entrada_b": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.fronteras": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.desde_palabra": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.banda_entera": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.banda_logaritmica": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesCongruenciasOrbitales.ventana_desde_semilla": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "objeto_sha256": "b92af3a1e7ec505f2e7cd1c1e8d31517246bff416262323dc9483011fbb3bba2",
+      "imports_locales_recompilados": {
+        "PerdicesTransporteImpar": "cbbaf02f64889e7efb9f4d6cf6f3cce354f702a687dc7b3a7ab64c4cedd91a10",
+        "PerdicesCongruencias": "7c2d419f034ef953b848cabf8dc033eff173f4ff331927bbc44bec0bdc58c55f"
+      },
+      "resolucion_imports_directos_comprobada": true
+    }
+  },
+  "dependencias": {
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic": {
+      "fuente_sha256_lf": "494d5829e218df7dba759758e39752b278958f7f384226cc62d138d4408ae390",
+      "objeto_sha256": "2210f1912fe964a080cc790b92ef4459e1e7891fd445e03adae818c181ffbf55"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.Ring": {
+      "fuente_sha256_lf": "d3ef5c49ebbd1108ce3f935e5ad95485e143abf02f28c027dba4bb6f3be8196e",
+      "objeto_sha256": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.IntervalCases": {
+      "fuente_sha256_lf": "09537b37080bd0680d5a2663d1517c697858f83c762733cd00087df2fbfc97fe",
+      "objeto_sha256": "e955bdbea277802c2466f3fd46a1a6735102d7ffce634e572c303d95eaa05230"
+    },
+    "Mathlib.Data.Nat.Log": {
+      "fuente_sha256_lf": "9800e6942155e28138ed981a06340d7333aacccfafcd1aa35147147ae57d8e3f",
+      "objeto_sha256": "53737e9f7d690e6ef249e1e9b571dd99931f72736216e0f46d532c86f6914971"
+    }
+  },
+  "verificador_sha256_lf": "48352af5ff90eb23bdf1b3af1079d06f76a771078909089407c505af8bbb4709",
+  "apoyo_sha256_lf": "ab5fae9fef2e8987586700d0385bd7e7ef98e1665114aaa426d253ef9705e287",
+  "salida_sha256_lf": "cb9a25c2b7ca88ca9d8caadb309445a88bbc9dbd25800407478234a01a529b92"
+}

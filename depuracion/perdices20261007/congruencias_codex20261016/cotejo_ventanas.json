@@ -1,0 +1,56 @@
+{
+  "alcance": "Contraste finito por composición afín, levantamiento de bits y órbita literal. La prueba universal está en Lean; no prueba P.",
+  "parametros": {
+    "prefijo_max": 4,
+    "racha_max": 2,
+    "traslados": 2,
+    "salida": "depuracion\\perdices20261007\\congruencias_codex20261016\\cotejo_ventanas.json"
+  },
+  "controles": 1116,
+  "con_racha_a_vacia": 620,
+  "ventanas_interiores": 1080,
+  "muestras": [
+    {
+      "prefijo": "",
+      "b": 0,
+      "c": 1,
+      "d": 0,
+      "n": 6139,
+      "x": 6139,
+      "izquierda": 128,
+      "derecha": 6144
+    },
+    {
+      "prefijo": "",
+      "b": 0,
+      "c": 2,
+      "d": 0,
+      "n": 4091,
+      "x": 4091,
+      "izquierda": 128,
+      "derecha": 4096
+    },
+    {
+      "prefijo": "ABAB",
+      "b": 0,
+      "c": 1,
+      "d": 0,
+      "n": 1365735,
+      "x": 3889147,
+      "izquierda": 32768,
+      "derecha": 995624460
+    },
+    {
+      "prefijo": "ABAB",
+      "b": 0,
+      "c": 2,
+      "d": 0,
+      "n": 841447,
+      "x": 2396155,
+      "izquierda": 32768,
+      "derecha": 613418508
+    }
+  ],
+  "fuente_sha256_lf": "45403b8dc7d77a998b687fd502ed35c035a0f69c6ce31d397d5ae832f6b26f16",
+  "construcciones_sha256_lf": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf"
+}

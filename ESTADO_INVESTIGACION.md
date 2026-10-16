@@ -44,29 +44,27 @@ el mínimo original.
 familias excluidas, objetivo 57 sin dinámica. Árticas y persistencia abiertas.
 
 **Piloto de recargas:** [ruta](depuracion/coherencia20260913/RUTA_339_20261012.md).
-[Recargas](depuracion/perdices20261007/RECARGAS.md) refuta K=alpha*ell+beta
-para alpha<=1 y beta>=0, y presupuestos de las dos valuaciones iniciales.
-Prueba escrita; caso n=4591 con epsilon=1/2,K=ell certificado en Lean.
-[Perfiles](depuracion/perdices20261007/PERFILES.md) excluye rangos locales
-`H(x)+F(perfil)`, H no decreciente, para listas finitas de valuaciones afines:
-prueba general escrita, caso x+1,x+5 formalizado.
-[Transporte impar](depuracion/perdices20261007/TRANSPORTE_IMPAR.md):
-encaje universal certificado en Lean; `Eeta<=2*ell(n)` con hasta un cambio,
-por escrito, ell=ceil(log2(n+5)). Las partes impares no son monótonas.
-La [exploración de math](depuracion/exploracionmath20261016/EXPLORACION.md)
-conserva la ruta y aporta filtros. [Dos cambios](depuracion/perdices20261007/DOS_CAMBIOS.md):
-**P2 probado para toda A^a B^b A^c**. [Altura BAB](depuracion/perdices20261007/ALTURA_BAB.md):
-P con epsilon=7/17,K=2*ell para hasta dos cambios; fallo de P2 en BAB
-exigiría calidad abc>18, sin descartarlo ni suponer abc.
-[Tres cambios](depuracion/perdices20261007/TRES_CAMBIOS.md): **P probado con
-epsilon=1/13,K=2*ell para hasta tres cambios**. Cierres Lean; enlaces y cotas
-orbitales escritos. Con cuatro cambios, las cotas y el balance admiten un
-modelo que viola incluso epsilon=0, pero una congruencia módulo 9 lo hace
-irrealizable: no es un contraejemplo orbital.
-**Siguiente:** control acumulativo de congruencias desde la misma semilla.
-Presupuesto global y descenso abiertos. H auxiliar. **Tanda publicada en
-972c111. Próxima sesión: retomar el piloto desde ese punto.** La revisión
-para Rozier queda comprobada y documentada; este cierre no inicia otra tanda.
+[Recargas](depuracion/perdices20261007/RECARGAS.md) refuta presupuestos de
+pendiente<=1 y de las dos valuaciones iniciales; [Perfiles](depuracion/perdices20261007/PERFILES.md),
+rangos locales con perfiles finitos. [Transporte impar](depuracion/perdices20261007/TRANSPORTE_IMPAR.md):
+encaje universal Lean y `Eeta<=2*ell(n)` con hasta un cambio, por escrito;
+ell=ceil(log2(n+5)). Partes impares no monótonas. [Filtros de math](depuracion/exploracionmath20261016/EXPLORACION.md).
+[Dos cambios](depuracion/perdices20261007/DOS_CAMBIOS.md): P2 para ABA.
+[Altura BAB](depuracion/perdices20261007/ALTURA_BAB.md): epsilon=7/17 hasta dos
+cambios. [Tres cambios](depuracion/perdices20261007/TRES_CAMBIOS.md):
+epsilon=1/13 hasta tres, siempre K=2*ell. Cierres Lean; enlaces orbitales
+escritos. El modelo excesivo de cuatro cambios es irrealizable módulo 9.
+**Perdices, ruta Codex:** [banda óptima](depuracion/perdices20261007/congruencias_codex20261016/CONGRUENCIAS.md)
+`b+delta<=ell(n)`; [enlace orbital Lean](depuracion/perdices20261007/congruencias_codex20261016/ORBITAS.md).
+[Ventanas conjuntas](depuracion/perdices20261007/congruencias_codex20261016/CONJUNTAS.md):
+mínimos vecinos incompatibles; exceso óptimo de 72 por pareja disjunta
+(n=667), para cualquier número de ventanas.
+[Barrera triple](depuracion/perdices20261007/congruencias_codex20261016/BARRERA.md):
+alguno de tres excesos k_i es >=17; suma k_i>=17*floor(m/3).
+Prueba escrita y certificado modular independiente; **nuevo Lean pendiente**
+al cierre. El peso geométrico limita la condición conjunta desde n.
+**Siguiente:** completar Lean y controlar reloj o carga terminal; P abierto.
+[Claude](RutaDeJudasIscariote.md) conservado. Usuario autorizó subir todos los cambios.
 
 ## Revisión y publicación
 
@@ -97,13 +95,16 @@ una sucesión, sin enviar y sujetas al panel.
 123 piezas; [auditoría](depuracion/mapa20261011/RECONSTRUCCION.md).
 [Registro versionado](depuracion/coherencia20260913/registro.json) y
 `guardarafirmaciones.py`: **349 filas**, 235 demostradas, 92 medidas,
-13 conjeturadas y nueve refutadas; cotejo literal con SQLite.
+13 conjeturadas y nueve refutadas; cotejo literal con SQLite. Tres altas
+Codex validadas en copia temporal (352 filas); integración central pendiente.
 Incidencia histórica de la fila 71 señalada y no usada.
 
 Lean 4.32.2 y Mathlib fijado; [reproducción](depuracion/gao20260920/formal/README.md).
 [Evidencia Rozier](depuracion/cst20260930/evidencia_rozier.json): 146 consultas
 Lean estándar; [cotejo exacto](depuracion/cst20260930/revision_rozier_20261016/cotejo_numeros.json).
-Perdices conserva ocho cierres Lean; congruencia y enlaces orbitales escritos.
+Perdices: 44 consultas Lean previas; barrera nueva: 18144 cadenas,
+33696 ternas y 15584 casos con A vacías; formalización pendiente.
+Realización de familias óptimas y cilindro terminal: prueba escrita.
 [Casa recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md) y
 [conciliación](depuracion/jinetas20261010/CONCILIACION.md): dos huellas antiguas
 requieren revisión; no usar sus cachés. Históricos, conversaciones y zootheorem intactos.

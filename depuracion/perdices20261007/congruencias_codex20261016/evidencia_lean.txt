@@ -1,0 +1,8 @@
+'PerdicesCongruencias.potencia_periodica' depends on axioms: [propext]
+'PerdicesCongruencias.tabla_compartida' depends on axioms: [propext, Quot.sound]
+'PerdicesCongruencias.parte_impar_minima' depends on axioms: [propext, Quot.sound]
+'PerdicesCongruencias.no_parte_impar_uno' depends on axioms: [propext, Quot.sound]
+'PerdicesCongruencias.semilla_cota' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCongruencias.semilla_cota_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCongruencias.semilla_cota_superior_optima' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCongruencias.congruencias_familias_optimas' depends on axioms: [propext]

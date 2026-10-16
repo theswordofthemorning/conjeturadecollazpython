@@ -1,0 +1,138 @@
+{
+  "limite": 16,
+  "tablas": [
+    {
+      "periodo": 6,
+      "modulo": 7,
+      "candidatos": 62424,
+      "supervivientes": 8892,
+      "tabla_ordenada_sha256": "74951703d737711bd0235b3d9435a750873417cdccb3266283db2084968e1225"
+    },
+    {
+      "periodo": 12,
+      "modulo": 455,
+      "candidatos": 71136,
+      "supervivientes": 1097,
+      "tabla_ordenada_sha256": "fbccbed6c6654a53cbd2b64ade7c1388c1bd5edb06c7fa9a83d32132562219c3"
+    },
+    {
+      "periodo": 36,
+      "modulo": 23350145,
+      "candidatos": 29619,
+      "supervivientes": 47,
+      "tabla_ordenada_sha256": "cc9a3e0286e3d5ada2e01ad18ba2421083e942f37282dd647f2da9103f41955b"
+    },
+    {
+      "periodo": 108,
+      "modulo": 2545165805,
+      "candidatos": 1269,
+      "supervivientes": 147,
+      "tabla_ordenada_sha256": "2518c868c92be747b5a28717f6d03968950e759b06ecd40b3fd48ba23720c86f"
+    },
+    {
+      "periodo": 324,
+      "modulo": 414862026215,
+      "candidatos": 3969,
+      "supervivientes": 105,
+      "tabla_ordenada_sha256": "b0572db2a7476e2cc75ca4914dfe1271d715e2a7b7ce9e0b4bb24096447c303a"
+    }
+  ],
+  "aristas": [
+    [
+      0,
+      1,
+      0,
+      7,
+      8
+    ],
+    [
+      0,
+      1,
+      1,
+      10,
+      6
+    ],
+    [
+      0,
+      1,
+      2,
+      12,
+      3
+    ],
+    [
+      1,
+      1,
+      0,
+      1,
+      3
+    ],
+    [
+      1,
+      1,
+      2,
+      16,
+      13
+    ],
+    [
+      2,
+      1,
+      2,
+      0,
+      1
+    ],
+    [
+      109,
+      1,
+      72,
+      1,
+      3
+    ],
+    [
+      213,
+      3,
+      140,
+      12,
+      10
+    ],
+    [
+      218,
+      1,
+      218,
+      0,
+      1
+    ],
+    [
+      316,
+      6,
+      315,
+      1,
+      7
+    ],
+    [
+      320,
+      4,
+      317,
+      4,
+      12
+    ],
+    [
+      321,
+      219,
+      31,
+      6,
+      11
+    ],
+    [
+      322,
+      3,
+      321,
+      4,
+      5
+    ]
+  ],
+  "empalmes": 0,
+  "alcance": "Cobertura finita modular con periodos, pendiente de leer junto a la prueba universal; no acota los exponentes originales ni prueba el presupuesto global.",
+  "fuente_sha256_lf": "b21a8e7a7cfed97d56796908862ffe06c05e855b1632bd05f4ebe5716176888d",
+  "tablas_lean_sha256_lf": "df33e7e8cda8013b0fa0db08d6a534f9bbfbf8ae54c10e39fbebb7939c6c28bd",
+  "apoyo_sha256_lf": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf"
+}

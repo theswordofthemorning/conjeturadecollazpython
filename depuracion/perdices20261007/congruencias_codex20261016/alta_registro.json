@@ -1,0 +1,34 @@
+{
+  "version": "2026-10-16",
+  "modo": "Tres altas aisladas validadas con el generador en copia temporal; integracion central pendiente de la siguiente sesion.",
+  "referencia_pieza": "perdices_tres_cambios_un_trece",
+  "alta": {
+    "clave": "perdices_congruencias_compartidas_banda_optima",
+    "cuantificador": "todo_n",
+    "estado": "demostrado",
+    "fichero": "depuracion/perdices20261007/congruencias_codex20261016/CONGRUENCIAS.md",
+    "enunciado": "PERDICES: BANDA OPTIMA POR CONGRUENCIAS COMPARTIDAS. Para toda semilla n>=1 y todos a,b,c,d,e>=1 cuya palabra B^a A^b B^c A^d B^e realiza las paridades A=1,B=110 del atajo, la parte impar r=(T^(3a)(n)+1)/2^(b+2) satisface r=rho_(b mod 6) mod 72, donde rho=(71,13,47,37,23,61). Si a=1, b+delta_(b mod 6)<=ceil(log2(n+5)), con delta=(8,6,8,8,7,8). Cada uno de los seis bordes se alcanza en infinitas semillas con a=c=e=1. Ademas, para cualquier camino real U B A^b B^c A^d B V con b,d>=0,c>=1 y U,V arbitrarias, si P y S cuentan pasos y unos de U, entonces 2^(P+b+delta_(b mod 6)-1)<3^S*(n+5).",
+    "fuente": "Derivacion local, 16-10-2026: congruencias modulo 9 y 8 de una misma parte impar, y construccion de seis familias. Sin reivindicar prioridad bibliografica.",
+    "notas": "CONGRUENCIAS.md, secciones 1-3, y ORBITAS.md. Se conservan 9^a*q=2^b*r+1 y 8^c*s=3^b*r+1 desde una misma n. Para b=j mod 12, b>=1,j=0..5, tomar r=rho_j,q=(2^b*r+1)/9,s=(3^b*r+1)/8,d=v2(9s-1),n=32q-5: realiza B A^b B A^d B y ell=b+delta_j. Lean 4.32.2 certifica ocho lemas aritmeticos y trece orbitales nuevos, con axiomas estandar y sin sorryAx. El enlace desde Camino hasta Nat.clog y la ventana interior estan formalizados; la realizacion de las familias optimas y el cilindro terminal conservan prueba escrita. Se recompilan esos dos modulos y el transporte orbital previo desde fuente en carpeta temporal propia. Cotejo independiente: 2430 controles BABAB, 66 bordes, 48 miembros optimos, dos cilindros grandes y 1116 ventanas, 620 con alguna racha A vacia. Para B A^998 B^527 A^1670 B, minima ell=4255; exigiendo v_fin=2600, minima ell=6855. No se suman costes de ventanas dependientes ni se demuestra P con cuatro cambios, presupuesto uniforme, salida o Collatz. Alta separada para no interferir con la ruta paralela; integracion central pendiente del cierre. Revision humana pendiente."
+  },
+  "altas_adicionales": [
+    {
+      "clave": "perdices_minimos_vecinos_incompatibles",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/congruencias_codex20261016/CONJUNTAS.md",
+      "enunciado": "PERDICES: EXCESO OBLIGATORIO EN VENTANAS CONSECUTIVAS. Para toda orbita positiva del atajo con paridades A=1,B=110 y palabra U B^a0 A^b1 B^a1 ... A^b(m+1) B^a(m+1) V, m>=1, a_i>=1,b_i>=0, sean x_i las entradas A y r_i=(x_i+1)/2^(b_i+2), i=1..m. Con rho=(71,13,47,37,23,61), k_i=(r_i-rho[b_i mod 6])/72 es natural y k_i+k_(i+1)>=1. Por tanto suma k_i>=floor(m/2), y al menos floor(m/2) partes exceden su minimo residual. El exceso 72 por pareja es optimo: n=667 realiza B A^2 B A^2 B B con r_1=47,r_2=119. En una ventana con k_i>=1, la entrada n_i del B inmediatamente anterior satisface b_i+9<=ceil(log2(n_i+5)).",
+      "fuente": "Derivacion local, 16-10-2026: identidad entre partes compartidas, certificado modular de periodos 12,36,108,324 y contradicciones modulo 16 y 81. Sin reivindicar prioridad bibliografica.",
+      "notas": "CONJUNTAS.md distingue prueba escrita, certificado finito exhaustivo con periodicidad y contraste orbital. La identidad exacta es 9^c(3^b*r+1)=8^c(2^d*v+1). No se suman cotas de altura solapadas: se emparejan indices disjuntos. Lean 4.32.2 certifica quince lemas nuevos: cobertura modular por decide +kernel, contradicciones finales, enlace orbital, exceso por pareja, banda con exceso y combinacion de listas; 44 consultas con dependencias, solo axiomas estandar, sin sorryAx. La identificacion de la cadena orbital arbitraria con la lista de excesos se desarrolla por escrito. Contraste independiente: dos algoritmos para las tablas, 9324 cadenas, 26136 parejas, 7964 casos con rachas A vacias y el borde n=667. El exceso no esta ligado todavia a un presupuesto global desde n; P, salida y Collatz siguen abiertos. Alta aislada, integracion central pendiente del cierre. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_barrera_tres_ventanas",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/congruencias_codex20261016/BARRERA.md",
+      "enunciado": "PERDICES: BARRERA DE TRES VENTANAS. En toda orbita positiva del atajo con A=1,B=110 y palabra U B^a0 A^b1 B^a1 ... A^b(m+1) B^a(m+1) V, m>=1,a_i>=1,b_i>=0, las partes r_i=(x_i+1)/2^(b_i+2), i=1..m, tienen r_i=rho[b_i mod 6]+72*k_i, rho=(71,13,47,37,23,61). Cada tres k_i consecutivas contienen una >=17. Por tanto suma k_i>=17*floor(m/3) y suma r_i>=suma rho+1224*floor(m/3). Si k_i>=17, con n_i entrada del ultimo B anterior, b_i+13<=ceil(log2(n_i+5)); si P_i,S_i son pasos y unos desde n hasta n_i, 2^(P_i+b_i+12)<3^S_i*(n+5). Ademas suma rho+1224*floor(m/3)+suma 2^(-b_i)<=(9/32)*(n+5)*suma 3^S_i/2^(P_i+b_i).",
+      "fuente": "Derivacion local, 16-10-2026: grafo modular necesario de cargas <=16, con trece aristas que no se pueden empalmar. Sin reivindicar prioridad bibliografica.",
+      "notas": "BARRERA.md. Cobertura por periodos 6,12,36,108,324 y divisibilidad modulo 16 y 81, sin acotar exponentes originales. El grafo es una condicion necesaria, no se afirma realizacion de todas sus aristas. No se afirma optimalidad: n=6139 realiza BBBABB y excesos 23,26,15. Prueba escrita y certificado modular independiente completos. Borrador Lean preparado para cobertura, barrera, enlace entre caminos reales, banda y transporte, SIN compilacion completa aprobada: intento monolitico interrumpido por memoria y segundo intento detenido al cierre solicitado; identificacion de la cadena con la lista y desigualdad racional ponderada por escrito. Contraste independiente de todas las tablas y 18144 cadenas orbitales, 33696 ternas, 15584 con A vacias y 9072 interiores. El peso puede crecer geometricamente: en B^(m+2) la cota ponderada para n+5 ya es menor que 1 con m=96, frente al minimo real 8^98. Esto limita la nueva desigualdad, no refuta P. Presupuesto global, salida y Collatz abiertos. Alta aislada pendiente del cierre; revision humana pendiente."
+    }
+  ]
+}

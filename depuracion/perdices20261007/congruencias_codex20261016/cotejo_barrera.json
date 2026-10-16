@@ -1,0 +1,112 @@
+{
+  "alcance": "Contraste finito de T, dos cilindros independientes y aritmética racional exacta; no sustituye el certificado universal. No se afirma optimalidad de 17.",
+  "parametros": {
+    "ventanas_max": 4,
+    "racha_a_max": 2,
+    "racha_b_max": 2,
+    "traslados": 2,
+    "salida": "depuracion\\perdices20261007\\congruencias_codex20261016\\cotejo_barrera.json"
+  },
+  "controles": 18144,
+  "triples": 33696,
+  "controles_con_a_vacia": 15584,
+  "controles_interiores": 9072,
+  "menor_maximo_observado": {
+    "maximo": 26,
+    "indice": 0,
+    "semilla": 6139,
+    "palabra": "BBBABB",
+    "excesos": [
+      23,
+      26,
+      15
+    ],
+    "partes": [
+      1727,
+      1943,
+      1093
+    ],
+    "relojes": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        6,
+        4
+      ]
+    ]
+  },
+  "testigo_limite_superior_optimo": {
+    "semilla": 6139,
+    "palabra": "BBBABB",
+    "excesos": [
+      23,
+      26,
+      15
+    ],
+    "partes": [
+      1727,
+      1943,
+      1093
+    ],
+    "relojes": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        6,
+        4
+      ]
+    ]
+  },
+  "diagnostico_peso_geometrico": [
+    {
+      "ventanas": 3,
+      "cota_n_mas_5": "327680/217",
+      "bits_minimos_reales": 15,
+      "cota_menor_que_uno": false
+    },
+    {
+      "ventanas": 6,
+      "cota_n_mas_5": "335544320/269297",
+      "bits_minimos_reales": 24,
+      "cota_menor_que_uno": false
+    },
+    {
+      "ventanas": 12,
+      "cota_n_mas_5": "35184372088832/42742011949",
+      "bits_minimos_reales": 42,
+      "cota_menor_que_uno": false
+    },
+    {
+      "ventanas": 24,
+      "cota_n_mas_5": "4835703278458516698824704/15008815318800572929933",
+      "bits_minimos_reales": 78,
+      "cota_menor_que_uno": false
+    },
+    {
+      "ventanas": 48,
+      "cota_n_mas_5": "45671926166590716193865151022383844364247891968/1268076939187482347066658608853177173876847181",
+      "bits_minimos_reales": 150,
+      "cota_menor_que_uno": false
+    },
+    {
+      "ventanas": 96,
+      "cota_n_mas_5": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376/8096653739921374324908463361464701586273481285187901678896535127417774573444361644959848397",
+      "bits_minimos_reales": 294,
+      "cota_menor_que_uno": true
+    }
+  ],
+  "fuente_sha256_lf": "28a6b353127a88aff28dc91ed9ba4521f39b84976abf79d32a161f0c3a5c41a1",
+  "apoyo_sha256_lf": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf"
+}

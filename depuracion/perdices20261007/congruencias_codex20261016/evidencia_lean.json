@@ -1,0 +1,58 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Tabla compartida y cotas aritméticas. Enlaces orbitales, cilindros y realización de familias: prueba escrita. Imports directos cotejados; sin auditoría transitiva completa de Mathlib.",
+  "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesCongruencias.lean",
+  "fuente_sha256_lf": "d6f44bad369e3e0ef0aa3589558683fde8593c12bf2dea3960ccbb236fbb564c",
+  "verificador_sha256_lf": "ab5fae9fef2e8987586700d0385bd7e7ef98e1665114aaa426d253ef9705e287",
+  "salida_sha256_lf": "d8a807c6f262e1e35c4053bce14e638bb80b9b4055bd3fd87156c037f042dc75",
+  "dependencias": {
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.IntervalCases": {
+      "fuente_sha256_lf": "09537b37080bd0680d5a2663d1517c697858f83c762733cd00087df2fbfc97fe",
+      "objeto_sha256": "e955bdbea277802c2466f3fd46a1a6735102d7ffce634e572c303d95eaa05230"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    }
+  },
+  "axiomas": {
+    "PerdicesCongruencias.potencia_periodica": [
+      "propext"
+    ],
+    "PerdicesCongruencias.tabla_compartida": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesCongruencias.parte_impar_minima": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesCongruencias.no_parte_impar_uno": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesCongruencias.semilla_cota": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCongruencias.semilla_cota_residual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCongruencias.semilla_cota_superior_optima": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCongruencias.congruencias_familias_optimas": [
+      "propext"
+    ]
+  }
+}
