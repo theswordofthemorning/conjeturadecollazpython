@@ -1,0 +1,80 @@
+[
+  {
+    "archivo": "rozier_terrracol_v5.pdf",
+    "url": "https://arxiv.org/pdf/2502.00948v5",
+    "sha256": "cd1bbb1b6fd659ff36c105cb3a0fb7de727a22c2a7e6c61f864c7e7bb2a21883",
+    "bytes": 411893,
+    "ultima_modificacion": null,
+    "consulta_utc": "2026-10-16T16:05:31.640738+00:00"
+  },
+  {
+    "archivo": "roosendaal_delrecs.html",
+    "url": "http://www.ericr.nl/wondrous/delrecs.html",
+    "sha256": "59dd4ca4d14e5a90d9d881f90bef1782638b229fc233e8a0f051da3919436964",
+    "bytes": 8043,
+    "ultima_modificacion": "Sun, 19 Jul 2026 19:58:03 GMT",
+    "consulta_utc": "2026-10-16T16:05:32.890387+00:00"
+  },
+  {
+    "archivo": "roosendaal_delays.txt",
+    "url": "http://www.ericr.nl/wondrous/delays.txt",
+    "sha256": "25dab0168d3dafec39a30f3578168b1c19603e0ba836d36f7e89590429269bdf",
+    "bytes": 1896,
+    "ultima_modificacion": "Mon, 28 Sep 2026 18:14:54 GMT",
+    "consulta_utc": "2026-10-16T16:05:33.393024+00:00"
+  },
+  {
+    "archivo": "waldschmidt_LIL.pdf",
+    "url": "https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/LIL.pdf",
+    "sha256": "c34ac8102e56a5e4cee3a482db59c62dbdd1d3a5b0d67d87c20a72636b46f1d6",
+    "bytes": 810543,
+    "ultima_modificacion": "Fri, 02 Sep 2016 11:20:03 GMT",
+    "consulta_utc": "2026-10-16T16:05:35.615868+00:00"
+  },
+  {
+    "archivo": "simons_2022_naw.pdf",
+    "url": "https://www.nieuwarchief.nl/serie5/pdf/naw5-2022-23-3-147.pdf",
+    "sha256": "29f3bf39526ff8e08afae7e0186a41dc8fad32bc9e43728a2d96d8b3fcef82f5",
+    "bytes": 356306,
+    "ultima_modificacion": "Fri, 02 Sep 2022 14:00:10 GMT",
+    "consulta_utc": "2026-10-16T16:05:38.297555+00:00"
+  },
+  {
+    "archivo": "terras_1976.pdf",
+    "url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa30/aa3034.pdf",
+    "sha256": "2b9c296a05541c5b52f63482a09982519546eba36f581bddd853af6ca014bf89",
+    "bytes": 646395,
+    "consulta_utc": "2026-10-16T16:22:24.935489+00:00"
+  },
+  {
+    "archivo": "siefken_kc.pdf",
+    "url": "https://www.math.toronto.edu/siefkenj/homepage/papers/kc-minimality.pdf",
+    "sha256": "813a9bf6134bdcdbbcf17af840769dbbbe55d8fec2aa0e6e71f2268660e74e4b",
+    "bytes": 280359,
+    "consulta_utc": "2026-10-16T16:22:24.936052+00:00"
+  },
+  {
+    "archivo": "Collatz Investigacion/1-s2.0-S0022314X85711419-main.pdf",
+    "url": "https://doi.org/10.1006/jnth.1995.1141",
+    "sha256": "b95afa84b861027df6e3bffa40900e8e15ed8af42ed06f0e287dd15e3467637b",
+    "pagina_leida": 288
+  },
+  {
+    "archivo": "Collatz Investigacion/28Rhin_Sm_Paris_1987.pdf",
+    "url": "https://doi.org/10.1007/978-1-4757-4267-1_11",
+    "url_es_identificador_bibliografico": true,
+    "procedencia": "PDF aportado por el usuario, localizado en C:/Users/Home/Downloads/28Rhin_Sm_Paris_1987.pdf; URL de descarga no establecida",
+    "sha256": "1ada4c7f51933af33feb14757e4fcd46c19f33748da93d950b8e6a9b647cfd1e",
+    "bytes": 490221,
+    "paginas_pdf": 10,
+    "paginas_impresas": "155-164",
+    "paginas_cotejadas_visualmente": [
+      158,
+      159,
+      160,
+      162
+    ],
+    "consulta_utc": "2026-10-16T17:29:19.788012+00:00",
+    "resultado": "Proposicion (7), p.160: H=max(abs(u1),abs(u2))>=2; abs(u0+u1*log(2)+u2*log(3))>=H^(-13.3). Coincide con RhinProposicion 2; caso u0=0 usado por RhinHomogenea 2. Prueba externa, calculos Macsyma no reproducidos."
+  }
+]

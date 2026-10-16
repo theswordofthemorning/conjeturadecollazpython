@@ -1,0 +1,15 @@
+{
+  "partes": [
+    "OcelotasOchentaYTresTablaParte01",
+    "OcelotasOchentaYTresTablaParte02",
+    "OcelotasOchentaYTresTablaParte03",
+    "OcelotasOchentaYTresTablaParte04",
+    "OcelotasOchentaYTresTablaParte05",
+    "OcelotasOchentaYTresTablaParte06",
+    "OcelotasOchentaYTresTablaParte07"
+  ],
+  "filas": 101,
+  "q_fin": 101189215254399926676993,
+  "sha256_certificado": "70696cc7ac8ae50daa89668c1946bfa64a2e8f6e548af68d29f19dccd4b9e894",
+  "sha256_generador": "f2d8619c170918ca11347ba8501844b9f08cfbaa164107ff7fdf018cfa50e139"
+}

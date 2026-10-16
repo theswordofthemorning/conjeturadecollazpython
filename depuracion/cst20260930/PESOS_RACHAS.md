@@ -1,5 +1,10 @@
 # Ocelotas: pesos por racha — 81 rachas bajo LMN y Rozier–Terracol
 
+**Actualización 16-10:** [83 rachas y revisión para Rozier](revision_rozier_20261016/REVISION.md),
+con versiones Lean bajo LMN o Rhin y la cobertura actualizada de Roosendaal.
+El puente desde esa cobertura a CST también quedó formalizado. Lo que sigue
+conserva el resultado y los diagnósticos del 12-10 con el rango externo antiguo.
+
 12-10-2026. Continuación de [77 rachas](SETENTA_Y_SIETE_LEAN.md). La idea
 procede de releer Hercher (2023), lemas 8–12 y teorema 21, buscando qué
 pasa del caso de los ciclos al primer cruce. Revisión humana y prioridad

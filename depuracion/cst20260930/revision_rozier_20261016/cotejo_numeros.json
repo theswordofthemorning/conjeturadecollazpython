@@ -1,0 +1,100 @@
+{
+  "estado": "comprobaciones exactas aceptadas; cobertura externa no reproducida",
+  "sha256_guion": "cf2ddce3b37ce1b1c32fa9f55eaa53bccb94d6b65c5a41b4d46d52d988633a76",
+  "registros_comprobados": 149,
+  "ultimos_registros": [
+    {
+      "n": 14727207461063895711,
+      "clasico": 2442,
+      "atajo": 1522,
+      "impares": 920
+    },
+    {
+      "n": 28019077177231758495,
+      "clasico": 2456,
+      "atajo": 1531,
+      "impares": 925
+    },
+    {
+      "n": 46645791847966786687,
+      "clasico": 2480,
+      "atajo": 1546,
+      "impares": 934
+    }
+  ],
+  "maximo_anterior_a_113383": 785412368,
+  "maximo_113383": 1241055674,
+  "RT": {
+    "j_min": 1539,
+    "q_min": 971,
+    "delay_min": 2510
+  },
+  "puente_propio": {
+    "q_max": 2480,
+    "c": "1/1200",
+    "semilla_menor": 2976000,
+    "certificado_Lean_hasta": 4912740
+  },
+  "colas": [
+    {
+      "rachas": 81,
+      "A": 56959654291224268,
+      "H_LMN": 75,
+      "H_Rhin": 67,
+      "margen_LMN": 87905647933679511177979,
+      "margen_Rhin": 300419617991779686395
+    },
+    {
+      "rachas": 82,
+      "A": 91135446865958829,
+      "H_LMN": 75,
+      "H_Rhin": 67,
+      "margen_LMN": 27312241105015732401467,
+      "margen_Rhin": 37949531017818257915
+    },
+    {
+      "rachas": 83,
+      "A": 145816714985534127,
+      "H_LMN": 76,
+      "H_Rhin": 68,
+      "margen_LMN": 114447830966856636552723,
+      "margen_Rhin": 339535682729482211691
+    },
+    {
+      "rachas": 84,
+      "A": 233306743976854604,
+      "H_LMN": 77,
+      "H_Rhin": 69,
+      "margen_LMN": 326465942105297727819899,
+      "margen_Rhin": 1107422547400469468539
+    }
+  ],
+  "ventanas": [
+    {
+      "rachas": 82,
+      "q_inicio": 397560349370386783,
+      "q_fin": 4640282259296926456,
+      "semilla": [
+        28000000000000000001,
+        28000854492187500001
+      ],
+      "c": "75843315512426694888469415846316197/500000000000000000000000000000000000000000000000000000",
+      "rhin_menor_cota_finita": true,
+      "k_maximo": 7424451614875082329,
+      "ventana_anterior_a_cola_rhin": true
+    },
+    {
+      "rachas": 84,
+      "q_inicio": 4640282259296926456,
+      "q_fin": 27444133206411171953,
+      "semilla": [
+        46645791847966786688,
+        46646503606265248095
+      ],
+      "c": "2696849012780161512710306135246327/100000000000000000000000000000000000000000000000000000",
+      "rhin_menor_cota_finita": true,
+      "k_maximo": 43910613130257875124,
+      "ventana_anterior_a_cola_rhin": true
+    }
+  ]
+}

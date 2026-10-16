@@ -1,0 +1,9 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasColaParametrica; auditoria original conservada.
+MODULO: OcelotasColaRhin; segundos: 22.920
+'OcelotasColaRhin.margen_cola' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaRhin.log_tiempo_del_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaRhin.cst_en_cola' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasColaRhin.cola_ochenta_y_tres' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

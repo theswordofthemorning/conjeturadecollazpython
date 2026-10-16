@@ -1,0 +1,85 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasLogaritmosPrecisos; auditoria original conservada.
+REUTILIZADO: OcelotasDescuentoRachas; auditoria original conservada.
+REUTILIZADO: OcelotasPrefijosAfinados; auditoria original conservada.
+REUTILIZADO: OcelotasPesos; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTablaParte01; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTablaParte02; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTablaParte03; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTablaParte04; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTablaParte05; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTablaParte06; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTablaParte07; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTresTabla; auditoria original conservada.
+REUTILIZADO: OcelotasColaParametrica; auditoria original conservada.
+REUTILIZADO: OcelotasOchentaYTres; auditoria original conservada.
+REUTILIZADO: OcelotasRoosendaal; auditoria original conservada.
+REUTILIZADO: OcelotasColaRhin; auditoria original conservada.
+MODULO: OcelotasRozier; segundos: 20.783
+'OcelotasRozier.cst_hasta_record' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRozier.cst_83_lmn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRozier.cst_83_rhin' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem OcelotasRozier.cst_83_lmn : OcelotasLMNFuente.LMN23 →
+  OcelotasRozier.RecordRoosendaal →
+    ∀ {n k : ℕ},
+      2 ≤ n →
+        Ocelotas.PrimerCruce n k →
+          OcelotasContador.rachas n k ≤ 83 → (∀ j < k, n ≤ Ocelotas.T^[j] n) ∧ Ocelotas.T^[k] n < n :=
+fun hL hD {n k} hn hk hr =>
+  OcelotasOchentaYTres.cst_condicional hL (fun {n k} => OcelotasRozier.cst_hasta_record hD) hn hk hr
+theorem OcelotasRozier.cst_83_rhin : OcelotasRhin.RhinHomogenea 2 →
+  OcelotasRozier.RecordRoosendaal →
+    ∀ {n k : ℕ},
+      2 ≤ n →
+        Ocelotas.PrimerCruce n k →
+          OcelotasContador.rachas n k ≤ 83 → (∀ j < k, n ≤ Ocelotas.T^[j] n) ∧ Ocelotas.T^[k] n < n :=
+fun hR hD {n k} hn hk hr =>
+  ⟨fun x hj => OcelotasContador.no_desciende_antes hk hj,
+    if hpar : n % 2 = 0 then OcelotasCierre.descenso_par hn hpar hk
+    else
+      Decidable.byContradiction fun h =>
+        have hf := Decidable.byContradiction fun a => OcelotasRozier.cst_83_rhin._proof_1_1 h a;
+        And.casesOn
+          (OcelotasContador.palabra_del_cruce
+            (Decidable.byContradiction fun a => OcelotasRozier.cst_83_rhin._proof_1_2 hpar a) hk)
+          fun hpos right =>
+          Exists.casesOn right fun a h_1 =>
+            Exists.casesOn h_1 fun b h_2 =>
+              And.casesOn h_2 fun hw he =>
+                have hkw := Eq.mpr (id (congrArg (fun _a => Ocelotas.PrimerCruce n _a) he)) hk;
+                have hfw := Eq.mpr (id (congrArg (fun _a => n ≤ Ocelotas.T^[_a] n) he)) hf;
+                if hq : Ocelotas.S k n < 101189215254399926676993 then
+                  have hsmall :=
+                    OcelotasOchentaYTresTabla.pequeno_de_tabla hw hpos hr hkw hfw
+                      (Eq.mpr
+                        (id
+                          (congrFun' (congrArg LT.lt (congrFun' (congrArg Ocelotas.S he) n)) 101189215254399926676993))
+                        hq);
+                  have hd :=
+                    OcelotasRoosendaal.cst_de_delay hD hn
+                      (Decidable.byContradiction fun a_1 => OcelotasRozier.cst_83_rhin._proof_1_3 hn a b hsmall a_1) hk;
+                  OcelotasRozier.cst_83_rhin._proof_1_4 h a b hd
+                else
+                  have hqk := OcelotasRoosendaal.impares_le_tiempo k n;
+                  have hp :=
+                    Mathlib.Meta.NormNum.isNat_eq_true
+                      (Mathlib.Meta.NormNum.isNat_pow (Eq.refl HPow.hPow)
+                        (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 2))
+                        (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 68))
+                        (Mathlib.Meta.NormNum.IsNatPowT.run
+                          (Mathlib.Meta.NormNum.IsNatPowT.trans
+                            (Mathlib.Meta.NormNum.IsNatPowT.trans
+                              (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit0
+                                Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                              Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                            (Mathlib.Meta.NormNum.IsNatPowT.trans
+                              (Mathlib.Meta.NormNum.IsNatPowT.trans Mathlib.Meta.NormNum.IsNatPowT.bit1
+                                Mathlib.Meta.NormNum.IsNatPowT.bit0)
+                              Mathlib.Meta.NormNum.IsNatPowT.bit0))))
+                      (Mathlib.Meta.NormNum.isNat_ofNat ℕ (Eq.refl 295147905179352825856));
+                  have hd :=
+                    OcelotasColaRhin.cola_ochenta_y_tres hR hn hk hr
+                      (Decidable.byContradiction fun a_1 => OcelotasRozier.cst_83_rhin._proof_1_5 a b he hq hqk a_1);
+                  OcelotasRozier.cst_83_rhin._proof_1_4 h a b hd⟩
+Codigo: 0

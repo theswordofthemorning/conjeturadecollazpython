@@ -1,0 +1,11 @@
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+SHA256 comprobador: a35d7ab92792cab7a850acc3774fb9b48501fbcd171a3dc6f7ea895af2860f7b
+REUTILIZADO: OcelotasLogaritmosPrecisos; auditoria original conservada.
+MODULO: OcelotasRoosendaal; segundos: 22.373
+'OcelotasRoosendaal.impares_le_tiempo' depends on axioms: [propext, Quot.sound]
+'OcelotasRoosendaal.rachas_le_tiempo' depends on axioms: [propext, Quot.sound]
+'OcelotasRoosendaal.lambda_hasta_2480' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRoosendaal.descenso_cruce_corto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OcelotasRoosendaal.llegada_atajo' depends on axioms: [propext, Quot.sound]
+'OcelotasRoosendaal.cst_de_delay' depends on axioms: [propext, Classical.choice, Quot.sound]
+Codigo: 0

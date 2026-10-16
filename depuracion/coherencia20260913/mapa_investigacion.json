@@ -1238,14 +1238,15 @@
       "animal": "Ocelotas",
       "alias": [],
       "rama": "descenso",
-      "resumen": "Bajo las hipótesis indicadas, hasta 24 rachas el primer cruce es descenso; hasta 46 con pesos por racha y un censo propio hasta 7·10^11; hasta 81 con Rozier–Terracol. Aplicado a ciclos: sin m-ciclos con m ≤ 81 bajo LMN y Rozier–Terracol.",
-      "limite": "Se supone que el primer cruce existe. LMN es externo; los cierres de 40 a 46 añaden un censo calculado en Python como hipótesis; los de 77 y 81, Rozier–Terracol. La cota de ciclos es calibración: Hercher ya llega a m ≤ 91. No demuestra Collatz.",
+      "resumen": "CST hasta 83 rachas bajo LMN o Rhin y cobertura externa de Roosendaal. Puente desde tiempos clasicos formalizado; hasta 24 bajo LMN solo y 46 con censo propio.",
+      "limite": "Primer cruce finito supuesto. La cobertura externa hasta 46645791847966786687 con delay<=2480 y el teorema trascendente elegido permanecen como hipotesis. No prueba Collatz. Prioridad y revision humana pendientes. Rhin original p160 cotejado: H>=2, exponente 13.3 y factor 1; su prueba y calculos auxiliares no formalizados ni reproducidos.",
       "situacion": "vigente",
       "fuentes": [
         "depuracion/cst20260930/VEINTICUATRO_LEAN.md",
         "depuracion/cst20260930/SETENTA_Y_SIETE_LEAN.md",
         "depuracion/cst20260930/PESOS_RACHAS.md",
-        "depuracion/cst20260930/CICLOS_CALIBRACION.md"
+        "depuracion/cst20260930/CICLOS_CALIBRACION.md",
+        "depuracion/cst20260930/revision_rozier_20261016/REVISION.md"
       ],
       "nodos": [
         "ocelotas"
@@ -1282,7 +1283,10 @@
         "ocelotas_cst_41_rachas_lmn_censo_lean",
         "ocelotas_cst_42_rachas_lmn_censo_lean",
         "ocelotas_cst_46_rachas_lmn_censo_lean",
-        "ocelotas_ciclos_calibracion_lean"
+        "ocelotas_ciclos_calibracion_lean",
+        "ocelotas_83_lmn_o_rhin_delay_lean",
+        "ocelotas_puente_delay_cst_2480_lean",
+        "ocelotas_cola_rhin_parametrica_lean"
       ]
     },
     {

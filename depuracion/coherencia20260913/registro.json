@@ -1837,6 +1837,33 @@
       "enunciado": "PERDICES: PRESUPUESTO CON HASTA TRES CAMBIOS. Para toda semilla positiva n y todo prefijo real no vacio de A=1,B=110 del atajo con hasta tres cambios de tipo, L+13*v_fin<=13*v_in+26*ell(n), con ell=ceil(log2(n+5)); equivale a P con epsilon=1/13,K=2*ell(n). Las cotas superiores de tamano y el balance firmado empleados admiten, con cuatro cambios, un modelo que viola incluso v_fin<=v_in+2*ell; ese modelo no es realizable por una congruencia modulo 9.",
       "fuente": "Derivacion local, 16-10-2026: encajes universales, consumo de valuaciones, certificados lineales enteros y congruencia modulo 9. Sin pretension de prioridad bibliografica.",
       "notas": "TRES_CAMBIOS.md contiene las cotas orbitales ABAB/BABA y dos identidades con residuos no negativos que prueban P13. Los prefijos con hasta dos cambios heredan epsilon=7/17. Lean 4.32.2 certifica ocho lemas sobre cierres lineales, testigos de cotas, balance y encajes superiores exactos; solo axiomas estandar. Las cotas orbitales y la incompatibilidad aritmetica conservan prueba escrita, sin formalizacion orbital completa. Modelo BABAB=(1,998,527,1670,1), ell=1000, v_in=5, v_fin=2600: respeta las cotas y balance, pero excede v_in+2*ell en 595. Su realizacion exigiria q<=2^995, r>=1 y 9q=2^998*r+1; el tamano fuerza r=1, incompatible modulo 9. No es contraejemplo a P ni a Collatz; solo limita las cotas enumeradas. Contraste independiente de 5196 casos construidos y 63 prefijos de 34 semillas historicas: 5259 casos, sin fallos observados de P13 ni P7. El conteo no prueba P7 universal. Presupuesto uniforme con numero arbitrario de cambios, salida y descenso siguen abiertos. Siguiente obligacion: control aritmetico acumulativo. Revision humana pendiente."
+    },
+    {
+      "clave": "ocelotas_83_lmn_o_rhin_delay_lean",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/revision_rozier_20261016/REVISION.md",
+      "enunciado": "OCELOTAS: CST hasta 83 rachas bajo LMN23 o RhinHomogenea(2), y cobertura externa de Roosendaal: todos los enteros 2<=n<=46645791847966786687 llegan a 1 en <=2480 pasos clasicos. Para toda semilla n>=2 con primer cruce finito k y rachas(n,k)<=83, no desciende antes de k y T^k(n)<n.",
+      "fuente": "Extension comprobada el 16-10-2026 tras la sugerencia de Olivier Rozier. LMN (1995), Rhin (1987), tabla de Roosendaal actualizada el 28-09-2026. Sin reivindicar prioridad bibliografica.",
+      "notas": "OcelotasRozier.cst_83_lmn y cst_83_rhin aceptados en Lean 4.32.2. Auditoria final: 146 consultas, axiomas estandar, sin sorryAx; base reutilizada por huellas. Certificado regenerado y cotejo independiente: 101 intervalos, 92 externos, 9 por pesos, 115 piezas. El teorema trascendente y la cobertura externa son hipotesis explicitas; no se deducen de #print axioms. Se supone existencia de primer cruce. No prueba Collatz ni CST universal. Original de Rhin p160, proposicion (7), cotejado visualmente en el PDF completo aportado por el usuario: H>=2, exponente 13.3, factor 1. Coincide con RhinProposicion 2 y su caso homogeneo; prueba de Rhin y calculos Macsyma no reconstruidos. Huella y detalles en revision_rozier_20261016/fuentes.json y REVISION.md. Revision humana pendiente."
+    },
+    {
+      "clave": "ocelotas_puente_delay_cst_2480_lean",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/revision_rozier_20261016/REVISION.md",
+      "enunciado": "OCELOTAS: para todo n>=2, todo primer cruce k<=2480 desciende. Para todo N, si cada entero 2<=n<=N llega a 1 en <=2480 pasos clasicos, CST vale hasta N. Puente universal formal entre cobertura de tiempos clasicos y descenso del atajo.",
+      "fuente": "OcelotasRoosendaal.lean, 16-10-2026. Certificado pequeno hasta 4912740 y aproximacion unilateral exacta. Terras (1976), p252, ya ofrece un resultado matematico mas fuerte para tiempos cortos; no se reivindica novedad de ese enunciado.",
+      "notas": "Pareja unimodular 3647/2301 y 1054/665: Lambda>=1/1200 para 0<q<2966. Si k<=2480, un fallo requeriria n<2976000, dentro del certificado del nucleo. Conversion clasico->atajo formal por induccion. Esta consecuencia no supone LMN, Rhin ni el corolario de Rozier-Terracol. La trayectoria del record fue ademas comprobada por dos mapas Python y por OcelotasRecordRoosendaal.llega_en_2480, sin axiomas. Ninguna de esas trayectorias aisladas certifica todos los enteros anteriores."
+    },
+    {
+      "clave": "ocelotas_cola_rhin_parametrica_lean",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/cst20260930/revision_rozier_20261016/REVISION.md",
+      "enunciado": "OCELOTAS: bajo RhinDesde(2), R<=2^c, 5*8^R<=(3*A+5)*5^R y 8*A*(14*(H+1)+c+1)+5<5*2^H, con H>=1, todo primer cruce k>=2^H con <=R rachas desciende. Para R=83, A=145816714985534127,c=7,H=68 satisfacen el criterio.",
+      "fuente": "OcelotasColaRhin.lean, 16-10-2026; se reutiliza el puente Rhin real-entero auditado y la cota geometrica existente.",
+      "notas": "Teorema universal condicional, cuatro consultas de axiomas estandar. La misma cota geometrica con LMN daba H=76: el corte mejora por factor 256. Con estos criterios suficientes H_Rhin=67,67,68,69 para R=81,82,83,84; no son constantes optimas. Cotejo exacto de las ventanas fallidas de 82/84: la cota unilateral finita supera k^(-13.3), por lo que sustituirla por la de Rhin no mejora la criba actual. No excluye otras aplicaciones de Rhin ni demuestra imposibilidad de cerrar 84."
     }
   ],
   "nodos": [
@@ -2103,7 +2130,7 @@
       "despues": [
         "ocelotas",
         "demostrado",
-        "OCELOTAS: primer descenso igual al primer cruce finito hasta 24 rachas bajo LMN; hasta 46 bajo LMN y un censo propio hasta 7e11 (hipotesis explicita); hasta 81 bajo LMN y Rozier-Terracol, con pesos por racha. Aplicado a ciclos: sin m-ciclos con m<=81 bajo LMN y Rozier-Terracol (calibracion, no nuevo frente a Hercher). Hipotesis externas explicitas y existencia del cruce supuesta. Lean sin sorryAx; revision humana pendiente. Fuentes: depuracion/cst20260930/VEINTICUATRO_LEAN.md, PESOS_RACHAS.md y CICLOS_CALIBRACION.md."
+        "OCELOTAS: CST para primer cruce finito con hasta 83 rachas bajo LMN o Rhin y cobertura externa de Roosendaal hasta 46645791847966786687 con delay clasico<=2480. Puente cobertura->CST formalizado; los insumos externos siguen explicitos. Cierres previos: 24 bajo LMN, 46 bajo LMN y censo propio hasta 7e11, 81 bajo LMN y RT. No demuestra existencia universal del cruce ni Collatz. Lean sin sorryAx; revision humana y prioridad pendientes. Fuente: depuracion/cst20260930/revision_rozier_20261016/REVISION.md"
       ]
     }
   ],

@@ -1,5 +1,18 @@
 # Rhin en Ocelotas: auditoría de la fuente y paso a Lean — 02-10-2026
 
+**Actualización 16-10:** la [revisión para Rozier](revision_rozier_20261016/REVISION.md#3-rhin-frente-a-lmn-comprobación-y-corrección-de-la-explicación)
+localizó primero en Waldschmidt y Siefken el umbral explícito **H>=2**.
+Después, el usuario aportó el PDF completo `28Rhin_Sm_Paris_1987.pdf`:
+**p. 160, proposición (7), cotejada visualmente con Lean**, mismo umbral,
+exponente 13,3 y constante multiplicativa 1. El exponente 7,616 de (8)
+requiere otro umbral efectivo cuyo valor no se da. La prueba de Rhin y sus
+cálculos auxiliares de Macsyma no se han reconstruido ni formalizado.
+Hay una nueva cola paramétrica y un cierre de 83 rachas bajo la hipótesis de
+Rhin; mejora el corte de 2^76 a 2^68 respecto a LMN. Las afirmaciones de
+fuente inaccesible y umbral desconocido quedan superadas; el resto de esta
+nota y el comentario inicial de `OcelotasRhin.lean` conservan la auditoría
+del 02-10. No se han cambiado los enunciados ni las pruebas Lean.
+
 Sexta tanda de [CST](LEEME.md). Responde al «siguiente» que dejó el 30-09:
 auditar rango y constantes de Rhin contra la fuente original y estudiar su
 descarga en Lean. Resultado en tres frases:
