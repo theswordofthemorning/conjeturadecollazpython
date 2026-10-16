@@ -7,11 +7,11 @@ la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
 
 - **Gao.** [Tejonas](depuracion/gao20260920/Tejonas.md) y
   [Hienas](depuracion/gao20260920/Hienas.md): densidad natural 1 de coalescencia,
-  en la forma de Lagarias y la literal de Gao (1993). No implica llegada a 1.
+  en las formas de Lagarias y Gao (1993). No implica llegada a 1.
   [Cigarras](depuracion/gao20260924/Cigarras.md) documenta el ritmo muy lento.
-- **Garner y Wu.** [Alpacas](depuracion/garner20260926/Alpacas.md): rachas de
-  consecutivos arbitrariamente largas y altas con igual altura y tiempo total
-  de parada. [Condoras](depuracion/gao20260920/formal/Condoras.lean): Wu 2;
+- **Garner y Wu.** [Alpacas](depuracion/garner20260926/Alpacas.md): consecutivos
+  en rachas arbitrariamente largas y altas con igual altura y tiempo de parada.
+  [Condoras](depuracion/gao20260920/formal/Condoras.lean): Wu 2;
   Wu 1 equivale, dado Gao, a convergencia en densidad natural 1 y sigue abierto.
   Falta cotejar el original de Wu, consultado mediante CNKI AI.
 - **Ocelotas.** [24 rachas](depuracion/cst20260930/VEINTICUATRO_LEAN.md) bajo
@@ -45,33 +45,34 @@ con auditoría independiente completa hasta 16 bits. Los
 [empalmes H](depuracion/perdices20261007/RACHAS_H.md) transportan exactamente
 el mínimo original.
 
-[Matrices](depuracion/perdices20261007/SOPORTES_MATRICES_H.md): excluidos
-escalares, primera coordenada aislada y recta natural común; diez soportes
-mínimos de aporte. Ninguna dinámica del objetivo 57 eliminada. Árticas y
-persistencia abiertas. Pendiente: diferencias completas de constantes y
-reglas estáticas, sin exigir circuito.
+[Matrices](depuracion/perdices20261007/SOPORTES_MATRICES_H.md): diez soportes
+mínimos; excluidas las familias de la ficha, ninguna dinámica del objetivo 57.
+Árticas y persistencia abiertas. Pendientes diferencias de constantes y reglas.
 
-**Piloto de recargas:** [resultado](depuracion/perdices20261007/RECARGAS.md)
-de la [ruta acordada](depuracion/coherencia20260913/RUTA_339_20261012.md).
-Refutado `epsilon=1/2, K=ceil(log2(n+5))` por n=4591, certificado en Lean.
-Falla también K=alpha*ell+beta, alpha<=1 y beta>=0, aun con epsilon=0,
-y cualquier función de las dos valuaciones iniciales: prueba escrita.
+**Piloto de recargas:** [ruta](depuracion/coherencia20260913/RUTA_339_20261012.md).
+[Recargas](depuracion/perdices20261007/RECARGAS.md) refuta K=alpha*ell+beta
+para alpha<=1 y beta>=0, y presupuestos de las dos valuaciones iniciales.
+Prueba escrita; caso n=4591 con epsilon=1/2,K=ell certificado en Lean.
 [Perfiles](depuracion/perdices20261007/PERFILES.md) excluye rangos locales
 `H(x)+F(perfil)`, H no decreciente, para listas finitas de valuaciones afines:
 prueba general escrita, caso x+1,x+5 formalizado.
-[Transporte impar](depuracion/perdices20261007/TRANSPORTE_IMPAR.md): Lean
-certifica `3^S(n+1)<=2^(L+v_fin)*q_fin<=3^S(n+5)` para todo prefijo real.
-**Presupuesto probado por escrito con hasta un cambio:**
-`Eeta<=2*ell(n)`, luego `L+v_fin<=v_in+2*ell(n)`, ell=ceil(log2(n+5)).
-La familia A^a B puede dejar q_fin=9: las partes impares no son monótonas.
+[Transporte impar](depuracion/perdices20261007/TRANSPORTE_IMPAR.md):
+encaje universal certificado en Lean; `Eeta<=2*ell(n)` con hasta un cambio,
+por escrito, ell=ceil(log2(n+5)). Las partes impares no son monótonas.
 La [exploración de math](depuracion/exploracionmath20261016/EXPLORACION.md)
-conserva la ruta; documenta filtros y candidatos aritméticos e informacionales
-(§§8–9), sin pruebas nuevas. **Siguiente:** lema de acoplamiento para estimar
-q_fin con varias alternancias desde la misma semilla (Transporte, §6),
-fuera de las familias excluidas por Perfiles.
-`epsilon=1/2,K=2*ell` general, salida y extensión a descenso siguen abiertos.
-No basta reiterar la cota local en semillas nuevas. H queda auxiliar.
-**Arranque en espera:** el usuario continúa conversando; aún no activa investigación.
+conserva la ruta y aporta filtros. [Dos cambios](depuracion/perdices20261007/DOS_CAMBIOS.md):
+**P2 probado para toda A^a B^b A^c**. [Altura BAB](depuracion/perdices20261007/ALTURA_BAB.md):
+P con epsilon=7/17,K=2*ell para hasta dos cambios; fallo de P2 en BAB
+exigiría calidad abc>18, sin descartarlo ni suponer abc.
+[Tres cambios](depuracion/perdices20261007/TRES_CAMBIOS.md): **P probado con
+epsilon=1/13,K=2*ell para hasta tres cambios**. Cierres Lean; enlaces y cotas
+orbitales escritos. Con cuatro cambios, las cotas y el balance admiten un
+modelo que viola incluso epsilon=0, pero una congruencia módulo 9 lo hace
+irrealizable: no es un contraejemplo orbital.
+**Siguiente:** control acumulativo de congruencias desde la misma semilla.
+Presupuesto global y descenso abiertos. H auxiliar. **Tanda cerrada;
+investigación detenida por petición del usuario, que anuncia información.
+Commit y push de esta tanda autorizados por el usuario; se mantiene la pausa.**
 
 ## Revisión y publicación
 
@@ -80,31 +81,28 @@ La [revisión de novedad](papers/revision20260927/REVISION.md#4-novedad) y
 zbMATH por citas (11-10) no hallaron pruebas publicadas; faltan MathSciNet,
 Scholar y Garner original. **No anunciar, enviar a OEIS ni contactar sin autorización.**
 
-[Artículos](papers/README.md), [Zenodo](papers/zenodo/LEEME.md): tras los
-[rechazos AFM](papers/CORREOS_20261004.md), II y III libres; I en
-[JAR](papers/jar/LEEME.md), sin noticias al 04-10; IV sin enviar.
-[Qeios](papers/qeios/LEEME.md) retirado;
-[Palomar](papers/palomar/LEEME.md) verifica Gao, CI verde;
-[Zulip](papers/qeios/ZULIP_borrador.md) borrado.
+[Artículos](papers/README.md): II y III libres tras
+[AFM](papers/CORREOS_20261004.md); I en [JAR](papers/jar/LEEME.md), sin noticias
+al 04-10; IV sin enviar. [Qeios](papers/qeios/LEEME.md) retirado;
+[Palomar](papers/palomar/LEEME.md) verifica Gao; [Zulip](papers/qeios/ZULIP_borrador.md) borrado.
 OEIS A078441, A400486 y A400487 aprobadas: no validan pruebas.
 [Próxima sesión OEIS](papers/oeis/PENDIENTE_20261010.md): dos correcciones y
 una sucesión, sin enviar y sujetas al panel.
 
 ## Evidencia y conservación
 
-[Arca completa](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
-123 piezas, nueve ramas; [auditoría](depuracion/mapa20261011/RECONSTRUCCION.md).
+[Arca](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
+123 piezas; [auditoría](depuracion/mapa20261011/RECONSTRUCCION.md).
 [Registro versionado](depuracion/coherencia20260913/registro.json) y
-`guardarafirmaciones.py`: **343 filas**, 229 demostradas, 92 medidas,
-13 conjeturadas y nueve refutadas. Cotejo literal completo con SQLite;
-la incidencia histórica de la fila 71 sigue señalada, no usada.
+`guardarafirmaciones.py`: **346 filas**, 232 demostradas, 92 medidas,
+13 conjeturadas y nueve refutadas; cotejo literal con SQLite.
+Incidencia histórica de la fila 71 señalada y no usada.
 
 Lean 4.32.2 y Mathlib fijado; [reproducción](depuracion/gao20260920/formal/README.md).
-[Evidencia actual](depuracion/perdices20261007/evidencia_transporte_impar.json):
-ocho consultas Lean; [contraste](depuracion/perdices20261007/cotejo_transporte_impar.json)
-de 792 construcciones y 1817 prefijos históricos, sin ampliar censos.
-Presupuesto con un cambio sin formalización completa. Conservadas las
-342 filas previas y sus evidencias.
+[Evidencia actual](depuracion/perdices20261007/evidencia_tres_cambios.json):
+ocho consultas Lean; [contraste](depuracion/perdices20261007/cotejo_tres_cambios.json)
+de 5259 casos y dos identidades lineales exactas. Conservadas las 345 filas
+previas; congruencia de exclusión y enlaces orbitales con prueba escrita.
 [Casa recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md) y
 [conciliación](depuracion/jinetas20261010/CONCILIACION.md): dos huellas antiguas
 requieren revisión; no usar sus cachés. Históricos, conversaciones y zootheorem intactos.

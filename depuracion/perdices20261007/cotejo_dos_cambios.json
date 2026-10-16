@@ -1,0 +1,85 @@
+{
+  "parametros": {
+    "racha_max": 12,
+    "traslados": 2,
+    "b_max": 512,
+    "r_max": 63
+  },
+  "alcance": "Cotejo finito independiente con T literal; no prueba universal BAB.",
+  "resumen": {
+    "cilindros": 6912,
+    "partes_impares_pequenas": 2011,
+    "crt": 360,
+    "total": 9283,
+    "fuera_region_suficiente": 1517,
+    "contraejemplos_p2": 0
+  },
+  "testigos": [
+    {
+      "n": 7,
+      "orientacion": "ABA",
+      "a": 1,
+      "b": 1,
+      "c": 1,
+      "ell": 4,
+      "vin": 3,
+      "vfin": 0,
+      "margen": 17,
+      "fronteras": [
+        7,
+        11,
+        13,
+        20
+      ]
+    },
+    {
+      "n": 27,
+      "orientacion": "BAB",
+      "a": 1,
+      "b": 3,
+      "c": 1,
+      "ell": 5,
+      "vin": 5,
+      "vfin": 1,
+      "margen": 19,
+      "fronteras": [
+        27,
+        31,
+        107,
+        121
+      ],
+      "q": 1,
+      "r": 1,
+      "k": 2,
+      "s": 7,
+      "region_suficiente": true
+    },
+    {
+      "n": 8596805828370696353466139,
+      "orientacion": "BAB",
+      "a": 1,
+      "b": 81,
+      "c": 1,
+      "ell": 83,
+      "vin": 5,
+      "vfin": 1,
+      "margen": 253,
+      "fronteras": [
+        8596805828370696353466139,
+        9671406556917033397649407,
+        1773705952972151079792998522476599571211,
+        1995419197093669964767123337786174517613
+      ],
+      "q": 268650182136584261045817,
+      "r": 1,
+      "k": 2,
+      "s": 110856622060759442487062407654787473201,
+      "region_suficiente": false
+    }
+  ],
+  "contraejemplos": [],
+  "sha256_lf": {
+    "cotejar_dos_cambios.py": "f743d8384207dcdd4d9be5fd4bb3b722a4118a77b800248c16b95e3e50e44454",
+    "PerdicesDosCambios.lean": "e64f266a49014062fbad53bf2bf366d3667b8118605414dca17557eaf1fbe864"
+  }
+}

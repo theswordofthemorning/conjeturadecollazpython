@@ -1,0 +1,66 @@
+{
+  "fecha": "2026-10-16",
+  "alcance": "Presupuesto epsilon=7/17,K=2*ell para hasta dos cambios; obstrucción abc de calidad mayor que 18 para el candidato P2 en BAB.",
+  "conservacion_antes": {
+    "altas": 136,
+    "hash_altas": "d6f4afc58c60f2a8fc97e12b52cc80563ffeb00678500f78428f1df2c2972095",
+    "hash_resto": "1b5cceebe1db4b20e4a1452c7b3d352af6edfcc2217e448d3af4a8929be8764c",
+    "filas": 344,
+    "hash_filas": "572b640d31eda9376723b65fe00ebc5bbe6927368106c78285214cecfb130edb",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "conservacion_despues": {
+    "altas": 136,
+    "hash_altas": "d6f4afc58c60f2a8fc97e12b52cc80563ffeb00678500f78428f1df2c2972095",
+    "hash_resto": "1b5cceebe1db4b20e4a1452c7b3d352af6edfcc2217e448d3af4a8929be8764c",
+    "filas": 344,
+    "hash_filas": "572b640d31eda9376723b65fe00ebc5bbe6927368106c78285214cecfb130edb",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "resultado": "Una alta nueva; las 344 afirmaciones previas y respuestas.db permanecen intactas.",
+  "validacion": {
+    "lean": "4.32.2, ocho consultas; sólo propext, Classical.choice, Quot.sound. Imports directos cotejados.",
+    "cotejo": "1004 casos BAB, 481 fuera de la región anterior, 46 radicales factorizados. Se comprueban las nuevas cotas lineales y los criterios suficientes.",
+    "registro": "Generador y verificador de catálogo, atomicidad y captura correctos.",
+    "mapa": "70 nombres, 123 piezas, 345 afirmaciones y 228 enlaces; auditoría estática correcta.",
+    "enlaces_documentales": 66,
+    "huellas": "Fuentes del cotejo y certificado cotejadas.",
+    "diff": "git diff --check correcto."
+  },
+  "estados": {
+    "conjeturado": 13,
+    "demostrado": 231,
+    "medido": 92,
+    "refutado": 9
+  },
+  "lectura_math": {
+    "revision": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+    "sha256_lf": {
+      "CONTENTS.md": "cc7c0b8a1cdedd845a777e77cf682657308503daf8346c1349e06e9259d063c2",
+      "preprints/The-Abelian-Zilber-Pink-Conjecture-September-24-2026/build/sections/06-arithmetic.tex": "ddfe3170cada0b1db5cfe37d2f8f4bda2ad987c6e77e835b4af4ed80a447aabc",
+      "preprints/The-Abelian-Zilber-Pink-Conjecture-September-24-2026/build/sections/01-introduction.tex": "50cb00c0d35e3d913347bc1546cbf96e54e1e22a6979600bb14535ef7781af8a",
+      "preprints/A-Complete-Local-Domain-Without-a-Small-Cohen-Macaulay-Module-September-23-2026/build/paper.tex": "76d8de92a9ef5850d2f6f185812051aeedfa100885f96fe93ef9cd7b5d94dea0"
+    },
+    "alcance": "Búsqueda dirigida; hipótesis y líneas 1–200 de sección aritmética 016, aciertos de Szpiro en introducción y módulo Cohen–Macaulay. No auditoría completa de esos manuscritos."
+  },
+  "fuentes_externas": [
+    {
+      "titulo": "Curtis Bright, A new lower bound in the abc conjecture",
+      "url": "https://doi.org/10.4153/S0008439523000784",
+      "lectura": "Introducción: formulación con constante y cota exponencial de Stewart–Yu."
+    },
+    {
+      "titulo": "Hector Pasten, Shimura curves and the abc conjecture",
+      "url": "https://lemkeoliver.github.io/papers/20-TwistedZeros.pdf",
+      "version": "2018-07-05",
+      "lectura": "Introducción y teorema 1.10; sin importar resultados al certificado."
+    }
+  ],
+  "limites": [
+    "El presupuesto universal se restringe a hasta dos cambios. Tres o más cambios siguen abiertos.",
+    "Lean certifica las reducciones bajo identidades y cotas; la interpretación del radical y enlaces orbitales conservan prueba escrita.",
+    "P2 para todo BAB sigue abierto; abc usual permitiría excepciones finitas y no se supone.",
+    "Sin commit ni push. Goal activo; siguiente: tercer cambio conservando la semilla."
+  ],
+  "palabras_estado": 649
+}

@@ -2289,17 +2289,23 @@
         "perdices_recarga_plantilla_media",
         "perdices_recarga_barrera_presupuestos",
         "perdices_perfiles_finitos_rango",
-        "perdices_transporte_impar_un_cambio"
+        "perdices_transporte_impar_un_cambio",
+        "perdices_presupuesto_aba_dos_cambios",
+        "perdices_dos_cambios_siete_diecisiete",
+        "perdices_tres_cambios_un_trece"
       ],
       "titulo": "Perdices · repeticiones y complejidad",
       "rama": "perdices",
-      "resumen": "Controla repeticiones y perfiles; transporta partes impares y prueba el presupuesto doble para prefijos con hasta un cambio de bloque.",
-      "limite": "La cota de recargas con varias alternancias y la salida universal 1/110 siguen abiertas. Lean certifica el transporte general; el presupuesto con un cambio tiene prueba escrita.",
+      "resumen": "Presupuesto K=2*ell con epsilon=1/13 para hasta tres cambios; 7/17 hasta dos. Con cuatro, las cotas admiten un modelo excesivo, excluido como orbita por una congruencia modulo 9.",
+      "limite": "Presupuesto con cambios arbitrarios y salida universal 1/110 abiertos. El modelo solo refuta la suficiencia de las cotas enumeradas. Lean certifica cierres y testigos; cotas orbitales y exclusion aritmetica escritas.",
       "fuentes": [
         "depuracion/perdices20261007/COMPLEJIDAD.md",
         "depuracion/perdices20261007/RECARGAS.md",
         "depuracion/perdices20261007/PERFILES.md",
-        "depuracion/perdices20261007/TRANSPORTE_IMPAR.md"
+        "depuracion/perdices20261007/TRANSPORTE_IMPAR.md",
+        "depuracion/perdices20261007/DOS_CAMBIOS.md",
+        "depuracion/perdices20261007/ALTURA_BAB.md",
+        "depuracion/perdices20261007/TRES_CAMBIOS.md"
       ],
       "situacion": "vigente",
       "padre": "perdices"

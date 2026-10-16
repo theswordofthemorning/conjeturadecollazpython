@@ -1,0 +1,35 @@
+{
+  "version": "2026-10-16",
+  "afirmaciones": 344,
+  "correcciones": 85,
+  "nombres": 70,
+  "animales": 68,
+  "piezas": 123,
+  "conectadas_a_la_raiz": 123,
+  "ramas": 9,
+  "nombres_tabla_historica": 51,
+  "revisiones_git": 68,
+  "relaciones": {
+    "registrada": 95,
+    "interna": 1,
+    "usa": 33,
+    "antecedente": 33,
+    "contrasta": 5,
+    "condicional": 3
+  },
+  "enlaces_locales": 227,
+  "paginas": [
+    "MapaDependenciasBasic.html",
+    "MapaDependenciasComplex.html"
+  ],
+  "conservacion": {},
+  "fuentes": {
+    "depuracion/coherencia20260913/mapa_investigacion.json": "4f54a3df26421c8d00bd2f6606fb32566f50ec46aeaf09645d158c435e13f15d",
+    "depuracion/coherencia20260913/registro.json": "af001abfd63796c0c472dfb6d1e0c1581bb9372308ddef7131ef42df8aad1850",
+    "depuracion/mapa20261011/verificar_mapa.py": "3f74d5053d38054a0323ed383ca9b837eded1a8bf8d2022baa0c8195e8ff697c",
+    "depuracion/mapa20261011/generar_mapa.py": "8fdf7dba6a5b62627456188674223386f2eae0d62d3ea9a44f38aedfa62e938b",
+    "depuracion/mapa20261011/catalogo.py": "b5645b2b62ee489ef60933a95a900b4941e2eb2e7cc05e0c96a66e42e88941a0",
+    "depuracion/mapa20261011/plantilla_flujo.html": "0403fd71879e196cc3ece9baa3d43476a7c4aa906ee3ad00c65e80e57a3c810d"
+  },
+  "alcance": "Auditoría de documentación, cobertura y persistencia. No recompila ni vuelve a certificar teoremas; no ejecuta censos históricos."
+}

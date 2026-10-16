@@ -1,0 +1,51 @@
+{
+  "fecha": "2026-10-16",
+  "alcance": "Presupuesto epsilon=1/13,K=2*ell para hasta tres cambios; limite de las cotas enumeradas con cuatro y exclusion escrita del testigo por congruencia modulo 9.",
+  "conservacion_antes": {
+    "altas": 137,
+    "hash_altas": "d91d934b69e936fddf37313475fac5dc2632e6db1e7a3bb279e8e1badc27405a",
+    "hash_resto": "1b5cceebe1db4b20e4a1452c7b3d352af6edfcc2217e448d3af4a8929be8764c",
+    "filas": 345,
+    "hash_filas": "4596307c7e9ea86e2a537db7119f33fd7032a1763f0a59e486ddb7e01e8fde5a",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "conservacion_despues": {
+    "altas": 137,
+    "hash_altas": "d91d934b69e936fddf37313475fac5dc2632e6db1e7a3bb279e8e1badc27405a",
+    "hash_resto": "1b5cceebe1db4b20e4a1452c7b3d352af6edfcc2217e448d3af4a8929be8764c",
+    "filas": 345,
+    "hash_filas": "4596307c7e9ea86e2a537db7119f33fd7032a1763f0a59e486ddb7e01e8fde5a",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "resultado": "Una alta nueva; las 345 afirmaciones previas y respuestas.db permanecen intactas.",
+  "validacion": {
+    "lean": "4.32.2, ocho consultas, solo axiomas estandar; imports directos cotejados.",
+    "cotejo": {
+      "construidos": 5196,
+      "semillas_historicas": 34,
+      "prefijos_historicos": 63,
+      "total": 5259,
+      "fallos_siete_observados": 0,
+      "certificados_lineales": 2,
+      "modelos_sin_semilla": 1
+    },
+    "registro": "Generador, catalogo, atomicidad y captura correctos.",
+    "mapa": "70 nombres, 123 piezas, 346 afirmaciones y 229 enlaces; auditoria estatica correcta.",
+    "enlaces_documentales": 68,
+    "huellas": "Fuentes, verificador, utilidades y salidas cotejados.",
+    "diff": "git diff --check correcto."
+  },
+  "estados": {
+    "conjeturado": 13,
+    "demostrado": 232,
+    "medido": 92,
+    "refutado": 9
+  },
+  "limites": [
+    "Prueba escrita para hasta tres cambios; ninguna conclusion para numero arbitrario de cambios.",
+    "Lean certifica los cierres y testigos; cotas orbitales y exclusion aritmetica del modelo conservan prueba escrita.",
+    "Modelo abstracto excluido como orbita; no es contraejemplo al presupuesto ni a Collatz.",
+    "Investigacion detenida al cerrar la tanda, por peticion del usuario; sin commit ni push."
+  ],
+  "palabras_estado": 673
+}

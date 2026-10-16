@@ -1,0 +1,8 @@
+'PerdicesAlturaBAB.producto_de_fallo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesAlturaBAB.escala' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesAlturaBAB.fallo_producto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesAlturaBAB.altura_dieciocho' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesAlturaBAB.criterio_producto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesAlturaBAB.radical_condicional' depends on axioms: [propext, Quot.sound]
+'PerdicesAlturaBAB.presupuesto_bab_siete' depends on axioms: [propext, Quot.sound]
+'PerdicesAlturaBAB.presupuesto_aba_siete' depends on axioms: [propext, Quot.sound]

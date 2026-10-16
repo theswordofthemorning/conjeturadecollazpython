@@ -1,0 +1,69 @@
+{
+  "parametros": {
+    "racha_max": 6,
+    "traslados": 2,
+    "historicos": "depuracion\\perdices20261007\\medicion_salida_ab.json"
+  },
+  "alcance": "Cotejo finito orbital y dos identidades exactas. El modelo de cotas no es una órbita.",
+  "resumen": {
+    "construidos": 5196,
+    "semillas_historicas": 34,
+    "prefijos_historicos": 63,
+    "total": 5259,
+    "fallos_siete_observados": 0,
+    "certificados_lineales": 2,
+    "modelos_sin_semilla": 1
+  },
+  "modelo": {
+    "tipo": "Modelo de cotas sin semilla ni órbita construida",
+    "ell": 1000,
+    "rachas": [
+      1,
+      998,
+      527,
+      1670,
+      1
+    ],
+    "orientacion": "BABAB",
+    "vin": 5,
+    "vfin": 2600,
+    "largo": 4255,
+    "recargas": [
+      998,
+      1581,
+      1670,
+      2601
+    ],
+    "exceso_epsilon_cero": 595,
+    "encajes_superiores_exactos": true,
+    "imposible_por_congruencia_mod9": true
+  },
+  "testigos": [
+    {
+      "n": 27,
+      "palabra": "BAAABA",
+      "largo": 10,
+      "vin": 5,
+      "vfin": 0,
+      "ell": 5,
+      "margen_trece": 185,
+      "margen_siete": 185
+    },
+    {
+      "n": 27,
+      "palabra": "BAAABA",
+      "largo": 10,
+      "vin": 5,
+      "vfin": 0,
+      "ell": 5,
+      "margen_trece": 185,
+      "margen_siete": 185
+    }
+  ],
+  "sha256_lf": {
+    "cotejar_tres_cambios.py": "0d6e3cecad0172f922bcfb9239f832279a5f49fd191bbb97b543b3ffba28a711",
+    "cotejar_dos_cambios.py": "f743d8384207dcdd4d9be5fd4bb3b722a4118a77b800248c16b95e3e50e44454",
+    "PerdicesTresCambios.lean": "4f7007468e859d797194d300f9f537cb40ec13f8633db8bf99b696ec76db28d3",
+    "medicion_salida_ab.json": "fe36515fa4cebd9f929037533e972ab7bdd4f1c3a00267e1a2ab3bd159207041"
+  }
+}

@@ -1,0 +1,8 @@
+'PerdicesDosCambios.cota_tres' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesDosCambios.cota_orden' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesDosCambios.consumo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesDosCambios.orden_entrada_b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesDosCambios.cierre_lineal' depends on axioms: [propext, Quot.sound]
+'PerdicesDosCambios.presupuesto_aba' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesDosCambios.region_bab' depends on axioms: [propext, Quot.sound]
+'PerdicesDosCambios.reduccion_bab' depends on axioms: [propext, Classical.choice, Quot.sound]

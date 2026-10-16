@@ -1,0 +1,42 @@
+{
+  "fecha": "2026-10-16",
+  "alcance": "Primer avance del goal: presupuesto ABA y reducción BAB, sin cierre universal del piloto.",
+  "conservacion_antes": {
+    "altas": 135,
+    "hash_altas": "381e3d931d5543b35ed51a11859ecf780c48b2326c8068f22245790b74edde19",
+    "hash_resto": "1b5cceebe1db4b20e4a1452c7b3d352af6edfcc2217e448d3af4a8929be8764c",
+    "filas": 343,
+    "hash_filas": "6a21f4ff1a2d47cf6ecf27a5ddd826d5b037c9f4ffdf88b2dd65a604a561f609",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "conservacion_despues": {
+    "altas": 135,
+    "hash_altas": "381e3d931d5543b35ed51a11859ecf780c48b2326c8068f22245790b74edde19",
+    "hash_resto": "1b5cceebe1db4b20e4a1452c7b3d352af6edfcc2217e448d3af4a8929be8764c",
+    "filas": 343,
+    "hash_filas": "6a21f4ff1a2d47cf6ecf27a5ddd826d5b037c9f4ffdf88b2dd65a604a561f609",
+    "respuestas_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "resultado": "Una alta nueva; las 343 afirmaciones previas y respuestas.db permanecen intactas.",
+  "validacion": {
+    "lean": "4.32.2, ocho consultas con axiomas estándar; tramo orbital de las rachas escrito.",
+    "cotejo": "9283 casos exactos, 1517 fuera de la región suficiente BAB, ningún contraejemplo observado.",
+    "registro": "Generador y controles de catálogo, atomicidad y captura correctos.",
+    "mapa": "70 nombres, 123 piezas, 344 afirmaciones, 227 enlaces; auditoría estática correcta.",
+    "enlaces_documentales": 58,
+    "huellas": "Fuentes del cotejo y certificado cotejadas.",
+    "diff": "git diff --check correcto."
+  },
+  "estados": {
+    "conjeturado": 13,
+    "demostrado": 230,
+    "medido": 92,
+    "refutado": 9
+  },
+  "palabras_estado": 680,
+  "limites": [
+    "BAB general y varias alternancias siguen abiertos.",
+    "No se formaliza aquí el enlace de iteraciones de T con las ecuaciones de las rachas ni la parametrización orbital completa BAB; ambos tienen prueba escrita.",
+    "Investigación activa. No se hizo commit ni push; se reservan al aviso de cierre."
+  ]
+}

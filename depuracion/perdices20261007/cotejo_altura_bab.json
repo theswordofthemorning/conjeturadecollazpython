@@ -1,0 +1,55 @@
+{
+  "parametros": {
+    "a_max": 4,
+    "b_max": 256,
+    "r_max": 63,
+    "factorizar_hasta_b": 12
+  },
+  "alcance": "Contraste finito del criterio suficiente y radicales pequeños. No demuestra C18 para todo BAB ni prueba abc.",
+  "resumen": {
+    "casos": 1004,
+    "fuera_region_anterior": 481,
+    "cubiertos_c18": 1004,
+    "cubiertos_producto": 1004,
+    "radicales_cotejados": 46,
+    "fallos_p2": 0
+  },
+  "testigos": [
+    {
+      "a": 1,
+      "b": 3,
+      "r": 1,
+      "k": 2,
+      "s": 7,
+      "n": 27,
+      "ell": 5,
+      "margen": 19,
+      "region_anterior": true,
+      "criterio_c18": true,
+      "criterio_producto": true,
+      "fallo": false,
+      "radical_cotejado": true
+    },
+    {
+      "a": 1,
+      "b": 81,
+      "r": 1,
+      "k": 2,
+      "s": 110856622060759442487062407654787473201,
+      "n": 8596805828370696353466139,
+      "ell": 83,
+      "margen": 253,
+      "region_anterior": false,
+      "criterio_c18": true,
+      "criterio_producto": true,
+      "fallo": false,
+      "radical_cotejado": false
+    }
+  ],
+  "fallos": [],
+  "sha256_lf": {
+    "cotejar_altura_bab.py": "6a3fb6d18edca01a5d116b95448040e84742439cf2d72e8c97519e8c98a33ea5",
+    "cotejar_dos_cambios.py": "f743d8384207dcdd4d9be5fd4bb3b722a4118a77b800248c16b95e3e50e44454",
+    "PerdicesAlturaBAB.lean": "59344a65b5e08f7e8e2fad057d69e7933a736cf3267294bc061baaaf3289b9a2"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "ABA bajo identidades afines de las rachas; cotas y reducciones algebraicas. El enlace orbital de las rachas y la parametrización BAB conservan prueba escrita. Imports directos cotejados, sin auditoría transitiva completa de Mathlib.",
+  "fuente": "depuracion/perdices20261007/PerdicesDosCambios.lean",
+  "fuente_sha256_lf": "e64f266a49014062fbad53bf2bf366d3667b8118605414dca17557eaf1fbe864",
+  "verificador_sha256_lf": "1e92c6cdef6d86d77292e1c4505f668d4f1c36b4de07ecf15fd238b5e350767b",
+  "utilidades_sha256_lf": "04f6133d3ca7d439f31321be38e335efd0119e62e204954176d414971ecece0f",
+  "salida_sha256_lf": "b5a53c9a71fc9b8fff61c84b5145704d2a94000ffc950116956e7d334bb6029c",
+  "dependencias": {
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic": {
+      "fuente_sha256_lf": "494d5829e218df7dba759758e39752b278958f7f384226cc62d138d4408ae390",
+      "objeto_sha256": "2210f1912fe964a080cc790b92ef4459e1e7891fd445e03adae818c181ffbf55"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.Ring": {
+      "fuente_sha256_lf": "d3ef5c49ebbd1108ce3f935e5ad95485e143abf02f28c027dba4bb6f3be8196e",
+      "objeto_sha256": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    }
+  },
+  "axiomas": {
+    "PerdicesDosCambios.cota_tres": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesDosCambios.cota_orden": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesDosCambios.consumo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesDosCambios.orden_entrada_b": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesDosCambios.cierre_lineal": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesDosCambios.presupuesto_aba": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesDosCambios.region_bab": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesDosCambios.reduccion_bab": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

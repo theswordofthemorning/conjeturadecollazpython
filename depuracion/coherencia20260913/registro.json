@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-14",
+  "version": "2026-10-16",
   "mapa_investigacion": "mapa_investigacion.json",
   "huella_base": "6eccf92ffa65f015e8aaa62edb00851fe3f081e3383d21ef8e4cc0d5671db49c",
   "base_filas": 208,
@@ -1810,6 +1810,33 @@
       "enunciado": "PERDICES: TRANSPORTE IMPAR Y PRESUPUESTO CON HASTA UN CAMBIO. Para todo prefijo real de bloques A=1,B=110 del atajo positivo desde n, con L pasos, S entradas impares y extremo y, y todo c natural entre 1 y 5, se cumple 3^S*(n+1)<=2^(L+v2(y+c))*impar(y+c)<=3^S*(n+5). Si el prefijo cambia de tipo de bloque a lo sumo una vez, su recarga firmada total satisface Eeta<=2*ceil(log2(n+5)), y L+v_fin<=v_in+2*ceil(log2(n+5)).",
       "fuente": "Derivacion local, 14-10-2026: transporte de partes impares y encaje afin independiente; sin pretension de prioridad.",
       "notas": "TRANSPORTE_IMPAR.md. Para cualquier cantidad de cambios, 2^Eeta*q_fin=3^S*q_in*C, con (n+1)/(n+c_in)<=C<=(n+5)/(n+c_in). Lean 4.32.2 formaliza el encaje universal, la descomposicion y la equivalencia exacta de las relaciones afines con las paridades reales; ocho consultas con axiomas estandar, evidencia_transporte_impar.json. El producto firmado, el presupuesto para hasta un cambio y la familia resonante conservan prueba escrita. Para el presupuesto, la primera racha tiene u<=v_in y su frontera y satisface y+5<=(n+5)^2; la unica recarga es <=2*ell. Esto prueba P con epsilon=1 y K=2*ell en esa subclase, no en toda A/B. La familia a>=1,k=2*3^(a-1),q=(2^k-1)/3^a,n=2^(a+2)*q-1 realiza A^a B y deja q_fin=9: las partes impares no son monotonas. Cotejo exacto: 792 casos construidos, 624 con hasta un cambio, 35 con recargas negativas, diez miembros de la familia y 1817 prefijos historicos; sin ampliar censos. La estimacion inferior de q_fin para multiples alternancias, P general, salida del piloto y Collatz siguen abiertos. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_presupuesto_aba_dos_cambios",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/DOS_CAMBIOS.md",
+      "enunciado": "PERDICES: PRESUPUESTO DOBLE EN A^a B^b A^c. Para toda semilla n>=1 y todos a,b,c>=1 cuya concatenacion A^a B^b A^c realiza las paridades reales A=1,B=110 del atajo desde n, se cumple L+2*v_fin<=2*v_in+4*ell(n), con L=a+3b+c, v_in=v2(n+1), v_fin=v2(w+1) y ell(n)=ceil(log2(n+5)). Equivale a P con epsilon=1/2,K=2*ell en esta subclase. Para BAB, la condicion 37b<=34ell+45a+51c+68 tambien es suficiente.",
+      "fuente": "Derivacion local, 16-10-2026: consumo de valuaciones y cota entera 3^17<2^27. Sin pretension de prioridad bibliografica.",
+      "notas": "DOS_CAMBIOS.md. ABA: v_in=a+2<=ell, 51b<=17ell+10a y 17(c+v_fin)<=17ell+10a+3b implican P2. Lean 4.32.2 certifica ocho resultados, incluido ABA bajo las tres identidades afines de las rachas, con solo axiomas estandar. El enlace orbital de las rachas y la parametrizacion completa BAB conservan prueba escrita. BAB equivale a a,b>=1,r impar positivo,9^a|(2^b*r+1),q=(2^b*r+1)/9^a,n=2^(3a+2)*q-5,k=v2(3^b*r+1),1<=3c<=k+2; P2 equivale a b+2k<=3a+3c+4ell, y basta c=1. Eliminar r da 3^(b+2a)*q-2^(b+k)*s=3^b-2^b, que no aporta divisibilidad alta por 2 o 3. Cotejo independiente con T literal: 9283 casos construidos, 1517 fuera de la region suficiente BAB, sin contraejemplos observados; no constituye prueba de BAB general. El presupuesto para toda BAB, varias alternancias, salida del piloto y Collatz siguen abiertos. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_dos_cambios_siete_diecisiete",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/ALTURA_BAB.md",
+      "enunciado": "PERDICES: PRESUPUESTO CON HASTA DOS CAMBIOS. Para toda semilla positiva n y todo prefijo real no vacio de A=1,B=110 del atajo con hasta dos cambios de tipo, se cumple (7/17)*L+v_fin<=v_in+2*ell(n), equivalentemente P con epsilon=7/17,K=2*ell(n), donde ell=ceil(log2(n+5)). Ademas, si falla el candidato P2 con epsilon=1/2 en BAB, sus partes impares r,s satisfacen 1024*8^b*(rs)^2<9^b y (6rs)^18<3^b; la terna (1,3^b*r,3^b*r+1) tiene calidad abc mayor que 18.",
+      "fuente": "Derivacion local, 16-10-2026: cotas enteras 3^17<2^27 y 3^8<2^15. Lecturas de Bright y Pasten para delimitar posibles transferencias, sin incorporar abc como hipotesis ni reclamar prioridad bibliografica.",
+      "notas": "ALTURA_BAB.md. Para BAB, 17b+34<=17ell+3a y 17(3c+v_fin)<=17ell+3a+10b implican 7L+17v_fin<=17v_in+34ell; ABA hereda el resultado de P2 y hasta un cambio ya tenia epsilon=1. Lean 4.32.2 certifica ocho lemas: producto impar desde identidades aritmeticas, exponente 18, criterio C18 y cierre lineal de epsilon=7/17. Los enlaces orbitales, las cotas orbitales de entrada al cierre y rad<=6rs conservan prueba escrita. C18: 3^b<=(6rs)^18 es suficiente para P2; no se prueba para todos los parametros. Abc usual permite excepciones finitas, de modo que suponerla tampoco elimina automaticamente todos los fallos P2. Cotejo con T literal: 1004 casos BAB, 481 fuera de la region anterior, 46 radicales factorizados, sin fallos; no sustituye la prueba. Presupuesto con tres o mas cambios, salida universal y Collatz siguen abiertos. Revision humana pendiente."
+    },
+    {
+      "clave": "perdices_tres_cambios_un_trece",
+      "cuantificador": "todo_n",
+      "estado": "demostrado",
+      "fichero": "depuracion/perdices20261007/TRES_CAMBIOS.md",
+      "enunciado": "PERDICES: PRESUPUESTO CON HASTA TRES CAMBIOS. Para toda semilla positiva n y todo prefijo real no vacio de A=1,B=110 del atajo con hasta tres cambios de tipo, L+13*v_fin<=13*v_in+26*ell(n), con ell=ceil(log2(n+5)); equivale a P con epsilon=1/13,K=2*ell(n). Las cotas superiores de tamano y el balance firmado empleados admiten, con cuatro cambios, un modelo que viola incluso v_fin<=v_in+2*ell; ese modelo no es realizable por una congruencia modulo 9.",
+      "fuente": "Derivacion local, 16-10-2026: encajes universales, consumo de valuaciones, certificados lineales enteros y congruencia modulo 9. Sin pretension de prioridad bibliografica.",
+      "notas": "TRES_CAMBIOS.md contiene las cotas orbitales ABAB/BABA y dos identidades con residuos no negativos que prueban P13. Los prefijos con hasta dos cambios heredan epsilon=7/17. Lean 4.32.2 certifica ocho lemas sobre cierres lineales, testigos de cotas, balance y encajes superiores exactos; solo axiomas estandar. Las cotas orbitales y la incompatibilidad aritmetica conservan prueba escrita, sin formalizacion orbital completa. Modelo BABAB=(1,998,527,1670,1), ell=1000, v_in=5, v_fin=2600: respeta las cotas y balance, pero excede v_in+2*ell en 595. Su realizacion exigiria q<=2^995, r>=1 y 9q=2^998*r+1; el tamano fuerza r=1, incompatible modulo 9. No es contraejemplo a P ni a Collatz; solo limita las cotas enumeradas. Contraste independiente de 5196 casos construidos y 63 prefijos de 34 semillas historicas: 5259 casos, sin fallos observados de P13 ni P7. El conteo no prueba P7 universal. Presupuesto uniforme con numero arbitrario de cambios, salida y descenso siguen abiertos. Siguiente obligacion: control aritmetico acumulativo. Revision humana pendiente."
     }
   ],
   "nodos": [

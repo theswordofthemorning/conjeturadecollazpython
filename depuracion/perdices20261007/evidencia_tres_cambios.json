@@ -1,0 +1,55 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Cierres lineales epsilon=1/13, testigos de cotas y encajes exactos. Las cotas orbitales y la incompatibilidad aritmética del modelo conservan prueba escrita. Imports directos cotejados, sin auditoría transitiva completa de Mathlib.",
+  "fuente": "depuracion/perdices20261007/PerdicesTresCambios.lean",
+  "fuente_sha256_lf": "4f7007468e859d797194d300f9f537cb40ec13f8633db8bf99b696ec76db28d3",
+  "verificador_sha256_lf": "ca489e983a347d969f3883e6857bf17912f937f66f0fe520ea319838fbea0e00",
+  "utilidades_sha256_lf": "04f6133d3ca7d439f31321be38e335efd0119e62e204954176d414971ecece0f",
+  "salida_sha256_lf": "8d8b4fe0a488e4ccd40ddcda939d11395c56a7dff51f89d0e31c5870fedd206b",
+  "dependencias": {
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    }
+  },
+  "axiomas": {
+    "PerdicesTresCambios.presupuesto_abab": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesTresCambios.presupuesto_baba": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesTresCambios.presupuesto_hasta_dos": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesTresCambios.testigo_tres": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTresCambios.testigo_cuatro": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTresCambios.no_cierre_cuatro_con_cotas": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTresCambios.balance_testigo_cuatro": [
+      "propext"
+    ],
+    "PerdicesTresCambios.encajes_exactos_testigo_cuatro": [
+      "propext"
+    ]
+  }
+}

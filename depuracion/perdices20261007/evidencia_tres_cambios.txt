@@ -1,0 +1,8 @@
+'PerdicesTresCambios.presupuesto_abab' depends on axioms: [propext, Quot.sound]
+'PerdicesTresCambios.presupuesto_baba' depends on axioms: [propext, Quot.sound]
+'PerdicesTresCambios.presupuesto_hasta_dos' depends on axioms: [propext, Quot.sound]
+'PerdicesTresCambios.testigo_tres' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTresCambios.testigo_cuatro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTresCambios.no_cierre_cuatro_con_cotas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesTresCambios.balance_testigo_cuatro' depends on axioms: [propext]
+'PerdicesTresCambios.encajes_exactos_testigo_cuatro' depends on axioms: [propext]
