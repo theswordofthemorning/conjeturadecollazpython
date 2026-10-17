@@ -30,8 +30,9 @@ queda sin respuesta (KILLED) a 300 s y a 3600 s.** No hubo ningún NO.
   y Yices 1 imitado por el adaptador de §2.
 
 La medida limpia es la de 300 s: pico de Java 5,41 GB, ningún error de memoria
-y ningún corte del vigía. Ver su [vigía](vigilado/peldano5_completo.vigia.txt)
-y su [salida](vigilado/peldano5_completo.salida.txt).
+y ningún corte del vigía. Aun así, Java llenó su heap de 5 GB en los primeros
+22 s. Ver su [vigía](vigilado/peldano5_completo.vigia.txt) y su
+[salida](vigilado/peldano5_completo.salida.txt).
 
 ## 2. Lo que hubo que adaptar en Windows
 
@@ -40,14 +41,18 @@ falta tres arreglos, instalados fuera del repo, en `C:\Users\Home\herramientas`.
 Los guiones están copiados en [windows/](windows/).
 
 - **Java.** Se usó el JDK 27 del equipo.
+  - El jar publicado (TC-2026) trae 1753 clases compiladas para Java 26, entre
+    ellas `aprove/cli/Main`. Con Java 25 no arranca.
   - AProVE corta las técnicas lentas con `Thread.stop()`, que desde Java 26 ya
     no existe. Las corridas sin parche fallaban con `NoSuchMethodError`.
-  - En Java 25 ese método lanza `UnsupportedOperationException`, y AProVE lo
-    atrapa e interrumpe el hilo.
-  - El parche está en `TrackThreadCustom.kill()` (jar `aprove_parche_stop.jar`)
-    y atrapa también `NoSuchMethodError`. Así, en Java 27 AProVE hace lo mismo
-    que en Java 25.
-- **Yices 1.** AProVE no funciona con Yices 2, y Yices 1 no se instaló aquí.
+  - Su código atrapa `UnsupportedOperationException`, que es lo que lanza ese
+    método en Java 20 a 25, y entonces interrumpe el hilo.
+  - El parche recompila tres clases del código de AProVE (commit `ae097c6`),
+    entre ellas `TrackThreadCustom`, para que atrapen también
+    `NoSuchMethodError`. Está en `aprove_parche_stop.jar`; el resto del jar
+    es idéntico.
+- **Yices 1.** AProVE no funciona con Yices 2, y Yices 1 no se instaló aquí:
+  su descarga de SRI dio 403.
   - [yices_shim.py](windows/yices_shim.py) imita su interfaz: pasa el lenguaje
     nativo a Z3 y el DIMACS a MiniSat.
   - Ante lo que no sabe traducir responde `unknown`, y eso nunca deja concluir
@@ -88,8 +93,8 @@ Esto es lo que falta: correrlo en una máquina con más memoria.
 
 **Qué cambia en Linux.**
 - Java sigue, porque AProVE es un programa Java.
-- Pero ahí corre como lo usan sus autores: Java 25, Yices 1 de verdad y
-  MiniSat del sistema. No hacen falta el parche ni el adaptador.
+- La imagen Docker de AProVE trae su propio jar, Java 25, Yices 1 y MiniSat.
+  Con ella no hacen falta el parche ni el adaptador.
 - Con 32 GB o más, el heap puede ser de 16 GB o más: el triple de aquí, o más.
 
 **Opción A: la imagen Docker.** La página de descarga de AProVE enlaza
@@ -108,13 +113,16 @@ docker run --rm -v "$PWD":/input --entrypoint java jckassing/aprove \
   -ea -Xmx16g -jar /opt/bundle/aprove.jar -m wst -p plain -t 60 peldano1_X.srs
 ```
 
-**Opción B: instalación directa**, según la página de descarga:
-- JDK 25;
-- Z3 4.4.0 o más, con `libz3java.so` en `LD_LIBRARY_PATH`;
-- Yices 1, por ejemplo la 1.0.40, la primera en el `PATH`;
-- MiniSat 2, el paquete `minisat2` en Debian y Ubuntu;
-- el jar de las [versiones publicadas](https://github.com/aprove-developers/aprove-open-source/releases),
-  sin parche.
+**Opción B: instalación directa**, según la página de descarga, con dos
+trampas que se vieron aquí:
+- El jar de las [versiones publicadas](https://github.com/aprove-developers/aprove-open-source/releases)
+  (TC-2026) no arranca con Java 25, y con Java 26 o más necesita el parche. Lo
+  más simple es llevar `aprove_parche_stop.jar` desde
+  `C:\Users\Home\herramientas\aprove\` y usar un JDK 26 o 27.
+- La descarga de Yices 1 (la 1.0.40, primera en el `PATH`) dio 403 en SRI el
+  17-10. Sin Yices 1, conviene la opción A.
+- Lo demás: Z3 4.4.0 o más, con `libz3java.so` en `LD_LIBRARY_PATH`, y
+  MiniSat 2, el paquete `minisat2` en Debian y Ubuntu.
 
 **Pasos.**
 1. Anotar la máquina: `uname -a`, `nproc`, `free -g` y `java -version`, o la
@@ -153,8 +161,9 @@ prueban en máquinas grandes, pero el problema queda publicado.
   y 2 ya daban YES.
 - Los `peldano*.salida.txt` sueltos: la segunda ronda, con solucionadores y sin
   parche.
-  - Incluye el peldaño 5 a 300 s y la corrida de una hora, detenida a los
-    41 min sin veredicto.
+  - Incluye el peldaño 5 a 300 s y la corrida de una hora con `-Xmx10g`.
+    Claude la detuvo a los 41 min, sin veredicto, porque el equipo se
+    quedaba sin memoria.
   - Las dos tienen `NoSuchMethodError`.
 - [prueba_parche/](prueba_parche/): los peldaños 1 a 4 con el jar parcheado, y
   el 3 a 60 s sin solucionadores.

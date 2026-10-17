@@ -459,9 +459,10 @@ Detalle, evidencia y reproducción en
 - En Windows hicieron falta un parche para Java 27 y un adaptador para
   Yices 1 (§2 del detalle).
 
-**Pendiente:** el peldaño 5 en una máquina Linux con 32 GB o más, con la
-imagen Docker de AProVE o con una instalación directa, sin parche ni
-adaptador. Los pasos y cómo leer el resultado están en el §4 del detalle.
+**Pendiente:** el peldaño 5 en una máquina Linux con 32 GB o más. Lo más
+simple es la imagen Docker de AProVE, que trae todo y no necesita parche ni
+adaptador. Los pasos, la instalación directa y cómo leer el resultado están
+en el §4 del detalle.
 
 ## Fuentes
 
