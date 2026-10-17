@@ -1,0 +1,12 @@
+Evidencia de JudasPiloto.lean (Ruta de Judas, J2), 16-10-2026
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+Comando, desde depuracion/gao20260920/formal: lake env lean ../../judas20261016/JudasPiloto.lean
+SHA256 del fuente (LF): 3d50ec8bd2e7411e712241ca854bb4813442395d7fb02c71d0326b81e56df515
+Salida:
+'JudasPiloto.piloto_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JudasPiloto.fantasma_cero' depends on axioms: [propext]
+'JudasPiloto.admite_a' depends on axioms: [propext, Quot.sound]
+'JudasPiloto.admite_b' depends on axioms: [propext, Quot.sound]
+'JudasPiloto.salida_tres' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JudasPiloto.salida_cuatro' depends on axioms: [propext, Classical.choice, Quot.sound]
+Código de salida: 0

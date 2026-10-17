@@ -1,0 +1,237 @@
+{
+ "fecha": "2026-10-16",
+ "gao_garner_wu": {
+  "evidencia": "depuracion/gao20260920/evidencia_gao_lean.json",
+  "lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "modulos": {
+   "Lagartijas": {
+    "huella": "igual (LF)",
+    "consultas": 19,
+    "axiomas": [
+     "Quot.sound",
+     "choice",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "Martas": {
+    "huella": "igual (LF)",
+    "consultas": 7,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "Tejonas": {
+    "huella": "igual (LF)",
+    "consultas": 8,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "GaoEnunciado": {
+    "huella": "igual (LF)",
+    "consultas": 1,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "Hienas": {
+    "huella": "igual (LF)",
+    "consultas": 3,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "GaoLiteral": {
+    "huella": "igual (LF)",
+    "consultas": 2,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "Alpacas": {
+    "huella": "igual (LF)",
+    "consultas": 1,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "GarnerEnunciado": {
+    "huella": "igual (LF)",
+    "consultas": 1,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "Condoras": {
+    "huella": "igual (LF)",
+    "consultas": 2,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "WuEnunciado": {
+    "huella": "igual (LF)",
+    "consultas": 2,
+    "axiomas": [
+     "Classical.choice",
+     "Quot.sound",
+     "propext"
+    ],
+    "codigo": 0
+   },
+   "lakefile.lean": {
+    "huella": "igual (LF)"
+   },
+   "lake-manifest.json": {
+    "huella": "igual (LF)"
+   },
+   "lean-toolchain": {
+    "huella": "igual (LF)"
+   }
+  },
+  "leanchecker_todos_cero": true,
+  "leanchecker_revisados": 30,
+  "problemas": []
+ },
+ "ocelotas_83": {
+  "evidencia": "depuracion/cst20260930/evidencia_rozier.json",
+  "modulo_final": "OcelotasRozier",
+  "lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "fuentes_revisadas": 55,
+  "huellas": {
+   "Ocelotas": "igual (tal cual)",
+   "OcelotasAfinada": "igual (LF)",
+   "OcelotasAfinadaTrayectorias": "igual (LF)",
+   "OcelotasCertificado": "igual (tal cual)",
+   "OcelotasCierre": "igual (tal cual)",
+   "OcelotasColaParametrica": "igual (LF)",
+   "OcelotasColaRhin": "igual (LF)",
+   "OcelotasContador": "igual (tal cual)",
+   "OcelotasCriba": "igual (tal cual)",
+   "OcelotasCribaPrefijos": "igual (LF)",
+   "OcelotasDescuentoRachas": "igual (LF)",
+   "OcelotasDiecinueve": "igual (tal cual)",
+   "OcelotasDiecinueveCola": "igual (tal cual)",
+   "OcelotasDiecinuevePrefijos": "igual (LF)",
+   "OcelotasDiecinueveTabla": "igual (tal cual)",
+   "OcelotasDieciocho": "igual (tal cual)",
+   "OcelotasDieciochoCola": "igual (tal cual)",
+   "OcelotasDieciochoTabla": "igual (tal cual)",
+   "OcelotasFinito": "igual (tal cual)",
+   "OcelotasGeometrica": "igual (LF)",
+   "OcelotasLMN": "igual (LF)",
+   "OcelotasLMNFuente": "igual (LF)",
+   "OcelotasLogaritmosPrecisos": "igual (LF)",
+   "OcelotasNumerica": "igual (LF)",
+   "OcelotasOchentaYTres": "igual (tal cual)",
+   "OcelotasOchentaYTresTabla": "igual (tal cual)",
+   "OcelotasOchentaYTresTablaParte01": "igual (tal cual)",
+   "OcelotasOchentaYTresTablaParte02": "igual (tal cual)",
+   "OcelotasOchentaYTresTablaParte03": "igual (tal cual)",
+   "OcelotasOchentaYTresTablaParte04": "igual (tal cual)",
+   "OcelotasOchentaYTresTablaParte05": "igual (tal cual)",
+   "OcelotasOchentaYTresTablaParte06": "igual (tal cual)",
+   "OcelotasOchentaYTresTablaParte07": "igual (tal cual)",
+   "OcelotasPesos": "igual (tal cual)",
+   "OcelotasPrefijos": "igual (LF)",
+   "OcelotasPrefijosAfinados": "igual (LF)",
+   "OcelotasPrefijosBloques": "igual (LF)",
+   "OcelotasRachas": "igual (tal cual)",
+   "OcelotasResiduos": "igual (LF)",
+   "OcelotasResiduosBloques": "igual (tal cual)",
+   "OcelotasResiduosFinito": "igual (LF)",
+   "OcelotasRhin": "igual (tal cual)",
+   "OcelotasRoosendaal": "igual (LF)",
+   "OcelotasRozier": "igual (LF)",
+   "OcelotasTiempoRacional": "igual (LF)",
+   "OcelotasTrayectorias": "igual (tal cual)",
+   "OcelotasTrece": "igual (LF)",
+   "OcelotasTreceBase": "igual (LF)",
+   "OcelotasTreceCola": "igual (tal cual)",
+   "OcelotasTreceFinito": "igual (tal cual)",
+   "OcelotasTreceTabla": "igual (tal cual)",
+   "OcelotasVeinte": "igual (tal cual)",
+   "OcelotasVeinteCola": "igual (tal cual)",
+   "OcelotasVeintePrefijos": "igual (tal cual)",
+   "OcelotasVeinteTabla": "igual (tal cual)"
+  },
+  "consultas_registradas": 146,
+  "consultas_en_auditoria": 146,
+  "consultas_sin_axiomas": 0,
+  "axiomas_en_auditoria": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "problemas": []
+ },
+ "record_roosendaal": {
+  "evidencia": "depuracion/cst20260930/evidencia_record_roosendaal.json",
+  "modulo_final": "OcelotasRecordRoosendaal",
+  "lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "fuentes_revisadas": 25,
+  "huellas": {
+   "Ocelotas": "igual (tal cual)",
+   "OcelotasAfinada": "igual (LF)",
+   "OcelotasAfinadaTrayectorias": "igual (LF)",
+   "OcelotasCertificado": "igual (tal cual)",
+   "OcelotasCierre": "igual (tal cual)",
+   "OcelotasContador": "igual (tal cual)",
+   "OcelotasCriba": "igual (tal cual)",
+   "OcelotasFinito": "igual (tal cual)",
+   "OcelotasLMN": "igual (LF)",
+   "OcelotasLMNFuente": "igual (LF)",
+   "OcelotasLogaritmosPrecisos": "igual (LF)",
+   "OcelotasNumerica": "igual (LF)",
+   "OcelotasRachas": "igual (tal cual)",
+   "OcelotasRecordRoosendaal": "igual (LF)",
+   "OcelotasResiduos": "igual (LF)",
+   "OcelotasResiduosBloques": "igual (tal cual)",
+   "OcelotasResiduosFinito": "igual (LF)",
+   "OcelotasRhin": "igual (tal cual)",
+   "OcelotasRoosendaal": "igual (LF)",
+   "OcelotasTrayectorias": "igual (tal cual)",
+   "OcelotasTrece": "igual (LF)",
+   "OcelotasTreceBase": "igual (LF)",
+   "OcelotasTreceCola": "igual (tal cual)",
+   "OcelotasTreceFinito": "igual (tal cual)",
+   "OcelotasTreceTabla": "igual (tal cual)"
+  },
+  "consultas_registradas": 9,
+  "consultas_en_auditoria": 8,
+  "consultas_sin_axiomas": 1,
+  "axiomas_en_auditoria": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "problemas": []
+ },
+ "problemas_totales": 0
+}

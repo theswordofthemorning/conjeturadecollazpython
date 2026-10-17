@@ -303,8 +303,148 @@ Sin Lean: ninguna pieza es un teorema que otra rama vaya a usar. Estas
 afirmaciones no tienen alta en el registro versionado; esta nota no toca
 `registro.json`. Revisión humana pendiente.
 
-**Estado:** J1 cerrado el 16-10. J2 queda para la próxima sesión de esta
-rama, cuando el usuario lo indique.
+**Estado:** J1 y J2 cerrados el 16-10. J2 dio la salida (b). J3b empezó el
+mismo día con el [expediente de revisión humana](depuracion/judas20261016/EXPEDIENTE_REVISION.md).
+Siguiente, el 17-10: correr AProVE sobre la reescritura del piloto (§11).
+
+## 9. J2, cerrado el 16-10: salida (b)
+
+Detalle, tabla de fuentes y cotejo en
+[J2_MECANISMOS.md](depuracion/judas20261016/J2_MECANISMOS.md). En resumen:
+
+- **Reformulación exacta.** Con `z=(n+1)/4`, el piloto cualitativo equivale a
+  que se detenga `G(z)=3z/2` si z es par, `(9z+1)/8` si `z=7 mod 8`.
+  - Su rama A es la de la condición necesaria de Mahler para los números Z,
+    `M(2m)=3m`, `M(4m+1)=6m+2`, en la forma de Michel (1993).
+  - Su rama B es la de la H de YAH, que equivale a la 4.14.
+  - `G(0)=0` y `G(-1)=-1` son −1 y −5, y G no tiene ciclos racionales
+    positivos.
+  - Cotejo: tres lecturas de λ coinciden bajo 2^21 y en los 21 récords.
+  - En Lean: `JudasPiloto.piloto_iff`, con sólo axiomas estándar.
+- **Lectura.** Los mecanismos publicados excluyen órbitas por contracción, por
+  pasillo finito, por complejidad lineal o por conteo. El piloto escapa de los
+  cuatro: todos sus ciclos expanden, sus colas cubren `[1,5]` y su
+  complejidad es exponencial. Los certificados por bloques de Stephan (2026)
+  necesitan retención finita. El argumento de mezcla de Kari–Kopra (2017)
+  fabrica su trampa a medida. La normalidad de Andrieu–Eliahou–Vivion (2025)
+  sólo lo resuelve suponiendo tanto como la conclusión.
+- **Calibración.** El piloto es consecuencia de 4.12 y está entre Mahler (por
+  la rama A) y la 4.14 (por la rama B). Es del mismo tipo que el problema 4/3
+  de Dubickas–Mossinghoff (2009). Todos siguen abiertos.
+- **Prioridad.** La cota lineal de Complejidad (≈1,71·m) es el Teorema 5 de
+  Dubickas (2009). Se agregó la cita a
+  [COMPLEJIDAD.md](depuracion/perdices20261007/COMPLEJIDAD.md#6-prioridad-y-fuentes).
+  La del registro está propuesta y validada en copia temporal
+  ([correccion_registro.json](depuracion/judas20261016/correccion_registro.json)),
+  sin aplicar.
+
+El original de Dubickas–Mossinghoff (2009) se leyó completo en el PDF que
+aportó el usuario. Confirma el veredicto y trae un dato: su récord de
+supervivencia en Mahler bajo 2^57, 137 pasos, cae sobre la misma ley del
+modelo uniforme que nuestro 112 bajo 2^50. Falta el de Flatto (1992), que se
+pide al usuario.
+
+## 10. J3b, empezado el 16-10
+
+El piloto queda cerrado en esta rama como problema abierto calibrado:
+consecuencia de la conjetura 4.12, hermano de H y con la forma de Mahler, sin
+pasillo. La rama pasa a consolidar.
+
+[EXPEDIENTE_REVISION.md](depuracion/judas20261016/EXPEDIENTE_REVISION.md)
+reúne Gao, Garner, Wu y Ocelotas en una página. Para cada uno da:
+- qué afirma y qué no dice;
+- el teorema Lean, con las líneas de cada definición y sus premisas;
+- lo ya cotejado;
+- preguntas concretas para quien revise;
+- lo que falta y quién lo hace.
+
+[verificar_expediente.py](depuracion/judas20261016/verificar_expediente.py)
+comprueba sin compilar que siguen vigentes las huellas de los 69 archivos
+distintos registrados y que las auditorías sólo nombran axiomas estándar.
+Resultado: ninguna diferencia.
+
+Pendientes que esta rama no hace sola, porque piden permiso o una persona:
+- la lectura humana;
+- los impresos de Wu y de Garner;
+- llevar el artículo IV a 83 rachas;
+- integrar en el registro la cita de Dubickas, ya validada;
+- cerrar el 47 por escrito.
+
+## 11. Siguiente paso: AProVE
+
+**Por qué.** J2 leyó los certificados automáticos de YAH, pero no los probó
+sobre el piloto. [piloto_yah.srs](depuracion/judas20261016/piloto_yah.srs)
+escribe la G de §9 como reescritura de cadenas, con las reglas de YAH que
+pasan cifras de base 3 a base 2. Termina desde toda cadena si y sólo si G se
+detiene en todo z>=1 ([J2 §2](depuracion/judas20261016/J2_MECANISMOS.md)).
+
+Las dos mitades del sistema terminan con medidas explícitas, comprobadas regla
+por regla en [medidas_srs.py](depuracion/judas20261016/medidas_srs.py):
+- las reglas X, con (cifras ternarias, inversiones);
+- el sistema sin L, con (cifras binarias, inversiones).
+
+En el sistema completo ninguna sirve: junto a L nacen cifras binarias, y las
+reglas dinámicas crean ternarias. Una prueba tiene que medir el cruce, y esa
+medida es lo que busca un probador.
+
+**Qué hace cada herramienta.**
+- Python simula órbitas, y una simulación finita no prueba nada universal.
+- Lean comprueba una medida que se le da, pero no la busca.
+- AProVE la busca: prueba interpretaciones por matrices, pares de dependencia
+  y otras técnicas, y resuelve las cuentas con solucionadores SAT y SMT. Si la
+  encuentra, `-C ceta -p cpf` escribe la prueba para CeTA, un certificador
+  verificado en Isabelle. También se puede trasladar a Lean.
+
+**Instalación, el 17-10 con el usuario.** Según las páginas de
+[descarga](https://aprove.informatik.rwth-aachen.de/download) y
+[uso](https://aprove.informatik.rwth-aachen.de/usage), consultadas el 16-10:
+- AProVE es código abierto (LGPL-2.1) y está hecho para Java 25. Esta máquina
+  tiene Java 8 y no tiene WSL. Java 8 puede quedarse: se llama al `java` de
+  la 25 por su ruta completa.
+- Usa Z3 (4.4.0 o más), Yices 1 (no la 2) y MiniSat (2 o más). En Windows,
+  MiniSat va por Cygwin y `libz3java.dll` se copia como `z3java.dll`.
+- Acepta el formato `.srs`. La orden es `java -ea -jar aprove.jar -m wst`
+  seguida del archivo, con `-t` para el tiempo en segundos y `-p plain` para
+  ver la prueba.
+- Eclipse no hace falta: es sólo la interfaz gráfica. La orden se corre desde
+  la terminal, como Lean, sin usar la API de Java.
+- Hay una imagen Docker con todo incluido y una interfaz web en sus
+  servidores. La web enviaría el problema afuera: sólo con permiso.
+
+Orden propuesto: Java 25 y Z3 en Windows, y el peldaño 1 de abajo para probar
+la instalación. Si AProVE pide MiniSat o Yices, se decide con el usuario entre
+Cygwin y WSL.
+
+**Escalera de calibración.** Cinco peldaños, todos con el mismo tiempo,
+anotando YES, NO o MAYBE y los segundos:
+1. sólo las reglas X;
+2. el sistema sin L;
+3. la rama A sola: X y `f R -> 0 R`;
+4. la rama B sola: X, `t t t R -> 2 2 R` y `L t t R -> L f f f R`;
+5. el sistema completo.
+
+Los peldaños 1 a 4 terminan, y se sabe por qué. Los dos primeros, por las
+medidas de arriba. Cada rama sola gasta factores 2: la A los de z, porque
+`z -> 3z/2`, y la B los de z+1, porque `z+1 -> 9(z+1)/8`. Juntas, cada rama
+puede reponer los factores que gasta la otra. Los peldaños fáciles dicen si la
+instalación funciona y hasta dónde llega el probador.
+
+**Salidas.**
+- YES en el peldaño 5: sería una prueba del piloto. Antes de afirmar nada se
+  certifica con CeTA o en Lean, y la rama pasa a J3a.
+- MAYBE o TIMEOUT: confirma (b) también para esta clase de mecanismo, con el
+  presupuesto anotado.
+- NO: sería un contraejemplo o un error en J2 §2. Se detiene todo y se
+  comprueba a mano.
+- Si falla un peldaño fácil, el problema es de instalación o de formato, no
+  del piloto.
+
+**Expectativa: MAYBE.** YAH sólo lograron certificados automáticos en clases
+que contraen o de entropía cero (J2 §4), y la 4.14, hermana de G por la rama
+B, sigue abierta. Queda escrita para poder comprobarla.
+
+No se instala nada sin el usuario ni se envía nada a servidores ajenos sin su
+permiso.
 
 ## Fuentes
 
@@ -318,14 +458,19 @@ rama, cuando el usuario lo indique.
   Leído el resumen.
 - A. Dubickas y M. J. Mossinghoff, «Lower bounds for Z-numbers», Math. Comp.
   78 (2009) 1837–1851 ([AMS](https://www.ams.org/mcom/2009-78-267/S0025-5718-09-02211-X/)).
-  Leído el resumen.
+  Leído completo en J2, en el PDF aportado por el usuario.
 - S. Akiyama, Ch. Frougny y J. Sakarovitch, «Powers of rationals modulo 1 and
   rational base number systems», Israel J. Math. 168 (2008) 53–91
-  ([PDF](https://www.irif.fr/~cf/publications/IJM.pdf)). Sin leer.
+  ([PDF](https://www.irif.fr/~cf/publications/IJM.pdf)). Leídos §1 y §6 en J2.
 - L. Flatto, «Z-numbers and β-transformations», Contemp. Math. 135 (1992).
-  Sin leer ni cotejar; citado por FLP.
+  Sin leer ni cotejar; citado por FLP, Dubickas–Mossinghoff y
+  Andrieu–Eliahou–Vivion.
+- Fuentes nuevas de J2: ver [J2 §6](depuracion/judas20261016/J2_MECANISMOS.md#6-evidencia-fuentes-y-pendientes).
 - J. Browkin y J. Brzeziński, «Some remarks on the abc-conjecture», Math.
   Comp. 62 (1994) 931–939; enunciado consultado en
   [Wikipedia](https://en.wikipedia.org/wiki/N_conjecture).
 - Simons–de Weger y Hercher: ver la
   [calibración de ciclos](depuracion/cst20260930/CICLOS_CALIBRACION.md).
+- AProVE: páginas de [descarga](https://aprove.informatik.rwth-aachen.de/download)
+  y [uso](https://aprove.informatik.rwth-aachen.de/usage), consultadas el 16-10.
+  No se ha instalado ni corrido.

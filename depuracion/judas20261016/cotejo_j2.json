@@ -1,0 +1,192 @@
+{
+ "fecha": "2026-10-16",
+ "parametros": {
+  "bits": 21,
+  "bits_hermana": 20,
+  "tope": 10000,
+  "bloques_fantasma": 10,
+  "largo_factores": 24,
+  "diagnostico": "depuracion/judas20261016/diagnostico_ruta.json",
+  "salida": "depuracion/judas20261016/cotejo_j2.json"
+ },
+ "tres_maneras": {
+  "semillas": 2097151,
+  "discrepancias": 0,
+  "ejemplos": [],
+  "lambda_maximo": 39,
+  "menor_semilla_del_maximo": 763675
+ },
+ "records": {
+  "fuente": "depuracion/judas20261016/diagnostico_ruta.json",
+  "fuente_sha256_lf": "9fcd234826e52868e87efe0be25ad05d01321a0932fbddec6366c72cb3a09621",
+  "records": 21,
+  "fallos": [],
+  "mayor_record": [
+   338203040342655,
+   112
+  ]
+ },
+ "hermana_H": {
+  "semillas": 1048575,
+  "fallos_conjugacion_n_a_(n-1)/8": 0,
+  "rama_(9z+1)/8_identica_en_7_mod_8": true,
+  "rama_3z/2_identica_a_Mahler_en_pares": true,
+  "iteraciones_hasta_parar": {
+   "G_piloto": {
+    "pasos_maximo": 28,
+    "menor_testigo": 760282,
+    "sin_parar_antes_del_tope": 0
+   },
+   "H_yah": {
+    "pasos_maximo": 14,
+    "menor_testigo": 357616,
+    "sin_parar_antes_del_tope": 0
+   },
+   "M_mahler": {
+    "pasos_maximo": 59,
+    "menor_testigo": 365837,
+    "sin_parar_antes_del_tope": 0
+   }
+  }
+ },
+ "fantasmas": {
+  "palabras_periodicas_revisadas": 2046,
+  "fallos": [],
+  "x_minimo": "-5",
+  "x_maximo": "-1",
+  "G(0)": 0,
+  "G(-1)": -1
+ },
+ "complejidad": {
+  "constante_dubickas": 1.7095112913514547,
+  "complejidad_AB": [
+   [
+    1,
+    2,
+    1.71
+   ],
+   [
+    2,
+    3,
+    3.419
+   ],
+   [
+    3,
+    4,
+    5.129
+   ],
+   [
+    4,
+    6,
+    6.838
+   ],
+   [
+    5,
+    9,
+    8.548
+   ],
+   [
+    6,
+    13,
+    10.257
+   ],
+   [
+    7,
+    19,
+    11.967
+   ],
+   [
+    8,
+    28,
+    13.676
+   ],
+   [
+    9,
+    41,
+    15.386
+   ],
+   [
+    10,
+    60,
+    17.095
+   ],
+   [
+    11,
+    88,
+    18.805
+   ],
+   [
+    12,
+    129,
+    20.514
+   ],
+   [
+    13,
+    189,
+    22.224
+   ],
+   [
+    14,
+    277,
+    23.933
+   ],
+   [
+    15,
+    406,
+    25.643
+   ],
+   [
+    16,
+    595,
+    27.352
+   ],
+   [
+    17,
+    872,
+    29.062
+   ],
+   [
+    18,
+    1278,
+    30.771
+   ],
+   [
+    19,
+    1873,
+    32.481
+   ],
+   [
+    20,
+    2745,
+    34.19
+   ],
+   [
+    21,
+    4023,
+    35.9
+   ],
+   [
+    22,
+    5896,
+    37.609
+   ],
+   [
+    23,
+    8641,
+    39.319
+   ],
+   [
+    24,
+    12664,
+    41.028
+   ]
+  ],
+  "ley_congruencia_en_record": {
+   "semilla": 338203040342655,
+   "pasos": 112,
+   "pares_de_factores_iguales": 14129,
+   "fallos": 0
+  }
+ },
+ "segundos": 6.8
+}

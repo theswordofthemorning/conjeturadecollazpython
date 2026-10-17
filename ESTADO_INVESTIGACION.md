@@ -34,7 +34,7 @@ sin MuroA y demuestra `Collatz <-> MuroB y ausencia de circuitos no triviales`.
 
 [Complejidad](depuracion/perdices20261007/COMPLEJIDAD.md) restringe repeticiones
 y excluye paridades sturmianas para racionales de denominador impar
-(antecedente De Jesus). [Salidas](depuracion/perdices20261007/SALIDAS.md):
+(antecedentes Dubickas 2009 y De Jesus). [Salidas](depuracion/perdices20261007/SALIDAS.md):
 en `1/110`, `λ(n)<=3log2(n)+1` sigue conjeturado; hasta 2^50, máximo 112,
 con auditoría independiente completa hasta 16 bits. Los
 [empalmes H](depuracion/perdices20261007/RACHAS_H.md) transportan exactamente
@@ -64,7 +64,11 @@ alguno de tres excesos k_i es >=17; suma k_i>=17*floor(m/3).
 Prueba escrita y certificado modular independiente; **nuevo Lean pendiente**
 al cierre. El peso geométrico limita la condición conjunta desde n.
 **Siguiente:** completar Lean y controlar reloj o carga terminal; P abierto.
-[Claude](RutaDeJudasIscariote.md) conservado. Usuario autorizó subir todos los cambios.
+[Claude](RutaDeJudasIscariote.md): [J2](depuracion/judas20261016/J2_MECANISMOS.md)
+sin mecanismo publicado. En Lean, el piloto equivale a la parada de G, entre
+Mahler y la 4.14. J3b: [expediente](depuracion/judas20261016/EXPEDIENTE_REVISION.md).
+**Siguiente:** [AProVE](RutaDeJudasIscariote.md#11-siguiente-paso-aprove) sobre su reescritura.
+Usuario autorizó subir todos los cambios.
 
 ## Revisión y publicación
 

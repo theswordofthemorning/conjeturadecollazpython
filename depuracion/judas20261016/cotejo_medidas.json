@@ -1,0 +1,84 @@
+{
+ "fecha": "2026-10-16",
+ "parametros": {
+  "contextos": 200,
+  "cadenas": 3000,
+  "largo": 24,
+  "semilla": 20261016,
+  "tope": 100000,
+  "salida": "depuracion/judas20261016/cotejo_medidas.json"
+ },
+ "estructura": {
+  "L_solo_al_principio": true,
+  "R_solo_al_final": true,
+  "conservan_L_y_R": true,
+  "cobertura_X": true
+ },
+ "fragmentos": {
+  "X": {
+   "medida": [
+    "cifras ternarias",
+    "inversiones"
+   ],
+   "reglas": 9,
+   "bajan_en_todo_contexto": [
+    "f a0 -> a0 f",
+    "f a1 -> a0 t",
+    "f a2 -> a1 f",
+    "t a0 -> a1 t",
+    "t a1 -> a2 f",
+    "t a2 -> a2 t",
+    "L a0 -> L t",
+    "L a1 -> L f f",
+    "L a2 -> L f t"
+   ],
+   "no_bajan": [],
+   "fallos_contextos_al_azar": 0,
+   "reescrituras_al_azar": 17746,
+   "fallos_reescrituras": 0,
+   "usos_por_regla": {
+    "f a0 -> a0 f": 2806,
+    "f a1 -> a0 t": 2696,
+    "f a2 -> a1 f": 2649,
+    "t a0 -> a1 t": 2646,
+    "t a1 -> a2 f": 2596,
+    "t a2 -> a2 t": 2568,
+    "L a0 -> L t": 653,
+    "L a1 -> L f f": 602,
+    "L a2 -> L f t": 530
+   }
+  },
+  "sin L": {
+   "medida": [
+    "cifras binarias",
+    "inversiones"
+   ],
+   "reglas": 8,
+   "bajan_en_todo_contexto": [
+    "f a0 -> a0 f",
+    "f a1 -> a0 t",
+    "f a2 -> a1 f",
+    "t a0 -> a1 t",
+    "t a1 -> a2 f",
+    "t a2 -> a2 t",
+    "f R -> a0 R",
+    "t t t R -> a2 a2 R"
+   ],
+   "no_bajan": [],
+   "fallos_contextos_al_azar": 0,
+   "reescrituras_al_azar": 21995,
+   "fallos_reescrituras": 0,
+   "usos_por_regla": {
+    "f a0 -> a0 f": 3877,
+    "f a1 -> a0 t": 2955,
+    "f a2 -> a1 f": 2848,
+    "t a0 -> a1 t": 3812,
+    "t a1 -> a2 f": 2932,
+    "t a2 -> a2 t": 2777,
+    "f R -> a0 R": 2526,
+    "t t t R -> a2 a2 R": 268
+   }
+  }
+ },
+ "prueba_completa": true
+}

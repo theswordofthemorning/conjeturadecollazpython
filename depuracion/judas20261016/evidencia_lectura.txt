@@ -1,0 +1,13 @@
+Evidencia de LecturaRevision.lean (Ruta de Judas, J3b), 16-10-2026
+Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)
+Comando, desde depuracion/gao20260920/formal: lake env lean ../../judas20261016/LecturaRevision.lean
+SHA256 del fuente (LF): c394e5bedb0bcb27b314764c11c7f1f9333710fb8a6b9d5296889a62e8ae38ab
+Salida:
+'LecturaRevision.gao_encuentro_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LecturaRevision.gao_cero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LecturaRevision.garner_altura_unica' does not depend on any axioms
+'LecturaRevision.wu_iterado_cero' depends on axioms: [propext, Quot.sound]
+'LecturaRevision.wu_cero_sin_altura' depends on axioms: [propext, Quot.sound]
+'LecturaRevision.wu_enUpla_uno' depends on axioms: [propext, Quot.sound]
+'LecturaRevision.altura_wu_garner' does not depend on any axioms
+Código de salida: 0

@@ -1,0 +1,19 @@
+{
+  "alcance": "Corrección validada en bases temporales; no integrada en el registro central.",
+  "filas": 349,
+  "filas_cambiadas": 2,
+  "claves": [
+    "perdices_complejidad_factores",
+    "perdices_racional_sturmiana"
+  ],
+  "otras_tablas_identicas": true,
+  "protegidos_sha256": {
+    "depuracion/coherencia20260913/registro.json": "450bbd08aa5eb4b1da4243d8b09b6ceb156897e7b0312b507f76f10dd58c3cd0",
+    "depuracion/coherencia20260913/mapa_investigacion.json": "e6ba65720e2b2d19b6a7715faeee775cfa87b40ad697ff83e4dac9de8599e0cb",
+    "afirmaciones.db": "ae1110dc2ac40f8a6bc6ef05269d0bee7f1fc1a53d92c0f43e3961561e924752",
+    "respuestas.db": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "propuesta_sha256": "2f686c3e46992b7a1b5139d3add5c7ffe74cd9ecdd99e8fa886cae8034b41c88",
+  "generador_sha256": "728ceb6ccf1d5ba47643d18d6fe4bae345325ae3d8cf0abb72358c1180e21ff8",
+  "verificador_sha256": "ea28d841fbba65b2e51d099d5f30689634bec288824ef2ad6c6d047544f7ffda"
+}

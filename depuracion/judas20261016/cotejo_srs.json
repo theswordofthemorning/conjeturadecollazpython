@@ -1,0 +1,22 @@
+{
+ "fecha": "2026-10-16",
+ "parametros": {
+  "bits": 14,
+  "semilla": 20261016,
+  "tope": 200000,
+  "srs": "depuracion/judas20261016/piloto_yah.srs",
+  "salida": "depuracion/judas20261016/cotejo_srs.json"
+ },
+ "reglas": 12,
+ "semillas": 16383,
+ "estrategias": [
+  "izquierda",
+  "azar"
+ ],
+ "fallos": [],
+ "numero_fallos": 0,
+ "derivacion_mas_larga": {
+  "pasos": 513,
+  "z": 16327
+ }
+}
