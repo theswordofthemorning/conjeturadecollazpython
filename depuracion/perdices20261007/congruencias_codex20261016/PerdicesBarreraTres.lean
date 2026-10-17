@@ -52,25 +52,25 @@ theorem levantar_flatMap (p factor m : ℕ) (xs : List ℕ) (f : ℕ → List Ar
 theorem tabla_doce : levantarTabla 6 2 455 tabla6 = tabla12 := by
   unfold tabla6 tabla12
   rw [levantar_flatMap]
-  apply List.flatMap_congr_left
+  apply List.flatMap_congr
   intro k hk
   exact paso12 k (List.mem_range.mp hk)
 theorem tabla_treinta_seis : levantarTabla 12 3 23350145 tabla12 = tabla36 := by
   unfold tabla12 tabla36
   rw [levantar_flatMap]
-  apply List.flatMap_congr_left
+  apply List.flatMap_congr
   intro k hk
   exact paso36 k (List.mem_range.mp hk)
 theorem tabla_ciento_ocho : levantarTabla 36 3 2545165805 tabla36 = tabla108 := by
   unfold tabla36 tabla108
   rw [levantar_flatMap]
-  apply List.flatMap_congr_left
+  apply List.flatMap_congr
   intro k hk
   exact paso108 k (List.mem_range.mp hk)
 theorem tabla_trescientos : levantarTabla 108 3 414862026215 tabla108 = tabla324 := by
   unfold tabla108 tabla324
   rw [levantar_flatMap]
-  apply List.flatMap_congr_left
+  apply List.flatMap_congr
   intro k hk
   exact paso324 k (List.mem_range.mp hk)
 
@@ -226,7 +226,8 @@ theorem transporte_alto {n x b k : ℕ} {prefijo : List Bloque}
   have ht := (encaje h).2
   have hp : 0 < (2 : ℕ) ^ largo prefijo := pow_pos (by omega) _
   have hm := Nat.mul_lt_mul_of_pos_left hg hp
-  rw [pow_add, pow_add] at hm ⊢
+  rw [pow_add] at hm
+  rw [pow_add, pow_add]
   nlinarith
 
 def SinTresBajas : List ℕ → Prop
