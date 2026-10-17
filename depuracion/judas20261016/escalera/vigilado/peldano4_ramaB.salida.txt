@@ -1,0 +1,527 @@
+YES
+proof of peldano4_ramaB.srs
+# AProVE Commit ID: ae097c6ac324e847363c39cc90a653413a1ff67c jckassing 20260708 published under Termination-Competition-2026
+
+
+Termination w.r.t. Q of the given QTRS could be proven:
+
+(0) QTRS
+(1) QTRS Reverse [EQUIVALENT, 0 ms]
+(2) QTRS
+(3) AAECC Innermost [EQUIVALENT, 0 ms]
+(4) QTRS
+(5) DependencyPairsProof [EQUIVALENT, 0 ms]
+(6) QDP
+(7) DependencyGraphProof [EQUIVALENT, 0 ms]
+(8) AND
+    (9) QDP
+        (10) UsableRulesProof [EQUIVALENT, 0 ms]
+        (11) QDP
+        (12) QReductionProof [EQUIVALENT, 0 ms]
+        (13) QDP
+        (14) QDPSizeChangeProof [EQUIVALENT, 0 ms]
+        (15) YES
+    (16) QDP
+        (17) UsableRulesProof [EQUIVALENT, 0 ms]
+        (18) QDP
+        (19) QReductionProof [EQUIVALENT, 0 ms]
+        (20) QDP
+        (21) QDPOrderProof [EQUIVALENT, 842 ms]
+        (22) QDP
+        (23) PisEmptyProof [EQUIVALENT, 0 ms]
+        (24) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+Q restricted rewrite system:
+The TRS R consists of the following rules:
+
+   f(a0(x)) -> a0(f(x))
+   f(a1(x)) -> a0(t(x))
+   f(a2(x)) -> a1(f(x))
+   t(a0(x)) -> a1(t(x))
+   t(a1(x)) -> a2(f(x))
+   t(a2(x)) -> a2(t(x))
+   L(a0(x)) -> L(t(x))
+   L(a1(x)) -> L(f(f(x)))
+   L(a2(x)) -> L(f(t(x)))
+   t(t(t(R(x)))) -> a2(a2(R(x)))
+   L(t(t(R(x)))) -> L(f(f(f(R(x)))))
+
+Q is empty.
+
+----------------------------------------
+
+(1) QTRS Reverse (EQUIVALENT)
+We applied the QTRS Reverse Processor [REVERSE].
+----------------------------------------
+
+(2)
+Obligation:
+Q restricted rewrite system:
+The TRS R consists of the following rules:
+
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+   R(t(t(t(x)))) -> R(a2(a2(x)))
+   R(t(t(L(x)))) -> R(f(f(f(L(x)))))
+
+Q is empty.
+
+----------------------------------------
+
+(3) AAECC Innermost (EQUIVALENT)
+We have applied [NOC,AAECCNOC] to switch to innermost. The TRS R 1 is 
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+
+The TRS R 2 is 
+   R(t(t(t(x)))) -> R(a2(a2(x)))
+   R(t(t(L(x)))) -> R(f(f(f(L(x)))))
+
+The signature Sigma is {R_1}
+----------------------------------------
+
+(4)
+Obligation:
+Q restricted rewrite system:
+The TRS R consists of the following rules:
+
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+   R(t(t(t(x)))) -> R(a2(a2(x)))
+   R(t(t(L(x)))) -> R(f(f(f(L(x)))))
+
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+
+----------------------------------------
+
+(5) DependencyPairsProof (EQUIVALENT)
+Using Dependency Pairs [AG00,LPAR04] we result in the following initial DP problem.
+----------------------------------------
+
+(6)
+Obligation:
+Q DP problem:
+The TRS P consists of the following rules:
+
+   A0(f(x)) -> A0(x)
+   A1(f(x)) -> A0(x)
+   A2(f(x)) -> A1(x)
+   A0(t(x)) -> A1(x)
+   A1(t(x)) -> A2(x)
+   A2(t(x)) -> A2(x)
+   R^1(t(t(t(x)))) -> R^1(a2(a2(x)))
+   R^1(t(t(t(x)))) -> A2(a2(x))
+   R^1(t(t(t(x)))) -> A2(x)
+   R^1(t(t(L(x)))) -> R^1(f(f(f(L(x)))))
+
+The TRS R consists of the following rules:
+
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+   R(t(t(t(x)))) -> R(a2(a2(x)))
+   R(t(t(L(x)))) -> R(f(f(f(L(x)))))
+
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(7) DependencyGraphProof (EQUIVALENT)
+The approximation of the Dependency Graph [LPAR04,FROCOS05,EDGSTAR] contains 2 SCCs with 3 less nodes.
+----------------------------------------
+
+(8)
+Complex Obligation (AND)
+
+----------------------------------------
+
+(9)
+Obligation:
+Q DP problem:
+The TRS P consists of the following rules:
+
+   A0(t(x)) -> A1(x)
+   A1(f(x)) -> A0(x)
+   A0(f(x)) -> A0(x)
+   A1(t(x)) -> A2(x)
+   A2(f(x)) -> A1(x)
+   A2(t(x)) -> A2(x)
+
+The TRS R consists of the following rules:
+
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+   R(t(t(t(x)))) -> R(a2(a2(x)))
+   R(t(t(L(x)))) -> R(f(f(f(L(x)))))
+
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(10) UsableRulesProof (EQUIVALENT)
+As all Q-normal forms are R-normal forms we are in the innermost case. Hence, by the usable rules processor [LPAR04] we can delete all non-usable rules [FROCOS05] from R.
+----------------------------------------
+
+(11)
+Obligation:
+Q DP problem:
+The TRS P consists of the following rules:
+
+   A0(t(x)) -> A1(x)
+   A1(f(x)) -> A0(x)
+   A0(f(x)) -> A0(x)
+   A1(t(x)) -> A2(x)
+   A2(f(x)) -> A1(x)
+   A2(t(x)) -> A2(x)
+
+R is empty.
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(12) QReductionProof (EQUIVALENT)
+We deleted the following terms from Q as each root-symbol of these terms does neither occur in P nor in R.[THIEMANN].
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+
+----------------------------------------
+
+(13)
+Obligation:
+Q DP problem:
+The TRS P consists of the following rules:
+
+   A0(t(x)) -> A1(x)
+   A1(f(x)) -> A0(x)
+   A0(f(x)) -> A0(x)
+   A1(t(x)) -> A2(x)
+   A2(f(x)) -> A1(x)
+   A2(t(x)) -> A2(x)
+
+R is empty.
+Q is empty.
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(14) QDPSizeChangeProof (EQUIVALENT)
+By using the subterm criterion [SUBTERM_CRITERION] together with the size-change analysis [AAECC05] we have proven that there are no infinite chains for this DP problem. 
+
+From the DPs we obtained the following set of size-change graphs:
+*A1(f(x)) -> A0(x)
+The graph contains the following edges 1 > 1
+
+
+*A1(t(x)) -> A2(x)
+The graph contains the following edges 1 > 1
+
+
+*A0(f(x)) -> A0(x)
+The graph contains the following edges 1 > 1
+
+
+*A0(t(x)) -> A1(x)
+The graph contains the following edges 1 > 1
+
+
+*A2(f(x)) -> A1(x)
+The graph contains the following edges 1 > 1
+
+
+*A2(t(x)) -> A2(x)
+The graph contains the following edges 1 > 1
+
+
+----------------------------------------
+
+(15)
+YES
+
+----------------------------------------
+
+(16)
+Obligation:
+Q DP problem:
+The TRS P consists of the following rules:
+
+   R^1(t(t(t(x)))) -> R^1(a2(a2(x)))
+
+The TRS R consists of the following rules:
+
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+   R(t(t(t(x)))) -> R(a2(a2(x)))
+   R(t(t(L(x)))) -> R(f(f(f(L(x)))))
+
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(17) UsableRulesProof (EQUIVALENT)
+As all Q-normal forms are R-normal forms we are in the innermost case. Hence, by the usable rules processor [LPAR04] we can delete all non-usable rules [FROCOS05] from R.
+----------------------------------------
+
+(18)
+Obligation:
+Q DP problem:
+The TRS P consists of the following rules:
+
+   R^1(t(t(t(x)))) -> R^1(a2(a2(x)))
+
+The TRS R consists of the following rules:
+
+   a2(f(x)) -> f(a1(x))
+   a2(t(x)) -> t(a2(x))
+   a2(L(x)) -> t(f(L(x)))
+   a1(f(x)) -> t(a0(x))
+   a1(t(x)) -> f(a2(x))
+   a1(L(x)) -> f(f(L(x)))
+   a0(f(x)) -> f(a0(x))
+   a0(t(x)) -> t(a1(x))
+   a0(L(x)) -> t(L(x))
+
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(19) QReductionProof (EQUIVALENT)
+We deleted the following terms from Q as each root-symbol of these terms does neither occur in P nor in R.[THIEMANN].
+
+   R(t(t(t(x0))))
+   R(t(t(L(x0))))
+
+
+----------------------------------------
+
+(20)
+Obligation:
+Q DP problem:
+The TRS P consists of the following rules:
+
+   R^1(t(t(t(x)))) -> R^1(a2(a2(x)))
+
+The TRS R consists of the following rules:
+
+   a2(f(x)) -> f(a1(x))
+   a2(t(x)) -> t(a2(x))
+   a2(L(x)) -> t(f(L(x)))
+   a1(f(x)) -> t(a0(x))
+   a1(t(x)) -> f(a2(x))
+   a1(L(x)) -> f(f(L(x)))
+   a0(f(x)) -> f(a0(x))
+   a0(t(x)) -> t(a1(x))
+   a0(L(x)) -> t(L(x))
+
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(21) QDPOrderProof (EQUIVALENT)
+We use the reduction pair processor [LPAR04,JAR06].
+
+
+The following pairs can be oriented strictly and are deleted.
+
+   R^1(t(t(t(x)))) -> R^1(a2(a2(x)))
+The remaining pairs can at least be oriented weakly.
+Used ordering:  Polynomial Order [NEGPOLO,POLO] with Interpretation:
+
+POL( R^1_1(x_1) ) = x_1 + 2
+POL( a2_1(x_1) ) = 2x_1 + 2
+POL( f_1(x_1) ) = max{0, -2}
+POL( a1_1(x_1) ) = 2x_1 + 2
+POL( t_1(x_1) ) = 2x_1 + 2
+POL( L_1(x_1) ) = 2x_1 + 2
+POL( a0_1(x_1) ) = 0
+
+The following usable rules [FROCOS05] with respect to the argument filtering of the ordering [JAR06] were oriented:
+
+   a2(f(x)) -> f(a1(x))
+   a2(t(x)) -> t(a2(x))
+   a2(L(x)) -> t(f(L(x)))
+
+
+----------------------------------------
+
+(22)
+Obligation:
+Q DP problem:
+P is empty.
+The TRS R consists of the following rules:
+
+   a2(f(x)) -> f(a1(x))
+   a2(t(x)) -> t(a2(x))
+   a2(L(x)) -> t(f(L(x)))
+   a1(f(x)) -> t(a0(x))
+   a1(t(x)) -> f(a2(x))
+   a1(L(x)) -> f(f(L(x)))
+   a0(f(x)) -> f(a0(x))
+   a0(t(x)) -> t(a1(x))
+   a0(L(x)) -> t(L(x))
+
+The set Q consists of the following terms:
+
+   a0(f(x0))
+   a1(f(x0))
+   a2(f(x0))
+   a0(t(x0))
+   a1(t(x0))
+   a2(t(x0))
+   a0(L(x0))
+   a1(L(x0))
+   a2(L(x0))
+
+We have to consider all minimal (P,Q,R)-chains.
+----------------------------------------
+
+(23) PisEmptyProof (EQUIVALENT)
+The TRS P is empty. Hence, there is no (P,Q,R) chain.
+----------------------------------------
+
+(24)
+YES

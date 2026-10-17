@@ -97,6 +97,8 @@ abierto.
 - Rachas por otra ruta, para L=1..16, y la tabla 1 de Gao.
 - Elia–Tucker (2015) refutan la caracterización de Garner, no la conjetura (2).
 - La reseña de zbMATH mide la altura con T; el teorema cubre las dos alturas.
+- El original (Discrete Math. 55, 1985, 57–64) se leyó el 17-10, y también
+  la mide con T ([nota, §4](../../papers/revision20260927/cnki_wu_20261017.md)).
 - Detalle en [Alpacas](../garner20260926/Alpacas.md).
 
 **Para quien revise.** ¿`altura` y `mitades` (líneas 15 y 22) son la
@@ -105,7 +107,6 @@ con n tan grande como se quiera? Ayuda Lean: `garner_altura_unica` prueba
 que la altura, si existe, es única, así que «la misma altura h» no es ambigua.
 
 **Falta.**
-- El texto original de Garner (1985); sólo se leyó la reseña.
 - MathSciNet.
 - La lectura humana.
 - El II está libre desde el rechazo de AFM del 28-09.
@@ -126,7 +127,10 @@ Premisas: ninguna.
 
 **Ya comprobado.** `K(2^N)` hasta N=26, con código independiente. Las dos
 conjeturas y la racha de 176 se leyeron con la IA de CNKI
-([nota](../../papers/revision20260927/cnki_wu_20260927.md)).
+([nota](../../papers/revision20260927/cnki_wu_20260927.md)). El 17-10 se
+leyeron la ficha de CNKI y cinco fragmentos OCR del original
+([nota](../../papers/revision20260927/cnki_wu_20261017.md)). En su ejemplo,
+el 12 llega a 1 en 7 pasos, como con la T de Garner.
 
 **Para quien revise.**
 1. ¿`d(M)=K/(M-1)` y `enUpla` (líneas 25–31) son la `d` de Wu? En
@@ -135,6 +139,12 @@ conjeturas y la racha de 176 se leyeron con la IA de CNKI
    que en n=1 sólo cuenta el vecino 2. Además, `altura_wu_garner` dice que la
    altura de Wu y la de Garner son la misma definición.
 2. ¿`uplaEn` con `n+k<=M` describe k consecutivos dentro de `[1,M)`?
+3. ¿Qué mapa usa Wu? El Lean usa el clásico (`C`, línea 16), y el ejemplo
+   del 12 apunta a T. Los `K(2^N)` de las dos alturas coinciden en N=10, 11,
+   23 y 24, así que la tabla no lo decide.
+   - Con T, `conjetura_wu_dos` sale con la misma prueba, porque `σ∞` es la
+     altura de T, pero no está enunciada.
+   - `conjetura_wu_uno` con T falta enunciarla y probarla.
 
 **Falta.**
 - **El impreso de Wu (1992):** las conjeturas sólo se conocen por la lectura
@@ -211,14 +221,14 @@ rachas, ni Collatz.
 | Pendiente | Quién |
 | --- | --- |
 | Lectura humana de los cuatro enunciados, con las preguntas de arriba | Una persona: el usuario o un revisor que él elija |
-| Impresos de Wu (1992) y Garner (1985); MathSciNet y Scholar | El usuario, que tiene acceso o puede pedirlos |
+| Impreso de Wu (1992), MathSciNet y Scholar; Garner se leyó el 17-10 | El usuario, que tiene acceso o puede pedirlos |
 | Estado de JAR en SNAPP; destino de II, III y IV; ORCID | El usuario |
 | Llevar el IV a 83; integrar en el registro la cita de Dubickas (2009), ya validada en copia temporal ([J2 §5](J2_MECANISMOS.md#5-prioridad-la-cota-de-complejidad-ya-estaba-en-2009)); cerrar el 47 por escrito | Una próxima tanda, con permiso |
 | Reconstrucción limpia de Ocelotas desde cero | Una tanda larga: horas de Lean y varios GB; sólo con permiso |
 
 **Recomendación de esta rama.** Lo que más rinde por hora es la lectura
 humana de los enunciados de I a IV: cada uno se lee en minutos con las
-preguntas de arriba. Le siguen los impresos de Wu y de Garner. Como J2 salió
+preguntas de arriba. Le sigue el impreso de Wu. Como J2 salió
 (b), un avance del piloto puede no llegar. Por eso esta rama mantiene su
 consejo de no atar la respuesta a Rozier a ese avance. La decisión es del
 usuario.

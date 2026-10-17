@@ -1,0 +1,87 @@
+YES
+proof of peldano1_X.srs
+# AProVE Commit ID: ae097c6ac324e847363c39cc90a653413a1ff67c jckassing 20260708 published under Termination-Competition-2026
+
+
+Termination w.r.t. Q of the given QTRS could be proven:
+
+(0) QTRS
+(1) QTRS Reverse [EQUIVALENT, 0 ms]
+(2) QTRS
+(3) RFCMatchBoundsTRSProof [EQUIVALENT, 0 ms]
+(4) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+Q restricted rewrite system:
+The TRS R consists of the following rules:
+
+   f(a0(x)) -> a0(f(x))
+   f(a1(x)) -> a0(t(x))
+   f(a2(x)) -> a1(f(x))
+   t(a0(x)) -> a1(t(x))
+   t(a1(x)) -> a2(f(x))
+   t(a2(x)) -> a2(t(x))
+   L(a0(x)) -> L(t(x))
+   L(a1(x)) -> L(f(f(x)))
+   L(a2(x)) -> L(f(t(x)))
+
+Q is empty.
+
+----------------------------------------
+
+(1) QTRS Reverse (EQUIVALENT)
+We applied the QTRS Reverse Processor [REVERSE].
+----------------------------------------
+
+(2)
+Obligation:
+Q restricted rewrite system:
+The TRS R consists of the following rules:
+
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+
+Q is empty.
+
+----------------------------------------
+
+(3) RFCMatchBoundsTRSProof (EQUIVALENT)
+Termination of the TRS R could be shown with a Match Bound [MATCHBOUNDS1,MATCHBOUNDS2] of 1. This implies Q-termination of R.
+The following rules were used to construct the certificate:
+
+   a0(f(x)) -> f(a0(x))
+   a1(f(x)) -> t(a0(x))
+   a2(f(x)) -> f(a1(x))
+   a0(t(x)) -> t(a1(x))
+   a1(t(x)) -> f(a2(x))
+   a2(t(x)) -> t(a2(x))
+   a0(L(x)) -> t(L(x))
+   a1(L(x)) -> f(f(L(x)))
+   a2(L(x)) -> t(f(L(x)))
+
+The certificate found is represented by the following graph.
+The certificate consists of the following enumerated nodes:
+2, 4, 5, 6, 7, 8, 9
+
+Node 2 is start node and node 4 is final node.
+
+Those nodes are connected through the following edges:
+
+* 2 to 5 labelled f_1(0), t_1(0)* 2 to 2 labelled f_1(0), t_1(0)* 4 to 4 labelled #_1(0)* 5 to 4 labelled a0_1(0), a1_1(0), a2_1(0), L_1(0)* 5 to 6 labelled f_1(1), t_1(1)* 5 to 7 labelled t_1(1), f_1(1)* 5 to 8 labelled f_1(1)* 5 to 5 labelled t_1(1)* 6 to 4 labelled a0_1(1), a2_1(1)* 6 to 6 labelled f_1(1), t_1(1)* 6 to 7 labelled t_1(1), f_1(1)* 6 to 5 labelled t_1(1)* 7 to 4 labelled a1_1(1), L_1(1)* 7 to 6 labelled t_1(1), f_1(1)* 7 to 5 labelled f_1(1)* 8 to 9 labelled f_1(1)* 9 to 4 labelled L_1(1)
+
+
+----------------------------------------
+
+(4)
+YES

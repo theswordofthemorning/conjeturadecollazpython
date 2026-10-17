@@ -305,7 +305,8 @@ afirmaciones no tienen alta en el registro versionado; esta nota no toca
 
 **Estado:** J1 y J2 cerrados el 16-10. J2 dio la salida (b). J3b empezó el
 mismo día con el [expediente de revisión humana](depuracion/judas20261016/EXPEDIENTE_REVISION.md).
-Siguiente, el 17-10: correr AProVE sobre la reescritura del piloto (§11).
+El 17-10, AProVE dejó el piloto sin respuesta en este equipo (§12). Falta
+correrlo en una máquina Linux con más memoria.
 
 ## 9. J2, cerrado el 16-10: salida (b)
 
@@ -365,7 +366,7 @@ Resultado: ninguna diferencia.
 
 Pendientes que esta rama no hace sola, porque piden permiso o una persona:
 - la lectura humana;
-- los impresos de Wu y de Garner;
+- el impreso de Wu (Garner se leyó el 17-10);
 - llevar el artículo IV a 83 rachas;
 - integrar en el registro la cita de Dubickas, ya validada;
 - cerrar el 47 por escrito.
@@ -446,6 +447,22 @@ B, sigue abierta. Queda escrita para poder comprobarla.
 No se instala nada sin el usuario ni se envía nada a servidores ajenos sin su
 permiso.
 
+## 12. AProVE, corrido el 17-10
+
+Detalle, evidencia y reproducción en
+[escalera/LEEME.md](depuracion/judas20261016/escalera/LEEME.md).
+- Peldaños 1 a 4: YES, como se esperaba. La instalación funciona.
+- Peldaño 5, el piloto: KILLED a 300 s y a 3600 s, con 4 núcleos y 5 GB de
+  heap. Según §11, confirma (b) con ese presupuesto. No hubo ningún NO.
+- La hora no avanzó sobre los 300 s: hacia el minuto 20 se agotó el heap
+  (21 `OutOfMemoryError`). En este equipo, de 16 GB, el límite es la memoria.
+- En Windows hicieron falta un parche para Java 27 y un adaptador para
+  Yices 1 (§2 del detalle).
+
+**Pendiente:** el peldaño 5 en una máquina Linux con 32 GB o más, con la
+imagen Docker de AProVE o con una instalación directa, sin parche ni
+adaptador. Los pasos y cómo leer el resultado están en el §4 del detalle.
+
 ## Fuentes
 
 - E. Yolcu, S. Aaronson y M. J. H. Heule, «An automated approach to the
@@ -473,4 +490,4 @@ permiso.
   [calibración de ciclos](depuracion/cst20260930/CICLOS_CALIBRACION.md).
 - AProVE: páginas de [descarga](https://aprove.informatik.rwth-aachen.de/download)
   y [uso](https://aprove.informatik.rwth-aachen.de/usage), consultadas el 16-10.
-  No se ha instalado ni corrido.
+  Instalado y corrido el 17-10 (§12).

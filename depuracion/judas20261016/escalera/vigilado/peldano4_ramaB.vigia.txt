@@ -1,0 +1,10 @@
+    0.0s  orden: C:/Program Files/Java/jdk-27/bin/java.exe -ea -Xmx5g -XX:ActiveProcessorCount=4 -jar C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar -m wst -p plain -t 300 peldano4_ramaB.srs
+    0.0s  antes: RAM libre 11.8 GB, compromiso libre 12.3 GB
+    2.0s  RAM libre 11.5 GB, compromiso libre 11.9 GB | java 0.35 GB | hijos 6, 0.02 GB conhost.exe x2 python.exe x2 yices.exe x2
+    7.4s  FIN: código de salida 0, 7.4 s; terminó solo
+    7.4s  picos cada 2 s: java 0.79 GB, hijos 0.02 GB (hasta 10 a la vez), juntos 0.81 GB
+    7.4s  pico real de java (memoria privada): 0.81 GB
+    7.4s  mínimos del equipo: RAM libre 11.06 GB, compromiso libre 11.49 GB
+    7.4s  hijos cortados por memoria: 0; restos cortados al final: 0
+    7.4s  temporales: 0.0 MB, borrados
+    7.4s  después: RAM libre 11.8 GB, compromiso libre 12.3 GB

@@ -1,0 +1,60 @@
+YES
+proof of peldano2_sinL.srs
+# AProVE Commit ID: ae097c6ac324e847363c39cc90a653413a1ff67c jckassing 20260708 published under Termination-Competition-2026
+
+
+Termination w.r.t. Q of the given QTRS could be proven:
+
+(0) QTRS
+(1) RFCMatchBoundsTRSProof [EQUIVALENT, 0 ms]
+(2) YES
+
+
+----------------------------------------
+
+(0)
+Obligation:
+Q restricted rewrite system:
+The TRS R consists of the following rules:
+
+   f(a0(x)) -> a0(f(x))
+   f(a1(x)) -> a0(t(x))
+   f(a2(x)) -> a1(f(x))
+   t(a0(x)) -> a1(t(x))
+   t(a1(x)) -> a2(f(x))
+   t(a2(x)) -> a2(t(x))
+   f(R(x)) -> a0(R(x))
+   t(t(t(R(x)))) -> a2(a2(R(x)))
+
+Q is empty.
+
+----------------------------------------
+
+(1) RFCMatchBoundsTRSProof (EQUIVALENT)
+Termination of the TRS R could be shown with a Match Bound [MATCHBOUNDS1,MATCHBOUNDS2] of 1. This implies Q-termination of R.
+The following rules were used to construct the certificate:
+
+   f(a0(x)) -> a0(f(x))
+   f(a1(x)) -> a0(t(x))
+   f(a2(x)) -> a1(f(x))
+   t(a0(x)) -> a1(t(x))
+   t(a1(x)) -> a2(f(x))
+   t(a2(x)) -> a2(t(x))
+   f(R(x)) -> a0(R(x))
+   t(t(t(R(x)))) -> a2(a2(R(x)))
+
+The certificate found is represented by the following graph.
+The certificate consists of the following enumerated nodes:
+1, 4, 5, 7
+
+Node 1 is start node and node 4 is final node.
+
+Those nodes are connected through the following edges:
+
+* 1 to 5 labelled a0_1(0), a1_1(0), a2_1(0)* 1 to 1 labelled a2_1(0)* 4 to 4 labelled #_1(0)* 5 to 4 labelled f_1(0), t_1(0), R_1(0)* 5 to 7 labelled a0_1(1), a1_1(1), a2_1(1)* 5 to 5 labelled a2_1(1)* 7 to 4 labelled f_1(1), t_1(1), R_1(1)* 7 to 7 labelled a0_1(1), a1_1(1), a2_1(1)* 7 to 5 labelled a2_1(1)
+
+
+----------------------------------------
+
+(2)
+YES

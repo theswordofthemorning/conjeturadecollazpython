@@ -1,4 +1,4 @@
-# Estado para continuar — 16-10-2026
+# Estado para continuar — 17-10-2026
 
 [Premisa](PREMISA_DE_INVESTIGACION.md): buscar la prueba universal de Collatz;
 la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
@@ -12,7 +12,9 @@ la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
   en rachas arbitrariamente largas y altas con igual altura y tiempo de parada.
   [Condoras](depuracion/gao20260920/formal/Condoras.lean): Wu 2;
   Wu 1 equivale, dado Gao, a convergencia en densidad natural 1 y sigue abierto.
-  Falta cotejar el original de Wu, consultado mediante CNKI AI.
+  Garner mide la altura con T, y Wu probablemente también
+  ([nota](papers/revision20260927/cnki_wu_20261017.md)); el Lean usa la
+  clásica. Falta el impreso de Wu.
 - **Ocelotas.** [83 rachas](depuracion/cst20260930/revision_rozier_20261016/REVISION.md)
   en Lean bajo LMN o Rhin y cobertura externa de Roosendaal hasta
   46645791847966786687 con tiempo clásico<=2480. Puente cobertura→CST
@@ -67,8 +69,8 @@ al cierre. El peso geométrico limita la condición conjunta desde n.
 [Claude](RutaDeJudasIscariote.md): [J2](depuracion/judas20261016/J2_MECANISMOS.md)
 sin mecanismo publicado. En Lean, el piloto equivale a la parada de G, entre
 Mahler y la 4.14. J3b: [expediente](depuracion/judas20261016/EXPEDIENTE_REVISION.md).
-**Siguiente:** [AProVE](RutaDeJudasIscariote.md#11-siguiente-paso-aprove) sobre su reescritura.
-Usuario autorizó subir todos los cambios.
+[AProVE](depuracion/judas20261016/escalera/LEEME.md): sin respuesta a 300 y
+3600 s; el heap de 5 GB se agota. **Siguiente:** correrlo en Linux con 32 GB o más.
 
 ## Revisión y publicación
 
@@ -83,7 +85,7 @@ por valorar. Borrador sin enviar; commit y push de esta revisión autorizados.
 
 [Pendientes](gaopendientes.md): revisión humana de Gao, Hienas, Garner y Wu;
 [prioridad](papers/revision20260927/REVISION.md#4-novedad), MathSciNet,
-Scholar y Garner original. **No anunciar, enviar a OEIS ni contactar sin autorización.**
+Scholar e impreso de Wu. **No anunciar, enviar a OEIS ni contactar sin autorización.**
 
 [Artículos](papers/README.md): II y III libres tras
 [AFM](papers/CORREOS_20261004.md); I en [JAR](papers/jar/LEEME.md), sin noticias

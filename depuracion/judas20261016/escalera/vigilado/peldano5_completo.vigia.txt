@@ -1,0 +1,39 @@
+    0.0s  orden: C:/Program Files/Java/jdk-27/bin/java.exe -ea -Xmx5g -XX:ActiveProcessorCount=4 -jar C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar -m wst -p plain -t 300 peldano5_completo.srs
+    0.0s  antes: RAM libre 11.8 GB, compromiso libre 12.3 GB
+    2.0s  RAM libre 11.4 GB, compromiso libre 11.5 GB | java 0.77 GB | hijos 0, 0.00 GB 
+   12.1s  RAM libre 7.8 GB, compromiso libre 8.1 GB | java 4.15 GB | hijos 2, 0.00 GB conhost.exe x1 minisat.exe x1
+   22.1s  RAM libre 6.7 GB, compromiso libre 7.1 GB | java 5.17 GB | hijos 12, 0.03 GB conhost.exe x6 minisat.exe x5 yices.exe x1
+   32.2s  RAM libre 6.6 GB, compromiso libre 7.0 GB | java 5.23 GB | hijos 8, 0.07 GB conhost.exe x4 minisat.exe x4
+   42.2s  RAM libre 6.3 GB, compromiso libre 6.7 GB | java 5.37 GB | hijos 12, 0.21 GB conhost.exe x6 minisat.exe x6
+   52.3s  RAM libre 6.1 GB, compromiso libre 6.5 GB | java 5.37 GB | hijos 22, 0.44 GB conhost.exe x11 minisat.exe x11
+   62.3s  RAM libre 5.9 GB, compromiso libre 6.3 GB | java 5.37 GB | hijos 22, 0.66 GB conhost.exe x11 minisat.exe x11
+   72.4s  RAM libre 6.0 GB, compromiso libre 6.3 GB | java 5.36 GB | hijos 16, 0.66 GB conhost.exe x8 minisat.exe x8
+   82.5s  RAM libre 5.8 GB, compromiso libre 6.2 GB | java 5.35 GB | hijos 20, 0.76 GB conhost.exe x10 minisat.exe x10
+   92.5s  RAM libre 5.9 GB, compromiso libre 6.4 GB | java 5.36 GB | hijos 18, 0.62 GB conhost.exe x9 minisat.exe x9
+  102.6s  RAM libre 5.9 GB, compromiso libre 6.3 GB | java 5.38 GB | hijos 22, 0.67 GB conhost.exe x11 minisat.exe x11
+  112.6s  RAM libre 5.9 GB, compromiso libre 6.3 GB | java 5.38 GB | hijos 18, 0.66 GB conhost.exe x9 minisat.exe x9
+  122.7s  RAM libre 5.9 GB, compromiso libre 6.3 GB | java 5.38 GB | hijos 24, 0.65 GB conhost.exe x12 minisat.exe x12
+  132.7s  RAM libre 5.9 GB, compromiso libre 6.3 GB | java 5.38 GB | hijos 18, 0.66 GB conhost.exe x9 minisat.exe x9
+  142.8s  RAM libre 5.8 GB, compromiso libre 6.2 GB | java 5.38 GB | hijos 16, 0.68 GB conhost.exe x8 minisat.exe x8
+  152.9s  RAM libre 5.8 GB, compromiso libre 6.2 GB | java 5.38 GB | hijos 21, 0.71 GB conhost.exe x10 minisat.exe x11
+  162.9s  RAM libre 5.8 GB, compromiso libre 6.2 GB | java 5.38 GB | hijos 18, 0.68 GB conhost.exe x9 minisat.exe x9
+  173.0s  RAM libre 5.7 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 19, 0.76 GB conhost.exe x9 minisat.exe x10
+  183.1s  RAM libre 5.8 GB, compromiso libre 6.2 GB | java 5.38 GB | hijos 20, 0.74 GB conhost.exe x10 minisat.exe x10
+  193.1s  RAM libre 5.8 GB, compromiso libre 6.2 GB | java 5.37 GB | hijos 18, 0.72 GB conhost.exe x9 minisat.exe x9
+  203.2s  RAM libre 5.8 GB, compromiso libre 6.2 GB | java 5.37 GB | hijos 17, 0.74 GB conhost.exe x8 minisat.exe x9
+  213.3s  RAM libre 5.4 GB, compromiso libre 5.9 GB | java 5.37 GB | hijos 19, 1.00 GB conhost.exe x9 minisat.exe x10
+  223.3s  RAM libre 5.8 GB, compromiso libre 6.1 GB | java 5.37 GB | hijos 16, 0.81 GB conhost.exe x8 minisat.exe x8
+  233.4s  RAM libre 5.7 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 16, 0.82 GB conhost.exe x8 minisat.exe x8
+  243.4s  RAM libre 5.8 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 16, 0.79 GB conhost.exe x8 minisat.exe x8
+  253.5s  RAM libre 5.7 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 18, 0.80 GB conhost.exe x9 minisat.exe x9
+  263.6s  RAM libre 5.7 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 16, 0.82 GB conhost.exe x8 minisat.exe x8
+  273.6s  RAM libre 5.7 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 18, 0.81 GB conhost.exe x9 minisat.exe x9
+  283.7s  RAM libre 5.7 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 16, 0.81 GB conhost.exe x8 minisat.exe x8
+  293.7s  RAM libre 5.7 GB, compromiso libre 6.1 GB | java 5.38 GB | hijos 16, 0.83 GB conhost.exe x8 minisat.exe x8
+  305.0s  FIN: código de salida 0, 305.0 s; terminó solo
+  305.0s  picos cada 2 s: java 5.38 GB, hijos 1.07 GB (hasta 26 a la vez), juntos 6.45 GB
+  305.0s  pico real de java (memoria privada): 5.41 GB
+  305.0s  mínimos del equipo: RAM libre 5.44 GB, compromiso libre 5.84 GB
+  305.0s  hijos cortados por memoria: 0; restos cortados al final: 0
+  305.0s  temporales: 0.0 MB, borrados
+  305.0s  después: RAM libre 11.8 GB, compromiso libre 12.3 GB
