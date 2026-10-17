@@ -1,0 +1,129 @@
+# Estrategia acotada para el peldaño 5 de la escalera (piloto de Judas), 17-10-2026.
+# Hecha con piezas de aprove.Auto.current (sección SRS STANDARD), con tres cambios:
+#  1. sin búsqueda de no terminación (SRSNonLoop, QDPNonTerm);
+#  2. las técnicas caras van en fila, cada una con su Timer, y sólo las dos
+#     orientaciones (la cadena y su reverso) corren a la vez;
+#  3. todo es finito: el etiquetado de raíces se aplica una sola vez.
+# Si ninguna rama prueba la terminación, AProVE responde MAYBE: la estrategia
+# se agotó. Los Timer van en milisegundos.
+
+# La entrada .srs ya llega como QTRS (las letras son funciones unarias).
+main = piloto
+
+piloto = First(
+           Any(
+             Solve(trabajo),
+             Solve(QTRSReverse:trabajo)
+           ),
+           Timer(1200000,
+             Any(
+               Solve(rootlab:trabajo2),
+               Solve(QTRSReverse:rootlab:trabajo2)
+             )
+           )
+         )
+
+rootlab = Maybe(QTRSFlatCC):
+          QTRSRootLabeling
+
+trabajo = Maybe(rrr):
+          Maybe(QTRSAAECCNOC[Limit=1]):
+          QTRSDependencyPairs:
+          dps
+
+trabajo2 = Maybe(rrr2):
+           Maybe(QTRSAAECCNOC[Limit=1]):
+           QTRSDependencyPairs:
+           dps2
+
+# Quitar reglas con órdenes de reducción, de menor a mayor costo.
+rrr = Timer(300000,
+        Repeat(0, *,
+          First(
+            QTRSRRR[Order = KBOPOLO],
+            QTRSRRR[Order = POLO[Degree = 1, Range = 3, Autostrict = False, MaxSimpleDegree = 5, Engine = MINISAT]],
+            QTRSRRR[Order = PMatroNat[Engine = MINISAT, Range = 1, Dimension = 3, Collapse = False]],
+            QTRSRRR[Order = PMatroNat[Engine = MINISAT, Range = 3, Dimension = 3, Collapse = False]],
+            QTRSRRR[Order = PMatroNat[Engine = MINISAT, Range = 1, Dimension = 5, Collapse = False]]
+          )
+        )
+      )
+
+rrr2 = Timer(120000,
+         Repeat(0, *,
+           First(
+             QTRSRRR[Order = KBOPOLO],
+             QTRSRRR[Order = PMatroNat[Engine = MINISAT, Range = 1, Dimension = 2, Collapse = False]]
+           )
+         )
+       )
+
+# Pares de dependencia: lo barato primero, después matrices cada vez mayores.
+dps = Solve(
+        Repeat(0, *,
+          First(
+            facil,
+            pares
+          )
+        )
+      )
+
+dps2 = Solve(
+         Repeat(0, *,
+           First(
+             facil,
+             pares2
+           )
+         )
+       )
+
+facil = First(
+          QDPDependencyGraph,
+          Timer(500, QDPMNOC[TestDepth = 2]),
+          QDPUsableRules[BeComplete = True, UseApplicativeCeRules = True],
+          QDPQReduction
+        )
+
+pares = First(
+          Any(
+            Timer(1000, QDPSizeChange[Subterm = True]),
+            Timer(10000, QDPMRR[Order = POLO[Degree = 1, Range = 3, Autostrict = False, MaxSimpleDegree = 10000, Engine = MINISAT]]),
+            Timer(10000, QDPReductionPair[Order = POLO[Engine = MINISAT[Version = 2], Range = 5, Degree = 1, LinearMonotone = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False])
+          ),
+          Timer(60000, QDPReductionPair[Order = PMatroArcticInt[Engine = MINISAT[Version = 2], Max = 1, Dimension = 3, Collapse = True, Unary = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+          Timer(60000, QDPReductionPair[Order = PMatroNat[Engine = MINISAT[Version = 2], Range = 3, Dimension = 3, Collapse = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+          Timer(120000, QDPReductionPair[Order = PMatroArcticInt[Engine = MINISAT[Version = 2], Min = -1, Max = 2, Dimension = 3, Collapse = True, Unary = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+          Timer(120000, QDPReductionPair[Order = PMatroNat[Engine = MINISAT[Version = 2], Range = 1, Dimension = 5, Collapse = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+          Timer(180000, QDPSemanticLabelling[CarrierSetSize = 2, Strategy="semlab", AllowQuasi=False, Engine=SAT4J, IncrementalEngine=INCREMENTAL]),
+          Timer(300000, QDPReductionPair[Order = PMatroArcticInt[Engine = MINISAT[Version = 2], Max = 1, Dimension = 5, Collapse = True, Unary = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+          Timer(300000, QDPReductionPair[Order = PMatroNat[Engine = MINISAT[Version = 2], Range = 1, Dimension = 6, Collapse = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+          Timer(300000, QDPReductionPair[Order = PMatroArcticInt[Engine = MINISAT[Version = 2], Min = -1, Max = 3, Dimension = 5, Collapse = True, Unary = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+          Timer(300000, QDPReductionPair[Order = PMatroArcticInt[Engine = MINISAT[Version = 2], Min = -1, Max = 2, Dimension = 7, Collapse = True, Unary = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False])
+        )
+
+pares2 = First(
+           Any(
+             Timer(1000, QDPSizeChange[Subterm = True]),
+             Timer(10000, QDPReductionPair[Order = POLO[Engine = MINISAT[Version = 2], Range = 1, Degree = 1, LinearMonotone = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False])
+           ),
+           Timer(60000, QDPReductionPair[Order = PMatroArcticInt[Engine = MINISAT[Version = 2], Max = 1, Dimension = 3, Collapse = True, Unary = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+           Timer(60000, QDPReductionPair[Order = PMatroNat[Engine = MINISAT[Version = 2], Range = 1, Dimension = 3, Collapse = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False]),
+           Timer(120000, QDPReductionPair[Order = PMatroArcticInt[Engine = MINISAT[Version = 2], Min = -1, Max = 2, Dimension = 3, Collapse = True, Unary = True], Allstrict = False, Usable = True, Active = True, ATrans = False, MergeMutual = False])
+         )
+
+# Etiquetado semántico, copiado de aprove.Auto.current.
+semlab = RepeatS(1,*,
+           First(
+             QDPDependencyGraph,
+             MRR06Heuristic[AllowATransformation = False, Sub1="usableRulesRP1", Sub2="ruleRemoval1"],
+             Timer(7500,QDPReductionPair[Active = True, Allstrict = False, Order = POLO[Degree = 1, Range = 1, MaxSimpleDegree = 4, Engine = MINISAT], MergeMutual = True])
+           )
+         )
+
+ruleRemoval1 = Timer(500,
+                 QDPMRR[Order = POLO[Degree = 1, Range = 1, Autostrict = False, MaxSimpleDegree = 5, Engine = MINISAT]]
+               )
+
+usableRulesRP1 = Timer(600,
+                   QDPUsableRulesRP[AllowATransformation = False, Degree = 1, Range = 1, MaxSimpleDegree = 5, Engine = MINISAT]
+                 )

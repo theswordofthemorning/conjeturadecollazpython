@@ -6,9 +6,11 @@ Uso:
 
 Reglas, comprobadas cada 2 segundos:
   1. Un proceso hijo (MiniSat, Z3, ...) que pase de --tope-hijo-gb se corta.
-  2. Si la RAM libre del equipo baja de --aviso-gb, se corta el hijo mayor.
-  3. Si baja de --libre-min-gb, o el compromiso libre baja de
-     --compromiso-min-gb, se corta todo.
+  2. Si la RAM libre o el compromiso libre del equipo bajan de --aviso-gb,
+     se corta el hijo mayor.
+  3. Si la RAM libre baja de --libre-min-gb, o el compromiso libre baja de
+     --compromiso-min-gb, se corta todo. Tras un corte de las reglas 1 o 2
+     se vuelve a medir antes de aplicarla.
   4. Si se pasa de --tiempo-max segundos, se corta todo.
 La orden corre con prioridad baja y en los núcleos pedidos; sus hijos heredan
 las dos cosas. Al final se cortan los hijos que queden vivos y se borra la
@@ -168,19 +170,27 @@ def main():
             minimo["comp"] = min(minimo["comp"], comp)
 
             # Regla 1: ningún hijo pasa del tope.
+            antes_de_cortar = cortes
             for h in list(mem):
                 if mem[h] > a.tope_hijo_gb:
                     apuntar("corto %s (pid %d): %.2f GB, más que el tope" % (nombre(h), h.pid, mem[h]), True)
                     cortar(h)
                     cortes += 1
                     mem[h] = 0.0
-            # Regla 2: con poca RAM libre se corta el hijo mayor.
-            if libre < a.aviso_gb and mem:
+            # Regla 2: con poca RAM libre, o poco compromiso libre, se corta el
+            # hijo mayor. El 17-10 el compromiso llegó al mínimo de la regla 3
+            # con 2 GB de RAM libre, y se perdió la corrida entera.
+            if (libre < a.aviso_gb or comp < a.aviso_gb) and mem:
                 h = max(mem, key=mem.get)
                 if mem[h] > 0.2:
-                    apuntar("RAM libre %.2f GB: corto %s (pid %d, %.2f GB)" % (libre, nombre(h), h.pid, mem[h]), True)
+                    apuntar("RAM libre %.2f GB, compromiso libre %.2f GB: corto %s (pid %d, %.2f GB)"
+                            % (libre, comp, nombre(h), h.pid, mem[h]), True)
                     cortar(h)
                     cortes += 1
+            # Lo que se cortó ya no cuenta: se vuelve a medir.
+            if cortes > antes_de_cortar:
+                time.sleep(1)
+                libre, comp = memoria_equipo()
             # Regla 3: el equipo nunca baja del mínimo.
             if libre < a.libre_min_gb or comp < a.compromiso_min_gb:
                 motivo = "CORTADO por memoria del equipo (RAM libre %.2f GB, compromiso libre %.2f GB)" % (libre, comp)
@@ -205,17 +215,23 @@ def main():
         codigo = p.wait()
 
     # Restos: los hijos vistos que sigan vivos y cualquier resolvedor o hijo de
-    # Java nacido durante la corrida.
+    # Java nacido durante la corrida que sea de esta corrida: hijo de su Java o
+    # de un proceso visto, o con su carpeta temporal en la orden. Así no corta
+    # los resolvedores de otra corrida que use el equipo a la vez.
     restos = 0
     for h in vistos.values():
         if h.is_running():
             cortar(h)
             restos += 1
-    for q in psutil.process_iter(["name", "create_time", "ppid"]):
+    tmp_normal = carpeta_tmp.replace("/", "\\").lower()
+    for q in psutil.process_iter(["name", "create_time", "ppid", "cmdline"]):
         nacido_durante = (q.info["create_time"] or 0) >= inicio
         es_resolvedor = (q.info["name"] or "").lower() in RESOLVEDORES
         hijo_de_java = q.info["ppid"] in pids_java
-        if nacido_durante and (es_resolvedor or hijo_de_java):
+        orden_q = " ".join(q.info["cmdline"] or []).replace("/", "\\").lower()
+        propio = (hijo_de_java or q.info["ppid"] in vistos
+                  or (tmp_normal and tmp_normal in orden_q))
+        if nacido_durante and (es_resolvedor or hijo_de_java) and propio:
             cortar(q)
             restos += 1
 

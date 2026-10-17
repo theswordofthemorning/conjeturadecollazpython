@@ -1,0 +1,9 @@
+    0.0s  orden: C:/Program Files/Java/jdk-27/bin/java.exe -ea -Xmx2g -XX:ActiveProcessorCount=6 -Xlog:gc:file=prueba_lazos_bucle.gc.txt -cp C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar;C:/Users/Home/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/turnos/estrategia aprove.Main -m wst -p plain -t 60 -s aprove.Turnos.lazos bucle.srs
+    0.0s  antes: RAM libre 11.1 GB, compromiso libre 12.0 GB
+    3.3s  FIN: código de salida 0, 3.3 s; terminó solo
+    3.3s  picos cada 2 s: java 0.00 GB, hijos 0.00 GB (hasta 0 a la vez), juntos 0.00 GB
+    3.3s  pico real de java (memoria privada): 0.00 GB
+    3.3s  mínimos del equipo: RAM libre 11.08 GB, compromiso libre 11.99 GB
+    3.3s  hijos cortados por memoria: 0; restos cortados al final: 0
+    3.3s  temporales: 0.0 MB, borrados
+    3.3s  después: RAM libre 11.1 GB, compromiso libre 12.0 GB

@@ -1,0 +1,4 @@
+(COMMENT Prueba del turno de lazos: a -> a a no termina)
+(RULES
+  a -> a a
+)

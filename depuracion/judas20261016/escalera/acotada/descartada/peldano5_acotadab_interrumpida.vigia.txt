@@ -1,0 +1,12 @@
+    0.0s  orden: C:/Program Files/Java/jdk-27/bin/java.exe -ea -Xmx4g -XX:ActiveProcessorCount=4 -Xlog:gc:file=peldano5_acotadab.gc.txt -cp C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar;C:/Users/Home/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/acotada/estrategia aprove.Main -m wst -p plain -t 3600 -s aprove.Piloto.peldano5b ../peldano5_completo.srs
+    0.0s  antes: RAM libre 8.8 GB, compromiso libre 8.3 GB
+    2.0s  RAM libre 8.6 GB, compromiso libre 8.1 GB | java 0.17 GB | hijos 4, 0.02 GB conhost.exe x2 minisat.exe x2
+   12.1s  RAM libre 8.1 GB, compromiso libre 7.9 GB | java 0.31 GB | hijos 4, 0.12 GB conhost.exe x2 minisat.exe x2
+   22.1s  RAM libre 8.1 GB, compromiso libre 7.8 GB | java 0.31 GB | hijos 4, 0.13 GB conhost.exe x2 minisat.exe x2
+   25.5s  FIN: código de salida 4294967295, 25.5 s; terminó solo
+   25.5s  picos cada 2 s: java 0.33 GB, hijos 0.13 GB (hasta 4 a la vez), juntos 0.44 GB
+   25.5s  pico real de java (memoria privada): 0.38 GB
+   25.5s  mínimos del equipo: RAM libre 8.10 GB, compromiso libre 7.81 GB
+   25.5s  hijos cortados por memoria: 0; restos cortados al final: 4
+   25.5s  temporales: 14.4 MB, borrados
+   25.5s  después: RAM libre 8.1 GB, compromiso libre 8.3 GB

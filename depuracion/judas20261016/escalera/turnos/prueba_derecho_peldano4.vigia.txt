@@ -1,0 +1,11 @@
+    0.0s  orden: C:/Program Files/Java/jdk-27/bin/java.exe -ea -Xmx2g -XX:ActiveProcessorCount=6 -Xlog:gc:file=prueba_derecho_peldano4.gc.txt -cp C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar;C:/Users/Home/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/turnos/estrategia aprove.Main -m wst -p plain -t 120 -s aprove.Turnos.derecho ../peldano4_ramaB.srs
+    0.0s  antes: RAM libre 11.1 GB, compromiso libre 12.0 GB
+    2.0s  RAM libre 10.6 GB, compromiso libre 11.4 GB | java 0.51 GB | hijos 5, 0.02 GB conhost.exe x2 minisat.exe x1 python.exe x1 yices.exe x1
+   12.1s  RAM libre 8.8 GB, compromiso libre 9.7 GB | java 2.23 GB | hijos 8, 0.07 GB conhost.exe x3 minisat.exe x5
+   21.3s  FIN: código de salida 0, 21.3 s; terminó solo
+   21.3s  picos cada 2 s: java 2.23 GB, hijos 0.30 GB (hasta 16 a la vez), juntos 2.53 GB
+   21.3s  pico real de java (memoria privada): 2.26 GB
+   21.3s  mínimos del equipo: RAM libre 8.60 GB, compromiso libre 9.48 GB
+   21.3s  hijos cortados por memoria: 0; restos cortados al final: 0
+   21.3s  temporales: 0.0 MB, borrados
+   21.3s  después: RAM libre 11.1 GB, compromiso libre 12.0 GB

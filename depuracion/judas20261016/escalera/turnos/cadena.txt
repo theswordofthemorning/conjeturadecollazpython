@@ -1,0 +1,9 @@
+17-10 18:59:54 prueba_derecho_peldano3: YES
+17-10 19:00:15 prueba_derecho_peldano4: YES
+17-10 19:00:19 prueba_reves_peldano3: YES
+17-10 19:00:22 prueba_reves_peldano4: YES
+17-10 19:00:26 prueba_lazos_bucle: NO
+17-10 19:04:47 derecho con -Xmx7g: descartado a los 229 s (el vigía cortó un MiniSat de 1,72 GB); ver descartada/
+17-10 19:36:00 derecho: sin salida
+17-10 19:39:05 derecho: el vigía lo cortó entero a los 1859 s (compromiso libre 1,10 GB, bajo el mínimo de 1,2) con 2,07 GB de RAM libre; ver descartada/derecho_xmx5g_cortado.*
+17-10 19:39:05 revés: detenido a los 121 s para corregir el vigía (la regla 2 mira también el compromiso); ver descartada/reves_interrumpido.*

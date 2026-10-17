@@ -69,8 +69,9 @@ al cierre. El peso geométrico limita la condición conjunta desde n.
 [Claude](RutaDeJudasIscariote.md): [J2](depuracion/judas20261016/J2_MECANISMOS.md)
 sin mecanismo publicado. En Lean, el piloto equivale a la parada de G, entre
 Mahler y la 4.14. J3b: [expediente](depuracion/judas20261016/EXPEDIENTE_REVISION.md).
-[AProVE](depuracion/judas20261016/escalera/LEEME.md): sin respuesta a 300 y
-3600 s; el heap de 5 GB se agota. **Siguiente:** correrlo en Linux con 32 GB o más.
+[AProVE](depuracion/judas20261016/escalera/LEEME.md): KILLED por memoria con su
+portafolio; MAYBE con dos estrategias acotadas, atascadas en el núcleo G.
+**Siguiente:** Linux con 32 GB o más.
 
 ## Revisión y publicación
 

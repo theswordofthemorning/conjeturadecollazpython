@@ -1,0 +1,44 @@
+MALETA PARA EL VICTUS
+=====================
+
+Qué es
+------
+La misma carrera de AProVE que corre en el PC de escritorio sobre el
+peldaño 5 (derecho, revés y lazos, con los mismos tiempos), pero con la
+memoria del Victus. Trae todo dentro: Java, AProVE, MiniSat, Z3, el vigía
+y las estrategias. No hay que instalar nada ni tener internet.
+
+Antes de empezar
+----------------
+1. Enchufa el Victus al cargador y deja la tapa abierta.
+   Si se cierra la tapa, Windows lo duerme y la carrera se detiene.
+2. Cierra Chrome y los demás programas: la memoria libre es lo que manda.
+3. Copia esta carpeta entera a C:\ , para que quede C:\maleta_victus
+   (sin espacios ni acentos en la ruta; desde el pendrive no corre).
+
+Lanzar
+------
+4. Entra en C:\maleta_victus y haz doble clic en lanzar.bat.
+   Se abre una ventana negra. No la cierres.
+   - Si no existe C:\Python314, lo copia desde la maleta: lo necesita el
+     adaptador de Yices.
+   - Mide la RAM libre y decide cuánta memoria dar a Java y a MiniSat.
+   - Hace cinco pruebas cortas (unos 2 minutos). Tienen que salir
+     YES, YES, YES, YES y NO; si no, se detiene sola.
+   - Luego corre derecho (2 h 15 min), revés (2 h 15 min) y lazos (30 min).
+   - Mientras corre, la pantalla se queda encendida a propósito, para que
+     Windows no se duerma. Puedes bajarle el brillo.
+   - Si Windows pregunta si Java puede usar la red, responde Cancelar:
+     no la necesita.
+
+Al terminar
+-----------
+5. Cuando la ventana diga FIN (unas 5 horas), copia la carpeta
+   C:\maleta_victus\resultados al pendrive y tráesela a Claude.
+
+Si aparece YES o NO, la cadena se detiene sola. Todavía no es un
+resultado: un YES hay que certificarlo con CeTA y un NO hay que revisarlo
+a mano antes de creerle.
+
+Para parar antes de tiempo, reinicia el Victus. Lo que haya en
+resultados se conserva.

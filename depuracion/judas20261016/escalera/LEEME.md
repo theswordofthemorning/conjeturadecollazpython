@@ -1,8 +1,10 @@
 # Escalera de AProVE sobre el piloto, 17-10-2026
 
 Corre la escalera de [§11 de la ruta](../../../RutaDeJudasIscariote.md#11-siguiente-paso-aprove)
-en el equipo del usuario. **Los peldaños 1 a 4 dan YES; el 5, el piloto,
-queda sin respuesta (KILLED) a 300 s y a 3600 s.** No hubo ningún NO.
+en el equipo del usuario. **Los peldaños 1 a 4 dan YES. El 5, el piloto,
+queda sin respuesta (KILLED) a 300 s y a 3600 s, y da MAYBE con dos
+estrategias acotadas (§5).** No hubo ningún NO. El portafolio completo, rama
+por rama, sigue en curso (§6).
 
 ## 1. Resultado
 
@@ -12,15 +14,16 @@ queda sin respuesta (KILLED) a 300 s y a 3600 s.** No hubo ningún NO.
 | 2 | sin L ([srs](peldano2_sinL.srs)) | YES |
 | 3 | rama A ([srs](peldano3_ramaA.srs)) | YES |
 | 4 | rama B ([srs](peldano4_ramaB.srs)) | YES, 7,4 s con vigía |
-| 5 | completo ([srs](peldano5_completo.srs)) | KILLED a 300 s y a 3600 s |
+| 5 | completo ([srs](peldano5_completo.srs)) | KILLED a 300 s y a 3600 s; MAYBE con las dos estrategias de §5 |
 
 - `peldano5_completo.srs` es [piloto_yah.srs](../piloto_yah.srs) con comas
   entre las reglas, como en el formato SRS que lee AProVE.
 - Los YES de 1 a 4 son de calibración: ya se sabía que esos sistemas terminan.
   Dicen que la instalación funciona. No se certificaron porque nada se afirma
   con ellos.
-- Por la regla de §11, el KILLED del peldaño 5 confirma la salida (b) con el
-  presupuesto de abajo. No es una prueba ni un contraejemplo.
+- Por la regla de §11, el KILLED y el MAYBE del peldaño 5 confirman la
+  salida (b) con el presupuesto de abajo. No son una prueba ni un
+  contraejemplo.
 
 **Presupuesto.**
 - Equipo: Windows 11, AMD Ryzen 5 1600 y 16 GB de RAM.
@@ -63,10 +66,14 @@ Los guiones están copiados en [windows/](windows/).
     ningún `unknown`.
 - **Memoria.** [vigia.py](windows/vigia.py) corre la orden con prioridad baja.
   - Si un solucionador pasa de 1,5 GB, lo corta.
-  - Si la RAM libre baja de 3 GB, corta el solucionador mayor.
+  - Si la RAM libre baja de 3 GB, corta el solucionador mayor. Desde §6
+    también lo corta si baja el compromiso libre (RAM más archivo de
+    paginación).
   - Si baja de 2 GB, corta todo.
 
-  Cortar un solucionador sólo hace fallar la técnica que lo usaba.
+  Cortar un solucionador sólo hace fallar la técnica que lo usaba. Al
+  terminar, corta los solucionadores que su corrida dejó vivos, y sólo ésos
+  desde la corrección de §5.
 
 ## 3. La corrida de una hora
 
@@ -141,6 +148,8 @@ trampas que se vieron aquí:
    ```
 4. Traer `salida.txt`, `errores.txt`, `gc.txt` y los datos de la máquina a
    `escalera/linux/`.
+5. Correr también las estrategias de §5 con el heap mayor. En Linux el
+   classpath se separa con `:` y no con `;`.
 
 **Cómo leer el resultado**, con las reglas de §11:
 - **YES:** todavía no es una prueba. Se repite con `-C ceta -p cpf`, y el
@@ -154,7 +163,135 @@ trampas que se vieron aquí:
 Hay otra vía, sólo con permiso del usuario: mysolvertimesout.org. Ahí lo
 prueban en máquinas grandes, pero el problema queda publicado.
 
-## 5. Las carpetas
+## 5. Dos estrategias acotadas: MAYBE
+
+El portafolio por omisión corre muchas técnicas a la vez y llena el heap. Las
+dos estrategias de [acotada/estrategia/](acotada/estrategia/aprove/predefinedstrategies/Piloto/)
+son finitas y casi en serie, para que terminen. Las dos terminaron solas con
+**MAYBE**: probaron todas sus técnicas y ninguna cerró la prueba. Por §11,
+confirman (b) con este presupuesto. Las dos se detienen en el mismo núcleo de
+2 o 3 pares, que es G misma.
+
+| Estrategia | Corrida | Resultado |
+| --- | --- | --- |
+| [A](acotada/estrategia/aprove/predefinedstrategies/Piloto/peldano5.strategy) | 2357 s, `-Xmx6g` | MAYBE |
+| [B](acotada/estrategia/aprove/predefinedstrategies/Piloto/peldano5b.strategy) | 2604 s, `-Xmx6g` | MAYBE |
+
+**Qué técnicas usan.**
+- A quita reglas con KBO, polinomios y matrices naturales, durante 5 min a lo
+  sumo. Sigue con pares de dependencia: cambio de tamaño, polinomios,
+  matrices árticas y naturales hasta dimensión 7, y etiquetado semántico con
+  2 valores. Cada técnica tiene su reloj, de 10 s a 5 min.
+  - Va al derecho y al revés a la vez.
+  - Si nada cierra, prueba 20 min de etiquetado de raíz.
+- B usa lo que A no usa: polinomios con coeficientes negativos o racionales,
+  matrices racionales, matrices naturales de rango 3 y 7, y etiquetado
+  semántico con 3 valores.
+- Ninguna busca no terminación. En el piloto no puede haber lazos: las reglas
+  X conservan el valor y las de R lo suben, así que una palabra L…R nunca
+  vuelve a sí misma.
+- Antes se validaron: A da YES en los peldaños 1 a 4, y B en el 3 y el 4, en
+  segundos (`acotada/prueba_*` y `acotada/pruebab_*`).
+
+**Dónde se atasca A** ([salida](acotada/peldano5_acotada.salida.txt),
+[vigía](acotada/peldano5_acotada.vigia.txt)).
+- Fase 1, unos 19 min. En las dos direcciones quitó la regla 7 → 8 y cerró el
+  cruce de cifras con cambio de tamaño. Quedó el núcleo, que es G misma:
+  - al derecho, 3 pares en L, la cabeza que pasa las cifras ternarias a
+    binarias (nodo 46 de la salida);
+  - al revés, 2 pares en R, el final que hace z → 3z/2 y z → (9z+1)/8
+    (nodo 24).
+
+  Ninguna técnica del presupuesto orientó esos pares.
+- Fase 2, los 20 min siguientes. El etiquetado de raíz agrandó el núcleo a
+  entre 31 y 60 pares, y su reloj lo cortó sin cerrarlo.
+- Memoria: Java llegó a 6,21 GB, todo su heap, sin ninguna recolección
+  completa ni `OutOfMemoryError`. El vigía no cortó nada.
+
+**B se atasca en el mismo sitio** ([salida](acotada/peldano5_acotadab.salida.txt),
+[vigía](acotada/peldano5_acotadab.vigia.txt)).
+- Agotó sus técnicas en las dos direcciones y terminó sola.
+- Quitó la misma regla, cerró el mismo cruce y dejó el mismo núcleo: sus
+  nodos 26 y 50 son los 24 y 46 de A.
+- Usó poca memoria: Java llegó a 0,83 GB, sin recolecciones completas ni
+  cortes.
+
+**Cómo se lanzan.** La carpeta `estrategia/` va en el classpath, y `-s` elige
+la estrategia (`aprove.Piloto.peldano5b` para B). Desde `acotada/`:
+
+```sh
+java -ea -Xmx6g -cp "C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar;estrategia" aprove.Main \
+  -m wst -p plain -t 5400 -s aprove.Piloto.peldano5 ../peldano5_completo.srs
+```
+
+La orden exacta de cada corrida es la primera línea de su `*.vigia.txt`.
+
+**Corridas descartadas** ([descartada/](acotada/descartada/)).
+- B se lanzó mientras A corría, y se detuvo a los 25 s para no repartir la
+  memoria.
+- Al cerrar, su vigía cortó también dos MiniSat de A, porque cortaba todo
+  solucionador nacido durante su corrida.
+- Se corrigió el [vigía](windows/vigia.py): ahora corta sólo los
+  solucionadores de su corrida. Después se repitieron A y B desde cero.
+
+## 6. El portafolio completo, por turnos (en curso)
+
+El portafolio de AProVE para SRS (`bigqsrs`) corre cuatro ramas a la vez: dos
+búsquedas de lazos (`SRSNonLoop`) y `workOnSRS` al derecho y al revés. En §1 y
+§3 las cuatro compartían el heap y la RAM. Aquí corren una tras otra, cada una
+con el equipo entero: se cambia tiempo por memoria.
+
+- Las estrategias de [turnos/estrategia/](turnos/estrategia/aprove/predefinedstrategies/Turnos/)
+  copian literalmente la sección SRS de `aprove.Auto.current` del jar (líneas
+  318-331 y 387-572). Sólo cambia `main`:
+  - `derecho`: `Solve(workOnSRS)`;
+  - `reves`: `Solve(QTRSReverse:workOnSRS)`;
+  - `lazos`: las dos búsquedas `SRSNonLoop` de `bigqsrs`.
+- [lanzar_turnos.sh](turnos/lanzar_turnos.sh) corre derecho (8100 s), revés
+  (8100 s) y lazos (1800 s) bajo el vigía, y se detiene ante un YES o un NO.
+- Este portafolio no puede dar MAYBE en el piloto: la búsqueda de lazos sin
+  reloj, el etiquetado de raíz recursivo (`srsrootlabloop`) y el último grupo
+  de matrices de `srsRedPair` no terminan solos. Sin prueba, cada turno acaba
+  KILLED.
+
+**Calibración.**
+- 6 núcleos físicos (afinidad 0,2,4,6,8,10 y `-XX:ActiveProcessorCount=6`) y
+  prioridad baja.
+- Heap de 5 GB en derecho y revés, para dejar unos 4 GB a los solucionadores;
+  8 GB en lazos, que corre dentro de Java.
+- Vigía: tope de 3 GB por solucionador, aviso a 1,8 GB y mínimos de 1,2 GB.
+- Validación ([cadena.txt](turnos/cadena.txt), `turnos/prueba_*`): derecho y
+  revés dan YES en los peldaños 3 y 4, y lazos da NO en `a -> a a`
+  ([bucle.srs](turnos/bucle.srs)).
+
+**Intentos descartados** ([turnos/descartada/](turnos/descartada/)).
+- Con `-Xmx7g`, a los 229 s: Java se quedó con los 7 GB, y el vigía cortó un
+  MiniSat de 1,72 GB por falta de RAM.
+- Con `-Xmx5g`, cortado entero a los 1859 s, sin veredicto:
+  - a los 877 s el vigía cortó un MiniSat de 3,23 GB, más que el tope;
+  - Java hizo 89 recolecciones completas y abortó 13 técnicas por
+    `OutOfMemoryError`, casi todas pares de reducción (`QDPReductionPair`) al
+    pasar sus fórmulas a DIMACS;
+  - al final el compromiso libre bajó a 1,10 GB con 2,07 GB de RAM libre, y la
+    regla 3 cortó todo. El archivo de paginación, gestionado por Windows,
+    tenía 4 GB.
+- Se corrigió el [vigía](windows/vigia.py): la regla 2 corta el solucionador
+  mayor también cuando baja el compromiso, y tras cada corte se vuelve a
+  medir. El revés, que llevaba 121 s, se detuvo, y la cadena se relanzó desde
+  derecho a las 19:40.
+
+**La maleta del Victus.** En 16 GB no caben a la vez el heap y los
+solucionadores de esta rama. [turnos/maleta/](turnos/maleta/) arma una carpeta
+portátil (361 MB, fuera del repo) para repetir la cadena en un portátil de
+24 GB (Ryzen 5 5600H).
+- Lleva el JDK, un Python mínimo con psutil, el jar parcheado, MiniSat, Z3, el
+  adaptador de Yices, el vigía y estas estrategias.
+- Su `lanzar.py` reparte la RAM libre al empezar: Java, el 55 % de lo libre
+  menos 2 GB; cada solucionador, hasta el 60 % del resto.
+- Valida con las cinco pruebas y corre la misma cadena. Los pasos están en su
+  [LEEME.txt](turnos/maleta/LEEME.txt).
+
+## 7. Las carpetas
 
 - [ronda1_sin_solvers/](ronda1_sin_solvers/): la primera ronda, sin los
   solucionadores en el `PATH` (`Cannot run program "yices"`). Los peldaños 1
@@ -169,6 +306,10 @@ prueban en máquinas grandes, pero el problema queda publicado.
   el 3 a 60 s sin solucionadores.
 - [vigilado/](vigilado/): con parche y vigía. Son las medidas que valen: el
   peldaño 4, y el 5 a 300 s y a 3600 s.
+- [acotada/](acotada/): las estrategias de §5, sus validaciones, sus corridas
+  y las descartadas.
+- [turnos/](turnos/): el portafolio por turnos de §6, con sus estrategias, el
+  lanzador, la validación, los intentos descartados y la maleta.
 
 **Cómo se lanzó en Windows.**
 - Desde Bash, con `MSYS2_ARG_CONV_EXCL='*'`, porque PowerShell 5.1 parte

@@ -305,8 +305,9 @@ afirmaciones no tienen alta en el registro versionado; esta nota no toca
 
 **Estado:** J1 y J2 cerrados el 16-10. J2 dio la salida (b). J3b empezó el
 mismo día con el [expediente de revisión humana](depuracion/judas20261016/EXPEDIENTE_REVISION.md).
-El 17-10, AProVE dejó el piloto sin respuesta en este equipo (§12). Falta
-correrlo en una máquina Linux con más memoria.
+El 17-10, AProVE no probó el piloto en este equipo: KILLED con su
+portafolio y MAYBE con dos estrategias acotadas (§12). Falta correrlo en una
+máquina Linux con más memoria.
 
 ## 9. J2, cerrado el 16-10: salida (b)
 
@@ -456,6 +457,12 @@ Detalle, evidencia y reproducción en
   heap. Según §11, confirma (b) con ese presupuesto. No hubo ningún NO.
 - La hora no avanzó sobre los 300 s: hacia el minuto 20 se agotó el heap
   (21 `OutOfMemoryError`). En este equipo, de 16 GB, el límite es la memoria.
+- Dos estrategias acotadas, con técnicas distintas, sí terminan: MAYBE a los
+  39 y a los 43 min (§5 del detalle). Las dos quitan lo fácil y se detienen
+  en el mismo núcleo de 2 o 3 pares, que es G misma.
+- El portafolio completo, rama por rama y con horas, sigue en curso (§6 del
+  detalle). Al derecho se quedó sin memoria a los 31 min; se repite aquí y
+  en un portátil de 24 GB.
 - En Windows hicieron falta un parche para Java 27 y un adaptador para
   Yices 1 (§2 del detalle).
 
@@ -480,9 +487,11 @@ en el §4 del detalle.
 - S. Akiyama, Ch. Frougny y J. Sakarovitch, «Powers of rationals modulo 1 and
   rational base number systems», Israel J. Math. 168 (2008) 53–91
   ([PDF](https://www.irif.fr/~cf/publications/IJM.pdf)). Leídos §1 y §6 en J2.
-- L. Flatto, «Z-numbers and β-transformations», Contemp. Math. 135 (1992).
+- L. Flatto, «Z-numbers and β-transformations», Contemp. Math. 135 (1992)
+  181–201, MR 1185087 ([AMS](https://pubs.ams.org/view?ProductCode=CONM/135)).
   Sin leer ni cotejar; citado por FLP, Dubickas–Mossinghoff y
-  Andrieu–Eliahou–Vivion.
+  Andrieu–Eliahou–Vivion. El 17-10 el PDF del capítulo pedía cuenta o
+  acceso institucional.
 - Fuentes nuevas de J2: ver [J2 §6](depuracion/judas20261016/J2_MECANISMOS.md#6-evidencia-fuentes-y-pendientes).
 - J. Browkin y J. Brzeziński, «Some remarks on the abc-conjecture», Math.
   Comp. 62 (1994) 931–939; enunciado consultado en
