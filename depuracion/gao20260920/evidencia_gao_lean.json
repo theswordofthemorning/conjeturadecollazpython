@@ -4,7 +4,7 @@
   "lake_build": {
     "codigo": 0,
     "final": [
-      "Build completed successfully (1615 jobs)."
+      "Build completed successfully (1616 jobs)."
     ]
   },
   "modulos": {
@@ -193,6 +193,25 @@
         "'WuEnunciado.conjetura_wu_dos' depends on axioms: [propext, Classical.choice, Quot.sound]",
         "'WuEnunciado.conjetura_wu_uno' depends on axioms: [propext, Classical.choice, Quot.sound]"
       ]
+    },
+    "AlturaT": {
+      "codigo": 0,
+      "consultas": 5,
+      "errores": [],
+      "axiomas_usados": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "solo_estandar": true,
+      "sha256": "f1b5f81d16050b417cb13d1c3e698be1a5a114dc854a0dc68e36e42c80b07ab5",
+      "axiomas": [
+        "'AlturaT.puente' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'AlturaT.conjetura_garner_T' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'AlturaT.conjetura_wu_dos_T' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'AlturaT.conjetura_wu_uno_T' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'AlturaT.wu_uno_T_iff_clasica' depends on axioms: [propext, Classical.choice, Quot.sound]"
+      ]
     }
   },
   "leanchecker": {
@@ -225,10 +244,11 @@
     "Alpacas": 0,
     "GarnerEnunciado": 0,
     "Condoras": 0,
-    "WuEnunciado": 0
+    "WuEnunciado": 0,
+    "AlturaT": 0
   },
   "sha256": {
-    "lakefile.lean": "4a9fa182a99a63f712f11263140b9d930bc07fac4bdce32d7c225f2e54d2c411",
+    "lakefile.lean": "af64827216d643d0969808cafb65d3d7b09497eb4d311d0d25b87364e16b76e9",
     "lake-manifest.json": "631ce523bb0ee3ed61cc78561da323fd6089ccf667b4333a6d47b5f175a1ee26",
     "lean-toolchain": "2bdc48adfa58d0017e538a0ad117c5d73d35deec879978f909406a80c8037273"
   }

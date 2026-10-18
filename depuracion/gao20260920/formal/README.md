@@ -59,6 +59,12 @@ una cadena auxiliar. `GaoFormal` contiene:
   de los que llegan a 1 (`wu_uno`).
 - [WuEnunciado.lean](WuEnunciado.lean): enunciado literal de Wu y `#guard`
   con su 176-upla y `d(2^10)=620/1023`.
+- [AlturaT.lean](AlturaT.lean): Garner mide la altura con el atajo
+  `T(n)=(3n+1)/2` o `n/2`, y Wu muy probablemente también. La altura T es
+  `σ∞` (`puente`), y con ella valen Garner (`conjetura_garner_T`), Wu 2
+  (`conjetura_wu_dos_T`) y la reducción de Wu 1 al mismo problema abierto
+  (`conjetura_wu_uno_T`, `wu_uno_T_iff_clasica`). Sus `#guard` cotejan el 12
+  de Garner (altura T 7) y la 176-upla de Wu (altura T 128).
 
 La magnitud es `tamano=|c|/3^k` y vale cero en el cementerio. El bit
 selecciona la paridad del ancla. `promedio` asigna probabilidad 1/2 a

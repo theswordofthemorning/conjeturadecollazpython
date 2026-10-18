@@ -1,6 +1,15 @@
 # Respuesta a Olivier Rozier — borrador sin enviar
 
-**Plan vigente:** [esperar a un avance considerable y un nuevo paper](PLAN_RESPUESTA.md).
+**ENVIADO el 17-10-2026 a las 22:22**, a pedido del usuario, que dejó atrás
+el plan B. Se envió en el mismo hilo, solo a olivier.rozier@gmail.com y sin
+Terracol. El texto inglés de abajo salió tal cual, con un párrafo más, que
+iba antes del enlace al código:
+
+> Separately, and only in case it is of interest: earlier I wrote Lean proofs of three older conjectures on consecutive integers of the same height. They cover Gao's conjecture (1993) that n and n+1 coalesce for a set of density one, Garner's conjecture (1985) on arbitrarily long runs, and Wu's conjecture (1992) that the longest run below M tends to infinity. Wu's other conjecture, lim d(M) = 1, I could only reduce to the open statement that almost all integers reach 1. Since Garner measures heights with the shortcut map T, I have now also checked in Lean that the results hold for both T and the classical map. These are formal proofs that nobody has reviewed yet. I would be glad to send the three short preprints if you would like to see them.
+
+El respaldo de ese párrafo es `depuracion/gao20260920/formal/AlturaT.lean`.
+
+**Plan anterior:** [esperar a un avance considerable y un nuevo paper](PLAN_RESPUESTA.md).
 Entonces se integrará su presentación con estas respuestas, de forma breve.
 Este texto queda como base comprobada; no se envía ahora.
 

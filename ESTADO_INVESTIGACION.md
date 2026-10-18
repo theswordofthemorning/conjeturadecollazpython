@@ -13,8 +13,9 @@ la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
   [Condoras](depuracion/gao20260920/formal/Condoras.lean): Wu 2;
   Wu 1 equivale, dado Gao, a convergencia en densidad natural 1 y sigue abierto.
   Garner mide la altura con T, y Wu probablemente también
-  ([nota](papers/revision20260927/cnki_wu_20261017.md)); el Lean usa la
-  clásica. Falta el impreso de Wu.
+  ([nota](papers/revision20260927/cnki_wu_20261017.md)).
+  [AlturaT](depuracion/gao20260920/formal/AlturaT.lean) da los mismos
+  resultados con T (altura T = σ∞). Falta el impreso de Wu.
 - **Ocelotas.** [83 rachas](depuracion/cst20260930/revision_rozier_20261016/REVISION.md)
   en Lean bajo LMN o Rhin y cobertura externa de Roosendaal hasta
   46645791847966786687 con tiempo clásico<=2480. Puente cobertura→CST
