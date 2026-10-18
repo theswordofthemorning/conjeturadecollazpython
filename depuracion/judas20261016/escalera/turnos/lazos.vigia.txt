@@ -1,0 +1,37 @@
+    0.0s  orden: C:/Program Files/Java/jdk-27/bin/java.exe -ea -Xmx8g -XX:ActiveProcessorCount=6 -Xlog:gc:file=lazos.gc.txt -cp C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar;C:/Users/Home/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/turnos/estrategia aprove.Main -m wst -p plain -t 1800 -s aprove.Turnos.lazos ../peldano5_completo.srs
+    0.0s  antes: RAM libre 7.0 GB, compromiso libre 6.4 GB
+    2.0s  RAM libre 6.4 GB, compromiso libre 5.8 GB | java 0.63 GB | hijos 0, 0.00 GB 
+   12.1s  RAM libre 5.3 GB, compromiso libre 4.2 GB | java 5.88 GB | hijos 0, 0.00 GB 
+   22.1s  RAM libre 4.4 GB, compromiso libre 3.3 GB | java 6.84 GB | hijos 0, 0.00 GB 
+   32.2s  RAM libre 3.9 GB, compromiso libre 2.7 GB | java 7.42 GB | hijos 0, 0.00 GB 
+   42.2s  RAM libre 3.8 GB, compromiso libre 2.7 GB | java 7.42 GB | hijos 0, 0.00 GB 
+   52.3s  RAM libre 3.7 GB, compromiso libre 2.7 GB | java 7.42 GB | hijos 0, 0.00 GB 
+   62.4s  RAM libre 3.3 GB, compromiso libre 2.3 GB | java 7.77 GB | hijos 0, 0.00 GB 
+   72.4s  RAM libre 3.1 GB, compromiso libre 2.1 GB | java 7.98 GB | hijos 0, 0.00 GB 
+   82.5s  RAM libre 3.0 GB, compromiso libre 2.0 GB | java 8.10 GB | hijos 0, 0.00 GB 
+   92.5s  RAM libre 2.9 GB, compromiso libre 1.9 GB | java 8.18 GB | hijos 0, 0.00 GB 
+  102.6s  RAM libre 2.8 GB, compromiso libre 1.9 GB | java 8.18 GB | hijos 0, 0.00 GB 
+  112.6s  RAM libre 2.7 GB, compromiso libre 1.9 GB | java 8.18 GB | hijos 0, 0.00 GB 
+  122.7s  RAM libre 2.7 GB, compromiso libre 1.8 GB | java 8.26 GB | hijos 0, 0.00 GB 
+  132.7s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.28 GB | hijos 0, 0.00 GB 
+  142.8s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.29 GB | hijos 0, 0.00 GB 
+  152.8s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.29 GB | hijos 0, 0.00 GB 
+  162.9s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.29 GB | hijos 0, 0.00 GB 
+  173.0s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.29 GB | hijos 0, 0.00 GB 
+  183.0s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.29 GB | hijos 0, 0.00 GB 
+  193.1s  RAM libre 2.6 GB, compromiso libre 1.7 GB | java 8.29 GB | hijos 0, 0.00 GB 
+  203.1s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.29 GB | hijos 0, 0.00 GB 
+  213.2s  RAM libre 2.6 GB, compromiso libre 1.8 GB | java 8.30 GB | hijos 0, 0.00 GB 
+  223.3s  RAM libre 2.5 GB, compromiso libre 1.7 GB | java 8.30 GB | hijos 0, 0.00 GB 
+  233.3s  RAM libre 2.5 GB, compromiso libre 1.8 GB | java 8.30 GB | hijos 0, 0.00 GB 
+  243.4s  RAM libre 2.5 GB, compromiso libre 1.8 GB | java 8.30 GB | hijos 0, 0.00 GB 
+  253.5s  RAM libre 2.8 GB, compromiso libre 1.8 GB | java 8.30 GB | hijos 0, 0.00 GB 
+  263.5s  RAM libre 2.9 GB, compromiso libre 1.8 GB | java 8.30 GB | hijos 0, 0.00 GB 
+  273.6s  RAM libre 2.9 GB, compromiso libre 1.8 GB | java 8.30 GB | hijos 0, 0.00 GB 
+  281.3s  FIN: código de salida 0, 281.3 s; terminó solo
+  281.3s  picos cada 2 s: java 8.30 GB, hijos 0.00 GB (hasta 0 a la vez), juntos 8.30 GB
+  281.3s  pico real de java (memoria privada): 8.30 GB
+  281.3s  mínimos del equipo: RAM libre 2.53 GB, compromiso libre 1.73 GB
+  281.3s  hijos cortados por memoria: 0; restos cortados al final: 0
+  281.4s  temporales: 0.0 MB, borrados
+  281.4s  después: RAM libre 11.1 GB, compromiso libre 10.1 GB

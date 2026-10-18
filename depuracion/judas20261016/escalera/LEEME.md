@@ -280,6 +280,19 @@ con el equipo entero: se cambia tiempo por memoria.
   medir. El revés, que llevaba 121 s, se detuvo, y la cadena se relanzó desde
   derecho a las 19:40.
 
+**Resultado en este equipo (17-10, noche).**
+- `lazos`: MAYBE a los 281 s ([lazos.salida.txt](turnos/lazos.salida.txt)). Es
+  válido: no corría nada más. Pero no es un «no hay lazo»: `SRSNonLoop` se
+  rindió con `OutOfMemoryError` al llenar los 8 GB de Java
+  ([lazos.errores.txt](turnos/lazos.errores.txt)). La afirmación de arriba se
+  corrige así: el portafolio sí acaba en MAYBE cuando sus técnicas abortan por
+  memoria.
+- `derecho` y `revés`: anulados. A las 21:28 el asistente desempacó GHC (para
+  compilar CeTA) mientras corrían; la RAM libre bajó a 0,79 GB, y el vigía
+  cortó derecho a los 6594 s y revés a los 24 s. Quedan en
+  `turnos/descartada/*_desempaque.*` y no cuentan como medida.
+- La comparación queda para la cadena del Victus.
+
 **La maleta del Victus.** En 16 GB no caben a la vez el heap y los
 solucionadores de esta rama. [turnos/maleta/](turnos/maleta/) arma una carpeta
 portátil (361 MB, fuera del repo) para repetir la cadena en un portátil de

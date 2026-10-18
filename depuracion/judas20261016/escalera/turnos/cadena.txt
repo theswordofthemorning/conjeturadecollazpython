@@ -7,3 +7,9 @@
 17-10 19:36:00 derecho: sin salida
 17-10 19:39:05 derecho: el vigía lo cortó entero a los 1859 s (compromiso libre 1,10 GB, bajo el mínimo de 1,2) con 2,07 GB de RAM libre; ver descartada/derecho_xmx5g_cortado.*
 17-10 19:39:05 revés: detenido a los 121 s para corregir el vigía (la regla 2 mira también el compromiso); ver descartada/reves_interrumpido.*
+17-10 21:29:13 derecho: sin salida
+17-10 21:29:40 reves: sin salida
+17-10 21:34:22 lazos: MAYBE
+17-10 21:34:22 derecho: en realidad el vigía lo cortó entero a los 6594 s (RAM libre 0,79 GB, compromiso libre 0,84 GB) porque el asistente desempacaba GHC al mismo tiempo; ver descartada/derecho_xmx5g_desempaque.*
+17-10 21:34:22 revés: en realidad cortado entero a los 24 s por la misma causa; ver descartada/reves_desempaque.*
+17-10 21:34:22 lazos: MAYBE válido (281 s; SRSNonLoop agotó los 8 GB de Java; nada más corría)

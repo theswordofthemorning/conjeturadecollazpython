@@ -1,0 +1,35 @@
+MAYBE
+
+Found an example we currently can't prove?
+-> Consider contributing it to the benchmark set: https://mysolvertimesout.org/
+
+proof of ../peldano5_completo.srs
+# AProVE Commit ID: ae097c6ac324e847363c39cc90a653413a1ff67c jckassing 20260708 published under Termination-Competition-2026
+
+
+Termination w.r.t. Q of the given QTRS could not be shown:
+
+(0) QTRS
+
+
+----------------------------------------
+
+(0)
+Obligation:
+Q restricted rewrite system:
+The TRS R consists of the following rules:
+
+   f(a0(x)) -> a0(f(x))
+   f(a1(x)) -> a0(t(x))
+   f(a2(x)) -> a1(f(x))
+   t(a0(x)) -> a1(t(x))
+   t(a1(x)) -> a2(f(x))
+   t(a2(x)) -> a2(t(x))
+   L(a0(x)) -> L(t(x))
+   L(a1(x)) -> L(f(f(x)))
+   L(a2(x)) -> L(f(t(x)))
+   f(R(x)) -> a0(R(x))
+   t(t(t(R(x)))) -> a2(a2(R(x)))
+   L(t(t(R(x)))) -> L(f(f(f(R(x)))))
+
+Q is empty.

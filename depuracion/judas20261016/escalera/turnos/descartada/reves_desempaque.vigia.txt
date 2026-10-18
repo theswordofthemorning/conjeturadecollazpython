@@ -1,0 +1,13 @@
+    0.0s  orden: C:/Program Files/Java/jdk-27/bin/java.exe -ea -Xmx5g -XX:ActiveProcessorCount=6 -Xlog:gc:file=reves.gc.txt -cp C:/Users/Home/herramientas/aprove/aprove_parche_stop.jar;C:/Users/Home/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/turnos/estrategia aprove.Main -m wst -p plain -t 8100 -s aprove.Turnos.reves ../peldano5_completo.srs
+    0.0s  antes: RAM libre 6.6 GB, compromiso libre 6.4 GB
+    2.0s  RAM libre 6.4 GB, compromiso libre 6.1 GB | java 0.31 GB | hijos 0, 0.00 GB 
+   12.1s  RAM libre 3.2 GB, compromiso libre 2.3 GB | java 3.98 GB | hijos 10, 0.08 GB conhost.exe x4 minisat.exe x3 python.exe x1 yices.exe x1 z3.exe x1
+   22.2s  RAM libre 2.2 GB, compromiso libre 1.3 GB | java 5.01 GB | hijos 10, 0.04 GB conhost.exe x5 minisat.exe x5
+   24.2s  CORTADO por memoria del equipo (RAM libre 1.99 GB, compromiso libre 1.18 GB)
+   26.6s  FIN: código de salida 15, 26.6 s; CORTADO por memoria del equipo (RAM libre 1.99 GB, compromiso libre 1.18 GB)
+   26.6s  picos cada 2 s: java 5.11 GB, hijos 0.11 GB (hasta 11 a la vez), juntos 5.22 GB
+   26.6s  pico real de java (memoria privada): 5.15 GB
+   26.6s  mínimos del equipo: RAM libre 1.99 GB, compromiso libre 1.18 GB
+   26.6s  hijos cortados por memoria: 0; restos cortados al final: 0
+   26.6s  temporales: 54.2 MB, borrados
+   26.6s  después: RAM libre 7.0 GB, compromiso libre 6.4 GB
