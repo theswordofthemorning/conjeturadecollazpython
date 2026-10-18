@@ -1,0 +1,21 @@
+%S 3,7,9,19,25,91,121,166,243,250,333,376,432,487,649,667,865,889,1153,2307,3643
+%N Numbers k > 1 whose trajectory under the Collatz map A014682 contains k+1.
+%C The map is T(x) = x/2 for even x and (3*x+1)/2 for odd x. These are the k > 1 such that T^j(k) = k+1 for some j >= 1, the "near-cycles" of Rozier and Terracol. For k = 1 every odd j works, since T(1) = 2.
+%C Rozier and Terracol show that every solution with k > 3 is a paradoxical sequence in their sense: 3^q < 2^j, where q is the number of odd terms among k, T(k), ..., T^(j-1)(k), so k is in A393502. By their computations there is no further term below 2.8*10^19, and their Conjecture 6.1 (no paradoxical sequence starts above 4614) would imply that the sequence is finite with these 21 terms.
+%C The corresponding numbers of steps j are 3, 8, 8, 8, 8, 46, 46, 27, 46, 27, 27, 27, 54, 73, 73, 46, 73, 46, 73, 73, 73. A solution of T^j(k) = k with k > 2 would be a nontrivial cycle.
+%H Olivier Rozier and Claude Terracol, <a href="https://arxiv.org/abs/2502.00948">Paradoxical behavior in Collatz sequences</a>, arXiv:2502.00948 [math.GM], 2025 (Appendix B).
+%e a(1) = 3: 3 -> 5 -> 8 -> 4.
+%e a(2) = 7: 7 -> 11 -> 17 -> 26 -> 13 -> 20 -> 10 -> 5 -> 8 reaches 8 after j = 8 steps, with q = 5 odd terms and 3^5 = 243 < 2^8 = 256.
+%o (Python)
+%o def T(x): return x//2 if x % 2 == 0 else (3*x+1)//2
+%o def ok(k):
+%o     x = k
+%o     while x != 1:
+%o         x = T(x)
+%o         if x == k+1: return True
+%o     return False
+%o print([k for k in range(2, 5000) if ok(k)])
+%Y Cf. A014682, A126241, A393502.
+%K nonn,more
+%O 1,1
+%A _Omar Said_, Oct 11 2026

@@ -1,0 +1,5 @@
+ficha_1_encuentro.txt | programa = datos en 101 términos: True | offset: True | 260 caracteres
+ficha_2_casiciclos.txt | programa = datos en 21 términos: True | offset: True | 77 caracteres
+ficha_3_racha_wu.txt | programa = datos en 16 términos: True | offset: True | 85 caracteres
+ejemplos ficha 1: True, ficha 2: True, ficha 3: True; pares de Garner: True
+OK

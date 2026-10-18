@@ -1,0 +1,15 @@
+A078417 recalculada: 477245 términos <= 1000000; coincide con la b-file oficial (10000): True
+Ficha 1, primeros 60: 3,9,5,3,7,3,10,5,3,6,3,8,9,5,3,7,3,13,12,5,3,6,3,9,5,3,7,3,11,5,10,3,6,3,8,5,3,7,3,14,5,13,3,6,3,9,11,5,3,7,3,10,5,3,6,3,8,9,5,3
+Ficha 1 coincide con la b-file preparada en zootheorem (10000): True
+Mínimo 3; a = 3 sii m = 4 (mod 8): True
+a(n) <= A006577(m) en todos: True
+Valores ausentes entre 3 y 39: [4]
+Gao (k <= log2 m) = {A078417 con a <= log2 m} hasta 1000000: True (364139 elementos)
+Ejemplos: m=12 a=3; m=14 a=9
+Ficha 2 (n <= 1000000): 3,7,9,19,25,91,121,166,243,250,333,376,432,487,649,667,865,889,1153,2307,3643
+Pasos j: 3,8,8,8,8,46,46,27,46,27,27,27,54,73,73,46,73,46,73,73,73
+Coincide con los 21 pares (j, n) de Rozier-Terracol, apéndice B: True
+Todas con n > 3 son paradójicas (3^q < 2^j): True
+Ficha 3 directa n=1..22: 1,1,1,2,3,3,5,5,6,7,9,14,17,17,17,25,25,27,29,40,40,52
+Ficha 3 desde b078441 n=1..31: 1,1,1,2,3,3,5,5,6,7,9,14,17,17,17,25,25,27,29,40,40,52,65,77,96,96,98,120,152,176,235
+Directa = b-file en 1..22: True; tabla del artículo III (N<=26) = b-file: True; L(2^30) = 176 (Wu: 176)
