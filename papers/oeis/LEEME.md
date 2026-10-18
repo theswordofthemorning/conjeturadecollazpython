@@ -1,5 +1,11 @@
 # Borradores OEIS: Gao, Wu y Garner
 
+**11-10-2026:** tres fichas nuevas en *proposed*: A400983 (encuentros de
+A078417), A400984 (casi ciclos de Rozier–Terracol) y A400985 (racha más
+larga de Wu). Cupos: 3 de 3 ocupados. Las correcciones de A398792 y
+A398793 siguen sin enviar. Acta y verificación:
+[depuracion/oeis20261011/LEEME.md](../../depuracion/oeis20261011/LEEME.md).
+
 **10-10-2026:** [A400487](https://oeis.org/A400487) está aprobada desde el
 07-10 (revisión #9, palabra clave `new`). El estado de los tres cupos y las
 acciones pendientes están en [PENDIENTE_20261010.md](PENDIENTE_20261010.md).
