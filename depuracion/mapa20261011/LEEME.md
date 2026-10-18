@@ -61,9 +61,9 @@ una afirmación sin ubicación, la regeneración falla antes de reemplazar SQLit
 La plantilla vigente es [plantilla_flujo.html](plantilla_flujo.html) (12-10):
 vuelve al diagrama de flujo de la primera versión, con flechas que se encienden
 al pasar el ratón, sobre los datos del arca. Las librerías de dibujo están en
-`vendor/` y el generador las incrusta en cada HTML. Se conservan la primera
-plantilla, [plantilla.html](plantilla.html), y la de bloques de texto,
-[plantilla_arca.html](plantilla_arca.html). No se editaron notas históricas,
+`vendor/` y el generador las incrusta en cada HTML. Las plantillas anteriores, la primera
+(`plantilla.html`) y la de bloques de texto
+(`plantilla_arca.html`), quedan en el historial de Git. No se editaron notas históricas,
 implementaciones Lean, conversaciones ni fichas OEIS. Los HTML, el generador
 y la base anteriores se respaldaron antes de sustituirlos; la auditoría
 registra las huellas de las tablas conservadas.

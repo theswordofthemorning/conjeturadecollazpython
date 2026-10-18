@@ -1,2 +1,0 @@
-'pasoR' depends on axioms: [propext, Quot.sound]
-'identidadR' depends on axioms: [propext, Quot.sound]

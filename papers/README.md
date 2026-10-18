@@ -6,7 +6,7 @@ Mathematics*.** Detalle en [zenodo/LEEME.md](zenodo/LEEME.md).
 28-09-2026. **AFM rechazó los tres sin dar motivos**, con tres correos a
 las 17:39 (hora de Chile). Hasta el 04-10 estas notas decían que sólo había
 rechazado el I y que el II y el III esperaban
-([correos](CORREOS_20261004.md)).
+(los correos están fuera del repo).
 
 29-09-2026. **El I, en versión 2, se envió a Qeios como preprint** (envío
 5962): [qeios/LEEME.md](qeios/LEEME.md).

@@ -90,9 +90,9 @@ por valorar. Borrador sin enviar; commit y push de esta revisión autorizados.
 Scholar e impreso de Wu. **No anunciar, enviar a OEIS ni contactar sin autorización.**
 
 [Artículos](papers/README.md): II y III libres tras
-[AFM](papers/CORREOS_20261004.md); I en [JAR](papers/jar/LEEME.md), sin noticias
+AFM; I en [JAR](papers/jar/LEEME.md), sin noticias
 al 04-10; IV sin enviar. [Qeios](papers/qeios/LEEME.md) retirado;
-[Palomar](papers/palomar/LEEME.md) verifica Gao; [Zulip](papers/qeios/ZULIP_borrador.md) borrado.
+[Palomar](papers/palomar/LEEME.md) verifica Gao; Zulip borrado.
 OEIS A078441, A400486 y A400487 aprobadas: no validan pruebas.
 [Próxima sesión OEIS](papers/oeis/PENDIENTE_20261010.md): dos correcciones y
 una sucesión, sin enviar y sujetas al panel.
