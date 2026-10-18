@@ -314,9 +314,9 @@ python -B -X utf8 depuracion/cst20260930/cotejar_censo.py --N 1200000000000 --de
 ```
 
 El módulo principal `OcelotasCuarentaYSiete.lean` (hipótesis
-`CensoPropio12e11`, `fallo_exige_cuarenta_y_ocho`) se copió del de 46 y queda
-en local, sin auditar y fuera del commit, igual que el certificado y la
-tabla generada. Después: auditor persistente en un almacén nuevo, instancia
+`CensoPropio12e11`, `fallo_exige_cuarenta_y_ocho`) se copió del de 46 y está
+en el repo (17-10) sin auditar, igual que el certificado y la tabla generada:
+nada de 47 vale como resultado hasta el censo y la auditoría. Después: auditor persistente en un almacén nuevo, instancia
 de ciclos y registro. Con Rozier–Terracol la misma vía ya da 81.
 
 Umbrales medidos el 12-10 con `pesos_rachas.py` (H=51), que corrigen la
