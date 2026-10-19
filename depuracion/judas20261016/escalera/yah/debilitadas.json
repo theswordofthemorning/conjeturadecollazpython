@@ -1,0 +1,150 @@
+{
+ "fecha": "2026-10-19",
+ "parametros": {
+  "bits": 12,
+  "semilla": 20261019,
+  "tope": 200000
+ },
+ "sistemas": {
+  "G_A2": {
+   "reglas": 13,
+   "dinamicas": [
+    "t f R -> a1 t R",
+    "t t t R -> a2 a2 R",
+    "L f R -> L t R",
+    "L t t R -> L f f f R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 8,
+    "z": 3514
+   }
+  },
+  "G_A3": {
+   "reglas": 15,
+   "dinamicas": [
+    "t f R -> a1 t R",
+    "t f f R -> a1 t f R",
+    "t t t R -> a2 a2 R",
+    "L f R -> L t R",
+    "L f f R -> L t f R",
+    "L t t R -> L f f f R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 9,
+    "z": 554
+   }
+  },
+  "G_A4": {
+   "reglas": 17,
+   "dinamicas": [
+    "t f R -> a1 t R",
+    "t f f R -> a1 t f R",
+    "t f f f R -> a1 t f f R",
+    "t t t R -> a2 a2 R",
+    "L f R -> L t R",
+    "L f f R -> L t f R",
+    "L f f f R -> L t f f R",
+    "L t t R -> L f f f R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 19,
+    "z": 1148
+   }
+  },
+  "G_A5": {
+   "reglas": 19,
+   "dinamicas": [
+    "t f R -> a1 t R",
+    "t f f R -> a1 t f R",
+    "t f f f R -> a1 t f f R",
+    "t f f f f R -> a1 t f f f R",
+    "t t t R -> a2 a2 R",
+    "L f R -> L t R",
+    "L f f R -> L t f R",
+    "L f f f R -> L t f f R",
+    "L f f f f R -> L t f f f R",
+    "L t t R -> L f f f R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 19,
+    "z": 1148
+   }
+  },
+  "G_B4": {
+   "reglas": 12,
+   "dinamicas": [
+    "f R -> a0 R",
+    "f t t t R -> a1 a1 f R",
+    "L t t R -> L f f f R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 14,
+    "z": 1148
+   }
+  },
+  "G_B5": {
+   "reglas": 14,
+   "dinamicas": [
+    "f R -> a0 R",
+    "f t t t R -> a1 a1 f R",
+    "f t t t t R -> a1 a1 f t R",
+    "L t t R -> L f f f R",
+    "L t t t R -> L f f f t R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 14,
+    "z": 1148
+   }
+  },
+  "G_B6": {
+   "reglas": 16,
+   "dinamicas": [
+    "f R -> a0 R",
+    "f t t t R -> a1 a1 f R",
+    "f t t t t R -> a1 a1 f t R",
+    "f t t t t t R -> a1 a1 f t t R",
+    "L t t R -> L f f f R",
+    "L t t t R -> L f f f t R",
+    "L t t t t R -> L f f f t t R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 14,
+    "z": 1148
+   }
+  },
+  "G_B7": {
+   "reglas": 18,
+   "dinamicas": [
+    "f R -> a0 R",
+    "f t t t R -> a1 a1 f R",
+    "f t t t t R -> a1 a1 f t R",
+    "f t t t t t R -> a1 a1 f t t R",
+    "f t t t t t t R -> a1 a1 f t t t R",
+    "L t t R -> L f f f R",
+    "L t t t R -> L f f f t R",
+    "L t t t t R -> L f f f t t R",
+    "L t t t t t R -> L f f f t t t R"
+   ],
+   "fallos": [],
+   "numero_fallos": 0,
+   "orbita_mas_larga": {
+    "pasos": 19,
+    "z": 1148
+   }
+  }
+ }
+}

@@ -1,0 +1,104 @@
+TANDA DE YAH EN EL VICTUS CON LINUX
+===================================
+
+Qué es
+------
+El probador de Yolcu, Aaronson y Heule (YAH, el de "An automated approach to
+the Collatz conjecture", JAR 2023) sobre la misma escalera que AProVE
+(../LEEME.md): peldaños 1 a 4 de calibración y el 5, el piloto.
+
+YAH sólo hace una cosa: busca interpretaciones matriciales (naturales,
+árticas o tropicales) que quiten reglas, codificadas como SAT y resueltas
+con CaDiCaL. Cada corrida es una "forma" fija (interpretación, dimensión
+-d y ancho -rw). Por eso gasta poca memoria (unos 100 MB en las pruebas del
+artículo, frente a los 12-13 GB que llenaba AProVE).
+
+Herramientas (fuera del repo), en /home/oem/herramientas/yah/rewriting-collatz:
+  commit 8a4dfda del repo de YAH, con un parche de una línea en
+  prover/sat.py (random.randint(0, 1e9) -> 10**9; Python 3.12 rechaza el
+  float y sin él todas las corridas fallan al instante);
+  .venv con NumPy 2.5.4; CaDiCaL 3.0.1 y Kissat 4.0.4 compilados en tools/.
+Comprobado el 19-10-2026: reproduce con QED las 24 pruebas de proofs.sh del
+artículo (la más lenta, 26 s) y da UNSAT en un control negativo.
+
+Archivos
+--------
+  convertir.py   pasa ../peldanoN_*.srs (formato TPDB) a sistemas/ (formato
+                 de YAH con --spaced) y comprueba la ida y vuelta con el
+                 lector del propio YAH: reglas idénticas en los cinco.
+  lanzar.py      la tanda (ver su docstring).
+  lanzar.sh      lo lanza sin que el equipo se suspenda; --fondo lo deja en
+                 segundo plano.
+  parar.sh       la para.
+  resultados/    un registro y, si hubo avance, el sistema que queda por
+                 corrida; resumen.json y consola.txt.
+
+La cascada
+----------
+Para cada peldaño, prueba en orden 36 formas: 18 (8 naturales, 7 árticas
+y 3 tropicales, de la más barata a la más cara) en las dos orientaciones
+(tal cual y con las cadenas invertidas, que conserva la terminación). Cada
+forma corre con -any: quita al menos una regla estricta por vuelta y repite
+hasta QED o UNSAT. Si quita algo, lo que queda es el nuevo sistema y se
+vuelve a empezar por la forma más barata.
+  UNSAT     no hay prueba de esa forma sobre ese sistema: no se repite.
+  tope      se reintenta en la pasada siguiente con más tiempo.
+Pasadas del peldaño 5: 120 s, 900 s y 3600 s por forma. Calibración: una
+pasada de 60 s.
+Si se acaban las pasadas sin QED, el peldaño queda "sin prueba". Eso no es
+un contraejemplo: sólo dice que ninguna de estas formas basta.
+Cada quitada la comprueba YAH con NumPy, aparte del SAT. Un QED del
+peldaño 5 hay que cotejarlo después (otra herramienta o certificado): la
+tanda busca, no certifica.
+
+Recursos: una corrida a la vez, 6 solucionadores (núcleos físicos), nice 10,
+cada proceso con un tope de 6 GB de memoria virtual, y espera a tener 3 GB
+libres antes de cada corrida (hasta 30 min; si no, para).
+Duración del peldaño 5: si todas las formas agotaran el tope, unas 46 h
+(36 × (120 + 900 + 3600) s). Las formas pequeñas suelen dar UNSAT en
+segundos, así que será bastante menos. Se puede parar cuando se quiera:
+lo hecho queda en resultados/.
+
+Calibración del 19-10-2026, 60 s por forma: los cuatro peldaños dan QED en
+segundos. El 1 con natural d1, el 2 con natural d2 rw3, el 3 con natural
+d2 rw4 invertido, y el 4 en dos etapas (natural d2 rw3 quita
+L t t R -> L f f f R; natural d3 rw4 invertido, el resto).
+
+Cómo lanzarlo
+-------------
+  bash ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/lanzar.sh --fondo
+Verla:
+  tail -f ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/resultados/consola.txt
+Pararla:
+  bash ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/parar.sh
+Otras formas: --sin-calibracion (sólo el 5), --solo-calibracion, --ensayo
+(sólo el peldaño 1, 30 s por forma). Con TANDA_RESULTADOS=carpeta los
+resultados van a otro sitio.
+
+Lo que cabe esperar
+-------------------
+El peldaño 5 contiene la regla de mahler (b0 $ -> t0 $) y la de
+collatz-T-5or7mod8 (b1 b1 b1 $ -> t2 t2 $) de YAH, y su núcleo es un caso
+particular de su conjetura abierta 4.12. Ni YAH en su artículo ni ninguna
+herramienta de termCOMP 2025-2026 resolvió esos sistemas. Un "sin prueba"
+es lo más probable; la tanda sirve para saber hasta dónde llega la cascada
+(qué reglas caen y qué núcleo queda) con un probador que no se ahoga en
+memoria.
+
+Escalera de G debilitadas (19-10-2026)
+--------------------------------------
+Entre el peldaño 4 y el 5. G es G(2m)=3m, G(8m+7)=9m+8, parar en el resto.
+Cada versión para además en una clase fina que se estrecha al crecer k
+(en el límite se recupera G):
+  G_Ak  rama A sólo si z != 0 mod 2^k        (k = 2, 3, 4, 5)
+  G_Bk  rama B sólo si z != -1 mod 2^k       (k = 4, 5, 6, 7)
+debilitar.py las escribe en sistemas/ (reglas X más una regla por sufijo y
+las de L para los z pequeños), las comprueba por simulación en todo
+z < 2^12 con dos estrategias, las relee con el lector de YAH y deja
+debilitadas.json. Todas sus órbitas de prueba paran (la más larga, 19 pasos),
+pero que paren siempre no está probado: para eso es la tanda.
+  bash lanzar.sh --fondo --debilitadas
+Va de la más débil a la más cercana a G, con pasadas de 120 s y 900 s, y
+deja todo en resultados_debilitadas/. Correrla cuando acabe la del peldaño 5
+(parar.sh no distingue dos tandas a la vez).
+Qué se busca: el k donde la cascada deja de dar QED, y qué reglas resisten.

@@ -1,0 +1,17 @@
+f a0 -> a0 f
+f a1 -> a0 t
+f a2 -> a1 f
+t a0 -> a1 t
+t a1 -> a2 f
+t a2 -> a2 t
+L a0 -> L t
+L a1 -> L f f
+L a2 -> L f t
+t f R -> a1 t R
+t f f R -> a1 t f R
+t f f f R -> a1 t f f R
+t t t R -> a2 a2 R
+L f R -> L t R
+L f f R -> L t f R
+L f f f R -> L t f f R
+L t t R -> L f f f R
