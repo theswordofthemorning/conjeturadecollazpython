@@ -2296,7 +2296,16 @@
         "perdices_transporte_impar_un_cambio",
         "perdices_presupuesto_aba_dos_cambios",
         "perdices_dos_cambios_siete_diecisiete",
-        "perdices_tres_cambios_un_trece"
+        "perdices_tres_cambios_un_trece",
+        "perdices_congruencias_compartidas_banda_optima",
+        "perdices_minimos_vecinos_incompatibles",
+        "perdices_barrera_tres_ventanas",
+        "perdices_reloj_equivale_presupuesto",
+        "perdices_pendiente_uno_imposible",
+        "perdices_reloj_por_rachas_y_reservas",
+        "perdices_defecto_interior_prefijo_arbitrario",
+        "perdices_defecto_contexto_bilateral",
+        "perdices_compensacion_relativa_insuficiente"
       ],
       "titulo": "Perdices · repeticiones y complejidad",
       "rama": "perdices",
@@ -2309,7 +2318,16 @@
         "depuracion/perdices20261007/TRANSPORTE_IMPAR.md",
         "depuracion/perdices20261007/DOS_CAMBIOS.md",
         "depuracion/perdices20261007/ALTURA_BAB.md",
-        "depuracion/perdices20261007/TRES_CAMBIOS.md"
+        "depuracion/perdices20261007/TRES_CAMBIOS.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/CONGRUENCIAS.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/CONJUNTAS.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/BARRERA.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/RELOJ_TERMINAL.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/PENDIENTE_UNO.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/RELOJ_RACHAS.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/DEFECTO_INTERIOR.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/CONTEXTO_INTERIOR.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/COMPENSACION_RELATIVA.md"
       ],
       "situacion": "vigente",
       "padre": "perdices"

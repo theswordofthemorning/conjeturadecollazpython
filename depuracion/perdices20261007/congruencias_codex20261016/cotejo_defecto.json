@@ -1,0 +1,881 @@
+{
+  "parametros": {
+    "prefijos_max": 4,
+    "miembros": 3
+  },
+  "prefijos": 16,
+  "familias": [
+    {
+      "prefijo": "B",
+      "pasos": 3,
+      "impares": 2,
+      "periodo": 6,
+      "residuo_k": 3,
+      "miembros": [
+        {
+          "k": 9,
+          "ell": 11,
+          "exceso": 4,
+          "defecto": [
+            37,
+            17
+          ],
+          "defecto_relativo": [
+            37,
+            190
+          ],
+          "semilla_hex_sha256": "2ccf83d69c8fddeb2e3a7df89940779fc8b918d40a06886ad3cc286c394d8899",
+          "semilla_decimal": "1819"
+        },
+        {
+          "k": 15,
+          "ell": 17,
+          "exceso": 4,
+          "defecto": [
+            37,
+            17
+          ],
+          "defecto_relativo": [
+            37,
+            292
+          ],
+          "semilla_hex_sha256": "63a6dd3315e66625053b1327e0ceb5399481b57f38d3925519f0cfc88a0e49f4",
+          "semilla_decimal": "116507"
+        },
+        {
+          "k": 21,
+          "ell": 23,
+          "exceso": 4,
+          "defecto": [
+            37,
+            17
+          ],
+          "defecto_relativo": [
+            37,
+            394
+          ],
+          "semilla_hex_sha256": "d03a305de5b24434dcc99b3ec4e9bcd1ee30b40e57f7b7f17f4bc03298ce4229",
+          "semilla_decimal": "7456539"
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "pasos": 4,
+      "impares": 3,
+      "periodo": 18,
+      "residuo_k": 15,
+      "miembros": [
+        {
+          "k": 15,
+          "ell": 17,
+          "exceso": 5,
+          "defecto": [
+            47,
+            17
+          ],
+          "defecto_relativo": [
+            47,
+            302
+          ],
+          "semilla_hex_sha256": "a0c0483f2cd02b3d91ff4dac34827e28c378c800b042d4b02471d34d57ec9baa",
+          "semilla_decimal": "77671"
+        },
+        {
+          "k": 33,
+          "ell": 35,
+          "exceso": 5,
+          "defecto": [
+            47,
+            17
+          ],
+          "defecto_relativo": [
+            47,
+            608
+          ],
+          "semilla_hex_sha256": "e8322b7fa53fc1b77b84f001e7a6fc2e0cade71f31b7325bf385db83ec3bae0e",
+          "semilla_decimal": "20361326439"
+        },
+        {
+          "k": 51,
+          "ell": 53,
+          "exceso": 5,
+          "defecto": [
+            47,
+            17
+          ],
+          "defecto_relativo": [
+            47,
+            914
+          ],
+          "semilla_hex_sha256": "827e56a7407c38379f3345bb531db3b33bcce12b089f6ce80cd2ac7f47975408",
+          "semilla_decimal": "5337599558365031"
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "pasos": 6,
+      "impares": 4,
+      "periodo": 54,
+      "residuo_k": 27,
+      "miembros": [
+        {
+          "k": 27,
+          "ell": 29,
+          "exceso": 7,
+          "defecto": [
+            40,
+            17
+          ],
+          "defecto_relativo": [
+            40,
+            499
+          ],
+          "semilla_hex_sha256": "5e7f3bfbdfeaa11bf50c182f911ef19c17a437c6b3eaa85f60457bd37a3410f4",
+          "semilla_decimal": "424194299"
+        },
+        {
+          "k": 81,
+          "ell": 83,
+          "exceso": 7,
+          "defecto": [
+            40,
+            17
+          ],
+          "defecto_relativo": [
+            40,
+            1417
+          ],
+          "semilla_hex_sha256": "b4aab83f1417127b33128a1ca1a3de160e84d872bb179a616830cc68ba3568e2",
+          "semilla_decimal": "7641605180773952314192123"
+        },
+        {
+          "k": 135,
+          "ell": 137,
+          "exceso": 7,
+          "defecto": [
+            40,
+            17
+          ],
+          "defecto_relativo": [
+            8,
+            467
+          ],
+          "semilla_hex_sha256": "9645aa3bb861d8b44dbe757321be8e86b19731f2d7d57075024f452dc57ca5b8",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AAB",
+      "pasos": 5,
+      "impares": 4,
+      "periodo": 54,
+      "residuo_k": 51,
+      "miembros": [
+        {
+          "k": 51,
+          "ell": 52,
+          "exceso": 7,
+          "defecto": [
+            40,
+            17
+          ],
+          "defecto_relativo": [
+            40,
+            907
+          ],
+          "semilla_hex_sha256": "04e8c2800b189c343c90a11d31e52cd14fea8517fe51c3060f633f38ea0fd935",
+          "semilla_decimal": "3558399705576687"
+        },
+        {
+          "k": 105,
+          "ell": 106,
+          "exceso": 7,
+          "defecto": [
+            40,
+            17
+          ],
+          "defecto_relativo": [
+            8,
+            365
+          ],
+          "semilla_hex_sha256": "a57781e90265c47fce106333d62a9db45157f7bfc7733049273a5d8363c82e02",
+          "semilla_decimal": "64102430352281822574450571965679"
+        },
+        {
+          "k": 159,
+          "ell": 160,
+          "exceso": 7,
+          "defecto": [
+            40,
+            17
+          ],
+          "defecto_relativo": [
+            40,
+            2743
+          ],
+          "semilla_hex_sha256": "9b4074c4a38fdfb2d128a12a16754987fb698bad2341d3a2fcb46aca8b5a3471",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "ABB",
+      "pasos": 7,
+      "impares": 5,
+      "periodo": 162,
+      "residuo_k": 27,
+      "miembros": [
+        {
+          "k": 27,
+          "ell": 29,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            509
+          ],
+          "semilla_hex_sha256": "ff93b5266c055fa05f1efc479222984645616a188e71b7d0129f191b32be8d0d",
+          "semilla_decimal": "282796199"
+        },
+        {
+          "k": 189,
+          "ell": 191,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            3263
+          ],
+          "semilla_hex_sha256": "d20be8327c75a72e5e733dd782097485cc7713afe7dd2f547dd6229e1d104c94",
+          "semilla_decimal": null
+        },
+        {
+          "k": 351,
+          "ell": 353,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            6017
+          ],
+          "semilla_hex_sha256": "6ae63b8449962c696423657bc61fad0416aac22e7750d94b922be07623b8aece",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BAB",
+      "pasos": 7,
+      "impares": 5,
+      "periodo": 162,
+      "residuo_k": 123,
+      "miembros": [
+        {
+          "k": 123,
+          "ell": 125,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            2141
+          ],
+          "semilla_hex_sha256": "8e2f16ee6e6cff9bf5514fb12894d62e75940e9ffe6c611934e91323b2c2e961",
+          "semilla_decimal": "22405423336358088129275694316495026267"
+        },
+        {
+          "k": 285,
+          "ell": 287,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            10,
+            979
+          ],
+          "semilla_hex_sha256": "1ab20f84c1aea0841e3e87849c36ea4dc3e3c78147331af2c7a5e92132f09f82",
+          "semilla_decimal": null
+        },
+        {
+          "k": 447,
+          "ell": 449,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            7649
+          ],
+          "semilla_hex_sha256": "dae55031f8d3a3a0376c36b50c196f1edc9baf986e120f709338fafd8a7b0884",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BBB",
+      "pasos": 9,
+      "impares": 6,
+      "periodo": 486,
+      "residuo_k": 243,
+      "miembros": [
+        {
+          "k": 243,
+          "ell": 245,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            4174
+          ],
+          "semilla_hex_sha256": "ed6dbfca5a4b0611246c42abe06efd9f6634d81cc1678bae2b51810a3734d70b",
+          "semilla_decimal": null
+        },
+        {
+          "k": 729,
+          "ell": 731,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            12436
+          ],
+          "semilla_hex_sha256": "c2173d8f8b02513ba527250c9a324216e635f846cb7aff643250266ca8fc7446",
+          "semilla_decimal": null
+        },
+        {
+          "k": 1215,
+          "ell": 1217,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            20698
+          ],
+          "semilla_hex_sha256": "7614a0817524640a28070a9034d87ccd93fc3b4b6c8f5544245e48925a98d671",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AAAB",
+      "pasos": 6,
+      "impares": 5,
+      "periodo": 162,
+      "residuo_k": 159,
+      "miembros": [
+        {
+          "k": 159,
+          "ell": 160,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            2753
+          ],
+          "semilla_hex_sha256": "d4c1524c595fd7f23bbb2253e0601706f73160f14b08c77fd74f9295d85dc57b",
+          "semilla_decimal": null
+        },
+        {
+          "k": 321,
+          "ell": 322,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            5507
+          ],
+          "semilla_hex_sha256": "690b2243d434e458b9484d35f661729f87c265c8991e94ea3e55b7ce090d6172",
+          "semilla_decimal": null
+        },
+        {
+          "k": 483,
+          "ell": 484,
+          "exceso": 8,
+          "defecto": [
+            50,
+            17
+          ],
+          "defecto_relativo": [
+            50,
+            8261
+          ],
+          "semilla_hex_sha256": "3423c4e7f98734a5ddcfb06851a1a8f7dff302391e770f6494f75d5cd44bebc1",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AABB",
+      "pasos": 8,
+      "impares": 6,
+      "periodo": 486,
+      "residuo_k": 27,
+      "miembros": [
+        {
+          "k": 27,
+          "ell": 28,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            502
+          ],
+          "semilla_hex_sha256": "30ae9df38d9875c7c2120696aae8c2c1ad34ac02daedf6c7a5f4ff6b3a413899",
+          "semilla_decimal": "188530799"
+        },
+        {
+          "k": 513,
+          "ell": 514,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            8764
+          ],
+          "semilla_hex_sha256": "8acdee8395db67fed3d353bb4c9a6a7a135614444905bbc16bf96940cda34b8e",
+          "semilla_decimal": null
+        },
+        {
+          "k": 999,
+          "ell": 1000,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            17026
+          ],
+          "semilla_hex_sha256": "dc2bab1241624f24f2f2b2a464cfea0fa98cfdb4546bc0692939b7616f21b9ce",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "ABAB",
+      "pasos": 8,
+      "impares": 6,
+      "periodo": 486,
+      "residuo_k": 447,
+      "miembros": [
+        {
+          "k": 447,
+          "ell": 448,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            7642
+          ],
+          "semilla_hex_sha256": "c4bb9927f8fcd0e0cb5fec2c3d15dbb4de905dc303b5cc61054b5f51537eb774",
+          "semilla_decimal": null
+        },
+        {
+          "k": 933,
+          "ell": 934,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            15904
+          ],
+          "semilla_hex_sha256": "3c933fb252f79db2b8611370d98908b9bfc21fd42a96d9176c0fa115d3679bad",
+          "semilla_decimal": null
+        },
+        {
+          "k": 1419,
+          "ell": 1420,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            1,
+            562
+          ],
+          "semilla_hex_sha256": "530451155def7d841904f48076da71ec51aacb152292aafafcedf1818aa8b3b0",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "ABBB",
+      "pasos": 10,
+      "impares": 7,
+      "periodo": 1458,
+      "residuo_k": 1215,
+      "miembros": [
+        {
+          "k": 1215,
+          "ell": 1216,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            4,
+            2299
+          ],
+          "semilla_hex_sha256": "5a2ec127a1edd92a41b9e0a714eb00a3cf53f85a6647b6c539147efd1e9fd953",
+          "semilla_decimal": null
+        },
+        {
+          "k": 2673,
+          "ell": 2674,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            4,
+            5053
+          ],
+          "semilla_hex_sha256": "42591d5636d784a3a5a9bbe0733120f144d66dc3a219072dd1971074ef8ad0b4",
+          "semilla_decimal": null
+        },
+        {
+          "k": 4131,
+          "ell": 4132,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            4,
+            7807
+          ],
+          "semilla_hex_sha256": "f1ac4a0a3bee9e90f2782358c3c09cade23147b0487930e14cf4c04b7d7c30a9",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BAAB",
+      "pasos": 8,
+      "impares": 6,
+      "periodo": 486,
+      "residuo_k": 429,
+      "miembros": [
+        {
+          "k": 429,
+          "ell": 430,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            7336
+          ],
+          "semilla_hex_sha256": "e9cebbb3b03a6f511792d28cec1ba7a34f9c773b154e6eddc98c680765c8835a",
+          "semilla_decimal": null
+        },
+        {
+          "k": 915,
+          "ell": 916,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            15598
+          ],
+          "semilla_hex_sha256": "4f3ce39ac8ef84d9ebe69b6f1165bdb63ace38c74ec94e2ef9dc8953d7566ece",
+          "semilla_decimal": null
+        },
+        {
+          "k": 1401,
+          "ell": 1402,
+          "exceso": 10,
+          "defecto": [
+            43,
+            17
+          ],
+          "defecto_relativo": [
+            43,
+            23860
+          ],
+          "semilla_hex_sha256": "4ffdb0ba2e4985a66c026f2dac8561399edfadd1867adfaf7ceb4b5828cd4861",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BABB",
+      "pasos": 10,
+      "impares": 7,
+      "periodo": 1458,
+      "residuo_k": 351,
+      "miembros": [
+        {
+          "k": 351,
+          "ell": 352,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            4,
+            667
+          ],
+          "semilla_hex_sha256": "0c80ef3c6c2d1275d8af08e612f24e60f7ddf529b0ca36efe0ad091a8627d82f",
+          "semilla_decimal": null
+        },
+        {
+          "k": 1809,
+          "ell": 1810,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            4,
+            3421
+          ],
+          "semilla_hex_sha256": "88a1bde0f5a459e9257a9b104175285405784f6e5021d1f3650c420351ed6c73",
+          "semilla_decimal": null
+        },
+        {
+          "k": 3267,
+          "ell": 3268,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            4,
+            6175
+          ],
+          "semilla_hex_sha256": "b1a20b7bc41b3e2f641220727b0d9fce6b48083dae7d9808ff9b132f51977b40",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BBAB",
+      "pasos": 10,
+      "impares": 7,
+      "periodo": 1458,
+      "residuo_k": 1257,
+      "miembros": [
+        {
+          "k": 1257,
+          "ell": 1258,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            12,
+            7135
+          ],
+          "semilla_hex_sha256": "e9f4fec03151b6592ad42f2bc6b48948183c33428304fe655d98c199a0c6e9bc",
+          "semilla_decimal": null
+        },
+        {
+          "k": 2715,
+          "ell": 2716,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            12,
+            15397
+          ],
+          "semilla_hex_sha256": "164eea4cc54daf2e91d8790e2d7d98e71e41886444aacf3feeb5e0cf4b395cea",
+          "semilla_decimal": null
+        },
+        {
+          "k": 4173,
+          "ell": 4174,
+          "exceso": 12,
+          "defecto": [
+            36,
+            17
+          ],
+          "defecto_relativo": [
+            12,
+            23659
+          ],
+          "semilla_hex_sha256": "f7a54b00c07b6a907871f6bca2c37f233d4ad5cc31989ee4c4fbe3f32e2fa8f6",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BBBB",
+      "pasos": 12,
+      "impares": 8,
+      "periodo": 4374,
+      "residuo_k": 2187,
+      "miembros": [
+        {
+          "k": 2187,
+          "ell": 2189,
+          "exceso": 13,
+          "defecto": [
+            46,
+            17
+          ],
+          "defecto_relativo": [
+            46,
+            37225
+          ],
+          "semilla_hex_sha256": "702a63bc9fa483d387c4f6dd0ec96fe84d393b5b961fe4b26ed81afd333ebddc",
+          "semilla_decimal": null
+        },
+        {
+          "k": 6561,
+          "ell": 6563,
+          "exceso": 13,
+          "defecto": [
+            46,
+            17
+          ],
+          "defecto_relativo": [
+            46,
+            111583
+          ],
+          "semilla_hex_sha256": "fae69ad199d9b927b19b9ade71fcaa5677fd14fe4427394407adc21a3b5ce997",
+          "semilla_decimal": null
+        },
+        {
+          "k": 10935,
+          "ell": 10937,
+          "exceso": 13,
+          "defecto": [
+            46,
+            17
+          ],
+          "defecto_relativo": [
+            46,
+            185941
+          ],
+          "semilla_hex_sha256": "ecebcbab539c5b256a719ee6f944686559e3c1cd61807bc59cc818c0e022f9cc",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "ABABAB",
+      "pasos": 12,
+      "impares": 9,
+      "periodo": 13122,
+      "residuo_k": 2877,
+      "miembros": [
+        {
+          "k": 2877,
+          "ell": 2877,
+          "exceso": 15,
+          "defecto": [
+            39,
+            17
+          ],
+          "defecto_relativo": [
+            13,
+            16316
+          ],
+          "semilla_hex_sha256": "03a1ac0c486fc25b389a2d3a82f3913b9623695f8b718fa321f960638a95bbb6",
+          "semilla_decimal": null
+        },
+        {
+          "k": 15999,
+          "ell": 15999,
+          "exceso": 15,
+          "defecto": [
+            39,
+            17
+          ],
+          "defecto_relativo": [
+            13,
+            90674
+          ],
+          "semilla_hex_sha256": "1fca6f65f2932b7cb62eafc6b41a0209b94b41028f36f0ae23eee705c33fe077",
+          "semilla_decimal": null
+        },
+        {
+          "k": 29121,
+          "ell": 29121,
+          "exceso": 15,
+          "defecto": [
+            39,
+            17
+          ],
+          "defecto_relativo": [
+            13,
+            165032
+          ],
+          "semilla_hex_sha256": "4d5d3bddb799eb579006d3bea10d63cce147dacbd600b63f91011a775d07ec61",
+          "semilla_decimal": null
+        }
+      ]
+    }
+  ],
+  "casos": 48,
+  "bordes": 15,
+  "bordes_cola_sin_prefijo": 13,
+  "fuentes_sha256_lf": {
+    "cotejar_defecto.py": "3917703f428644ba62b3f8ff4bb55df8ed89a1a2aeb0629bb6493e9bd21f9fba",
+    "cotejar_congruencias.py": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf"
+  },
+  "alcance": "Cotejo finito de una familia con prueba escrita universal. No verifica un reloj uniforme ni una perdida conjunta."
+}

@@ -2,6 +2,8 @@
 
 16-10-2026. Continuación de [Ventanas conjuntas](CONJUNTAS.md), en la
 misma ruta local. Se conserva Perdices; no se reivindica prioridad bibliográfica.
+Reanudación del 18-10: conciliación de la evidencia Lean e incorporación
+de la suma ponderada, sin cambiar el umbral ni afirmar el presupuesto (P).
 
 **Resultado:** entre tres partes impares compartidas consecutivas hay una
 cuyo exceso residual es al menos 17. Se obtiene una condición necesaria
@@ -133,8 +135,10 @@ suma rho[b_i mod 6] + 1224*floor(m/3) + suma 2^(-b_i)
 Todos los sumandos corresponden a la misma órbita y semilla. La
 derivación alternativa consiste en sustituir cada r_i directamente por
 `(9*(n_i+5)/32-1)/2^b_i`; da la misma desigualdad sin multiplicar
-presupuestos locales. (6) se conserva como corolario escrito y se
-contrasta con `Fraction`; no se presenta como nuevo teorema Lean.
+presupuestos locales. (6) se contrasta con `Fraction` y está formalizada en
+[PerdicesBarreraPonderada.lean](PerdicesBarreraPonderada.lean) para listas
+de ventanas realizadas desde el mismo n y enlazadas por (3).
+La extracción de esa lista desde la palabra arbitraria sigue por escrito.
 
 **Límite comprobable:** en la palabra B^(m+2), con todas las A vacías,
 los prefijos elegidos tienen P_i=3(i-1), S_i=2(i-1), de modo que
@@ -152,19 +156,30 @@ No demuestra una cota de L o v_fin, salida del piloto, descenso ni Collatz.
 
 ## 4. Evidencia y siguiente obligación
 
-[Tablas Lean](PerdicesBarreraTablas.lean) y [borrador Lean](PerdicesBarreraTres.lean),
-**compilación completa pendiente al cierre solicitado por el usuario**:
-preparan enumeración, levantamientos, reducción por periodos, filtro de divisibilidad,
+[Tablas Lean](PerdicesBarreraTablas.lean) y [barrera Lean](PerdicesBarreraTres.lean):
+enumeración, levantamientos, reducción por periodos, filtro de divisibilidad,
 imposibilidad de empalmar, barrera sobre caminos reales, altura, transporte
-desde n y suma para listas. Las tablas se han dividido por carga para su
-comprobación con `decide +kernel`: el intento monolítico consumió demasiada
-memoria y se interrumpió; el segundo intento se detuvo al solicitar el cierre.
-No hay evidencia Lean aprobada para esta barrera y no se afirma que estos
-dos módulos compilen todavía. Las 44 consultas anteriores permanecen
+desde n y suma para listas. Las tablas se dividen por carga y se comprueban
+con `decide +kernel`. La compilación de estos módulos ya estaba registrada
+en el commit `6b01e8b`; la nota y el verificador de sesión habían quedado
+desfasados tras el cierre anterior. Se corrige ese estado, conservado en Git.
+
+[Suma ponderada](PerdicesBarreraPonderada.lean) añade siete lemas. `Realizada n v`
+exige el camino desde n y la identidad exacta de la entrada B de la ventana;
+`Enlazadas` exige (3) para cada par vecino, con c>=1. `enlaces_barrera`
+deduce la condición de ternas; `exceso_partes` y `barrera_ponderada` llevan
+esa condición a (2) y (6), también para listas vacías o de longitud menor
+que tres. No se supone la desigualdad que se quiere concluir.
+
+[Evidencia Lean](evidencia_barrera.json) y [salida](evidencia_barrera.txt):
+siete módulos recompilados desde fuente, Lean 4.32.2, Mathlib fijado,
+**70 consultas de axiomas**, sólo `propext`, `Classical.choice` y `Quot.sound`;
+sin `sorryAx`. Se comprueban imports directos y sus huellas, no toda la
+cadena transitiva de Mathlib. Las 44 consultas anteriores permanecen
 certificadas en [su evidencia](evidencia_conjuntas.json).
 La descomposición de una palabra arbitraria en las partes normalizadas
-usa los lemas orbitales anteriores; la identificación con la lista de
-cargas y la suma ponderada (6) quedan desarrolladas por escrito.
+usa los lemas orbitales anteriores; la construcción completa de la lista
+de ventanas y sus enlaces sigue desarrollada por escrito.
 
 [Certificado independiente](certificado_barrera.json): en cada periodo se
 cotejan el levantamiento y una búsqueda sobre el periodo completo mediante
@@ -175,19 +190,27 @@ Dos algoritmos independientes construyen cada cilindro; T literal
 verifica fronteras, cargas, (1), (2), (5) y (6). Se incluyen el testigo
 n=6139 y seis casos de (7), hasta m=96. Este contraste es finito;
 la universalidad procede de la cobertura modular y la prueba.
+[Cotejo de la suma](cotejo_ponderada.json): 680 controles racionales, con
+8 listas vacías, 32 de una ventana, 128 de dos y 512 de tres. Dos
+construcciones de cilindros y T literal comprueban (6) y sus bordes.
 
-**Siguiente obligación:** obtener una restricción aritmética adicional que
-controle el reloj acumulado o la carga terminal conservando n. Elevar un
+**Continuación:** [Reloj terminal](RELOJ_TERMINAL.md) convierte la carga V
+en exactamente V pasos adicionales desde n. Por ello P equivale a un reloj
+uniforme L<=C*ell(n)+D; queda por demostrar ese reloj. Elevar un
 umbral constante de cargas no basta para vencer el peso geométrico de (6).
 No se adopta como siguiente paso un mero aumento de ese umbral.
-Antes de extender la investigación, completar `comprobar_barrera.py`, corregir
-los errores que aparezcan y comprobar versión y axiomas. Las tres
-[altas propuestas](alta_registro.json) fueron validadas por el generador en
-una copia de 352 filas; la integración central queda pendiente. Se conservan
-las 349 filas originales y respuestas.db, según [el cotejo](evidencia_registro.json).
+La comprobación formal queda cerrada con el alcance indicado. Las tres
+[altas](alta_registro.json) se integran en el registro versionado y el catálogo
+generado, que alcanzó 352 filas. La continuación añade una cuarta alta sin
+alterar esas 352 afirmaciones ni respuestas.db, según [el cotejo](evidencia_registro.json).
+El [verificador de sesión](verificar_sesion.py) comprueba ahora la evidencia
+de la barrera, sus axiomas e imports; ya no arrastra el rótulo de pendiente.
 
 ```powershell
 python -B -X utf8 depuracion/perdices20261007/congruencias_codex20261016/certificar_barrera.py --limite 16 --salida depuracion/perdices20261007/congruencias_codex20261016/certificado_barrera.json --lean depuracion/perdices20261007/congruencias_codex20261016/PerdicesBarreraTablas.lean
 python -B -X utf8 depuracion/perdices20261007/congruencias_codex20261016/comprobar_barrera.py --salida depuracion/perdices20261007/congruencias_codex20261016/evidencia_barrera.json
 python -B -X utf8 depuracion/perdices20261007/congruencias_codex20261016/cotejar_barrera.py --ventanas-max 4 --racha-a-max 2 --racha-b-max 2 --traslados 2 --salida depuracion/perdices20261007/congruencias_codex20261016/cotejo_barrera.json
+python -B -X utf8 depuracion/perdices20261007/congruencias_codex20261016/cotejar_ponderada.py --ventanas-max 3 --racha-a-max 1 --racha-b-max 2 --traslados 2 --salida depuracion/perdices20261007/congruencias_codex20261016/cotejo_ponderada.json
+python -B -X utf8 depuracion/perdices20261007/congruencias_codex20261016/verificar_alta.py --integrar --salida depuracion/perdices20261007/congruencias_codex20261016/evidencia_registro.json
+python -B -X utf8 depuracion/perdices20261007/congruencias_codex20261016/verificar_sesion.py --salida depuracion/perdices20261007/congruencias_codex20261016/evidencia_sesion.json
 ```

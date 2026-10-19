@@ -1,7 +1,7 @@
 {
   "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
   "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
-  "alcance": "Barrera de tres ventanas y transporte desde caminos reales; imports directos cotejados. Sin auditoría transitiva completa de Mathlib.",
+  "alcance": "Barrera de tres ventanas, transporte y suma ponderada desde una misma semilla; extracción de la lista desde una palabra arbitraria por escrito; imports directos cotejados. Sin auditoría transitiva completa de Mathlib.",
   "modulos": {
     "PerdicesTransporteImpar": {
       "fuente": "depuracion/perdices20261007/PerdicesTransporteImpar.lean",
@@ -334,6 +334,51 @@
         "PerdicesVentanasConjuntas": "5b9600f1a00583c924ee88cf95895c2aa7f43a73b06dd50ba6618f92f4d7bf13"
       },
       "resolucion_imports_directos_comprobada": true
+    },
+    "PerdicesBarreraPonderada": {
+      "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesBarreraPonderada.lean",
+      "fuente_sha256_lf": "61dde53f477a8d75cc54e31428609b94178f48b07ead1f92d49c451722ef6b2f",
+      "axiomas": {
+        "PerdicesBarreraPonderada.enlaces_barrera": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesBarreraPonderada.suma_partes": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesBarreraPonderada.exceso_partes": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesBarreraPonderada.ventana_ponderada": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesBarreraPonderada.suma_ventanas": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesBarreraPonderada.separar_suma": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesBarreraPonderada.barrera_ponderada": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "objeto_sha256": "1b9a1cb143cdeacca21834b8c56486df2518f30c1d462fb3085260c6b7211927",
+      "imports_locales_recompilados": {
+        "PerdicesBarreraTres": "68aa5be653221dd73c0ac8d3db1a36a6414731ba299f931b7435ce78223c6e22"
+      },
+      "resolucion_imports_directos_comprobada": true
     }
   },
   "dependencias": {
@@ -364,9 +409,13 @@
     "Mathlib.Data.Nat.ModEq": {
       "fuente_sha256_lf": "678c7d5030c056efb633aaab3a1b44ceec599332b9f70f694b08f4cce27d1fea",
       "objeto_sha256": "4fe089b8e5d0c74daf59f703a1f3cf706546ebd720c2e5747b312798e1161bf3"
+    },
+    "Mathlib.Tactic.FieldSimp": {
+      "fuente_sha256_lf": "7c4960c3c633aa093d2adf6b455449bd39f33342b52e48878cb058aa55ac00c2",
+      "objeto_sha256": "13dc0da3bd53793a4b47fa3f8b3b3b92f1d2c00905c9d827e5ad610131ed87a1"
     }
   },
-  "verificador_sha256_lf": "b46247a4e7ef53b808fef5ccd84d4bdf2e16a12f14f8cd9e98286686e66fe68e",
+  "verificador_sha256_lf": "d2eadd27a4187454073ea8ee85a2b7049bd7866f59435fd2359fbe0d9de2c973",
   "apoyo_sha256_lf": "ab5fae9fef2e8987586700d0385bd7e7ef98e1665114aaa426d253ef9705e287",
-  "salida_sha256_lf": "49461c2a2f25f8d2080619bbf2ccbf53b36ae7e038a26e409533b03415e14afb"
+  "salida_sha256_lf": "613418ac0d8ef3f8719bae60abf0898edc7ead71fa230204cc681f7c376a2663"
 }

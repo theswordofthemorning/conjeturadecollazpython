@@ -134,12 +134,13 @@ algoritmos independientes de cilindros y T literal; 26136 parejas y
 7964 cadenas con rachas A vacías. Son contrastes finitos del enlace,
 distintos de la prueba universal de periodicidad y cobertura.
 Las tres [altas versionadas](alta_registro.json), incluida la continuación,
-pasan por el generador en una copia temporal: 349 afirmaciones previas conservadas y 352 en
-la copia ampliada. [Evidencia de conservación](evidencia_registro.json).
+se integraron el 18-10-2026 mediante el generador: 349 afirmaciones previas
+conservadas literalmente y 352 en el catálogo. [Evidencia](evidencia_registro.json).
 
 **Continuación:** [Barrera de tres ventanas](BARRERA.md) mejora la suma y
-obtiene una condición ponderada desde n, con prueba escrita y contraste
-exacto; su nuevo Lean queda pendiente. El peso geométrico todavía impide
+obtiene una condición ponderada desde n, con prueba escrita, contraste
+exacto y Lean. La extracción completa de la lista orbital sigue por escrito.
+El peso geométrico todavía impide
 controlar L o v_fin. La suma de partes por sí sola no cierra ese puente.
 
 ```powershell

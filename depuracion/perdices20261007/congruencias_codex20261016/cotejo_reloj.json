@@ -1,0 +1,35 @@
+{
+  "alcance": "Contraste finito exacto de la continuación; no prueba un reloj uniforme ni P.",
+  "parametros": {
+    "bloques_max": 5,
+    "carga_max": 16,
+    "carga_grande": 65,
+    "traslados": 2,
+    "salida": "depuracion\\perdices20261007\\congruencias_codex20261016\\cotejo_reloj.json"
+  },
+  "semillas": 2304,
+  "continuaciones": 4608,
+  "con_palabra_vacia": 144,
+  "por_potencial": {
+    "1": 2304,
+    "5": 2304
+  },
+  "por_numero_bloques": {
+    "0": 144,
+    "1": 144,
+    "2": 288,
+    "3": 576,
+    "4": 1152,
+    "5": 2304
+  },
+  "restos_carga_b": {
+    "0": 485,
+    "1": 468,
+    "2": 1351
+  },
+  "fuentes_sha256_lf": {
+    "cotejar_reloj.py": "3e5f9cb11189d4c3a472c5d7171b6bddba5770b81a6b10f7368c3644939caf2c",
+    "cotejar_congruencias.py": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf",
+    "comprobar_lean.py": "ab5fae9fef2e8987586700d0385bd7e7ef98e1665114aaa426d253ef9705e287"
+  }
+}

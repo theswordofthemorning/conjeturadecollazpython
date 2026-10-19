@@ -1,0 +1,24 @@
+{
+  "alcance": "Contraste finito exacto de la desigualdad formalizada; no prueba universal ni cota de salida.",
+  "parametros": {
+    "ventanas_max": 3,
+    "racha_a_max": 1,
+    "racha_b_max": 2,
+    "traslados": 2,
+    "salida": "depuracion\\perdices20261007\\congruencias_codex20261016\\cotejo_ponderada.json"
+  },
+  "controles": 680,
+  "por_numero_ventanas": {
+    "0": 8,
+    "1": 32,
+    "2": 128,
+    "3": 512
+  },
+  "controles_con_a_vacia": 620,
+  "controles_interiores": 340,
+  "fuentes_sha256_lf": {
+    "cotejar_ponderada.py": "d88882325967fcda7de9de90f9880385c99f1ec31533d15b2e304cc714a2c53b",
+    "cotejar_barrera.py": "28a6b353127a88aff28dc91ed9ba4521f39b84976abf79d32a161f0c3a5c41a1",
+    "cotejar_congruencias.py": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf"
+  }
+}

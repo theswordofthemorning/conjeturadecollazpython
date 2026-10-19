@@ -1,4 +1,4 @@
-"""Recompila tres módulos desde fuente en una carpeta temporal propia."""
+"""Recompila siete módulos desde fuente y comprueba sus imports y axiomas."""
 
 import argparse
 import hashlib
@@ -29,7 +29,8 @@ def main():
                CARPETA / "PerdicesCongruenciasOrbitales.lean",
                CARPETA / "PerdicesVentanasConjuntas.lean",
                CARPETA / "PerdicesBarreraTablas.lean",
-               CARPETA / "PerdicesBarreraTres.lean"]
+               CARPETA / "PerdicesBarreraTres.lean",
+               CARPETA / "PerdicesBarreraPonderada.lean"]
     version = ejecutar(["lake", "env", "lean", "--version"], FORMAL).strip()
     assert version.startswith("Lean (version 4.32.2,")
     manifiesto = json.loads((FORMAL / "lake-manifest.json").read_text(encoding="utf-8"))
@@ -97,7 +98,8 @@ def main():
     texto = args.salida.with_suffix(".txt")
     texto.write_text("".join(salidas), encoding="utf-8")
     resultado = dict(version_lean=version, revision_mathlib=revision,
-                     alcance="Barrera de tres ventanas y transporte desde caminos reales; imports directos cotejados. "
+                     alcance="Barrera de tres ventanas, transporte y suma ponderada desde una misma semilla; "
+                             "extracción de la lista desde una palabra arbitraria por escrito; imports directos cotejados. "
                              "Sin auditoría transitiva completa de Mathlib.",
                      modulos=modulos, dependencias=dependencias,
                      verificador_sha256_lf=huella(Path(__file__)),

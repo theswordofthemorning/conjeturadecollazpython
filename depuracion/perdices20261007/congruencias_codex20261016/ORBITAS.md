@@ -96,9 +96,9 @@ en el enunciado final ni supone independencia entre ventanas.
   1080 interiores y 620 con alguna racha A vacía. Prefijos de hasta cuatro
   bloques, c=1,2 y b,d=0,1,2; dos representantes por cilindro. También hay
   colas posteriores a la ventana. Es contraste finito, no prueba universal.
-- El [alta versionada](alta_registro.json) incorpora este alcance y se
-  valida con el generador central en una copia temporal; el catálogo y
-  las bases originales siguen intactos.
+- El [alta versionada](alta_registro.json) incorpora este alcance y quedó
+  integrada el 18-10-2026. El generador y el [cotejo](evidencia_registro.json)
+  conservan literalmente las 349 afirmaciones anteriores; respuestas.db intacta.
 
 **Continuación:** [Ventanas conjuntas](CONJUNTAS.md) descarta dos mínimos
 residuales vecinos y prueba un exceso óptimo de 72 por pareja disjunta,

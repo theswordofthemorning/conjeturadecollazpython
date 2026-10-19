@@ -1,0 +1,201 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Racha de parte impar 13, empalme y altura; levantamientos y CRT solo escritos. No demuestra reloj uniforme. Imports directos cotejados; sin auditoria transitiva completa de Mathlib.",
+  "modulos": {
+    "PerdicesTransporteImpar": {
+      "fuente": "depuracion/perdices20261007/PerdicesTransporteImpar.lean",
+      "fuente_sha256_lf": "bc01439acdb470700600fcfca997fa5801e7ed3a9525dacba41f5c9560608070",
+      "axiomas": {
+        "PerdicesTransporteImpar.paso_a_real": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.paso_b_real": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.paso_encaje": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.encaje": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.encaje_potencial": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.descomposicion": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.transporte_impar": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesTransporteImpar.condicion_suficiente": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "objeto_sha256": "cbbaf02f64889e7efb9f4d6cf6f3cce354f702a687dc7b3a7ab64c4cedd91a10",
+      "imports_locales_recompilados": {},
+      "resolucion_imports_directos_comprobada": true
+    },
+    "PerdicesRelojTerminal": {
+      "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesRelojTerminal.lean",
+      "fuente_sha256_lf": "9a615dd7979eed965f9e57929b86115e5ebc0e78296d9608be33f7b8e55e6fd4",
+      "axiomas": {
+        "PerdicesRelojTerminal.concatenar": [],
+        "PerdicesRelojTerminal.largo_concatenar": [
+          "propext"
+        ],
+        "PerdicesRelojTerminal.paso_divisible": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.continuar_racha": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.largo_racha": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.continuar_carga": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.prolongar_terminal": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.reloj_controla_carga": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.reloj_iff_carga": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.carga_inicial_acotada": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.presupuesto_da_reloj": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.reloj_da_presupuesto": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.presupuesto_normalizado": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesRelojTerminal.presupuesto_iff_reloj": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "objeto_sha256": "d592171132b962354b89b031437cca83506f5b4e5d3537be867086e95a751bb3",
+      "imports_locales_recompilados": {
+        "PerdicesTransporteImpar": "cbbaf02f64889e7efb9f4d6cf6f3cce354f702a687dc7b3a7ab64c4cedd91a10"
+      },
+      "resolucion_imports_directos_comprobada": true
+    },
+    "PerdicesContextoInterior": {
+      "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesContextoInterior.lean",
+      "fuente_sha256_lf": "e64f15e9d2bf8489565f993ac2a82be5e74d72c6aafb93422e12d2210d12d34a",
+      "axiomas": {
+        "PerdicesContextoInterior.racha_trece": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesContextoInterior.residuo_frontera": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesContextoInterior.empalme_contexto": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesContextoInterior.largo_contexto": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PerdicesContextoInterior.altura_trece": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesContextoInterior.defecto_fijo": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PerdicesContextoInterior.exceso_fijo": [
+          "propext",
+          "Quot.sound"
+        ]
+      },
+      "objeto_sha256": "6a3ec84c8bde2157ac991c0f420329be368dac07645a4f823cf9be8b4f8dfb9f",
+      "imports_locales_recompilados": {
+        "PerdicesRelojTerminal": "d592171132b962354b89b031437cca83506f5b4e5d3537be867086e95a751bb3"
+      },
+      "resolucion_imports_directos_comprobada": true
+    }
+  },
+  "dependencias": {
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic": {
+      "fuente_sha256_lf": "494d5829e218df7dba759758e39752b278958f7f384226cc62d138d4408ae390",
+      "objeto_sha256": "2210f1912fe964a080cc790b92ef4459e1e7891fd445e03adae818c181ffbf55"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.Ring": {
+      "fuente_sha256_lf": "d3ef5c49ebbd1108ce3f935e5ad95485e143abf02f28c027dba4bb6f3be8196e",
+      "objeto_sha256": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Data.Real.Basic": {
+      "fuente_sha256_lf": "b1dde0e82be30e8a9ca87b23c46d04afc92be61818622ba6d4603daa4d4a9f70",
+      "objeto_sha256": "cc227eaf901787af6dc06689f5a746b94547b352d30793e053faa5376cf1527e"
+    },
+    "Mathlib.Data.Nat.Log": {
+      "fuente_sha256_lf": "9800e6942155e28138ed981a06340d7333aacccfafcd1aa35147147ae57d8e3f",
+      "objeto_sha256": "53737e9f7d690e6ef249e1e9b571dd99931f72736216e0f46d532c86f6914971"
+    }
+  },
+  "verificador_sha256_lf": "279288fcdc378f2a0af533385e87640830a374c54a7eb9b1410cebf2325dd56c",
+  "apoyo_sha256_lf": "ab5fae9fef2e8987586700d0385bd7e7ef98e1665114aaa426d253ef9705e287",
+  "salida_sha256_lf": "f68f3a6c0fa8d45f92a20e36a3833951b42d2dadcc69b17eb1465e824508a038"
+}

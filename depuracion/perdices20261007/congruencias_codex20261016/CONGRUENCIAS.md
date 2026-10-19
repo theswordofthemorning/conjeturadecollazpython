@@ -184,11 +184,11 @@ de (6) uniforme en el número de cambios y suficiente para (P), o una
 desigualdad acumulativa más débil que aún excluya persistencia desde n.
 Reescribir (6) o descartar más palabras aisladas no cierra esa obligación.
 
-La [alta separada](alta_registro.json) queda preparada para integración;
-su [verificación](evidencia_registro.json) usa el generador existente
-sobre una copia temporal y coteja todas las filas anteriores. No se
-modifican el registro central, las bases ni los mapas mientras la otra
-ruta trabaja. Revisión humana pendiente. Sin commit ni push en esta tanda.
+La [alta](alta_registro.json) se integró el 18-10-2026 junto con las dos
+continuaciones; su [verificación](evidencia_registro.json) usa el generador
+existente y conserva literalmente las 349 afirmaciones anteriores.
+El registro, el mapa y el catálogo contienen las tres altas; respuestas.db
+permanece intacta. Revisión humana pendiente.
 
 ```powershell
 python -B -X utf8 depuracion/perdices20261007/congruencias_codex20261016/cotejar_congruencias.py --racha-max 3 --periodos-optimos 8 --salida depuracion/perdices20261007/congruencias_codex20261016/cotejo.json

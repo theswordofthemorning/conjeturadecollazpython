@@ -1,0 +1,1953 @@
+{
+  "parametros": {
+    "prefijos_max": 2,
+    "sufijos_max": 3,
+    "miembros": 2
+  },
+  "familias": [
+    {
+      "prefijo": "B",
+      "sufijo": "",
+      "residuo": 1,
+      "periodo": 6,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 7,
+          "ell": 13,
+          "largo": 15,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            15,
+            32
+          ],
+          "semilla_sha256": "5028d7c764925ac147028adc3fc9240f0f93d0fa46d2cbc7d2b92b590f392b53",
+          "final_sha256": "24ca40280f17ad969e864e4976d552b2601a9aa1be247a305363165db499df8d",
+          "semilla_decimal": "5915"
+        },
+        {
+          "a": 13,
+          "ell": 19,
+          "largo": 21,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            326
+          ],
+          "semilla_sha256": "f5d4a7f2bd3c4aaf45ba0726fe2914d31d6059cb92a00f44542ad10f30001ea9",
+          "final_sha256": "7d22cac7fa139b19de9bfc1c99d53cc0539c27150c994e6517e76b9517998805",
+          "semilla_decimal": "378651"
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "A",
+      "residuo": 1,
+      "periodo": 12,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 13,
+          "ell": 19,
+          "largo": 22,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            326
+          ],
+          "semilla_sha256": "f5d4a7f2bd3c4aaf45ba0726fe2914d31d6059cb92a00f44542ad10f30001ea9",
+          "final_sha256": "b8972242043302fbb09e98130a973c6bb8005be283057779868c4a6b5e004bf6",
+          "semilla_decimal": "378651"
+        },
+        {
+          "a": 25,
+          "ell": 31,
+          "largo": 34,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            21,
+            106
+          ],
+          "semilla_sha256": "8b0080374827d13c00c0f789f25f1206defb3fa844b463634cb8e02d52bc72e2",
+          "final_sha256": "42e72e828b6e61bcab6d760cb7c2377a113534e714ba279fbf5be91441bb551c",
+          "semilla_decimal": "1550960411"
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "B",
+      "residuo": 1,
+      "periodo": 48,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 49,
+          "ell": 55,
+          "largo": 60,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            15,
+            134
+          ],
+          "semilla_sha256": "f580cc77cf8ff48c8899ac72167a2fd6e5fce7d5974d8c1e9f5d273460907bbe",
+          "final_sha256": "1b87ae4c72c0200669a6e8d627fb2c94fbffa83a5db0ee1a36cbb2e469bab713",
+          "semilla_decimal": "26020797847029531"
+        },
+        {
+          "a": 97,
+          "ell": 103,
+          "largo": 108,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            1754
+          ],
+          "semilla_sha256": "c14980de2e70c7a24209f37e76b03f0ab2f1a233a2bd484c34b9bba2fb0c1f4a",
+          "final_sha256": "3d8b92c67c7052234e3d210d383249763f88d79b3318ef4feeae8b988973fda0",
+          "semilla_decimal": "7324203467985325430869840742171"
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "AA",
+      "residuo": 1,
+      "periodo": 24,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 25,
+          "ell": 31,
+          "largo": 35,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            21,
+            106
+          ],
+          "semilla_sha256": "8b0080374827d13c00c0f789f25f1206defb3fa844b463634cb8e02d52bc72e2",
+          "final_sha256": "e048924caf771de30246676c10f8cfe4b7ec41bec52c43ee965d41ee9e0ca987",
+          "semilla_decimal": "1550960411"
+        },
+        {
+          "a": 49,
+          "ell": 55,
+          "largo": 59,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            15,
+            134
+          ],
+          "semilla_sha256": "f580cc77cf8ff48c8899ac72167a2fd6e5fce7d5974d8c1e9f5d273460907bbe",
+          "final_sha256": "7530ff517b169649cb84bdc98750d753c6aebe86bbe94ff73bd8ccfb3fb1746d",
+          "semilla_decimal": "26020797847029531"
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "AB",
+      "residuo": 73,
+      "periodo": 96,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 73,
+          "ell": 79,
+          "largo": 85,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            1346
+          ],
+          "semilla_sha256": "c4a93e3d3920bc1213829e30c286ff9aaf4ef8973fc83ef63cfd0d2e5417b790",
+          "final_sha256": "3aa396729f7bfa906e366d92e1e7d94f39994bf1456c929871dcc551b6acca16",
+          "semilla_decimal": "436556545971949424199451"
+        },
+        {
+          "a": 169,
+          "ell": 175,
+          "largo": 181,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            2978
+          ],
+          "semilla_sha256": "986eb193854e21ab89df00311963cea04b647ba5e2dd511f02237cdd7929063b",
+          "final_sha256": "d94588b3ed171d48958e911b2665bbbbf8eadd006e913fcb5d2a0fbd48c52f72",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "BA",
+      "residuo": 1,
+      "periodo": 96,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 97,
+          "ell": 103,
+          "largo": 109,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            1754
+          ],
+          "semilla_sha256": "c14980de2e70c7a24209f37e76b03f0ab2f1a233a2bd484c34b9bba2fb0c1f4a",
+          "final_sha256": "598e714e669f97c1972b38c213d28870b798d0769dc5c294ed7e101729552900",
+          "semilla_decimal": "7324203467985325430869840742171"
+        },
+        {
+          "a": 193,
+          "ell": 199,
+          "largo": 205,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            3386
+          ],
+          "semilla_sha256": "b6c01080c0d32c90c12e70706f2f25a7a0e72d5a30e0fbe85762f5f3a8cb15d3",
+          "final_sha256": "8ee24502acc045e8208969f29b17cf317310c147cefbb6fcdd40008ea94b9379",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "BB",
+      "residuo": 289,
+      "periodo": 384,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 289,
+          "ell": 295,
+          "largo": 303,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            5018
+          ],
+          "semilla_sha256": "1886e7458fe8af7131c62f17a507f88ccb4aa05a96b5e414de521bd9dce7e8ea",
+          "final_sha256": "9d2f7b90c7868522dc571f944d26a616a0b2a6ce5712d7140a294db277c9b664",
+          "semilla_decimal": null
+        },
+        {
+          "a": 673,
+          "ell": 679,
+          "largo": 687,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            11546
+          ],
+          "semilla_sha256": "1d24eb9b862c9e4d4071818802e4b7eabcc37a32462e12de9c656bce5927d9d5",
+          "final_sha256": "800d58f3fa809efb33063f2c957625c90dd6c03e95942daf4cf1ab274bc808fb",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "AAA",
+      "residuo": 25,
+      "periodo": 48,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 25,
+          "ell": 31,
+          "largo": 36,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            21,
+            106
+          ],
+          "semilla_sha256": "8b0080374827d13c00c0f789f25f1206defb3fa844b463634cb8e02d52bc72e2",
+          "final_sha256": "e314b539ef6afdd072fc9133440ad59412d870de86ad5256754c5a0ea361b0f6",
+          "semilla_decimal": "1550960411"
+        },
+        {
+          "a": 73,
+          "ell": 79,
+          "largo": 84,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            1346
+          ],
+          "semilla_sha256": "c4a93e3d3920bc1213829e30c286ff9aaf4ef8973fc83ef63cfd0d2e5417b790",
+          "final_sha256": "742a78e747a18ea5b4dc43005c3a5f6d31a0bbfa3bcf93f77aa0cafe10ee7c36",
+          "semilla_decimal": "436556545971949424199451"
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "AAB",
+      "residuo": 25,
+      "periodo": 192,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 25,
+          "ell": 31,
+          "largo": 38,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            21,
+            106
+          ],
+          "semilla_sha256": "8b0080374827d13c00c0f789f25f1206defb3fa844b463634cb8e02d52bc72e2",
+          "final_sha256": "668589fb728507bbb2b76cb9d70c906853eb66ea7114b88fdb41c5583b1bf3f3",
+          "semilla_decimal": "1550960411"
+        },
+        {
+          "a": 217,
+          "ell": 223,
+          "largo": 230,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            15,
+            542
+          ],
+          "semilla_sha256": "aaabfd41c36ccc57ed098f66737d2b1c358bd1ba641e0533afc949789c723577",
+          "final_sha256": "ff600295a767d7eeb8eae2723fab404815db15a2b993592af8c79415c51774a6",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "ABA",
+      "residuo": 169,
+      "periodo": 192,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 169,
+          "ell": 175,
+          "largo": 182,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            2978
+          ],
+          "semilla_sha256": "986eb193854e21ab89df00311963cea04b647ba5e2dd511f02237cdd7929063b",
+          "final_sha256": "62b2ec9110b6c0495f977de4a1f0853061614251d6ed792ce6cde2583dee9f89",
+          "semilla_decimal": null
+        },
+        {
+          "a": 361,
+          "ell": 367,
+          "largo": 374,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            6242
+          ],
+          "semilla_sha256": "662369f1a5b9de8269d07a4df5f51effde15da4bbaba5dd35f330317d88102f9",
+          "final_sha256": "07f724ba13381cb2ec8eec5ba220a2548f0ed2518cc3fa165935c1cb158aacff",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "ABB",
+      "residuo": 169,
+      "periodo": 768,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 169,
+          "ell": 175,
+          "largo": 184,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            2978
+          ],
+          "semilla_sha256": "986eb193854e21ab89df00311963cea04b647ba5e2dd511f02237cdd7929063b",
+          "final_sha256": "7733a72c83fbfaa6f712e44d2393640dcb8ce75927180fb626fb215e32110274",
+          "semilla_decimal": null
+        },
+        {
+          "a": 937,
+          "ell": 943,
+          "largo": 952,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            16034
+          ],
+          "semilla_sha256": "595606b5c226041e37ff30702dd01571edf0b03f81b4cbe7ecaa7fd657b7f7a5",
+          "final_sha256": "fca74599561f81b909e0f46ac1fefa1932a8a3feffb689ba06f557a20d2af85b",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "BAA",
+      "residuo": 97,
+      "periodo": 192,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 97,
+          "ell": 103,
+          "largo": 110,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            1754
+          ],
+          "semilla_sha256": "c14980de2e70c7a24209f37e76b03f0ab2f1a233a2bd484c34b9bba2fb0c1f4a",
+          "final_sha256": "190970a5c02c45419689c6a9784b56b02b5efed87412300948efe6f0a9647f41",
+          "semilla_decimal": "7324203467985325430869840742171"
+        },
+        {
+          "a": 289,
+          "ell": 295,
+          "largo": 302,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            5018
+          ],
+          "semilla_sha256": "1886e7458fe8af7131c62f17a507f88ccb4aa05a96b5e414de521bd9dce7e8ea",
+          "final_sha256": "a8009481c48dad17919b2df085c4d0226a8802fd564efcfa49ea806aefe20f8e",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "BAB",
+      "residuo": 481,
+      "periodo": 768,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 481,
+          "ell": 487,
+          "largo": 496,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            8282
+          ],
+          "semilla_sha256": "f0b1bc32ec015a7f73ab91568d19faa10cd5345cce997da04b915a9d818a9100",
+          "final_sha256": "00efc48acf3044180f4faad9233d063bd53fba6f095d21a737470c68d422971f",
+          "semilla_decimal": null
+        },
+        {
+          "a": 1249,
+          "ell": 1255,
+          "largo": 1264,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            21338
+          ],
+          "semilla_sha256": "df18f1cd7f869ce1d988e35f79c0c1fef35370de3c328c704a59ef941abe8373",
+          "final_sha256": "37b1612a099555eba4734f364dec98cc50f267bdbcc5e70e312331fc457bd3c9",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "BBA",
+      "residuo": 673,
+      "periodo": 768,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 673,
+          "ell": 679,
+          "largo": 688,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            11546
+          ],
+          "semilla_sha256": "1d24eb9b862c9e4d4071818802e4b7eabcc37a32462e12de9c656bce5927d9d5",
+          "final_sha256": "b0ee28778f319a86a193a0b6171916f57fd001a5d1f4dfb8f650e9572aaa1b33",
+          "semilla_decimal": null
+        },
+        {
+          "a": 1441,
+          "ell": 1447,
+          "largo": 1456,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            24602
+          ],
+          "semilla_sha256": "6fc5abe3c995281ba20b9c85340a818f6bb8ac9d10bd414c928411d9da1a7228",
+          "final_sha256": "a45cca5d6795b45b756d637df8a07cca629c38e7b7ee6b90fc9b6075d4d8ace0",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "B",
+      "sufijo": "BBB",
+      "residuo": 2209,
+      "periodo": 3072,
+      "d": 3,
+      "pasos_prefijo": 3,
+      "impares_prefijo": 2,
+      "miembros": [
+        {
+          "a": 2209,
+          "ell": 2215,
+          "largo": 2226,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            37658
+          ],
+          "semilla_sha256": "9b8e593abbf25b0dab18df8f4783b362998508fe72aab72bb9be7d3e3976a9c0",
+          "final_sha256": "5e84083427845e51eab54a9b6e2d01431dcb31ef0073017f07d6207db113f7aa",
+          "semilla_decimal": null
+        },
+        {
+          "a": 5281,
+          "ell": 5287,
+          "largo": 5298,
+          "defecto": [
+            105,
+            17
+          ],
+          "proporcion": [
+            105,
+            89882
+          ],
+          "semilla_sha256": "640a14942a0d1d8bec167c75d906811850cbc7101341124cffa09e66137c9bea",
+          "final_sha256": "be54e4a39ba570b368bfcad8d4b3377ed8d83e08e71da2c4325023eaa4dc010f",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "",
+      "residuo": 7,
+      "periodo": 18,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 7,
+          "ell": 12,
+          "largo": 16,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            14,
+            31
+          ],
+          "semilla_sha256": "38b1751cae8d49a28edcf3ab0d129f32ba58b39df7f841070c2985b4a1547e5a",
+          "final_sha256": "24ca40280f17ad969e864e4976d552b2601a9aa1be247a305363165db499df8d",
+          "semilla_decimal": "3943"
+        },
+        {
+          "a": 25,
+          "ell": 30,
+          "largo": 34,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            523
+          ],
+          "semilla_sha256": "719f764b41b0fd94e9c71c9b649045ab6b39fa90ea9d63203efc125be0b6acae",
+          "final_sha256": "6c878a668b97c2a2d385124187f549724df7346a445470a81da39861385ee522",
+          "semilla_decimal": "1033973607"
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "A",
+      "residuo": 25,
+      "periodo": 36,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 25,
+          "ell": 30,
+          "largo": 35,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            523
+          ],
+          "semilla_sha256": "719f764b41b0fd94e9c71c9b649045ab6b39fa90ea9d63203efc125be0b6acae",
+          "final_sha256": "42e72e828b6e61bcab6d760cb7c2377a113534e714ba279fbf5be91441bb551c",
+          "semilla_decimal": "1033973607"
+        },
+        {
+          "a": 61,
+          "ell": 66,
+          "largo": 71,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            1135
+          ],
+          "semilla_sha256": "dbec7219998e1f264aed4e89844e1b30cb503f959f9dc66d0324cb7b7874ed7d",
+          "final_sha256": "25d5d29df5c50c5d6b17375f3908cb54e1e16d946ec2ca1733fdd8d4ac68242a",
+          "semilla_decimal": "71054125320955309927"
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "B",
+      "residuo": 97,
+      "periodo": 144,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 97,
+          "ell": 102,
+          "largo": 109,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            1747
+          ],
+          "semilla_sha256": "6ff07ceffca4a1a3f2f983c7c2b45b6f03956c6ec026db92c276e5eac4f74970",
+          "final_sha256": "3d8b92c67c7052234e3d210d383249763f88d79b3318ef4feeae8b988973fda0",
+          "semilla_decimal": "4882802311990216953913227161447"
+        },
+        {
+          "a": 241,
+          "ell": 246,
+          "largo": 253,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            4195
+          ],
+          "semilla_sha256": "7002ca77c1ce01f27c05292cceddcd0fe86d32d1402cc2f7a0629a9484f65828",
+          "final_sha256": "59725be81d6fdd72bb8c18c1319fe7b65067a5ef14ad9759851594185381356c",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "AA",
+      "residuo": 25,
+      "periodo": 72,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 25,
+          "ell": 30,
+          "largo": 36,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            523
+          ],
+          "semilla_sha256": "719f764b41b0fd94e9c71c9b649045ab6b39fa90ea9d63203efc125be0b6acae",
+          "final_sha256": "e048924caf771de30246676c10f8cfe4b7ec41bec52c43ee965d41ee9e0ca987",
+          "semilla_decimal": "1033973607"
+        },
+        {
+          "a": 97,
+          "ell": 102,
+          "largo": 108,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            1747
+          ],
+          "semilla_sha256": "6ff07ceffca4a1a3f2f983c7c2b45b6f03956c6ec026db92c276e5eac4f74970",
+          "final_sha256": "7b6bf1680f7a5ef5559c49de50213d4382048b9afa2c323f94eb25b12be7f674",
+          "semilla_decimal": "4882802311990216953913227161447"
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "AB",
+      "residuo": 169,
+      "periodo": 288,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 169,
+          "ell": 174,
+          "largo": 182,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            2971
+          ],
+          "semilla_sha256": "25037967c72b7f7bb857f5f907caee22a88373f3d4baeb3fdbb6b99fd18ce309",
+          "final_sha256": "d94588b3ed171d48958e911b2665bbbbf8eadd006e913fcb5d2a0fbd48c52f72",
+          "semilla_decimal": null
+        },
+        {
+          "a": 457,
+          "ell": 462,
+          "largo": 470,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            7867
+          ],
+          "semilla_sha256": "9ab37e3da2011892f6650217f68f5b67e4e49b12e300beaad4c79cac316c0b12",
+          "final_sha256": "b94108a950896e02e132cabb6846d48bb4693ee0f6357841338705631c79ec0a",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "BA",
+      "residuo": 97,
+      "periodo": 288,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 97,
+          "ell": 102,
+          "largo": 110,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            1747
+          ],
+          "semilla_sha256": "6ff07ceffca4a1a3f2f983c7c2b45b6f03956c6ec026db92c276e5eac4f74970",
+          "final_sha256": "598e714e669f97c1972b38c213d28870b798d0769dc5c294ed7e101729552900",
+          "semilla_decimal": "4882802311990216953913227161447"
+        },
+        {
+          "a": 385,
+          "ell": 390,
+          "largo": 398,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            14,
+            949
+          ],
+          "semilla_sha256": "942ff39d1fae22e33aea57114b038549ed319290522ca288019e884870ef8b08",
+          "final_sha256": "c8427ef3207aaca860dfe4adac7d211996615cdddb2ff48e223ac6e1c87a0358",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "BB",
+      "residuo": 673,
+      "periodo": 1152,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 673,
+          "ell": 678,
+          "largo": 688,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            11539
+          ],
+          "semilla_sha256": "9b5d05d1b9627183aa72dd84383d8a0632507f9f4b951cb4411c51d625447992",
+          "final_sha256": "800d58f3fa809efb33063f2c957625c90dd6c03e95942daf4cf1ab274bc808fb",
+          "semilla_decimal": null
+        },
+        {
+          "a": 1825,
+          "ell": 1830,
+          "largo": 1840,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            31123
+          ],
+          "semilla_sha256": "99ee26110c69ac5bd6af8f2984a6772c9b7b61cb4fd1a0518dd8bdb8edb93f21",
+          "final_sha256": "70eee3b441facd06d43a3097048a9f8ea07a626ea678d52ef08e5bbff134ea27",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "AAA",
+      "residuo": 25,
+      "periodo": 144,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 25,
+          "ell": 30,
+          "largo": 37,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            523
+          ],
+          "semilla_sha256": "719f764b41b0fd94e9c71c9b649045ab6b39fa90ea9d63203efc125be0b6acae",
+          "final_sha256": "e314b539ef6afdd072fc9133440ad59412d870de86ad5256754c5a0ea361b0f6",
+          "semilla_decimal": "1033973607"
+        },
+        {
+          "a": 169,
+          "ell": 174,
+          "largo": 181,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            2971
+          ],
+          "semilla_sha256": "25037967c72b7f7bb857f5f907caee22a88373f3d4baeb3fdbb6b99fd18ce309",
+          "final_sha256": "b7f86a5705962a893b126763f56aa5aa863caa7e211ad1f959c3028c8b463224",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "AAB",
+      "residuo": 25,
+      "periodo": 576,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 25,
+          "ell": 30,
+          "largo": 39,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            523
+          ],
+          "semilla_sha256": "719f764b41b0fd94e9c71c9b649045ab6b39fa90ea9d63203efc125be0b6acae",
+          "final_sha256": "668589fb728507bbb2b76cb9d70c906853eb66ea7114b88fdb41c5583b1bf3f3",
+          "semilla_decimal": "1033973607"
+        },
+        {
+          "a": 601,
+          "ell": 606,
+          "largo": 615,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            10315
+          ],
+          "semilla_sha256": "3f565eeca27cc338e8032ba68b84a694f3cdde5e54c706c10ca7d72c58bde153",
+          "final_sha256": "08a4a12c1e157a205e14046bff9cdd3b75a8029e0c67981aa79af6a976aa9bd4",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "ABA",
+      "residuo": 169,
+      "periodo": 576,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 169,
+          "ell": 174,
+          "largo": 183,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            2971
+          ],
+          "semilla_sha256": "25037967c72b7f7bb857f5f907caee22a88373f3d4baeb3fdbb6b99fd18ce309",
+          "final_sha256": "62b2ec9110b6c0495f977de4a1f0853061614251d6ed792ce6cde2583dee9f89",
+          "semilla_decimal": null
+        },
+        {
+          "a": 745,
+          "ell": 750,
+          "largo": 759,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            12763
+          ],
+          "semilla_sha256": "c39933e3e4adb7e1f50c99e901fc90636fedef81fe8d7063998ff061537cd146",
+          "final_sha256": "07a5b3134f2a1d99f4672af4c98bd9c4dfab821b81b88dc7868fbaab5589a744",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "ABB",
+      "residuo": 169,
+      "periodo": 2304,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 169,
+          "ell": 174,
+          "largo": 185,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            2971
+          ],
+          "semilla_sha256": "25037967c72b7f7bb857f5f907caee22a88373f3d4baeb3fdbb6b99fd18ce309",
+          "final_sha256": "7733a72c83fbfaa6f712e44d2393640dcb8ce75927180fb626fb215e32110274",
+          "semilla_decimal": null
+        },
+        {
+          "a": 2473,
+          "ell": 2478,
+          "largo": 2489,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            42139
+          ],
+          "semilla_sha256": "cdd075e89a1b4ee20a29c88a9da97a1b905156c5fca18a20c9323069a5719069",
+          "final_sha256": "68185c47193413a3093824c96e4c79439813164bffdc29bda8763ed51e5fd0d8",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "BAA",
+      "residuo": 97,
+      "periodo": 576,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 97,
+          "ell": 102,
+          "largo": 111,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            1747
+          ],
+          "semilla_sha256": "6ff07ceffca4a1a3f2f983c7c2b45b6f03956c6ec026db92c276e5eac4f74970",
+          "final_sha256": "190970a5c02c45419689c6a9784b56b02b5efed87412300948efe6f0a9647f41",
+          "semilla_decimal": "4882802311990216953913227161447"
+        },
+        {
+          "a": 673,
+          "ell": 678,
+          "largo": 687,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            11539
+          ],
+          "semilla_sha256": "9b5d05d1b9627183aa72dd84383d8a0632507f9f4b951cb4411c51d625447992",
+          "final_sha256": "6cd48c12dfe90419a326ad9facad22c3ca03cf047c8d5e8987717606f7cc9e3e",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "BAB",
+      "residuo": 1249,
+      "periodo": 2304,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 1249,
+          "ell": 1254,
+          "largo": 1265,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            21331
+          ],
+          "semilla_sha256": "90b1e7c0ed86882648e9f14ee403f78b50f54cd0762e0cff82d8b40fe06ee461",
+          "final_sha256": "37b1612a099555eba4734f364dec98cc50f267bdbcc5e70e312331fc457bd3c9",
+          "semilla_decimal": null
+        },
+        {
+          "a": 3553,
+          "ell": 3558,
+          "largo": 3569,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            60499
+          ],
+          "semilla_sha256": "af34c2b0cce5892f14917d80aee33c18ea021df104604452ef2c35e7c77a99cf",
+          "final_sha256": "a76fddf53968e69d718885e00f550951495dddab97e5c6c5e434c19f7db144e3",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "BBA",
+      "residuo": 673,
+      "periodo": 2304,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 673,
+          "ell": 678,
+          "largo": 689,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            11539
+          ],
+          "semilla_sha256": "9b5d05d1b9627183aa72dd84383d8a0632507f9f4b951cb4411c51d625447992",
+          "final_sha256": "b0ee28778f319a86a193a0b6171916f57fd001a5d1f4dfb8f650e9572aaa1b33",
+          "semilla_decimal": null
+        },
+        {
+          "a": 2977,
+          "ell": 2982,
+          "largo": 2993,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            50707
+          ],
+          "semilla_sha256": "ace92f47916d976a31af054d670752afcc9f0bfabe5db231406420594ca6ff7c",
+          "final_sha256": "add550d3f5c258de84303b90ae48e56fe1f308b004f5b1fde00bcc129e0c639c",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "AB",
+      "sufijo": "BBB",
+      "residuo": 5281,
+      "periodo": 9216,
+      "d": 5,
+      "pasos_prefijo": 4,
+      "impares_prefijo": 3,
+      "miembros": [
+        {
+          "a": 5281,
+          "ell": 5286,
+          "largo": 5299,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            98,
+            89875
+          ],
+          "semilla_sha256": "3c93d96d9d6e59b293fdfe53b10f94112cca56c35e34877b85b88629fad42992",
+          "final_sha256": "be54e4a39ba570b368bfcad8d4b3377ed8d83e08e71da2c4325023eaa4dc010f",
+          "semilla_decimal": null
+        },
+        {
+          "a": 14497,
+          "ell": 14502,
+          "largo": 14515,
+          "defecto": [
+            98,
+            17
+          ],
+          "proporcion": [
+            14,
+            35221
+          ],
+          "semilla_sha256": "2faeae8bf9f81729aebb3f8dc8be3cb7a7c31777780a139502af2fc1889c0250",
+          "final_sha256": "d1be38d93828332dc82ba188712f0e2cb979731c9dd3c4a17ac0dc46266a0691",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "",
+      "residuo": 19,
+      "periodo": 54,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 19,
+          "ell": 25,
+          "largo": 30,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            431
+          ],
+          "semilla_sha256": "9c5d720097ed18dfb854dd2b6a16c86d4fa7482d99ae4b7c3e55c9a84126ea38",
+          "final_sha256": "1b70af580c007bd557634531b035eae85c927d742ca46e4de49c60dd9089d972",
+          "semilla_decimal": "21541115"
+        },
+        {
+          "a": 73,
+          "ell": 79,
+          "largo": 84,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            1349
+          ],
+          "semilla_sha256": "bcbcc95d3b770f6f93d5e8533893b29375e990ec16883287a2adb82c270911bb",
+          "final_sha256": "339891d7b8b7dd8fd220d5769a8792d11e6791c8fafb8d03edb63cda36048a23",
+          "semilla_decimal": "388050263086177265955067"
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "A",
+      "residuo": 73,
+      "periodo": 108,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 73,
+          "ell": 79,
+          "largo": 85,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            1349
+          ],
+          "semilla_sha256": "bcbcc95d3b770f6f93d5e8533893b29375e990ec16883287a2adb82c270911bb",
+          "final_sha256": "e1888f3ebc0ab94599f0517a369e982fbf1b19bff4c427ffad12d2ba1b5a4ee2",
+          "semilla_decimal": "388050263086177265955067"
+        },
+        {
+          "a": 181,
+          "ell": 187,
+          "largo": 193,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            3185
+          ],
+          "semilla_sha256": "cdf4174a5e3126403fbbe3c099fda0b1ce7b64b0745ed66d75226c5d155bf321",
+          "final_sha256": "93f887edd57ee0d15a8338c4e4a949e0bb4e5735232ce7ac26566b44198bb0a0",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "B",
+      "residuo": 289,
+      "periodo": 432,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 289,
+          "ell": 295,
+          "largo": 303,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            5021
+          ],
+          "semilla_sha256": "830d5ddd7f1a429a05fa30a33f4ac590ffe4c49648b9228ddb16ae61f2aa03f0",
+          "final_sha256": "71777411e1a6ab7afcda215e8457661d8c5de67bd69c20b9cb7439187871be1e",
+          "semilla_decimal": null
+        },
+        {
+          "a": 721,
+          "ell": 727,
+          "largo": 735,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            12365
+          ],
+          "semilla_sha256": "2a5f16a9bd54b45225e0fc5540039f0d63d9e7d29c2633bdf089657d7c6b4be2",
+          "final_sha256": "80ecc662a6d42a6d8e2ead08540f20d56dcaf342ce7e6eb88bad0ccc59ecf702",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "AA",
+      "residuo": 73,
+      "periodo": 216,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 73,
+          "ell": 79,
+          "largo": 86,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            1349
+          ],
+          "semilla_sha256": "bcbcc95d3b770f6f93d5e8533893b29375e990ec16883287a2adb82c270911bb",
+          "final_sha256": "51bfa8ce599ebf05c542a335aeb4fe3eaa928419d601de7f14c8a61c4d9a7317",
+          "semilla_decimal": "388050263086177265955067"
+        },
+        {
+          "a": 289,
+          "ell": 295,
+          "largo": 302,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            5021
+          ],
+          "semilla_sha256": "830d5ddd7f1a429a05fa30a33f4ac590ffe4c49648b9228ddb16ae61f2aa03f0",
+          "final_sha256": "cf00b6f428ada80b13471822def392f25fa18b69ea0d06feb9f60ba09e402164",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "AB",
+      "residuo": 73,
+      "periodo": 864,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 73,
+          "ell": 79,
+          "largo": 88,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            1349
+          ],
+          "semilla_sha256": "bcbcc95d3b770f6f93d5e8533893b29375e990ec16883287a2adb82c270911bb",
+          "final_sha256": "3aa396729f7bfa906e366d92e1e7d94f39994bf1456c929871dcc551b6acca16",
+          "semilla_decimal": "388050263086177265955067"
+        },
+        {
+          "a": 937,
+          "ell": 943,
+          "largo": 952,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            16037
+          ],
+          "semilla_sha256": "536ba8aefa2f0596859e1e1d094f3f4e3ebdbe5d33dedbde166973c46dc6a8a5",
+          "final_sha256": "f960527bc212e4b8df5106391af404463e2acae05c628b902734a4ff8125c87f",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "BA",
+      "residuo": 289,
+      "periodo": 864,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 289,
+          "ell": 295,
+          "largo": 304,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            5021
+          ],
+          "semilla_sha256": "830d5ddd7f1a429a05fa30a33f4ac590ffe4c49648b9228ddb16ae61f2aa03f0",
+          "final_sha256": "ba19a241a4b9d0b07fcbf3679851ac126a22e647d882ce0c79910bcf8158c6b2",
+          "semilla_decimal": null
+        },
+        {
+          "a": 1153,
+          "ell": 1159,
+          "largo": 1168,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            19709
+          ],
+          "semilla_sha256": "36ca8a0fe0304c838940ec109ee34ec67d7f8018ab41aacad8413e4680f9872d",
+          "final_sha256": "fea2c2a29f097a3a969d7f5a5e74799e03822cb128b23e92235f247df200815c",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "BB",
+      "residuo": 289,
+      "periodo": 3456,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 289,
+          "ell": 295,
+          "largo": 306,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            5021
+          ],
+          "semilla_sha256": "830d5ddd7f1a429a05fa30a33f4ac590ffe4c49648b9228ddb16ae61f2aa03f0",
+          "final_sha256": "9d2f7b90c7868522dc571f944d26a616a0b2a6ce5712d7140a294db277c9b664",
+          "semilla_decimal": null
+        },
+        {
+          "a": 3745,
+          "ell": 3751,
+          "largo": 3762,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            63773
+          ],
+          "semilla_sha256": "685ea21096da033887c9065d4dacd1cc02b04bcc051a89545437cdc9d76d4748",
+          "final_sha256": "0b55c86cf2372c8306fdd28118fdec8707d64ab3e438deeed208b4e3acf92a8d",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "AAA",
+      "residuo": 73,
+      "periodo": 432,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 73,
+          "ell": 79,
+          "largo": 87,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            1349
+          ],
+          "semilla_sha256": "bcbcc95d3b770f6f93d5e8533893b29375e990ec16883287a2adb82c270911bb",
+          "final_sha256": "742a78e747a18ea5b4dc43005c3a5f6d31a0bbfa3bcf93f77aa0cafe10ee7c36",
+          "semilla_decimal": "388050263086177265955067"
+        },
+        {
+          "a": 505,
+          "ell": 511,
+          "largo": 519,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            8693
+          ],
+          "semilla_sha256": "369816ac0d6458ab32dd6e228e3b4a66d2ee26cc6a34fd99eba08c8622a2961f",
+          "final_sha256": "90504b52bdb15205ca5a00b90886f4e0d9f290c5bf5af0163b8a3170146f2721",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "AAB",
+      "residuo": 1369,
+      "periodo": 1728,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 1369,
+          "ell": 1375,
+          "largo": 1385,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            23381
+          ],
+          "semilla_sha256": "9ec6b545f857fbb6f3bd23b3d791ac282a493e26f64702fdb805a77b3aca4912",
+          "final_sha256": "3f849307cc520edf3c06d41061dd192091d1aa7769d9e48049dcede0cf9e09fe",
+          "semilla_decimal": null
+        },
+        {
+          "a": 3097,
+          "ell": 3103,
+          "largo": 3113,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            52757
+          ],
+          "semilla_sha256": "9eed5d7972e57d07095db60d225bfb093f6e28437f223e9bbec373bc9f86ae20",
+          "final_sha256": "bf3ffddbc4dbe99a56a78bcaf6cc7b2a9cc6642129f2b1dee86a15d01a9cded9",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "ABA",
+      "residuo": 937,
+      "periodo": 1728,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 937,
+          "ell": 943,
+          "largo": 953,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            16037
+          ],
+          "semilla_sha256": "536ba8aefa2f0596859e1e1d094f3f4e3ebdbe5d33dedbde166973c46dc6a8a5",
+          "final_sha256": "9a0a86ed82f1b66f5018fceafa197dfd9e35c8d23eab29a2594b30296af731ea",
+          "semilla_decimal": null
+        },
+        {
+          "a": 2665,
+          "ell": 2671,
+          "largo": 2681,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            45413
+          ],
+          "semilla_sha256": "2507950c068ff35b4a893b2ded3653e914c6bc2cd1698107981f114ea60bf2bd",
+          "final_sha256": "41e747eff7069bbc5974c022536e7307aeab559776fa21888d1da0e455dac37e",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "ABB",
+      "residuo": 937,
+      "periodo": 6912,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 937,
+          "ell": 943,
+          "largo": 955,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            16037
+          ],
+          "semilla_sha256": "536ba8aefa2f0596859e1e1d094f3f4e3ebdbe5d33dedbde166973c46dc6a8a5",
+          "final_sha256": "fca74599561f81b909e0f46ac1fefa1932a8a3feffb689ba06f557a20d2af85b",
+          "semilla_decimal": null
+        },
+        {
+          "a": 7849,
+          "ell": 7855,
+          "largo": 7867,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            133541
+          ],
+          "semilla_sha256": "0a1ee8e754f585b6053bc6625c97b324689d6ae3b38d3b1aabcd6407088647c9",
+          "final_sha256": "3102240d54f4638c88799d8b84ac3129e3f99bddb2e5eb331f64d60feb297c2a",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "BAA",
+      "residuo": 289,
+      "periodo": 1728,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 289,
+          "ell": 295,
+          "largo": 305,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            5021
+          ],
+          "semilla_sha256": "830d5ddd7f1a429a05fa30a33f4ac590ffe4c49648b9228ddb16ae61f2aa03f0",
+          "final_sha256": "a8009481c48dad17919b2df085c4d0226a8802fd564efcfa49ea806aefe20f8e",
+          "semilla_decimal": null
+        },
+        {
+          "a": 2017,
+          "ell": 2023,
+          "largo": 2033,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            34397
+          ],
+          "semilla_sha256": "635f8a240dc679682d3873204372e98922f97e3ca80837e3a9f99b310ba8c7b4",
+          "final_sha256": "72eefd2f0c0f1eca6a037f7bf4627bf767c0894ba3426dc950d073c10a6deb69",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "BAB",
+      "residuo": 2017,
+      "periodo": 6912,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 2017,
+          "ell": 2023,
+          "largo": 2035,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            34397
+          ],
+          "semilla_sha256": "635f8a240dc679682d3873204372e98922f97e3ca80837e3a9f99b310ba8c7b4",
+          "final_sha256": "eab485fcd669fd053d4875346baac4289cd9fb5a572f7eda9633003f2de1d5fc",
+          "semilla_decimal": null
+        },
+        {
+          "a": 8929,
+          "ell": 8935,
+          "largo": 8947,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            151901
+          ],
+          "semilla_sha256": "96c3b8bab7620c62021af2d075e0c678fc2cb9c064646d766c4d104a3226bf7b",
+          "final_sha256": "c836f983440fe5cb9f6acdb1f19f8fa090c7d53da178f741552c956382382493",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "BBA",
+      "residuo": 3745,
+      "periodo": 6912,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 3745,
+          "ell": 3751,
+          "largo": 3763,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            63773
+          ],
+          "semilla_sha256": "685ea21096da033887c9065d4dacd1cc02b04bcc051a89545437cdc9d76d4748",
+          "final_sha256": "585077dfca1a6348927b402d552793d4c218d31476b7edd462882d76d1f24ca7",
+          "semilla_decimal": null
+        },
+        {
+          "a": 10657,
+          "ell": 10663,
+          "largo": 10675,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            181277
+          ],
+          "semilla_sha256": "87b693440522e0b6f63b60d4ebe789d311d6112d41e5907ac9124850ab0364ac",
+          "final_sha256": "9f9d40f33d412a0a408b63ccd2488384c4800135036ebc233dce98128a9324af",
+          "semilla_decimal": null
+        }
+      ]
+    },
+    {
+      "prefijo": "BB",
+      "sufijo": "BBB",
+      "residuo": 17569,
+      "periodo": 27648,
+      "d": 6,
+      "pasos_prefijo": 6,
+      "impares_prefijo": 4,
+      "miembros": [
+        {
+          "a": 17569,
+          "ell": 17575,
+          "largo": 17589,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            298781
+          ],
+          "semilla_sha256": "7c23fc29c1bc03d2ad665e793d5f805c60025403139756a124603597d268f30d",
+          "final_sha256": "106dda7f539c173284d769aa25561c551802baaf29ea3ca1e4753f02535e30c4",
+          "semilla_decimal": null
+        },
+        {
+          "a": 45217,
+          "ell": 45223,
+          "largo": 45237,
+          "defecto": [
+            108,
+            17
+          ],
+          "proporcion": [
+            108,
+            768797
+          ],
+          "semilla_sha256": "53bbdfa83d17f48c8b7b16f7b18a3b13e6ad10d81e115835f9796e29256c9c90",
+          "final_sha256": "a110fa000e9cb6c0ddcb70f716f3bff41b17ce471e14abb0b05876748909ddc9",
+          "semilla_decimal": null
+        }
+      ]
+    }
+  ],
+  "casos": 90,
+  "contextos": 45,
+  "bordes": 21,
+  "fuentes_sha256_lf": {
+    "cotejar_contexto.py": "0c328759cc048921a54820531260e527bc14294c29f42d52d30159ee665643ed",
+    "cotejar_defecto.py": "3917703f428644ba62b3f8ff4bb55df8ed89a1a2aeb0629bb6493e9bd21f9fba",
+    "cotejar_congruencias.py": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf"
+  },
+  "alcance": "Cotejo finito; existencia universal por prueba escrita con dos levantamientos y CRT. No acota conjuntamente los defectos ni demuestra reloj uniforme."
+}
