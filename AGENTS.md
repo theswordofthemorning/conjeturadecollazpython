@@ -43,6 +43,20 @@ Validar lo afectado; el conjunto acotado está en
 `depuracion/coherencia20260913/ejecutar_controles.py`. Para documentación,
 comprobar conservación y enlaces; no relanzar ese conjunto por rutina.
 
+## Linux y sesiones como root
+
+En Linux el usuario dueño del repositorio es `oem`. Si el agente se abrió
+con `sudo`, trabaja como root:
+- Ejecutar los comandos del proyecto como el dueño (`sudo -u oem python …`,
+  `sudo -u oem lean …`, `sudo -u oem lake build …`, `sudo -u oem git …`) para que
+  ningún archivo, `.lake/`, caché o `.git/` quede de root. Antes de cerrar,
+  comprobar con `find . -user root` y devolver con `chown -R oem:oem` lo que haga falta.
+- Reservar root para lo que lo exige: paquetes, `/etc`, servicios, GRUB.
+  Antes de cualquier acción del sistema que sea difícil de deshacer, avisar
+  al usuario y guardar una copia `*.bak-…` de lo que se modifica.
+- Como root, la configuración y la memoria del agente están en `/root/.claude`,
+  no en `/home/oem/.claude`; no se comparten entre ambas sesiones.
+
 ## Cierre y mantenimiento
 
 Actualizar el estado breve **sustituyendo** lo superado: resultado, límite,
