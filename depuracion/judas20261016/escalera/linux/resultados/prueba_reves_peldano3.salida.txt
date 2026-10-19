@@ -26,7 +26,7 @@ Termination w.r.t. Q of the given QTRS could be proven:
         (18) QDP
         (19) QReductionProof [EQUIVALENT, 0 ms]
         (20) QDP
-        (21) QDPOrderProof [EQUIVALENT, 6 ms]
+        (21) QDPOrderProof [EQUIVALENT, 4 ms]
         (22) QDP
         (23) PisEmptyProof [EQUIVALENT, 0 ms]
         (24) YES

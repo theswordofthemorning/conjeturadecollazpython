@@ -5,20 +5,22 @@ Uso:
   python -I vigia.py --salida S.txt --errores E.txt --registro R.txt
          [--nucleos 0,2,4,6] [--tiempo-max 420] [--tmp CARPETA] -- orden args...
 
-Reglas, comprobadas cada 2 segundos:
+Reglas, comprobadas cada segundo:
   1. Un proceso hijo (MiniSat, Z3, ...) que pase de --tope-hijo-gb se corta.
   2. Si la RAM libre o el compromiso libre del equipo bajan de --aviso-gb,
-     se corta el hijo mayor.
+     se cortan los hijos de mayor a menor, midiendo tras cada corte, hasta
+     salir del aviso.
   3. Si la RAM libre baja de --libre-min-gb, o el compromiso libre baja de
-     --compromiso-min-gb, se corta todo. Tras un corte de las reglas 1 o 2
-     se vuelve a medir antes de aplicarla.
+     --compromiso-min-gb, se cortan todos los hijos y se vuelve a medir; sólo
+     si ni así se recupera, se corta todo.
   4. Si se pasa de --tiempo-max segundos, se corta todo.
 La orden corre con prioridad baja (nice 10) y en los núcleos pedidos; sus
-hijos heredan las dos cosas, y también oom_score_adj=800: si aun así el
-núcleo se queda sin memoria, mata a AProVE antes que al escritorio. Al final
-se cortan los hijos que queden vivos y se borra la
-carpeta temporal de la corrida. Cortar un hijo sólo hace fallar la técnica
-que lo usaba: AProVE lo toma como "no encontrado", nunca como prueba.
+hijos heredan las dos cosas. Si aun así el núcleo se queda sin memoria, su
+orden de víctimas (oom_score_adj) es: primero los hijos (1000), luego Java
+(300) y por último el escritorio (0). Al final se cortan los hijos que
+queden vivos y se borra la carpeta temporal de la corrida. Cortar un hijo
+sólo hace fallar la técnica que lo usaba: AProVE lo toma como "no
+encontrado", nunca como prueba.
 """
 import argparse
 import os
@@ -31,6 +33,13 @@ import psutil
 GB = 1024 ** 3
 RESOLVEDORES = {"minisat", "minisat2", "z3", "yices"}
 JAVAS = {"java"}
+INTERVALO = 1.0
+# oom_score_adj. El núcleo elige la víctima por residente + adj/1000 de la
+# memoria total (unos 26 GB con el swap). Con 300, Java (11 GB, o 15 GB en
+# lazos) queda por debajo de cualquier hijo con 1000 y muy por encima de
+# cualquier proceso del escritorio.
+OOM_JAVA = 300
+OOM_HIJO = 1000
 
 
 def memoria_equipo():
@@ -79,11 +88,19 @@ def pico_residente(proc):
     return 0.0
 
 
+def poner_oom(pid, valor):
+    """Fija el oom_score_adj de un proceso; si ya terminó, no hace nada."""
+    try:
+        with open("/proc/%s/oom_score_adj" % pid, "w") as f:
+            f.write(str(valor))
+    except OSError:
+        pass
+
+
 def preparar_hijo():
-    """En el proceso hijo, antes de la orden: prioridad baja y primero para el OOM."""
+    """En el proceso hijo, antes de la orden: prioridad baja y su puesto ante el OOM."""
     os.nice(10)
-    with open("/proc/self/oom_score_adj", "w") as f:
-        f.write("800")
+    poner_oom("self", OOM_JAVA)
 
 
 def tamano(carpeta):
@@ -145,6 +162,7 @@ def main():
             jefe.cpu_affinity([int(x) for x in a.nucleos.split(",")])
 
         vistos = {}
+        marcados = set()
         cortes = 0
         motivo = "terminó solo"
         pico = {"java": 0.0, "hijos": 0.0, "juntos": 0.0, "n": 0}
@@ -153,7 +171,7 @@ def main():
         pids_java = {p.pid}
         ultimo = -10.0
         while p.poll() is None:
-            time.sleep(2)
+            time.sleep(INTERVALO)
             t = time.time() - inicio
             libre, comp = memoria_equipo()
             try:
@@ -164,6 +182,11 @@ def main():
             # y 2: su tope es -Xmx.
             javas = [q for q in arbol if q is jefe or nombre(q).lower() in JAVAS]
             hijos = [q for q in arbol if q not in javas]
+            # Ante el OOM del núcleo, los hijos van antes que Java.
+            for q in hijos:
+                if q not in marcados:
+                    marcados.add(q)
+                    poner_oom(q.pid, OOM_HIJO)
             for q in arbol[1:]:
                 vistos.setdefault(q.pid, q)
             for q in javas:
@@ -189,22 +212,38 @@ def main():
                     apuntar("corto %s (pid %d): %.2f GB, más que el tope" % (nombre(h), h.pid, mem[h]), True)
                     cortar(h)
                     cortes += 1
-                    mem[h] = 0.0
-            # Regla 2: con poca RAM libre, o poco compromiso libre, se corta el
-            # hijo mayor. El 17-10 el compromiso llegó al mínimo de la regla 3
-            # con 2 GB de RAM libre, y se perdió la corrida entera.
-            if (libre < a.aviso_gb or comp < a.aviso_gb) and mem:
-                h = max(mem, key=mem.get)
-                if mem[h] > 0.2:
-                    apuntar("RAM libre %.2f GB, compromiso libre %.2f GB: corto %s (pid %d, %.2f GB)"
-                            % (libre, comp, nombre(h), h.pid, mem[h]), True)
-                    cortar(h)
-                    cortes += 1
+                    del mem[h]
             # Lo que se cortó ya no cuenta: se vuelve a medir.
             if cortes > antes_de_cortar:
+                time.sleep(0.5)
+                libre, comp = memoria_equipo()
+            # Regla 2: con poca RAM libre, o poco compromiso libre, se cortan
+            # los hijos de mayor a menor, midiendo tras cada corte, hasta salir
+            # del aviso. El 17-10 el compromiso llegó al mínimo de la regla 3
+            # con 2 GB de RAM libre, y se perdió la corrida entera.
+            while libre < a.aviso_gb or comp < a.aviso_gb:
+                grandes = [h for h in mem if mem[h] > 0.2]
+                if not grandes:
+                    break
+                h = max(grandes, key=mem.get)
+                apuntar("RAM libre %.2f GB, compromiso libre %.2f GB: corto %s (pid %d, %.2f GB)"
+                        % (libre, comp, nombre(h), h.pid, mem[h]), True)
+                cortar(h)
+                cortes += 1
+                del mem[h]
+                time.sleep(0.5)
+                libre, comp = memoria_equipo()
+            # Regla 3: el equipo nunca baja del mínimo. Primero se cortan todos
+            # los hijos; sólo si ni así se recupera, la corrida entera.
+            if (libre < a.libre_min_gb or comp < a.compromiso_min_gb) and mem:
+                apuntar("RAM libre %.2f GB, compromiso libre %.2f GB: corto los %d hijos que quedan"
+                        % (libre, comp, len(mem)), True)
+                for h in mem:
+                    cortar(h)
+                cortes += len(mem)
+                mem = {}
                 time.sleep(1)
                 libre, comp = memoria_equipo()
-            # Regla 3: el equipo nunca baja del mínimo.
             if libre < a.libre_min_gb or comp < a.compromiso_min_gb:
                 motivo = "CORTADO por memoria del equipo (RAM libre %.2f GB, compromiso libre %.2f GB)" % (libre, comp)
                 apuntar(motivo, True)
@@ -249,8 +288,8 @@ def main():
             restos += 1
 
     apuntar("FIN: código de salida %s, %.1f s; %s" % (codigo, time.time() - inicio, motivo), True)
-    apuntar("picos cada 2 s: java %.2f GB, hijos %.2f GB (hasta %d a la vez), juntos %.2f GB"
-            % (pico["java"], pico["hijos"], pico["n"], pico["juntos"]), True)
+    apuntar("picos cada %g s: java %.2f GB, hijos %.2f GB (hasta %d a la vez), juntos %.2f GB"
+            % (INTERVALO, pico["java"], pico["hijos"], pico["n"], pico["juntos"]), True)
     apuntar("pico real de java (residente, VmHWM): %.2f GB" % pico_real_java, True)
     apuntar("mínimos del equipo: RAM libre %.2f GB, compromiso libre %.2f GB"
             % (minimo["libre"], minimo["comp"]), True)

@@ -8,7 +8,7 @@ Termination w.r.t. Q of the given QTRS could be proven:
 (0) QTRS
 (1) QTRS Reverse [EQUIVALENT, 0 ms]
 (2) QTRS
-(3) QTRSRRRProof [EQUIVALENT, 56 ms]
+(3) QTRSRRRProof [EQUIVALENT, 65 ms]
 (4) QTRS
 (5) QTRSRRRProof [EQUIVALENT, 160 ms]
 (6) QTRS

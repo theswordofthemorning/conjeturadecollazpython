@@ -8,3 +8,20 @@
 18-10 23:36:16 prueba_acotadaA_peldano4: YES
 18-10 23:36:18 prueba_acotadaB_peldano4: YES
 18-10 23:36:18 pruebas cortas: todas dan lo esperado
+19-10 11:19:21 prueba_portafolio_peldano1: YES
+19-10 11:19:55 prueba_derecho_peldano3: YES
+19-10 11:20:21 prueba_derecho_peldano4: YES
+19-10 11:20:22 prueba_reves_peldano3: YES
+19-10 11:20:23 prueba_reves_peldano4: YES
+19-10 11:20:24 prueba_lazos_bucle: NO
+19-10 11:20:25 prueba_acotadaA_peldano4: YES
+19-10 11:20:27 prueba_acotadaB_peldano4: YES
+19-10 11:20:27 portafolio_300s: empieza con 20.8 GB libres; Java 13 GB, 8 técnicas a la vez, cada solucionador hasta 3.5 GB; termina hacia las 11:26, como mucho
+19-10 11:25:30 portafolio_300s: KILLED
+19-10 11:25:30 portafolio_3600s: empieza con 21.1 GB libres; Java 13 GB, 8 técnicas a la vez, cada solucionador hasta 3.6 GB; termina hacia las 12:26, como mucho
+19-10 12:25:49 portafolio_3600s: KILLED
+19-10 12:25:49 acotadaA: empieza con 21.0 GB libres; Java 13 GB, 8 técnicas a la vez, cada solucionador hasta 3.6 GB; termina hacia las 13:56, como mucho
+19-10 13:04:07 acotadaA: MAYBE
+19-10 13:04:07 acotadaB: empieza con 21.0 GB libres; Java 13 GB, 8 técnicas a la vez, cada solucionador hasta 3.6 GB; termina hacia las 14:35, como mucho
+19-10 13:40:13 acotadaB: MAYBE
+19-10 13:40:13 derecho: empieza con 20.9 GB libres; Java 12 GB, 12 técnicas a la vez, cada solucionador hasta 4.1 GB; termina hacia las 15:56, como mucho

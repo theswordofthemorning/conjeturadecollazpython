@@ -11,35 +11,74 @@ Qué corre (LEEME.md de la escalera, §4 a §6), sobre peldano5_completo.srs:
   lazos             turno lazos, 1800 s                     (§6)
 Antes corre 8 pruebas cortas (unos 2 min): YES x5, NO, YES x2.
 Si alguna falla, no sigue. Si el peldaño 5 da YES o NO, se detiene.
-En total, unas 8 horas como mucho.
+En total, unas 9 horas como mucho; las acotadas y lazos suelen acabar antes.
 
 Herramientas (fuera del repo): /home/oem/herramientas/aprove/bundle, copiado
 de la imagen Docker jckassing/aprove del 23-09-2026 (AProVE commit ae097c6,
 el mismo del jar de Windows; Yices 1.0.40 real; MiniSat). Java: OpenJDK 25
 del sistema. No hacen falta el parche de Thread.stop ni el adaptador de Yices.
+El Z3 de la imagen (bin/z3-imagen) queda fuera del PATH: en Windows sólo se
+usó a través del adaptador de Yices.
 
 Cómo lanzarlo
 -------------
-1. Enchufa el cargador. Cierra el navegador y lo que no uses.
+1. Enchufa el cargador. Cierra el navegador y lo que no uses. Mientras corre,
+   no abras el navegador ni compiles Lean: la memoria es lo que manda.
 2. Abre una terminal y escribe:
-     bash ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/linux/lanzar.sh
-3. No cierres esa ventana. La pantalla se apagará a los 10 min: es normal,
-   el equipo no se suspende (lanzar.sh lo impide mientras corre, también
-   al cerrar la tapa).
+     bash ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/linux/lanzar.sh --fondo
+   Sigue aunque cierres la terminal o Claude. Para verla:
+     tail -f ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/linux/resultados/consola.txt
+   (Ctrl+C sólo deja de mirar). Para pararla:
+     bash ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/linux/parar.sh
+3. La pantalla se apagará a los 10 min: es normal, el equipo no se suspende
+   (lanzar.sh lo impide mientras corre, también al cerrar la tapa).
 
 Otras formas:
+  bash lanzar.sh                          en la terminal; Ctrl+C la para
   bash lanzar.sh --ensayo                 sólo calibra (segundos)
   bash lanzar.sh --solo-pruebas           sólo las 8 pruebas cortas
   bash lanzar.sh --solo derecho,reves     sólo esas corridas largas
   bash lanzar.sh --sin-pruebas            salta las pruebas cortas
-Para parar: Ctrl+C en la ventana.
+Se combinan con --fondo, que va primero.
 
-Memoria (se calcula al empezar con la RAM libre; con 19 GB libres):
-  Java 9 GB y cada solucionador hasta 4,8 GB; en lazos, Java 14 GB.
-  El vigía (vigia.py, versión Linux del de Windows) corta un solucionador
-  si se pasa, y corta todo si la RAM libre baja de 1,2 GB. Además AProVE
-  corre con nice 10 y oom_score_adj 800: si faltara memoria, el núcleo
-  mata a AProVE antes que al escritorio.
+Memoria y técnicas a la vez
+---------------------------
+AProVE corre a la vez max(4, 2 × procesadores que ve Java) técnicas
+(PrioritizableThreadPool del jar; la opción -w no lo limita del todo, porque
+los bloques paralelos anidados lo rebasan). Cada técnica guarda sus datos en
+el heap y puede lanzar su MiniSat: eso es lo que gasta memoria, no los hilos.
+Java ve los mismos procesadores que en Windows: 4 (8 técnicas) en portafolio
+y acotadas, 6 (12) en los turnos. Así sólo cambia la memoria. La afinidad es
+la de los 6 núcleos físicos en todas.
 
-Resultados: resultados/ (cadena.txt, calibracion.txt y, por corrida,
-salida, errores, gc y vigía). Las pruebas cortas del 18-10 ya están ahí.
+Reparto, calculado con la RAM libre al empezar (con 20,8 GB libres):
+  portafolio y acotadas   Java 13 GB, cada solucionador hasta 3,5 GB
+  derecho y revés         Java 12 GB, cada solucionador hasta 4,1 GB
+  lazos                   Java 14 GB, cada solucionador hasta 2,9 GB
+Java corre con -XX:+UseCompactObjectHeaders (Java 25, JEP 519). Antes de
+cada corrida larga se vuelve a medir: si faltan más de 1 GB, espera hasta
+10 min, y nunca da más memoria que al empezar.
+
+Ensayos del 19-10 (portafolio a 300 s sobre el peldaño 5, 8 técnicas, en una
+carpeta temporal):
+  -Xmx10g          heap lleno de datos vivos hacia los 200 s; 13 recolecciones
+                   completas; solucionadores 3,2 GB; RAM libre mínima 7,0 GB
+  -Xmx13g + COH    lleno hacia los 270-300 s; 8 recolecciones completas;
+                   solucionadores 4,7 GB; RAM libre mínima 2,2 GB
+Los dos: KILLED, 46 subproblemas y 3 subpruebas, sin OutOfMemoryError ni
+cortes. El portafolio acumula datos vivos sin límite en este problema: más
+heap retrasa el atasco, pero no lo evita.
+
+El vigía (vigia.py) mira cada segundo:
+  - corta un solucionador que pase de su tope;
+  - si la RAM libre baja de 1,8 GB, corta solucionadores de mayor a menor,
+    midiendo tras cada corte, hasta salir del aviso;
+  - si baja de 1,2 GB, corta todos los solucionadores y, sólo si no basta,
+    la corrida.
+Si aun así el núcleo se quedara sin memoria, mata primero un solucionador
+(oom_score_adj 1000), luego Java (300) y nunca antes el escritorio (0).
+Cortar un solucionador sólo hace fallar su técnica, nunca da una prueba.
+
+Resultados: resultados/ (consola.txt, cadena.txt, calibracion.txt y, por
+corrida, salida, errores, gc y vigía). Las pruebas cortas del 18-10 ya están
+ahí; la tanda las sustituye por las suyas.

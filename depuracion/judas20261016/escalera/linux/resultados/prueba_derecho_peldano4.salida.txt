@@ -22,9 +22,9 @@ Termination w.r.t. Q of the given QTRS could be proven:
     (14) QDP
         (15) UsableRulesProof [EQUIVALENT, 0 ms]
         (16) QDP
-        (17) QReductionProof [EQUIVALENT, 2 ms]
+        (17) QReductionProof [EQUIVALENT, 0 ms]
         (18) QDP
-        (19) SemLabProof [SOUND, 325 ms]
+        (19) SemLabProof [SOUND, 294 ms]
         (20) QDP
         (21) MRRProof [EQUIVALENT, 0 ms]
         (22) QDP

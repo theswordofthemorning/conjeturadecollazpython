@@ -1,0 +1,42 @@
+    0.0s  orden: /usr/lib/jvm/java-25-openjdk-amd64/bin/java -ea -Xmx13g -XX:+UseCompactObjectHeaders -XX:ActiveProcessorCount=4 -Xlog:gc:file=portafolio_300s.gc.txt -cp /home/oem/herramientas/aprove/bundle/aprove.jar:/home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/turnos/estrategia:/home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/acotada/estrategia aprove.Main -m wst -p plain -t 300 /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/peldano5_completo.srs
+    0.0s  antes: RAM libre 20.8 GB, compromiso libre 22.8 GB
+    1.0s  RAM libre 20.5 GB, compromiso libre 22.5 GB | java 0.34 GB | hijos 1, 0.00 GB minisat x1
+   11.1s  RAM libre 15.0 GB, compromiso libre 17.0 GB | java 6.13 GB | hijos 2, 0.02 GB minisat x2
+   21.2s  RAM libre 8.2 GB, compromiso libre 10.2 GB | java 12.09 GB | hijos 10, 0.62 GB minisat x10
+   31.3s  RAM libre 6.8 GB, compromiso libre 8.8 GB | java 12.98 GB | hijos 13, 1.11 GB minisat x13
+   41.4s  RAM libre 6.8 GB, compromiso libre 8.8 GB | java 13.02 GB | hijos 12, 1.09 GB minisat x12
+   51.5s  RAM libre 7.3 GB, compromiso libre 9.3 GB | java 13.06 GB | hijos 8, 0.61 GB minisat x8
+   61.7s  RAM libre 5.9 GB, compromiso libre 7.9 GB | java 13.11 GB | hijos 14, 1.94 GB minisat x14
+   71.8s  RAM libre 5.6 GB, compromiso libre 7.6 GB | java 13.28 GB | hijos 14, 1.92 GB minisat x14
+   81.9s  RAM libre 6.7 GB, compromiso libre 8.7 GB | java 13.29 GB | hijos 8, 0.93 GB minisat x8
+   92.0s  RAM libre 5.3 GB, compromiso libre 7.3 GB | java 13.30 GB | hijos 14, 2.31 GB minisat x14
+  102.1s  RAM libre 4.4 GB, compromiso libre 6.4 GB | java 13.30 GB | hijos 16, 3.19 GB minisat x16
+  112.2s  RAM libre 5.6 GB, compromiso libre 7.6 GB | java 13.31 GB | hijos 12, 2.04 GB minisat x12
+  122.3s  RAM libre 6.0 GB, compromiso libre 8.0 GB | java 13.34 GB | hijos 11, 1.57 GB minisat x11
+  132.4s  RAM libre 6.0 GB, compromiso libre 8.0 GB | java 13.34 GB | hijos 12, 1.55 GB minisat x12
+  142.5s  RAM libre 6.4 GB, compromiso libre 8.4 GB | java 13.53 GB | hijos 9, 1.02 GB minisat x9
+  152.6s  RAM libre 6.2 GB, compromiso libre 8.2 GB | java 13.66 GB | hijos 8, 1.03 GB minisat x8
+  162.7s  RAM libre 5.2 GB, compromiso libre 7.2 GB | java 13.70 GB | hijos 13, 2.02 GB minisat x13
+  172.8s  RAM libre 5.0 GB, compromiso libre 7.0 GB | java 13.71 GB | hijos 12, 2.24 GB minisat x12
+  182.9s  RAM libre 5.7 GB, compromiso libre 7.7 GB | java 13.71 GB | hijos 9, 1.48 GB minisat x9
+  193.0s  RAM libre 5.7 GB, compromiso libre 7.7 GB | java 13.77 GB | hijos 9, 1.50 GB minisat x9
+  203.1s  RAM libre 5.7 GB, compromiso libre 7.7 GB | java 13.78 GB | hijos 9, 1.52 GB minisat x9
+  213.2s  RAM libre 5.7 GB, compromiso libre 7.7 GB | java 13.72 GB | hijos 9, 1.54 GB minisat x9
+  223.3s  RAM libre 4.0 GB, compromiso libre 6.0 GB | java 13.75 GB | hijos 14, 3.18 GB minisat x14
+  233.4s  RAM libre 2.7 GB, compromiso libre 4.7 GB | java 13.88 GB | hijos 14, 4.31 GB minisat x14
+  243.5s  RAM libre 2.7 GB, compromiso libre 4.7 GB | java 13.89 GB | hijos 14, 4.33 GB minisat x14
+  253.6s  RAM libre 3.4 GB, compromiso libre 5.4 GB | java 13.75 GB | hijos 13, 3.82 GB minisat x13
+  263.7s  RAM libre 2.7 GB, compromiso libre 4.7 GB | java 13.82 GB | hijos 13, 4.44 GB minisat x13
+  273.8s  RAM libre 2.7 GB, compromiso libre 4.7 GB | java 13.83 GB | hijos 13, 4.39 GB minisat x13
+  283.9s  RAM libre 2.3 GB, compromiso libre 4.3 GB | java 13.94 GB | hijos 14, 4.62 GB minisat x14
+  294.0s  RAM libre 2.4 GB, compromiso libre 4.4 GB | java 13.88 GB | hijos 14, 4.63 GB minisat x14
+  304.1s  RAM libre 2.3 GB, compromiso libre 4.3 GB | java 13.95 GB | hijos 14, 4.65 GB minisat x14
+  314.2s  RAM libre 2.2 GB, compromiso libre 4.2 GB | java 14.04 GB | hijos 14, 4.67 GB minisat x14
+  324.3s  RAM libre 2.2 GB, compromiso libre 4.2 GB | java 14.04 GB | hijos 14, 4.68 GB minisat x14
+  331.4s  FIN: código de salida 0, 331.4 s; terminó solo
+  331.4s  picos cada 1 s: java 14.04 GB, hijos 4.68 GB (hasta 16 a la vez), juntos 18.72 GB
+  331.4s  pico real de java (residente, VmHWM): 14.04 GB
+  331.4s  mínimos del equipo: RAM libre 2.23 GB, compromiso libre 4.23 GB
+  331.4s  hijos cortados por memoria: 0; restos cortados al final: 0
+  331.4s  temporales: 0.0 MB, borrados
+  331.4s  después: RAM libre 20.9 GB, compromiso libre 22.9 GB

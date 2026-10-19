@@ -72,13 +72,13 @@ The following rules were used to construct the certificate:
 
 The certificate found is represented by the following graph.
 The certificate consists of the following enumerated nodes:
-10, 11, 12, 13, 14, 15, 16
+2, 4, 12, 13, 14, 15, 16
 
-Node 10 is start node and node 11 is final node.
+Node 2 is start node and node 4 is final node.
 
 Those nodes are connected through the following edges:
 
-* 10 to 12 labelled f_1(0), t_1(0)* 10 to 10 labelled f_1(0), t_1(0)* 11 to 11 labelled #_1(0)* 12 to 11 labelled a0_1(0), a1_1(0), a2_1(0), L_1(0)* 12 to 13 labelled f_1(1), t_1(1)* 12 to 14 labelled t_1(1), f_1(1)* 12 to 15 labelled f_1(1)* 12 to 12 labelled t_1(1)* 13 to 11 labelled a0_1(1), a2_1(1)* 13 to 13 labelled f_1(1), t_1(1)* 13 to 14 labelled t_1(1), f_1(1)* 13 to 12 labelled t_1(1)* 14 to 11 labelled a1_1(1), L_1(1)* 14 to 13 labelled t_1(1), f_1(1)* 14 to 12 labelled f_1(1)* 15 to 16 labelled f_1(1)* 16 to 11 labelled L_1(1)
+* 2 to 12 labelled f_1(0), t_1(0)* 2 to 2 labelled f_1(0), t_1(0)* 4 to 4 labelled #_1(0)* 12 to 4 labelled a0_1(0), a1_1(0), a2_1(0), L_1(0)* 12 to 13 labelled f_1(1), t_1(1)* 12 to 14 labelled t_1(1), f_1(1)* 12 to 15 labelled f_1(1)* 12 to 12 labelled t_1(1)* 13 to 4 labelled a0_1(1), a2_1(1)* 13 to 13 labelled f_1(1), t_1(1)* 13 to 14 labelled t_1(1), f_1(1)* 13 to 12 labelled t_1(1)* 14 to 4 labelled a1_1(1), L_1(1)* 14 to 13 labelled t_1(1), f_1(1)* 14 to 12 labelled f_1(1)* 15 to 16 labelled f_1(1)* 16 to 4 labelled L_1(1)
 
 
 ----------------------------------------

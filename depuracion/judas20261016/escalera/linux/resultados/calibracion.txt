@@ -22,3 +22,18 @@ terminación (portafolio, acotadas, derecho, revés): Java 9 GB, cada solucionad
 lazos: Java 14 GB
 vigía: aviso 1,8 GB, mínimos 1,2 GB; tiempo máximo = el de AProVE + 240 s
 
+fecha: 2026-10-19 11:19:20
+equipo: AMD Ryzen 5 5600H with Radeon Graphics; Linux-7.0.0-38-generic-x86_64-with-glibc2.39
+uname: Linux HPVICTUS 7.0.0-38-generic #38~24.04.4-Ubuntu SMP PREEMPT_DYNAMIC Mon Sep 14 16:37:11 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+RAM: 22.8 GB en total, 21.0 GB libres al empezar; swap 2.0 GB
+núcleos: 6 físicos, 12 lógicos; se usan 0,2,4,6,8,10
+java: openjdk version "25.0.4.1" 2026-08-18
+aprove: /home/oem/herramientas/aprove/bundle/aprove.jar (imagen jckassing/aprove del 23-09-2026)
+yices: 1.0.40
+portafolio y acotadas (8 técnicas a la vez, Java ve 4 procesadores): Java 13 GB, cada solucionador hasta 3.6 GB
+derecho y revés (12 técnicas a la vez, Java ve 6): Java 12 GB, cada solucionador hasta 4.2 GB
+lazos (12 técnicas a la vez): Java 14 GB, cada solucionador hasta 3.0 GB
+Java con -XX:+UseCompactObjectHeaders
+vigía: cada 1 s; aviso 1,8 GB (corta solucionadores de mayor a menor), mínimo 1,2 GB (corta todos los solucionadores y, si no basta, la corrida); OOM del núcleo: solucionadores 1000, Java 300; tiempo máximo = el de AProVE + 240 s
+antes de cada corrida larga: si faltan más de 1 GB libres, espera hasta 10 min; nunca más memoria que ésta
+
