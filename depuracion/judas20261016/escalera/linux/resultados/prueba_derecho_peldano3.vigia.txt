@@ -1,0 +1,13 @@
+    0.0s  orden: /usr/lib/jvm/java-25-openjdk-amd64/bin/java -ea -Xmx2g -XX:ActiveProcessorCount=6 -Xlog:gc:file=prueba_derecho_peldano3.gc.txt -cp /home/oem/herramientas/aprove/bundle/aprove.jar:/home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/turnos/estrategia:/home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/acotada/estrategia aprove.Main -m wst -p plain -t 120 -s aprove.Turnos.derecho /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/peldano3_ramaA.srs
+    0.0s  antes: RAM libre 19.0 GB, compromiso libre 21.0 GB
+    2.0s  RAM libre 18.2 GB, compromiso libre 20.2 GB | java 0.81 GB | hijos 1, 0.01 GB minisat x1
+   12.1s  RAM libre 16.5 GB, compromiso libre 18.5 GB | java 2.14 GB | hijos 6, 0.38 GB minisat x6
+   22.1s  RAM libre 15.7 GB, compromiso libre 17.7 GB | java 2.26 GB | hijos 7, 1.10 GB minisat x7
+   32.2s  RAM libre 19.0 GB, compromiso libre 21.0 GB | java 0.00 GB | hijos 0, 0.00 GB 
+   32.2s  FIN: código de salida 0, 32.2 s; terminó solo
+   32.2s  picos cada 2 s: java 2.26 GB, hijos 1.32 GB (hasta 8 a la vez), juntos 3.58 GB
+   32.2s  pico real de java (residente, VmHWM): 2.26 GB
+   32.2s  mínimos del equipo: RAM libre 15.47 GB, compromiso libre 17.47 GB
+   32.2s  hijos cortados por memoria: 0; restos cortados al final: 0
+   32.2s  temporales: 0.0 MB, borrados
+   32.2s  después: RAM libre 19.0 GB, compromiso libre 21.0 GB

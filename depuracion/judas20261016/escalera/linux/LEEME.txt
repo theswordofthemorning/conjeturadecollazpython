@@ -1,0 +1,45 @@
+TANDA DE APROVE EN EL VICTUS CON LINUX
+======================================
+
+Qué corre (LEEME.md de la escalera, §4 a §6), sobre peldano5_completo.srs:
+  portafolio_300s   portafolio por omisión, 300 s           (§4)
+  portafolio_3600s  portafolio por omisión, 3600 s          (§4)
+  acotadaA          estrategia A, hasta 5400 s              (§5)
+  acotadaB          estrategia B, hasta 5400 s              (§5)
+  derecho           turno derecho, 8100 s                   (§6)
+  reves             turno revés, 8100 s                     (§6)
+  lazos             turno lazos, 1800 s                     (§6)
+Antes corre 8 pruebas cortas (unos 2 min): YES x5, NO, YES x2.
+Si alguna falla, no sigue. Si el peldaño 5 da YES o NO, se detiene.
+En total, unas 8 horas como mucho.
+
+Herramientas (fuera del repo): /home/oem/herramientas/aprove/bundle, copiado
+de la imagen Docker jckassing/aprove del 23-09-2026 (AProVE commit ae097c6,
+el mismo del jar de Windows; Yices 1.0.40 real; MiniSat). Java: OpenJDK 25
+del sistema. No hacen falta el parche de Thread.stop ni el adaptador de Yices.
+
+Cómo lanzarlo
+-------------
+1. Enchufa el cargador. Cierra el navegador y lo que no uses.
+2. Abre una terminal y escribe:
+     bash ~/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/linux/lanzar.sh
+3. No cierres esa ventana. La pantalla se apagará a los 10 min: es normal,
+   el equipo no se suspende (lanzar.sh lo impide mientras corre, también
+   al cerrar la tapa).
+
+Otras formas:
+  bash lanzar.sh --ensayo                 sólo calibra (segundos)
+  bash lanzar.sh --solo-pruebas           sólo las 8 pruebas cortas
+  bash lanzar.sh --solo derecho,reves     sólo esas corridas largas
+  bash lanzar.sh --sin-pruebas            salta las pruebas cortas
+Para parar: Ctrl+C en la ventana.
+
+Memoria (se calcula al empezar con la RAM libre; con 19 GB libres):
+  Java 9 GB y cada solucionador hasta 4,8 GB; en lazos, Java 14 GB.
+  El vigía (vigia.py, versión Linux del de Windows) corta un solucionador
+  si se pasa, y corta todo si la RAM libre baja de 1,2 GB. Además AProVE
+  corre con nice 10 y oom_score_adj 800: si faltara memoria, el núcleo
+  mata a AProVE antes que al escritorio.
+
+Resultados: resultados/ (cadena.txt, calibracion.txt y, por corrida,
+salida, errores, gc y vigía). Las pruebas cortas del 18-10 ya están ahí.

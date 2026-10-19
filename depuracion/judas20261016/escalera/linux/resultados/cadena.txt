@@ -1,0 +1,10 @@
+18-10 23:34:55 ensayo_java: sin salida
+18-10 23:35:07 prueba_portafolio_peldano1: YES
+18-10 23:35:39 prueba_derecho_peldano3: YES
+18-10 23:36:07 prueba_derecho_peldano4: YES
+18-10 23:36:09 prueba_reves_peldano3: YES
+18-10 23:36:11 prueba_reves_peldano4: YES
+18-10 23:36:13 prueba_lazos_bucle: NO
+18-10 23:36:16 prueba_acotadaA_peldano4: YES
+18-10 23:36:18 prueba_acotadaB_peldano4: YES
+18-10 23:36:18 pruebas cortas: todas dan lo esperado
