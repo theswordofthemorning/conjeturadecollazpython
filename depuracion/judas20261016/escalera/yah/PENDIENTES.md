@@ -5,6 +5,12 @@ tanda de YAH sobre la escalera del piloto ([LEEME.txt](LEEME.txt)).
 
 ## En marcha
 
+**Siguiente acción:** [plan acotado](PLAN_YAH.md), perfil `--diagnostico`:
+calibración y G_B4…G_B7 sólo mientras haya QED, máximo global 30 minutos,
+cuatro solucionadores y salida nueva fuera del repo. No reanudar las tandas
+largas con los comandos históricos de abajo. Revisar Nashida antes de
+ampliar recursos; la barrera para nuestro SRS concreto sigue por auditar.
+
 **Paradas las dos tandas a las 22:26 del 19-10-2026**, a petición del
 usuario, sin QED y sin avances desde lo de abajo:
 
@@ -14,8 +20,8 @@ usuario, sin QED y sin avances desde lo de abajo:
 - G_A2: natural d4 rw4 invertida dio UNSAT y natural d5 rw4 llegó al tope
   de 3600 s. Se cortó natural d5 rw4 invertida (#59). La escalera no llegó a
   G_B4 ni al resto.
-- Para retomarlas hay que volver a lanzarlas; la cascada empieza de nuevo
-  por la forma más barata.
+- Los lanzamientos antiguos empezaban de nuevo por la forma más barata.
+  Ahora se rechaza reutilizar resultados; conservarlos en su ubicación.
 
 Estado a las 21:00 del 19-10-2026. Las dos tandas corren a la vez, con
 6 solucionadores cada una y nice 10. Usan unos 2 GB de RAM y el procesador

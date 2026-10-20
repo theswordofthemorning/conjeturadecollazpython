@@ -28,22 +28,27 @@ se informa sin detener la tanda.
 Con --debilitadas corre en su lugar la escalera de G debilitadas de
 debilitar.py (DEBILITADAS, de la más débil a la más cercana a G), con
 TOPES_DEBILITADAS, y deja los resultados en resultados_debilitadas/. Usa su
-propia carpeta de trabajo, así que puede correr a la vez que la del peldaño 5.
+propia carpeta de trabajo. lanzar.sh admite una sola tanda a la vez.
+
+Con --diagnostico calibra y prueba G_B4..G_B7 sólo mientras haya QED:
+30 s por forma, 1800 s globales y cuatro solucionadores. Guarda en una
+carpeta nueva fuera del repo. Las carpetas anteriores nunca se borran.
 
 Uso:  python3 -I lanzar.py [--solo-calibracion | --sin-calibracion | --debilitadas] [--ensayo]
 Con --ensayo sólo corre el peldaño 1 con 30 s por forma, para probar el
 lanzador. La variable TANDA_RESULTADOS indica otra carpeta de resultados.
 """
 import datetime
+import hashlib
 import glob
 import json
 import os
-import resource
 import shutil
 import signal
 import subprocess
 import sys
 import time
+import tempfile
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 YAH = "/home/oem/herramientas/yah/rewriting-collatz"
@@ -77,6 +82,11 @@ MEMORIA_PROCESO = 6 * GB        # tope de memoria virtual de cada proceso
 ESPERA_MAXIMA = 1800            # segundos esperando memoria antes de rendirse
 
 hijo = None
+limite_tanda = None
+
+
+def segundos_disponibles():
+    return float("inf") if limite_tanda is None else max(0, limite_tanda - time.monotonic())
 
 
 def ahora():
@@ -99,12 +109,14 @@ def esperar_memoria():
     inicio = time.time()
     avisado = False
     while memoria_disponible() < MEMORIA_LIBRE:
+        if segundos_disponibles() <= 0:
+            return False
         if not avisado:
             decir(f"espero memoria: libres {memoria_disponible() / GB:.1f} GB")
             avisado = True
         if time.time() - inicio > ESPERA_MAXIMA:
             return False
-        time.sleep(10)
+        time.sleep(min(10, segundos_disponibles()))
     return True
 
 
@@ -117,6 +129,7 @@ def reglas_estrictas(ruta):
 
 
 def limitar():
+    import resource
     os.nice(10)
     resource.setrlimit(resource.RLIMIT_AS, (MEMORIA_PROCESO, MEMORIA_PROCESO))
 
@@ -150,7 +163,10 @@ def correr_forma(actual, forma, rev, tope, carpeta, numero):
     if rev:
         orden.append("-rev")
     if not esperar_memoria():
-        return "sin memoria", None, 0.0
+        return ("presupuesto agotado" if segundos_disponibles() <= 0 else "sin memoria"), None, 0.0
+    if segundos_disponibles() <= 0:
+        return "presupuesto agotado", None, 0.0
+    tope = min(tope, segundos_disponibles())
     inicio = time.time()
     with open(registro, "w", encoding="utf-8") as f:
         f.write("$ " + " ".join(orden) + "\n\n")
@@ -190,8 +206,8 @@ def correr_forma(actual, forma, rev, tope, carpeta, numero):
 
 def cascada(peldano, topes, resumen):
     carpeta = os.path.join(RES, peldano)
-    if os.path.isdir(carpeta):
-        shutil.rmtree(carpeta)
+    if os.path.exists(carpeta):
+        raise FileExistsError(f"Se conserva {carpeta}; elige otro TANDA_RESULTADOS")
     os.makedirs(carpeta)
     actual = os.path.join(carpeta, "000_inicio.srs")
     shutil.copy(os.path.join(SISTEMAS, peldano + ".srs"), actual)
@@ -208,6 +224,10 @@ def cascada(peldano, topes, resumen):
         avance = False
         for forma in FORMAS:
             for rev in ORIENTACIONES:
+                if segundos_disponibles() <= 0:
+                    resumen[peldano]["veredicto"] = "parado: presupuesto agotado"
+                    guardar(resumen)
+                    return False
                 if (forma, rev) in descartadas:
                     continue
                 numero += 1
@@ -220,8 +240,8 @@ def cascada(peldano, topes, resumen):
                 guardar(resumen)
                 decir(f"{peldano} #{numero} {forma[0]} d{forma[1]} rw{forma[2]}"
                       f"{' rev' if rev else ''} tope {tope} s: {resultado} ({segundos:.0f} s)")
-                if resultado == "sin memoria":
-                    resumen[peldano]["veredicto"] = "parado: sin memoria"
+                if resultado in ("sin memoria", "presupuesto agotado") or resultado.startswith("error"):
+                    resumen[peldano]["veredicto"] = "parado: " + resultado
                     guardar(resumen)
                     return False
                 if resultado == "QED":
@@ -264,21 +284,33 @@ def guardar(resumen):
 
 
 def main():
-    global RES, TRABAJO
+    global RES, TRABAJO, TRABAJADORES, limite_tanda
     signal.signal(signal.SIGTERM, al_parar)
     signal.signal(signal.SIGINT, al_parar)
     argumentos = sys.argv[1:]
+    diagnostico = "--diagnostico" in argumentos
+    if diagnostico and any(a != "--diagnostico" for a in argumentos):
+        raise SystemExit("--diagnostico se usa solo; no combinar con los perfiles antiguos")
+    if diagnostico:
+        TRABAJADORES = 4
+        limite_tanda = time.monotonic() + 1800
+        if not os.environ.get("TANDA_RESULTADOS"):
+            base = os.path.expanduser("~/herramientas/yah/resultados")
+            os.makedirs(base, exist_ok=True)
+            RES = tempfile.mkdtemp(prefix="diagnostico-", dir=base)
     if "--debilitadas" in argumentos and not os.environ.get("TANDA_RESULTADOS"):
         RES = os.path.join(AQUI, "resultados_debilitadas")
     os.makedirs(RES, exist_ok=True)
-    if "--debilitadas" in argumentos:
+    if "--debilitadas" in argumentos or diagnostico:
         # carpeta de trabajo propia, para no borrar los CNF de otra tanda a la vez
         TRABAJO = os.path.join(RES, "trabajo")
         os.makedirs(TRABAJO, exist_ok=True)
         enlace = os.path.join(TRABAJO, "cadical")
         if not os.path.exists(enlace):
             os.symlink(os.path.join(YAH, "cadical"), enlace)
-    if "--ensayo" in argumentos:
+    if diagnostico:
+        plan = [(p, [30]) for p in CALIBRACION + ["G_B4", "G_B5", "G_B6", "G_B7"]]
+    elif "--ensayo" in argumentos:
         plan = [("peldano1_X", [30])]
     elif "--debilitadas" in argumentos:
         plan = [(p, TOPES_DEBILITADAS) for p in DEBILITADAS]
@@ -288,12 +320,29 @@ def main():
             plan += [(p, [CALIBRACION_TOPE]) for p in CALIBRACION]
         if "--solo-calibracion" not in argumentos:
             plan.append((PILOTO, TOPES))
+    # Una carpeta con evidencia nunca se reutiliza, tampoco al relanzar el perfil antiguo.
+    if os.path.exists(os.path.join(RES, "resumen.json")) or any(
+            os.path.exists(os.path.join(RES, p)) for p, _ in plan):
+        raise SystemExit("Resultados existentes: usa un TANDA_RESULTADOS nuevo")
+    huellas = {}
+    for p, _ in plan:
+        with open(os.path.join(SISTEMAS, p + ".srs"), "rb") as f:
+            huellas[p] = hashlib.sha256(f.read()).hexdigest()
     resumen = {"inicio": ahora(), "formas": len(FORMAS) * len(ORIENTACIONES),
+               "perfil": "diagnostico" if diagnostico else "historico",
+               "presupuesto_segundos": 1800 if diagnostico else None,
+               "sha256_sistemas": huellas,
                "trabajadores": TRABAJADORES, "plan": [[p, t] for p, t in plan]}
+    decir(f"resultados: {RES}")
+    guardar(resumen)
     decir(f"tanda de YAH: {len(plan)} peldaños, {resumen['formas']} formas, "
           f"{TRABAJADORES} solucionadores, libres {memoria_disponible() / GB:.1f} GB")
     for peldano, topes in plan:
-        cascada(peldano, topes, resumen)
+        exito = cascada(peldano, topes, resumen)
+        if diagnostico and not exito:
+            resumen["detencion"] = f"{peldano}: {resumen[peldano]['veredicto']}"
+            decir("diagnóstico detenido; revisar antes de ampliar la búsqueda")
+            break
     resumen["fin"] = ahora()
     guardar(resumen)
     decir("fin de la tanda")

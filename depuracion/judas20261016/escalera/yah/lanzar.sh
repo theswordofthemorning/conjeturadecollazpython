@@ -16,11 +16,25 @@ yo="$PWD/$(basename "$0")"
 if [ "$(id -u)" = 0 ]; then
   exec sudo -u oem --preserve-env=TANDA_RESULTADOS bash "$yo" "$@"
 fi
+# El perfil acotado guarda fuera del checkout y comparte la ruta con el hijo.
+case " $* " in
+  *" --diagnostico "*)
+    if [ -z "${TANDA_RESULTADOS:-}" ]; then
+      mkdir -p "$HOME/herramientas/yah/resultados" || exit 1
+      TANDA_RESULTADOS=$(mktemp -d "$HOME/herramientas/yah/resultados/diagnostico-XXXXXXXX") || exit 1
+      export TANDA_RESULTADOS
+    fi
+    ;;
+esac
 if [ "$1" = "--fondo" ]; then
   shift
   res="$PWD/resultados"
   case " $* " in *" --debilitadas "*) res="$PWD/resultados_debilitadas" ;; esac
   res="${TANDA_RESULTADOS:-$res}"
+  if [ -e "$res/consola.txt" ] || [ -e "$res/resumen.json" ]; then
+    echo "Se conservan los resultados de $res; usa una carpeta nueva." >&2
+    exit 1
+  fi
   mkdir -p "$res"
   setsid nohup bash "$yo" "$@" > "$res/consola.txt" 2>&1 < /dev/null &
   echo "La tanda corre en segundo plano."
@@ -29,4 +43,5 @@ if [ "$1" = "--fondo" ]; then
   exit 0
 fi
 exec systemd-inhibit --what=sleep:handle-lid-switch --who=YAH \
-  --why="tanda de YAH" python3 -I lanzar.py "$@"
+  --why="tanda de YAH" flock -n "${XDG_RUNTIME_DIR:-/tmp}/collatz-yah-$(id -u).lock" \
+  python3 -I lanzar.py "$@"
