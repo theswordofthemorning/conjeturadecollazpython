@@ -768,6 +768,19 @@
     "resultado": "tope",
     "segundos": 3602.0,
     "reglas_antes": 11
+   },
+   {
+    "numero": 58,
+    "forma": [
+     "natural",
+     6,
+     4
+    ],
+    "rev": false,
+    "tope": 3600,
+    "resultado": "tope",
+    "segundos": 3602.0,
+    "reglas_antes": 11
    }
   ],
   "veredicto": null

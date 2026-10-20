@@ -58,3 +58,6 @@
 [19-10-2026 20:20:07] G_A2 #55 arctic d5 rw5 rev tope 900 s: tope (902 s)
 [19-10-2026 20:23:53] G_A2 #56 tropical d4 rw4 rev tope 900 s: UNSAT (226 s)
 [19-10-2026 20:52:04] G_A2 #57 natural d4 rw4 rev tope 3600 s: UNSAT (1691 s)
+[19-10-2026 21:52:06] G_A2 #58 natural d5 rw4 tope 3600 s: tope (3602 s)
+[19-10-2026 22:26:17] parada pedida: corto la corrida en curso
+python3 failed with exit status 130.

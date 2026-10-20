@@ -5,6 +5,18 @@ tanda de YAH sobre la escalera del piloto ([LEEME.txt](LEEME.txt)).
 
 ## En marcha
 
+**Paradas las dos tandas a las 22:26 del 19-10-2026**, a petición del
+usuario, sin QED y sin avances desde lo de abajo:
+
+- Peldaño 5: natural d5 rw4 invertida y natural d6 rw4 llegaron al tope de
+  3600 s. Se cortó natural d6 rw4 invertida (#59). Siguen 11 reglas
+  estrictas.
+- G_A2: natural d4 rw4 invertida dio UNSAT y natural d5 rw4 llegó al tope
+  de 3600 s. Se cortó natural d5 rw4 invertida (#59). La escalera no llegó a
+  G_B4 ni al resto.
+- Para retomarlas hay que volver a lanzarlas; la cascada empieza de nuevo
+  por la forma más barata.
+
 Estado a las 21:00 del 19-10-2026. Las dos tandas corren a la vez, con
 6 solucionadores cada una y nice 10. Usan unos 2 GB de RAM y el procesador
 está entre 90 y 97 °C. Ninguna se ha caído. Los resultados parciales están

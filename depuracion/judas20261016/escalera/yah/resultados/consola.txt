@@ -58,3 +58,6 @@
 [19-10-2026 19:05:22] peldano5_completo #55 arctic d5 rw5 rev tope 900 s: tope (902 s)
 [19-10-2026 20:05:24] peldano5_completo #56 natural d5 rw4 tope 3600 s: tope (3602 s)
 [19-10-2026 21:05:26] peldano5_completo #57 natural d5 rw4 rev tope 3600 s: tope (3602 s)
+[19-10-2026 22:05:28] peldano5_completo #58 natural d6 rw4 tope 3600 s: tope (3602 s)
+[19-10-2026 22:26:12] parada pedida: corto la corrida en curso
+python3 failed with exit status 130.
