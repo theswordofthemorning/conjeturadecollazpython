@@ -27,7 +27,8 @@ se informa sin detener la tanda.
 
 Con --debilitadas corre en su lugar la escalera de G debilitadas de
 debilitar.py (DEBILITADAS, de la más débil a la más cercana a G), con
-TOPES_DEBILITADAS, y deja los resultados en resultados_debilitadas/.
+TOPES_DEBILITADAS, y deja los resultados en resultados_debilitadas/. Usa su
+propia carpeta de trabajo, así que puede correr a la vez que la del peldaño 5.
 
 Uso:  python3 -I lanzar.py [--solo-calibracion | --sin-calibracion | --debilitadas] [--ensayo]
 Con --ensayo sólo corre el peldaño 1 con 30 s por forma, para probar el
@@ -49,6 +50,8 @@ YAH = "/home/oem/herramientas/yah/rewriting-collatz"
 PYTHON = os.path.join(YAH, ".venv", "bin", "python")
 SISTEMAS = os.path.join(AQUI, "sistemas")
 RES = os.environ.get("TANDA_RESULTADOS") or os.path.join(AQUI, "resultados")
+# carpeta de trabajo de YAH: ahí busca ./cadical y deja sus CNF en tmp/
+TRABAJO = YAH
 GB = 2 ** 30
 
 CALIBRACION = ["peldano1_X", "peldano2_sinL", "peldano3_ramaA", "peldano4_ramaB"]
@@ -66,7 +69,7 @@ FORMAS = (
 ORIENTACIONES = [False, True]   # False: tal cual; True: con -rev
 TOPES = [120, 900, 3600]        # segundos por forma en cada pasada del piloto
 CALIBRACION_TOPE = 60
-TOPES_DEBILITADAS = [120, 900]
+TOPES_DEBILITADAS = [120, 900, 3600]
 
 TRABAJADORES = 6                # solucionadores a la vez (núcleos físicos)
 MEMORIA_LIBRE = 3 * GB          # espera a tener esto libre antes de cada corrida
@@ -152,7 +155,7 @@ def correr_forma(actual, forma, rev, tope, carpeta, numero):
     with open(registro, "w", encoding="utf-8") as f:
         f.write("$ " + " ".join(orden) + "\n\n")
         f.flush()
-        hijo = subprocess.Popen(orden, cwd=YAH, stdout=f, stderr=subprocess.STDOUT,
+        hijo = subprocess.Popen(orden, cwd=TRABAJO, stdout=f, stderr=subprocess.STDOUT,
                                 stdin=subprocess.DEVNULL, start_new_session=True,
                                 preexec_fn=limitar)
         try:
@@ -164,7 +167,7 @@ def correr_forma(actual, forma, rev, tope, carpeta, numero):
     hijo = None
     segundos = time.time() - inicio
     # los CNF de una corrida cortada no los borra YAH
-    for cnf in glob.glob(os.path.join(YAH, "tmp", "tmp*")):
+    for cnf in glob.glob(os.path.join(TRABAJO, "tmp", "tmp*")):
         try:
             if os.path.getmtime(cnf) >= inicio - 1:
                 os.remove(cnf)
@@ -261,13 +264,20 @@ def guardar(resumen):
 
 
 def main():
-    global RES
+    global RES, TRABAJO
     signal.signal(signal.SIGTERM, al_parar)
     signal.signal(signal.SIGINT, al_parar)
     argumentos = sys.argv[1:]
     if "--debilitadas" in argumentos and not os.environ.get("TANDA_RESULTADOS"):
         RES = os.path.join(AQUI, "resultados_debilitadas")
     os.makedirs(RES, exist_ok=True)
+    if "--debilitadas" in argumentos:
+        # carpeta de trabajo propia, para no borrar los CNF de otra tanda a la vez
+        TRABAJO = os.path.join(RES, "trabajo")
+        os.makedirs(TRABAJO, exist_ok=True)
+        enlace = os.path.join(TRABAJO, "cadical")
+        if not os.path.exists(enlace):
+            os.symlink(os.path.join(YAH, "cadical"), enlace)
     if "--ensayo" in argumentos:
         plan = [("peldano1_X", [30])]
     elif "--debilitadas" in argumentos:

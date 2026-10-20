@@ -1,0 +1,17 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/resultados_debilitadas/G_A2/007_natural_d3_rw3.srs -spc -i arctic -d 5 -rw 5 -any -work 6 -sol cadical -out /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/resultados_debilitadas/G_A2/036_arctic_d5_rw5.srs -asc
+
+Rewriting system:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+  L a0 -> L t
+  L a1 -> L f f
+  L a2 -> L f t
+  t f R -> a1 t R
+  t t t R -> a2 a2 R
+CNF: 25011 variables, 124233 clauses (0.233 s)
+Timeout: None
+Workers: 6

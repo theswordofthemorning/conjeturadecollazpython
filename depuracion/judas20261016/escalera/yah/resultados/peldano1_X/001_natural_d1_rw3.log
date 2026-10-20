@@ -1,0 +1,97 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/resultados/peldano1_X/000_inicio.srs -spc -i natural -d 1 -rw 3 -any -work 6 -sol cadical -out /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/resultados/peldano1_X/001_natural_d1_rw3.srs -asc
+
+Rewriting system:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+  L a0 -> L t
+  L a1 -> L f f
+  L a2 -> L f t
+CNF: 147 variables, 671 clauses (0.001 s)
+Timeout: None
+Workers: 6
+SAT (Attempt 1, 0.001 s)
+
+Natural: dimension 1, input width 3, result width 3
+[L]:  [1] x  +  [ ]
+
+[a0]: [2] x  +  [2]
+
+[a1]: [2] x  +  [2]
+
+[a2]: [2] x  +  [2]
+
+[f]:  [1] x  +  [ ]
+
+[t]:  [1] x  +  [ ]
+
+[f a0]  >= [a0 f]:  [2] x  +  [2]    >=   [2] x  +  [2]
+
+[f a1]  >= [a0 t]:  [2] x  +  [2]    >=   [2] x  +  [2]
+
+[f a2]  >= [a1 f]:  [2] x  +  [2]    >=   [2] x  +  [2]
+
+[t a0]  >= [a1 t]:  [2] x  +  [2]    >=   [2] x  +  [2]
+
+[t a1]  >= [a2 f]:  [2] x  +  [2]    >=   [2] x  +  [2]
+
+[t a2]  >= [a2 t]:  [2] x  +  [2]    >=   [2] x  +  [2]
+
+[L a0]  >  [L t]:   [2] x  +  [2]    >    [1] x  +  [ ]
+
+[L a1]  >  [L f f]: [2] x  +  [2]    >    [1] x  +  [ ]
+
+[L a2]  >  [L f t]: [2] x  +  [2]    >    [1] x  +  [ ]
+
+Relatively terminating rules:
+  L a0 -> L t
+  L a1 -> L f f
+  L a2 -> L f t
+
+Remaining strict rules:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+CNF: 98 variables, 430 clauses (0.000 s)
+Timeout: None
+Workers: 6
+SAT (Attempt 1, 0.001 s)
+
+Natural: dimension 1, input width 3, result width 3
+[a0]: [1] x  +  [1]
+
+[a1]: [1] x  +  [1]
+
+[a2]: [1] x  +  [1]
+
+[f]:  [2] x  +  [ ]
+
+[t]:  [2] x  +  [ ]
+
+[f a0]  >  [a0 f]: [2] x  +  [2]    >    [2] x  +  [1]
+
+[f a1]  >  [a0 t]: [2] x  +  [2]    >    [2] x  +  [1]
+
+[f a2]  >  [a1 f]: [2] x  +  [2]    >    [2] x  +  [1]
+
+[t a0]  >  [a1 t]: [2] x  +  [2]    >    [2] x  +  [1]
+
+[t a1]  >  [a2 f]: [2] x  +  [2]    >    [2] x  +  [1]
+
+[t a2]  >  [a2 t]: [2] x  +  [2]    >    [2] x  +  [1]
+
+Relatively terminating rules:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+
+QED

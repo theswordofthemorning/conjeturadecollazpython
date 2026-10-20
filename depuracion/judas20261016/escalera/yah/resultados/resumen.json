@@ -1,0 +1,775 @@
+{
+ "inicio": "19-10-2026 15:54:05",
+ "formas": 36,
+ "trabajadores": 6,
+ "plan": [
+  [
+   "peldano5_completo",
+   [
+    120,
+    900,
+    3600
+   ]
+  ]
+ ],
+ "peldano5_completo": {
+  "etapas": [
+   {
+    "numero": 7,
+    "forma": [
+     "natural",
+     3,
+     3
+    ],
+    "rev": false,
+    "quedan": 11,
+    "sistema": "007_natural_d3_rw3.srs",
+    "invertido": false
+   }
+  ],
+  "corridas": [
+   {
+    "numero": 1,
+    "forma": [
+     "natural",
+     1,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.1,
+    "reglas_antes": 12
+   },
+   {
+    "numero": 2,
+    "forma": [
+     "natural",
+     1,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.1,
+    "reglas_antes": 12
+   },
+   {
+    "numero": 3,
+    "forma": [
+     "natural",
+     2,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 12
+   },
+   {
+    "numero": 4,
+    "forma": [
+     "natural",
+     2,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 12
+   },
+   {
+    "numero": 5,
+    "forma": [
+     "natural",
+     2,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 12
+   },
+   {
+    "numero": 6,
+    "forma": [
+     "natural",
+     2,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 12
+   },
+   {
+    "numero": 7,
+    "forma": [
+     "natural",
+     3,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT con avance",
+    "segundos": 0.5,
+    "reglas_antes": 12
+   },
+   {
+    "numero": 8,
+    "forma": [
+     "natural",
+     1,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 9,
+    "forma": [
+     "natural",
+     1,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.1,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 10,
+    "forma": [
+     "natural",
+     2,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 11,
+    "forma": [
+     "natural",
+     2,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 12,
+    "forma": [
+     "natural",
+     2,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 13,
+    "forma": [
+     "natural",
+     2,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 14,
+    "forma": [
+     "natural",
+     3,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.4,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 15,
+    "forma": [
+     "natural",
+     3,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.4,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 16,
+    "forma": [
+     "natural",
+     3,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 1.5,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 17,
+    "forma": [
+     "natural",
+     3,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 1.8,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 18,
+    "forma": [
+     "natural",
+     4,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 19,
+    "forma": [
+     "natural",
+     4,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 20,
+    "forma": [
+     "natural",
+     5,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 21,
+    "forma": [
+     "natural",
+     5,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 22,
+    "forma": [
+     "natural",
+     6,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 23,
+    "forma": [
+     "natural",
+     6,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 24,
+    "forma": [
+     "arctic",
+     2,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 25,
+    "forma": [
+     "arctic",
+     2,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 26,
+    "forma": [
+     "arctic",
+     2,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 27,
+    "forma": [
+     "arctic",
+     2,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 28,
+    "forma": [
+     "arctic",
+     3,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 29,
+    "forma": [
+     "arctic",
+     3,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 30,
+    "forma": [
+     "arctic",
+     3,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 2.4,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 31,
+    "forma": [
+     "arctic",
+     3,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 3.7,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 32,
+    "forma": [
+     "arctic",
+     4,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 33,
+    "forma": [
+     "arctic",
+     4,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 34,
+    "forma": [
+     "arctic",
+     5,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 35,
+    "forma": [
+     "arctic",
+     5,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 36,
+    "forma": [
+     "arctic",
+     5,
+     5
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 37,
+    "forma": [
+     "arctic",
+     5,
+     5
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "tope",
+    "segundos": 122.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 38,
+    "forma": [
+     "tropical",
+     2,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 39,
+    "forma": [
+     "tropical",
+     2,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 40,
+    "forma": [
+     "tropical",
+     3,
+     3
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 41,
+    "forma": [
+     "tropical",
+     3,
+     3
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 0.2,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 42,
+    "forma": [
+     "tropical",
+     4,
+     4
+    ],
+    "rev": false,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 18.8,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 43,
+    "forma": [
+     "tropical",
+     4,
+     4
+    ],
+    "rev": true,
+    "tope": 120,
+    "resultado": "UNSAT",
+    "segundos": 29.7,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 44,
+    "forma": [
+     "natural",
+     4,
+     4
+    ],
+    "rev": false,
+    "tope": 900,
+    "resultado": "UNSAT",
+    "segundos": 421.4,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 45,
+    "forma": [
+     "natural",
+     4,
+     4
+    ],
+    "rev": true,
+    "tope": 900,
+    "resultado": "UNSAT",
+    "segundos": 508.8,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 46,
+    "forma": [
+     "natural",
+     5,
+     4
+    ],
+    "rev": false,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 47,
+    "forma": [
+     "natural",
+     5,
+     4
+    ],
+    "rev": true,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 48,
+    "forma": [
+     "natural",
+     6,
+     4
+    ],
+    "rev": false,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 49,
+    "forma": [
+     "natural",
+     6,
+     4
+    ],
+    "rev": true,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 50,
+    "forma": [
+     "arctic",
+     4,
+     4
+    ],
+    "rev": false,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 51,
+    "forma": [
+     "arctic",
+     4,
+     4
+    ],
+    "rev": true,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 52,
+    "forma": [
+     "arctic",
+     5,
+     4
+    ],
+    "rev": false,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 53,
+    "forma": [
+     "arctic",
+     5,
+     4
+    ],
+    "rev": true,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 54,
+    "forma": [
+     "arctic",
+     5,
+     5
+    ],
+    "rev": false,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 55,
+    "forma": [
+     "arctic",
+     5,
+     5
+    ],
+    "rev": true,
+    "tope": 900,
+    "resultado": "tope",
+    "segundos": 902.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 56,
+    "forma": [
+     "natural",
+     5,
+     4
+    ],
+    "rev": false,
+    "tope": 3600,
+    "resultado": "tope",
+    "segundos": 3602.0,
+    "reglas_antes": 11
+   },
+   {
+    "numero": 57,
+    "forma": [
+     "natural",
+     5,
+     4
+    ],
+    "rev": true,
+    "tope": 3600,
+    "resultado": "tope",
+    "segundos": 3602.0,
+    "reglas_antes": 11
+   }
+  ],
+  "veredicto": null
+ }
+}

@@ -98,7 +98,8 @@ z < 2^12 con dos estrategias, las relee con el lector de YAH y deja
 debilitadas.json. Todas sus órbitas de prueba paran (la más larga, 19 pasos),
 pero que paren siempre no está probado: para eso es la tanda.
   bash lanzar.sh --fondo --debilitadas
-Va de la más débil a la más cercana a G, con pasadas de 120 s y 900 s, y
-deja todo en resultados_debilitadas/. Correrla cuando acabe la del peldaño 5
-(parar.sh no distingue dos tandas a la vez).
+Va de la más débil a la más cercana a G, con pasadas de 120, 900 y 3600 s, y
+deja todo en resultados_debilitadas/. Puede correr a la vez que la del
+peldaño 5 (usa su propia carpeta de trabajo); se para con
+  bash parar.sh --debilitadas
 Qué se busca: el k donde la cascada deja de dar QED, y qué reglas resisten.

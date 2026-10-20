@@ -1,0 +1,17 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/resultados/peldano3_ramaA/000_inicio.srs -spc -i natural -d 2 -rw 4 -any -work 6 -sol cadical -out /home/oem/Desktop/conjeturadecollazpython/depuracion/judas20261016/escalera/yah/resultados/peldano3_ramaA/005_natural_d2_rw4.srs -asc
+
+Rewriting system:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+  L a0 -> L t
+  L a1 -> L f f
+  L a2 -> L f t
+  f R -> a0 R
+CNF: 1396 variables, 8208 clauses (0.011 s)
+Timeout: None
+Workers: 6
+UNSAT (0.011 s)
