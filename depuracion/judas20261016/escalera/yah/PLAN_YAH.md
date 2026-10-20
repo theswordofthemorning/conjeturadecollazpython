@@ -1,11 +1,24 @@
-# Plan acotado de YAH — 19-10-2026
+# Plan de YAH tras el diagnóstico — 19-10-2026
 
 ## Objetivo y decisión
 
-Medir si cortar la rama B permite a YAH cerrar algún caso que aún no se
-probó. G_B4 es el primer caso pendiente: las tandas antiguas se pararon a
-las 22:26 sin salir de G_A2 y del peldaño 5. Se conserva su evidencia.
-Este plan reemplaza las pasadas largas como siguiente acción; no las reanuda.
+El diagnóstico ya terminó: calibración 4/4 QED y G_B4 sin prueba, con
+11 reglas residuales. G_B5…G_B7 no se ejecutaron. G y G_A2 también quedaron
+con 11 reglas; las 22 configuraciones ensayadas de dimensión ≤ 3 dieron
+UNSAT en cada residuo. Evidencia y alcance en [INFORME_YAH.md](INFORME_YAH.md).
+
+La siguiente acción es auditar Nashida sobre los residuos exactos de G_A2
+y G_B4 y después buscar una medida a mano para G_B4. El puente SRS ↔ función
+sigue pendiente en Lean también para G: `piloto_iff` formaliza paridades ↔
+no parada de G. La formalización de ese puente y el traductor de
+certificados quedan detrás de las dos tareas anteriores; hoy el traductor
+sólo serviría para los QED de calibración. Detalle en [PENDIENTES.md](PENDIENTES.md).
+
+Una corrida larga sólo se justifica si la auditoría o el argumento a mano
+señala una configuración concreta: fijar sistema, residuo, tipo, dimensión,
+ancho, orientación, presupuesto y condición de parada. No repetir la
+cascada ni ampliar k por los mismos resultados. El perfil y los comandos
+de abajo se conservan como referencia de reproducción del diagnóstico.
 
 Mapa y dominio: z entero positivo; G(z)=3z/2 si z es par,
 G(z)=(9z+1)/8 si z=7 módulo 8, y parada en las otras clases.
@@ -13,8 +26,9 @@ G_Bk añade parada cuando z=-1 módulo 2^k, con k=4,5,6,7.
 Un paso es una aplicación de G; no es un paso clásico de Collatz.
 Los segundos de abajo son tiempo de pared del probador.
 
-Se ejecuta **una sola tanda**, con cuatro solucionadores por forma,
-nice 10 y las protecciones de memoria existentes. Un bloqueo `flock`
+El perfil de diagnóstico ejecuta **una sola tanda**, con cuatro
+solucionadores por forma, nice 10 y las protecciones de memoria existentes.
+Un bloqueo `flock`
 impide superponer lanzamientos mediante la versión nueva de `lanzar.sh`.
 Procesos antiguos o lanzados por otras vías requieren comprobarse aparte.
 
@@ -44,7 +58,7 @@ cota uniforme al variar k ni Collatz.
 La clasificación estructural y la búsqueda matricial son tareas distintas.
 El clasificador puede orientar qué certificado buscar; una etiqueta de
 enredo no descarta por sí sola toda configuración de este lanzador.
-Antes de autorizar científicamente nuevas pasadas largas:
+La auditoría debe comprobar lo siguiente antes de proponer otra corrida larga:
 
 - Fijar commit y SHA-256 del
   [repositorio de la Parte I](https://github.com/harappa/collatz-termination-certificate-dichotomy).
@@ -63,16 +77,18 @@ Antes de autorizar científicamente nuevas pasadas largas:
   Una equivalencia de terminación entre sistemas no basta para transportar
   una barrera de certificados. Conservar las hipótesis y el tramo pendiente.
 
-El diagnóstico breve de G_B4 puede ejecutarse mientras se prepara esa
-auditoría: sigue siendo una medición acotada, sin presuponer que una barrera
-se aplique. No se presenta la Parte I como no existencia comprobada en Lean.
+El diagnóstico breve de G_B4 ya está registrado: no repetirlo para preparar
+esta auditoría. Documentar el teorema aplicable y cada hipótesis satisfecha
+o pendiente; una etiqueta del clasificador no basta. No se presenta la
+Parte I como no existencia comprobada en Lean.
 Los detalles del clasificador están en su
 [código](https://github.com/harappa/collatz-termination-certificate-dichotomy/blob/master/computations/classify_families.py).
 
-## Ejecutar en el equipo Linux, como oem
+## Reproducción del perfil en el equipo Linux, como oem
 
-Desde la cuenta oem (si la sesión está abierta como root, pasar primero
-a `sudo -iu oem`). No ejecutar aquí las corridas en Windows.
+Estos comandos documentan el perfil ejecutado; no son la siguiente acción
+del plan. Desde la cuenta oem (si la sesión está abierta como root, pasar
+primero a `sudo -iu oem`). No ejecutar aquí las corridas en Windows.
 
 ```bash
 cd ~/Desktop/conjeturadecollazpython
@@ -131,7 +147,8 @@ No combinar `--diagnostico` con los perfiles antiguos.
 
 - **QED:** preservar matrices, registros y toda la cadena de eliminaciones.
   Es una salida del probador, todavía pendiente de certificación externa o
-  Lean y del puente SRS ↔ función para las debilitadas.
+  Lean. El puente SRS ↔ función sigue sin formalizar también para G; para
+  las debilitadas sólo hay cotejo finito.
 - **UNSAT:** sólo descarta esa interpretación, dimensión, ancho y
   orientación sobre ese sistema residual. No descarta terminación.
 - **Tope / presupuesto / sin prueba:** cerrar el diagnóstico. Informar
@@ -139,14 +156,16 @@ No combinar `--diagnostico` con los perfiles antiguos.
   automáticamente. Error o falta de memoria son incidencias, no resultados
   matemáticos.
 
-Después: cotejar el residuo con las barreras exactas y priorizar un
-certificado de los QED disponibles o una medida aritmética nueva. Si todo
-G_B4…G_B7 da QED, registrar esa familia finita antes de proponer más valores.
-Guardar sólo evidencia útil al repo, excluyendo `trabajo/` y sus CNF.
+El diagnóstico se cerró en G_B4; seguir ahora la auditoría y el trabajo a
+mano de [PENDIENTES.md](PENDIENTES.md). El resultado no equipara la
+dificultad de los tres mapas ni excluye todas las interpretaciones
+matriciales. Guardar sólo evidencia útil al repo, excluyendo `trabajo/` y
+sus CNF.
 
 ## Validación del cambio
 
 `comprobar_plan.py` verifica sin YAH: parada por calibración fallida y por
 primer resistente, progresión sólo con QED, conservación de carpetas y
-resúmenes, presupuesto y espera de memoria. La ejecución real de YAH y las
-herramientas Linux quedan a cargo del equipo de corridas tras el pull.
+resúmenes, presupuesto y espera de memoria. La ejecución real de este
+perfil quedó registrada en [resultados_diagnostico/](resultados_diagnostico/).
+Esta revisión documental no relanza ese control ni ninguna tanda de YAH.

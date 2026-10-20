@@ -1,0 +1,32 @@
+Autotest del clasificador de Nashida (paso 3 de PLAN.md)
+19-10-2026, PC de escritorio: Windows 11, Python 3.14.5
+
+Repo: https://github.com/harappa/collatz-termination-certificate-dichotomy
+commit a138adb7c7efaec8addd06722f40f015c7f2d9be (2026-10-02, revision r3, "Initial commit")
+Clon fuera de este repo, en C:\Users\Home\Desktop\nashida\collatz-termination-certificate-dichotomy
+(git clone --config core.autocrlf=false, para conservar los bytes).
+sha256sum -c MANIFEST.sha256: los 16 archivos del manifiesto OK.
+classify_families.py SHA-256 ab48b80c4af4c6fee7c1cf403422dcab68465161e1a094b8b7ddfbf148807e07,
+igual al del manifiesto.
+
+Lectura previa del script: solo biblioteca estandar, sin red ni subprocesos;
+escribe archivo solo con "list --out"; g1check lee maps_G1.tsv de su carpeta.
+Se ejecuto desde fuera del clon, con -I y la ruta absoluta del script.
+
+$ python -I -X utf8 .../computations/classify_families.py g1check          (1,9 s)
+G_1: 209 maps, Table 5 row reproduced; maps_G1.tsv identical to the recomputed list
+ALL OK
+
+$ python -I -B -X utf8 .../computations/classify_families.py table --jobs 10   (8 min 38 s)
+G_1: maps 209; disentangled terminating 18 (no exp. 12, no upstr. 6, upstr. 0); disentangled non-terminating 115; entangled periodic 33, escape 43, open 0; certificate failures 0: as in Table 5
+G_2: maps 158759; disentangled terminating 6085 (no exp. 2600, no upstr. 2485, upstr. 1000); disentangled non-terminating 53165; entangled periodic 62992, escape 32128, open 4389; certificate failures 0: as in Table 5
+G_3 (restricted): maps 4643702; disentangled terminating 1076298 (no exp. 618674, no upstr. 194744, upstr. 262880); disentangled non-terminating 708334; entangled periodic 1696111, escape 296, open 1162663; certificate failures 0: as in Table 5
+ALL OK
+
+Lean: no se compilo (pide Lean v4.34.1 y Mathlib v4.34.1). Revision a mano:
+ningun sorry, declaracion axiom ni native_decide en CollatzProof/ ni en
+verify/Probe.lean; los cuatro chk se cierran con decide +kernel. En Lean
+esta solo la correccion de los certificados (halts_of_cert) y cinco
+ejemplos (W, D1, D2, D3, H(2)). La no existencia para mapas enredados
+(seccion 5) y la barrera de automatas (secciones 7 y 8) no estan
+formalizadas.

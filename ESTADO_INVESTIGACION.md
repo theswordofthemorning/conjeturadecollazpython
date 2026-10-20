@@ -69,12 +69,16 @@ excluyendo recorridos racionales; las mismas barreras no bastan.
 Reloj y P abiertos; A/B no bastaría para Collatz. Sin mecanismo nuevo,
 no lanzar otra corrida larga.
 [Claude](RutaDeJudasIscariote.md): [J2](depuracion/judas20261016/J2_MECANISMOS.md)
-sin mecanismo publicado. En Lean, el piloto equivale a la parada de G, entre
-Mahler y la 4.14. [Informe YAH](depuracion/judas20261016/escalera/yah/INFORME_YAH.md):
-sin QED en G, G_A2 ni G_B4; en los tres caen sólo las reglas con L y las
-formas de dimensión ≤3 dan UNSAT. Cada rama sola da QED en segundos. Sin
-mecanismo nuevo, no ampliar YAH. Siguiente: barrera de Nashida para G_A2 y
-G_B4. Reloj Perdices abierto.
+sin mecanismo publicado. Lean: paridades ↔ no parada de G; puente SRS ↔ G
+con prueba escrita, sin formalizar.
+[Informe YAH](depuracion/judas20261016/escalera/yah/INFORME_YAH.md):
+G, G_A2 y G_B4 sin QED, residuos de 11 reglas; 22 UNSAT de dimensión ≤3
+por residuo, limitados a las configuraciones ensayadas.
+[Plan](depuracion/judas20261016/escalera/yah/PENDIENTES.md): auditar Nashida
+en los residuos de G_A2/G_B4; buscar medida para G_B4. Formalización y
+certificados después; corrida larga sólo con motivo nuevo. Reloj Perdices abierto.
+[Pendiente Nashida](depuracion/ccchallenge20261019/NASHIDA_ANALIZAR.md):
+analizar sus seis repos y sus PDF de Zenodo (bajados el 20-10, sin analizar).
 
 ## Revisión y publicación
 

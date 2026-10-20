@@ -4,8 +4,9 @@
 
 Ningún sistema con las dos ramas dio prueba. El peldaño 5 (G completo) y
 las dos debilitadas mínimas, G_A2 y G_B4, se comportan igual ante la
-cascada: caen sólo las reglas con L y quedan 11 reglas que resisten a todas
-las formas de dimensión ≤ 3. Cada rama sola (peldaños 3 y 4) da QED en
+cascada: caen sólo reglas dinámicas con L y quedan 11 reglas que resisten
+las 22 configuraciones ensayadas de dimensión ≤ 3, con los anchos y
+orientaciones indicados abajo. Cada rama sola (peldaños 3 y 4) da QED en
 segundos. Lo que estas formas no superan es la mezcla de las dos ramas, aun
 en su versión más estrecha. Sin una idea nueva, más horas de YAH no
 prometen nada.
@@ -18,16 +19,22 @@ prometen nada.
   si z ≡ 7 (mod 16). Peldaño 3: sólo la rama A. Peldaño 4: sólo la rama B.
 - Los sistemas de reescritura codifican cada función en la base mixta de
   YAH ([srs_piloto.py](../../srs_piloto.py), [debilitar.py](debilitar.py)).
-  Que el sistema termine equivale a que la función pare en todo z ≥ 1.
-  Para G está probado en Lean (`piloto_iff`,
-  [JudasPiloto.lean](../../JudasPiloto.lean)); para las debilitadas, sólo
-  comprobado por simulación en z < 2^12.
+  El puente que se pretende certificar afirma que el sistema termina si y
+  sólo si la función para en todo z ≥ 1.
+  Para G, esta equivalencia tiene prueba escrita en
+  [J2_MECANISMOS.md](../../J2_MECANISMOS.md), §2, y sigue sin formalizar.
+  `piloto_iff` de [JudasPiloto.lean](../../JudasPiloto.lean) formaliza otro
+  puente: para n natural, que todos sus prefijos de paridades sean admitidos
+  por el piloto equivale a n ≡ 3 (mod 4) y la no parada de G desde (n+1)/4.
+  No contiene el modelo
+  de reescritura. Para las debilitadas, el puente SRS ↔ función sólo tiene
+  cotejo por simulación en z < 2^12; eso no es una prueba universal.
 - Los tiempos son de pared.
 
 ## Resultados
 
-Tras quitar las reglas con L, los tres residuos tienen la misma forma: las
-9 reglas X, una regla de la rama A y una de la rama B.
+Tras quitar las reglas dinámicas con L, los tres residuos tienen la misma
+forma: las 9 reglas X, una regla de la rama A y una de la rama B.
 
 | Sistema | Rama A del residuo | Rama B del residuo |
 |---|---|---|
@@ -41,10 +48,12 @@ Tras quitar las reglas con L, los tres residuos tienen la misma forma: las
 | G_A2 | 120, 900 y 3600 s por forma; 16:53–22:26, parada | `L f R -> L t R` y `L t t R -> L f f f R` | dimensión ≤ 3; tropical d4 (116 y 226 s); natural d4 (723 y 1691 s) | natural d5 y d6; ártica d4 y d5 |
 | G_B4 | 30 s por forma; 22:43–22:50, completa | `L t t R -> L f f f R` | dimensión ≤ 3; tropical d4 (23 y 25 s) | natural d4 a d6; ártica d4 y d5 |
 
-«Dimensión ≤ 3» son las 11 formas natural d1–d3 y ártica y tropical d2–d3,
-en las dos orientaciones. Los pares de tiempos corresponden a las dos
-orientaciones. «Sin decidir» son las formas que agotaron su tope: hasta
-900 o 3600 s en G y G_A2, y 30 s en G_B4.
+«Dimensión ≤ 3» abrevia estos 11 pares (dimensión, ancho): natural (1,3),
+(2,3), (2,4), (3,3), (3,4); ártica (2,3), (2,4), (3,3), (3,4); tropical
+(2,3), (3,3). Cada uno se probó en ambas orientaciones: 22 UNSAT por
+residuo. No se excluyen otros anchos. Los pares de tiempos corresponden
+a las dos orientaciones. «Sin decidir» son las formas que agotaron su
+tope: hasta 900 o 3600 s en G y G_A2, y 30 s en G_B4.
 
 ### Diagnóstico de 30 minutos
 
@@ -79,31 +88,43 @@ detuvo, como prevé el plan, en el primer sistema sin prueba.
    parar siempre equivale a no tener órbitas divergentes.
 4. **Hipótesis, no comprobada.** Para este método, la primera mezcla ya
    tiene la dificultad de G: los tres residuos se comportan igual. Si es
-   así, lo que falta es una medida o una barrera, no tiempo de CPU.
+   así, lo que falta es una medida o una barrera, no tiempo de CPU. La
+   coincidencia de estos resultados no demuestra equivalencia entre los
+   problemas ni igualdad de dificultad.
 
 ## Lo que no se afirma
 
 - Que G, G_A2 o G_B4 no terminen, ni que no tengan prueba matricial: las
-  formas de dimensión ≥ 4 siguen sin decidir. En G_A2, decidir natural d4
-  costó 12 y 28 minutos.
+  formas ensayadas no agotan todas las interpretaciones. Quedan formas
+  sin decidir desde dimensión 4; natural d4 sí dio UNSAT en G y G_A2.
+  En G_A2 costó 12 y 28 minutos.
 - Ningún QED nuevo. No hay nada que certificar en Lean salvo los QED de
   calibración.
-- La equivalencia entre cada sistema debilitado y su función sigue
-  comprobada sólo por simulación.
+- El puente SRS ↔ G no está formalizado en Lean. La equivalencia entre
+  cada sistema debilitado y su función sigue cotejada sólo por simulación.
 
 ## Siguiente decisión
 
-Recomiendo no relanzar pasadas largas de la cascada. En orden:
+No relanzar pasadas largas de la cascada por los mismos resultados.
+La atribución a Lean queda corregida en este informe y en los
+[pendientes](PENDIENTES.md). El orden de trabajo es:
 
 1. **Auditoría de Nashida** sobre G_A2 y G_B4, ya preparada en
    [PLAN_YAH.md](PLAN_YAH.md) («Nashida: qué comprobar antes de ampliar»)
    y en [ccchallenge20261019](../../../ccchallenge20261019/PLAN.md). No
-   gasta horas de CPU y dice si hay una barrera estructural que explique la
-   resistencia.
-2. **G_B4 a mano.** Es el sistema más pequeño que resiste (11 reglas, dos
-   dinámicas): buscar una medida, o el motivo de que no haya una simple.
-3. **Una sola forma larga**, y sólo si 1 o 2 señalan cuál (por ejemplo,
-   natural d4 sobre G_B4).
+   requiere otra tanda larga de YAH. Debe identificar el teorema, sus
+   hipótesis, las reglas residuales y las orientaciones exactas; una
+   clasificación del mapa por sí sola no establece una barrera matricial.
+2. **G_B4 a mano.** Una de las mezclas mínimas estudiadas (11 reglas, dos
+   dinámicas): buscar una medida que controle el paso entre ramas. G_A2
+   queda como comparación. Los máximos observados en un rango finito no
+   sustituyen ese argumento.
+3. **Formalización y certificados, después de 1 y 2.** Sigue pendiente el
+   puente SRS ↔ función también para G. El traductor YAH → Lean tiene menor
+   prioridad: hoy sólo permitiría certificar los QED de calibración.
+4. **Una sola forma larga**, únicamente si 1 o 2 aportan un motivo concreto
+   para elegir sistema, tipo, dimensión, ancho y orientación. Fijar antes
+   el presupuesto y la condición de parada; no reiniciar toda la cascada.
 
 ## Evidencia
 
@@ -118,6 +139,12 @@ Recomiendo no relanzar pasadas largas de la cascada. En orden:
   Python 3.12.3 y CaDiCaL 3.0.1 ([LEEME.txt](LEEME.txt)).
 - SHA-256 de `sistemas/G_B4.srs`:
   `cc35118ef03067a72c82dcb11b81862c370d416359dd890be082621aa6ff8aba`.
+- Revisión del informe (19-10-2026): cotejados los 22 registros UNSAT de
+  dimensión ≤ 3 de cada residuo y las inclusiones entre familias, sin
+  repetir las tandas. `JudasPiloto.lean` recompilado con Lean 4.32.2;
+  `#print axioms JudasPiloto.piloto_iff` devuelve `propext`,
+  `Classical.choice` y `Quot.sound`, sin `sorryAx`. Esa comprobación
+  certifica el enunciado sobre paridades y G, no el puente con la reescritura.
 
 ## Cambio en el lanzador
 

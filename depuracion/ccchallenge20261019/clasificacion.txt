@@ -1,0 +1,134 @@
+classify_families.py SHA-256 ab48b80c4af4c6fee7c1cf403422dcab68465161e1a094b8b7ddfbf148807e07
+Python 3.14.5
+Categorias de Nashida: INF = enredado (open: sin ciclo ni escape de z <= 500
+en 5000 pasos); FIN-term = desenredado y termina (exp-noup: un ciclo
+expansivo; exp-up: ciclos expansivos en serie).
+En estos mapas el veredicto enredado es exacto, sin coma flotante: las dos
+ramas expanden (3 > 2^1, 9 > 2^3), todo ciclo expande y basta un resto con
+dos salidas dentro de una componente fuerte (el 'ejemplo' de cada una).
+
+1. Clasificacion. Cada spec coincide en 1 <= z < 2^12 con la definicion
+   directa y, en las 8 debilitadas, con funcion() de debilitar.py
+
+G  k=3  categoria: INF-open
+   componente INF: 4 restos, 2 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ejemplo: 0 -> [0, 4] dentro de la componente
+
+G_A2  k=3  categoria: INF-open
+   componente INF: 2 restos, 1 ramifican, ciclo mas corto [7] (x9/8), media max. por paso x1.2990
+      ejemplo: 7 -> [2, 7] dentro de la componente
+
+G_A3  k=3  categoria: INF-open
+   componente INF: 3 restos, 1 ramifican, ciclo mas corto [7] (x9/8), media max. por paso x1.3628
+      ejemplo: 7 -> [2, 4, 7] dentro de la componente
+
+G_A4  k=4  categoria: INF-open
+   componente INF: 5 restos, 3 ramifican, ciclo mas corto [15] (x9/8), media max. por paso x1.3959
+      ejemplo: 7 -> [8, 10, 12] dentro de la componente
+
+G_A5  k=5  categoria: INF-open
+   componente INF: 8 restos, 5 ramifican, ciclo mas corto [31] (x9/8), media max. por paso x1.4161
+      ejemplo: 7 -> [8, 16, 28] dentro de la componente
+
+G_B4  k=4  categoria: INF-open
+   componente INF: 5 restos, 2 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ejemplo: 0 -> [0, 8] dentro de la componente
+
+G_B5  k=5  categoria: INF-open
+   componente INF: 7 restos, 3 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ejemplo: 0 -> [0, 16] dentro de la componente
+
+G_B6  k=6  categoria: INF-open
+   componente INF: 10 restos, 5 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ejemplo: 0 -> [0, 32] dentro de la componente
+
+G_B7  k=7  categoria: INF-open
+   componente INF: 18 restos, 10 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ejemplo: 0 -> [0, 64] dentro de la componente
+
+rama_A  k=3  categoria: FIN-term-exp-noup
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ciclo simple [0], puntos periodicos ['0']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 1, 1), ('triv',)], E=1, N0=1, B=1
+
+rama_B  k=3  categoria: FIN-term-exp-noup
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [7] (x9/8), media max. por paso x1.1250
+      ciclo simple [7], puntos periodicos ['-1']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 1, 1)], E=3, N0=1, B=1
+
+2. Veredicto al leer el mapa modulo 2^k mayor (comp_kinds hasta 2^10)
+   E = enredado, D = desenredado
+   G       k=3..10: E E E E E E E E
+   G_A2    k=3..10: E E E E E E E E
+   G_A3    k=3..10: E E E E E E E E
+   G_A4    k=4..10: E E E E E E E
+   G_A5    k=5..10: E E E E E E
+   G_B4    k=4..10: E E E E E E E
+   G_B5    k=5..10: E E E E E E
+   G_B6    k=6..10: E E E E E
+   G_B7    k=7..10: E E E E
+   rama_A  k=3..10: D D D D D D D D
+   rama_B  k=3..10: D D D D D D D D
+
+3. Debilitadas de una clase: G parando ademas en un solo resto r mod 2^k
+   mod 2^3 :    5 restos posibles, desenredadas: [2, 7]
+   mod 2^4 :   10 restos posibles, desenredadas: [7, 10]
+   mod 2^5 :   20 restos posibles, desenredadas: ninguna
+   mod 2^6 :   40 restos posibles, desenredadas: ninguna
+   mod 2^7 :   80 restos posibles, desenredadas: ninguna
+   mod 2^8 :  160 restos posibles, desenredadas: ninguna
+   mod 2^9 :  320 restos posibles, desenredadas: ninguna
+   mod 2^10:  640 restos posibles, desenredadas: ninguna
+   mod 2^11: 1280 restos posibles, desenredadas: ninguna
+   mod 2^12: 2560 restos posibles, desenredadas: ninguna
+   (hasta 2^7 el criterio rapido coincide con comp_kinds en cada caso)
+
+4. Las dos debilitaciones a la vez: parar en 0 mod 2^a y en -1 mod 2^b
+   a=2: b=4..8 -> D D D E E
+   a=3: b=4..8 -> E E E E E
+   a=4: b=4..8 -> E E E E E
+   a=5: b=4..8 -> E E E E E
+   a=6: b=4..8 -> E E E E E
+
+5. Las desenredadas de 3 y 4: terminacion y certificado escalonado
+
+G + parar en 2 mod 8  k=3  categoria: FIN-term-exp-up
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ciclo simple [0], puntos periodicos ['0']
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [7] (x9/8), media max. por paso x1.1250
+      ciclo simple [7], puntos periodicos ['-1']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 1, 1), ('triv',)], E=3, N0=1, B=1
+
+G + parar en 7 mod 8  k=3  categoria: FIN-term-exp-noup
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ciclo simple [0], puntos periodicos ['0']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 1, 1), ('triv',)], E=1, N0=1, B=1
+
+G + parar en 7 mod 16  k=4  categoria: FIN-term-exp-up
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [15] (x9/8), media max. por paso x1.1250
+      ciclo simple [15], puntos periodicos ['-1']
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ciclo simple [0], puntos periodicos ['0']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 1, 1), ('triv',)], E=3, N0=1, B=1
+
+G + parar en 10 mod 16  k=4  categoria: FIN-term-exp-up
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [0] (x3/2), media max. por paso x1.5000
+      ciclo simple [0], puntos periodicos ['0']
+   componente EXP1: 1 restos, 0 ramifican, ciclo mas corto [15] (x9/8), media max. por paso x1.1250
+      ciclo simple [15], puntos periodicos ['-1']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 1, 1), ('triv',)], E=3, N0=1, B=1
+
+G_A2 y G_B4 a la vez  k=4  categoria: FIN-term-exp-noup
+   componente EXP1: 2 restos, 0 ramifican, ciclo mas corto [7, 10] (x27/16), media max. por paso x1.2990
+      ciclo simple [7, 10], puntos periodicos ['-3/11', '-2/11']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 11, 2), ('triv',)], E=3, N0=1, B=1
+
+G_A2 y G_B5 a la vez  k=5  categoria: FIN-term-exp-noup
+   componente EXP1: 2 restos, 0 ramifican, ciclo mas corto [23, 26] (x27/16), media max. por paso x1.2990
+      ciclo simple [23, 26], puntos periodicos ['-3/11', '-2/11']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 11, 2), ('triv',)], E=3, N0=1, B=1
+
+G_A2 y G_B6 a la vez  k=6  categoria: FIN-term-exp-noup
+   componente EXP1: 2 restos, 0 ramifican, ciclo mas corto [23, 58] (x27/16), media max. por paso x1.2990
+      ciclo simple [23, 58], puntos periodicos ['-3/11', '-2/11']
+   certificado escalonado: pasa chk1-chk4; tipos de etapa [('cyc', 11, 2), ('triv',)], E=3, N0=1, B=1
