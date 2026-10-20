@@ -1,0 +1,82 @@
+[19-10-2026 22:43:16] resultados: /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih
+[19-10-2026 22:43:16] tanda de YAH: 8 peldaños, 36 formas, 4 solucionadores, libres 20.9 GB
+[19-10-2026 22:43:16] == peldano1_X: 9 reglas estrictas
+[19-10-2026 22:43:16] peldano1_X #1 natural d1 rw3 tope 30 s: QED (0 s)
+[19-10-2026 22:43:16] == peldano1_X: QED
+[19-10-2026 22:43:16] == peldano2_sinL: 8 reglas estrictas
+[19-10-2026 22:43:16] peldano2_sinL #1 natural d1 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:17] peldano2_sinL #2 natural d1 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:17] peldano2_sinL #3 natural d2 rw3 tope 30 s: QED (0 s)
+[19-10-2026 22:43:17] == peldano2_sinL: QED
+[19-10-2026 22:43:17] == peldano3_ramaA: 10 reglas estrictas
+[19-10-2026 22:43:17] peldano3_ramaA #1 natural d1 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:17] peldano3_ramaA #2 natural d1 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:17] peldano3_ramaA #3 natural d2 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:17] peldano3_ramaA #4 natural d2 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:17] peldano3_ramaA #5 natural d2 rw4 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:18] peldano3_ramaA #6 natural d2 rw4 rev tope 30 s: QED (0 s)
+[19-10-2026 22:43:18] == peldano3_ramaA: QED
+[19-10-2026 22:43:18] == peldano4_ramaB: 11 reglas estrictas
+[19-10-2026 22:43:18] peldano4_ramaB #1 natural d1 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:18] peldano4_ramaB #2 natural d1 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:18] peldano4_ramaB #3 natural d2 rw3 tope 30 s: UNSAT con avance (0 s)
+[19-10-2026 22:43:18] peldano4_ramaB: avance, quedan 10 reglas estrictas
+[19-10-2026 22:43:18] peldano4_ramaB #4 natural d1 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:18] peldano4_ramaB #5 natural d1 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:19] peldano4_ramaB #6 natural d2 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:19] peldano4_ramaB #7 natural d2 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:19] peldano4_ramaB #8 natural d2 rw4 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:19] peldano4_ramaB #9 natural d2 rw4 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:19] peldano4_ramaB #10 natural d3 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:20] peldano4_ramaB #11 natural d3 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:21] peldano4_ramaB #12 natural d3 rw4 tope 30 s: UNSAT (1 s)
+[19-10-2026 22:43:21] peldano4_ramaB #13 natural d3 rw4 rev tope 30 s: QED (0 s)
+[19-10-2026 22:43:21] == peldano4_ramaB: QED
+[19-10-2026 22:43:21] == G_B4: 12 reglas estrictas
+[19-10-2026 22:43:21] G_B4 #1 natural d1 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:21] G_B4 #2 natural d1 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:22] G_B4 #3 natural d2 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:22] G_B4 #4 natural d2 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:22] G_B4 #5 natural d2 rw4 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:22] G_B4 #6 natural d2 rw4 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:23] G_B4 #7 natural d3 rw3 tope 30 s: UNSAT con avance (0 s)
+[19-10-2026 22:43:23] G_B4: avance, quedan 11 reglas estrictas
+[19-10-2026 22:43:23] G_B4 #8 natural d1 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:23] G_B4 #9 natural d1 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:23] G_B4 #10 natural d2 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:23] G_B4 #11 natural d2 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:23] G_B4 #12 natural d2 rw4 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:24] G_B4 #13 natural d2 rw4 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:24] G_B4 #14 natural d3 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:24] G_B4 #15 natural d3 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:43:25] G_B4 #16 natural d3 rw4 tope 30 s: UNSAT (1 s)
+[19-10-2026 22:43:26] G_B4 #17 natural d3 rw4 rev tope 30 s: UNSAT (1 s)
+[19-10-2026 22:43:58] G_B4 #18 natural d4 rw4 tope 30 s: tope (32 s)
+[19-10-2026 22:44:30] G_B4 #19 natural d4 rw4 rev tope 30 s: tope (32 s)
+[19-10-2026 22:45:02] G_B4 #20 natural d5 rw4 tope 30 s: tope (32 s)
+[19-10-2026 22:45:34] G_B4 #21 natural d5 rw4 rev tope 30 s: tope (32 s)
+[19-10-2026 22:46:06] G_B4 #22 natural d6 rw4 tope 30 s: tope (32 s)
+[19-10-2026 22:46:38] G_B4 #23 natural d6 rw4 rev tope 30 s: tope (32 s)
+[19-10-2026 22:46:39] G_B4 #24 arctic d2 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:46:39] G_B4 #25 arctic d2 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:46:39] G_B4 #26 arctic d2 rw4 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:46:39] G_B4 #27 arctic d2 rw4 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:46:39] G_B4 #28 arctic d3 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:46:40] G_B4 #29 arctic d3 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:46:43] G_B4 #30 arctic d3 rw4 tope 30 s: UNSAT (3 s)
+[19-10-2026 22:46:46] G_B4 #31 arctic d3 rw4 rev tope 30 s: UNSAT (3 s)
+[19-10-2026 22:47:18] G_B4 #32 arctic d4 rw4 tope 30 s: tope (32 s)
+[19-10-2026 22:47:50] G_B4 #33 arctic d4 rw4 rev tope 30 s: tope (32 s)
+[19-10-2026 22:48:22] G_B4 #34 arctic d5 rw4 tope 30 s: tope (32 s)
+[19-10-2026 22:48:54] G_B4 #35 arctic d5 rw4 rev tope 30 s: tope (32 s)
+[19-10-2026 22:49:26] G_B4 #36 arctic d5 rw5 tope 30 s: tope (32 s)
+[19-10-2026 22:49:58] G_B4 #37 arctic d5 rw5 rev tope 30 s: tope (32 s)
+[19-10-2026 22:49:58] G_B4 #38 tropical d2 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:49:58] G_B4 #39 tropical d2 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:49:58] G_B4 #40 tropical d3 rw3 tope 30 s: UNSAT (0 s)
+[19-10-2026 22:49:59] G_B4 #41 tropical d3 rw3 rev tope 30 s: UNSAT (0 s)
+[19-10-2026 22:50:21] G_B4 #42 tropical d4 rw4 tope 30 s: UNSAT (23 s)
+[19-10-2026 22:50:47] G_B4 #43 tropical d4 rw4 rev tope 30 s: UNSAT (25 s)
+[19-10-2026 22:50:47] == G_B4: sin prueba con estas formas y topes (quedan 11 reglas estrictas)
+[19-10-2026 22:50:47] diagnóstico detenido; revisar antes de ampliar la búsqueda
+[19-10-2026 22:50:47] fin de la tanda

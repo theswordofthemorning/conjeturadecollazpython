@@ -70,11 +70,11 @@ Reloj y P abiertos; A/B no bastaría para Collatz. Sin mecanismo nuevo,
 no lanzar otra corrida larga.
 [Claude](RutaDeJudasIscariote.md): [J2](depuracion/judas20261016/J2_MECANISMOS.md)
 sin mecanismo publicado. En Lean, el piloto equivale a la parada de G, entre
-Mahler y la 4.14. Tandas YAH paradas sin QED el 19-10 a las 22:26.
-[Plan YAH](depuracion/judas20261016/escalera/yah/PLAN_YAH.md): calibración y
-G_B4…G_B7 sólo mientras haya QED; 30 min globales, cuatro solucionadores,
-salida nueva. Flujo comprobado sin YAH; ejecución Linux pendiente.
-Barrera de Nashida para el SRS concreto por auditar. Reloj Perdices abierto.
+Mahler y la 4.14. [Informe YAH](depuracion/judas20261016/escalera/yah/INFORME_YAH.md):
+sin QED en G, G_A2 ni G_B4; en los tres caen sólo las reglas con L y las
+formas de dimensión ≤3 dan UNSAT. Cada rama sola da QED en segundos. Sin
+mecanismo nuevo, no ampliar YAH. Siguiente: barrera de Nashida para G_A2 y
+G_B4. Reloj Perdices abierto.
 
 ## Revisión y publicación
 

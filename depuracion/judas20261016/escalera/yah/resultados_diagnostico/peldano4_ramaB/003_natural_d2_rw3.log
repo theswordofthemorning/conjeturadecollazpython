@@ -1,0 +1,92 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/peldano4_ramaB/000_inicio.srs -spc -i natural -d 2 -rw 3 -any -work 4 -sol cadical -out /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/peldano4_ramaB/003_natural_d2_rw3.srs -asc
+
+Rewriting system:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+  L a0 -> L t
+  L a1 -> L f f
+  L a2 -> L f t
+  t t t R -> a2 a2 R
+  L t t R -> L f f f R
+CNF: 1215 variables, 6263 clauses (0.008 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.004 s)
+
+Natural: dimension 2, input width 3, result width 3
+[L]:  /1 1\       / \
+      \   / x  +  \ /
+
+[R]:  /1  \       / \
+      \   / x  +  \1/
+
+[a0]: /1 1\       / \
+      \   / x  +  \ /
+
+[a1]: /1 1\       / \
+      \   / x  +  \ /
+
+[a2]: /1  \       / \
+      \   / x  +  \ /
+
+[f]:  /1  \       / \
+      \   / x  +  \ /
+
+[t]:  /1  \       / \
+      \  1/ x  +  \ /
+
+[f a0]  >= [a0 f]:         /1 1\       / \         /1  \       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[f a1]  >= [a0 t]:         /1 1\       / \         /1 1\       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[f a2]  >= [a1 f]:         /1  \       / \         /1  \       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[t a0]  >= [a1 t]:         /1 1\       / \         /1 1\       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[t a1]  >= [a2 f]:         /1 1\       / \         /1  \       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[t a2]  >= [a2 t]:         /1  \       / \         /1  \       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[L a0]  >= [L t]:          /1 1\       / \         /1 1\       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[L a1]  >= [L f f]:        /1 1\       / \         /1  \       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[L a2]  >= [L f t]:        /1  \       / \         /1  \       / \
+                           \   / x  +  \ /    >=   \   / x  +  \ /
+
+[t t t R]  >= [a2 a2 R]:   /1  \       / \         /1  \       / \
+                           \   / x  +  \1/    >=   \   / x  +  \ /
+
+[L t t R]  >  [L f f f R]: /1  \       /1\         /1  \       / \
+                           \   / x  +  \ /    >    \   / x  +  \ /
+
+Relatively terminating rules:
+  L t t R -> L f f f R
+
+Remaining strict rules:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+  L a0 -> L t
+  L a1 -> L f f
+  L a2 -> L f t
+  t t t R -> a2 a2 R
+CNF: 1054 variables, 5384 clauses (0.005 s)
+Timeout: None
+Workers: 4
+UNSAT (0.004 s)

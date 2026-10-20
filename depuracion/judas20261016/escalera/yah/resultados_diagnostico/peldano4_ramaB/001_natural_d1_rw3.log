@@ -1,0 +1,18 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/peldano4_ramaB/000_inicio.srs -spc -i natural -d 1 -rw 3 -any -work 4 -sol cadical -out /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/peldano4_ramaB/001_natural_d1_rw3.srs -asc
+
+Rewriting system:
+  f a0 -> a0 f
+  f a1 -> a0 t
+  f a2 -> a1 f
+  t a0 -> a1 t
+  t a1 -> a2 f
+  t a2 -> a2 t
+  L a0 -> L t
+  L a1 -> L f f
+  L a2 -> L f t
+  t t t R -> a2 a2 R
+  L t t R -> L f f f R
+CNF: 207 variables, 967 clauses (0.001 s)
+Timeout: None
+Workers: 4
+UNSAT (0.001 s)

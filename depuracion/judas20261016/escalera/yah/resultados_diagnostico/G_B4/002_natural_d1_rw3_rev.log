@@ -1,0 +1,19 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/G_B4/000_inicio.srs -spc -i natural -d 1 -rw 3 -any -work 4 -sol cadical -out /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/G_B4/002_natural_d1_rw3_rev.srs -asc -rev
+
+Rewriting system (reversed):
+  a0 f -> f a0
+  a1 f -> t a0
+  a2 f -> f a1
+  a0 t -> t a1
+  a1 t -> f a2
+  a2 t -> t a2
+  a0 L -> t L
+  a1 L -> f f L
+  a2 L -> t f L
+  R f -> R a0
+  R t t t f -> R f a1 a1
+  R t t L -> R f f f L
+CNF: 232 variables, 1098 clauses (0.001 s)
+Timeout: None
+Workers: 4
+UNSAT (0.001 s)

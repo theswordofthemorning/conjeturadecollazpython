@@ -1,0 +1,387 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/peldano4_ramaB/003_natural_d2_rw3.srs -spc -i natural -d 3 -rw 4 -any -work 4 -sol cadical -out /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/peldano4_ramaB/013_natural_d3_rw4_rev.srs -asc -rev
+
+Rewriting system (reversed):
+  a0 f -> f a0
+  a1 f -> t a0
+  a2 f -> f a1
+  a0 t -> t a1
+  a1 t -> f a2
+  a2 t -> t a2
+  a0 L -> t L
+  a1 L -> f f L
+  a2 L -> t f L
+  R t t t -> R a2 a2
+CNF: 4987 variables, 30726 clauses (0.037 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.034 s)
+
+Natural: dimension 3, input width 4, result width 4
+[L]:  /1    \       / \
+      |     | x  +  |1|
+      \     /       \1/
+
+[R]:  /1   1\       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a0]: /1    \       / \
+      |  2  | x  +  |1|
+      \  2  /       \1/
+
+[a1]: /1    \       / \
+      |  2  | x  +  |1|
+      \  2  /       \ /
+
+[a2]: /1    \       / \
+      |  2  | x  +  | |
+      \    1/       \ /
+
+[f]:  /1    \       / \
+      |  1  | x  +  |1|
+      \     /       \ /
+
+[t]:  /1    \       / \
+      |  1  | x  +  | |
+      \    1/       \1/
+
+[a0 f]  >= [f a0]:       /1    \       / \         /1    \       / \
+                         |  2  | x  +  |3|    >=   |  2  | x  +  |2|
+                         \  2  /       \3/         \     /       \ /
+
+[a1 f]  >= [t a0]:       /1    \       / \         /1    \       / \
+                         |  2  | x  +  |3|    >=   |  2  | x  +  |1|
+                         \  2  /       \2/         \  2  /       \2/
+
+[a2 f]  >= [f a1]:       /1    \       / \         /1    \       / \
+                         |  2  | x  +  |2|    >=   |  2  | x  +  |2|
+                         \     /       \ /         \     /       \ /
+
+[a0 t]  >= [t a1]:       /1    \       / \         /1    \       / \
+                         |  2  | x  +  |1|    >=   |  2  | x  +  |1|
+                         \  2  /       \1/         \  2  /       \1/
+
+[a1 t]  >= [f a2]:       /1    \       / \         /1    \       / \
+                         |  2  | x  +  |1|    >=   |  2  | x  +  |1|
+                         \  2  /       \ /         \     /       \ /
+
+[a2 t]  >= [t a2]:       /1    \       / \         /1    \       / \
+                         |  2  | x  +  | |    >=   |  2  | x  +  | |
+                         \    1/       \1/         \    1/       \1/
+
+[a0 L]  >= [t L]:        /1    \       / \         /1    \       / \
+                         |     | x  +  |3|    >=   |     | x  +  |1|
+                         \     /       \3/         \     /       \2/
+
+[a1 L]  >= [f f L]:      /1    \       / \         /1    \       / \
+                         |     | x  +  |3|    >=   |     | x  +  |3|
+                         \     /       \2/         \     /       \ /
+
+[a2 L]  >= [t f L]:      /1    \       / \         /1    \       / \
+                         |     | x  +  |2|    >=   |     | x  +  |2|
+                         \     /       \1/         \     /       \1/
+
+[R t t t]  >  [R a2 a2]: /1   1\       /3\         /1   1\       / \
+                         |     | x  +  | |    >    |     | x  +  | |
+                         \     /       \ /         \     /       \ /
+
+Relatively terminating rules:
+  R t t t -> R a2 a2
+
+Remaining strict rules:
+  a0 f -> f a0
+  a1 f -> t a0
+  a2 f -> f a1
+  a0 t -> t a1
+  a1 t -> f a2
+  a2 t -> t a2
+  a0 L -> t L
+  a1 L -> f f L
+  a2 L -> t f L
+CNF: 4005 variables, 24631 clauses (0.028 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.005 s)
+
+Natural: dimension 3, input width 4, result width 4
+[L]:  /1 1 1\       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a0]: /3 3 3\       /3\
+      |3 3 3| x  +  |3|
+      \3 3 3/       \3/
+
+[a1]: /3 3 3\       /3\
+      |3 3 3| x  +  |3|
+      \3 3 3/       \3/
+
+[a2]: /3 3 3\       /3\
+      |3 3 3| x  +  |3|
+      \3 3 3/       \3/
+
+[f]:  /1    \       / \
+      |  1  | x  +  | |
+      \    1/       \ /
+
+[t]:  /1    \       / \
+      |  1  | x  +  | |
+      \    1/       \ /
+
+[a0 f]  >= [f a0]:  /3 3 3\       /3\         /3 3 3\       /3\
+                    |3 3 3| x  +  |3|    >=   |3 3 3| x  +  |3|
+                    \3 3 3/       \3/         \3 3 3/       \3/
+
+[a1 f]  >= [t a0]:  /3 3 3\       /3\         /3 3 3\       /3\
+                    |3 3 3| x  +  |3|    >=   |3 3 3| x  +  |3|
+                    \3 3 3/       \3/         \3 3 3/       \3/
+
+[a2 f]  >= [f a1]:  /3 3 3\       /3\         /3 3 3\       /3\
+                    |3 3 3| x  +  |3|    >=   |3 3 3| x  +  |3|
+                    \3 3 3/       \3/         \3 3 3/       \3/
+
+[a0 t]  >= [t a1]:  /3 3 3\       /3\         /3 3 3\       /3\
+                    |3 3 3| x  +  |3|    >=   |3 3 3| x  +  |3|
+                    \3 3 3/       \3/         \3 3 3/       \3/
+
+[a1 t]  >= [f a2]:  /3 3 3\       /3\         /3 3 3\       /3\
+                    |3 3 3| x  +  |3|    >=   |3 3 3| x  +  |3|
+                    \3 3 3/       \3/         \3 3 3/       \3/
+
+[a2 t]  >= [t a2]:  /3 3 3\       /3\         /3 3 3\       /3\
+                    |3 3 3| x  +  |3|    >=   |3 3 3| x  +  |3|
+                    \3 3 3/       \3/         \3 3 3/       \3/
+
+[a0 L]  >  [t L]:   /3 3 3\       /3\         /1 1 1\       / \
+                    |3 3 3| x  +  |3|    >    |     | x  +  | |
+                    \3 3 3/       \3/         \     /       \ /
+
+[a1 L]  >  [f f L]: /3 3 3\       /3\         /1 1 1\       / \
+                    |3 3 3| x  +  |3|    >    |     | x  +  | |
+                    \3 3 3/       \3/         \     /       \ /
+
+[a2 L]  >  [t f L]: /3 3 3\       /3\         /1 1 1\       / \
+                    |3 3 3| x  +  |3|    >    |     | x  +  | |
+                    \3 3 3/       \3/         \     /       \ /
+
+Relatively terminating rules:
+  a0 L -> t L
+  a1 L -> f f L
+  a2 L -> t f L
+
+Remaining strict rules:
+  a0 f -> f a0
+  a1 f -> t a0
+  a2 f -> f a1
+  a0 t -> t a1
+  a1 t -> f a2
+  a2 t -> t a2
+CNF: 2454 variables, 14838 clauses (0.014 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.004 s)
+
+Natural: dimension 3, input width 4, result width 4
+[a0]: /2    \       /1\
+      |     | x  +  | |
+      \     /       \ /
+
+[a1]: /2    \       /1\
+      |     | x  +  | |
+      \     /       \ /
+
+[a2]: /2    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[f]:  /1    \       /1\
+      |     | x  +  | |
+      \     /       \ /
+
+[t]:  /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a0 f]  >  [f a0]: /2    \       /3\         /2    \       /2\
+                   |     | x  +  | |    >    |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a1 f]  >  [t a0]: /2    \       /3\         /2    \       /1\
+                   |     | x  +  | |    >    |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a2 f]  >= [f a1]: /2    \       /2\         /2    \       /2\
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a0 t]  >= [t a1]: /2    \       /1\         /2    \       /1\
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a1 t]  >= [f a2]: /2    \       /1\         /2    \       /1\
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a2 t]  >= [t a2]: /2    \       / \         /2    \       / \
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+Relatively terminating rules:
+  a0 f -> f a0
+  a1 f -> t a0
+
+Remaining strict rules:
+  a2 f -> f a1
+  a0 t -> t a1
+  a1 t -> f a2
+  a2 t -> t a2
+CNF: 1696 variables, 9934 clauses (0.010 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.003 s)
+
+Natural: dimension 3, input width 4, result width 4
+[a0]: /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a1]: /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a2]: /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[f]:  /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[t]:  /1    \       /1\
+      |     | x  +  | |
+      \     /       \ /
+
+[a2 f]  >= [f a1]: /1    \       / \         /1    \       / \
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a0 t]  >= [t a1]: /1    \       /1\         /1    \       /1\
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a1 t]  >  [f a2]: /1    \       /1\         /1    \       / \
+                   |     | x  +  | |    >    |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a2 t]  >= [t a2]: /1    \       /1\         /1    \       /1\
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+Relatively terminating rules:
+  a1 t -> f a2
+
+Remaining strict rules:
+  a2 f -> f a1
+  a0 t -> t a1
+  a2 t -> t a2
+CNF: 1317 variables, 7482 clauses (0.008 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.003 s)
+
+Natural: dimension 3, input width 4, result width 4
+[a0]: /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a1]: /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a2]: /2    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[f]:  /1    \       /1\
+      |     | x  +  | |
+      \     /       \ /
+
+[t]:  /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a2 f]  >  [f a1]: /2    \       /2\         /1    \       /1\
+                   |     | x  +  | |    >    |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a0 t]  >= [t a1]: /1    \       / \         /1    \       / \
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a2 t]  >= [t a2]: /2    \       / \         /2    \       / \
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+Relatively terminating rules:
+  a2 f -> f a1
+
+Remaining strict rules:
+  a0 t -> t a1
+  a2 t -> t a2
+CNF: 902 variables, 5005 clauses (0.005 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.002 s)
+
+Natural: dimension 3, input width 4, result width 4
+[a0]: /1    \       /1\
+      |     | x  +  | |
+      \     /       \ /
+
+[a1]: /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a2]: /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[t]:  /1    \       / \
+      |     | x  +  | |
+      \     /       \ /
+
+[a0 t]  >  [t a1]: /1    \       /1\         /1    \       / \
+                   |     | x  +  | |    >    |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+[a2 t]  >= [t a2]: /1    \       / \         /1    \       / \
+                   |     | x  +  | |    >=   |     | x  +  | |
+                   \     /       \ /         \     /       \ /
+
+Relatively terminating rules:
+  a0 t -> t a1
+
+Remaining strict rules:
+  a2 t -> t a2
+CNF: 451 variables, 2503 clauses (0.002 s)
+Timeout: None
+Workers: 4
+SAT (Attempt 1, 0.002 s)
+
+Natural: dimension 3, input width 4, result width 4
+[a2]: /1   1\       / \
+      |     | x  +  | |
+      \    1/       \ /
+
+[t]:  /1    \       / \
+      |     | x  +  | |
+      \    1/       \1/
+
+[a2 t]  >  [t a2]: /1   1\       /1\         /1   1\       / \
+                   |     | x  +  | |    >    |     | x  +  | |
+                   \    1/       \1/         \    1/       \1/
+
+Relatively terminating rules:
+  a2 t -> t a2
+
+QED

@@ -1,12 +1,12 @@
 TANDA DE YAH EN EL VICTUS CON LINUX
 ===================================
 
-Siguiente ejecución: PLAN_YAH.md y `bash lanzar.sh --fondo --diagnostico`.
-Calibra y prueba G_B4…G_B7 mientras haya QED: 30 s por forma, 30 min
-globales, cuatro solucionadores, carpeta nueva fuera del repo. Se detiene
-en el primer caso sin prueba. Las pasadas largas de abajo son históricas.
-Los lanzamientos nuevos con lanzar.sh no se superponen; las carpetas con
-resultados se conservan y no se pueden reutilizar.
+Diagnóstico ejecutado el 19-10-2026 (PLAN_YAH.md, `bash lanzar.sh --fondo
+--diagnostico`): calibración 4/4 QED y G_B4 sin prueba en 7,5 minutos.
+Resultados en resultados_diagnostico/; lectura y siguiente paso en
+INFORME_YAH.md. Las pasadas largas de abajo son históricas. Los
+lanzamientos con lanzar.sh no se superponen (candado en /tmp); las carpetas
+con resultados se conservan y no se pueden reutilizar.
 
 Qué es
 ------

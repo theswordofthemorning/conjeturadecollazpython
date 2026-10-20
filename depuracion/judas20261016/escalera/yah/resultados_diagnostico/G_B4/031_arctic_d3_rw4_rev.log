@@ -1,0 +1,18 @@
+$ /home/oem/herramientas/yah/rewriting-collatz/.venv/bin/python -W ignore -u /home/oem/herramientas/yah/rewriting-collatz/prover/main.py /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/G_B4/007_natural_d3_rw3.srs -spc -i arctic -d 3 -rw 4 -any -work 4 -sol cadical -out /home/oem/herramientas/yah/resultados/diagnostico-Wn7vGEih/G_B4/031_arctic_d3_rw4_rev.srs -asc -rev
+
+Rewriting system (reversed):
+  a0 f -> f a0
+  a1 f -> t a0
+  a2 f -> f a1
+  a0 t -> t a1
+  a1 t -> f a2
+  a2 t -> t a2
+  a0 L -> t L
+  a1 L -> f f L
+  a2 L -> t f L
+  R f -> R a0
+  R t t t f -> R f a1 a1
+CNF: 3980 variables, 17612 clauses (0.022 s)
+Timeout: None
+Workers: 4
+UNSAT (2.851 s)
