@@ -1,4 +1,4 @@
-# Estado para continuar — 18-10-2026
+# Estado para continuar — 19-10-2026
 
 [Premisa](PREMISA_DE_INVESTIGACION.md): buscar la prueba universal de Collatz;
 la convicción del usuario orienta la búsqueda, sin servir como hipótesis.
@@ -43,9 +43,6 @@ auditoría independiente hasta 16 bits. Los
 [empalmes H](depuracion/perdices20261007/RACHAS_H.md) transportan exactamente
 el mínimo original.
 
-[Matrices](depuracion/perdices20261007/SOPORTES_MATRICES_H.md): diez soportes;
-familias excluidas, objetivo 57 sin dinámica. Árticas y persistencia abiertas.
-
 **Recargas:** [ruta](depuracion/coherencia20260913/RUTA_339_20261012.md).
 [Recargas](depuracion/perdices20261007/RECARGAS.md) y
 [perfiles](depuracion/perdices20261007/PERFILES.md): refutadas pendiente<=1,
@@ -57,26 +54,25 @@ ell=ceil(log2(n+5)). [Filtros](depuracion/exploracionmath20261016/EXPLORACION.md
 [tres](depuracion/perdices20261007/TRES_CAMBIOS.md): 1/13; K=2*ell.
 Cierres Lean, enlaces escritos. Modelo excesivo de cuatro cambios
 irrealizable módulo 9.
-**Perdices, Codex:** [ruta y nueve avances](depuracion/perdices20261007/congruencias_codex20261016/RUTA_CODEX.md).
-Banda óptima; exceso por parejas 72; barrera triple >=17 y suma ponderada.
-P equivale al reloj uniforme, absorbiendo carga terminal.
-C>1 necesario; mínimos no multiplicativos. Hasta cuatro rachas,
-L+v_fin<7*ell; coeficiente general geométrico.
-[Contexto bilateral](depuracion/perdices20261007/congruencias_codex20261016/CONTEXTO_INTERIOR.md):
-U terminado en B y V arbitrarios admiten U A^a B A² V, parte impar
-13, a ilimitado, defecto fijo; L/ell tiende a 1. Existencia escrita, Lean parcial.
-[Compensación relativa](depuracion/perdices20261007/congruencias_codex20261016/COMPENSACION_RELATIVA.md):
-delta_i>=eta*H_i+K, eta<1 fijo, permite coste ilimitado con H fijo
-en la **relajación**, incluso con pérdida relativa en toda ventana.
-Las órbitas AB cumplen 16^m|11n+19 y L<=ell+3: excluyen esos modelos.
-**Siguiente:** controlar el residuo absoluto mediante aritmética conjunta
-no periódica. Reloj uniforme y P abiertos.
+**Perdices, Codex:** [ruta y balance](depuracion/perdices20261007/congruencias_codex20261016/RUTA_CODEX.md).
+P equivale al reloj uniforme; C>1 necesario. Hasta cuatro rachas,
+L+v_fin<7*ell; coeficiente general geométrico. Bandas, defectos y límites
+de las relajaciones conservados en la ruta; no contraejemplos orbitales.
+[Ensayo global](depuracion/perdices20261007/congruencias_codex20261016/DENOMINADOR_GLOBAL.md):
+2^L|q*n+r exacto; su barrera pierde utilidad en A B^b.
+[Ventanas simultáneas](depuracion/perdices20261007/congruencias_codex20261016/VENTANAS_SIMULTANEAS.md):
+óptimo conjunto desde la misma semilla. Un testigo de 53 pasos admite
+n=23 en 1391 barreras expansivas; mínimo orbital 6416623. Falla la
+integridad. Control: A B^b satisface L<=ell+1. CRT reconstruye exactamente
+el cilindro. **Pendiente:** acotar uniformemente sus representantes,
+excluyendo recorridos racionales; las mismas barreras no bastan.
+Reloj y P abiertos; A/B no bastaría para Collatz. Sin mecanismo nuevo,
+no lanzar otra corrida larga.
 [Claude](RutaDeJudasIscariote.md): [J2](depuracion/judas20261016/J2_MECANISMOS.md)
 sin mecanismo publicado. En Lean, el piloto equivale a la parada de G, entre
-Mahler y la 4.14. J3b: [expediente](depuracion/judas20261016/EXPEDIENTE_REVISION.md).
-[AProVE](depuracion/judas20261016/escalera/LEEME.md): KILLED por memoria;
-dos estrategias acotadas, MAYBE en G.
-**Siguiente:** Linux con 32 GB o más.
+Mahler y la 4.14. [Mensaje YAH](depuracion/judas20261016/escalera/yah/PENDIENTES.md)
+del 19-10: mezcla resistente, no prueba de imposibilidad; tandas según
+esa nota, sin intervenirlas.
 
 ## Revisión y publicación
 
@@ -105,17 +101,17 @@ una sucesión, pendientes del panel.
 [Arca](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
 123 piezas; [auditoría](depuracion/mapa20261011/RECONSTRUCCION.md).
 [Registro versionado](depuracion/coherencia20260913/registro.json) y
-`guardarafirmaciones.py`: **358 filas**, 244 demostradas, 92 medidas,
-13 conjeturadas y nueve refutadas; novena alta Codex integrada,
-357 previas conservadas literalmente; SQLite cotejado.
+`guardarafirmaciones.py`: **360 filas**, 246 demostradas, 92 medidas,
+13 conjeturadas y nueve refutadas; undécima alta Codex integrada,
+359 previas conservadas literalmente; SQLite cotejado.
 Incidencia histórica de la fila 71 señalada y no usada.
 
 Lean 4.32.2/Mathlib fijados: [reproducción](depuracion/gao20260920/formal/README.md).
 [Evidencia Rozier](depuracion/cst20260930/evidencia_rozier.json) y
 [cotejo](depuracion/cst20260930/revision_rozier_20261016/cotejo_numeros.json).
-Perdices: [139 consultas Lean únicas](depuracion/perdices20261007/congruencias_codex20261016/evidencia_sesion.json).
-Compensación relativa: once lemas nuevos; 1040 modelos, 12048 ventanas,
-50 órbitas. Ventanas generales y límites escritos.
+Perdices: [152 consultas Lean únicas](depuracion/perdices20261007/congruencias_codex20261016/evidencia_sesion.json).
+Ventanas: 1023 palabras, 33 miembros y 34 testigos; 10954 cortes CRT
+cotejados, censo sin repetir. Extracción general y CRT escritos.
 [Casa recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md) y
 [conciliación](depuracion/jinetas20261010/CONCILIACION.md): dos huellas antiguas
 por revisar; no usar sus cachés. Históricos, conversaciones y zootheorem intactos.

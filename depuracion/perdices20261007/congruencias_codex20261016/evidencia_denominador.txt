@@ -1,0 +1,5 @@
+'PerdicesDenominadorGlobal.divisibilidad_reducida' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesDenominadorGlobal.barrera_reducida' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesDenominadorGlobal.nueve_domina_ocho' depends on axioms: [propext]
+'PerdicesDenominadorGlobal.familia_sin_cancelacion' depends on axioms: [propext, Quot.sound]
+'PerdicesDenominadorGlobal.familia_denominador_grande' depends on axioms: [propext, Classical.choice, Quot.sound]

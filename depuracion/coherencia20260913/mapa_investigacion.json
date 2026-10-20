@@ -2305,7 +2305,9 @@
         "perdices_reloj_por_rachas_y_reservas",
         "perdices_defecto_interior_prefijo_arbitrario",
         "perdices_defecto_contexto_bilateral",
-        "perdices_compensacion_relativa_insuficiente"
+        "perdices_compensacion_relativa_insuficiente",
+        "perdices_denominador_global_insuficiente",
+        "perdices_ventanas_simultaneas_optimo_relajado"
       ],
       "titulo": "Perdices · repeticiones y complejidad",
       "rama": "perdices",
@@ -2327,7 +2329,9 @@
         "depuracion/perdices20261007/congruencias_codex20261016/RELOJ_RACHAS.md",
         "depuracion/perdices20261007/congruencias_codex20261016/DEFECTO_INTERIOR.md",
         "depuracion/perdices20261007/congruencias_codex20261016/CONTEXTO_INTERIOR.md",
-        "depuracion/perdices20261007/congruencias_codex20261016/COMPENSACION_RELATIVA.md"
+        "depuracion/perdices20261007/congruencias_codex20261016/COMPENSACION_RELATIVA.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/DENOMINADOR_GLOBAL.md",
+        "depuracion/perdices20261007/congruencias_codex20261016/VENTANAS_SIMULTANEAS.md"
       ],
       "situacion": "vigente",
       "padre": "perdices"

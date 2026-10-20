@@ -1,0 +1,48 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Nucleo afin reducido, coprimalidad y crecimiento del denominador A B^b. Codificacion orbital y corolario logaritmico: prueba escrita. Imports directos cotejados; no auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesDenominadorGlobal.lean",
+  "fuente_sha256_lf": "1e0a40a8c1f92931f556961ea84e0d664bfdc41a9866c6c78a2d609cda68c3aa",
+  "verificador_sha256_lf": "02db102cf673b7f6cf710766945cd4bdda3925dffe36d0cca04b37a5a9636b6b",
+  "apoyo_sha256_lf": "ab5fae9fef2e8987586700d0385bd7e7ef98e1665114aaa426d253ef9705e287",
+  "salida_sha256_lf": "eb32fa39a8f7045714af3acb9b30412742c7ec85ca00b3db5cddfbbd938dd103",
+  "dependencias": {
+    "Mathlib.Data.Nat.GCD.Basic": {
+      "fuente_sha256_lf": "c46b9173200adac93cefa0f8d9ee02306930771a1960796335c32455f719c3ac",
+      "objeto_sha256": "6ba5ff343d37b822063eac951050b6c80a48756d82b4533876d0b440e594c7df"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    }
+  },
+  "axiomas": {
+    "PerdicesDenominadorGlobal.divisibilidad_reducida": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesDenominadorGlobal.barrera_reducida": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesDenominadorGlobal.nueve_domina_ocho": [
+      "propext"
+    ],
+    "PerdicesDenominadorGlobal.familia_sin_cancelacion": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesDenominadorGlobal.familia_denominador_grande": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

@@ -1,0 +1,1717 @@
+{
+  "alcance": "Optimo de una relajacion racional, no del reloj orbital. Contrastes finitos exactos; sin nuevo censo ni extrapolacion.",
+  "parametros": {
+    "bloques_max": 9,
+    "familia_max": 32
+  },
+  "niveles": [
+    {
+      "bloques": 0,
+      "palabras": 1,
+      "ventanas": 0,
+      "igual_minimo": 1,
+      "certifica_pendiente_3": 1
+    },
+    {
+      "bloques": 1,
+      "palabras": 2,
+      "ventanas": 2,
+      "igual_minimo": 2,
+      "certifica_pendiente_3": 2
+    },
+    {
+      "bloques": 2,
+      "palabras": 4,
+      "ventanas": 12,
+      "igual_minimo": 2,
+      "certifica_pendiente_3": 4
+    },
+    {
+      "bloques": 3,
+      "palabras": 8,
+      "ventanas": 48,
+      "igual_minimo": 3,
+      "certifica_pendiente_3": 8
+    },
+    {
+      "bloques": 4,
+      "palabras": 16,
+      "ventanas": 160,
+      "igual_minimo": 2,
+      "certifica_pendiente_3": 16
+    },
+    {
+      "bloques": 5,
+      "palabras": 32,
+      "ventanas": 480,
+      "igual_minimo": 3,
+      "certifica_pendiente_3": 32
+    },
+    {
+      "bloques": 6,
+      "palabras": 64,
+      "ventanas": 1344,
+      "igual_minimo": 3,
+      "certifica_pendiente_3": 64
+    },
+    {
+      "bloques": 7,
+      "palabras": 128,
+      "ventanas": 3584,
+      "igual_minimo": 3,
+      "certifica_pendiente_3": 124
+    },
+    {
+      "bloques": 8,
+      "palabras": 256,
+      "ventanas": 9216,
+      "igual_minimo": 2,
+      "certifica_pendiente_3": 235
+    },
+    {
+      "bloques": 9,
+      "palabras": 512,
+      "ventanas": 23040,
+      "igual_minimo": 4,
+      "certifica_pendiente_3": 437
+    }
+  ],
+  "familia_AB": [
+    {
+      "palabra": "A",
+      "L": 1,
+      "ventanas": 1,
+      "minimo_real": "1",
+      "ell_real": 3,
+      "umbral": "1",
+      "minimo_relajado": "1",
+      "ell_relajada": 3,
+      "ventanas_activas": [
+        [
+          0,
+          1
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 0
+    },
+    {
+      "palabra": "AB",
+      "L": 4,
+      "ventanas": 3,
+      "minimo_real": "7",
+      "ell_real": 4,
+      "umbral": "5/3",
+      "minimo_relajado": "2",
+      "ell_relajada": 3,
+      "ventanas_activas": [
+        [
+          1,
+          2
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 1
+    },
+    {
+      "palabra": "ABB",
+      "L": 7,
+      "ventanas": 6,
+      "minimo_real": "39",
+      "ell_real": 6,
+      "umbral": "39",
+      "minimo_relajado": "39",
+      "ell_relajada": 6,
+      "ventanas_activas": [
+        [
+          1,
+          3
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 2
+    },
+    {
+      "palabra": "ABBB",
+      "L": 10,
+      "ventanas": 10,
+      "minimo_real": "679",
+      "ell_real": 10,
+      "umbral": "1013/3",
+      "minimo_relajado": "338",
+      "ell_relajada": 9,
+      "ventanas_activas": [
+        [
+          1,
+          4
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 3
+    },
+    {
+      "palabra": "ABBBB",
+      "L": 13,
+      "ventanas": 15,
+      "minimo_real": "2727",
+      "ell_real": 12,
+      "umbral": "2727",
+      "minimo_relajado": "2727",
+      "ell_relajada": 12,
+      "ventanas_activas": [
+        [
+          1,
+          5
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 4
+    },
+    {
+      "palabra": "ABBBBB",
+      "L": 16,
+      "ventanas": 21,
+      "minimo_real": "43687",
+      "ell_real": 16,
+      "umbral": "65525/3",
+      "minimo_relajado": "21842",
+      "ell_relajada": 15,
+      "ventanas_activas": [
+        [
+          1,
+          6
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 5
+    },
+    {
+      "palabra": "ABBBBBB",
+      "L": 19,
+      "ventanas": 28,
+      "minimo_real": "174759",
+      "ell_real": 18,
+      "umbral": "174759",
+      "minimo_relajado": "174759",
+      "ell_relajada": 18,
+      "ventanas_activas": [
+        [
+          1,
+          7
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 6
+    },
+    {
+      "palabra": "ABBBBBBB",
+      "L": 22,
+      "ventanas": 36,
+      "minimo_real": "2796199",
+      "ell_real": 22,
+      "umbral": "4194293/3",
+      "minimo_relajado": "1398098",
+      "ell_relajada": 21,
+      "ventanas_activas": [
+        [
+          1,
+          8
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 7
+    },
+    {
+      "palabra": "ABBBBBBBB",
+      "L": 25,
+      "ventanas": 45,
+      "minimo_real": "11184807",
+      "ell_real": 24,
+      "umbral": "11184807",
+      "minimo_relajado": "11184807",
+      "ell_relajada": 24,
+      "ventanas_activas": [
+        [
+          1,
+          9
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 8
+    },
+    {
+      "palabra": "ABBBBBBBBB",
+      "L": 28,
+      "ventanas": 55,
+      "minimo_real": "178956967",
+      "ell_real": 28,
+      "umbral": "268435445/3",
+      "minimo_relajado": "89478482",
+      "ell_relajada": 27,
+      "ventanas_activas": [
+        [
+          1,
+          10
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 9
+    },
+    {
+      "palabra": "ABBBBBBBBBB",
+      "L": 31,
+      "ventanas": 66,
+      "minimo_real": "715827879",
+      "ell_real": 30,
+      "umbral": "715827879",
+      "minimo_relajado": "715827879",
+      "ell_relajada": 30,
+      "ventanas_activas": [
+        [
+          1,
+          11
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 10
+    },
+    {
+      "palabra": "ABBBBBBBBBBB",
+      "L": 34,
+      "ventanas": 78,
+      "minimo_real": "11453246119",
+      "ell_real": 34,
+      "umbral": "17179869173/3",
+      "minimo_relajado": "5726623058",
+      "ell_relajada": 33,
+      "ventanas_activas": [
+        [
+          1,
+          12
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 11
+    },
+    {
+      "palabra": "ABBBBBBBBBBBB",
+      "L": 37,
+      "ventanas": 91,
+      "minimo_real": "45812984487",
+      "ell_real": 36,
+      "umbral": "45812984487",
+      "minimo_relajado": "45812984487",
+      "ell_relajada": 36,
+      "ventanas_activas": [
+        [
+          1,
+          13
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 12
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBB",
+      "L": 40,
+      "ventanas": 105,
+      "minimo_real": "733007751847",
+      "ell_real": 40,
+      "umbral": "1099511627765/3",
+      "minimo_relajado": "366503875922",
+      "ell_relajada": 39,
+      "ventanas_activas": [
+        [
+          1,
+          14
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 13
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBB",
+      "L": 43,
+      "ventanas": 120,
+      "minimo_real": "2932031007399",
+      "ell_real": 42,
+      "umbral": "2932031007399",
+      "minimo_relajado": "2932031007399",
+      "ell_relajada": 42,
+      "ventanas_activas": [
+        [
+          1,
+          15
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 14
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBB",
+      "L": 46,
+      "ventanas": 136,
+      "minimo_real": "46912496118439",
+      "ell_real": 46,
+      "umbral": "70368744177653/3",
+      "minimo_relajado": "23456248059218",
+      "ell_relajada": 45,
+      "ventanas_activas": [
+        [
+          1,
+          16
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 15
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBB",
+      "L": 49,
+      "ventanas": 153,
+      "minimo_real": "187649984473767",
+      "ell_real": 48,
+      "umbral": "187649984473767",
+      "minimo_relajado": "187649984473767",
+      "ell_relajada": 48,
+      "ventanas_activas": [
+        [
+          1,
+          17
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 16
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBB",
+      "L": 52,
+      "ventanas": 171,
+      "minimo_real": "3002399751580327",
+      "ell_real": 52,
+      "umbral": "4503599627370485/3",
+      "minimo_relajado": "1501199875790162",
+      "ell_relajada": 51,
+      "ventanas_activas": [
+        [
+          1,
+          18
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 17
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBB",
+      "L": 55,
+      "ventanas": 190,
+      "minimo_real": "12009599006321319",
+      "ell_real": 54,
+      "umbral": "12009599006321319",
+      "minimo_relajado": "12009599006321319",
+      "ell_relajada": 54,
+      "ventanas_activas": [
+        [
+          1,
+          19
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 18
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBB",
+      "L": 58,
+      "ventanas": 210,
+      "minimo_real": "192153584101141159",
+      "ell_real": 58,
+      "umbral": "288230376151711733/3",
+      "minimo_relajado": "96076792050570578",
+      "ell_relajada": 57,
+      "ventanas_activas": [
+        [
+          1,
+          20
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 19
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBB",
+      "L": 61,
+      "ventanas": 231,
+      "minimo_real": "768614336404564647",
+      "ell_real": 60,
+      "umbral": "768614336404564647",
+      "minimo_relajado": "768614336404564647",
+      "ell_relajada": 60,
+      "ventanas_activas": [
+        [
+          1,
+          21
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 20
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBB",
+      "L": 64,
+      "ventanas": 253,
+      "minimo_real": "12297829382473034407",
+      "ell_real": 64,
+      "umbral": "18446744073709551605/3",
+      "minimo_relajado": "6148914691236517202",
+      "ell_relajada": 63,
+      "ventanas_activas": [
+        [
+          1,
+          22
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 21
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBB",
+      "L": 67,
+      "ventanas": 276,
+      "minimo_real": "49191317529892137639",
+      "ell_real": 66,
+      "umbral": "49191317529892137639",
+      "minimo_relajado": "49191317529892137639",
+      "ell_relajada": 66,
+      "ventanas_activas": [
+        [
+          1,
+          23
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 22
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 70,
+      "ventanas": 300,
+      "minimo_real": "787061080478274202279",
+      "ell_real": 70,
+      "umbral": "1180591620717411303413/3",
+      "minimo_relajado": "393530540239137101138",
+      "ell_relajada": 69,
+      "ventanas_activas": [
+        [
+          1,
+          24
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 23
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 73,
+      "ventanas": 325,
+      "minimo_real": "3148244321913096809127",
+      "ell_real": 72,
+      "umbral": "3148244321913096809127",
+      "minimo_relajado": "3148244321913096809127",
+      "ell_relajada": 72,
+      "ventanas_activas": [
+        [
+          1,
+          25
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 24
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 76,
+      "ventanas": 351,
+      "minimo_real": "50371909150609548946087",
+      "ell_real": 76,
+      "umbral": "75557863725914323419125/3",
+      "minimo_relajado": "25185954575304774473042",
+      "ell_relajada": 75,
+      "ventanas_activas": [
+        [
+          1,
+          26
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 25
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 79,
+      "ventanas": 378,
+      "minimo_real": "201487636602438195784359",
+      "ell_real": 78,
+      "umbral": "201487636602438195784359",
+      "minimo_relajado": "201487636602438195784359",
+      "ell_relajada": 78,
+      "ventanas_activas": [
+        [
+          1,
+          27
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 26
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 82,
+      "ventanas": 406,
+      "minimo_real": "3223802185639011132549799",
+      "ell_real": 82,
+      "umbral": "4835703278458516698824693/3",
+      "minimo_relajado": "1611901092819505566274898",
+      "ell_relajada": 81,
+      "ventanas_activas": [
+        [
+          1,
+          28
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 27
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 85,
+      "ventanas": 435,
+      "minimo_real": "12895208742556044530199207",
+      "ell_real": 84,
+      "umbral": "12895208742556044530199207",
+      "minimo_relajado": "12895208742556044530199207",
+      "ell_relajada": 84,
+      "ventanas_activas": [
+        [
+          1,
+          29
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 28
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 88,
+      "ventanas": 465,
+      "minimo_real": "206323339880896712483187367",
+      "ell_real": 88,
+      "umbral": "309485009821345068724781045/3",
+      "minimo_relajado": "103161669940448356241593682",
+      "ell_relajada": 87,
+      "ventanas_activas": [
+        [
+          1,
+          30
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 29
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 91,
+      "ventanas": 496,
+      "minimo_real": "825293359523586849932749479",
+      "ell_real": 90,
+      "umbral": "825293359523586849932749479",
+      "minimo_relajado": "825293359523586849932749479",
+      "ell_relajada": 90,
+      "ventanas_activas": [
+        [
+          1,
+          31
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 30
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 94,
+      "ventanas": 528,
+      "minimo_real": "13204693752377389598923991719",
+      "ell_real": 94,
+      "umbral": "19807040628566084398385987573/3",
+      "minimo_relajado": "6602346876188694799461995858",
+      "ell_relajada": 93,
+      "ventanas_activas": [
+        [
+          1,
+          32
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 31
+    },
+    {
+      "palabra": "ABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "L": 97,
+      "ventanas": 561,
+      "minimo_real": "52818775009509558395695966887",
+      "ell_real": 96,
+      "umbral": "52818775009509558395695966887",
+      "minimo_relajado": "52818775009509558395695966887",
+      "ell_relajada": 96,
+      "ventanas_activas": [
+        [
+          1,
+          33
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "b": 32
+    }
+  ],
+  "testigos_historicos": [
+    {
+      "palabra": "A",
+      "L": 1,
+      "ventanas": 1,
+      "minimo_real": "1",
+      "ell_real": 3,
+      "umbral": "1",
+      "minimo_relajado": "1",
+      "ell_relajada": 3,
+      "ventanas_activas": [
+        [
+          0,
+          1
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 1,
+        "umbral": "1",
+        "minimo_relajado": "1",
+        "ell_relajada": 3,
+        "ventanas_activas": [
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "B",
+      "L": 3,
+      "ventanas": 1,
+      "minimo_real": "3",
+      "ell_real": 3,
+      "umbral": "3",
+      "minimo_relajado": "3",
+      "ell_relajada": 3,
+      "ventanas_activas": [
+        [
+          0,
+          1
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 4,
+        "umbral": "3",
+        "minimo_relajado": "3",
+        "ell_relajada": 3,
+        "ventanas_activas": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABA",
+      "L": 5,
+      "ventanas": 6,
+      "minimo_real": "7",
+      "ell_real": 4,
+      "umbral": "5/3",
+      "minimo_relajado": "2",
+      "ell_relajada": 3,
+      "ventanas_activas": [
+        [
+          1,
+          2
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 12,
+        "umbral": "7",
+        "minimo_relajado": "7",
+        "ell_relajada": 4,
+        "ventanas_activas": [
+          [
+            0,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BAAABA",
+      "L": 10,
+      "ventanas": 21,
+      "minimo_real": "27",
+      "ell_real": 5,
+      "umbral": "17/3",
+      "minimo_relajado": "6",
+      "ell_relajada": 4,
+      "ventanas_activas": [
+        [
+          1,
+          4
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 49,
+        "umbral": "27",
+        "minimo_relajado": "27",
+        "ell_relajada": 5,
+        "ventanas_activas": [
+          [
+            3,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BABAABA",
+      "L": 13,
+      "ventanas": 28,
+      "minimo_real": "91",
+      "ell_real": 7,
+      "umbral": "233/11",
+      "minimo_relajado": "22",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          0,
+          4
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 81,
+        "umbral": "233/11",
+        "minimo_relajado": "22",
+        "ell_relajada": 5,
+        "ventanas_activas": [
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AABBAAAAB",
+      "L": 15,
+      "ventanas": 45,
+      "minimo_real": "111",
+      "ell_real": 7,
+      "umbral": "77/3",
+      "minimo_relajado": "26",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          2,
+          4
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 109,
+        "umbral": "77/3",
+        "minimo_relajado": "26",
+        "ell_relajada": 5,
+        "ventanas_activas": [
+          [
+            2,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAAABBABA",
+      "L": 16,
+      "ventanas": 55,
+      "minimo_real": "639",
+      "ell_real": 10,
+      "umbral": "31",
+      "minimo_relajado": "31",
+      "ell_relajada": 6,
+      "ventanas_activas": [
+        [
+          0,
+          5
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 122,
+        "umbral": "127",
+        "minimo_relajado": "127",
+        "ell_relajada": 8,
+        "ventanas_activas": [
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABAAAABAAAABA",
+      "L": 19,
+      "ventanas": 91,
+      "minimo_real": "871",
+      "ell_real": 10,
+      "umbral": "15567/601",
+      "minimo_relajado": "26",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          0,
+          10
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 181,
+        "umbral": "989/27",
+        "minimo_relajado": "37",
+        "ell_relajada": 6,
+        "ventanas_activas": [
+          [
+            4,
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABBAABBAAB",
+      "L": 20,
+      "ventanas": 55,
+      "minimo_real": "2215",
+      "ell_real": 12,
+      "umbral": "64655/473",
+      "minimo_relajado": "137",
+      "ell_relajada": 8,
+      "ventanas_activas": [
+        [
+          0,
+          8
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": true,
+      "pasos_expansivos": {
+        "ventanas": 190,
+        "umbral": "64655/473",
+        "minimo_relajado": "137",
+        "ell_relajada": 8,
+        "ventanas_activas": [
+          [
+            0,
+            16
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AABABAAABAABAABBAAABA",
+      "L": 35,
+      "ventanas": 231,
+      "minimo_real": "4591",
+      "ell_real": 13,
+      "umbral": "33115423/321489",
+      "minimo_relajado": "104",
+      "ell_relajada": 7,
+      "ventanas_activas": [
+        [
+          6,
+          15
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 605,
+        "umbral": "33115423/321489",
+        "minimo_relajado": "104",
+        "ell_relajada": 7,
+        "ventanas_activas": [
+          [
+            10,
+            25
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAAAABABAAAAAAAAAAABAAAAAAB",
+      "L": 36,
+      "ventanas": 406,
+      "minimo_real": "159487",
+      "ell_real": 18,
+      "umbral": "1843229/19683",
+      "minimo_relajado": "94",
+      "ell_relajada": 7,
+      "ventanas_activas": [
+        [
+          9,
+          20
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 654,
+        "umbral": "22306903/59049",
+        "minimo_relajado": "378",
+        "ell_relajada": 9,
+        "ventanas_activas": [
+          [
+            13,
+            26
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BAABAABBABBAAABBAAB",
+      "L": 37,
+      "ventanas": 190,
+      "minimo_real": "590491",
+      "ell_real": 20,
+      "umbral": "879059/27945",
+      "minimo_relajado": "32",
+      "ell_relajada": 6,
+      "ventanas_activas": [
+        [
+          5,
+          11
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 665,
+        "umbral": "667",
+        "minimo_relajado": "667",
+        "ell_relajada": 10,
+        "ventanas_activas": [
+          [
+            0,
+            15
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BAAAAAAAABAABABBAAAABAAAB",
+      "L": 39,
+      "ventanas": 325,
+      "minimo_real": "763675",
+      "ell_real": 20,
+      "umbral": "2035/9",
+      "minimo_relajado": "227",
+      "ell_relajada": 8,
+      "ventanas_activas": [
+        [
+          1,
+          9
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 755,
+        "umbral": "8179/9",
+        "minimo_relajado": "909",
+        "ell_relajada": 10,
+        "ventanas_activas": [
+          [
+            3,
+            13
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABBAAAAAABBAABAAAAAABBBA",
+      "L": 40,
+      "ventanas": 300,
+      "minimo_real": "2203815",
+      "ell_real": 22,
+      "umbral": "39",
+      "minimo_relajado": "39",
+      "ell_relajada": 6,
+      "ventanas_activas": [
+        [
+          1,
+          3
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 781,
+        "umbral": "274676064821/125601219",
+        "minimo_relajado": "2187",
+        "ell_relajada": 12,
+        "ventanas_activas": [
+          [
+            4,
+            38
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAAABAAAABBAAAABAAABABBB",
+      "L": 41,
+      "ventanas": 325,
+      "minimo_real": "5484159",
+      "ell_real": 23,
+      "umbral": "31",
+      "minimo_relajado": "31",
+      "ell_relajada": 6,
+      "ventanas_activas": [
+        [
+          0,
+          5
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 826,
+        "umbral": "127",
+        "minimo_relajado": "127",
+        "ell_relajada": 8,
+        "ventanas_activas": [
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AABBAABAAABAAAAAAABBABAAAB",
+      "L": 42,
+      "ventanas": 351,
+      "minimo_real": "5714031",
+      "ell_real": 23,
+      "umbral": "77/3",
+      "minimo_relajado": "26",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          2,
+          4
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 872,
+        "umbral": "77/3",
+        "minimo_relajado": "26",
+        "ell_relajada": 5,
+        "ventanas_activas": [
+          [
+            2,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BBAAABAAABBBABAAABBAABB",
+      "L": 45,
+      "ventanas": 276,
+      "minimo_real": "6314235",
+      "ell_real": 23,
+      "umbral": "59",
+      "minimo_relajado": "59",
+      "ell_relajada": 6,
+      "ventanas_activas": [
+        [
+          0,
+          2
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 984,
+        "umbral": "59",
+        "minimo_relajado": "59",
+        "ell_relajada": 6,
+        "ventanas_activas": [
+          [
+            0,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AABAAABBAAAAAABAAAAABABAAABAAABBB",
+      "L": 53,
+      "ventanas": 561,
+      "minimo_real": "6416623",
+      "ell_real": 23,
+      "umbral": "4247/729",
+      "minimo_relajado": "6",
+      "ell_relajada": 4,
+      "ventanas_activas": [
+        [
+          6,
+          8
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 1391,
+        "umbral": "3964757/177147",
+        "minimo_relajado": "23",
+        "ell_relajada": 5,
+        "ventanas_activas": [
+          [
+            14,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABAABABAAABBABABAABBAAAAAAAAABAB",
+      "L": 54,
+      "ventanas": 528,
+      "minimo_real": "20741223",
+      "ell_real": 25,
+      "umbral": "951/49",
+      "minimo_relajado": "20",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          0,
+          6
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 1442,
+        "umbral": "951/49",
+        "minimo_relajado": "20",
+        "ell_relajada": 5,
+        "ventanas_activas": [
+          [
+            0,
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABAABAABAAAAAAAAAABAAABAAAABBAABAAABA",
+      "L": 55,
+      "ventanas": 703,
+      "minimo_real": "60533863",
+      "ell_real": 26,
+      "umbral": "32695/49",
+      "minimo_relajado": "668",
+      "ell_relajada": 10,
+      "ventanas_activas": [
+        [
+          0,
+          9
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 1510,
+        "umbral": "32695/49",
+        "minimo_relajado": "668",
+        "ell_relajada": 10,
+        "ventanas_activas": [
+          [
+            0,
+            15
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AABABAAABAAAAAAABAAAAAABABAABBAAAABAAB",
+      "L": 58,
+      "ventanas": 741,
+      "minimo_real": "67637743",
+      "ell_real": 27,
+      "umbral": "463/33",
+      "minimo_relajado": "15",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          1,
+          5
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 1677,
+        "umbral": "5354069/177147",
+        "minimo_relajado": "31",
+        "ell_relajada": 6,
+        "ventanas_activas": [
+          [
+            15,
+            24
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAAAAABABAABAABAAABAAAAAAAABBABAAABAAAAABB",
+      "L": 65,
+      "ventanas": 946,
+      "minimo_real": "120080895",
+      "ell_real": 27,
+      "umbral": "127",
+      "minimo_relajado": "127",
+      "ell_relajada": 8,
+      "ventanas_activas": [
+        [
+          0,
+          7
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 2105,
+        "umbral": "511",
+        "minimo_relajado": "511",
+        "ell_relajada": 10,
+        "ventanas_activas": [
+          [
+            0,
+            9
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BBABABABAAABAAAAAABAABAABAAAAAAAAABABAABAAABA",
+      "L": 71,
+      "ventanas": 1035,
+      "minimo_real": "3156298491",
+      "ell_real": 32,
+      "umbral": "174683/33",
+      "minimo_relajado": "5294",
+      "ell_relajada": 13,
+      "ventanas_activas": [
+        [
+          1,
+          9
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 2509,
+        "umbral": "174683/33",
+        "minimo_relajado": "5294",
+        "ell_relajada": 13,
+        "ventanas_activas": [
+          [
+            3,
+            19
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AABAAAAAABABAAAAAAABAAAAABABABABAABBBBAABABBAAABA",
+      "L": 81,
+      "ventanas": 1225,
+      "minimo_real": "4081276143",
+      "ell_real": 32,
+      "umbral": "1951/81",
+      "minimo_relajado": "25",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          3,
+          9
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 3248,
+        "umbral": "8095/81",
+        "minimo_relajado": "100",
+        "ell_relajada": 7,
+        "ventanas_activas": [
+          [
+            5,
+            13
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BABABAAABAABAABBBABBBAABAABABABABBAAAAAAABBA",
+      "L": 82,
+      "ventanas": 990,
+      "minimo_real": "727758353499",
+      "ell_real": 40,
+      "umbral": "4073/11",
+      "minimo_relajado": "371",
+      "ell_relajada": 9,
+      "ventanas_activas": [
+        [
+          0,
+          6
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 3313,
+        "umbral": "4073/11",
+        "minimo_relajado": "371",
+        "ell_relajada": 9,
+        "ventanas_activas": [
+          [
+            0,
+            12
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BAAABAABAAABBAABAAAABAAAAAAABBBBAABABBAAAABBAAAAB",
+      "L": 83,
+      "ventanas": 1225,
+      "minimo_real": "1553203479579",
+      "ell_real": 41,
+      "umbral": "677/63",
+      "minimo_relajado": "11",
+      "ell_relajada": 4,
+      "ventanas_activas": [
+        [
+          2,
+          8
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 3409,
+        "umbral": "4165617/17635",
+        "minimo_relajado": "237",
+        "ell_relajada": 8,
+        "ventanas_activas": [
+          [
+            0,
+            22
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAABAAABAAAAABBAAABBBAAABBBABBAABAAAAAAABBAAAAAAAAAAB",
+      "L": 86,
+      "ventanas": 1485,
+      "minimo_real": "1569146107327",
+      "ell_real": 41,
+      "umbral": "15",
+      "minimo_relajado": "15",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          0,
+          4
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 3664,
+        "umbral": "63",
+        "minimo_relajado": "63",
+        "ell_relajada": 7,
+        "ventanas_activas": [
+          [
+            0,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABAAAABBABBBBAAAAAABBAAABAAAAABABABAAABABABABABABAAB",
+      "L": 92,
+      "ventanas": 1378,
+      "minimo_real": "2842365895527",
+      "ell_real": 42,
+      "umbral": "44448509/177147",
+      "minimo_relajado": "251",
+      "ell_relajada": 8,
+      "ventanas_activas": [
+        [
+          9,
+          13
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 4187,
+        "umbral": "44448509/177147",
+        "minimo_relajado": "251",
+        "ell_relajada": 8,
+        "ventanas_activas": [
+          [
+            15,
+            27
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "BBAABBAABAAAAAABAAAAABBBAAAAAAAAAABAAAAAAAAAABBBBBBBAAAABA",
+      "L": 94,
+      "ventanas": 1711,
+      "minimo_real": "4889187454203",
+      "ell_real": 43,
+      "umbral": "64451/473",
+      "minimo_relajado": "137",
+      "ell_relajada": 8,
+      "ventanas_activas": [
+        [
+          0,
+          8
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 4354,
+        "umbral": "64451/473",
+        "minimo_relajado": "137",
+        "ell_relajada": 8,
+        "ventanas_activas": [
+          [
+            0,
+            16
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAABAAAAAAABBAAAAAAAAABAAAAABAABABBBABABAAAAABABAAAABABAAAABABA",
+      "L": 98,
+      "ventanas": 2080,
+      "minimo_real": "34357671470527",
+      "ell_real": 45,
+      "umbral": "5197/243",
+      "minimo_relajado": "22",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          5,
+          12
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 4780,
+        "umbral": "21581/243",
+        "minimo_relajado": "89",
+        "ell_relajada": 7,
+        "ventanas_activas": [
+          [
+            7,
+            16
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABABAAAAABAABABAABAAAAABAABAAABAAAAAAABBBBABABAABBBAAABBAAB",
+      "L": 101,
+      "ventanas": 1770,
+      "minimo_real": "152803336321767",
+      "ell_real": 48,
+      "umbral": "237/11",
+      "minimo_relajado": "22",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          0,
+          4
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 5056,
+        "umbral": "10565/243",
+        "minimo_relajado": "44",
+        "ell_relajada": 6,
+        "ventanas_activas": [
+          [
+            8,
+            15
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "ABABABBBBBAAABAAAAAAAABAABAAAAABAAAAABABABABAABBAAABAABBBBAB",
+      "L": 106,
+      "ventanas": 1830,
+      "minimo_real": "163439703581415",
+      "ell_real": 48,
+      "umbral": "16771949/2187",
+      "minimo_relajado": "7669",
+      "ell_relajada": 13,
+      "ventanas_activas": [
+        [
+          5,
+          10
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 5552,
+        "umbral": "16771949/2187",
+        "minimo_relajado": "7669",
+        "ell_relajada": 13,
+        "ventanas_activas": [
+          [
+            9,
+            24
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAABAAAAAAABBAAAAAAAABABBAAAAABAAAAABAABAABBBBABAAABBAABBAABBBBA",
+      "L": 109,
+      "ventanas": 2145,
+      "minimo_real": "197943312098751",
+      "ell_real": 48,
+      "umbral": "5197/243",
+      "minimo_relajado": "22",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          5,
+          12
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 5881,
+        "umbral": "21581/243",
+        "minimo_relajado": "89",
+        "ell_relajada": 7,
+        "ventanas_activas": [
+          [
+            7,
+            16
+          ]
+        ]
+      }
+    },
+    {
+      "palabra": "AAAAABBBABAAAAAAAAAAAAAAABAAAAAABABAABAABAABBAAAABABAAAAAABAAAAAAAAAABAABABB",
+      "L": 112,
+      "ventanas": 2926,
+      "minimo_real": "338203040342655",
+      "ell_real": 49,
+      "umbral": "2861423533/1594323",
+      "minimo_relajado": "1795",
+      "ell_relajada": 11,
+      "ventanas_activas": [
+        [
+          10,
+          25
+        ]
+      ],
+      "certifica_L_menor_igual_3ell": false,
+      "pasos_expansivos": {
+        "ventanas": 6255,
+        "umbral": "424124375/59049",
+        "minimo_relajado": "7183",
+        "ell_relajada": 13,
+        "ventanas_activas": [
+          [
+            18,
+            35
+          ]
+        ]
+      }
+    }
+  ],
+  "ventanas_distintas_por_palabra_contadas": 70417,
+  "cortes_CRT_cotejados": 10954,
+  "ventanas_T_expansivas": 67224,
+  "resumen_historico": {
+    "total": 34,
+    "certifica_pendiente_3": 8
+  },
+  "testigo_relajado": {
+    "palabra": "AABAAABBAAAAAABAAAAABABAAABAAABBB",
+    "L": 53,
+    "ventanas": 561,
+    "minimo_real": "6416623",
+    "ell_real": 23,
+    "umbral": "4247/729",
+    "minimo_relajado": "6",
+    "ell_relajada": 4,
+    "ventanas_activas": [
+      [
+        6,
+        8
+      ]
+    ],
+    "certifica_L_menor_igual_3ell": false,
+    "pasos_expansivos": {
+      "ventanas": 1391,
+      "umbral": "3964757/177147",
+      "minimo_relajado": "23",
+      "ell_relajada": 5,
+      "ventanas_activas": [
+        [
+          14,
+          22
+        ]
+      ]
+    },
+    "semilla_impar": 7,
+    "fronteras_iniciales": [
+      "7",
+      "11",
+      "17",
+      "79/4"
+    ],
+    "primera_divisibilidad_fallida": "8 no divide 17+5=22"
+  },
+  "fuentes_sha256_lf": {
+    "cotejar_simultaneas.py": "ce0a1adbd9f5e16780811e2885dc117c47eef08a417c7a8e0e865bca672e6f22",
+    "cotejar_congruencias.py": "2c6afaa8a55a29c458e4561b759c1fde252564b3620f1ff5ba3ae7efc11515bf",
+    "cotejar_denominador.py": "31350148975b44163108f88ab74b77724c0858519ed21b8404c59b82f833ab9d",
+    "cotejo_denominador.json": "2969b15937d69a8bd763ae569a641976363085c11ef6e3b5fb30d60bc969921e"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Optimo de barreras racionales conjuntas, integralidad de fronteras y reloj condicional A B^b. Extraccion orbital general y testigo finito: prueba escrita y cotejo independiente, no formalizados aqui. Imports directos cotejados; no auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261007/congruencias_codex20261016/PerdicesVentanasSimultaneas.lean",
+  "fuente_sha256_lf": "9a9fb32324de775d0c6213ca798085503d5b0ad68cacc0837b1b8aca9152a03f",
+  "verificador_sha256_lf": "02db102cf673b7f6cf710766945cd4bdda3925dffe36d0cca04b37a5a9636b6b",
+  "apoyo_sha256_lf": "ab5fae9fef2e8987586700d0385bd7e7ef98e1665114aaa426d253ef9705e287",
+  "salida_sha256_lf": "70247f0534419c97e774b679f9a14c6fcdc858848028dfd227fff9711e6f307e",
+  "dependencias": {
+    "Mathlib.Data.Rat.Lemmas": {
+      "fuente_sha256_lf": "8364e16a905c132a21ee7076c4d4c7c10ec5a2756ef4f8d8b4c7e32fda307f0d",
+      "objeto_sha256": "c7a4d7abc955f68072c5aa57a0813e776904284bcf88a864f1c746a250ac97b2"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256_lf": "0581fd9f80f34d728ad628e7c1fb5a93d36cb9cb48d469fbc797869e83ebe0a6",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256_lf": "dca9500572c6d887000f3de17c7145b53bf35233afc1ad8026cca908cec7a2fe",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    }
+  },
+  "axiomas": {
+    "PerdicesVentanasSimultaneas.ventana_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesVentanasSimultaneas.todas_ventanas_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesVentanasSimultaneas.maximo_exacto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesVentanasSimultaneas.frontera_A_entera": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesVentanasSimultaneas.frontera_B_entera": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesVentanasSimultaneas.residuo_B": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesVentanasSimultaneas.barrera_sufijo_AB": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesVentanasSimultaneas.reloj_AB": [
+      "propext",
+      "Quot.sound"
+    ]
+  }
+}

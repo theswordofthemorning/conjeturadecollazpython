@@ -56,6 +56,8 @@ def main():
                    CARPETA / "RELOJ_RACHAS.md", CARPETA / "DEFECTO_INTERIOR.md",
                    CARPETA / "CONTEXTO_INTERIOR.md",
                    CARPETA / "COMPENSACION_RELATIVA.md",
+                   CARPETA / "DENOMINADOR_GLOBAL.md",
+                   CARPETA / "VENTANAS_SIMULTANEAS.md",
                    CARPETA / "RUTA_CODEX.md",
                    RAIZ / "RutaDeJudasIscariote.md"))
     lean = leer("evidencia_lean.json")
@@ -306,6 +308,49 @@ def main():
     testigo = compensacion["testigo_no_realizable"]
     assert testigo["largo"] > testigo["altura"] + 3
     assert testigo["ell_minima"] > testigo["altura"]
+    denominador = leer("evidencia_denominador.json")
+    assert huella(RAIZ / denominador["fuente"]) == denominador["fuente_sha256_lf"]
+    assert huella(CARPETA / "comprobar_denominador.py") == denominador["verificador_sha256_lf"]
+    assert huella(CARPETA / "comprobar_lean.py") == denominador["apoyo_sha256_lf"]
+    assert huella(CARPETA / "evidencia_denominador.txt") == denominador["salida_sha256_lf"]
+    assert denominador["version_lean"].startswith("Lean (version 4.32.2,")
+    assert denominador["revision_mathlib"] == formal["revision_mathlib"]
+    assert len(denominador["axiomas"]) == 5
+    for axiomas in denominador["axiomas"].values():
+        assert set(axiomas) <= {"propext", "Classical.choice", "Quot.sound"}
+    consultas += len(denominador["axiomas"])
+    assert consultas == 144
+    cocientes = leer("cotejo_denominador.json")
+    for nombre, esperada in cocientes["fuentes_sha256_lf"].items():
+        carpeta = CARPETA.parent if nombre == "medicion_salida_ab.json" else CARPETA
+        assert huella(carpeta / nombre) == esperada
+    assert sum(f["palabras"] for f in cocientes["niveles"]) == 2046
+    assert len(cocientes["familias"]) == 65
+    assert cocientes["resumen_testigos"] == dict(total=34, sin_cancelacion=33, cota_util=2)
+    assert len(cocientes["testigos_historicos"]) == 34
+    simultaneas = leer("evidencia_simultaneas.json")
+    assert huella(RAIZ / simultaneas["fuente"]) == simultaneas["fuente_sha256_lf"]
+    assert huella(CARPETA / "comprobar_denominador.py") == simultaneas["verificador_sha256_lf"]
+    assert huella(CARPETA / "comprobar_lean.py") == simultaneas["apoyo_sha256_lf"]
+    assert huella(CARPETA / "evidencia_simultaneas.txt") == simultaneas["salida_sha256_lf"]
+    assert simultaneas["version_lean"] == denominador["version_lean"]
+    assert simultaneas["revision_mathlib"] == formal["revision_mathlib"]
+    assert len(simultaneas["axiomas"]) == 8
+    for axiomas in simultaneas["axiomas"].values():
+        assert set(axiomas) <= {"propext", "Classical.choice", "Quot.sound"}
+    consultas += len(simultaneas["axiomas"])
+    assert consultas == 152
+    optimos = leer("cotejo_simultaneas.json")
+    for nombre, esperada in optimos["fuentes_sha256_lf"].items():
+        assert huella(CARPETA / nombre) == esperada
+    assert sum(f["palabras"] for f in optimos["niveles"]) == 1023
+    assert len(optimos["familia_AB"]) == 33
+    assert optimos["resumen_historico"] == dict(total=34, certifica_pendiente_3=8)
+    assert optimos["ventanas_distintas_por_palabra_contadas"] == 70417
+    assert optimos["cortes_CRT_cotejados"] == 10954
+    assert optimos["ventanas_T_expansivas"] == 67224
+    assert optimos["testigo_relajado"]["minimo_relajado"] == "6"
+    assert optimos["testigo_relajado"]["pasos_expansivos"]["minimo_relajado"] == "23"
     registro = leer("evidencia_registro.json")
     for nombre, esperada in registro["protegidos_sha256"].items():
         assert huella(RAIZ / nombre, False) == esperada
@@ -338,6 +383,12 @@ def main():
                      modelos_relativa=compensacion["modelos"],
                      ventanas_relativa=compensacion["ventanas"], orbitas_relativa=compensacion["orbitas"],
                      lean_relativa="Cinco módulos desde fuente; 57 consultas, once lemas nuevos. Modelos separados de la barrera orbital AB.",
+                     lean_denominador="Cinco lemas del núcleo afín; codificación general y corolarios logarítmicos escritos.",
+                     testigos_denominador=cocientes["resumen_testigos"],
+                     lean_simultaneas="Ocho lemas del óptimo racional, integridad y reloj condicional AB. CRT y testigo escritos y cotejados.",
+                     ventanas_simultaneas=optimos["ventanas_distintas_por_palabra_contadas"],
+                     ventanas_T_expansivas=optimos["ventanas_T_expansivas"],
+                     cortes_CRT=optimos["cortes_CRT_cotejados"],
                      palabras_estado=len((RAIZ / "ESTADO_INVESTIGACION.md").read_text(encoding="utf-8").split()),
                      catalogo_central_integrado=registro["integrado"],
                      catalogo_central_cotejado=registro["catalogo_central_cotejado"],

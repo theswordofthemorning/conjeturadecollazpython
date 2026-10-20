@@ -1,0 +1,8 @@
+'PerdicesVentanasSimultaneas.ventana_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesVentanasSimultaneas.todas_ventanas_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesVentanasSimultaneas.maximo_exacto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesVentanasSimultaneas.frontera_A_entera' depends on axioms: [propext, Quot.sound]
+'PerdicesVentanasSimultaneas.frontera_B_entera' depends on axioms: [propext, Quot.sound]
+'PerdicesVentanasSimultaneas.residuo_B' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesVentanasSimultaneas.barrera_sufijo_AB' depends on axioms: [propext, Quot.sound]
+'PerdicesVentanasSimultaneas.reloj_AB' depends on axioms: [propext, Quot.sound]

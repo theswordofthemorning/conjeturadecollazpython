@@ -1,6 +1,6 @@
 # Perdices: ruta de Codex y balance de avances
 
-Cierre documental del 18-10-2026. Este índice reúne el trabajo de la ruta;
+Cierre documental del 19-10-2026. Este índice reúne el trabajo de la ruta;
 las pruebas, programas y evidencias permanecen en las notas enlazadas.
 Se conserva el nombre Perdices, sin reivindicar prioridad bibliográfica.
 
@@ -39,6 +39,24 @@ ponderada. La divisibilidad de AB aplica el mecanismo previo de
 [repetición](../COMPLEJIDAD.md): no se presenta como una solución nueva
 para historias no periódicas.
 
+**Ensayo del 19-10:** [Denominador global](DENOMINADOR_GLOBAL.md) conserva
+la congruencia exacta de toda palabra: `2^L | q*n+r`, con `q<=r<=5q`.
+Pero su barrera de tamaño pierde utilidad incluso en A B^b: el denominador
+reducido q supera 2^L para b>=3. Se descarta la condición suficiente
+`q<=K*2^(theta*L)`, theta<1; no se refuta el reloj. Cinco lemas Lean y
+contraste de 2046 palabras, 65 miembros de la familia y 34 testigos
+históricos, sin repetir el censo. Es el límite de un intento, no un décimo
+avance hacia el cierre universal.
+
+**Continuación del 19-10:** [Ventanas simultáneas](VENTANAS_SIMULTANEAS.md)
+calcula el óptimo de todas sus barreras de tamaño desde una misma n,
+con fronteras afines exactas. En un testigo de 53 pasos, las 561 barreras
+de bloques admiten n=7; incluso 1391 ventanas T expansivas admiten n=23,
+frente al mínimo orbital 6416623. Son recorridos racionales, no órbitas.
+El sufijo sí recupera L<=ell+1 para A B^b. Ocho lemas Lean; el ejemplo
+finito no descarta todo C,D. CRT en cada corte recupera exactamente el
+cilindro, sin ofrecer aún una cota uniforme de sus representantes.
+
 ## Qué debe resolver el siguiente paso
 
 En el modelo de rachas, `H_1=ell`,
@@ -68,9 +86,23 @@ conjunta de realización aritmética para historias no periódicas,
 conservando la misma semilla y sus fronteras. El caso periódico AB
 ilustra esa diferencia, pero no cubre dichas historias.
 
+El [mensaje de Claude](../../judas20261016/escalera/yah/PENDIENTES.md)
+es útil para no duplicar búsquedas: sus dificultades al mezclar ramas
+son un diagnóstico de las formas ensayadas, no una prueba de imposibilidad.
+La siguiente propuesta debe conservar residuos exactos o relacionar
+subtramos desde n, con constantes independientes de sus cambios. El ensayo
+del denominador muestra por qué sustituir toda esa información por el
+tamaño de un único coeficiente puede fracasar. No se ha encontrado aún
+ese mecanismo; no se justifica otra corrida larga sin una propuesta concreta.
+La continuación precisa la prueba de admisión: una desigualdad nueva debe
+excluir el recorrido racional de n=23 conservando la integridad del pasado
+y del futuro. Optimizar de nuevo sólo las barreras de tamaño tiene el
+límite exacto calculado. La formulación CRT es equivalente al cilindro;
+no se cuenta como solución del paso pendiente.
+
 ## Evidencia, conservación y reproducción
 
-[Evidencia de sesión](evidencia_sesion.json): 139 consultas Lean únicas,
+[Evidencia de sesión](evidencia_sesion.json): 152 consultas Lean únicas,
 con Lean 4.32.2 y Mathlib fijados. Los módulos indicados en cada nota se
 recompilaron desde fuente; sólo aparecen axiomas estándar, sin sorryAx.
 Se cotejan imports directos y sus objetos, no toda la cadena transitiva
@@ -82,11 +114,11 @@ exhaustivos con prueba de cobertura de simples contrastes de ejemplos.
 Ningún barrido se usa como prueba universal. No se repitió el censo de
 Salidas ni el conjunto general de controles por cambios documentales.
 
-Las [nueve altas versionadas](alta_registro.json) se integraron mediante
-el generador del laboratorio: catálogo de 349 a 358 afirmaciones,
-244 demostradas, 92 medidas, 13 conjeturadas y nueve refutadas.
+Las [once altas versionadas](alta_registro.json) se integraron mediante
+el generador del laboratorio: catálogo de 349 a 360 afirmaciones,
+246 demostradas, 92 medidas, 13 conjeturadas y nueve refutadas.
 La [verificación de conservación](evidencia_registro.json) confirma
-las 357 filas anteriores a la última alta y respuestas.db intactas.
+las 359 filas anteriores a la última alta y respuestas.db intactas.
 Registro, mapa y SQLite quedaron cotejados. No se reconstruyeron
 conversaciones ni se modificó zootheorem.
 
