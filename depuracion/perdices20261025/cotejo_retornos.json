@@ -1,0 +1,979 @@
+{
+  "alcance": "Construcciones finitas exactas; la generalizacion CRT tiene prueba escrita. No prueba terminacion ni refuta el reloj AB.",
+  "recorridos": [
+    {
+      "caso": "dos_valoraciones",
+      "modulo": 1,
+      "lote": 1,
+      "traslado": 0,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 1,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "231",
+      "final": "391",
+      "pasos_T": 4,
+      "bloques": 2,
+      "firma": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "caso": "dos_valoraciones",
+      "modulo": 1,
+      "lote": 1,
+      "traslado": 1,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 1,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "487",
+      "final": "823",
+      "pasos_T": 4,
+      "bloques": 2,
+      "firma": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "caso": "dos_valoraciones",
+      "modulo": 1,
+      "lote": 1,
+      "traslado": 2,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 1,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "743",
+      "final": "1255",
+      "pasos_T": 4,
+      "bloques": 2,
+      "firma": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "caso": "dos_valoraciones",
+      "modulo": 1,
+      "lote": 3,
+      "traslado": 0,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 3,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "41703",
+      "final": "200407",
+      "pasos_T": 12,
+      "bloques": 6,
+      "firma": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "caso": "dos_valoraciones",
+      "modulo": 1,
+      "lote": 3,
+      "traslado": 1,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 3,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "107239",
+      "final": "515335",
+      "pasos_T": 12,
+      "bloques": 6,
+      "firma": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "caso": "dos_valoraciones",
+      "modulo": 1,
+      "lote": 3,
+      "traslado": 2,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 3,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "172775",
+      "final": "830263",
+      "pasos_T": 12,
+      "bloques": 6,
+      "firma": [
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "caso": "residuos_y_ternarias",
+      "modulo": 72,
+      "lote": 1,
+      "traslado": 0,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 1,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "1255",
+      "final": "2119",
+      "pasos_T": 4,
+      "bloques": 2,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "caso": "residuos_y_ternarias",
+      "modulo": 72,
+      "lote": 1,
+      "traslado": 1,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 1,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "8167",
+      "final": "13783",
+      "pasos_T": 4,
+      "bloques": 2,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "caso": "residuos_y_ternarias",
+      "modulo": 72,
+      "lote": 1,
+      "traslado": 2,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 1,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "15079",
+      "final": "25447",
+      "pasos_T": 4,
+      "bloques": 2,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "caso": "residuos_y_ternarias",
+      "modulo": 72,
+      "lote": 3,
+      "traslado": 0,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 3,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "1286887",
+      "final": "6184039",
+      "pasos_T": 12,
+      "bloques": 6,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "caso": "residuos_y_ternarias",
+      "modulo": 72,
+      "lote": 3,
+      "traslado": 1,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 3,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "3056359",
+      "final": "14687095",
+      "pasos_T": 12,
+      "bloques": 6,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "caso": "residuos_y_ternarias",
+      "modulo": 72,
+      "lote": 3,
+      "traslado": 2,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "b": 1,
+      "repeticiones": 3,
+      "fijo": "-19/11",
+      "parte_coprima": 1,
+      "semilla": "4825831",
+      "final": "23190151",
+      "pasos_T": 12,
+      "bloques": 6,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "caso": "raiz_a_evitar_y_primo_del_denominador",
+      "modulo": 360,
+      "lote": 1,
+      "traslado": 0,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            19,
+            11
+          ]
+        ],
+        [
+          5,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "b": 2,
+      "repeticiones": 20,
+      "fijo": "-251/115",
+      "parte_coprima": 5,
+      "semilla": "189997695022917737557576520924368009068551896231",
+      "final": "70254542713422905582967615982920535385458100796668071",
+      "pasos_T": 140,
+      "bloques": 60,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        4,
+        6,
+        0,
+        1
+      ]
+    },
+    {
+      "caso": "raiz_a_evitar_y_primo_del_denominador",
+      "modulo": 360,
+      "lote": 1,
+      "traslado": 1,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            19,
+            11
+          ]
+        ],
+        [
+          5,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "b": 2,
+      "repeticiones": 20,
+      "fijo": "-251/115",
+      "parte_coprima": 5,
+      "semilla": "406760938352635394493303702534510082906681539751",
+      "final": "150406054737665307785758050884069955716089862618263591",
+      "pasos_T": 140,
+      "bloques": 60,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        4,
+        6,
+        0,
+        1
+      ]
+    },
+    {
+      "caso": "raiz_a_evitar_y_primo_del_denominador",
+      "modulo": 360,
+      "lote": 1,
+      "traslado": 2,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            19,
+            11
+          ]
+        ],
+        [
+          5,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "b": 2,
+      "repeticiones": 20,
+      "fijo": "-251/115",
+      "parte_coprima": 5,
+      "semilla": "623524181682353051429030884144652156744811183271",
+      "final": "230557566761907709988548485785219376046721624439859111",
+      "pasos_T": 140,
+      "bloques": 60,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        4,
+        6,
+        0,
+        1
+      ]
+    },
+    {
+      "caso": "raiz_a_evitar_y_primo_del_denominador",
+      "modulo": 360,
+      "lote": 3,
+      "traslado": 0,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            19,
+            11
+          ]
+        ],
+        [
+          5,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "b": 2,
+      "repeticiones": 60,
+      "fijo": "-251/115",
+      "parte_coprima": 5,
+      "semilla": "57855369693518785716659583796733454190075307104336468253856191857672701354287603353802596384762138566016977257419635183044366204071",
+      "final": "2924973327012419955651323266953961073094348315736601341710475362987909163204396269491403194513542241758880890219029917651356943505700799203443223591",
+      "pasos_T": 420,
+      "bloques": 180,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        4,
+        6,
+        0,
+        1
+      ]
+    },
+    {
+      "caso": "raiz_a_evitar_y_primo_del_denominador",
+      "modulo": 360,
+      "lote": 3,
+      "traslado": 1,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            19,
+            11
+          ]
+        ],
+        [
+          5,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "b": 2,
+      "repeticiones": 60,
+      "fijo": "-251/115",
+      "parte_coprima": 5,
+      "semilla": "478954579488117542515131238013464291649484187927038610607872778163518312477266994852998709311828336989558267422182802654569816423591",
+      "final": "24214336150204084189822347045416335972198782259389079461755074523975855604249052661359211255846286406459596230420829951189714443705421806063947699111",
+      "pasos_T": 420,
+      "bloques": 180,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        4,
+        6,
+        0,
+        1
+      ]
+    },
+    {
+      "caso": "raiz_a_evitar_y_primo_del_denominador",
+      "modulo": 360,
+      "lote": 3,
+      "traslado": 2,
+      "observaciones": [
+        [
+          2,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          3,
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            19,
+            11
+          ]
+        ],
+        [
+          5,
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          2,
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "b": 2,
+      "repeticiones": 60,
+      "fijo": "-251/115",
+      "parte_coprima": 5,
+      "semilla": "900053789282716299313602892230195129108893068749740752961889364469363923600246386352194822238894535413099557586945970126095266643111",
+      "final": "45503698973395748423993370823878710871303216203041557581799673684963802045293709053227019317179030571160311570622629984728071943905142812924452174631",
+      "pasos_T": 420,
+      "bloques": 180,
+      "firma": [
+        31,
+        3,
+        2,
+        0,
+        4,
+        6,
+        0,
+        1
+      ]
+    }
+  ],
+  "pasos_contrastados": 1776,
+  "fuente_sha256": "58884e621d3948f16d1fb6478361ef20a713559a8d8dd9a7f820d9e9b7248be5"
+}

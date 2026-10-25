@@ -1,0 +1,104 @@
+{
+  "estado": "evidencias y enlaces coherentes",
+  "alcance": "Comprobacion de integridad documental y evidencia guardada; no recompila Lean, no repite cotejos y no sustituye revision humana.",
+  "documentos": [
+    {
+      "archivo": "ESTADO_INVESTIGACION.md",
+      "palabras": 650,
+      "enlaces_locales": 42,
+      "sha256": "53f5caeff8722174160138e8497da50b124d128aeb3f3f87481d62cb383a3591"
+    },
+    {
+      "archivo": "depuracion/balance20261025/BALANCE.md",
+      "palabras": 3017,
+      "enlaces_locales": 25,
+      "sha256": "99bdf3012065e1dd34baa675ba7211b71b8eebcc12bcd2715241dbedab752ec1"
+    },
+    {
+      "archivo": "depuracion/perdices20261007/UMBRAL.md",
+      "palabras": 1688,
+      "enlaces_locales": 13,
+      "sha256": "a95465a606642aacb336b489350735b86e889f161ce4b0035d7899da04d8c827"
+    },
+    {
+      "archivo": "depuracion/perdices20261007/congruencias_codex20261016/RUTA_CODEX.md",
+      "palabras": 1294,
+      "enlaces_locales": 19,
+      "sha256": "a4d613da32c5c6691d741e4b1518068599e366a73f1bb13b2c986d5c3982a41e"
+    },
+    {
+      "archivo": "depuracion/perdices20261025/PROTEGIDOS.md",
+      "palabras": 1337,
+      "enlaces_locales": 9,
+      "sha256": "30946ac4601c9d47154d63786383270b0e88761b9909ce516f90490db6d9b58b"
+    },
+    {
+      "archivo": "depuracion/perdices20261025/SESGO_FRONTERA.md",
+      "palabras": 1324,
+      "enlaces_locales": 12,
+      "sha256": "43ef21894bed5a0d7d01f9a98e8deedc7cbd9c36545d945617035481dac1f07f"
+    },
+    {
+      "archivo": "depuracion/perdices20261025/FRECUENCIAS_TEMPORALES.md",
+      "palabras": 1146,
+      "enlaces_locales": 10,
+      "sha256": "a955503586a6ef1cef2029e0b3ae60aaa4e83ed26841490226ac83f4c0c03f56"
+    },
+    {
+      "archivo": "depuracion/perdices20261025/OBSERVABILIDAD_TERNARIA.md",
+      "palabras": 1312,
+      "enlaces_locales": 9,
+      "sha256": "1ea4bf1fb8e3f3be4a6d60f2112daea0563fe80f8ab26c124b13fc98577c5ff3"
+    },
+    {
+      "archivo": "depuracion/perdices20261025/RETORNOS_ARITMETICOS.md",
+      "palabras": 1351,
+      "enlaces_locales": 10,
+      "sha256": "7fe84560f5d4b8b64c23c54bfc47f97de76dc6f201d3c20e90c5f5ce253df25b"
+    }
+  ],
+  "consultas_lean": 71,
+  "afirmaciones_previas_conservadas": 360,
+  "afirmaciones_actuales": 365,
+  "respuestas_db_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222",
+  "fuentes_sha256": {
+    "alta_registro.json": "513abc545a4d716c5543130d331f5ba3c3d97615f0a1fba1216563a86920d475",
+    "comprobar_lean.py": "73fb16d48389b519e054f95048cf3ce7fd93b51aecfc36f7160e4621f76ba6ca",
+    "cotejar_frecuencias.py": "fc056a1b426bc0bfd27b7fb6381b259a9940c31cf891328b8992befcca795d37",
+    "cotejar_protegidos.py": "852c606445607963bc26056c5e95ace95dfa344a57c7d750a586c8e8f0dbfa96",
+    "cotejar_retornos.py": "58884e621d3948f16d1fb6478361ef20a713559a8d8dd9a7f820d9e9b7248be5",
+    "cotejar_sesgo.py": "2b1e15ccbe3a92fe95138a49a57c1850cb9dfe5dea74eac583545545da101667",
+    "cotejar_valuaciones.py": "9f521e2c25c3985a048e07a60f5e6fb2c977bb1e27bc7c01008254f6eb85aac6",
+    "cotejo_frecuencias.json": "3e5b6bff29fe019141e69b562c45c9f814096b22d83785875f8b3b27d7f1b02f",
+    "cotejo_protegidos.json": "1ad3a79f9ffa65791fe0572a32d3c4c4912fdfc973eabb8b15bb38c4a0b6810f",
+    "cotejo_retornos.json": "69b6a86559cb6b2d88392b2a7dd1a59a024472d3a7d0f79815f07bfe3ac75fbe",
+    "cotejo_sesgo.json": "69d321d1b05e9b0cf563547c8fb8e412bf393d4347775a2d77d1d61637fa930d",
+    "cotejo_valuaciones.json": "5b91311508d5cec8098988f0eb0b371e462440e1cee34c21aa8aae4d607fee4b",
+    "evidencia_lean.json": "b4a767629d0085e19c1667e4dafbcc4b5740ee97a2728a964e7448f535b2cd5d",
+    "evidencia_lean.txt": "fef1837cac4c27c00e1057667c52b8f47f76ebc01fa3986caf0a71f0a0ca6e0a",
+    "evidencia_lean_frecuencias.json": "1e903b21d6a4c07d87342b265bf3bbc681630c7acb33ebbbd2741edee88580b9",
+    "evidencia_lean_frecuencias.txt": "7a2d46a3330782b7398898ebc39f0266c8795269c6153386e2366f7eaa30e781",
+    "evidencia_lean_intercambio.json": "96a15c51ed7d08ce75d60967d16e20e3daf572712deed908a7e425ddb7f129dd",
+    "evidencia_lean_intercambio.txt": "9628153981b1fb1f48aaab4a0fadcedfbff557f31bf3f3fe612a6bf8d615fa55",
+    "evidencia_lean_retornos.json": "244c273cb37121ff73193da4fdc05bdf86b3d0d9da2e82cd5f6b66d0ee50a879",
+    "evidencia_lean_retornos.txt": "782c8eef8a330471a49866f5f4b8c8b143bc3e786b345a280aee7a607a5f905b",
+    "evidencia_lean_sesgo.json": "0bdfccb85c10d3c6ad8b8e246c1d2c7aef6c40cde2509da444c87c7977f144b9",
+    "evidencia_lean_sesgo.txt": "42fb1d3a3af45b7fc0f7319606de72c45018c76b2be8b7859d99b727cf77c12e",
+    "evidencia_lean_valuaciones.json": "dabebffda56773431b4d1d8fc411869cf10a4939d720913c2ae941ed3003455e",
+    "evidencia_lean_valuaciones.txt": "059bad39ef179d7d79e74898b6e3f101b3e36c2495263adb616de81c4c5d61ed",
+    "evidencia_registro.json": "f4b623394b40958ab064ed31cef2cd36281b00cacbe0c6df2cea4eed20734a47",
+    "FRECUENCIAS_TEMPORALES.md": "a955503586a6ef1cef2029e0b3ae60aaa4e83ed26841490226ac83f4c0c03f56",
+    "OBSERVABILIDAD_TERNARIA.md": "1ea4bf1fb8e3f3be4a6d60f2112daea0563fe80f8ab26c124b13fc98577c5ff3",
+    "PerdicesFrecuencias.lean": "2c7b9ef1b46756c5caae0278684cf26d45723ebd8dba784d9d7f48e8d0f8e0c0",
+    "PerdicesIntercambio.lean": "f75000f6f80175d6b13ad18bc57ae264c00a3e435da683e772608040904d4bda",
+    "PerdicesProtegidos.lean": "c1a4265d57ce8b55f8f51f7563e6958d6cf51fbd3a54a532504599903007c089",
+    "PerdicesRetornoFirma.lean": "d358c7176b15a2ac43e6e1072cc94914e08ec1f79baa6e4961049dcdb5a51376",
+    "PerdicesSesgoFrontera.lean": "ebb9c563f4c5ec744307223296a13173e5faacaf827f1ae2ef3297fc9441f4ff",
+    "PerdicesValuaciones.lean": "53ef8953f0cab7aae5e942f1c770476617793f0eb4b4e93e8098927a97021c1e",
+    "PROTEGIDOS.md": "30946ac4601c9d47154d63786383270b0e88761b9909ce516f90490db6d9b58b",
+    "RETORNOS_ARITMETICOS.md": "7fe84560f5d4b8b64c23c54bfc47f97de76dc6f201d3c20e90c5f5ce253df25b",
+    "SESGO_FRONTERA.md": "43ef21894bed5a0d7d01f9a98e8deedc7cbd9c36545d945617035481dac1f07f",
+    "verificar_alta.py": "278e9a432c9d5567eacc7405dd413babf41870ede9b37cd2a1069faa1a860bee",
+    "verificar_sesion.py": "a3b38eb7db60b1763d4646c44c9eb2fcb5ff7f3e8e46baf25c9dab3563d205fd"
+  }
+}

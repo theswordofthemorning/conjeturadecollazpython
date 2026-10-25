@@ -1,0 +1,37 @@
+{
+  "alcance": "Altas integradas y cotejadas con el catálogo central.",
+  "integrado": true,
+  "filas_base": 360,
+  "filas_ampliadas_temporales": 365,
+  "filas_centrales_antes": 364,
+  "preservacion_literal_afirmaciones_previas": true,
+  "unico_cambio_editorial_previo": "Añadir las fuentes nuevas a la misma pieza.",
+  "diferencias_por_tabla": {
+    "afirmaciones": 5,
+    "correcciones": 0,
+    "constantes": 0,
+    "nodos": 0,
+    "dependencias": 0,
+    "claves_actuales": 5,
+    "metadatos": 0,
+    "mapa_config": 0,
+    "mapa_ramas": 0,
+    "mapa_piezas": 0,
+    "mapa_afirmaciones": 5,
+    "mapa_nodos": 0,
+    "mapa_relaciones": 0,
+    "mapa_inventario": 0
+  },
+  "protegidos_sha256": {
+    "depuracion\\coherencia20260913\\registro.json": "4031b472977b991d66403df68bd655a24265d43de1aa8318d345c700b27109d6",
+    "depuracion\\coherencia20260913\\mapa_investigacion.json": "725765d510c02971abd6ac6c8ca8ceabba174207a8b1f3891cb938fb647411a5",
+    "afirmaciones.db": "cdaf978da8ae01c187dc8073990a495244b4ee4d2b70791e04f25155299d12e4",
+    "respuestas.db": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222"
+  },
+  "catalogo_central_cotejado": true,
+  "historial_respuestas_sin_modificar": true,
+  "alta_sha256": "513abc545a4d716c5543130d331f5ba3c3d97615f0a1fba1216563a86920d475",
+  "generador_sha256": "b843a22d9f9ec99e92ae9664acea08f34ec4d1ffa030a459b51c451af0735306",
+  "aplicador_sha256": "a19c0d0bb3f2e577e7935a6b933fe66814e98f1212e5838723f4f5dbb4068657",
+  "verificador_sha256": "278e9a432c9d5567eacc7405dd413babf41870ede9b37cd2a1069faa1a860bee"
+}

@@ -1,4 +1,17 @@
-# Pendiente: analizar el trabajo de Nashida — 20-10-2026
+# Nashida: lectura estratégica y auditoría pendiente
+
+**Actualización 25-10-2026:** se revisaron estratégicamente los seis trabajos,
+sus hipótesis y su relación con nuestras rutas. Los commits remotos siguen
+coincidiendo con los de la tabla. El [balance global](../balance20261025/BALANCE.md)
+no identifica un puente universal aplicable y precisa el alcance de las
+barreras; en particular, corrige extrapolaciones demasiado amplias del plan
+del 19-10. No se recompilaron los proyectos externos ni se completó una
+auditoría de todas sus pruebas. Esa revisión sigue pendiente.
+
+Se conserva a continuación la nota del 20-10 como registro de lo descargado
+y comprobado entonces; su frase «todavía no está analizado» describe esa fecha.
+
+## Nota original — 20-10-2026
 
 Hay que analizar a fondo el trabajo de Hiroyuki Nashida: sus repositorios
 de GitHub y sus artículos de Zenodo. Podría traer avances de este año que

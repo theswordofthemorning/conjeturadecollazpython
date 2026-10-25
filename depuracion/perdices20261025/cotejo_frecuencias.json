@@ -1,0 +1,50 @@
+{
+  "alcance": "Criterio condicional sobre frecuencias temporales de una misma orbita. No se demuestra la hipotesis de mezcla para excepciones. El balance modular tambien admite el control racional historico.",
+  "parametros": {
+    "semillas_max": 127,
+    "pasos": 192,
+    "periodos_euler": 2
+  },
+  "estacionaria_mod_9": [
+    "0",
+    "8/63",
+    "16/63",
+    "0",
+    "11/63",
+    "4/63",
+    "0",
+    "2/63",
+    "22/63"
+  ],
+  "semillas_ordinarias": 127,
+  "balances_orbitales": 24636,
+  "prefijos_ordinarios_con_hipotesis": 0,
+  "ejemplo_real_no_vacio": {
+    "semilla": "40543352476024504258783500459633555406813268793481145108989822284080123822080",
+    "pasos": 252,
+    "subidas": 126,
+    "TV_final": "0",
+    "cuentas": [
+      0,
+      32,
+      64,
+      0,
+      44,
+      16,
+      0,
+      8,
+      88
+    ],
+    "prefijos_con_hipotesis": 7,
+    "prefijos_con_producto_menor_uno": 252
+  },
+  "control_racional": {
+    "palabra": "AABAAABBAAAAAABAAAAABABAAABAAABBB",
+    "semilla_real": "6416623",
+    "semilla_racional_prescrita": "23",
+    "frontera_fallida": "241/4",
+    "coincidencias_mod_9_desde_dos_subidas": 52,
+    "conclusion": "El balance modulo 9 NO detecta la falta de integridad del recorrido racional."
+  },
+  "fuente_sha256": "fc056a1b426bc0bfd27b7fb6381b259a9940c31cf891328b8992befcca795d37"
+}

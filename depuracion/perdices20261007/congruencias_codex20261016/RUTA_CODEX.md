@@ -1,6 +1,6 @@
 # Perdices: ruta de Codex y balance de avances
 
-Cierre documental del 19-10-2026. Este índice reúne el trabajo de la ruta;
+Cierre documental del 19-10, actualizado el 25-10-2026. Este índice reúne el trabajo de la ruta;
 las pruebas, programas y evidencias permanecen en las notas enlazadas.
 Se conserva el nombre Perdices, sin reivindicar prioridad bibliográfica.
 
@@ -56,6 +56,15 @@ frente al mínimo orbital 6416623. Son recorridos racionales, no órbitas.
 El sufijo sí recupera L<=ell+1 para A B^b. Ocho lemas Lean; el ejemplo
 finito no descarta todo C,D. CRT en cada corte recupera exactamente el
 cilindro, sin ofrecer aún una cota uniforme de sus representantes.
+
+**Continuación del 25-10:** [Retornos aritméticos](../../perdices20261025/RETORNOS_ARITMETICOS.md)
+construye tramos enteros A/B crecientes que conservan cualquier lista finita
+de residuos y valoraciones de polinomios fijos. Por ello no puede descender
+en cada lote fijo un rango eventualmente no decreciente en tamaño dentro
+de esas observaciones. El caso de v2(n+1),v2(n+5) tiene el testigo 231->391
+y prueba completa en Lean; la construcción CRT general está escrita.
+Es una barrera para esa plantilla de rangos, no para todos los controles
+aritméticos ni una solución del reloj. No usa recorridos racionales.
 
 ## Qué debe resolver el siguiente paso
 

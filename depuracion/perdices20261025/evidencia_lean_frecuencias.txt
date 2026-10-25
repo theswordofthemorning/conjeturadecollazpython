@@ -1,0 +1,7 @@
+'PerdicesFrecuencias.potencial_acotado' depends on axioms: [propext, Quot.sound]
+'PerdicesFrecuencias.identidad_local' depends on axioms: [propext, Quot.sound]
+'PerdicesFrecuencias.balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesFrecuencias.subidas_acotadas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesFrecuencias.frecuencias_fuerzan_densidad' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesFrecuencias.densidad_fuerza_cruce' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesFrecuencias.criterio_orbital' depends on axioms: [propext, Classical.choice, Quot.sound]

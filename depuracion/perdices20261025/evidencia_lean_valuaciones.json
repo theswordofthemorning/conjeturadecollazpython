@@ -1,0 +1,50 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Identidad universal de valoracion ternaria, profundidad acotada, separacion de paridades, identidad truncada y balance de una trayectoria natural para todos m,K. Marca critica definida por valoracion; identificacion por congruencias, medidas/TV y flujos estacionarios: prueba escrita, no formalizados aqui. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261025/PerdicesValuaciones.lean",
+  "fuente_sha256": "53ef8953f0cab7aae5e942f1c770476617793f0eb4b4e93e8098927a97021c1e",
+  "verificador_sha256": "73fb16d48389b519e054f95048cf3ce7fd93b51aecfc36f7160e4621f76ba6ca",
+  "salida_sha256": "059bad39ef179d7d79e74898b6e3f101b3e36c2495263adb616de81c4c5d61ed",
+  "dependencias": {
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic": {
+      "fuente_sha256": "8f74a8857091fc65717f00661f99eeef0027810cf99c0afeab624db773bf1e4a",
+      "objeto_sha256": "2210f1912fe964a080cc790b92ef4459e1e7891fd445e03adae818c181ffbf55"
+    },
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic": {
+      "fuente_sha256": "789260eb81ea6ab5fe13b0dfeba8941207299e31b39b1adf3dbf63090bc720cf",
+      "objeto_sha256": "9dda55a2f72d6b3c05149688ab9a89f1d33087dfcc4d6bec8ad344208269112c"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256": "6f708e7b960ea932d8cae7c8e23068e9ffe8f6120e74bd65ccabdc9eb81865d3",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    }
+  },
+  "axiomas": {
+    "PerdicesValuaciones.identidad_local": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesValuaciones.profundidad_acotada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesValuaciones.paridad_separada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesValuaciones.identidad_truncada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesValuaciones.balance_trayectoria": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

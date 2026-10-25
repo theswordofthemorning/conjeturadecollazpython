@@ -1,0 +1,166 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Supervivencia de todos los prefijos, intercambio completo de listas, conservacion de longitud/subidas/producto, cambio de residuo, inyectividad y desigualdad 2*card(clase 1)<=card(frontera alta). Identificacion con cuentas orbitales, densidad de horizontes y no convergencia de la medida: prueba escrita, no formalizados aqui. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261025/PerdicesIntercambio.lean",
+  "fuente_sha256": "f75000f6f80175d6b13ad18bc57ae264c00a3e435da683e772608040904d4bda",
+  "verificador_sha256": "73fb16d48389b519e054f95048cf3ce7fd93b51aecfc36f7160e4621f76ba6ca",
+  "salida_sha256": "9628153981b1fb1f48aaab4a0fadcedfbff557f31bf3f3fe612a6bf8d615fa55",
+  "dependencias": {
+    "Mathlib.Data.List.Basic": {
+      "fuente_sha256": "236b0b1c5478c23cebabb055671f88ac50b197cff0c1e35e857e73faae827adb",
+      "objeto_sha256": "b42e634d447e798b87b40b0074d3c20a59ee2f7d6aee5f8f339f8cf575fcf204"
+    },
+    "Mathlib.Data.Fintype.Vector": {
+      "fuente_sha256": "ec338ec9054588dd351a7a528a31ebd8cbacc03744ac0905a27b794e85ebe25d",
+      "objeto_sha256": "69f436e9d9c9554d36a458c835182d71360077527796155320cfbdf105a40d84"
+    },
+    "Mathlib.Data.Rat.Lemmas": {
+      "fuente_sha256": "214875d4cff58276286402636fc734a156a17da3a038a33aa89f72c7ab2876d5",
+      "objeto_sha256": "c7a4d7abc955f68072c5aa57a0813e776904284bcf88a864f1c746a250ac97b2"
+    },
+    "Mathlib.SetTheory.Cardinal.Finite": {
+      "fuente_sha256": "f4c2479d48b6c199db677fa21dcc3b44e1832c3a5df51cbb2bb5d68828d34c50",
+      "objeto_sha256": "1d1f937e5b4389d73b2126ee078d5453cdf6940e508e81570fafc6209b9182b6"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256": "d26c3a356e96444bde9eca45138b08bfe71eb3b351f38b92579333b83145f043",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256": "6f708e7b960ea932d8cae7c8e23068e9ffe8f6120e74bd65ccabdc9eb81865d3",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.FieldSimp": {
+      "fuente_sha256": "cab51f5320dce45fb9d7991cf77e39b578aae9d8a202c46ec094d4b80da546be",
+      "objeto_sha256": "13dc0da3bd53793a4b47fa3f8b3b3b92f1d2c00905c9d827e5ad610131ed87a1"
+    },
+    "Mathlib.Tactic.Positivity": {
+      "fuente_sha256": "42dd134d7ee69a0229cfd1bd756f134a6cef109b0cd89f28110f941436d34b5d",
+      "objeto_sha256": "4b2a5441e3ef5aa9d17c949ae6de3041bd357a58a29bb28c662e20c714b804ad"
+    },
+    "Mathlib.Tactic.Ring": {
+      "fuente_sha256": "63c6a7f02913e53cae0020488e9b7fb5a0243903671b28dd3810d5dfc60bab73",
+      "objeto_sha256": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    }
+  },
+  "axiomas": {
+    "PerdicesIntercambio.viva_inicio": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.producto_append": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.producto_formula": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.viva_append": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.viva_iff_prefijos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.producto_ceros": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.viva_ceros": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.producto_original": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.cola_intercambiada_viva": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.intercambio_conserva_supervivencia": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.intercambio_conserva_producto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.intercambio_conserva_longitud": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.intercambio_conserva_subidas": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.codigo_inyectivo": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.imagen_inyectiva": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.ceros_cambian_paridad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.recorrido_append": [
+      "propext"
+    ],
+    "PerdicesIntercambio.recorrido_ceros": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.residuo_original": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.residuo_imagen": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.sin_subidas": [
+      "propext"
+    ],
+    "PerdicesIntercambio.descomposicion_ultima_subida": [
+      "propext"
+    ],
+    "PerdicesIntercambio.descomposicion_residuo_uno": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.intercambiar_forma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.intercambiar_inyectivo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesIntercambio.frontera_residuo_uno_a_lo_mas_mitad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

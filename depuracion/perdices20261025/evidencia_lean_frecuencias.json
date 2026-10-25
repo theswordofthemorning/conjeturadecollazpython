@@ -1,0 +1,62 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Identidad local universal y balance de una trayectoria natural arbitraria; criterio completo desde tres cotas marginales hasta 3^S<2^K. Conversion de TV a eventos, discrepancia, ejemplo euleriano y control racional: prueba escrita y cotejo, no formalizados aqui. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261025/PerdicesFrecuencias.lean",
+  "fuente_sha256": "2c7b9ef1b46756c5caae0278684cf26d45723ebd8dba784d9d7f48e8d0f8e0c0",
+  "verificador_sha256": "73fb16d48389b519e054f95048cf3ce7fd93b51aecfc36f7160e4621f76ba6ca",
+  "salida_sha256": "7a2d46a3330782b7398898ebc39f0266c8795269c6153386e2366f7eaa30e781",
+  "dependencias": {
+    "Mathlib.Data.Nat.Choose.Sum": {
+      "fuente_sha256": "a147a69ed86f6b5969dff767b8044e8957a3779ede4a82fadb0ed89709ac5a21",
+      "objeto_sha256": "882d9756af94f61d92a61f2d251ba7f568503c5e7c03b5fb894cfeec19f233ad"
+    },
+    "Mathlib.Data.Rat.Lemmas": {
+      "fuente_sha256": "214875d4cff58276286402636fc734a156a17da3a038a33aa89f72c7ab2876d5",
+      "objeto_sha256": "c7a4d7abc955f68072c5aa57a0813e776904284bcf88a864f1c746a250ac97b2"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256": "d26c3a356e96444bde9eca45138b08bfe71eb3b351f38b92579333b83145f043",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256": "6f708e7b960ea932d8cae7c8e23068e9ffe8f6120e74bd65ccabdc9eb81865d3",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    }
+  },
+  "axiomas": {
+    "PerdicesFrecuencias.potencial_acotado": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesFrecuencias.identidad_local": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesFrecuencias.balance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesFrecuencias.subidas_acotadas": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesFrecuencias.frecuencias_fuerzan_densidad": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesFrecuencias.densidad_fuerza_cruce": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesFrecuencias.criterio_orbital": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

@@ -2202,14 +2202,24 @@
       "nodos": [],
       "afirmaciones": [
         "perdices_acoplamiento_lean",
-        "perdices_umbral_lean"
+        "perdices_umbral_lean",
+        "perdices_protegidos_cota_y_piso_certificado",
+        "perdices_supervivientes_no_convergen_mod_tres",
+        "perdices_frecuencias_temporales_criterio_cruce",
+        "perdices_observabilidad_ternaria_balance_general",
+        "perdices_retornos_observaciones_barrera_rangos"
       ],
       "titulo": "Perdices · olvido módulo potencias de 3",
       "rama": "perdices",
       "resumen": "Formaliza cuándo una palabra borra la influencia del arranque y muestra el límite al condicionar.",
       "limite": "La mezcla bajo bits libres no se transporta sin más a supervivencia sin cruce.",
       "fuentes": [
-        "depuracion/perdices20261007/LEEME.md"
+        "depuracion/perdices20261007/LEEME.md",
+        "depuracion/perdices20261025/PROTEGIDOS.md",
+        "depuracion/perdices20261025/SESGO_FRONTERA.md",
+        "depuracion/perdices20261025/FRECUENCIAS_TEMPORALES.md",
+        "depuracion/perdices20261025/OBSERVABILIDAD_TERNARIA.md",
+        "depuracion/perdices20261025/RETORNOS_ARITMETICOS.md"
       ],
       "situacion": "vigente",
       "padre": "perdices"

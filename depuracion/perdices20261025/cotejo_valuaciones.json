@@ -1,0 +1,68 @@
+{
+  "alcance": "Contraste finito exacto; no sustituye la prueba general ni demuestra mezcla excepcional.",
+  "modelos": [
+    {
+      "m": 1,
+      "modulo": 3,
+      "clase_critica": 1,
+      "masa_critica": "1/3",
+      "intervalo_impares": [
+        "1/3",
+        "2/3"
+      ]
+    },
+    {
+      "m": 2,
+      "modulo": 9,
+      "clase_critica": 4,
+      "masa_critica": "11/63",
+      "intervalo_impares": [
+        "26/63",
+        "37/63"
+      ]
+    },
+    {
+      "m": 3,
+      "modulo": 27,
+      "clase_critica": 13,
+      "masa_critica": "23285/262143",
+      "intervalo_impares": [
+        "119429/262143",
+        "142714/262143"
+      ]
+    },
+    {
+      "m": 4,
+      "modulo": 81,
+      "clase_critica": 40,
+      "masa_critica": "808261435137035/18014398509481983",
+      "intervalo_impares": [
+        "8603068537172474/18014398509481983",
+        "9411329972309509/18014398509481983"
+      ]
+    }
+  ],
+  "balances_orbitales": 32512,
+  "semillas": 127,
+  "pasos": 64,
+  "extremos_enteros": [
+    {
+      "extremo": 0,
+      "semilla": "4793955836069058707063160414568035376913634328309785722748629997352757755903",
+      "pasos": 252,
+      "impares": 104,
+      "proporcion_impares": "26/63",
+      "tv_modulo_9": "0"
+    },
+    {
+      "extremo": 1,
+      "semilla": "31132302836879945360820702045238218488259389695892550358248151555885324304383",
+      "pasos": 252,
+      "impares": 148,
+      "proporcion_impares": "37/63",
+      "tv_modulo_9": "0"
+    }
+  ],
+  "comparaciones_racionales": 202,
+  "fuente_sha256": "9f521e2c25c3985a048e07a60f5e6fb2c977bb1e27bc7c01008254f6eb85aac6"
+}

@@ -1,0 +1,121 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Maximo binomial ponderado, transferencia algebraica de cuentas, identidad de frontera, pisos del certificado y constantes exactas. Conteo de rotaciones, realizacion por orbitas, extraccion de las cuentas y densidad de horizontes: prueba escrita, no formalizados aqui. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261025/PerdicesProtegidos.lean",
+  "fuente_sha256": "c1a4265d57ce8b55f8f51f7563e6958d6cf51fbd3a54a532504599903007c089",
+  "verificador_sha256": "73fb16d48389b519e054f95048cf3ce7fd93b51aecfc36f7160e4621f76ba6ca",
+  "salida_sha256": "fef1837cac4c27c00e1057667c52b8f47f76ebc01fa3986caf0a71f0a0ca6e0a",
+  "dependencias": {
+    "Mathlib.Data.Rat.Lemmas": {
+      "fuente_sha256": "214875d4cff58276286402636fc734a156a17da3a038a33aa89f72c7ab2876d5",
+      "objeto_sha256": "c7a4d7abc955f68072c5aa57a0813e776904284bcf88a864f1c746a250ac97b2"
+    },
+    "Mathlib.Data.Nat.Choose.Sum": {
+      "fuente_sha256": "a147a69ed86f6b5969dff767b8044e8957a3779ede4a82fadb0ed89709ac5a21",
+      "objeto_sha256": "882d9756af94f61d92a61f2d251ba7f568503c5e7c03b5fb894cfeec19f233ad"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256": "d26c3a356e96444bde9eca45138b08bfe71eb3b351f38b92579333b83145f043",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256": "6f708e7b960ea932d8cae7c8e23068e9ffe8f6120e74bd65ccabdc9eb81865d3",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.FieldSimp": {
+      "fuente_sha256": "cab51f5320dce45fb9d7991cf77e39b578aae9d8a202c46ec094d4b80da546be",
+      "objeto_sha256": "13dc0da3bd53793a4b47fa3f8b3b3b92f1d2c00905c9d827e5ad610131ed87a1"
+    },
+    "Mathlib.Tactic.Positivity": {
+      "fuente_sha256": "42dd134d7ee69a0229cfd1bd756f134a6cef109b0cd89f28110f941436d34b5d",
+      "objeto_sha256": "4b2a5441e3ef5aa9d17c949ae6de3041bd357a58a29bb28c662e20c714b804ad"
+    }
+  },
+  "axiomas": {
+    "PerdicesProtegidos.exponente_cinco_octavos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.recurrencia_peso": [
+      "propext",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.peso_crece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.peso_decrece": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.peso_maximo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.suma_pesos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.cota_modo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.exponente_diecisiete": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.crecimiento_estricto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.potencia_ocho": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.transferencia_pesos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.fraccion_desde_cuenta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.identidad_frontera": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.piso_frontera": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.piso_certificado": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.piso_todas_longitudes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesProtegidos.ventana_larga_certificado": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

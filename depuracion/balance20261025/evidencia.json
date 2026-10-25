@@ -1,0 +1,171 @@
+{
+  "fecha": "2026-10-25",
+  "tipo": "revisión estratégica, no avance de investigación ni auditoría integral de pruebas",
+  "commit_inicial": "de5a48264c551b11b94d72be4b1c2b9008f6cdf0",
+  "inventario": {
+    "archivos_versionados": 3564,
+    "lean": 1475,
+    "python": 483,
+    "markdown": 185,
+    "ramas_mapa": 9,
+    "piezas_mapa": 123,
+    "nombres_mapa": 70,
+    "relaciones_mapa": 170
+  },
+  "registro": {
+    "total": 360,
+    "demostrado": 246,
+    "medido": 92,
+    "conjeturado": 13,
+    "refutado": 9,
+    "modificado": false
+  },
+  "lean": {
+    "version": "4.32.2",
+    "reconstruccion_limpia": false,
+    "dependencias": "compiladas previamente",
+    "directorio": "depuracion/gao20260920/formal",
+    "ejecutable": "C:/Users/Home/.elan/toolchains/leanprover--lean4---v4.32.2/bin/lake.exe",
+    "resultados": [
+      {
+        "archivo": "GaoLiteral.lean",
+        "chunk_id": "cb131a",
+        "wall_time_seconds": 0.0000153,
+        "exit_code": 0,
+        "original_token_count": 44,
+        "output": "'GaoLiteral.lagarias' depends on axioms: [propext, Classical.choice, Quot.sound]\n'GaoLiteral.conjetura_gao_literal' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      },
+      {
+        "archivo": "GarnerEnunciado.lean",
+        "chunk_id": "c5f929",
+        "wall_time_seconds": 0.0000145,
+        "exit_code": 0,
+        "original_token_count": 24,
+        "output": "'GarnerEnunciado.conjetura_garner' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      },
+      {
+        "archivo": "WuEnunciado.lean",
+        "chunk_id": "f0bc7d",
+        "wall_time_seconds": 0.0000118,
+        "exit_code": 0,
+        "original_token_count": 45,
+        "output": "'WuEnunciado.conjetura_wu_dos' depends on axioms: [propext, Classical.choice, Quot.sound]\n'WuEnunciado.conjetura_wu_uno' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+      }
+    ],
+    "limites": "No se recompiló toda la cadena; #print axioms no acredita interpretación ni descarga premisas externas."
+  },
+  "calculos_independientes": {
+    "metodo": "Python, enteros y Fraction; sin importar experimentos históricos",
+    "salida": "TESTIGO {'bloques': 33, 'pasos': 53, 'minimo': 6416623, 'barreras_bloques': (561, '4247/729', 6), 'barreras_T': (1391, '3964757/177147', 23)}\nORBITA ENTERA COTEJADA 53 PASOS\nBLOQUES NASHIDA {'bits': 8, 'factores_3': 5, 'ramas_A_necesarias': -1, 'ramas_B_necesarias': 3}\nBLOQUES NASHIDA {'bits': 11, 'factores_3': 7, 'ramas_A_necesarias': -1, 'ramas_B_necesarias': 4}\nCONTROL OTRO MAPA 3n-1 [5, 14, 7, 20, 10, 5]\n",
+    "limites": "El testigo limita desigualdades de tamaño; no refuta el reloj orbital. El ciclo 3n-1 pertenece a otro mapa. Los pares de bloques descartan sólo una sustitución directa."
+  },
+  "conservacion": {
+    "manifiestos": [
+      {
+        "manifiesto": "depuracion/perdices20261007/evidencia_minimos.json",
+        "archivos": 48,
+        "errores": []
+      },
+      {
+        "manifiesto": "depuracion/perdices20261007/congruencias_codex20261016/evidencia_sesion.json",
+        "archivos": 94,
+        "errores": []
+      }
+    ],
+    "conservacion": {
+      "afirmaciones.db": "093b15ceed17ed37459e26c5f1a6a3828f42f1b24e7ab8af754ee41b4e0b4098",
+      "respuestas.db": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222",
+      "depuracion/coherencia20260913/registro.json": "cd0741780a76093b1a8d2ed47a849d3044f40b4a18718e165cb25b17a4120711"
+    }
+  },
+  "nashida": {
+    "alcance": "Lectura estratégica de enunciados, hipótesis, secciones pertinentes y modelo formal; no recompilación o auditoría integral.",
+    "cabezas_remotas_coinciden_con_copias": true,
+    "repositorios": [
+      {
+        "repositorio": "harappa/collatz-termination-certificate-dichotomy",
+        "commit": "a138adb7c7efaec8addd06722f40f015c7f2d9be",
+        "fecha": "2026-10-01T16:24:52Z",
+        "url": "https://github.com/harappa/collatz-termination-certificate-dichotomy/commit/a138adb7c7efaec8addd06722f40f015c7f2d9be"
+      },
+      {
+        "repositorio": "harappa/collatz-matrix-interpretation-barriers",
+        "commit": "8e7d6da6319c1c1b36ce3549fe06e00d0586a025",
+        "fecha": "2026-10-01T16:27:18Z",
+        "url": "https://github.com/harappa/collatz-matrix-interpretation-barriers/commit/8e7d6da6319c1c1b36ce3549fe06e00d0586a025"
+      },
+      {
+        "repositorio": "harappa/collatz-arctic-interpretation-barriers",
+        "commit": "de961be6671b2084ae0189a3572b674c60788456",
+        "fecha": "2026-10-15T13:30:02Z",
+        "url": "https://github.com/harappa/collatz-arctic-interpretation-barriers/commit/de961be6671b2084ae0189a3572b674c60788456"
+      },
+      {
+        "repositorio": "harappa/collatz-terras-bound-improvement",
+        "commit": "84de3b5dda58f6b8f37bebb9d96f488bdb7f813d",
+        "fecha": "2026-09-28T16:12:56Z",
+        "url": "https://github.com/harappa/collatz-terras-bound-improvement/commit/84de3b5dda58f6b8f37bebb9d96f488bdb7f813d"
+      },
+      {
+        "repositorio": "harappa/collatz-fixed-barrier-power-saving",
+        "commit": "976fffb160744c56f1f26912f7bd23d195fe02d2",
+        "fecha": "2026-09-27T09:00:24Z",
+        "url": "https://github.com/harappa/collatz-fixed-barrier-power-saving/commit/976fffb160744c56f1f26912f7bd23d195fe02d2"
+      },
+      {
+        "repositorio": "harappa/collatz-generalized-natural-density",
+        "commit": "a390df858b5433039c7fbaeb6e8713d6ac247d8d",
+        "fecha": "2026-09-27T08:58:14Z",
+        "url": "https://github.com/harappa/collatz-generalized-natural-density/commit/a390df858b5433039c7fbaeb6e8713d6ac247d8d"
+      }
+    ]
+  },
+  "exclusiones": [
+    "Sin subagentes",
+    "Sin censos largos",
+    "Sin conjunto general de controles",
+    "Sin commit, push o contacto externo",
+    "Sin cambios en repositorios vecinos"
+  ],
+  "comprobacion_documental": {
+    "estado": "completada",
+    "documentos": [
+      {
+        "archivo": "ESTADO_INVESTIGACION.md",
+        "palabras": 546,
+        "enlaces_locales": 35,
+        "faltantes": [],
+        "caracter_reemplazo": false
+      },
+      {
+        "archivo": "depuracion\\balance20261025\\BALANCE.md",
+        "palabras": 2791,
+        "enlaces_locales": 19,
+        "faltantes": [],
+        "caracter_reemplazo": false
+      },
+      {
+        "archivo": "depuracion\\ccchallenge20261019\\NASHIDA_ANALIZAR.md",
+        "palabras": 747,
+        "enlaces_locales": 4,
+        "faltantes": [],
+        "caracter_reemplazo": false
+      }
+    ],
+    "conservacion": [
+      {
+        "archivo": "afirmaciones.db",
+        "sin_cambios": true
+      },
+      {
+        "archivo": "respuestas.db",
+        "sin_cambios": true
+      },
+      {
+        "archivo": "depuracion/coherencia20260913/registro.json",
+        "sin_cambios": true
+      }
+    ],
+    "git_diff_check": "exit_code 0"
+  }
+}

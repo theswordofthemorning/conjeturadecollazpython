@@ -110,7 +110,9 @@ El precio del condicionamiento aparece explícito en `1-G`. La cota
 es válida, pero amplia: con K=300, módulo 3, el mejor L entre 1 y 24
 es 2 y da aproximadamente 0,3754, frente a una TV exacta aproximada
 de 0,007048. Módulo 27, L=6 da 0,7582 frente a 0,04569. El barrido
-no decide si estas distancias convergen o mantienen oscilaciones.
+por sí solo no decide el límite. La [continuación del 25-10](../perdices20261025/SESGO_FRONTERA.md)
+demuestra después, por una inyección y conteo universales, que la ley
+condicionada no converge a ninguna ley fija, ya módulo 3.
 
 ## Puente determinista con el planeador
 
@@ -156,20 +158,48 @@ su ordenación y telescopio quedan pendientes de formalizar.
 
 ## Continuación de la rama probabilística
 
+**Actualización del 25-10-2026:** [Población protegida](../perdices20261025/PROTEGIDOS.md)
+demuestra `G(K,L)<=K(K+1)(3/4)^L`. Si
+`L>=8*ceil(log2(K+1))`, el certificado `F=1-G(1-q)` es al menos
+`1-1/(K+1)`. Además, F>=1/31 para todas las longitudes simultáneamente
+en una proporción positiva de horizontes. Así, elegir L adaptativamente
+no hace que este certificado tienda a cero en todos los horizontes.
+Es una barrera de la **cota superior**, no una cota inferior de la TV
+real ni una refutación de la mezcla. Prueba escrita, contraste exacto
+y formalización parcial con alcance explícito en la nota.
+
+Un argumento adicional en [Sesgo de frontera](../perdices20261025/SESGO_FRONTERA.md)
+sí controla la TV real: `limsup TV(pi_K,nu_1)>=1/36864`, en una
+proporción positiva de horizontes. Los pasos libres obligarían a que
+cualquier límite fuese nu_1; por tanto pi_K no converge a ninguna ley
+fija, tampoco tras pasar a módulos 3^m. Ley poblacional bajo H_K;
+no se afirma nada equivalente para los tiempos de una semilla fija.
+
 La prioridad inmediata es el [plan determinista de tamaño](TAMANO.md#qué-debe-aportar-el-siguiente-paso),
 porque restringe un entero fijo. Esta rama queda como continuación:
 
 1. Formalizar las medidas finitas, la corrección exacta de frontera
    y la cota `TV<=G*q+(1-G)`. Distinguir la ley sobre representantes
    uniformes condicionada por H_K de los tiempos de una sola órbita.
-2. Buscar una estimación demostrada de G cuando crece el horizonte,
-   declarando qué parámetros permanecen fijos. Los 300 pasos medidos
-   no prueban un límite ni una tasa universal.
+2. La estimación de G y la pregunta de convergencia a una ley fija ya
+   tienen las respuestas anteriores. Una continuación tendría que
+   estudiar leyes dependientes del horizonte, promedios u otro
+   condicionamiento; no repetir la búsqueda de esa convergencia falsa.
 3. Antes de usar esa mezcla contra un fugitivo, demostrar un puente
    que controle sus bloques concretos. Tener reserva para todas las
    continuaciones no implica que su órbita las elija uniformemente.
    El contraejemplo `1/6>1/8` sigue siendo un control obligatorio para
    cualquier propuesta que herede la cota sin condicionamiento.
+
+El [criterio temporal del 25-10](../perdices20261025/FRECUENCIAS_TEMPORALES.md)
+precisa una implicación: con K>=163, TV<=1/100 entre las frecuencias de
+una misma órbita módulo 9 y nu_2 fuerza `3^S_K<2^K`. El criterio desde
+tres cotas marginales está formalizado. No se demuestra la hipótesis
+para fugitivos; tampoco es la ley poblacional pi_K. El balance modular
+admite el recorrido racional de 23, así que no resuelve la integridad A/B.
+La [extensión a todo m](../perdices20261025/OBSERVABILIDAD_TERNARIA.md)
+formaliza el balance orbital general y precisa la ambigüedad de la clase
+`(3^m-1)/2`. El control aritmético de sus frecuencias sigue pendiente.
 
 El entregable de esta rama sería una estimación con su ley e hipótesis
 explícitas. Sólo contribuiría a excluir un fugitivo si además se

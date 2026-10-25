@@ -1,0 +1,42 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Recorrido entero 231->391, igualdad de las dos valoraciones binarias y obstruccion completa a cualquier rango no decreciente en tamano dentro de esa firma, con valores en cualquier preorden. Construccion CRT para listas arbitrarias de observaciones y lotes fijos: prueba escrita, no formalizada aqui. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261025/PerdicesRetornoFirma.lean",
+  "fuente_sha256": "d358c7176b15a2ac43e6e1072cc94914e08ec1f79baa6e4961049dcdb5a51376",
+  "verificador_sha256": "73fb16d48389b519e054f95048cf3ce7fd93b51aecfc36f7160e4621f76ba6ca",
+  "salida_sha256": "782c8eef8a330471a49866f5f4b8c8b143bc3e786b345a280aee7a607a5f905b",
+  "dependencias": {
+    "Mathlib.NumberTheory.Padics.PadicVal.Basic": {
+      "fuente_sha256": "8f74a8857091fc65717f00661f99eeef0027810cf99c0afeab624db773bf1e4a",
+      "objeto_sha256": "2210f1912fe964a080cc790b92ef4459e1e7891fd445e03adae818c181ffbf55"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256": "6f708e7b960ea932d8cae7c8e23068e9ffe8f6120e74bd65ccabdc9eb81865d3",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    }
+  },
+  "axiomas": {
+    "PerdicesRetornoFirma.recorrido_entero": [],
+    "PerdicesRetornoFirma.valoracion_exacta": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoFirma.firmas_iguales": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoFirma.no_rango_monotono_en_firma": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesRetornoFirma.no_perfil_monotono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}
