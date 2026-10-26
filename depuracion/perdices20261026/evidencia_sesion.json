@@ -1,0 +1,321 @@
+{
+  "estado": "correcto",
+  "commit_base": "ffba1c46bd85eb07ad042bc86b88238925827d7a",
+  "alcance": "Verifica enlaces, fuentes, evidencia de compilacion y contraste, y conservacion literal del registro inicial salvo cuatro altas. No repite censos ni sustituye revision matematica humana.",
+  "consultas_lean": 34,
+  "pasos_cotejados": 1950,
+  "filas_previas_conservadas": 365,
+  "filas_actuales": 369,
+  "cotejo_matricial": {
+    "estado": "correcto",
+    "fuente_sha256": "bfdfb382463c26fd0202e34337c7de41618621f0f4ded6c7e98229aa9e9edbfd",
+    "codificador_sha256": "8f6cffc1f6d6a5260ea88112f54ce9326b5cf1f04bda19b586f5e9cd12ae2a37",
+    "control_sha256": "e6b829af7671ddf9b57ab3a976bcdd90e7e170f99cb805e3db52e2a1d837dd21",
+    "version_z3": "4.15.4",
+    "objetivo_sha256": "5bcdc60b65875d1aa924bb4a02036d2de0915965d0bc4963e4b69c8583465d68",
+    "pares_matrices": 6561,
+    "pares_con_conmutador_no_negativo": 1219,
+    "pares_conectados": 318,
+    "quintetos_binarios": 1048576,
+    "quintetos_con_intercambios_debiles": 8248,
+    "quintetos_conectados": 3334,
+    "muestras_constantes": 1000,
+    "semilla": 0,
+    "holgura_constante_testigo": [
+      3,
+      3
+    ],
+    "controles": [
+      {
+        "etapa": 1,
+        "escala_constantes": 1,
+        "estrictas": [
+          0
+        ],
+        "estado": "sat"
+      },
+      {
+        "etapa": 1,
+        "escala_constantes": 10000,
+        "estrictas": [
+          0
+        ],
+        "estado": "sat"
+      },
+      {
+        "etapa": 2,
+        "escala_constantes": 1,
+        "estrictas": [
+          0
+        ],
+        "estado": "sat"
+      },
+      {
+        "etapa": 2,
+        "escala_constantes": 10000,
+        "estrictas": [
+          0
+        ],
+        "estado": "sat"
+      },
+      {
+        "etapa": 3,
+        "escala_constantes": 1,
+        "estrictas": [
+          0
+        ],
+        "estado": "sat"
+      },
+      {
+        "etapa": 3,
+        "escala_constantes": 10000,
+        "estrictas": [
+          0
+        ],
+        "estado": "sat"
+      }
+    ],
+    "casos_nucleo_binario_escalar": 47500,
+    "casos_debiles_nucleo_binario_escalar": 7,
+    "ejemplo_fibonacci_debil_cotejado": true,
+    "composiciones_simbolicas_cotejadas": 132,
+    "alcance": "Cotejo finito independiente y controles positivos del codificador, incluidas constantes de magnitud 10000. No es una prueba universal de imposibilidad ni una comprobacion de UNSAT mediante certificados."
+  },
+  "cotejo_clasificacion": {
+    "estado": "correcto",
+    "fuente_sha256": "1dc0d4bc04057b881c0f00641fc9ba1022cb84e0c839e9627712a3b40c50b930",
+    "quintetos_binarios": 1048576,
+    "iguales_con_f_invertible_y_a_distinta_b": 8,
+    "de_ellos_conectados": 4,
+    "clasificacion_binaria": {
+      "imagen_comun": 6,
+      "nucleo_comun": 2
+    },
+    "casos_construidos": {
+      "imagen_comun": 81,
+      "nucleo_comun": 81,
+      "resonancia_2_3": 216
+    },
+    "resonancias_con_2m_mayor_igual_3n": 72,
+    "matrices_c3_cotejadas": 256,
+    "resonantes_c3_con_mu_mayor_igual_2": [
+      [
+        3,
+        1,
+        1,
+        3
+      ]
+    ],
+    "testigos": {
+      "imagen_comun": {
+        "a": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "b": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "e": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "f": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "g": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "nucleo_comun": {
+        "a": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "b": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "e": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "f": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "g": [
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      "resonancia_2_3": {
+        "a": [
+          2,
+          2,
+          0,
+          4
+        ],
+        "b": [
+          3,
+          1,
+          1,
+          3
+        ],
+        "e": [
+          2,
+          4,
+          0,
+          6
+        ],
+        "f": [
+          3,
+          3,
+          1,
+          5
+        ],
+        "g": [
+          4,
+          2,
+          2,
+          4
+        ]
+      }
+    },
+    "alcance": "Cotejo entero independiente de la clasificacion, no prueba universal. No se exige orientacion dinamica ni se asignan vectores constantes."
+  },
+  "respuestas_db_sha256": "ae783afb7d86dc15773b36c0350c0f1eb880646e3fd0df567e1186946a2f3222",
+  "documentos": [
+    {
+      "archivo": "ESTADO_INVESTIGACION.md",
+      "palabras": 674,
+      "enlaces_locales": 47,
+      "sha256": "5a1cc734ceabea149ee4141206dc34bfb52fed275e56893029f45a1ed214c126"
+    },
+    {
+      "archivo": "depuracion/balance20261025/BALANCE.md",
+      "palabras": 3346,
+      "enlaces_locales": 31,
+      "sha256": "b40b9152dfb7b86e3b1ca7750231a1b39d00c2b74df8dc5b0812412e7d7585ec"
+    },
+    {
+      "archivo": "depuracion/perdices20261007/COLA.md",
+      "palabras": 1481,
+      "enlaces_locales": 12,
+      "sha256": "61e2a70854a48c99b16b4fe00da61b4714b701a9bebc25a0d2065336d74ec45b"
+    },
+    {
+      "archivo": "depuracion/perdices20261025/borradores/LEEME.md",
+      "palabras": 82,
+      "enlaces_locales": 2,
+      "sha256": "fa2a46f362e8b8a97e54fec64462c8945f23bd63b90749ea05db066054c72d1a"
+    },
+    {
+      "archivo": "depuracion/perdices20261026/LIMITES_REALES.md",
+      "palabras": 1295,
+      "enlaces_locales": 12,
+      "sha256": "95b6f9d75f5cd61ee74461b729ae5980604c21d334ad7a154b8d49d15d1485c5"
+    },
+    {
+      "archivo": "depuracion/perdices20261026/PESOS_BINARIOS.md",
+      "palabras": 1167,
+      "enlaces_locales": 9,
+      "sha256": "4624f8c37cb59c4468771d33ec9f9b4c8605097f05d57205016acb93a50593db"
+    },
+    {
+      "archivo": "depuracion/perdices20261026/PRECISION_CRECENTE.md",
+      "palabras": 677,
+      "enlaces_locales": 5,
+      "sha256": "68ba1c336a33db21d4e111e8831dc88c89c5d9ef136270dcb0abcf3dcb9fc37b"
+    },
+    {
+      "archivo": "depuracion/perdices20261026/AUDITORIA_RUTA.md",
+      "palabras": 982,
+      "enlaces_locales": 32,
+      "sha256": "d8ece0277d39c26912e0b393824e637ec5476d0b38d70626183ea24ae84105bf"
+    },
+    {
+      "archivo": "depuracion/perdices20261026/TRAZAS_MATRICES.md",
+      "palabras": 1541,
+      "enlaces_locales": 13,
+      "sha256": "f972f23ef2216daf99538efff13af11f9050144ac7fddadf85dbab0494cc91f2"
+    },
+    {
+      "archivo": "depuracion/perdices20261026/CLASIFICACION_F_INVERTIBLE.md",
+      "palabras": 1419,
+      "enlaces_locales": 9,
+      "sha256": "fd890df7db98c9f141446cf49315d5819fee04ace93a3af8c755a86cf1760b93"
+    }
+  ],
+  "fuentes_sha256": {
+    "alta_registro.json": "7159ca0feb3baab49f9a5d6ae452d51a971f176962a68a6ae237081aa6957261",
+    "AUDITORIA_RUTA.md": "d8ece0277d39c26912e0b393824e637ec5476d0b38d70626183ea24ae84105bf",
+    "buscar_constantes_libres.py": "8f6cffc1f6d6a5260ea88112f54ce9326b5cf1f04bda19b586f5e9cd12ae2a37",
+    "CLASIFICACION_F_INVERTIBLE.md": "fd890df7db98c9f141446cf49315d5819fee04ace93a3af8c755a86cf1760b93",
+    "comprobar_lean.py": "4071252f934da8a0c5a567ae92dc7a3591691c4ec9f7b39c8325cf89c5de1211",
+    "comprobar_numerales.py": "09f138beffb581b19cddc9ef5c95794675d82db2078e83f88f04aa3eed67ba23",
+    "CONSTANTES_F_INVERTIBLE.md": "a9e484a36d49bf77a7cdee8e5c7c7367874540a71d66e53a9ddec1478ee7c2c4",
+    "cotejar_clasificacion.py": "1dc0d4bc04057b881c0f00641fc9ba1022cb84e0c839e9627712a3b40c50b930",
+    "cotejar_limites.py": "9e0a67c698dc3155adf92df7e8ce5910a8d9a07d633ecde98efe77b0e80f1122",
+    "cotejar_numerales.py": "f1af6b6ba7eadc485445f2ba2498d0b9f9f3014b37eb97d8a40e459dd650fa49",
+    "cotejar_pesos.py": "612be34ae4b47fc81cb94e877510ade5b15afb5067cb93557513f45cf66b6d43",
+    "cotejar_trazas.py": "bfdfb382463c26fd0202e34337c7de41618621f0f4ded6c7e98229aa9e9edbfd",
+    "cotejo_clasificacion.json": "50365f1ac1c0cd176ae73c9bfa54ea0cd575543e422c7bb4458bb2888db9d727",
+    "cotejo_limites.json": "18da444ba0c31ce565551661709388ad4fbfa3dc81ca4f02c80bdafa3ecf919b",
+    "cotejo_numerales.json": "49be3b11af4f220a1899fa839738b6daf740db174dbfee820fdf1f8a34762ae9",
+    "cotejo_pesos.json": "d54eb3052460f80ca546d535546e8577374b6da14bb37f6ed1e5c900cce544be",
+    "cotejo_trazas.json": "b315427632485329a5726b3194a45104348676c88275d4b53f32c2f412c36391",
+    "evidencia_lean.json": "0989541ce50b1dedb3fc588614c3cbccfe75d4af820f16072b5e2b3ef5fecd16",
+    "evidencia_lean.txt": "b4eec0c60bf85e6200391432682eeee17d030efc0a032b26aa7700caf06bd0e4",
+    "evidencia_lean_clasificacion.json": "1b5ee854536f6bbdbe5b9bc05da32d00a905b7ec03b2d8c96fb21320cf76fee3",
+    "evidencia_lean_clasificacion.txt": "5a8538eeb4d6e604e0fad9f03b703c04d7e98f120515771c1755223d695782e4",
+    "evidencia_lean_digital.json": "2cd24ae4f25dc8db4f162c970733b96918024181dee5c693ef3a91ba458e1434",
+    "evidencia_lean_digital.txt": "0e529439440314b971d897e426cd7d2b375524bef5dc98aee7e9b54501781ed5",
+    "evidencia_lean_numerales.json": "05dc42a5af0057e1db1f70823eb5266270bd5704c82f2d51deb2023e8239becd",
+    "evidencia_lean_numerales.txt": "07395fcd3d9f10132a9758f955363210cdf35c9c2df5950b528307c8f4f0f5d2",
+    "evidencia_lean_trazas.json": "9bbfbe27faddd2a65ecca4ffc649131b7faf6842489c5a44023d9203cf286b3b",
+    "evidencia_lean_trazas.txt": "45c67bf3f492611f6d3c5f3973529293be47a149dce0b84fc8b41f103f4f5e2b",
+    "evidencia_registro.json": "2d4107b44b2771be3326cfe47db54640a8c73814d8972240e11115cdfa2c6738",
+    "exploracion_singulares.json": "01c97f8ced0f8d082147eb528cad587867d507ede4391003f0aa6a724223f87c",
+    "explorar_singulares.py": "954b2aefd493c732178c64a224a2425868033cdbdd97539e98a028ad0d2d5dde",
+    "lia_trazas_objetivo57_m1.json": "013161c105a04c68fa64728e17a5abf469e48c782415f7b16a64e9d10c4052b2",
+    "lia_trazas_objetivo57_m1.smt2": "3e2a6eeb65a8b79be12b4463539ffac7ab2795f8d019278ad05294afd6a3f2c9",
+    "lia_trazas_objetivo57_m1_libre.json": "c6d98dcac34f287c1a532fa1b845d17d294e50d0a76d4af2c2a7c84115be2ccf",
+    "lia_trazas_objetivo57_m1_libre.smt2": "831257b7596111a5c3ca2f6ede516aa34a2d14c8b4f8c152e8c7fe8cbc2f90c2",
+    "lia_trazas_objetivo57_m3.json": "075e32cc69327acb6d78dfbd88a76d6ca2b37b8d3ea58504d9c9a0f92b46e351",
+    "lia_trazas_objetivo57_m3.smt2": "1231d8a019d89baf585730eb213a3ba977a47c8376e9403809ec0fd9c908bf98",
+    "LIMITES_REALES.md": "95b6f9d75f5cd61ee74461b729ae5980604c21d334ad7a154b8d49d15d1485c5",
+    "PerdicesClasificacionTriangular.lean": "ad5d6bbc9fcdb51715dec2395c0e5c44186976a70319bdeb574e728aaf17b660",
+    "PerdicesCrecimientoNumerales.lean": "72ba3edb96b01a9999fd2f4c85f13d6e9e32c449da2c36108bbd296e9b646ab2",
+    "PerdicesLimitesReales.lean": "5129f9a869faadc47f7a512ae50c803fd16b8fb71b8ad398cd6bcb5191391aa3",
+    "PerdicesRetornoFirmaDigital.lean": "848d3f3274ec4facf36a0eda937b262f93ae4596a440dcd2b6fa0f6e6d6f8074",
+    "PerdicesTrazasMatrices.lean": "349e19b01b14b1c6493f60b77a87799972a7ded3566ae7c83c6ffcb20d2ca5cc",
+    "PESOS_BINARIOS.md": "4624f8c37cb59c4468771d33ec9f9b4c8605097f05d57205016acb93a50593db",
+    "PRECISION_CRECENTE.md": "68ba1c336a33db21d4e111e8831dc88c89c5d9ef136270dcb0abcf3dcb9fc37b",
+    "TRAZAS_MATRICES.md": "f972f23ef2216daf99538efff13af11f9050144ac7fddadf85dbab0494cc91f2",
+    "verificar_alta.py": "278e9a432c9d5567eacc7405dd413babf41870ede9b37cd2a1069faa1a860bee",
+    "verificar_sesion.py": "25053e66351b49407588a1106f2e2478022b1cea03fad04a7609fec7b73a46e6"
+  }
+}

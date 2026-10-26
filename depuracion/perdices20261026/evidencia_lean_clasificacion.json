@@ -1,0 +1,55 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Igualdad de determinantes y trazas a partir de invariantes escalares; tres ramas triangulares (imagen comun, nucleo comun y resonancia 2:3); nucleo del descarte nilpotente. La triangularizacion, el paso desde las matrices naturales, integridad de parametros y enlace orbital conservan prueba escrita o permanecen abiertos segun la nota. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261026/PerdicesClasificacionTriangular.lean",
+  "fuente_sha256": "ad5d6bbc9fcdb51715dec2395c0e5c44186976a70319bdeb574e728aaf17b660",
+  "verificador_sha256": "4071252f934da8a0c5a567ae92dc7a3591691c4ec9f7b39c8325cf89c5de1211",
+  "salida_sha256": "5a8538eeb4d6e604e0fad9f03b703c04d7e98f120515771c1755223d695782e4",
+  "dependencias": {
+    "Mathlib.Data.Real.Basic": {
+      "fuente_sha256": "21830eaa26fbfed5b28f30ebc7d973c9b2b0941266b8adf5eef451ec759b94f1",
+      "objeto_sha256": "cc227eaf901787af6dc06689f5a746b94547b352d30793e053faa5376cf1527e"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256": "d26c3a356e96444bde9eca45138b08bfe71eb3b351f38b92579333b83145f043",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.Ring": {
+      "fuente_sha256": "63c6a7f02913e53cae0020488e9b7fb5a0243903671b28dd3810d5dfc60bab73",
+      "objeto_sha256": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    }
+  },
+  "axiomas": {
+    "PerdicesClasificacionTriangular.determinantes_iguales": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesClasificacionTriangular.trazas_iguales": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesClasificacionTriangular.resonancia": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesClasificacionTriangular.imagen_comun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesClasificacionTriangular.nucleo_comun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesClasificacionTriangular.nilpotentes_iguales": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

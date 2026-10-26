@@ -1,0 +1,78 @@
+{
+  "estado": "unsat",
+  "segundos": 0.361,
+  "version_z3": "4.15.4",
+  "cota_matrices": 1,
+  "conexion": "ambas",
+  "limite_segundos": 30,
+  "semilla": 0,
+  "hilos": 1,
+  "constantes_sin_cota": true,
+  "logica": "QF_LIA",
+  "reglas": [
+    {
+      "izquierda": "da",
+      "derecha": "d",
+      "estricta": true
+    },
+    {
+      "izquierda": "dbaa",
+      "derecha": "dabe",
+      "estricta": true
+    },
+    {
+      "izquierda": "dbba",
+      "derecha": "dbaf",
+      "estricta": true
+    },
+    {
+      "izquierda": "ea",
+      "derecha": "ae",
+      "estricta": false
+    },
+    {
+      "izquierda": "fa",
+      "derecha": "be",
+      "estricta": false
+    },
+    {
+      "izquierda": "ga",
+      "derecha": "af",
+      "estricta": false
+    },
+    {
+      "izquierda": "eb",
+      "derecha": "bf",
+      "estricta": false
+    },
+    {
+      "izquierda": "fb",
+      "derecha": "ag",
+      "estricta": false
+    },
+    {
+      "izquierda": "gb",
+      "derecha": "bg",
+      "estricta": false
+    },
+    {
+      "izquierda": "ec",
+      "derecha": "bc",
+      "estricta": false
+    },
+    {
+      "izquierda": "fc",
+      "derecha": "aac",
+      "estricta": false
+    },
+    {
+      "izquierda": "gc",
+      "derecha": "bac",
+      "estricta": false
+    }
+  ],
+  "fuente_sha256": "8f6cffc1f6d6a5260ea88112f54ce9326b5cf1f04bda19b586f5e9cd12ae2a37",
+  "sistema_sha256": "5bcdc60b65875d1aa924bb4a02036d2de0915965d0bc4963e4b69c8583465d68",
+  "formula_sha256": "3e2a6eeb65a8b79be12b4463539ffac7ab2795f8d019278ad05294afd6a3f2c9",
+  "alcance": "Primera eliminacion en una familia de matrices finita y vectores sin cota. SAT se coteja con enteros independientes; UNSAT no tiene certificado Lean; unknown no decide existencia. No prueba terminacion H."
+}

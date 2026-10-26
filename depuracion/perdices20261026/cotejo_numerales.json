@@ -1,0 +1,79 @@
+{
+  "estado": "correcto",
+  "fuente_sha256": "f1af6b6ba7eadc485445f2ba2498d0b9f9f3014b37eb97d8a40e459dd650fa49",
+  "control_sha256": "e6b829af7671ddf9b57ab3a976bcdd90e7e170f99cb805e3db52e2a1d837dd21",
+  "maximo": 255,
+  "altura_promedio": 8,
+  "modelos": 4,
+  "conversiones": 255,
+  "pasos_reescritura": 3313,
+  "maximo_pasos": 19,
+  "comparaciones_en_contexto": 13252,
+  "promedios_exactos": 36,
+  "palabras_en_promedios": 2044,
+  "identidades_borde": {
+    "imagen": {
+      "variables": [
+        "a0",
+        "a1",
+        "b0",
+        "b1",
+        "c0",
+        "c1",
+        "e0",
+        "e1",
+        "f0",
+        "f1",
+        "g0",
+        "g1"
+      ],
+      "suma_coeficientes": [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bases_cotejadas": 13
+    },
+    "nucleo": {
+      "variables": [
+        "a0",
+        "a1",
+        "b0",
+        "b1",
+        "c0",
+        "c1",
+        "e0",
+        "e1",
+        "f0",
+        "f1",
+        "g0",
+        "g1"
+      ],
+      "suma_coeficientes": [
+        -1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bases_cotejadas": 13
+    }
+  },
+  "alcance": "Conversion y promedios cotejados finitamente con enteros y Fraction. Dos identidades lineales exactas por coeficientes. No se interpreta el promedio como una ley orbital ni se demuestra terminacion H."
+}

@@ -303,6 +303,46 @@ Esto no demuestra agotamiento de Perdices ni aporta una probabilidad de éxito.
 La [evidencia de esta continuación](../perdices20261025/evidencia_sesion.json)
 registra cinco altas y 71 consultas Lean, con los tramos pendientes explícitos.
 
+### Continuación del 26-10: comprobación de una fuente candidata
+
+El usuario reactivó el objetivo de Perdices, manteniendo los tres criterios
+anteriores. [Límites reales](../perdices20261026/LIMITES_REALES.md) construye
+palabras A/B aperiódicas cuyas series inversas convergen en los reales a
+-3/2 y a -2. Para esta última, el límite 2-ádico es impar y distinto de -2.
+Esto concreta dentro del lenguaje estudiado el defecto del transporte de
+racionalidad advertido en Cola: el límite real no hereda la integridad
+2-ádica de sus sumas parciales, y una pseudotrayectoria racional acotada
+puede ganar denominadores sin ser una órbita racional de T.
+
+La convergencia real universal de la construcción está formalizada; la
+aperiodicidad tiene prueba escrita. Se contrastaron los §§2 y 6 de
+López–Stoll (2021). **No se refuta su teorema principal ni se incorpora
+como premisa demostrada.** Ninguno de los tres criterios queda satisfecho.
+Se agota ese transporte automático, no toda la ruta Perdices.
+
+La continuación [digital](../perdices20261026/PESOS_BINARIOS.md) demuestra
+variaciones de peso binario ilimitadas en ambos sentidos dentro de una
+misma clase de retornos enteros; descarta las dos monotonías del perfil
+propuesto. El [examen de precisión](../perdices20261026/PRECISION_CRECENTE.md)
+conserva la obligación del reloj. La [auditoría de parada](../perdices20261026/AUDITORIA_RUTA.md)
+no permite cerrar el objetivo: sigue pendiente una clasificación concreta
+de matrices acopladas H. Ninguno de los tres criterios se ha satisfecho.
+
+[Trazas y constantes](../perdices20261026/TRAZAS_MATRICES.md) avanza ese
+frente: conexión bidireccional implica igualdad de los seis intercambios
+matriciales; se excluye la familia binaria `M_a=M_b=tI` con constantes
+libres, en cualquier dimensión. Nueve consultas Lean cubren las trazas y
+el núcleo escalar, con traducciones pendientes declaradas. Las matrices
+generales siguen sin clasificar. La búsqueda nueva con constantes sin
+cota da UNSAT para matrices 0/1 y timeout para 0..3 conectadas; no son
+una prueba general. Ninguna condición primordial queda satisfecha.
+
+La [clasificación con F invertible](../perdices20261026/CLASIFICACION_F_INVERTIBLE.md)
+reduce A≠B a dos formas de rango uno y una resonancia 2:3. Trata los
+bordes singulares mediante prueba escrita; Lean certifica seis núcleos
+algebraicos. La factibilidad de sus constantes, F singular y A=B no
+escalar siguen pendientes. Esto tampoco satisface una condición primordial.
+
 ## Verificación de la fase inicial de auditoría y conservación
 
 - `git fetch origin` y estado inicial: main coincide con origin/main;

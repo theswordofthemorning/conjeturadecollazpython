@@ -1,0 +1,75 @@
+{
+  "estado": "correcto",
+  "fuente_sha256": "bfdfb382463c26fd0202e34337c7de41618621f0f4ded6c7e98229aa9e9edbfd",
+  "codificador_sha256": "8f6cffc1f6d6a5260ea88112f54ce9326b5cf1f04bda19b586f5e9cd12ae2a37",
+  "control_sha256": "e6b829af7671ddf9b57ab3a976bcdd90e7e170f99cb805e3db52e2a1d837dd21",
+  "version_z3": "4.15.4",
+  "objetivo_sha256": "5bcdc60b65875d1aa924bb4a02036d2de0915965d0bc4963e4b69c8583465d68",
+  "pares_matrices": 6561,
+  "pares_con_conmutador_no_negativo": 1219,
+  "pares_conectados": 318,
+  "quintetos_binarios": 1048576,
+  "quintetos_con_intercambios_debiles": 8248,
+  "quintetos_conectados": 3334,
+  "muestras_constantes": 1000,
+  "semilla": 0,
+  "holgura_constante_testigo": [
+    3,
+    3
+  ],
+  "controles": [
+    {
+      "etapa": 1,
+      "escala_constantes": 1,
+      "estrictas": [
+        0
+      ],
+      "estado": "sat"
+    },
+    {
+      "etapa": 1,
+      "escala_constantes": 10000,
+      "estrictas": [
+        0
+      ],
+      "estado": "sat"
+    },
+    {
+      "etapa": 2,
+      "escala_constantes": 1,
+      "estrictas": [
+        0
+      ],
+      "estado": "sat"
+    },
+    {
+      "etapa": 2,
+      "escala_constantes": 10000,
+      "estrictas": [
+        0
+      ],
+      "estado": "sat"
+    },
+    {
+      "etapa": 3,
+      "escala_constantes": 1,
+      "estrictas": [
+        0
+      ],
+      "estado": "sat"
+    },
+    {
+      "etapa": 3,
+      "escala_constantes": 10000,
+      "estrictas": [
+        0
+      ],
+      "estado": "sat"
+    }
+  ],
+  "casos_nucleo_binario_escalar": 47500,
+  "casos_debiles_nucleo_binario_escalar": 7,
+  "ejemplo_fibonacci_debil_cotejado": true,
+  "composiciones_simbolicas_cotejadas": 132,
+  "alcance": "Cotejo finito independiente y controles positivos del codificador, incluidas constantes de magnitud 10000. No es una prueba universal de imposibilidad ni una comprobacion de UNSAT mediante certificados."
+}

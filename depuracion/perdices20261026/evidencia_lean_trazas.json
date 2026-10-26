@@ -1,0 +1,70 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Conmutador no negativo de las seis reglas de intercambio, igualdad diagonal, identidad de traza ponderada, conmutacion e igualdad de las seis reglas matriciales bajo conexion bidireccional de la suma de matrices. Nucleo escalar ponderado de la obstruccion con M_a=M_b=t I; su traduccion a las reglas matriciales conserva prueba escrita. No demuestra terminacion ni clasifica todos los vectores constantes. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261026/PerdicesTrazasMatrices.lean",
+  "fuente_sha256": "349e19b01b14b1c6493f60b77a87799972a7ded3566ae7c83c6ffcb20d2ca5cc",
+  "verificador_sha256": "4071252f934da8a0c5a567ae92dc7a3591691c4ec9f7b39c8325cf89c5de1211",
+  "salida_sha256": "45c67bf3f492611f6d3c5f3973529293be47a149dce0b84fc8b41f103f4f5e2b",
+  "dependencias": {
+    "Mathlib.Data.Real.Basic": {
+      "fuente_sha256": "21830eaa26fbfed5b28f30ebc7d973c9b2b0941266b8adf5eef451ec759b94f1",
+      "objeto_sha256": "cc227eaf901787af6dc06689f5a746b94547b352d30793e053faa5376cf1527e"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256": "d26c3a356e96444bde9eca45138b08bfe71eb3b351f38b92579333b83145f043",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.Ring": {
+      "fuente_sha256": "63c6a7f02913e53cae0020488e9b7fb5a0243903671b28dd3810d5dfc60bab73",
+      "objeto_sha256": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    }
+  },
+  "axiomas": {
+    "PerdicesTrazasMatrices.igualdad_matriz": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.diagonales_iguales": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.traza_ponderada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.holgura_cruzada": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.conmutan_si_conectadas": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.conmutador_no_negativo": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.componente_sin_holgura": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.intercambios_iguales_si_conectadas": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesTrazasMatrices.constantes_binarias_escalares": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

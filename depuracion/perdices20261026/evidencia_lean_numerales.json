@@ -1,0 +1,69 @@
+{
+  "version_lean": "Lean (version 4.32.2, x86_64-w64-windows-gnu, commit f3b06c705e6c85f5314019d5d3baab0fec5b580c, Release)",
+  "revision_mathlib": "905b95818eb32af7874a58b427f50c1711a5e96c",
+  "alcance": "Comparacion universal de potencias binarias y ternarias, crecimiento lineal minimo de potencias, incompatibilidad de cotas 5:4, piso de recursion afin, dos bordes de factor uno y ponderacion positiva. Reescritura, promedio sobre palabras y aplicacion a matrices: prueba escrita. Imports directos cotejados; sin auditoria transitiva completa.",
+  "fuente": "depuracion/perdices20261026/PerdicesCrecimientoNumerales.lean",
+  "fuente_sha256": "72ba3edb96b01a9999fd2f4c85f13d6e9e32c449da2c36108bbd296e9b646ab2",
+  "verificador_sha256": "09f138beffb581b19cddc9ef5c95794675d82db2078e83f88f04aa3eed67ba23",
+  "salida_sha256": "07395fcd3d9f10132a9758f955363210cdf35c9c2df5950b528307c8f4f0f5d2",
+  "dependencias": {
+    "Mathlib.Analysis.SpecificLimits.Basic": {
+      "fuente_sha256": "dbbeb301e5b9dacc96ecd233fd05a02846a1fc88c9606f1b1d413d08aff5142e",
+      "objeto_sha256": "609282920d34d83794ac6de0e35f58a32944e0a5e328f449eef9017a467c5e96"
+    },
+    "Mathlib.Tactic.Linarith": {
+      "fuente_sha256": "d26c3a356e96444bde9eca45138b08bfe71eb3b351f38b92579333b83145f043",
+      "objeto_sha256": "924fc5d1a0152eacbefcff5fab53671d85479bf7a071340b1c95f554324636a2"
+    },
+    "Mathlib.Tactic.NormNum": {
+      "fuente_sha256": "6f708e7b960ea932d8cae7c8e23068e9ffe8f6120e74bd65ccabdc9eb81865d3",
+      "objeto_sha256": "c41d52516b98059481904ee6e0fb74ebf331de451211a99be5559c51e644199f"
+    },
+    "Mathlib.Tactic.Ring": {
+      "fuente_sha256": "63c6a7f02913e53cae0020488e9b7fb5a0243903671b28dd3810d5dfc60bab73",
+      "objeto_sha256": "619ee42b87d56cc7b52a93d2e043b8f8ded001555a23cc37040d4a0dceda26d9"
+    }
+  },
+  "axiomas": {
+    "PerdicesCrecimientoNumerales.cinco_cuatro": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCrecimientoNumerales.potencia_supera_lineal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCrecimientoNumerales.coeficiente_de_potencias_acotadas": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCrecimientoNumerales.incompatibilidad_cinco_cuatro": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCrecimientoNumerales.piso_recursion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCrecimientoNumerales.imagen_factor_uno": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCrecimientoNumerales.nucleo_factor_uno": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PerdicesCrecimientoNumerales.ponderacion_positiva": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

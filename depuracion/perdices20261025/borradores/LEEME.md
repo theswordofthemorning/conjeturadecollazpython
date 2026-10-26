@@ -1,7 +1,11 @@
-# Ampliacion digital no integrada
+# Ampliación digital: borrador conservado
 
-Se conserva el archivo de trabajo al retirar el usuario el objetivo.
-Amplia el caso de las dos valoraciones con pares de peso binario distinto.
-No forma parte del catalogo ni de las verificaciones finales de la sesion.
-La construccion general con pesos binarios quedo sin incorporar; no usarla
-como resultado establecido por la nota principal.
+El archivo conserva el trabajo que quedó sin integrar al retirar el usuario
+el objetivo el 25-10. En esa fecha no formaba parte del catálogo.
+
+**Actualización 26-10:** [Pesos binarios](../../perdices20261026/PESOS_BINARIOS.md)
+completa la construcción general con diferencias de peso ilimitadas en
+ambos sentidos. La [copia integrada](../../perdices20261026/PerdicesRetornoFirmaDigital.lean)
+certifica los dos retornos y la obstrucción para las dos valoraciones;
+la construcción general conserva prueba escrita. Usar la nota y la
+evidencia del 26-10, sin atribuir ese alcance general al borrador Lean.

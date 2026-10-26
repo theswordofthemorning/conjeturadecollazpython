@@ -1,0 +1,6 @@
+'PerdicesClasificacionTriangular.determinantes_iguales' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesClasificacionTriangular.trazas_iguales' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesClasificacionTriangular.resonancia' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesClasificacionTriangular.imagen_comun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesClasificacionTriangular.nucleo_comun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesClasificacionTriangular.nilpotentes_iguales' depends on axioms: [propext, Classical.choice, Quot.sound]

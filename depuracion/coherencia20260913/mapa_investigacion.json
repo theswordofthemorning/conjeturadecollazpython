@@ -2207,7 +2207,11 @@
         "perdices_supervivientes_no_convergen_mod_tres",
         "perdices_frecuencias_temporales_criterio_cruce",
         "perdices_observabilidad_ternaria_balance_general",
-        "perdices_retornos_observaciones_barrera_rangos"
+        "perdices_retornos_observaciones_barrera_rangos",
+        "perdices_series_ab_limites_reales_racionales",
+        "perdices_retornos_variaciones_binarias_ilimitadas",
+        "perdices_trazas_intercambios_y_binarias_escalares",
+        "perdices_tres_formas_f_invertible"
       ],
       "titulo": "Perdices · olvido módulo potencias de 3",
       "rama": "perdices",
@@ -2219,7 +2223,11 @@
         "depuracion/perdices20261025/SESGO_FRONTERA.md",
         "depuracion/perdices20261025/FRECUENCIAS_TEMPORALES.md",
         "depuracion/perdices20261025/OBSERVABILIDAD_TERNARIA.md",
-        "depuracion/perdices20261025/RETORNOS_ARITMETICOS.md"
+        "depuracion/perdices20261025/RETORNOS_ARITMETICOS.md",
+        "depuracion/perdices20261026/LIMITES_REALES.md",
+        "depuracion/perdices20261026/PESOS_BINARIOS.md",
+        "depuracion/perdices20261026/TRAZAS_MATRICES.md",
+        "depuracion/perdices20261026/CLASIFICACION_F_INVERTIBLE.md"
       ],
       "situacion": "vigente",
       "padre": "perdices"

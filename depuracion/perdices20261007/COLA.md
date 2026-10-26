@@ -212,6 +212,12 @@ adicional que falta cotejar antes de usarlo contra el cohete.
 
 ## 7. Evidencia y reproducción
 
+**Continuación 26-10-2026:** [Límites reales](../perdices20261026/LIMITES_REALES.md)
+añade ejemplos dentro de palabras A/B: límites reales -3/2 y -2 con
+palabras aperiódicas. La convergencia se formaliza en Lean. Refutan dos
+inferencias auxiliares sobre los límites reales del preprint; no su
+teorema principal de densidad racional 2-ádica.
+
 [PerdicesCola.lean](PerdicesCola.lean): 23 lemas nuevos. Identidades
 par y total, límite de I, aumentado monótono con límite ξ, piso y
 dinámica de la cola, bloques de ceros, sumabilidad y valor de la

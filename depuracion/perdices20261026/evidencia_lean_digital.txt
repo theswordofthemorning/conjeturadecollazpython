@@ -1,0 +1,8 @@
+'PerdicesRetornoFirma.recorrido_entero' does not depend on any axioms
+'PerdicesRetornoFirma.valoracion_exacta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoFirma.firmas_iguales' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoFirma.no_rango_monotono_en_firma' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoFirma.no_perfil_monotono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoFirma.recorrido_con_mas_unos' does not depend on any axioms
+'PerdicesRetornoFirma.firmas_y_pesos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesRetornoFirma.no_monotonia_digital' depends on axioms: [propext, Classical.choice, Quot.sound]

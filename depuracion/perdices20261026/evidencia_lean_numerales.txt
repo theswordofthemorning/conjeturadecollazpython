@@ -1,0 +1,10 @@
+'PerdicesCrecimientoNumerales.cinco_cuatro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCrecimientoNumerales.potencia_supera_lineal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCrecimientoNumerales.coeficiente_de_potencias_acotadas' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PerdicesCrecimientoNumerales.incompatibilidad_cinco_cuatro' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCrecimientoNumerales.piso_recursion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCrecimientoNumerales.imagen_factor_uno' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCrecimientoNumerales.nucleo_factor_uno' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PerdicesCrecimientoNumerales.ponderacion_positiva' depends on axioms: [propext, Classical.choice, Quot.sound]
