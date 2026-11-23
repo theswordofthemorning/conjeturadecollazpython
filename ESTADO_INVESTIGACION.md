@@ -87,6 +87,13 @@ MAYBE y tiempos agotados no prueban imposibilidad.
 revisados el 25-10, sin puente universal aplicable. G no es H.
 Auditoría completa y recompilación externa pendientes.
 
+[Riemann/Alpöge](depuracion/exploracionriemann20261122/EXPLORACION.md)
+(22-11): analogía heurística, sin lema transferible. Juguete F2[x]
+(3n+1 sin acarreos) formalizado en Lean: la racha impar se transporta a Z
+y sólo falla el tamaño. Determinantes tipo Stepanov descartados
+(tautológicos o con déficit 2^(0,95L)). MuroB equivale a que ningún entero
+esté en un Cantor 2-ádico de dimensión ≈ 0,95. Ningún criterio satisfecho.
+
 ## Revisión y publicación
 
 [Pendientes humanos](gaopendientes.md), [prioridad](papers/revision20260927/REVISION.md#4-novedad)

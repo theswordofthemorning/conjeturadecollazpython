@@ -1,0 +1,8 @@
+Evidencia Lean del juguete F2[x] — 22-11-2026
+Comando (desde depuracion/gao20260920/formal): lake env lean ../../exploracionriemann20261122/JugueteF2x.lean
+Lean 4.32.2 (commit f3b06c705e6c), Mathlib 905b95818eb32af7874a58b427f50c1711a5e96c
+Sin sorry, admit, axiom ni native_decide. Salida completa, sin errores ni avisos:
+
+'JugueteF2x.llega_a_uno' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JugueteF2x.natDegree_dos_pasos_siete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'JugueteF2x.racha_entera' depends on axioms: [propext, Classical.choice, Quot.sound]
