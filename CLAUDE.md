@@ -12,50 +12,13 @@ Si ya están en la sesión, continuar con la tarea sin volver a cargarlos.
 Leer documentación adicional por necesidad concreta, usando el índice
 [RutaTeoremas.md](RutaTeoremas.md). No leer el repositorio entero.
 
-## Encargo vigente para Claude: cerrar la barrera Lean de Perdices
+## Encargo vigente
 
-El usuario prioriza Perdices. Trabaja en la rama actual; no crees otra rama ni
-un worktree. El punto de partida conservado es el commit `08a5a22`.
-Este encargo termina al certificar la barrera de tres cargas o al identificar
-un obstáculo reproducible. No continúes J2/J3 de `RutaDeJudasIscariote.md`,
-ni abras otra ruta del piloto durante esta tanda.
-
-Lee sólo [BARRERA.md](depuracion/perdices20261007/congruencias_codex20261016/BARRERA.md)
-y los archivos que necesites para estas tareas:
-
-1. **Diagnóstico.** Comprueba `lean --version`, inspecciona los parámetros de
-   `comprobar_barrera.py` y localiza el primer error concreto de compilación
-   de `PerdicesBarreraTablas.lean` o `PerdicesBarreraTres.lean`. La compilación
-   completa anterior consumió demasiada memoria. Prueba piezas pequeñas y
-   un proceso Lean a la vez; no repitas la ejecución monolítica sin corregir
-   antes su causa.
-2. **Corrección.** Repara la formalización del enunciado de BARRERA §1:
-   en cada tres cargas consecutivas alguna es al menos 17. Conserva el
-   dominio, las hipótesis y el significado de los teoremas. Puedes dividir
-   las tablas o pruebas en módulos Lean pequeños. No uses `sorry`, `admit`,
-   `axiom` ni `native_decide`. Si hallas un contraejemplo o una brecha en la
-   prueba escrita, detén la formalización y comunica el caso exacto.
-3. **Cierre verificable.** Ejecuta `comprobar_barrera.py` completo sólo cuando
-   las piezas compilen. Exige salida exitosa, `#print axioms` sin `sorryAx`
-   y sólo los axiomas estándar admitidos por el verificador. Contrasta el
-   enunciado con `certificado_barrera.json` y `cotejo_barrera.json`; no repitas
-   censos grandes. Genera `evidencia_barrera.json` y `.txt` sólo tras éxito
-   completo. Si no se cierra, informa el comando, error exacto, módulo
-   alcanzado y siguiente obligación; no declares certificada la barrera.
-
-Durante este encargo puedes editar los archivos `PerdicesBarrera*.lean`,
-crear módulos `.lean` auxiliares en esa misma carpeta y ajustar
-`comprobar_barrera.py`. Si la división mecánica de tablas lo exige, puedes
-ajustar `certificar_barrera.py`, conservando el contenido matemático del
-certificado y comprobando su igualdad después de regenerarlo. No edites
-ningún `.md`, los registros, las bases de datos, la evidencia Lean previa ni
-archivos de otras ramas de investigación. Si esa restricción impide terminar,
-explica el cambio necesario en tu informe. No hagas commit ni push de esta
-investigación sin una nueva instrucción del usuario.
-
-Entrega final breve: resultado matemático exacto, archivos cambiados,
-comandos y resultados de verificación, y pendientes reales. No cambies de
-objetivo cuando aparezca una dificultad técnica.
+Ninguno. El encargo anterior, cerrar la barrera Lean de tres cargas de
+Perdices, quedó cumplido el 16-10 (commit `6b01e8b`). Las constantes con F
+invertible se integraron en el registro el 22-11. La siguiente acción, si
+el usuario retoma Perdices, está en `ESTADO_INVESTIGACION.md`. No abras una
+ruta nueva ni hagas commit o push sin instrucción del usuario.
 
 ## Comandos
 
@@ -81,6 +44,12 @@ tiempo (120 s) o por `sorry` cuenta como FALLO, nunca como teorema.
 `afirmaciones.db` se regenera con `guardarafirmaciones.py`, que aplica el
 registro versionado `depuracion/coherencia20260913/registro.json` vía
 `registroafirmaciones.py`; las correcciones van al registro, no a la base.
+
+En la copia Linux (`/home/oem/Desktop/conjeturadecollazpython`), Lean se
+instaló con elan en `~/.elan`, sin tocar el `PATH`: antes de `lake`, ejecutar
+`export PATH=$HOME/.elan/bin:$PATH`. La caché de Mathlib ya está en el
+`.lake/` de Gao. `../zootheorem` está clonado en `~/Desktop/zootheorem`.
+`respuestas.db` no existe en esta copia; `verificar_alta.py` lo tolera.
 
 La versión extensa anterior se conserva literalmente en
 [archivo/contexto_20260913/CLAUDE.md.txt](archivo/contexto_20260913/CLAUDE.md.txt).
