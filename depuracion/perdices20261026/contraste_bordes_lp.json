@@ -1,0 +1,32 @@
+{
+  "estado": "correcto",
+  "bordes": {
+    "imagen_comun_lambda_1": {
+      "restricciones": 21,
+      "maximos_descensos": [
+        "0",
+        "0",
+        "0"
+      ],
+      "control_sin_estaticas": [
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "nucleo_comun_lambda_1": {
+      "restricciones": 21,
+      "maximos_descensos": [
+        "0",
+        "0",
+        "0"
+      ],
+      "control_sin_estaticas": [
+        "1",
+        "1",
+        "1"
+      ]
+    }
+  },
+  "alcance": "Los tres descensos dinamicos tienen maximo exacto 0 en ambos bordes, sobre el cono real de constantes no negativas. Contraste independiente de la prueba escrita de §5; no sustituye la reduccion a esas formas."
+}

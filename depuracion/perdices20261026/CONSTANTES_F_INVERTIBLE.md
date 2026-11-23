@@ -1,9 +1,8 @@
 # Borrador de Perdices: constantes con F invertible y A≠B
 
 26-10-2026. Continúa la [clasificación matricial](CLASIFICACION_F_INVERTIBLE.md).
-**Borrador local sin integrar en el registro.** El usuario retiró el objetivo
-automático durante esta tanda; se conserva el desarrollo y se detiene su
-continuación autónoma. El verificador de este borrador es
+**Revisado e integrado en el registro el 22-11-2026** (§8). El desarrollo
+se escribió el 26-10, cuando el usuario retiró el objetivo automático. El verificador de este borrador es
 [comprobar_numerales.py](comprobar_numerales.py), conservado separado del
 verificador de los cuatro resultados ya integrados.
 
@@ -259,3 +258,48 @@ pendientes. El promedio de palabras no
 es la transferencia orbital exigida por la segunda condición primordial.
 Tampoco aporta control de una semilla fija ni cierra una premisa externa.
 Ninguna de las tres condiciones se ha alcanzado todavía.
+
+## 8. Revisión e integración (22-11-2026)
+
+Revisión de la prueba escrita, paso a paso, en la copia Linux:
+
+- §2: las nueve reglas conservan el entero. La terminación de la
+  conversión se cumple porque cada intercambio cambia ternaria·binaria por
+  binaria·ternaria y baja exactamente en uno los pares invertidos. La
+  monotonía en contexto usa sólo matrices no negativas.
+- §3: la cota de cada numeral, `2^(5k+1)<=3^(4k)`, la recurrencia del
+  promedio y `λ^(k-1)z<=K`. Detalle inocuo: un numeral menor que `3^(4k)`
+  tiene a lo sumo `4k-1` letras ternarias. La cota `4k` del texto es holgada
+  y sigue siendo válida.
+- §4: se rehicieron las identidades con las fórmulas de la
+  [clasificación](CLASIFICACION_F_INVERTIBLE.md): `BAA=λ²A` y `ABE=sλA`
+  (imagen común); `BAA=λ²B`, `ABE=sλA`, `BBA=λ²B`, `BF=sB` y `A+B=λ(I+R)`
+  (núcleo común); `ℓQ=2μℓ` y `Eu=Fu=Gu=3νu` (resonancia). En las tres
+  formas λ, o 2μ, es la traza de una matriz natural; por tanto λ=1 o λ>=2
+  agotan los casos y no queda ningún λ fraccionario sin cubrir.
+- §5: contraste independiente nuevo, [contrastar_bordes_lp.py](contrastar_bordes_lp.py)
+  ([resultado](contraste_bordes_lp.json)). Con las matrices de cada borde y
+  la fila r normalizada, un símplex exacto con Fraction maximiza cada
+  descenso bajo las nueve estáticas y las tres dinámicas débiles. Las incógnitas
+  son las doce coordenadas reales no negativas de las constantes; la segunda
+  fila de M_d se omite, lo que sólo debilita las restricciones. El máximo es
+  0 en los tres descensos de ambos bordes. Sin las estáticas sube a 1, de
+  modo que el contraste no es trivial. También se comprueban sus partes
+  matriciales.
+
+No se encontró una brecha. Reproducción:
+
+- `comprobar_numerales.py --modulo PerdicesCrecimientoNumerales`: ocho
+  consultas, sólo axiomas estándar. Coinciden los `.olean` de Mathlib; las
+  huellas de fuentes difieren por CRLF de la copia Windows.
+- `cotejar_numerales.py --control ../perdices20261007/sat_control15_n2_c3.json
+  --maximo 255 --altura-promedio 8`: conteos idénticos a `cotejo_numerales.json`.
+
+La integración se hizo con [verificar_alta.py](verificar_alta.py), como quinta
+alta: `perdices_f_invertible_sin_primera_eliminacion`. Resultado: 365 filas
+base y 369 centrales conservadas literalmente, 370 tras el alta
+([evidencia](evidencia_registro_20261122.json)). Se cambió una sola cosa del
+verificador: `respuestas.db`, que está fuera de Git y no existe en la copia
+Linux, se protege sólo si está presente, y la evidencia lo anota. Para
+cotejar las citas, el generador necesitó `../zootheorem`, clonado sin
+modificar. Revisión humana y prioridad siguen pendientes.

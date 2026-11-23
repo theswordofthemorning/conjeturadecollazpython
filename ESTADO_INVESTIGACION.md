@@ -63,8 +63,9 @@ recupera el cilindro; el control sigue siendo el reloj pendiente.
 conexión bidireccional fuerza seis igualdades; se excluye `M_a=M_b=tI`
 con constantes libres. [F invertible, A≠B](depuracion/perdices20261026/CLASIFICACION_F_INVERTIBLE.md):
 dos formas de rango uno y resonancia 2:3; prueba escrita y núcleos Lean.
-Sus constantes generales siguen abiertas. UNSAT 0/1 y timeout 0..3 no
-prueban imposibilidad general.
+[Constantes](depuracion/perdices20261026/CONSTANTES_F_INVERTIBLE.md)
+(integrado 22-11): con conexión, ninguna de las tres formas elimina una
+primera dinámica, sin cota de parámetros ni constantes.
 
 [Perdices/Codex](depuracion/perdices20261007/congruencias_codex20261016/RUTA_CODEX.md):
 reloj uniforme y presupuesto P abiertos; hasta cuatro rachas hay cota,
@@ -103,7 +104,7 @@ No anunciar, enviar ni contactar sin autorización.
 
 [Arca](depuracion/mapa20261011/MapaDependenciasComplex.html): 70 nombres,
 123 piezas, nueve ramas. [Registro](depuracion/coherencia20260913/registro.json):
-369 filas, 255 demostradas, 92 medidas, 13 conjeturadas, nueve refutadas;
+370 filas, 256 demostradas, 92 medidas, 13 conjeturadas, nueve refutadas;
 incidencia histórica de fila 71 señalada y no usada.
 
 [Controles del balance](depuracion/balance20261025/evidencia.json): auditoría focalizada.
@@ -112,12 +113,10 @@ incidencia histórica de fila 71 señalada y no usada.
 conservadas. [Casa recuperada](depuracion/casa20261005_recuperada/RECUPERACION.md)
 y [conciliación](depuracion/jinetas20261010/CONCILIACION.md): dos huellas
 antiguas pendientes; no usar sus cachés.
-[Alta y conservación](depuracion/perdices20261026/evidencia_registro.json):
-365 afirmaciones anteriores intactas; catálogo y mapa ampliados mediante
-el generador. Respuestas, históricos y zootheorem intactos.
+[Alta y conservación](depuracion/perdices20261026/evidencia_registro_20261122.json):
+365 afirmaciones base y 369 centrales intactas; quinta alta mediante el
+generador, desde la copia Linux sin `respuestas.db`.
 
 [Auditoría de parada](depuracion/perdices20261026/AUDITORIA_RUTA.md):
-no declarar agotamiento. [Último borrador](depuracion/perdices20261026/CONSTANTES_F_INVERTIBLE.md):
-argumento de numerales y ocho núcleos Lean comprobados, sin integrar en
-el registro. Si se retoma: revisar e integrar antes de pasar a F singular,
-A=B no escalar o ausencia de conexión. No ampliar timeouts.
+no declarar agotamiento. Si se retoma Perdices: F singular, A=B no
+escalar o ausencia de conexión. No ampliar timeouts.

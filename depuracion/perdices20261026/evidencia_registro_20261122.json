@@ -1,0 +1,37 @@
+{
+  "alcance": "Altas integradas y cotejadas con el catálogo central.",
+  "integrado": true,
+  "filas_base": 365,
+  "filas_ampliadas_temporales": 370,
+  "filas_centrales_antes": 369,
+  "preservacion_literal_afirmaciones_previas": true,
+  "unico_cambio_editorial_previo": "Añadir las fuentes nuevas a la misma pieza.",
+  "diferencias_por_tabla": {
+    "afirmaciones": 5,
+    "correcciones": 0,
+    "constantes": 0,
+    "nodos": 0,
+    "dependencias": 0,
+    "claves_actuales": 5,
+    "metadatos": 0,
+    "mapa_config": 0,
+    "mapa_ramas": 0,
+    "mapa_piezas": 0,
+    "mapa_afirmaciones": 5,
+    "mapa_nodos": 0,
+    "mapa_relaciones": 0,
+    "mapa_inventario": 0
+  },
+  "protegidos_sha256": {
+    "depuracion/coherencia20260913/registro.json": "6162c91eb2e33025c95979fe9a1dd34f9a6c70d2f697ba03c015f8680b22aed6",
+    "depuracion/coherencia20260913/mapa_investigacion.json": "cea2f8ba1808aacdaaa89f95d75e30a35c6bebfe467a92d942d1bcb72c9e7afb",
+    "afirmaciones.db": "af7a1f01da61e89ac5665534e6939fa146f39a1b3471f9e0d918480ef20fa72a"
+  },
+  "catalogo_central_cotejado": true,
+  "historial_respuestas_sin_modificar": true,
+  "respuestas_db_presente": false,
+  "alta_sha256": "628150d659ece8711701d0d74b08b45654f9a89c137e9c0ab10d84e2115808f6",
+  "generador_sha256": "728ceb6ccf1d5ba47643d18d6fe4bae345325ae3d8cf0abb72358c1180e21ff8",
+  "aplicador_sha256": "a19c0d0bb3f2e577e7935a6b933fe66814e98f1212e5838723f4f5dbb4068657",
+  "verificador_sha256": "214eb257b88c67dfc151671958e70f6b4d4aa6b7bd3ddcaa74809a97457da215"
+}

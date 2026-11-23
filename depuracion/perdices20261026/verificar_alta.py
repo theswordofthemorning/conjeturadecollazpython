@@ -42,7 +42,10 @@ def main():
     args = analizador.parse_args()
     registro = RAIZ / "depuracion/coherencia20260913/registro.json"
     mapa = registro.with_name("mapa_investigacion.json")
-    protegidos = [registro, mapa, RAIZ / "afirmaciones.db", RAIZ / "respuestas.db"]
+    respuestas = RAIZ / "respuestas.db"
+    # respuestas.db está fuera de Git; en una copia sin ella no hay nada que proteger.
+    respuestas_presente = respuestas.exists()
+    protegidos = [registro, mapa, RAIZ / "afirmaciones.db"] + ([respuestas] if respuestas_presente else [])
     antes = {str(r.relative_to(RAIZ)): huella(r) for r in protegidos}
     base = json.loads(registro.read_text(encoding="utf-8"))
     mapa_base = json.loads(mapa.read_text(encoding="utf-8"))
@@ -146,7 +149,7 @@ def main():
                 if "intermedio" in locals() and intermedio.exists():
                     intermedio.unlink()
     despues = {str(r.relative_to(RAIZ)): huella(r) for r in protegidos}
-    assert antes["respuestas.db"] == despues["respuestas.db"]
+    assert antes.get("respuestas.db") == despues.get("respuestas.db")
     if not escrito:
         assert antes == despues, "Alguna fuente compartida cambio durante la comprobacion."
     resultado = dict(alcance=("Altas integradas y cotejadas con el catálogo central." if integrado else
@@ -158,6 +161,7 @@ def main():
                      unico_cambio_editorial_previo="Añadir las fuentes nuevas a la misma pieza.",
                      diferencias_por_tabla=diferencias, protegidos_sha256=despues,
                      catalogo_central_cotejado=True, historial_respuestas_sin_modificar=True,
+                     respuestas_db_presente=respuestas_presente,
                      alta_sha256=huella(CARPETA / "alta_registro.json"),
                      generador_sha256=huella(RAIZ / "guardarafirmaciones.py"),
                      aplicador_sha256=huella(RAIZ / "registroafirmaciones.py"),

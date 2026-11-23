@@ -2211,7 +2211,8 @@
         "perdices_series_ab_limites_reales_racionales",
         "perdices_retornos_variaciones_binarias_ilimitadas",
         "perdices_trazas_intercambios_y_binarias_escalares",
-        "perdices_tres_formas_f_invertible"
+        "perdices_tres_formas_f_invertible",
+        "perdices_f_invertible_sin_primera_eliminacion"
       ],
       "titulo": "Perdices · olvido módulo potencias de 3",
       "rama": "perdices",
@@ -2227,7 +2228,8 @@
         "depuracion/perdices20261026/LIMITES_REALES.md",
         "depuracion/perdices20261026/PESOS_BINARIOS.md",
         "depuracion/perdices20261026/TRAZAS_MATRICES.md",
-        "depuracion/perdices20261026/CLASIFICACION_F_INVERTIBLE.md"
+        "depuracion/perdices20261026/CLASIFICACION_F_INVERTIBLE.md",
+        "depuracion/perdices20261026/CONSTANTES_F_INVERTIBLE.md"
       ],
       "situacion": "vigente",
       "padre": "perdices"
